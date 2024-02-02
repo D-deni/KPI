@@ -14,9 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import {useTaskList} from "~/stores/tasks";
-
-const task = useTaskList()
 
 defineProps({
   item: {

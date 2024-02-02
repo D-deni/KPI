@@ -2,7 +2,9 @@ import {defineStore} from "pinia";
 import axios from "~/composables/axios";
 import {toast} from "vue3-toastify";
 import {useUserStore} from "~/stores/users";
-import {Router} from "vue-router";
+import type {Router} from "vue-router";
+import nuxtStorage from "nuxt-storage/nuxt-storage";
+import {useI18n} from "vue-i18n";
 
 export const useAuthStore = defineStore('authUser', {
   state: () => ({
@@ -49,13 +51,13 @@ export const useAuthStore = defineStore('authUser', {
         password: params.password,
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
-        localStorage.setItem('token', response.data.access)
+        nuxtStorage.localStorage.setData('token', response.data.access)
         this.loadCurrentUser()
         router.push('/base/companies').then(e=>{
-          toast.success('Успешная авторизация', {autoClose: 1500, theme: 'auto'})
+          toast.success('Успешная авторизация', {autoClose: 1500, theme: 'auto'},)
         })
       }).catch(e => {
         router.push('/')
@@ -65,13 +67,13 @@ export const useAuthStore = defineStore('authUser', {
     async loadCurrentUser() {
      await axios.get('api/v1/user/current-user', {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.user = response.data
       })
     },
-    async update_user(params: { user: any, update_type: any, permissions_ids: any }) {
+    async update_user(params: { user: any, update_type: any, permissions_ids?: any }) {
       let fd = new FormData();
       fd.set('first_name', params.user.first_name)
       fd.set('last_name', params.user.last_name)
@@ -91,7 +93,7 @@ export const useAuthStore = defineStore('authUser', {
       }
       await axios.patch(`api/v1/user/${params.update_type}`, fd, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         if(params.update_type !== `update-my`) {

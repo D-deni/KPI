@@ -24,9 +24,9 @@ onMounted(()=>{
 </script>
 
 <template>
-    <div class="h-full">
+  <div class="h-full" >
     <ChatNavHeader class="pt-6"/>
-    <ChatNavContent class=""></ChatNavContent>
+    <ChatNavContent class="" @dragenter="chatStore.showDragInfo = false"></ChatNavContent>
   </div>
 </template>
 

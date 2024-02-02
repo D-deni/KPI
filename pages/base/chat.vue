@@ -3,6 +3,7 @@ import {useUserStore} from "~/stores/users";
 import {useChat} from "~/stores/chat";
 import {useRoute} from "vue-router";
 import ChatNav from "~/components/Chat/ChatNav.vue"
+import ChatCropper from "~/components/Chat/UI/ChatCropper.vue";
 
 const windowWidth = ref(0)
 const activeNav = ref(true)
@@ -10,7 +11,7 @@ const route = useRoute()
 const chatStore = useChat()
 const userStore = useUserStore()
 
-chatStore.loadChatList()
+chatStore.loadChatList({page:1, limit: 100})
 userStore.loadUserList({query: '', user_type: 'user-list/my-company', page: 1, limit: 10000})
 onMounted(()=>{
   windowWidth.value = window.innerWidth
@@ -33,6 +34,7 @@ onMounted(()=>{
       <div class="w-11/12 relative overflow-hidden max-lg:w-9/12 max-md:w-full h-screen">
         <ClientOnly>
           <NuxtPage></NuxtPage>
+          <ChatCropper></ChatCropper>
         </ClientOnly>
         <div v-if="route.path === '/base/chat'"
              class="flex items-center justify-center my-auto w-full h-full text-center rounded-full px-2">

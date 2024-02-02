@@ -115,9 +115,9 @@ defineProps({
             <p class="text-md dark:text-white tracking-wider">{{ $t('Роль') }}</p>
             <div>
               <p v-if="loadCurrentUser.user.role_en === 'admin'" class="tracking-widest dark:text-white">{{$t('Администратор компании')}}</p>
-              <select v-else type="text" v-model="createForm.role_id"
+              <select @click="console.log(userList.get_role_list)" v-else type="text" v-model="createForm.role_id"
                       class="w-full dark:bg-gray-300 rounded-lg p-2.5 border dark:border-none outline-semiCyan outline-1 text-black" required>
-                <option v-for="(role, id) in userList?.get_role_list" :value="role.id">{{ role.name }}</option>
+                <option v-for="(role, id) in userList.get_role_list" :value="role.id">{{ role.name }}</option>
               </select>
             </div>
           </div>
@@ -127,7 +127,6 @@ defineProps({
                     class="w-full dark:bg-gray-300 rounded-lg p-2.5 mt-2 border dark:border-none outline-semiCyan outline-1 text-black" required>
               <option v-for="position in userList?.get_position_list" :value="position.id">{{ position.name }}</option>
             </select>
-            <!--            <input value="Руководитель" v-else class="text-lg text-center py-1 dark:border-none border rounded-lg bg-white mt-2 tracking-widest"  disabled>-->
           </div>
         </UserContentCreateElems>
         <UserContentCreateElems>

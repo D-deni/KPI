@@ -4,9 +4,6 @@ import {toast} from "vue3-toastify";
 import axios from "~/composables/axios";
 import {Router} from "vue-router";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
-import router from "#app/plugins/router";
-import {Route} from "playwright-core";
-
 export const useTestList = defineStore('test-list', {
   state: () => ({
     test: {},
@@ -36,10 +33,10 @@ export const useTestList = defineStore('test-list', {
     }
   },
   actions: {
-    async loadAllTest(params: { page: number, limit: number, usual: number }) {
+    async loadAllTest(params: { page: number, limit: number, usual?: number }) {
       axios.get(`api/v1/test/test-list?page=${params.page}&limit=${params.limit}&usual=${params.usual}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         if(params.usual !== 0) {
@@ -52,7 +49,7 @@ export const useTestList = defineStore('test-list', {
     async loadExam() {
       axios.get(`api/v1/exam/exam-list`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.test = res.data
@@ -61,7 +58,7 @@ export const useTestList = defineStore('test-list', {
     async loadCurrentTest() {
       axios.get(`api/v1/exam/current-test`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.currentTest = res.data
@@ -73,7 +70,7 @@ export const useTestList = defineStore('test-list', {
     async testStart(params: { usual: any }, router: Router) {
       axios.post(`api/v1/exam/start`, {usual: params.usual}, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.test = res.data
@@ -89,7 +86,7 @@ export const useTestList = defineStore('test-list', {
         answer: params.answer
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.loadCurrentTest()
@@ -106,7 +103,7 @@ export const useTestList = defineStore('test-list', {
         department_id: params.test.department_id
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.test = res.data
@@ -116,7 +113,7 @@ export const useTestList = defineStore('test-list', {
     async deleteTest(params: { test_id: number }) {
       axios.delete(`api/v1/test/delete/${params.test_id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         toast.success('Тест успешно удалён', {autoClose: 1500, theme: 'auto'})

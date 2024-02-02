@@ -2,6 +2,7 @@ import {defineStore} from "pinia";
 import axios from "~/composables/axios";
 import {toast} from "vue3-toastify";
 import {Router} from "vue-router";
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 
 export const useCompanies = defineStore('current-company', {
   state: () => ({
@@ -31,7 +32,7 @@ export const useCompanies = defineStore('current-company', {
     current_department: {
       id: '',
       name: '',
-      participants: {}
+      participants: []
     }
   }),
   getters: {
@@ -55,7 +56,7 @@ export const useCompanies = defineStore('current-company', {
     async loadCurrentCompany() {
       await axios.get('api/v1/company/my-company', {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.company = response.data
@@ -64,7 +65,7 @@ export const useCompanies = defineStore('current-company', {
     async loadCompanyList(params: { page: number, limit: number, query: string }) {
       await axios.get(`api/v1/company/company-list?page=${params.page}&limit=${params.limit}&query=${params.query}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.company = response.data
@@ -73,7 +74,7 @@ export const useCompanies = defineStore('current-company', {
     async loadCompany(params: { id: number }) {
       await axios.get(`api/v1/company/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.company = response.data
@@ -82,7 +83,7 @@ export const useCompanies = defineStore('current-company', {
     async loadDepartmentList() {
       await axios.get('api/v1/department/department-list', {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.department = response.data
@@ -91,7 +92,7 @@ export const useCompanies = defineStore('current-company', {
     async loadDepartment(params: { id: number }) {
       await axios.get(`api/v1/department/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.current_department = response.data
@@ -101,7 +102,7 @@ export const useCompanies = defineStore('current-company', {
     async loadNewsList() {
       await axios.get(`api/v1/news/news-list`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.news = response.data
@@ -110,25 +111,25 @@ export const useCompanies = defineStore('current-company', {
     async loadNews(params: { id: number }) {
       await axios.get(`api/v1/news/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.news = response.data
       })
     },
 
-    async createCompany(params: { company: any }) {
+    async createCompany(params: { company: any }): Promise<void> {
       let fd = new FormData();
-      fd.set('name', params.name)
-      fd.set('address', params.address)
-      fd.set('description', params.description)
-      fd.set('email', params.email)
-      if (typeof params.logo_file !== 'string') {
-        fd.set('logo_file', params.logo_file)
+      fd.set('name', params.company.name)
+      fd.set('address', params.company.address)
+      fd.set('description', params.company.description)
+      fd.set('email', params.company.email)
+      if (typeof params.company.logo_file !== 'string') {
+        fd.set('logo_file', params.company.logo_file)
       }
       await axios.post(`api/v1/company/create`, fd, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.company = response.data
@@ -144,7 +145,7 @@ export const useCompanies = defineStore('current-company', {
         name: params.department.name,
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.department = res.data
@@ -156,7 +157,7 @@ export const useCompanies = defineStore('current-company', {
     async deleteDepartment(params: {id: any}, router: Router) {
       await axios.delete(`api/v1/department/delete/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         toast.success('Успешно удалён', {autoClose: 1500, theme: 'auto'})

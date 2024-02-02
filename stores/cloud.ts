@@ -2,7 +2,7 @@ import axios from '~/composables/axios'
 import {defineStore} from "pinia";
 import {toast} from "vue3-toastify";
 import {FileOperationPatternKind} from "vscode-languageserver-protocol";
-import folder = FileOperationPatternKind.folder;
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 
 export const useCloudStore = defineStore('folder', {
   state: () => ({
@@ -49,7 +49,7 @@ export const useCloudStore = defineStore('folder', {
     async loadAllFolders() {
       await axios.get(`api/v1/folder/main-folder`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.folder = response.data
@@ -58,7 +58,7 @@ export const useCloudStore = defineStore('folder', {
     async loadFolder(params: { id: number }) {
       await axios.get(`api/v1/folder/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.folder = response.data
@@ -68,7 +68,7 @@ export const useCloudStore = defineStore('folder', {
     async loadFiles(params: { id: number }) {
       await axios.get(`api/v1/files/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.folder.files = res.data
@@ -78,7 +78,7 @@ export const useCloudStore = defineStore('folder', {
     async loadhasFileInBin() {
        await axios.get(`api/v1/bin`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         if (response.data.folders.length > 0 || response.data.files.length > 0) {
@@ -92,7 +92,7 @@ export const useCloudStore = defineStore('folder', {
     async loadBin(params: { bin: any }) {
       await axios.get(`api/v1/bin`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.bin = response.data
@@ -103,7 +103,7 @@ export const useCloudStore = defineStore('folder', {
     async moveToBin(params: { elem_type: any, elem_id: any }) {
       await axios.delete(`api/v1/bin/move?${params.elem_type}=${params.elem_id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         toast.success('Перемещен в корзину', {theme: 'auto', autoClose: 1500})
@@ -118,7 +118,7 @@ export const useCloudStore = defineStore('folder', {
     async moveFromBin(params: { elem_type: any, elem_id: any }) {
       await axios.delete(`api/v1/bin/move?${params.elem_type}=${params.elem_id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         toast.success('Успешно восстановлен', {theme: 'auto', autoClose: 1500})
@@ -132,7 +132,7 @@ export const useCloudStore = defineStore('folder', {
     async deleteInBin(params: { delete_type: any, id: number }) {
       await axios.delete(`api/v1/bin/delete?${params.delete_type}=${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         toast.success('Успешно удалён', {theme: "auto", autoClose: 1500})
@@ -143,7 +143,7 @@ export const useCloudStore = defineStore('folder', {
     async delete(params: { id: number }) {
       await axios.delete(`api/v1/folder-file/delete/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         toast.success('Успешно удалён', {theme: "auto", autoClose: 1500})
@@ -157,7 +157,7 @@ export const useCloudStore = defineStore('folder', {
         parent_id: params.parent_id
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.folder = response.data
@@ -170,7 +170,7 @@ export const useCloudStore = defineStore('folder', {
         parent_id: params.parent_id
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         if (!this.folder.parent_id) {
@@ -188,7 +188,7 @@ export const useCloudStore = defineStore('folder', {
         folder_id: params.folder_id
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         if (!this.folder.parent_id) {

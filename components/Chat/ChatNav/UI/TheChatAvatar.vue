@@ -6,21 +6,17 @@ defineProps({
     type: Object,
     default: ()=>{}
   },
-  user: {
-    type: Object,
-    default: ()=>{}
-  }
 })
 </script>
 
 <template>
   <div class="">
-    <div class="w-[50px]" v-if="chat.user?.id !== user.user.id && chat.user?.id">
+    <div class="w-[50px]" v-if="chat.user?.id !== domain.user.id && chat.user?.id">
       <img  class="w-[50px] h-[50px] rounded-full"
            :src="domain.get_server_domain + chat.user.photo" alt="">
     </div>
-    <div v-else-if="chat.is_group" >
-      <img v-if="chat.photo_url" :src="user.get_server_domain + chat.photo_url" class="w-[50px] h-[50px] rounded-full" alt="">
+    <div v-else-if="chat.is_group">
+      <img v-if="chat?.photo_url" :src="domain.get_server_domain + chat?.photo_url" class="w-[50px] h-[50px] rounded-full" alt="">
       <div v-else class="rounded-full bg-blueSemiLight flex items-center justify-center w-[50px] h-[50px]">
         <p class="uppercase font-bold" v-for="chatName in chat.name.split(' ').slice(0,2)" @click="console.log(chatName[0])">{{chatName[0]}}</p>
       </div>

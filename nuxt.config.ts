@@ -1,12 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-import {useAuthStore} from "~/stores/auth";
-
 export default defineNuxtConfig({
-  routeRules: {
-    '/base': {
-      redirect: '/base/profile',
-    },
-  },
+  ssr: true,
   devtools: {
     enabled: true,
   },
@@ -17,12 +10,26 @@ export default defineNuxtConfig({
   //   pageTransition: {name: 'page', mode: 'out-in'}
   // },
 
-  modules: ["@nuxtjs/color-mode", "@tresjs/nuxt", 'nuxt-socket-io',[
+  modules: ["@nuxtjs/color-mode", "@tresjs/nuxt", [
     "@nuxtjs/i18n",
     {
       i18n: {
         vueI18n: '/composables/i18n.config.ts'
       }
     },
-  ], "@hypernym/nuxt-anime", "@pinia/nuxt", "@nuxt/ui", "@vueuse/nuxt", "nuxt-swiper"],
+  ], "@hypernym/nuxt-anime", "@pinia/nuxt", "@nuxt/ui", "@vueuse/nuxt", "nuxt-swiper", "nuxt-anchorscroll", "@dargmuesli/nuxt-cookie-control", "@nuxt/image", "nuxt-svgo"],
+  anchorscroll: {
+    hooks: [
+      // Or any valid hook if needed
+      // Default is `page:finish`
+      'page:transition:finish',
+    ],
+  },
+  svgo: {
+    defaultImport: 'url',
+    svgoConfig: {
+      path: './img/svg/',
+    },
+    global: true
+  },
 })

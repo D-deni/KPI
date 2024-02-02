@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import axios from "~/composables/axios";
 import {toast} from "vue3-toastify";
-
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 export const useObjects = defineStore('object', {
   state:() => ({
     objects: {
@@ -25,7 +25,7 @@ export const useObjects = defineStore('object', {
     async loadObjectList() {
       axios.get(`api/v1/object/object-list`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.objects = response.data
@@ -35,7 +35,7 @@ export const useObjects = defineStore('object', {
     async loadObject(params: {id: number}) {
       axios.get(`api/v1/object/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.objects = response.data
@@ -53,7 +53,7 @@ export const useObjects = defineStore('object', {
      }
       axios.post(`api/v1/object/create`, fd, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.objects = response.data

@@ -3,6 +3,7 @@
 import {useChat} from "~/stores/chat";
 import {useAuthStore} from "~/stores/auth";
 import ChatContentContextMenuItem from "~/components/Chat/ChatContent/ChatContentContextMenuItem.vue";
+
 const chat = useChat()
 const currentUser = useAuthStore()
 const {x, y} = useMouse()
@@ -18,6 +19,7 @@ const pinned_block = ref({
   clientHeight: '',
   root: null
 })
+
 function onScrolls({target: {scrollTop, clientHeight, scrollHeight}}) {
   scrollPosition.value = scrollTop
   if (scrollTop === 0) {
@@ -66,7 +68,7 @@ watchEffect(() => {
                  xml:space="preserve">
                 <g>
                   <g>
-                    <path  d="M24.715,261.811c-5.492,0-10.645-2.133-14.521-6.01c-8.011-8.017-8.011-21.054-0.006-29.064
+                    <path d="M24.715,261.811c-5.492,0-10.645-2.133-14.521-6.01c-8.011-8.017-8.011-21.054-0.006-29.064
                       l70.375-70.372L38.51,113.785c-7.073-7.179-7.928-18.303-2.039-26.466c0.855-1.184,21.314-28.839,58.964-28.839
                       c2.224,0,4.492,0.101,6.756,0.295L180.62,3.597c8.103-5.729,20.081-4.48,26.863,2.796l44.675,48.037
                       c6.919,7.436,7.319,19.006,0.926,26.906l-55.882,69.151c1.979,23.759,1.052,63.069-23.901,77.725
@@ -84,8 +86,10 @@ watchEffect(() => {
         </ChatContentContextMenuItem>
         <ChatContentContextMenuItem>
           <template v-slot:ContextMenuSvg>
-            <svg class="dark:fill-white fill-black" width="22px" height="22px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50.96,37.30957A4,4,0,0,0,45.04,42.69043l38.59424,42.4541c-11.416-2.39062-31.02295-2.76172-51.54444,13.79248a12.01279,12.01279,0,0,0-.96484,17.84424L82.34326,168,45.17188,205.17139a3.99992,3.99992,0,1,0,5.65625,5.65722L88,173.65674l51.02051,51.021a12.00814,12.00814,0,0,0,8.49219,3.51954q.42041,0,.84277-.02979a11.97039,11.97039,0,0,0,8.73047-4.74512c6.33252-8.4165,15.40625-23.479,15.38379-40.55859L205.04,218.69043a4,4,0,1,0,5.91992-5.38086Zm99.7334,181.30322a3.99357,3.99357,0,0,1-6.01563.40821L36.78125,111.124a4.01376,4.01376,0,0,1,.332-5.96045c27.17188-21.91943,52.06543-10.09375,53.09766-9.58593a3.99477,3.99477,0,0,0,3.08984.20019l69.71729,76.689C168.36816,191.2041,157.64355,209.374,150.69336,218.61279ZM232.68652,96a11.92292,11.92292,0,0,1-3.51562,8.48584l-41.4043,41.40381a3.99975,3.99975,0,1,1-5.65625-5.65674l41.4043-41.4043a3.99915,3.99915,0,0,0,0-5.65674L162.8291,32.48535a4.00621,4.00621,0,0,0-5.6582.00049l-37.97559,37.9751a3.99957,3.99957,0,1,1-5.65625-5.65625l37.97559-37.97608a12.01526,12.01526,0,0,1,16.9707-.00049L229.1709,87.51465A11.921,11.921,0,0,1,232.68652,96Z"/>
+            <svg class="dark:fill-white fill-black" width="22px" height="22px" viewBox="0 0 256 256" id="Flat"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M50.96,37.30957A4,4,0,0,0,45.04,42.69043l38.59424,42.4541c-11.416-2.39062-31.02295-2.76172-51.54444,13.79248a12.01279,12.01279,0,0,0-.96484,17.84424L82.34326,168,45.17188,205.17139a3.99992,3.99992,0,1,0,5.65625,5.65722L88,173.65674l51.02051,51.021a12.00814,12.00814,0,0,0,8.49219,3.51954q.42041,0,.84277-.02979a11.97039,11.97039,0,0,0,8.73047-4.74512c6.33252-8.4165,15.40625-23.479,15.38379-40.55859L205.04,218.69043a4,4,0,1,0,5.91992-5.38086Zm99.7334,181.30322a3.99357,3.99357,0,0,1-6.01563.40821L36.78125,111.124a4.01376,4.01376,0,0,1,.332-5.96045c27.17188-21.91943,52.06543-10.09375,53.09766-9.58593a3.99477,3.99477,0,0,0,3.08984.20019l69.71729,76.689C168.36816,191.2041,157.64355,209.374,150.69336,218.61279ZM232.68652,96a11.92292,11.92292,0,0,1-3.51562,8.48584l-41.4043,41.40381a3.99975,3.99975,0,1,1-5.65625-5.65674l41.4043-41.4043a3.99915,3.99915,0,0,0,0-5.65674L162.8291,32.48535a4.00621,4.00621,0,0,0-5.6582.00049l-37.97559,37.9751a3.99957,3.99957,0,1,1-5.65625-5.65625l37.97559-37.97608a12.01526,12.01526,0,0,1,16.9707-.00049L229.1709,87.51465A11.921,11.921,0,0,1,232.68652,96Z"/>
             </svg>
           </template>
           <template v-slot:ContextMenuText>{{ $t('Открепить') }}</template>
@@ -115,20 +119,20 @@ watchEffect(() => {
                                v-for="item in chat.arrayPin"
                                :item="item"
                                @contextmenu.prevent="()=> {
-                              const top = unref(y) - unref(windowY)
-                              const left = unref(x)
-                              virtualElement.getBoundingClientRect = () => ({
-                                width: 0,
-                                height: 0,
-                                top,
-                                left
-                              })
-                              isOpen = true
-                            }"
+                                const top = unref(y) - unref(windowY)
+                                const left = unref(x)
+                                virtualElement.getBoundingClientRect = () => ({
+                                  width: 0,
+                                  height: 0,
+                                  top,
+                                  left
+                                })
+                                isOpen = true
+                              }"
       >
         <template v-slot:userImage>
           <img class="w-[30px] h-[30px] rounded-full"
-               :src="item.sender_id === currentUser.user?.id ? currentUser.get_server_domain + currentUser.user.photo_url : currentUser.get_server_domain + chat.get_user_chat.user?.photo"
+               :src="item.sender.id === currentUser.user?.id ? currentUser.get_server_domain + currentUser.user.photo_url : currentUser.get_server_domain + item.sender.photo"
                alt="">
         </template>
         <template v-slot:userMessage>{{ item.text }}</template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TheTitle from "~/components/UI/TheTitle.vue"
+import CloudContent from "~/components/Cloud/CloudContent.vue";
 </script>
 
 <template>

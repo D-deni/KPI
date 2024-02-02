@@ -5,6 +5,8 @@ import {useChat} from "~/stores/chat";
 import {useAuthStore} from "~/stores/auth";
 import {useRouter} from "vue-router";
 import TheFileInput from "~/components/UI/TheFileInput.vue";
+import {Preview} from "vue-advanced-cropper";
+import ChatUserCheckbox from "~/components/Chat/UI/ChatUserCheckbox.vue";
 
 const userCount = ref([])
 const groupName = ref<HTMLElement | null>(null)
@@ -21,6 +23,7 @@ const setFocus = ()=> {
 onMounted(()=>{
   groupTitle.value.trim()
 })
+
 
 </script>
 
@@ -42,17 +45,23 @@ onMounted(()=>{
     <TheModal @click="setFocus()" v-if="chat.showGroupCreate" @showModal="chat.showGroupCreate = false; chat.showGroupCreateChoice = false;"
               :type="'resize'">
       <div @click="setFocus()" class="flex select-none gap-x-6 items-center">
-        <div class="relative">
-          <TheFileInput type="file" class="cursor-pointer" accept="image/jpeg, image/png, image/webp"
-                        @input="chat.file = $event.target.files[0]"/>
+        <div class="relative" @mouseenter="chat.showImageChange = true" @mouseleave="chat.showImageChange = false">
+          <Transition name="fade">
+            <TheFileInput :toward="chat"/>
+          </Transition>
+          <div v-if="chat.results.image">
+            <preview class="w-[80px] h-[80px] rounded-full" :image="chat.results.image"
+                     :coordinates="chat.results.coordinates"/>
+          </div>
+
         </div>
         <div>
           <p class="text-sm tracking-wider text-semiCyan">{{ $t('Название группы') }}</p>
-          <input  ref="groupName" v-model="groupTitle" class="bg-transparent border-b-2 border-b-semiCyan !outline-none" type="text"/>
+          <input ref="groupName" v-model="groupTitle" class="bg-transparent border-b-2 border-b-semiCyan !outline-none" type="text"/>
         </div>
       </div>
       <div @click="setFocus()" class="flex select-none text-sm justify-end gap-x-4 ">
-        <TheButton type="chat" @click="chat.showGroupCreate = false; chat.showGroupCreateChoice = false; chat.isGroup = false">
+        <TheButton type="chat" @click="chat.showGroupCreate = false; chat.showGroupCreateChoice = false; chat.isGroup = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {coordinates: null, image: null}">
           {{ $t('Отмена') }}
         </TheButton>
         <TheButton type="chat" @click="chat.showGroupCreate = false; chat.showGroupCreateChoice = true">
@@ -75,31 +84,24 @@ onMounted(()=>{
         </div>
         <input type="text" class="w-full dark:bg-gray-700 outline-none pl-10 h-[50px]" placeholder="Поиск..."/>
       </div>
-      <div class="dark:bg-gray-800 bg-gray-200 flex flex-col gap-y-3 py-3 h-[400px] overflow-y-auto">
-        <div v-for="item in chat.get_chat_list.results" @click="userCount.push({id: item.user.id})"
-             class="flex bg-transparent border-none gap-x-4 py-1 items-center w-full hover:bg-gray-600 cursor-pointer transition-all px-5"
-             :class="{'hidden' : !item.user?.id}">
-          <div :class="{'bg-semiCyan' : item.id === userCount.map((e)=>e.id)}">
-            <img class="w-[45px] h-[45px] rounded-full "
-                 :src="currentUser.get_server_domain + item.user?.photo"
-                 alt="">
-          </div>
-          <div class="w-9/12 break-words">
-            <p class="text-sm">{{ item.user?.id && !item.is_group ? item.user?.first_name + ' ' + item.user?.last_name : item.user?.name}}</p>
-          </div>
-        </div>
-      </div>
+        <ChatUserCheckbox v-for="item in chat.get_chat_list.results.filter(e=> !e.is_group)" :item="item"/>
       <div class="w-full px-4 h-[50px] flex items-center justify-end text-sm gap-x-4">
-        <TheButton type="chat" @click="chat.showGroupCreateChoice = false; chat.showGroupCreate = true; setFocus()">
+        <TheButton v-if="!chat.showSettingChat" type="chat" @click="chat.showGroupCreateChoice = false; chat.showGroupCreate = true; setFocus()">
           {{ $t('Назад') }}
         </TheButton>
-        <TheButton type="chat"
-                   @click="chat.showGroupCreateChoice = false; chat.isGroup = true; chat.createChatUser({users: userCount.filter(e=>e.id).map(e=>e.id), name: groupTitle, photo: chat.file}).then(res=>{chat.isGroup = false})">
+        <TheButton v-else type="chat" @click="chat.showGroupCreateChoice = false">
+          {{$t('Отмена')}}
+        </TheButton>
+        <TheButton type="chat" v-if="!chat.showSettingChat"
+                   @click="chat.showGroupCreateChoice = false; chat.isGroup = true; chat.createChatUser({users: userCount.filter(e=>e.id).map(e=>e.id), name: groupTitle, photo: chat.fileUpload}).then(res=>{chat.isGroup = false})">
           {{ $t('Создать') }}
+        </TheButton>
+        <TheButton v-else type="chat"
+                   @click="">
+          {{ $t('Добавить') }}
         </TheButton>
       </div>
     </TheModal>
-
   </div>
 </template>
 

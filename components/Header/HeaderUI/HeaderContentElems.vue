@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center max-md:justify-center gap-x-8">
+  <div class="flex items-center max-md:justify-center gap-x-8" @click.stop>
     <div class="cursor-pointer transition-all duration-300" @click="()=> {
           if(colorMode.preference && colorMode.value === 'light') {
             colorMode.value = 'dark'
@@ -129,7 +129,13 @@
     </NuxtLink>
     <div class="relative">
       <div
-        @click="loadCurrentUser.openNotification = !loadCurrentUser.openNotification; loadCurrentUser.openSettings = false"
+        @click.stop="()=>{
+          if(windowWidth >= 800) {
+            loadCurrentUser.openNotification = !loadCurrentUser.openNotification; loadCurrentUser.openSettings = false
+          } else {
+            loadCurrentUser.openNotification = !loadCurrentUser.openNotification;
+          }
+        }"
         class="hover:bg-gray-100 dark:hover:bg-gray-500 hover:rounded-full hover:p-2 p-2 max-[800px]:p-2 transition-all cursor-pointer">
         <div class="relative">
           <svg class="dark:fill-white fill-gray-500" height="25" width="25" version="1.1" id="Capa_1"
@@ -178,7 +184,11 @@
 
     <div
       class="flex max-[800px]:hidden select-none text-gray-600 items-center transition-all duration-200 gap-x-2 cursor-pointer hover:transform hover:-translate-y-2"
-      @click="loadCurrentUser.openSettings = !loadCurrentUser.openSettings; loadCurrentUser.openNotification = false">
+      @click="()=>{
+        if(windowWidth >= 800) {
+          loadCurrentUser.openSettings = !loadCurrentUser.openSettings; loadCurrentUser.openNotification = false
+        }
+      }">
       <div v-if="loadCurrentUser.user.id" class="">
         <img class="w-[50px] h-[50px] rounded-full shadow-lg border border-gray-100 dark:border-none"
              :src="loadCurrentUser.get_server_domain + loadCurrentUser.user.photo_url" alt="">
@@ -193,8 +203,11 @@
     </div>
 
     <div class="relative max-md:hidden">
-
-      <div @click="loadCurrentUser.openSettings = !loadCurrentUser.openSettings; loadCurrentUser.openNotification = false"
+      <div @click.stop="()=>{
+        if(windowWidth >= 800) {
+          loadCurrentUser.openSettings = !loadCurrentUser.openSettings; loadCurrentUser.openNotification = false
+        }
+      }"
            class="hover:rotate-90 transition-all cursor-pointer hover:bg-gray-100 hover:dark:bg-gray-500 hover:rounded-full max-[800px]:p-1 hover:p-1">
         <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle class="dark:stroke-white" cx="12" cy="12" r="3" stroke="#1C274C" stroke-width="1.5"/>
@@ -310,13 +323,17 @@ import HeaderContentLink from "~/components/Header/HeaderUI/HeaderContentLink.vu
 import Sceleton from "~/components/UI/TheSceleton.vue";
 import {useRouter} from "vue-router";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
-
+const windowWidth = ref(null)
 const route = useRoute()
 const router = useRouter()
 const loadNotification = useNotification()
 const loadCurrentUser = useAuthStore()
 const colorMode = useColorMode()
 let readCount = 0
+
+onMounted(()=>[
+  windowWidth.value = window.innerWidth
+])
 
 watchSyncEffect(()=>{
   for (let i = 0; i < loadNotification.get_notification?.length; i++){

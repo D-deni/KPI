@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="">
     <NuxtPage/>
@@ -71,7 +73,6 @@
 import 'vue3-toastify/dist/index.css';
 import {useI18n} from "vue-i18n";
 import {useColorMode, useMounted} from "@vueuse/core";
-
 
 const colorMode = useColorMode()
 const {locale} = useI18n()

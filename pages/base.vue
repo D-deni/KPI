@@ -3,7 +3,7 @@
     <div class="w-screen h-screen z-50 fixed bg-black opacity-30 hidden"
          :class="{'hidden' : !activeNav, 'max-[1150px]:block' : activeNav}"
          @click="activeNav = false"/>
-    <div class="flex h-full dark:bg-bgPages">
+    <div class="flex w-full h-full dark:bg-bgPages">
       <div
         class="bg-white transition-all duration-300 dark:bg-gray-600 max-[880px]:h-screen max-[1150px]:fixed z-[70]"
         :class="{'max-[1150px]:-translate-x-24 transition-all duration-200' : !activeNav, 'max-[600px]:w-full transition-all' : activeNav}">
@@ -29,9 +29,10 @@
         </div>
         <HeaderContent class="pl-14">
         </HeaderContent>
-        <div class="relative " :class="{'' : router.path !== '/base/chat' || router.path !== `/base/chat/${chat.get_user_chat.id}`}" @click="user.openSettings = false; user.openNotification = false">
-          <NuxtPage class="mx-6 max-sm:mx-1 py-10 h-full" :activeNav="activeNav"></NuxtPage>
+        <div class="relative" @click="user.openSettings = false; user.openNotification = false">
+          <NuxtPage class="mx-6 max-sm:mx-1 py-10 h-full " :activeNav="activeNav"></NuxtPage>
         </div>
+<!--    <allTips></allTips>-->
       </div>
     </div>
   </div>
@@ -41,10 +42,8 @@
 import {useAuthStore} from "~/stores/auth";
 import {useRouter} from "vue-router";
 import {useRoute} from "vue-router";
-import {useTestList} from "~/stores/test";
 import {useNotification} from "~/stores/notification";
 import {useChat} from "~/stores/chat";
-import TheElements from "~/components/UI/TheElements.vue";
 import {toast} from "vue3-toastify";
 import {useTreeStore} from "~/stores/tree";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
@@ -62,9 +61,8 @@ const props = defineProps({
   },
 })
 
-
 function notification() {
-  let ws = new WebSocket(`wss://api-buildwithus.ai-softdev.com/ws/notification?token=${localStorage.getItem('token')}`)
+  let ws = new WebSocket(`wss://api-buildwithus.ai-softdev.com/ws/notification?token=${nuxtStorage.localStorage.getData('token')}`)
   ws.onmessage = (data) => {
     let res = JSON.parse(data.data)
     if (res.type === 'notification') {
@@ -76,9 +74,18 @@ function notification() {
     } else if (router.path.search(/\/base\/chat[\/\d]*$/g) !== -1) {
       if (res.type === 'send_message') {
         for (let i = 0; i < chat.chatList.results.length; i++) {
-          if (chat.chatList.results[i].id === res.messages.chat_id) {
+          if (chat.chatList.results[i].id === res.messages?.chat_id) {
             chat.chatList.results[i].last_message = res.messages
-            console.log(res)
+          }
+          if(res.message.message_type === 'change'){
+            if(chat.chatList.results[i].id === chat.userChat.id && res.message.file ){
+              chat.chatList.results[i].photo_url = res.message.file
+              console.log(res.message)
+            }
+            if(chat.chatList.results[i].name && chat.chatList.results[i].id === chat.userChat.id) {
+              chat.chatList.results[i].name = chat.updateChatName
+              console.log(res)
+            }
           }
         }
       } else if (res.type === 'read_messages') {
@@ -100,14 +107,14 @@ function notification() {
         }
       } else if(res.type === 'delete_message') {
         for (let i = 0; i < chat.chatList.results.length; i++) {
-          if (chat.chatList.results[i].id === res.last_message.chat_id) {
+          if (chat.chatList.results[i].id === res.last_message?.chat_id) {
             chat.chatList.results[i].last_message = res.last_message
           }
         }
       }
       else if(res.type === 'update_message') {
         for (let i = 0; i < chat.chatList.results.length; i++) {
-          if (chat.chatList.results[i].id === res.last_message.chat_id) {
+          if (chat.chatList.results[i].id === res.last_message?.chat_id) {
             console.log(chat.chatList.results[i], '*****', res.last_message)
             chat.chatList.results[i].last_message = res.last_message
           }
@@ -127,7 +134,7 @@ function notification() {
 }
 
 onMounted(() => {
-  if (!localStorage.getItem('token')) {
+  if (!nuxtStorage.localStorage.getData('token')) {
     route.push('/').then(e => {
       toast.info('Для начало авторизуйтесь', {autoClose: 1500, theme: 'auto'})
     })
@@ -138,7 +145,7 @@ onMounted(() => {
 })
 
 onUpdated(() => {
-  if (!localStorage.getItem('token')) {
+  if (!nuxtStorage.localStorage.getData('token')) {
     route.push('/').then(e => {
       toast.info('Для начало авторизуйтесь', {autoClose: 1500, theme: 'auto'})
     })
@@ -163,7 +170,6 @@ onUpdated(() => {
   @apply bg-semiCyan
 }
 
-
 .left-fade-enter-active {
   transition: all 0.3s ease-out;
 }
@@ -177,5 +183,7 @@ onUpdated(() => {
   transform: translateX(-20px);
   opacity: 0;
 }
+</style>
+<style scoped lang="postcss">
 
 </style>

@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import axios from "~/composables/axios";
 import {toast} from "vue3-toastify";
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 
 export const useNotification = defineStore('notification', {
   state:()=>({
@@ -15,7 +16,7 @@ export const useNotification = defineStore('notification', {
     loadNotification(){
       axios.get(`api/v1/notification/notification-list`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res=>{
         this.notification = res.data
@@ -24,7 +25,7 @@ export const useNotification = defineStore('notification', {
     readNotice(params: {id: any}){
       axios.post(`api/v1/notification/make-read/${params.id}`, {}, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.notification = res.data

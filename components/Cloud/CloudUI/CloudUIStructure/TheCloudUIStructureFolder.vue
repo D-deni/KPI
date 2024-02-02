@@ -2,7 +2,6 @@
 import {useCloudStore} from "~/stores/cloud";
 import TheCloudUIStructureSubFolder from "~/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureSubFolder.vue";
 
-const loadCloud = useCloudStore()
 defineProps({
   showFolder: {
     type: Object,

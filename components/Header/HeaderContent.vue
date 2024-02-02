@@ -1,12 +1,18 @@
 <template>
   <div :class="{'blur' : useTreeStore().treeFullScreen === true}"
        class="w-full bg-white  py-4 px-10 flex dark:bg-gray-600 shadow-lg transition-all duration-300 dark:shadow-gray-500 dark:shadow-lg justify-end relative z-30"
+       @click.stop="()=>{
+        if(windowWidth >= 800) {
+        loadCurrentUser.openNotification = false; loadCurrentUser.openSettings = false;
+        }
+    }"
   >
     <div class="flex items-center gap-x-8 " ref="target">
       <HeaderContentElems class="max-[800px]:hidden "/>
-      <div class="relative hidden max-[800px]:block" >
-        <div @click="loadCurrentUser.openSettings = !loadCurrentUser.openSettings; loadCurrentUser.openNotification = false"
-             class="hover:rotate-90 transition-all cursor-pointer hover:bg-gray-100 hover:dark:bg-gray-500 hover:rounded-full max-[800px]:p-1 hover:p-1">
+      <div class="relative hidden max-[800px]:block">
+        <div
+          @click.stop="loadCurrentUser.openSettings = !loadCurrentUser.openSettings; loadCurrentUser.openNotification = false"
+          class="hover:rotate-90 transition-all cursor-pointer hover:bg-gray-100 hover:dark:bg-gray-500 hover:rounded-full max-[800px]:p-1 hover:p-1">
           <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle class="dark:stroke-white" cx="12" cy="12" r="3" stroke="#1C274C" stroke-width="1.5"/>
             <path
@@ -19,7 +25,8 @@
           class="absolute max-[800px]:fixed max-[800px]:left-0 right-0 p-4 z-[100] top-12 max-[800px]:-top-0 max-[800px]:h-screen max-[800px]:w-screen max-[800px]:-right-10 dark:shadow-white dark:shadow-md transition-all duration-200 rounded-md shadow-lg bg-gray-100 dark:bg-gray-600 w-[300px]"
           :class="{'min-h-full' : loadCurrentUser.openSettings === true, 'min-h-0 opacity-0 ' : loadCurrentUser.openSettings === false}">
           <div v-if="loadCurrentUser.openSettings" class="flex flex-col gap-y-6 select-none">
-            <div class="ml-auto justify-end hidden w-2/12 max-[800px]:flex" @click="loadCurrentUser.openSettings = false">
+            <div class="ml-auto justify-end hidden w-2/12 max-[800px]:flex"
+                 @click="loadCurrentUser.openSettings = false">
               <svg width="25px" height="25px" class="fill-gray-400 dark:fill-white" viewBox="-2 0 32 32" version="1.1"
                    xmlns="http://www.w3.org/2000/svg">
                 <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">

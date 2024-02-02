@@ -25,7 +25,7 @@ import {
   ReinhardToneMapping,
   AnimationMixer, AnimationClip, AnimationAction, MOUSE
 } from "three";
-import {onMounted, Ref, watch, computed} from 'vue'
+import {onMounted, watch} from 'vue'
 import {useWindowSize} from "@vueuse/core";
 import {OrbitControls, VertexTangentsHelper} from "three-stdlib";
 import {useGLTFModel} from "~/composables/useGLTFModel";
@@ -33,7 +33,7 @@ import {ca} from "date-fns/locale";
 
 let renderer: WebGLRenderer
 let controls: OrbitControls
-const experience: Ref<HTMLCanvasElement | null> = ref(null)
+const experience = ref<HTMLCanvasElement | null>(null)
 const {width, height} = useWindowSize()
 const aspectRatio = computed(()=> width.value / height.value)
 const scene = new Scene()

@@ -2,6 +2,7 @@ import {defineStore} from "pinia";
 import axios from "~/composables/axios";
 import {toast} from "vue3-toastify";
 import {Router} from "vue-router";
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 export const useTaskList = defineStore('task-list', {
   state: () => ({
     searchList: {},
@@ -27,7 +28,7 @@ export const useTaskList = defineStore('task-list', {
       id: '',
       status: '',
       count: {}
-    }
+    },
   }),
   getters: {
     get_tasks: (state) => state.task,
@@ -39,7 +40,7 @@ export const useTaskList = defineStore('task-list', {
     async loadTasksLists(params: { page: number, limit: number, query: any, task_type: string }) {
      await axios.get(`api/v1/task/${params.task_type}?query=${params.query}&page=${params.page}&limit=${params.limit}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.task = response.data
@@ -47,13 +48,13 @@ export const useTaskList = defineStore('task-list', {
       })
     },
     async loadCurrentTask(params: {id: any}){
-      await axios.get(`api/v1/task/${params.id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      }).then(res => {
-        this.task = res.data
-      })
+       await axios.get(`api/v1/task/${params.id}`, {
+         headers: {
+           Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
+         }
+       }).then(res => {
+         this.task = res.data
+       })
     },
     async create_task(params: { task: any, performers_ids: any }) {
       let formD = new FormData();
@@ -73,7 +74,7 @@ export const useTaskList = defineStore('task-list', {
       console.log(typeof params.performers)
       axios.post(`api/v1/task/create`, formD, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.task = response.data
@@ -93,7 +94,7 @@ export const useTaskList = defineStore('task-list', {
       }
       await axios.patch(`api/v1/task/update/${params.task.id}`, fd, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.task = response.data
@@ -108,7 +109,7 @@ export const useTaskList = defineStore('task-list', {
       fd.set('performers', params.performers)
       await axios.patch(`api/v1/task/add-by-users/${params.id}`, fd, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.task = res.data
@@ -121,7 +122,7 @@ export const useTaskList = defineStore('task-list', {
         user_id: params.user_id
       }, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.task = res.data
@@ -132,7 +133,7 @@ export const useTaskList = defineStore('task-list', {
     async delete_task(params: {id: any}, router: Router) {
       await axios.delete(`api/v1/task/delete/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.task = res.data
@@ -144,7 +145,7 @@ export const useTaskList = defineStore('task-list', {
     async loadTasksStats(params: { task_filter: string }) {
      await axios.get(`api/v1/task/stats?${params.task_filter}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.stats = response.data
@@ -159,7 +160,7 @@ export const useTaskList = defineStore('task-list', {
       }
       await axios.post(`api/v1/task/${params.task_status}/${params.id}`,fd, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.task = response.data
@@ -174,7 +175,7 @@ export const useTaskList = defineStore('task-list', {
       form.set('comment', params.comment)
       await axios.post(`api/v1/task/${params.task_status}/${params.id}`, form , {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.task = response.data

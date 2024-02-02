@@ -45,7 +45,6 @@ const route = useRoute()
         <img class="w-[50px] h-[50px] rounded-full" :src="user.get_server_domain + userSearchList.photo_url" alt="">
         <p class="text-sm break-words">{{ userSearchList.first_name + ' ' + userSearchList.last_name }}</p>
       </NuxtLink>
-
     </div>
   </div>
 </template>

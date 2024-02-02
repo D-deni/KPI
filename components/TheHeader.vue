@@ -5,8 +5,8 @@
       <img class="transition-all mx-auto" src="/img/Logo.webp" alt=""
            :class="{'w-[80px]' : activeNav, 'w-[50px]' : !activeNav}">
     </div>
-    <div class="py-2 flex flex-col gap-y-4 transition-all duration-300 dark:bg-gray-600 max-h-screen h-screen max-[1150px]:pb-24 overflow-y-auto"
-         :class="{'pl-0' : !activeNav, 'pl-3 max-md:w-full overflow-x-hidden' : activeNav, 'top-0 h-screen fixed dark:shadow-lg dark:shadow-gray-400 dark:border-none border-r': loadCurrentUser.my_scroll>90, 'max-[1151px]:w-[27%] max-[1149px]:w-full max-lg:w-full' : activeNav && loadCurrentUser.my_scroll>100}">
+    <div class="py-2 flex flex-col gap-y-4 transition-all duration-300 dark:bg-gray-600 max-h-screen h-screen max-[1150px]:pb-24 overflow-y-auto h-screen "
+         :class="{'pl-0' : !activeNav, 'pl-3 max-md:w-full overflow-x-hidden ' : activeNav, 'top-0 fixed dark:shadow-lg dark:shadow-gray-400 dark:border-none border-r': loadCurrentUser.my_scroll>90, 'max-[1151px]:w-[27%] max-[1149px]:w-full max-lg:w-full' : activeNav && loadCurrentUser.my_scroll>100}">
       <HeaderNavLinks :activeNav="activeNav" to="/base/profile">
         <template v-slot:navIcon>
           <svg width="25px" height="25px" class="stroke-black dark:stroke-white" viewBox="0 0 24 24" fill="none"
@@ -36,7 +36,7 @@
         </template>
       </HeaderNavLinks>
       <HeaderNavLinks v-if="loadCurrentUser.user.role_en !== 'admin'" :activeNav="activeNav"
-                      :to="`/base/tasks?page=${taskList.page}`"
+                      :to="`/base/tasks`"
                       class="flex items-center gap-x-6">
         <template v-slot:navIcon>
           <svg width="25px" height="25px" class="dark:fill-white fill-black" viewBox="0 0 24 24"
@@ -55,6 +55,18 @@
         </template>
         <template v-slot:navLink>
           <p>{{ $t('Задания') }}</p>
+        </template>
+      </HeaderNavLinks>
+      <HeaderNavLinks v-if="loadCurrentUser.user.role_en !== 'admin'" :activeNav="activeNav"
+                      :to="`/base/graph`"
+                      class="flex items-center gap-x-6">
+        <template v-slot:navIcon>
+          <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.99902 3V16.2C2.99902 17.8802 2.99902 18.7202 3.326 19.362C3.61362 19.9265 4.07257 20.3854 4.63705 20.673C5.27879 21 6.11887 21 7.79902 21H20.999M19.9998 15H15.9998M12.9998 7.00002H6.99978M17.9998 11H8.99978" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </template>
+        <template v-slot:navLink>
+          <p>{{ $t('График') }}</p>
         </template>
       </HeaderNavLinks>
       <HeaderNavLinks v-if="loadCurrentUser.user.role_en !== 'admin'" :activeNav="activeNav" :to="`/base/tests`"

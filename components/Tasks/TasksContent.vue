@@ -259,7 +259,7 @@ const params = {
   task_type: 'task-list',
 }
 function loads() {
-  if (loadCurrentUser.user.role_en === 'department_director' || loadCurrentUser.user.role_en === 'vice_department_director') {
+  if (loadCurrentUser.user?.role_en === 'department_director' || loadCurrentUser.user?.role_en === 'vice_department_director') {
     companies.loadDepartment({id: loadCurrentUser.user?.department_id})
     this.createForm.department = companies.get_department
     this.createForm.department.participants = companies.get_department.participants.map(e => {e.value = createForm.department.participants?.filter(i => i.id == e.id).length != 0})
@@ -275,17 +275,17 @@ function validationForm() {
   }
 }
 
-function loadPage(page) {
+function loadPage(page: any) {
   if (page === '<') {
     if (Number(params.page) > 1) {
       params.page -= 1;
     }
   } else if (page === '>') {
-    if (Number(params.page) < tasksList.task.number_of_pages) {
+    if (Number(params.page) < tasksList.task?.number_of_pages) {
       params.page = Number(params.page) + 1
     }
   } else {
-    if (Number(page) <= tasksList.task.number_of_pages) {
+    if (Number(page) <= tasksList.task?.number_of_pages) {
       params.page = Number(page)
     }
   }

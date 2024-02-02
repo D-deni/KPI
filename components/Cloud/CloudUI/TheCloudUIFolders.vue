@@ -259,7 +259,7 @@ function dragLeave(event: any) {
                                    @dragend="dragLeave"
                                    :draggable="!currentUser.user.permissions?.find(e=>e.name_en === 'folder.create') || !cloudStore.get_folder?.active ? false : true"
                                    @dragstart="startDrag($event, folders); activeElem.type = 'folder'"
-                                   class="w-full transition-all duration-200"
+                                   class="w-full transition-all rounded-full duration-200"
                                    @dblclick="!showRead ? cloudStore.loadFolder({id: folders?.id}) : showRead"
                                    :change-view="selected.type"
                                    @contextmenu.prevent="async ()=> {
@@ -699,9 +699,7 @@ function dragLeave(event: any) {
         </TheCloudUIFoldersItem>
       </div>
     </div>
-    <TheModal v-if="cloudStore.showAccessSetting" @showModal="cloudStore.showAccessSetting">
-
-    </TheModal>
+    <TheModal v-if="cloudStore.showAccessSetting" @showModal="cloudStore.showAccessSetting"></TheModal>
     <TheModal v-if="createShow" @showModal="createShow = false">
       <TheTextContent>{{ $t('Создание папки') }}</TheTextContent>
       <div>

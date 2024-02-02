@@ -20,7 +20,7 @@ const props = defineProps({
 })
 
 watchSyncEffect(()=>{
-  chat.arrayPin = chat.userChat.messages?.filter(e=>e.pinned === true).map(e=>e)
+  chat.arrayPin = chat.get_pinned_list
   activePin.value = chat.arrayPin[0]
 })
 

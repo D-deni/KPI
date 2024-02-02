@@ -7,7 +7,6 @@ defineProps({
 })
 </script>
 <template>
-    <Teleport to="body">
       <div class="fixed left-0 top-0 h-screen w-screen flex justify-center items-center z-[110]">
         <div class="opacity-60 bg-black absolute left-0 top-0 w-screen h-screen" @click="$emit('showModal')"></div>
         <div
@@ -15,7 +14,6 @@ defineProps({
           <slot/>
         </div>
       </div>
-    </Teleport>
 </template>
 
 <style lang="scss">

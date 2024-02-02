@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLink :to="to"
+    <NuxtLink :to="to" @click="authUser.openSettings = false; authUser.openNotification = false;"
               class="flex transition-all hover:bg-cyan dark:hover:bg-semiCyan dark:hover:border-r-cyan hover:border-r-4 hover:border-r-semiCyan p-4 w-full rounded-l-lg items-center gap-x-6 dark:text-white text-black"
               :class="{'rounded-l-none pl-[22px]' : !activeNav}"
     >
@@ -15,6 +15,9 @@
 </template>
 
 <script setup lang="ts">
+import {useAuthStore} from "~/stores/auth";
+
+const authUser = useAuthStore()
 const props = defineProps({
   to: String,
   activeNav: {

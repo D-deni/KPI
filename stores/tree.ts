@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import axios from "~/composables/axios";
-
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 export const useTreeStore = defineStore('useTree', {
   state: ()=>({
     tree: {},
@@ -15,7 +15,7 @@ export const useTreeStore = defineStore('useTree', {
     async loadTreeList(){
       axios.get(`api/v1/user/tree`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res=> {
         this.tree = res.data

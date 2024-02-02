@@ -39,20 +39,20 @@ defineProps({
         {{ $t('Департаменты') }}
       </TheBreadcrumbs>
     </div>
-    <div class="flex max-md:flex-wrap max-md:justify-center max-sm:gap-y-4 relative items-center justify-between w-full gap-x-10 ">
-      <TheSearch class="w-9/12 max-md:w-7/12 max-sm:w-full max-md:mx-auto max-sm:relative"/>
+    <div class="flex max-md:flex-wrap max-md:justify-center max-md:gap-y-4 relative items-center justify-between w-full gap-x-10 ">
+      <TheSearch class="w-9/12 max-md:w-full max-md:mx-auto max-md:relative"/>
       <TheFilter />
       <DepartmentCreate class="w-3/12 max-md:w-9/12 max-md:mb-4 text-sm"></DepartmentCreate>
     </div>
-    <div class="flex max-md:flex-col ">
-      <div v-if="!departmentList.get_all_department.results" class="flex  w-full gap-y-4 flex-col">
-        <TheSceleton v-for="item in 5" border-radius="10px" width="90%" height="80px"></TheSceleton>
+    <div class="flex max-lg:flex-col ">
+      <div v-if="!departmentList.get_all_department.results" class="flex w-full gap-y-4 gap-x-4 flex-wrap">
+        <TheSceleton v-for="item in 6" border-radius="10px" width="30%" height="100px" ></TheSceleton>
       </div>
-      <div v-else class="w-full max-md:order-2">
+      <div v-else class="w-full max-lg:order-2 flex flex-wrap">
         <DepartmentContentLists v-for="department in departmentList?.get_all_department.results"
                                 :department-item="department"></DepartmentContentLists>
       </div>
-      <div class="w-3/12 max-md:w-full max-md:mb-8">
+      <div class="w-3/12 max-lg:w-full max-lg:mb-8">
         <TheContentBlock>
           <h2 class="text-center tracking-widest dark:text-white">{{ $t('Информация о департамента') }}</h2>
           <div class="mt-6">

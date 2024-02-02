@@ -2,7 +2,7 @@ import axios from "~/composables/axios"
 import {defineStore} from "pinia";
 import {toast} from "vue3-toastify";
 import {Router} from 'vue-router'
-
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 export const useUserStore = defineStore('user-list', {
   state: () => ({
     user: {
@@ -30,6 +30,7 @@ export const useUserStore = defineStore('user-list', {
       department_id: '',
       department: '',
       company: '',
+      company_id: '',
       salary: '',
       date_of_birth: '',
       permissions: [],
@@ -50,12 +51,12 @@ export const useUserStore = defineStore('user-list', {
     async loadUserList(params: {
       page: number,
       limit: number,
-      query: any,
+      query?: any,
       user_type: any
     }) {
       await axios.get(`api/v1/user/${params.user_type}?query=${params.query}&page=${params.page}&limit=${params.limit}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.user = response.data
@@ -64,7 +65,7 @@ export const useUserStore = defineStore('user-list', {
     async loadUser(params: { id: any }) {
       axios.get(`api/v1/user/${params.id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.user = response.data
@@ -74,7 +75,7 @@ export const useUserStore = defineStore('user-list', {
     async searchUser(params: { search: any }) {
       axios.get(`api/v1/user/user-list/my-company?search=${params.search}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res => {
         this.userSearch = res.data
@@ -98,7 +99,7 @@ export const useUserStore = defineStore('user-list', {
       }
       axios.post(`api/v1/user/create`, formD, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.user = response.data
@@ -109,7 +110,7 @@ export const useUserStore = defineStore('user-list', {
     async deleteUser(params: { user_id: number }, router: Router) {
       axios.delete(`api/v1/user/delete/${params.user_id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.user = response.data
@@ -123,7 +124,7 @@ export const useUserStore = defineStore('user-list', {
     async loadPositionList() {
       axios.get(`api/v1/position/position-list`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.user.position = response.data
@@ -132,16 +133,16 @@ export const useUserStore = defineStore('user-list', {
     async loadRoleList() {
       axios.get(`api/v1/role/role-list`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
-        this.user.role = response.data
+        this.roleList = response.data
       })
     },
     async loadPermissions() {
       axios.get(`api/v1/permission/permission-list`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
         this.permissions = response.data

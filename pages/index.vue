@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import The3dModel from "~/components/UI/The3dModel.vue";
 import TheButton from '~/components/UI/TheButton.vue'
-import axios from "~/composables/axios";
 import {useAuthStore} from "~/stores/auth";
 import {useRouter} from "vue-router";
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 const router = useRouter()
 const authStore = useAuthStore()
 
@@ -13,7 +12,7 @@ const form = ref({
 })
 
 onMounted(()=>{
-  if(localStorage.getItem('token')){
+  if(nuxtStorage.localStorage.getData('token')){
     router.push('/base/companies')
   }
 })
@@ -106,9 +105,6 @@ defineProps({
 </template>
 
 <style>
-.bg-image {
-  background: url("public/img/bg-auth.jpg") no-repeat center center / cover;
-}
 
 .bounceLogin-enter-active {
   animation: bounce-in 0.5s;

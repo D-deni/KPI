@@ -18,7 +18,7 @@ defineProps({
 
 <template>
   <label class="flex flex-col outline-none font-medium gap-y-2 text-md dark:text-white tracking-wider">
-    <span>{{ label }} <span class="text-red-500" v-if="required">*</span></span>
+    <span v-if="type !== 'default'">{{ label }} <span class="text-red-500" v-if="required">*</span></span>
     <textarea name="" id="" cols="30" rows="10" v-if="type==='textarea'"
               @input="$emit('update:modelValue', $event.target.value)"
               :required="required"
@@ -39,7 +39,7 @@ defineProps({
            :required="required"
            :type="type"
            class="w-full rounded-lg p-2 dark:border-none text-black border focus:outline-semiCyan focus:outline-1 outline-none dark:bg-gray-300"
-           :class="{'!bg-red-200 !outline-none' : trimi, '!bg-green-400 text-white' : answer, '!dark:bg-gray-500' : type === 'createInput'}"
+           :class="{'!bg-red-200 !outline-none' : trimi, '!bg-green-400 text-white' : answer, '!dark:bg-gray-500' : type === 'createInput', '!bg-transparent dark:text-white text-black !outline-none !border-none' : type === 'default'}"
            :placeholder="placeholder"
            @input="$emit('update:modelValue', $event.target.value)">
 
