@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\r\nimport {useChat} from \"~/stores/chat\";\r\nimport {useRoute, useRouter} from \"vue-router\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport ChatContent from \"~/components/Chat/ChatContent.vue\";\r\nimport Sceleton from \"~/components/UI/TheSceleton.vue\";\r\nimport ChatContentUserPinned from \"~/components/Chat/ChatContent/ChatContentUserPinned.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport ChatContentContextMenuItem from \"~/components/Chat/ChatContent/ChatContentContextMenuItem.vue\";\r\nimport ChatWindowSettingContent from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent.vue\";\r\nimport ChatChangeWindow from \"~/components/Chat/UI/ChatChangeWindow.vue\";\r\nimport {uploadImage} from \"~/hooks/ElemUI\";\r\nimport ChatCropperFileInput from \"~/components/Chat/UI/ChatCropperFileInput.vue\";\r\nimport ChatCropper from \"~/components/Chat/UI/ChatCropper.vue\";\r\nimport {Preview} from \"vue-advanced-cropper\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport TheInput from \"~/components/UI/TheInput.vue\";\r\nimport ChatFileError from \"~/components/Chat/UI/ChatFileError.vue\";\r\nimport ChatUploadWindow from \"~/components/Chat/UI/Upload/ChatUploadWindow.vue\";\r\nimport ChatUploadError from \"~/components/Chat/UI/Upload/ChatUploadError.vue\";\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\nconst loadAuthStore = useAuthStore()\r\nconst route = useRoute()\r\nconst router = useRouter()\r\nconst chat = useChat()\r\ndefineProps({\r\n  activeNav: {\r\n    type: Boolean,\r\n    default: true\r\n  },\r\n})\r\n\r\nfunction messages() {\r\n  let mes = new WebSocket(`wss://api-buildwithus.ai-softdev.com/ws/chat/${route.params.id}?token=${nuxtStorage.localStorage.getData('token')}`)\r\n  mes.onmessage = (event) => {\r\n    let res = JSON.parse(event.data)\r\n    if (chat.userChat?.id === res.chat_id && mes.readyState === WebSocket.OPEN) {\r\n      let last_message = chat.userChat.messages[chat.userChat.messages.length - 1]\r\n      if (last_message?.date == new Date(res.created_at).toLocaleDateString()) {\r\n        chat.userChat.messages[chat.userChat.messages.length - 1]?.messages?.push(res)\r\n      } else {\r\n        chat.userChat.messages.push({date: new Date(res.created_at).toLocaleDateString(), messages: [res]})\r\n      }\r\n    }\r\n    for (let i = 0; i < chat.chatList.results.length; i++) {\r\n      if (chat.chatList.results[i].id === res.chat_id) {\r\n        chat.chatList.results[i].last_message = res\r\n        if(res.file !== chat.userChat.photo_url && res.message_type === 'change' && res.file) {\r\n          chat.userChat.photo_url = res.file\r\n        }\r\n      }\r\n\r\n    }\r\n    if (res.type === 'delete_message') {\r\n      for (let j = 0; j < chat.userChat.messages.length; j++) {\r\n        for (let i = chat.userChat.messages[j].messages.length - 1; i >= 0; i--) {\r\n          if (chat.userChat.messages[j].messages[i].id === res.message_id) {\r\n            chat.userChat.messages[j].messages?.splice(i, 1)\r\n          }\r\n        }\r\n      }\r\n    } else if (res.type === 'update_message') {\r\n      for (let j = 0; j < chat.userChat.messages.length; j++) {\r\n        for (let i = chat.userChat.messages[j].messages.length - 1; i >= 0; i--) {\r\n          if (chat.userChat.messages[j].messages[i].id === res.message.id) {\r\n            chat.userChat.messages[j].messages[i] = res.message;\r\n            break;\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n  onUnmounted(() => {\r\n    mes.close()\r\n  })\r\n}\r\n\r\nonMounted(() => {\r\n  chat.loadUserChat({id: route.params.id, limit: 100, page: 1})\r\n  chat.loadPinnedList({id: route.params.id, limit: 100, page: 1})\r\n  messages()\r\n})\r\n\r\nuseSeoMeta({\r\n  title: 'Чат'\r\n})\r\n\r\n</script>\r\n<template>\r\n  <div class=\"h-full w-full\" @click=\"chat.showChangeWindowChat = false\">\r\n    <div\r\n      class=\"w-full flex items-center border-l max-h-[8%] max-md:pt-3 max-md:px-14 max-sm:px-2 h-[100px] px-10 border-black dark:border-opacity-20 border-opacity-10 bg-gray-200 dark:bg-gray-700\">\r\n      <div v-if=\"!chat.get_user_chat.user && !chat.get_user_chat.is_group || chat.get_user_chat.users?.id \"\r\n           class=\"flex gap-x-4 justify-center relative items-center mb-2\">\r\n        <sceleton class=\"opacity-50\" width=\"40px\" height=\"40px\" border-radius=\"100%\"></sceleton>\r\n        <sceleton class=\"opacity-50\" width=\"150px\" height=\"10px\" border-radius=\"4px\"></sceleton>\r\n      </div>\r\n      <div v-else class=\"flex items-center justify-between w-full\" @click=\"chat.showChatInfo = true\">\r\n        <div class=\"flex items-center gap-x-2 cursor-pointer\">\r\n          <div class=\"hidden max-md:block\" @click.prevent=\"router.push('/base/chat')\">\r\n            <svg class=\"dark:fill-gray-400 fill-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 1024 1024\"\r\n                 xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path d=\"M604.7 759.2l61.8-61.8L481.1 512l185.4-185.4-61.8-61.8L357.5 512z\"/>\r\n            </svg>\r\n          </div>\r\n          <img v-if=\"chat.get_user_chat.user?.id || chat.get_user_chat.photo_url\" class=\"w-[40px] h-[40px] rounded-full\"\r\n               :src=\"!chat.get_user_chat.is_group\r\n                ? loadAuthStore.get_server_domain + chat.get_user_chat.user?.photo\r\n                : loadAuthStore.get_server_domain + chat.get_user_chat?.photo_url\"\r\n               alt=\"\">\r\n          <div v-else class=\"rounded-full bg-blueSemiLight flex items-center justify-center w-[42px] h-[42px]\">\r\n            <svg v-if=\"!chat.get_user_chat.photo_url && !chat.get_user_chat.is_group\" class=\"stroke-white\" width=\"32px\"\r\n                 height=\"32px\" viewBox=\"0 -0.5 25 25\" fill=\"none\"\r\n                 xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path fill-rule=\"evenodd\" clip-rule=\"evenodd\"\r\n                    d=\"M18.507 19.853V6.034C18.5116 5.49905 18.3034 4.98422 17.9283 4.60277C17.5532 4.22131 17.042 4.00449 16.507 4H8.50705C7.9721 4.00449 7.46085 4.22131 7.08577 4.60277C6.7107 4.98422 6.50252 5.49905 6.50705 6.034V19.853C6.45951 20.252 6.65541 20.6407 7.00441 20.8399C7.35342 21.039 7.78773 21.0099 8.10705 20.766L11.907 17.485C12.2496 17.1758 12.7705 17.1758 13.113 17.485L16.9071 20.767C17.2265 21.0111 17.6611 21.0402 18.0102 20.8407C18.3593 20.6413 18.5551 20.2522 18.507 19.853Z\"\r\n                    stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n            </svg>\r\n            <p class=\"uppercase font-bold\" v-else v-for=\"chatName in chat.get_user_chat.name.split(' ').slice(0,2)\"\r\n               @click=\"console.log(chatName[0])\">{{ chatName[0] }}</p>\r\n          </div>\r\n          <p v-if=\"!chat.get_user_chat.is_group\">\r\n            {{ chat.get_user_chat.user?.last_name === '' ? $t('Избранное') : chat.get_user_chat.user?.first_name + ' ' + chat.get_user_chat.user?.last_name\r\n            }}</p>\r\n          <p v-else>\r\n            {{ chat.get_user_chat?.name.length > 30 ? chat.get_user_chat?.name.slice(0, 30) + '...' : chat.get_user_chat?.name\r\n            }}</p>\r\n        </div>\r\n        <ChatChangeWindow/>\r\n      </div>\r\n    </div>\r\n    <ChatContentUserPinned/>\r\n    <ChatContent></ChatContent>\r\n    <TheModal :type=\"'resizeInfoWindow'\" v-if=\"chat.showChatInfo && chat.userChat?.is_group\"\r\n              @showModal=\"chat.showChatInfo = false; chat.showSettingChat = false\">\r\n      <ChatWindowSettingContent/>\r\n    </TheModal>\r\n    <TheModal v-if='chat.showChatChangeInfoModal' :type=\"'resize'\"\r\n              @showModal=\"chat.showChatChangeInfoModal = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}\">\r\n      <div class=\"dark:bg-gray-700 rounded-lg h-max relative mx-auto my-auto\">\r\n        <div class=\"\">\r\n          <p class=\"text-lg\">{{ $t('Настройки группы') }}</p>\r\n        </div>\r\n        <div class=\"py-1 flex items-center gap-x-6 select-none\">\r\n          <div class=\"relative\" @mouseenter=\"chat.showImageChange = true\" @mouseleave=\"chat.showImageChange = false\">\r\n            <Transition name=\"fade\">\r\n              <ChatCropperFileInput/>\r\n            </Transition>\r\n            <div v-if=\"!chat.src && !chat.results.image\">\r\n              <img v-if=\"chat.get_user_chat.user?.id || chat.get_user_chat.photo_url\"\r\n                   class=\"w-[80px] h-[80px] rounded-full\"\r\n                   :src=\"!chat.get_user_chat.is_group\r\n              ? loadAuthStore.get_server_domain + chat.get_user_chat.user?.photo\r\n              : loadAuthStore.get_server_domain + chat.get_user_chat?.photo_url\"\r\n                   alt=\"\">\r\n              <div v-else>\r\n                <div class=\"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight\">\r\n                  <p class=\"uppercase\" v-for=\"chatName in chat.get_user_chat.name.split(' ').slice(0,2)\"\r\n                     @click=\"console.log(chatName[0])\">{{ chatName[0] }}</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div v-else-if=\"chat.results.image\">\r\n              <preview class=\"w-[80px] h-[80px] rounded-full\" :image=\"chat.results.image\"\r\n                       :coordinates=\"chat.results.coordinates\"/>\r\n            </div>\r\n            <div v-else-if=\"chat.src && !chat.results.image\">\r\n              <img class=\"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full\"\r\n                   :src=\"chat.src\"/>\r\n            </div>\r\n          </div>\r\n          <div>\r\n            <div>\r\n              <p class=\"text-sm tracking-wider text-semiCyan\">{{ $t('Название группы') }}</p>\r\n              <TheInput :type=\"'default'\" v-model=\"chat.updateChatName\"\r\n                        class=\"bg-transparent bg-opacity-0 border-b-2 border-b-semiCyan outline-none\" type=\"text\"/>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"flex justify-end gap-x-2 !text-sm\">\r\n          <TheButton :type=\"'chat'\"\r\n                     @click=\"chat.showChatChangeInfoModal = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}\">\r\n            {{ $t('Отмена') }}\r\n          </TheButton>\r\n          <TheButton :type=\"'chat'\"\r\n                     @click=\"chat.updateChatName !== chat.userChat.name || chat.updateDescription !== chat.userChat.description || chat.fileUpload ? chat.chatUpdate({id: route.params.id, update: {name: chat.updateChatName , description: '', photo: chat.fileUpload}}).then(res=>{chat.showChatChangeInfoModal = false; chat.fileUpload = null; chat.userChat.name = chat.updateChatName; chat.updateChatName = ''}) : toast.info($t('Измените содержимое для сохранения'), {autoClose: 1500, theme: 'auto'})\">\r\n            {{ $t('Сохранить') }}\r\n          </TheButton>\r\n        </div>\r\n      </div>\r\n      <ChatFileError/>\r\n    </TheModal>\r\n    <Transition name=\"fade\" >\r\n      <div v-if=\"chat.showChatGallery\" class=\"fixed left-0 top-0 h-screen w-screen flex justify-center items-center z-[110]\" >\r\n        <div class=\"opacity-60 bg-black absolute left-0 top-0 w-screen h-screen\" @click=\"chat.showChatGallery = false\"></div>\r\n        <div class=\"bg-gray-300 w-20 h-20\"></div>\r\n      </div>\r\n    </Transition>\r\n    <ChatUploadWindow />\r\n    <ChatUploadError />\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>",
+      "start": 1706896539517,
+      "end": 1706896541265,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896541265,
+      "end": 1706896541265,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896541265,
+      "end": 1706896541265,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896541265,
+      "end": 1706896541265,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896541265,
+      "end": 1706896541265,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896541265,
+      "end": 1706896541266,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896541265,
+      "end": 1706896541266,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896541266,
+      "end": 1706896541266,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896541266,
+      "end": 1706896541266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896541266,
+      "end": 1706896541266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896541266,
+      "end": 1706896541266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896541266,
+      "end": 1706896541266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"pages/base/chat/[id].vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896541266,
+      "end": 1706896541345,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896541345,
+      "end": 1706896541345,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896541345,
+      "end": 1706896541345,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896541345,
+      "end": 1706896541345,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896541347,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896541347,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896541348,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896541348,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "export { default } from \"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue?macro=true&vue&type=script&setup=true&lang.ts\"",
+      "start": 1706896541348,
+      "end": 1706896541349,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA"
+      }
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "export { default } from \"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue?macro=true&vue&type=script&setup=true&lang.ts\"",
+      "start": 1706896541348,
+      "end": 1706896541349,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "normal"
+    }
+  ]
+}

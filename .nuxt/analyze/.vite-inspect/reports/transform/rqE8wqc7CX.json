@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.fileOperations.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.WillDeleteFilesRequest = exports.DidDeleteFilesNotification = exports.DidRenameFilesNotification = exports.WillRenameFilesRequest = exports.DidCreateFilesNotification = exports.WillCreateFilesRequest = exports.FileOperationPatternKind = void 0;\nconst messages_1 = require(\"./messages\");\n/**\n * A pattern kind describing if a glob pattern matches a file a folder or\n * both.\n *\n * @since 3.16.0\n */\nvar FileOperationPatternKind;\n(function (FileOperationPatternKind) {\n    /**\n     * The pattern matches a file only.\n     */\n    FileOperationPatternKind.file = 'file';\n    /**\n     * The pattern matches a folder only.\n     */\n    FileOperationPatternKind.folder = 'folder';\n})(FileOperationPatternKind = exports.FileOperationPatternKind || (exports.FileOperationPatternKind = {}));\n/**\n * The will create files request is sent from the client to the server before files are actually\n * created as long as the creation is triggered from within the client.\n *\n * @since 3.16.0\n */\nvar WillCreateFilesRequest;\n(function (WillCreateFilesRequest) {\n    WillCreateFilesRequest.method = 'workspace/willCreateFiles';\n    WillCreateFilesRequest.type = new messages_1.ProtocolRequestType(WillCreateFilesRequest.method);\n})(WillCreateFilesRequest = exports.WillCreateFilesRequest || (exports.WillCreateFilesRequest = {}));\n/**\n * The did create files notification is sent from the client to the server when\n * files were created from within the client.\n *\n * @since 3.16.0\n */\nvar DidCreateFilesNotification;\n(function (DidCreateFilesNotification) {\n    DidCreateFilesNotification.method = 'workspace/didCreateFiles';\n    DidCreateFilesNotification.type = new messages_1.ProtocolNotificationType(DidCreateFilesNotification.method);\n})(DidCreateFilesNotification = exports.DidCreateFilesNotification || (exports.DidCreateFilesNotification = {}));\n/**\n * The will rename files request is sent from the client to the server before files are actually\n * renamed as long as the rename is triggered from within the client.\n *\n * @since 3.16.0\n */\nvar WillRenameFilesRequest;\n(function (WillRenameFilesRequest) {\n    WillRenameFilesRequest.method = 'workspace/willRenameFiles';\n    WillRenameFilesRequest.type = new messages_1.ProtocolRequestType(WillRenameFilesRequest.method);\n})(WillRenameFilesRequest = exports.WillRenameFilesRequest || (exports.WillRenameFilesRequest = {}));\n/**\n * The did rename files notification is sent from the client to the server when\n * files were renamed from within the client.\n *\n * @since 3.16.0\n */\nvar DidRenameFilesNotification;\n(function (DidRenameFilesNotification) {\n    DidRenameFilesNotification.method = 'workspace/didRenameFiles';\n    DidRenameFilesNotification.type = new messages_1.ProtocolNotificationType(DidRenameFilesNotification.method);\n})(DidRenameFilesNotification = exports.DidRenameFilesNotification || (exports.DidRenameFilesNotification = {}));\n/**\n * The will delete files request is sent from the client to the server before files are actually\n * deleted as long as the deletion is triggered from within the client.\n *\n * @since 3.16.0\n */\nvar DidDeleteFilesNotification;\n(function (DidDeleteFilesNotification) {\n    DidDeleteFilesNotification.method = 'workspace/didDeleteFiles';\n    DidDeleteFilesNotification.type = new messages_1.ProtocolNotificationType(DidDeleteFilesNotification.method);\n})(DidDeleteFilesNotification = exports.DidDeleteFilesNotification || (exports.DidDeleteFilesNotification = {}));\n/**\n * The did delete files notification is sent from the client to the server when\n * files were deleted from within the client.\n *\n * @since 3.16.0\n */\nvar WillDeleteFilesRequest;\n(function (WillDeleteFilesRequest) {\n    WillDeleteFilesRequest.method = 'workspace/willDeleteFiles';\n    WillDeleteFilesRequest.type = new messages_1.ProtocolRequestType(WillDeleteFilesRequest.method);\n})(WillDeleteFilesRequest = exports.WillDeleteFilesRequest || (exports.WillDeleteFilesRequest = {}));\n//# sourceMappingURL=protocol.fileOperations.js.map",
+      "start": 1706896525244,
+      "end": 1706896525342,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525342,
+      "end": 1706896525342,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525342,
+      "end": 1706896525342,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525342,
+      "end": 1706896525342,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525342,
+      "end": 1706896525342,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525343,
+      "end": 1706896525343,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as protocol_fileOperations } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.fileOperations.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/messages.js?commonjs-proxy\";\n\n(function (exports) {\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.WillDeleteFilesRequest = exports.DidDeleteFilesNotification = exports.DidRenameFilesNotification = exports.WillRenameFilesRequest = exports.DidCreateFilesNotification = exports.WillCreateFilesRequest = exports.FileOperationPatternKind = void 0;\n\tconst messages_1 = require$$0;\n\t/**\n\t * A pattern kind describing if a glob pattern matches a file a folder or\n\t * both.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar FileOperationPatternKind;\n\t(function (FileOperationPatternKind) {\n\t    /**\n\t     * The pattern matches a file only.\n\t     */\n\t    FileOperationPatternKind.file = 'file';\n\t    /**\n\t     * The pattern matches a folder only.\n\t     */\n\t    FileOperationPatternKind.folder = 'folder';\n\t})(FileOperationPatternKind = exports.FileOperationPatternKind || (exports.FileOperationPatternKind = {}));\n\t/**\n\t * The will create files request is sent from the client to the server before files are actually\n\t * created as long as the creation is triggered from within the client.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar WillCreateFilesRequest;\n\t(function (WillCreateFilesRequest) {\n\t    WillCreateFilesRequest.method = 'workspace/willCreateFiles';\n\t    WillCreateFilesRequest.type = new messages_1.ProtocolRequestType(WillCreateFilesRequest.method);\n\t})(WillCreateFilesRequest = exports.WillCreateFilesRequest || (exports.WillCreateFilesRequest = {}));\n\t/**\n\t * The did create files notification is sent from the client to the server when\n\t * files were created from within the client.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar DidCreateFilesNotification;\n\t(function (DidCreateFilesNotification) {\n\t    DidCreateFilesNotification.method = 'workspace/didCreateFiles';\n\t    DidCreateFilesNotification.type = new messages_1.ProtocolNotificationType(DidCreateFilesNotification.method);\n\t})(DidCreateFilesNotification = exports.DidCreateFilesNotification || (exports.DidCreateFilesNotification = {}));\n\t/**\n\t * The will rename files request is sent from the client to the server before files are actually\n\t * renamed as long as the rename is triggered from within the client.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar WillRenameFilesRequest;\n\t(function (WillRenameFilesRequest) {\n\t    WillRenameFilesRequest.method = 'workspace/willRenameFiles';\n\t    WillRenameFilesRequest.type = new messages_1.ProtocolRequestType(WillRenameFilesRequest.method);\n\t})(WillRenameFilesRequest = exports.WillRenameFilesRequest || (exports.WillRenameFilesRequest = {}));\n\t/**\n\t * The did rename files notification is sent from the client to the server when\n\t * files were renamed from within the client.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar DidRenameFilesNotification;\n\t(function (DidRenameFilesNotification) {\n\t    DidRenameFilesNotification.method = 'workspace/didRenameFiles';\n\t    DidRenameFilesNotification.type = new messages_1.ProtocolNotificationType(DidRenameFilesNotification.method);\n\t})(DidRenameFilesNotification = exports.DidRenameFilesNotification || (exports.DidRenameFilesNotification = {}));\n\t/**\n\t * The will delete files request is sent from the client to the server before files are actually\n\t * deleted as long as the deletion is triggered from within the client.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar DidDeleteFilesNotification;\n\t(function (DidDeleteFilesNotification) {\n\t    DidDeleteFilesNotification.method = 'workspace/didDeleteFiles';\n\t    DidDeleteFilesNotification.type = new messages_1.ProtocolNotificationType(DidDeleteFilesNotification.method);\n\t})(DidDeleteFilesNotification = exports.DidDeleteFilesNotification || (exports.DidDeleteFilesNotification = {}));\n\t/**\n\t * The did delete files notification is sent from the client to the server when\n\t * files were deleted from within the client.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar WillDeleteFilesRequest;\n\t(function (WillDeleteFilesRequest) {\n\t    WillDeleteFilesRequest.method = 'workspace/willDeleteFiles';\n\t    WillDeleteFilesRequest.type = new messages_1.ProtocolRequestType(WillDeleteFilesRequest.method);\n\t})(WillDeleteFilesRequest = exports.WillDeleteFilesRequest || (exports.WillDeleteFilesRequest = {}));\n\t//# sourceMappingURL=protocol.fileOperations.js.map \n} (protocol_fileOperations));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(protocol_fileOperations);\nexport { protocol_fileOperations as __moduleExports };",
+      "start": 1706896525343,
+      "end": 1706896525533,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "normal"
+    }
+  ]
+}

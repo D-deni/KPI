@@ -1,0 +1,321 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentContent/DocumentContentHeader.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport DocumentContentHeaderCreate from \"~/components/documents/DocumentContent/DocumentContentHeaderCreate.vue\";\r\n\r\nimport {useDocumentStore} from \"~/stores/documents\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentContentHeader',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst document = useDocumentStore()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"flex justify-between\" }, _attrs))\n  }><div class=\"flex items-center gap-x-10\"><button class=\"tracking-widest\">${\n    _ssrInterpolate(_ctx.$t('Мои документы'))\n  }</button><button class=\"tracking-widest\">${\n    _ssrInterpolate(_ctx.$t('Ожидающие подтверждения'))\n  }</button></div><button class=\"px-2 py-1 rounded-lg flex items-center gap-x-2 border dark:border-gray-500 dark:hover:border-gray-400 hover:border-gray-400 transition-all\"><svg class=\"dark:stroke-white stroke-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 11V14M12 14V17M12 14H9H15H12ZM13.0714 2.52927V6.83334C13.0714 7.93791 13.9668 8.83334 15.0714 8.83334H19.3494M13.0714 2.52927C12.7307 2.5095 12.3738 2.5 12 2.5C6.26471 2.5 4.5 4.73529 4.5 12C4.5 19.2647 6.26471 21.5 12 21.5C17.7353 21.5 19.5 19.2647 19.5 12C19.5 10.8146 19.453 9.76307 19.3494 8.83334M13.0714 2.52927L19.3494 8.83334\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg><span class=\"tracking-widest font-bold text-black dark:text-white\">${\n    _ssrInterpolate(_ctx.$t('Добавить'))\n  }</span></button>`)\n  if (_unref(document).showCreateDoc) {\n    _push(_ssrRenderComponent(TheModal, {\n      type: 'resize',\n      onShowModal: ($event: any) => (_unref(document).showCreateDoc = false)\n    }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(_ssrRenderComponent(DocumentContentHeaderCreate, null, null, _parent, _scopeId))\n        } else {\n          return [\n            _createVNode(DocumentContentHeaderCreate)\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentContent/DocumentContentHeader.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport DocumentContentHeaderCreate from \"~/components/documents/DocumentContent/DocumentContentHeaderCreate.vue\";\r\n\r\nimport {useDocumentStore} from \"~/stores/documents\";\r\n\r\nconst document = useDocumentStore()\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex justify-between\">\r\n    <div class=\"flex items-center gap-x-10\">\r\n      <button class=\"tracking-widest\">{{ $t('Мои документы') }}</button>\r\n      <button class=\"tracking-widest\">{{ $t('Ожидающие подтверждения') }}</button>\r\n    </div>\r\n    <button @click=\"document.showCreateDoc = true\"\r\n        class=\"px-2 py-1 rounded-lg flex items-center gap-x-2 border dark:border-gray-500 dark:hover:border-gray-400 hover:border-gray-400 transition-all\">\r\n      <svg class=\"dark:stroke-white stroke-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n           xmlns=\"http://www.w3.org/2000/svg\">\r\n        <path\r\n            d=\"M12 11V14M12 14V17M12 14H9H15H12ZM13.0714 2.52927V6.83334C13.0714 7.93791 13.9668 8.83334 15.0714 8.83334H19.3494M13.0714 2.52927C12.7307 2.5095 12.3738 2.5 12 2.5C6.26471 2.5 4.5 4.73529 4.5 12C4.5 19.2647 6.26471 21.5 12 21.5C17.7353 21.5 19.5 19.2647 19.5 12C19.5 10.8146 19.453 9.76307 19.3494 8.83334M13.0714 2.52927L19.3494 8.83334\"\r\n            stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n      </svg>\r\n      <span class=\"tracking-widest font-bold text-black dark:text-white\">{{ $t('Добавить') }}</span>\r\n    </button>\r\n    <TheModal :type=\"'resize'\" v-if=\"document.showCreateDoc\" @showModal=\"document.showCreateDoc = false\">\r\n      <DocumentContentHeaderCreate/>\r\n    </TheModal>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClH,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrD,CAAC;;;;;;AALuB,CAAC;AAMzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896549396,
+      "end": 1706896549396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport DocumentContentHeaderCreate from \"~/components/documents/DocumentContent/DocumentContentHeaderCreate.vue\";\nimport { useDocumentStore } from \"~/stores/documents\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentContentHeader\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const document = useDocumentStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex justify-between\" }, _attrs))}><div class=\"flex items-center gap-x-10\"><button class=\"tracking-widest\">${_ssrInterpolate(_ctx.$t(\"Мои документы\"))}</button><button class=\"tracking-widest\">${_ssrInterpolate(_ctx.$t(\"Ожидающие подтверждения\"))}</button></div><button class=\"px-2 py-1 rounded-lg flex items-center gap-x-2 border dark:border-gray-500 dark:hover:border-gray-400 hover:border-gray-400 transition-all\"><svg class=\"dark:stroke-white stroke-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 11V14M12 14V17M12 14H9H15H12ZM13.0714 2.52927V6.83334C13.0714 7.93791 13.9668 8.83334 15.0714 8.83334H19.3494M13.0714 2.52927C12.7307 2.5095 12.3738 2.5 12 2.5C6.26471 2.5 4.5 4.73529 4.5 12C4.5 19.2647 6.26471 21.5 12 21.5C17.7353 21.5 19.5 19.2647 19.5 12C19.5 10.8146 19.453 9.76307 19.3494 8.83334M13.0714 2.52927L19.3494 8.83334\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg><span class=\"tracking-widest font-bold text-black dark:text-white\">${_ssrInterpolate(_ctx.$t(\"Добавить\"))}</span></button>`);\n      if (_unref(document).showCreateDoc) {\n        _push(_ssrRenderComponent(TheModal, {\n          type: \"resize\",\n          onShowModal: ($event) => _unref(document).showCreateDoc = false\n        }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(_ssrRenderComponent(DocumentContentHeaderCreate, null, null, _parent2, _scopeId));\n            } else {\n              return [\n                _createVNode(DocumentContentHeaderCreate)\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
+      "start": 1706896549396,
+      "end": 1706896549551,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentContent/DocumentContentHeader.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport DocumentContentHeaderCreate from \"~/components/documents/DocumentContent/DocumentContentHeaderCreate.vue\";\r\n\r\nimport {useDocumentStore} from \"~/stores/documents\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentContentHeader',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst document = useDocumentStore()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"flex justify-between\" }, _attrs))\n  }><div class=\"flex items-center gap-x-10\"><button class=\"tracking-widest\">${\n    _ssrInterpolate(_ctx.$t('Мои документы'))\n  }</button><button class=\"tracking-widest\">${\n    _ssrInterpolate(_ctx.$t('Ожидающие подтверждения'))\n  }</button></div><button class=\"px-2 py-1 rounded-lg flex items-center gap-x-2 border dark:border-gray-500 dark:hover:border-gray-400 hover:border-gray-400 transition-all\"><svg class=\"dark:stroke-white stroke-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 11V14M12 14V17M12 14H9H15H12ZM13.0714 2.52927V6.83334C13.0714 7.93791 13.9668 8.83334 15.0714 8.83334H19.3494M13.0714 2.52927C12.7307 2.5095 12.3738 2.5 12 2.5C6.26471 2.5 4.5 4.73529 4.5 12C4.5 19.2647 6.26471 21.5 12 21.5C17.7353 21.5 19.5 19.2647 19.5 12C19.5 10.8146 19.453 9.76307 19.3494 8.83334M13.0714 2.52927L19.3494 8.83334\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg><span class=\"tracking-widest font-bold text-black dark:text-white\">${\n    _ssrInterpolate(_ctx.$t('Добавить'))\n  }</span></button>`)\n  if (_unref(document).showCreateDoc) {\n    _push(_ssrRenderComponent(TheModal, {\n      type: 'resize',\n      onShowModal: ($event: any) => (_unref(document).showCreateDoc = false)\n    }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(_ssrRenderComponent(DocumentContentHeaderCreate, null, null, _parent, _scopeId))\n        } else {\n          return [\n            _createVNode(DocumentContentHeaderCreate)\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,WAAW,UAAU,eAAe,cAAc,cAAc,mBAAmB;AAC7G,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAEhI,OAAO,cAAc;AACrB,OAAO,iCAAiC;AAExC,SAAQ,wBAAuB;AAG/B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,UAAM,WAAW,iBAAiB;AAElC,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,OACJ,gBAAgB,YAAY,EAAE,OAAO,uBAAuB,GAAG,MAAM,CAAC,CACxE,4EACE,gBAAgB,KAAK,GAAG,eAAe,CAAC,CAC1C,4CACE,gBAAgB,KAAK,GAAG,yBAAyB,CAAC,CACpD,qyBACE,gBAAgB,KAAK,GAAG,UAAU,CAAC,CACrC,kBAAkB;AAClB,UAAI,OAAO,QAAQ,EAAE,eAAe;AAClC,cAAM,oBAAoB,UAAU;AAAA,UAClC,MAAM;AAAA,UACN,aAAa,CAAC,WAAiB,OAAO,QAAQ,EAAE,gBAAgB;AAAA,QAClE,GAAG;AAAA,UACD,SAAS,SAAS,CAAC,GAAGA,QAAOC,UAAS,aAAa;AACjD,gBAAID,QAAO;AACT,cAAAA,OAAM,oBAAoB,6BAA6B,MAAM,MAAMC,UAAS,QAAQ,CAAC;AAAA,YACvF,OAAO;AACL,qBAAO;AAAA,gBACL,aAAa,2BAA2B;AAAA,cAC1C;AAAA,YACF;AAAA,UACF,CAAC;AAAA,UACD,GAAG;AAAA,QACL,GAAG,OAAO,CAAC;AAAA,MACb,OAAO;AACL,cAAM,SAAS;AAAA,MACjB;AACA,YAAM,QAAQ;AAAA,IAChB;AAAA,EACA;AAEA,CAAC;",
+        "names": [
+          "_push",
+          "_parent"
+        ]
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896549551,
+      "end": 1706896549551,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896549551,
+      "end": 1706896549551,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896549554,
+      "end": 1706896549554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport DocumentContentHeaderCreate from \"~/components/documents/DocumentContent/DocumentContentHeaderCreate.vue\";\nimport { useDocumentStore } from \"~/stores/documents\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentContentHeader\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const document = useDocumentStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex justify-between\" }, _attrs))}><div class=\"flex items-center gap-x-10\"><button class=\"tracking-widest\">${_ssrInterpolate(_ctx.$t(\"Мои документы\"))}</button><button class=\"tracking-widest\">${_ssrInterpolate(_ctx.$t(\"Ожидающие подтверждения\"))}</button></div><button class=\"px-2 py-1 rounded-lg flex items-center gap-x-2 border dark:border-gray-500 dark:hover:border-gray-400 hover:border-gray-400 transition-all\"><svg class=\"dark:stroke-white stroke-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 11V14M12 14V17M12 14H9H15H12ZM13.0714 2.52927V6.83334C13.0714 7.93791 13.9668 8.83334 15.0714 8.83334H19.3494M13.0714 2.52927C12.7307 2.5095 12.3738 2.5 12 2.5C6.26471 2.5 4.5 4.73529 4.5 12C4.5 19.2647 6.26471 21.5 12 21.5C17.7353 21.5 19.5 19.2647 19.5 12C19.5 10.8146 19.453 9.76307 19.3494 8.83334M13.0714 2.52927L19.3494 8.83334\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg><span class=\"tracking-widest font-bold text-black dark:text-white\">${_ssrInterpolate(_ctx.$t(\"Добавить\"))}</span></button>`);\n      if (_unref(document).showCreateDoc) {\n        _push(_ssrRenderComponent(TheModal, {\n          type: \"resize\",\n          onShowModal: ($event) => _unref(document).showCreateDoc = false\n        }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(_ssrRenderComponent(DocumentContentHeaderCreate, null, null, _parent2, _scopeId));\n            } else {\n              return [\n                _createVNode(DocumentContentHeaderCreate)\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
+      "start": 1706896549554,
+      "end": 1706896549601,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/documents/DocumentContent/DocumentContentHeader.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, mergeProps as _mergeProps } from \\\"vue\\\";\\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \\\"vue/server-renderer\\\";\\nimport TheModal from \\\"~/components/UI/TheModal.vue\\\";\\nimport DocumentContentHeaderCreate from \\\"~/components/documents/DocumentContent/DocumentContentHeaderCreate.vue\\\";\\nimport { useDocumentStore } from \\\"~/stores/documents\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"DocumentContentHeader\\\",\\n  __ssrInlineRender: true,\\n  setup(__props) {\\n    const document = useDocumentStore();\\n    return (_ctx, _push, _parent, _attrs) => {\\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \\\"flex justify-between\\\" }, _attrs))}><div class=\\\"flex items-center gap-x-10\\\"><button class=\\\"tracking-widest\\\">${_ssrInterpolate(_ctx.$t(\\\"Мои документы\\\"))}</button><button class=\\\"tracking-widest\\\">${_ssrInterpolate(_ctx.$t(\\\"Ожидающие подтверждения\\\"))}</button></div><button class=\\\"px-2 py-1 rounded-lg flex items-center gap-x-2 border dark:border-gray-500 dark:hover:border-gray-400 hover:border-gray-400 transition-all\\\"><svg class=\\\"dark:stroke-white stroke-black\\\" width=\\\"30px\\\" height=\\\"30px\\\" viewBox=\\\"0 0 24 24\\\" fill=\\\"none\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\"><path d=\\\"M12 11V14M12 14V17M12 14H9H15H12ZM13.0714 2.52927V6.83334C13.0714 7.93791 13.9668 8.83334 15.0714 8.83334H19.3494M13.0714 2.52927C12.7307 2.5095 12.3738 2.5 12 2.5C6.26471 2.5 4.5 4.73529 4.5 12C4.5 19.2647 6.26471 21.5 12 21.5C17.7353 21.5 19.5 19.2647 19.5 12C19.5 10.8146 19.453 9.76307 19.3494 8.83334M13.0714 2.52927L19.3494 8.83334\\\" stroke-width=\\\"1.2\\\" stroke-linecap=\\\"round\\\" stroke-linejoin=\\\"round\\\"></path></svg><span class=\\\"tracking-widest font-bold text-black dark:text-white\\\">${_ssrInterpolate(_ctx.$t(\\\"Добавить\\\"))}</span></button>`);\\n      if (_unref(document).showCreateDoc) {\\n        _push(_ssrRenderComponent(TheModal, {\\n          type: \\\"resize\\\",\\n          onShowModal: ($event) => _unref(document).showCreateDoc = false\\n        }, {\\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\\n            if (_push2) {\\n              _push2(_ssrRenderComponent(DocumentContentHeaderCreate, null, null, _parent2, _scopeId));\\n            } else {\\n              return [\\n                _createVNode(DocumentContentHeaderCreate)\\n              ];\\n            }\\n          }),\\n          _: 1\\n        }, _parent));\\n      } else {\\n        _push(`<!---->`);\\n      }\\n      _push(`</div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,WAAW,UAAU,eAAe,cAAc,cAAc,mBAAmB;AAC7G,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAChI,OAAO,cAAc;AACrB,OAAO,iCAAiC;AACxC,SAAS,wBAAwB;AACjC,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AACb,UAAM,WAAW,iBAAiB;AAClC,WAAO,CAAC,MAAM,OAAO,SAAS,WAAW;AACvC,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,uBAAuB,GAAG,MAAM,CAAC,CAAC,4EAA4E,gBAAgB,KAAK,GAAG,eAAe,CAAC,CAAC,4CAA4C,gBAAgB,KAAK,GAAG,yBAAyB,CAAC,CAAC,qyBAAqyB,gBAAgB,KAAK,GAAG,UAAU,CAAC,CAAC,kBAAkB;AACnoC,UAAI,OAAO,QAAQ,EAAE,eAAe;AAClC,cAAM,oBAAoB,UAAU;AAAA,UAClC,MAAM;AAAA,UACN,aAAa,CAAC,WAAW,OAAO,QAAQ,EAAE,gBAAgB;AAAA,QAC5D,GAAG;AAAA,UACD,SAAS,SAAS,CAAC,GAAG,QAAQ,UAAU,aAAa;AACnD,gBAAI,QAAQ;AACV,qBAAO,oBAAoB,6BAA6B,MAAM,MAAM,UAAU,QAAQ,CAAC;AAAA,YACzF,OAAO;AACL,qBAAO;AAAA,gBACL,aAAa,2BAA2B;AAAA,cAC1C;AAAA,YACF;AAAA,UACF,CAAC;AAAA,UACD,GAAG;AAAA,QACL,GAAG,OAAO,CAAC;AAAA,MACb,OAAO;AACL,cAAM,SAAS;AAAA,MACjB;AACA,YAAM,QAAQ;AAAA,IAChB;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549602,
+      "end": 1706896549602,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549603,
+      "end": 1706896549603,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549603,
+      "end": 1706896549603,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549603,
+      "end": 1706896549603,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549603,
+      "end": 1706896549603,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549603,
+      "end": 1706896549605,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549603,
+      "end": 1706896549605,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549605,
+      "end": 1706896549605,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549605,
+      "end": 1706896549605,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549605,
+      "end": 1706896549605,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549605,
+      "end": 1706896549605,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896549606,
+      "end": 1706896549606,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896549606,
+      "end": 1706896549606,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896549606,
+      "end": 1706896549606,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896549606,
+      "end": 1706896549606,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896549606,
+      "end": 1706896549607,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentContent/DocumentContentList.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createBlock as _createBlock, createElementVNode as _createElementVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex gap-x-2 gap-y-2 flex-wrap mt-10\" }\n\nimport {useDocumentStore} from \"~/stores/documents\";\r\nimport DocumentContentListElem from \"~/components/documents/DocumentContent/DocumentContentList/DocumentContentListElem.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentContentList',\n  setup(__props) {\n\r\nconst documentStore = useDocumentStore()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(documentStore).get_all_document.results, (item) => {\n        return (_openBlock(), _createBlock(DocumentContentListElem, { item: item }, {\n          documentTitle: _withCtx(() => [\n            _createTextVNode(_toDisplayString(item.title), 1)\n          ]),\n          documentFileName: _withCtx(() => [\n            _createTextVNode(_toDisplayString(item.file_name), 1)\n          ]),\n          documentUserName: _withCtx(() => [\n            _createTextVNode(_toDisplayString(item.author.first_name + ' ' + item.author.last_name), 1)\n          ]),\n          _: 2\n        }, 1032, [\"item\"]))\n      }), 256))\n    ])\n  ]))\n}\n}\n\n})",
+      "start": 1706896522103,
+      "end": 1706896522103
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createBlock as _createBlock, createElementVNode as _createElementVNode } from \"vue\";\nconst _hoisted_1 = { class: \"flex gap-x-2 gap-y-2 flex-wrap mt-10\" };\nimport { useDocumentStore } from \"~/stores/documents\";\nimport DocumentContentListElem from \"~/components/documents/DocumentContent/DocumentContentList/DocumentContentListElem.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentContentList\",\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createElementVNode(\"div\", _hoisted_1, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(documentStore).get_all_document.results, (item) => {\n            return _openBlock(), _createBlock(DocumentContentListElem, { item }, {\n              documentTitle: _withCtx(() => [\n                _createTextVNode(_toDisplayString(item.title), 1)\n              ]),\n              documentFileName: _withCtx(() => [\n                _createTextVNode(_toDisplayString(item.file_name), 1)\n              ]),\n              documentUserName: _withCtx(() => [\n                _createTextVNode(_toDisplayString(item.author.first_name + \" \" + item.author.last_name), 1)\n              ]),\n              _: 2\n            }, 1032, [\"item\"]);\n          }), 256))\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896522103,
+      "end": 1706896522475,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentContent/DocumentContentList.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createBlock as _createBlock, createElementVNode as _createElementVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex gap-x-2 gap-y-2 flex-wrap mt-10\" }\n\nimport {useDocumentStore} from \"~/stores/documents\";\r\nimport DocumentContentListElem from \"~/components/documents/DocumentContent/DocumentContentList/DocumentContentListElem.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentContentList',\n  setup(__props) {\n\r\nconst documentStore = useDocumentStore()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(documentStore).get_all_document.results, (item) => {\n        return (_openBlock(), _createBlock(DocumentContentListElem, { item: item }, {\n          documentTitle: _withCtx(() => [\n            _createTextVNode(_toDisplayString(item.title), 1)\n          ]),\n          documentFileName: _withCtx(() => [\n            _createTextVNode(_toDisplayString(item.file_name), 1)\n          ]),\n          documentUserName: _withCtx(() => [\n            _createTextVNode(_toDisplayString(item.author.first_name + ' ' + item.author.last_name), 1)\n          ]),\n          _: 2\n        }, 1032, [\"item\"]))\n      }), 256))\n    ])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,aAAa,YAAY,WAAW,aAAa,YAAY,sBAAsB,qBAAqB,mBAAmB,kBAAkB,mBAAmB,kBAAkB,WAAW,UAAU,eAAe,cAAc,sBAAsB,2BAA2B;AAE7T,MAAM,aAAa,EAAE,OAAO,uCAAuC;AAEnE,SAAQ,wBAAuB;AAC/B,OAAO,6BAA6B;AAEpC,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,gBAAgB,iBAAiB;AAEvC,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACrD,oBAAoB,OAAO,YAAY;AAAA,WACpC,WAAW,IAAI,GAAG,oBAAoB,WAAW,MAAM,YAAY,OAAO,aAAa,EAAE,iBAAiB,SAAS,CAAC,SAAS;AAC5H,mBAAQ,WAAW,GAAG,aAAa,yBAAyB,EAAE,KAAW,GAAG;AAAA,cAC1E,eAAe,SAAS,MAAM;AAAA,gBAC5B,iBAAiB,iBAAiB,KAAK,KAAK,GAAG,CAAC;AAAA,cAClD,CAAC;AAAA,cACD,kBAAkB,SAAS,MAAM;AAAA,gBAC/B,iBAAiB,iBAAiB,KAAK,SAAS,GAAG,CAAC;AAAA,cACtD,CAAC;AAAA,cACD,kBAAkB,SAAS,MAAM;AAAA,gBAC/B,iBAAiB,iBAAiB,KAAK,OAAO,aAAa,MAAM,KAAK,OAAO,SAAS,GAAG,CAAC;AAAA,cAC5F,CAAC;AAAA,cACD,GAAG;AAAA,YACL,GAAG,MAAM,CAAC,MAAM,CAAC;AAAA,UACnB,CAAC,GAAG,GAAG;AAAA,QACT,CAAC;AAAA,MACH,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522481,
+      "end": 1706896522487,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522487,
+      "end": 1706896522487,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522489,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522489,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522489,
+      "end": 1706896522490,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/utils/is.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\n'use strict';\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.objectLiteral = exports.typedArray = exports.stringArray = exports.array = exports.func = exports.error = exports.number = exports.string = exports.boolean = void 0;\nfunction boolean(value) {\n    return value === true || value === false;\n}\nexports.boolean = boolean;\nfunction string(value) {\n    return typeof value === 'string' || value instanceof String;\n}\nexports.string = string;\nfunction number(value) {\n    return typeof value === 'number' || value instanceof Number;\n}\nexports.number = number;\nfunction error(value) {\n    return value instanceof Error;\n}\nexports.error = error;\nfunction func(value) {\n    return typeof value === 'function';\n}\nexports.func = func;\nfunction array(value) {\n    return Array.isArray(value);\n}\nexports.array = array;\nfunction stringArray(value) {\n    return array(value) && value.every(elem => string(elem));\n}\nexports.stringArray = stringArray;\nfunction typedArray(value, check) {\n    return Array.isArray(value) && value.every(check);\n}\nexports.typedArray = typedArray;\nfunction objectLiteral(value) {\n    // Strictly speaking class instances pass this check as well. Since the LSP\n    // doesn't use classes we ignore this for now. If we do we need to add something\n    // like this: `Object.getPrototypeOf(Object.getPrototypeOf(x)) === null`\n    return value !== null && typeof value === 'object';\n}\nexports.objectLiteral = objectLiteral;\n//# sourceMappingURL=is.js.map",
+      "start": 1706896525225,
+      "end": 1706896525312,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525312,
+      "end": 1706896525312,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as is } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/utils/is.js?commonjs-exports\";\n\n'use strict';\nObject.defineProperty(is, \"__esModule\", { value: true });\nvar objectLiteral_1 = is.objectLiteral = typedArray_1 = is.typedArray = stringArray_1 = is.stringArray = array_1 = is.array = func_1 = is.func = error_1 = is.error = number_1 = is.number = string_1 = is.string = boolean_1 = is.boolean = void 0;\nfunction boolean(value) {\n    return value === true || value === false;\n}\nvar boolean_1 = is.boolean = boolean;\nfunction string(value) {\n    return typeof value === 'string' || value instanceof String;\n}\nvar string_1 = is.string = string;\nfunction number(value) {\n    return typeof value === 'number' || value instanceof Number;\n}\nvar number_1 = is.number = number;\nfunction error(value) {\n    return value instanceof Error;\n}\nvar error_1 = is.error = error;\nfunction func(value) {\n    return typeof value === 'function';\n}\nvar func_1 = is.func = func;\nfunction array(value) {\n    return Array.isArray(value);\n}\nvar array_1 = is.array = array;\nfunction stringArray(value) {\n    return array(value) && value.every(elem => string(elem));\n}\nvar stringArray_1 = is.stringArray = stringArray;\nfunction typedArray(value, check) {\n    return Array.isArray(value) && value.every(check);\n}\nvar typedArray_1 = is.typedArray = typedArray;\nfunction objectLiteral(value) {\n    // Strictly speaking class instances pass this check as well. Since the LSP\n    // doesn't use classes we ignore this for now. If we do we need to add something\n    // like this: `Object.getPrototypeOf(Object.getPrototypeOf(x)) === null`\n    return value !== null && typeof value === 'object';\n}\nobjectLiteral_1 = is.objectLiteral = objectLiteral;\n//# sourceMappingURL=is.js.map\n\nexport { is as __moduleExports, objectLiteral_1 as objectLiteral, typedArray_1 as typedArray, stringArray_1 as stringArray, array_1 as array, func_1 as func, error_1 as error, number_1 as number, string_1 as string, boolean_1 as boolean, is as default };",
+      "start": 1706896525312,
+      "end": 1706896525313,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;AAIA,YAAY,CAAC;AACb,MAAM,CAAC,cAAc,CAAC,EAAO,EAAE,YAAY,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC;AAC9D,sCAAqB,GAAG,4BAAkB,GAAG,8BAAmB,GAAG,kBAAa,GAAG,gBAAY,GAAG,kBAAa,GAAG,oBAAc,GAAG,oBAAc,GAAG,sBAAe,GAAG,KAAK,CAAC,CAAC;AAC7K,SAAS,OAAO,CAAC,KAAK,EAAE;AACxB,IAAI,OAAO,KAAK,KAAK,IAAI,IAAI,KAAK,KAAK,KAAK,CAAC;AAC7C,CAAC;AACD,0BAAe,GAAG,OAAO,CAAC;AAC1B,SAAS,MAAM,CAAC,KAAK,EAAE;AACvB,IAAI,OAAO,OAAO,KAAK,KAAK,QAAQ,IAAI,KAAK,YAAY,MAAM,CAAC;AAChE,CAAC;AACD,wBAAc,GAAG,MAAM,CAAC;AACxB,SAAS,MAAM,CAAC,KAAK,EAAE;AACvB,IAAI,OAAO,OAAO,KAAK,KAAK,QAAQ,IAAI,KAAK,YAAY,MAAM,CAAC;AAChE,CAAC;AACD,wBAAc,GAAG,MAAM,CAAC;AACxB,SAAS,KAAK,CAAC,KAAK,EAAE;AACtB,IAAI,OAAO,KAAK,YAAY,KAAK,CAAC;AAClC,CAAC;AACD,sBAAa,GAAG,KAAK,CAAC;AACtB,SAAS,IAAI,CAAC,KAAK,EAAE;AACrB,IAAI,OAAO,OAAO,KAAK,KAAK,UAAU,CAAC;AACvC,CAAC;AACD,oBAAY,GAAG,IAAI,CAAC;AACpB,SAAS,KAAK,CAAC,KAAK,EAAE;AACtB,IAAI,OAAO,KAAK,CAAC,OAAO,CAAC,KAAK,CAAC,CAAC;AAChC,CAAC;AACD,sBAAa,GAAG,KAAK,CAAC;AACtB,SAAS,WAAW,CAAC,KAAK,EAAE;AAC5B,IAAI,OAAO,KAAK,CAAC,KAAK,CAAC,IAAI,KAAK,CAAC,KAAK,CAAC,IAAI,IAAI,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC;AAC7D,CAAC;AACD,kCAAmB,GAAG,WAAW,CAAC;AAClC,SAAS,UAAU,CAAC,KAAK,EAAE,KAAK,EAAE;AAClC,IAAI,OAAO,KAAK,CAAC,OAAO,CAAC,KAAK,CAAC,IAAI,KAAK,CAAC,KAAK,CAAC,KAAK,CAAC,CAAC;AACtD,CAAC;AACD,gCAAkB,GAAG,UAAU,CAAC;AAChC,SAAS,aAAa,CAAC,KAAK,EAAE;AAC9B;AACA;AACA;AACA,IAAI,OAAO,KAAK,KAAK,IAAI,IAAI,OAAO,KAAK,KAAK,QAAQ,CAAC;AACvD,CAAC;AACD,kCAAqB,GAAG,aAAa,CAAC;AACtC"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525313,
+      "end": 1706896525313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525313,
+      "end": 1706896525314,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/lodash/_baseTimes.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * The base implementation of `_.times` without support for iteratee shorthands\n * or max array length checks.\n *\n * @private\n * @param {number} n The number of times to invoke `iteratee`.\n * @param {Function} iteratee The function invoked per iteration.\n * @returns {Array} Returns the array of results.\n */\nfunction baseTimes(n, iteratee) {\n  var index = -1,\n      result = Array(n);\n\n  while (++index < n) {\n    result[index] = iteratee(index);\n  }\n  return result;\n}\n\nmodule.exports = baseTimes;\n",
+      "start": 1706896525694,
+      "end": 1706896525710,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\n * The base implementation of `_.times` without support for iteratee shorthands\n * or max array length checks.\n *\n * @private\n * @param {number} n The number of times to invoke `iteratee`.\n * @param {Function} iteratee The function invoked per iteration.\n * @returns {Array} Returns the array of results.\n */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction baseTimes(n, iteratee) {\n  var index = -1,\n      result = Array(n);\n\n  while (++index < n) {\n    result[index] = iteratee(index);\n  }\n  return result;\n}\n\nvar _baseTimes = baseTimes;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_baseTimes);\nexport { _baseTimes as __moduleExports };",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;AASA,SAAS,SAAS,CAAC,CAAC,EAAE,QAAQ,EAAE;AAChC,EAAE,IAAI,KAAK,GAAG,CAAC,CAAC;AAChB,MAAM,MAAM,GAAG,KAAK,CAAC,CAAC,CAAC,CAAC;AACxB;AACA,EAAE,OAAO,EAAE,KAAK,GAAG,CAAC,EAAE;AACtB,IAAI,MAAM,CAAC,KAAK,CAAC,GAAG,QAAQ,CAAC,KAAK,CAAC,CAAC;AACpC,GAAG;AACH,EAAE,OAAO,MAAM,CAAC;AAChB,CAAC;AACD;IACA,UAAc,GAAG,SAAS"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525710,
+      "end": 1706896525710,
+      "order": "normal"
+    }
+  ]
+}

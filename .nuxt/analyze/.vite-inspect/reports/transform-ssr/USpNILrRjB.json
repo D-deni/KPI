@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/ChatNav/UI/TheChatContentEmpty.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useChat} from \"~/stores/chat\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheChatContentEmpty',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  if (_unref(chat).userChat.messages.length === 0) {\n    _push(`<div${\n      _ssrRenderAttrs(_mergeProps({ class: \"my-auto dark:bg-gray-700 dark:shadow-gray-600 shadow-md rounded-lg dark:border-none border-t border-opacity-20 border-gray-400 mt-20 h-20 items-center flex justify-center w-4/12 max-lg:w-6/12 max-md:w-10/12 max-ms:w-full mx-auto\" }, _attrs))\n    }><p class=\"tracking-widest text-lg max-sm:text-base\">${\n      _ssrInterpolate(_ctx.$t('Пока что тут ничего нет'))\n    }</p></div>`)\n  } else {\n    _push(`<!---->`)\n  }\n}\n}\n\n})",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/ChatNav/UI/TheChatContentEmpty.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport {useChat} from \"~/stores/chat\";\r\n\r\nconst chat = useChat()\r\n</script>\r\n\r\n<template>\r\n  <div\r\n    class=\"my-auto dark:bg-gray-700 dark:shadow-gray-600 shadow-md rounded-lg dark:border-none border-t border-opacity-20 border-gray-400 mt-20 h-20 items-center flex justify-center w-4/12 max-lg:w-6/12 max-md:w-10/12 max-ms:w-full mx-auto\"\r\n    v-if=\"chat.userChat.messages.length === 0\">\r\n    <p class=\"tracking-widest text-lg max-sm:text-base\">{{ $t('Пока что тут ничего нет') }}</p>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC;;;;;;AAFuB,CAAC;AAGzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896549456,
+      "end": 1706896549456,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport { useChat } from \"~/stores/chat\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheChatContentEmpty\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const chat = useChat();\n    return (_ctx, _push, _parent, _attrs) => {\n      if (_unref(chat).userChat.messages.length === 0) {\n        _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"my-auto dark:bg-gray-700 dark:shadow-gray-600 shadow-md rounded-lg dark:border-none border-t border-opacity-20 border-gray-400 mt-20 h-20 items-center flex justify-center w-4/12 max-lg:w-6/12 max-md:w-10/12 max-ms:w-full mx-auto\" }, _attrs))}><p class=\"tracking-widest text-lg max-sm:text-base\">${_ssrInterpolate(_ctx.$t(\"Пока что тут ничего нет\"))}</p></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n    };\n  }\n});\n",
+      "start": 1706896549456,
+      "end": 1706896549551,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/ChatNav/UI/TheChatContentEmpty.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useChat} from \"~/stores/chat\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheChatContentEmpty',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  if (_unref(chat).userChat.messages.length === 0) {\n    _push(`<div${\n      _ssrRenderAttrs(_mergeProps({ class: \"my-auto dark:bg-gray-700 dark:shadow-gray-600 shadow-md rounded-lg dark:border-none border-t border-opacity-20 border-gray-400 mt-20 h-20 items-center flex justify-center w-4/12 max-lg:w-6/12 max-md:w-10/12 max-ms:w-full mx-auto\" }, _attrs))\n    }><p class=\"tracking-widest text-lg max-sm:text-base\">${\n      _ssrInterpolate(_ctx.$t('Пока что тут ничего нет'))\n    }</p></div>`)\n  } else {\n    _push(`<!---->`)\n  }\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,mBAAmB;AAC3D,SAAS,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAErF,SAAQ,eAAc;AAGtB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,UAAM,OAAO,QAAQ;AAErB,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,UAAI,OAAO,IAAI,EAAE,SAAS,SAAS,WAAW,GAAG;AAC/C,cAAM,OACJ,gBAAgB,YAAY,EAAE,OAAO,uOAAuO,GAAG,MAAM,CAAC,CACxR,wDACE,gBAAgB,KAAK,GAAG,yBAAyB,CAAC,CACpD,YAAY;AAAA,MACd,OAAO;AACL,cAAM,SAAS;AAAA,MACjB;AAAA,IACF;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896549551,
+      "end": 1706896549551,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896549551,
+      "end": 1706896549551,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896549554,
+      "end": 1706896549554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896549554,
+      "end": 1706896549554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896549555,
+      "end": 1706896549555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896549555,
+      "end": 1706896549555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896549556,
+      "end": 1706896549556,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896549556,
+      "end": 1706896549556,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896549556,
+      "end": 1706896549556,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549558,
+      "end": 1706896549558,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549558,
+      "end": 1706896549558,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549558,
+      "end": 1706896549558,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549558,
+      "end": 1706896549558,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549559,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549559,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549560,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549560,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549560,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549560,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896549560,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896549560,
+      "end": 1706896549560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896549560,
+      "end": 1706896549561,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896549561,
+      "end": 1706896549561,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896549561,
+      "end": 1706896549561,
+      "order": "normal"
+    }
+  ]
+}

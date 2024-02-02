@@ -1,0 +1,296 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/nuxt-anchorscroll/dist/runtime/anchorscroll-plugin.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { toValue } from \"vue\";\nimport { defineNuxtPlugin, useNuxtApp, useRuntimeConfig } from \"nuxt/app\";\nconst generalAnchorScroll = ({ hash }) => {\n  const scrollVariants = {\n    toTop: {\n      scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toTop) || {}\n    }\n  };\n  if (hash !== \"\") {\n    try {\n      const target = document.querySelector(hash);\n      if (!target) {\n        console.error(`[AnchorScroll]: unable to find element with selector '${hash}'`);\n        return scrollVariants;\n      }\n      scrollVariants.toAnchor = {\n        target,\n        scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toAnchor) ?? {}\n      };\n    } catch (error) {\n      console.error(`[AnchorScroll]: unable to get element for selector '${hash}':`, error);\n    }\n  }\n  return scrollVariants;\n};\nconst anchorScrollExecutor = (hook) => {\n  const nuxtApp = useNuxtApp();\n  const currentRoute = nuxtApp.$router.currentRoute;\n  const disableAnchorScroll = currentRoute.value.meta.disableAnchorScroll ?? {};\n  const {\n    toAnchor: disableToAnchor = false,\n    toTop: disableToTop = false\n  } = disableAnchorScroll === true ? { toAnchor: true, toTop: true } : disableAnchorScroll;\n  if (disableToAnchor && disableToTop)\n    return;\n  const allMatched = [...nuxtApp?.$anchorScroll?.matched ?? [], generalAnchorScroll];\n  for (const matched of allMatched) {\n    const maybeAnchorScrollAlternatives = matched(currentRoute.value, hook);\n    if (maybeAnchorScrollAlternatives === false)\n      return;\n    const { toAnchor, toTop } = maybeAnchorScrollAlternatives ?? {};\n    if (!disableToAnchor && toAnchor) {\n      const {\n        target,\n        scrollOptions: { behavior, offsetLeft, offsetTop },\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\n      } = toAnchor;\n      const { top, left } = target.getBoundingClientRect();\n      const scrollToAnchorOptions = {\n        behavior,\n        ...offsetLeft !== void 0 && { left: left + offsetLeft },\n        ...offsetTop !== void 0 && { top: top + offsetTop }\n      };\n      for (const surface of surfaces)\n        surface.scrollBy(scrollToAnchorOptions);\n      return;\n    }\n    if (!disableToTop && toTop) {\n      const {\n        scrollOptions: { behavior, offsetLeft, offsetTop },\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\n      } = toTop;\n      const scrollToTopOptions = {\n        behavior,\n        left: offsetLeft,\n        top: offsetTop\n      };\n      for (const surface of surfaces)\n        surface.scrollTo(scrollToTopOptions);\n    }\n  }\n};\nexport default defineNuxtPlugin((nuxtApp) => {\n  const {\n    hooks = []\n  } = useRuntimeConfig().public.anchorScroll ?? {};\n  useNuxtApp().$anchorScroll = {\n    matched: [],\n    general: generalAnchorScroll,\n    defaults: {\n      toAnchor: {\n        behavior: \"smooth\",\n        offsetTop: 0\n      },\n      toTop: {\n        behavior: \"instant\",\n        offsetTop: 0\n      },\n      surfaces: () => [document.documentElement, document.body]\n    }\n  };\n  for (const hook of hooks)\n    nuxtApp.hook(hook, () => anchorScrollExecutor(hook));\n});\n",
+      "start": 1706896534108,
+      "end": 1706896534901,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896534901,
+      "end": 1706896534901,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896534901,
+      "end": 1706896534903,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896534901,
+      "end": 1706896534903,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896534903,
+      "end": 1706896534903,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896534903,
+      "end": 1706896534903,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896534903,
+      "end": 1706896534903,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { toValue } from \"vue\";\nimport { defineNuxtPlugin, useNuxtApp, useRuntimeConfig } from \"nuxt/app\";\nconst generalAnchorScroll = ({ hash }) => {\n  const scrollVariants = {\n    toTop: {\n      scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toTop) || {}\n    }\n  };\n  if (hash !== \"\") {\n    try {\n      const target = (void 0).querySelector(hash);\n      if (!target) {\n        console.error(`[AnchorScroll]: unable to find element with selector '${hash}'`);\n        return scrollVariants;\n      }\n      scrollVariants.toAnchor = {\n        target,\n        scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toAnchor) ?? {}\n      };\n    } catch (error) {\n      console.error(`[AnchorScroll]: unable to get element for selector '${hash}':`, error);\n    }\n  }\n  return scrollVariants;\n};\nconst anchorScrollExecutor = (hook) => {\n  const nuxtApp = useNuxtApp();\n  const currentRoute = nuxtApp.$router.currentRoute;\n  const disableAnchorScroll = currentRoute.value.meta.disableAnchorScroll ?? {};\n  const {\n    toAnchor: disableToAnchor = false,\n    toTop: disableToTop = false\n  } = disableAnchorScroll === true ? { toAnchor: true, toTop: true } : disableAnchorScroll;\n  if (disableToAnchor && disableToTop)\n    return;\n  const allMatched = [...nuxtApp?.$anchorScroll?.matched ?? [], generalAnchorScroll];\n  for (const matched of allMatched) {\n    const maybeAnchorScrollAlternatives = matched(currentRoute.value, hook);\n    if (maybeAnchorScrollAlternatives === false)\n      return;\n    const { toAnchor, toTop } = maybeAnchorScrollAlternatives ?? {};\n    if (!disableToAnchor && toAnchor) {\n      const {\n        target,\n        scrollOptions: { behavior, offsetLeft, offsetTop },\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\n      } = toAnchor;\n      const { top, left } = target.getBoundingClientRect();\n      const scrollToAnchorOptions = {\n        behavior,\n        ...offsetLeft !== void 0 && { left: left + offsetLeft },\n        ...offsetTop !== void 0 && { top: top + offsetTop }\n      };\n      for (const surface of surfaces)\n        surface.scrollBy(scrollToAnchorOptions);\n      return;\n    }\n    if (!disableToTop && toTop) {\n      const {\n        scrollOptions: { behavior, offsetLeft, offsetTop },\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\n      } = toTop;\n      const scrollToTopOptions = {\n        behavior,\n        left: offsetLeft,\n        top: offsetTop\n      };\n      for (const surface of surfaces)\n        surface.scrollTo(scrollToTopOptions);\n    }\n  }\n};\nexport default defineNuxtPlugin((nuxtApp) => {\n  const {\n    hooks = []\n  } = useRuntimeConfig().public.anchorScroll ?? {};\n  useNuxtApp().$anchorScroll = {\n    matched: [],\n    general: generalAnchorScroll,\n    defaults: {\n      toAnchor: {\n        behavior: \"smooth\",\n        offsetTop: 0\n      },\n      toTop: {\n        behavior: \"instant\",\n        offsetTop: 0\n      },\n      surfaces: () => [(void 0).documentElement, (void 0).body]\n    }\n  };\n  for (const hook of hooks)\n    nuxtApp.hook(hook, () => anchorScrollExecutor(hook));\n});\n",
+      "start": 1706896534903,
+      "end": 1706896535279,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/node_modules/nuxt-anchorscroll/dist/runtime/anchorscroll-plugin.mjs\"],\n  \"sourcesContent\": [\"import { toValue } from \\\"vue\\\";\\nimport { defineNuxtPlugin, useNuxtApp, useRuntimeConfig } from \\\"nuxt/app\\\";\\nconst generalAnchorScroll = ({ hash }) => {\\n  const scrollVariants = {\\n    toTop: {\\n      scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toTop) || {}\\n    }\\n  };\\n  if (hash !== \\\"\\\") {\\n    try {\\n      const target = document.querySelector(hash);\\n      if (!target) {\\n        console.error(`[AnchorScroll]: unable to find element with selector '${hash}'`);\\n        return scrollVariants;\\n      }\\n      scrollVariants.toAnchor = {\\n        target,\\n        scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toAnchor) ?? {}\\n      };\\n    } catch (error) {\\n      console.error(`[AnchorScroll]: unable to get element for selector '${hash}':`, error);\\n    }\\n  }\\n  return scrollVariants;\\n};\\nconst anchorScrollExecutor = (hook) => {\\n  const nuxtApp = useNuxtApp();\\n  const currentRoute = nuxtApp.$router.currentRoute;\\n  const disableAnchorScroll = currentRoute.value.meta.disableAnchorScroll ?? {};\\n  const {\\n    toAnchor: disableToAnchor = false,\\n    toTop: disableToTop = false\\n  } = disableAnchorScroll === true ? { toAnchor: true, toTop: true } : disableAnchorScroll;\\n  if (disableToAnchor && disableToTop)\\n    return;\\n  const allMatched = [...nuxtApp?.$anchorScroll?.matched ?? [], generalAnchorScroll];\\n  for (const matched of allMatched) {\\n    const maybeAnchorScrollAlternatives = matched(currentRoute.value, hook);\\n    if (maybeAnchorScrollAlternatives === false)\\n      return;\\n    const { toAnchor, toTop } = maybeAnchorScrollAlternatives ?? {};\\n    if (!disableToAnchor && toAnchor) {\\n      const {\\n        target,\\n        scrollOptions: { behavior, offsetLeft, offsetTop },\\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\\n      } = toAnchor;\\n      const { top, left } = target.getBoundingClientRect();\\n      const scrollToAnchorOptions = {\\n        behavior,\\n        ...offsetLeft !== void 0 && { left: left + offsetLeft },\\n        ...offsetTop !== void 0 && { top: top + offsetTop }\\n      };\\n      for (const surface of surfaces)\\n        surface.scrollBy(scrollToAnchorOptions);\\n      return;\\n    }\\n    if (!disableToTop && toTop) {\\n      const {\\n        scrollOptions: { behavior, offsetLeft, offsetTop },\\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\\n      } = toTop;\\n      const scrollToTopOptions = {\\n        behavior,\\n        left: offsetLeft,\\n        top: offsetTop\\n      };\\n      for (const surface of surfaces)\\n        surface.scrollTo(scrollToTopOptions);\\n    }\\n  }\\n};\\nexport default defineNuxtPlugin((nuxtApp) => {\\n  const {\\n    hooks = []\\n  } = useRuntimeConfig().public.anchorScroll ?? {};\\n  useNuxtApp().$anchorScroll = {\\n    matched: [],\\n    general: generalAnchorScroll,\\n    defaults: {\\n      toAnchor: {\\n        behavior: \\\"smooth\\\",\\n        offsetTop: 0\\n      },\\n      toTop: {\\n        behavior: \\\"instant\\\",\\n        offsetTop: 0\\n      },\\n      surfaces: () => [document.documentElement, document.body]\\n    }\\n  };\\n  for (const hook of hooks)\\n    nuxtApp.hook(hook, () => anchorScrollExecutor(hook));\\n});\\n\"],\n  \"mappings\": \"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\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896535279,
+      "end": 1706896535279,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896535279,
+      "end": 1706896535280,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896535281,
+      "end": 1706896535282,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896535281,
+      "end": 1706896535283,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896535284,
+      "end": 1706896535284,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896535284,
+      "end": 1706896535284,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896535287,
+      "end": 1706896535287,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896535287,
+      "end": 1706896535287,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896535288,
+      "end": 1706896535288,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896535288,
+      "end": 1706896535288,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896535288,
+      "end": 1706896535288,
+      "order": "normal"
+    }
+  ]
+}

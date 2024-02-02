@@ -4,7 +4,7 @@ import {useAuthStore} from "~/stores/auth";
 import {useUserStore} from "~/stores/users";
 import {useRoute} from "vue-router";
 import TheChatAvatar from "~/components/Chat/ChatNav/UI/TheChatAvatar.vue";
-
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 const userStore = useUserStore()
 const chatStore = useChat()
 const user = useAuthStore()

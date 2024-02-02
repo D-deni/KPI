@@ -4,6 +4,11 @@ import ObjectContent from "~/components/Objects/ObjectContent.vue";
 import TheSearch from "~/components/UI/TheSearch.vue";
 import TheFilter from "~/components/UI/TheFilter.vue";
 import ObjectCreate from "~/components/Objects/ObjectCreate.vue";
+
+useSeoMeta({
+  title: 'Объекты',
+  description: 'Объекты компании'
+})
 </script>
 
 <template>

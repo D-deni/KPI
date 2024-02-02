@@ -1,8 +1,8 @@
 import { hasInjectionContext, getCurrentInstance, version, ref, watchEffect, watch, toRef as toRef$1, isRef, defineAsyncComponent, defineComponent, h, inject, onUnmounted, provide, shallowReactive, Suspense, nextTick, Transition, getCurrentScope, onScopeDispose, unref, readonly, customRef, shallowRef, computed, reactive, useSSRContext, Fragment, mergeProps, createApp, effectScope, isReactive, toRaw, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, isReadonly, toRefs, markRaw, Text, isShallow, toValue as toValue$1 } from 'vue';
 import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as defuFn, m as klona, n as getRequestHeader, o as defu, p as sanitizeStatusCode, q as createDefu, r as createHooks, t as parse$1, v as destr, w as isEqual$1, x as setCookie, y as getCookie, z as deleteCookie, A as getRequestHeaders } from '../nitro/node-server.mjs';
 import { getActiveHead } from 'unhead';
-import { defineHeadPlugin, composableNames } from '@unhead/shared';
-import { RouterView, createMemoryHistory, createRouter, START_LOCATION, useRouter as useRouter$1, useRoute as useRoute$1 } from 'vue-router';
+import { defineHeadPlugin, composableNames, unpackMeta } from '@unhead/shared';
+import { RouterView, useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION, useRouter as useRouter$1 } from 'vue-router';
 import slugify from '@sindresorhus/slugify';
 import { extendTailwindMerge } from 'tailwind-merge';
 import anime from 'animejs';
@@ -606,6 +606,26 @@ const coreComposableNames = [
 ({
   "@unhead/vue": [...coreComposableNames, ...composableNames]
 });
+function useSeoMeta(input, options) {
+  const { title, titleTemplate, ...meta } = input;
+  return useHead({
+    title,
+    titleTemplate,
+    // @ts-expect-error runtime type
+    _flatMeta: meta
+  }, {
+    ...options,
+    transform(t) {
+      const meta2 = unpackMeta({ ...t._flatMeta });
+      delete t._flatMeta;
+      return {
+        // @ts-expect-error runtime type
+        ...t,
+        meta: meta2
+      };
+    }
+  });
+}
 const unhead_KgADcZ0jPj = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:head",
   enforce: "pre",
@@ -898,13 +918,13 @@ const _routes = [
             meta: {},
             alias: [],
             redirect: void 0,
-            component: () => import('./_nuxt/_id_-twHGAfOC.mjs').then((m) => m.default || m)
+            component: () => import('./_nuxt/_id_-Wlj_cIO2.mjs').then((m) => m.default || m)
           }
         ],
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/chat-yzRogImG.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/chat-v1rO-_t2.mjs').then((m) => m.default || m)
       },
       {
         name: "base-cloud",
@@ -912,7 +932,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-saYM20a-.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-BgdBmkKw.mjs').then((m) => m.default || m)
       },
       {
         name: "base-companies-id",
@@ -920,7 +940,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/_id_-DWwD2aB-.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/_id_-tQiCb7Vy.mjs').then((m) => m.default || m)
       },
       {
         name: "base-companies-department-id",
@@ -928,7 +948,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/_id_-JkKR_EkD.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/_id_-x5sV8Nqx.mjs').then((m) => m.default || m)
       },
       {
         name: "base-companies-department",
@@ -936,7 +956,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-FM9RrCcb.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-FJDNBKqC.mjs').then((m) => m.default || m)
       },
       {
         name: "base-companies",
@@ -944,7 +964,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-u399LuAM.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-s23hEhpk.mjs').then((m) => m.default || m)
       },
       {
         name: "base-companies-news-id",
@@ -952,7 +972,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/_id_-kSXJEeak.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/_id_-RWLYg24Z.mjs').then((m) => m.default || m)
       },
       {
         name: "base-companies-news",
@@ -968,7 +988,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/_id_-RQ2xiKbh.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/_id_-RKOfK9i7.mjs').then((m) => m.default || m)
       },
       {
         name: "base-documents",
@@ -976,7 +996,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-FebBhtVY.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-YVAhFsqz.mjs').then((m) => m.default || m)
       },
       {
         name: "base-graph",
@@ -992,7 +1012,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/_id_-w74T4vFr.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/_id_-lXQQpl4F.mjs').then((m) => m.default || m)
       },
       {
         name: "base-objects",
@@ -1000,7 +1020,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-0LV2_58p.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-DB2AWASO.mjs').then((m) => m.default || m)
       },
       {
         name: "base-profile",
@@ -1008,7 +1028,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/profile-H-HQPVDF.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/profile-WeBSzQcV.mjs').then((m) => m.default || m)
       },
       {
         name: "base-tasks-id",
@@ -1016,7 +1036,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/_id_-s2eVvt2x.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/_id_-9ch-LTiO.mjs').then((m) => m.default || m)
       },
       {
         name: "base-tasks",
@@ -1024,7 +1044,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-svxTDNYZ.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-9aYi-h8K.mjs').then((m) => m.default || m)
       },
       {
         name: "base-tests-exam",
@@ -1032,7 +1052,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/exam-J7Dt5SrG.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/exam-wbiS321z.mjs').then((m) => m.default || m)
       },
       {
         name: "base-tests",
@@ -1040,7 +1060,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-hXi8WgwN.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-6b-Nc0XY.mjs').then((m) => m.default || m)
       },
       {
         name: "base-tree",
@@ -1048,7 +1068,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-lnTbVQUu.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-AYuGKCxK.mjs').then((m) => m.default || m)
       },
       {
         name: "base-users-id",
@@ -1056,7 +1076,7 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/_id_-uMCZj91w.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/_id_-t7sRrRol.mjs').then((m) => m.default || m)
       },
       {
         name: "base-users",
@@ -1064,13 +1084,13 @@ const _routes = [
         meta: {},
         alias: [],
         redirect: void 0,
-        component: () => import('./_nuxt/index-kheBRuIr.mjs').then((m) => m.default || m)
+        component: () => import('./_nuxt/index-FCvtq4Bk.mjs').then((m) => m.default || m)
       }
     ],
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/base-OEbTWOCD.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/base-F6kPUp9H.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -1078,7 +1098,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-y9ik-rma.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-uw1Lgw1N.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -1227,7 +1247,7 @@ const globalMiddleware = [
   manifest_45route_45rule
 ];
 const namedMiddleware = {
-  authorized: () => import('./_nuxt/authorized-XSdizaaJ.mjs')
+  authorized: () => import('./_nuxt/authorized-Xl04PIoU.mjs')
 };
 const plugin$3 = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:router",
@@ -1869,8 +1889,8 @@ const revive_payload_server_eJ33V7gbc6 = /* @__PURE__ */ defineNuxtPlugin({
     }
   }
 });
-const LazyIcon = defineAsyncComponent(() => import('./_nuxt/Icon-U3_wc5ey.mjs').then((r) => r.default));
-const LazyIconCSS = defineAsyncComponent(() => import('./_nuxt/IconCSS-97FE_Be7.mjs').then((r) => r.default));
+const LazyIcon = defineAsyncComponent(() => import('./_nuxt/Icon-8OpWvKRl.mjs').then((r) => r.default));
+const LazyIconCSS = defineAsyncComponent(() => import('./_nuxt/IconCSS-Xex4C6y3.mjs').then((r) => r.default));
 const lazyGlobalComponents = [
   ["Icon", LazyIcon],
   ["IconCSS", LazyIconCSS]
@@ -8940,6 +8960,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   setup(__props) {
     useColorMode();
     useI18n();
+    useRoute$1();
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtPage = __nuxt_component_2;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "" }, _attrs))}>`);
@@ -9056,5 +9077,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { computedAsync as A, useState as B, useNuxtApp as C, useMediaQuery as D, useParallax as E, defineNuxtRouteMiddleware as F, useRequestHeader as G, __nuxt_component_2 as _, useRouter as a, parseQuery$1 as b, createError as c, useRuntimeConfig as d, entry$1 as default, navigateTo as e, withoutTrailingSlash$1 as f, directiveHooks as g, hasProtocol as h, notNullish as i, joinURL as j, noop as k, tryOnScopeDispose as l, toRef as m, nuxtLinkDefaults as n, useMouse as o, parseURL as p, useWindowScroll as q, defineStore as r, mergeConfig as s, toValue as t, useHead as u, appConfig as v, withTrailingSlash$1 as w, onClickOutside as x, useAppConfig as y, useDebounceFn as z };
+export { useDebounceFn as A, computedAsync as B, useState as C, useNuxtApp as D, useMediaQuery as E, useParallax as F, defineNuxtRouteMiddleware as G, useRequestHeader as H, __nuxt_component_2 as _, useRouter as a, parseQuery$1 as b, createError as c, useRuntimeConfig as d, entry$1 as default, navigateTo as e, withoutTrailingSlash$1 as f, directiveHooks as g, hasProtocol as h, notNullish as i, joinURL as j, noop as k, tryOnScopeDispose as l, toRef as m, nuxtLinkDefaults as n, useMouse as o, parseURL as p, useWindowScroll as q, useSeoMeta as r, defineStore as s, toValue as t, useHead as u, mergeConfig as v, withTrailingSlash$1 as w, appConfig as x, onClickOutside as y, useAppConfig as z };
 //# sourceMappingURL=server.mjs.map

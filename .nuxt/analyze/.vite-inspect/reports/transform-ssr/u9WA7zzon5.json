@@ -1,0 +1,298 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/UI/TheButton.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <button :type=\"t\" class=\"font-bold  tracking-widest text-white\"\r\n          :class=\"{\r\n          'bg-blue-400 w-5/12 mx-auto py-4 rounded-xl' : type === 'signIn',\r\n          'bg-blueSemiLight' : type === 'change', 'bg-green-400' : type === 'success',\r\n          'bg-red-400': type === 'danger',\r\n          'dark:hover:bg-gray-600 hover:bg-gray-100 rounded-lg !text-semiCyan transition-all p-2' : type === 'chat',\r\n          '!text-black dark:!text-white border border-semiCyan p-2 rounded-lg' : type === 'treeBtn',\r\n          'dark:hover:bg-gray-700 hover:bg-gray-100 rounded-lg !text-semiCyan transition-all p-2' : type === 'documentBtn',\r\n          }\">\r\n    <slot/>\r\n  </button>\r\n</template>\r\n\r\n<script setup lang=\"ts\">\r\nimport {useTreeStore} from \"~/stores/tree\";\r\nconst treeStore = useTreeStore()\r\ndefineProps({\r\n  type: String,\r\n  t: String\r\n})\r\n</script>",
+      "start": 1706896543427,
+      "end": 1706896543697,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896543697,
+      "end": 1706896543697,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/UI/TheButton.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/UI/TheButton.vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/UI/TheButton.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896543697,
+      "end": 1706896544777,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896544777,
+      "end": 1706896544777,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896544778,
+      "end": 1706896544778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896544778,
+      "end": 1706896544779,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896544779,
+      "end": 1706896544779,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896544779,
+      "end": 1706896544779,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896544781,
+      "end": 1706896544782,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896544784,
+      "end": 1706896544785,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896544785,
+      "end": 1706896544785,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896544785,
+      "end": 1706896544785,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896544786,
+      "end": 1706896544786,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896544786,
+      "end": 1706896544786,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896544787,
+      "end": 1706896544787,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896544787,
+      "end": 1706896544793,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896544793,
+      "end": 1706896544794,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896544793,
+      "end": 1706896544794,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896544795,
+      "end": 1706896544796,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896544795,
+      "end": 1706896544796,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896544796,
+      "end": 1706896544796,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896544796,
+      "end": 1706896544796,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896544800,
+      "end": 1706896544801,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896544800,
+      "end": 1706896544801,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896544801,
+      "end": 1706896544801,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896544801,
+      "end": 1706896544801,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896544801,
+      "end": 1706896544801,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896544801,
+      "end": 1706896544801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896544801,
+      "end": 1706896544801,
+      "order": "normal"
+    }
+  ]
+}

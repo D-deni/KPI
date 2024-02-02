@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/UI/TheInput.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { mergeProps as _mergeProps } from \"vue\"\nimport { ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheInput',\n  __ssrInlineRender: true,\n  props: {\r\n  modelValue: String,\r\n  label: String,\r\n  placeholder: String,\r\n  type: String,\r\n  required: Boolean,\r\n  trimi: {\r\n    type: Boolean,\r\n    default: null\r\n  },\r\n  answer: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<label${_ssrRenderAttrs(_mergeProps({ class: \"flex flex-col outline-none font-medium gap-y-2 text-md dark:text-white tracking-wider\" }, _attrs))}>`)\n  if (__props.type !== 'default') {\n    _push(`<span>${_ssrInterpolate(__props.label)} `)\n    if (__props.required) {\n      _push(`<span class=\"text-red-500\">*</span>`)\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</span>`)\n  } else {\n    _push(`<!---->`)\n  }\n  if (__props.type==='textarea') {\n    _push(`<textarea name=\"\" id=\"\" cols=\"30\" rows=\"10\"${\n      (_ssrIncludeBooleanAttr(__props.required)) ? \" required\" : \"\"\n    } class=\"${\n      _ssrRenderClass([{'!bg-red-200 border-red-400 dark:border !outline-none' : __props.trimi && __props.required}, \"text-lg dark:text-black resize-none border outline-3 rounded-lg focus:outline-semiCyan focus:outline-1 outline-none px-4 py-2 dark:bg-gray-300\"])\n    }\"${\n      _ssrRenderAttr(\"placeholder\", __props.label)\n    }>${\n      _ssrInterpolate(__props.modelValue)\n    }</textarea>`)\n  } else if (__props.type === 'file') {\n    _push(`<input${\n      _ssrRenderAttr(\"value\", __props.modelValue)\n    }${\n      (_ssrIncludeBooleanAttr(__props.required)) ? \" required\" : \"\"\n    }${\n      _ssrRenderAttr(\"type\", __props.type)\n    } class=\"w-full rounded-lg p-2 dark:border-none text-black border outline-semiCyan outline-1\"${\n      _ssrRenderAttr(\"placeholder\", __props.placeholder)\n    } multiple>`)\n  } else {\n    _push(`<input${\n      _ssrRenderAttr(\"value\", __props.modelValue)\n    }${\n      (_ssrIncludeBooleanAttr(__props.required)) ? \" required\" : \"\"\n    }${\n      _ssrRenderAttr(\"type\", __props.type)\n    } class=\"${\n      _ssrRenderClass([{'!bg-red-200 !outline-none' : __props.trimi, '!bg-green-400 text-white' : __props.answer, '!dark:bg-gray-500' : __props.type === 'createInput', '!bg-transparent dark:text-white text-black !outline-none !border-none' : __props.type === 'default'}, \"w-full rounded-lg p-2 dark:border-none text-black border focus:outline-semiCyan focus:outline-1 outline-none dark:bg-gray-300\"])\n    }\"${\n      _ssrRenderAttr(\"placeholder\", __props.placeholder)\n    }>`)\n  }\n  _push(`</label>`)\n}\n}\n\n})",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/UI/TheInput.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\ndefineProps({\r\n  modelValue: String,\r\n  label: String,\r\n  placeholder: String,\r\n  type: String,\r\n  required: Boolean,\r\n  trimi: {\r\n    type: Boolean,\r\n    default: null\r\n  },\r\n  answer: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n})\r\n</script>\r\n\r\n<template>\r\n  <label class=\"flex flex-col outline-none font-medium gap-y-2 text-md dark:text-white tracking-wider\">\r\n    <span v-if=\"type !== 'default'\">{{ label }} <span class=\"text-red-500\" v-if=\"required\">*</span></span>\r\n    <textarea name=\"\" id=\"\" cols=\"30\" rows=\"10\" v-if=\"type==='textarea'\"\r\n              @input=\"$emit('update:modelValue', $event.target.value)\"\r\n              :required=\"required\"\r\n              :value=\"modelValue\"\r\n              class=\"text-lg dark:text-black resize-none border outline-3 rounded-lg focus:outline-semiCyan focus:outline-1 outline-none px-4 py-2 dark:bg-gray-300\"\r\n              :class=\"{'!bg-red-200 border-red-400 dark:border !outline-none' : trimi && required}\"\r\n              :placeholder=\"label\"\r\n    ></textarea>\r\n    <input v-else-if=\"type === 'file'\"\r\n           :value=\"modelValue\"\r\n           :required=\"required\"\r\n           :type=\"type\" class=\"w-full rounded-lg p-2 dark:border-none text-black border outline-semiCyan outline-1\"\r\n           :placeholder=\"placeholder\"\r\n           multiple\r\n           @input=\"$emit('update:modelValue', $event.target.files)\">\r\n    <input v-else\r\n           :value=\"modelValue\"\r\n           :required=\"required\"\r\n           :type=\"type\"\r\n           class=\"w-full rounded-lg p-2 dark:border-none text-black border focus:outline-semiCyan focus:outline-1 outline-none dark:bg-gray-300\"\r\n           :class=\"{'!bg-red-200 !outline-none' : trimi, '!bg-green-400 text-white' : answer, '!dark:bg-gray-500' : type === 'createInput', '!bg-transparent dark:text-white text-black !outline-none !border-none' : type === 'default'}\"\r\n           :placeholder=\"placeholder\"\r\n           @input=\"$emit('update:modelValue', $event.target.value)\">\r\n\r\n  </label>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAwB,CAAC;AAevB,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896545864,
+      "end": 1706896545864,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { mergeProps as _mergeProps } from \"vue\";\nimport { ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheInput\",\n  __ssrInlineRender: true,\n  props: {\n    modelValue: String,\n    label: String,\n    placeholder: String,\n    type: String,\n    required: Boolean,\n    trimi: {\n      type: Boolean,\n      default: null\n    },\n    answer: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<label${_ssrRenderAttrs(_mergeProps({ class: \"flex flex-col outline-none font-medium gap-y-2 text-md dark:text-white tracking-wider\" }, _attrs))}>`);\n      if (__props.type !== \"default\") {\n        _push(`<span>${_ssrInterpolate(__props.label)} `);\n        if (__props.required) {\n          _push(`<span class=\"text-red-500\">*</span>`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`</span>`);\n      } else {\n        _push(`<!---->`);\n      }\n      if (__props.type === \"textarea\") {\n        _push(`<textarea name=\"\" id=\"\" cols=\"30\" rows=\"10\"${_ssrIncludeBooleanAttr(__props.required) ? \" required\" : \"\"} class=\"${_ssrRenderClass([{ \"!bg-red-200 border-red-400 dark:border !outline-none\": __props.trimi && __props.required }, \"text-lg dark:text-black resize-none border outline-3 rounded-lg focus:outline-semiCyan focus:outline-1 outline-none px-4 py-2 dark:bg-gray-300\"])}\"${_ssrRenderAttr(\"placeholder\", __props.label)}>${_ssrInterpolate(__props.modelValue)}</textarea>`);\n      } else if (__props.type === \"file\") {\n        _push(`<input${_ssrRenderAttr(\"value\", __props.modelValue)}${_ssrIncludeBooleanAttr(__props.required) ? \" required\" : \"\"}${_ssrRenderAttr(\"type\", __props.type)} class=\"w-full rounded-lg p-2 dark:border-none text-black border outline-semiCyan outline-1\"${_ssrRenderAttr(\"placeholder\", __props.placeholder)} multiple>`);\n      } else {\n        _push(`<input${_ssrRenderAttr(\"value\", __props.modelValue)}${_ssrIncludeBooleanAttr(__props.required) ? \" required\" : \"\"}${_ssrRenderAttr(\"type\", __props.type)} class=\"${_ssrRenderClass([{ \"!bg-red-200 !outline-none\": __props.trimi, \"!bg-green-400 text-white\": __props.answer, \"!dark:bg-gray-500\": __props.type === \"createInput\", \"!bg-transparent dark:text-white text-black !outline-none !border-none\": __props.type === \"default\" }, \"w-full rounded-lg p-2 dark:border-none text-black border focus:outline-semiCyan focus:outline-1 outline-none dark:bg-gray-300\"])}\"${_ssrRenderAttr(\"placeholder\", __props.placeholder)}>`);\n      }\n      _push(`</label>`);\n    };\n  }\n});\n",
+      "start": 1706896545864,
+      "end": 1706896546388,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/UI/TheInput.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { mergeProps as _mergeProps } from \"vue\"\nimport { ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheInput',\n  __ssrInlineRender: true,\n  props: {\r\n  modelValue: String,\r\n  label: String,\r\n  placeholder: String,\r\n  type: String,\r\n  required: Boolean,\r\n  trimi: {\r\n    type: Boolean,\r\n    default: null\r\n  },\r\n  answer: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<label${_ssrRenderAttrs(_mergeProps({ class: \"flex flex-col outline-none font-medium gap-y-2 text-md dark:text-white tracking-wider\" }, _attrs))}>`)\n  if (__props.type !== 'default') {\n    _push(`<span>${_ssrInterpolate(__props.label)} `)\n    if (__props.required) {\n      _push(`<span class=\"text-red-500\">*</span>`)\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</span>`)\n  } else {\n    _push(`<!---->`)\n  }\n  if (__props.type==='textarea') {\n    _push(`<textarea name=\"\" id=\"\" cols=\"30\" rows=\"10\"${\n      (_ssrIncludeBooleanAttr(__props.required)) ? \" required\" : \"\"\n    } class=\"${\n      _ssrRenderClass([{'!bg-red-200 border-red-400 dark:border !outline-none' : __props.trimi && __props.required}, \"text-lg dark:text-black resize-none border outline-3 rounded-lg focus:outline-semiCyan focus:outline-1 outline-none px-4 py-2 dark:bg-gray-300\"])\n    }\"${\n      _ssrRenderAttr(\"placeholder\", __props.label)\n    }>${\n      _ssrInterpolate(__props.modelValue)\n    }</textarea>`)\n  } else if (__props.type === 'file') {\n    _push(`<input${\n      _ssrRenderAttr(\"value\", __props.modelValue)\n    }${\n      (_ssrIncludeBooleanAttr(__props.required)) ? \" required\" : \"\"\n    }${\n      _ssrRenderAttr(\"type\", __props.type)\n    } class=\"w-full rounded-lg p-2 dark:border-none text-black border outline-semiCyan outline-1\"${\n      _ssrRenderAttr(\"placeholder\", __props.placeholder)\n    } multiple>`)\n  } else {\n    _push(`<input${\n      _ssrRenderAttr(\"value\", __props.modelValue)\n    }${\n      (_ssrIncludeBooleanAttr(__props.required)) ? \" required\" : \"\"\n    }${\n      _ssrRenderAttr(\"type\", __props.type)\n    } class=\"${\n      _ssrRenderClass([{'!bg-red-200 !outline-none' : __props.trimi, '!bg-green-400 text-white' : __props.answer, '!dark:bg-gray-500' : __props.type === 'createInput', '!bg-transparent dark:text-white text-black !outline-none !border-none' : __props.type === 'default'}, \"w-full rounded-lg p-2 dark:border-none text-black border focus:outline-semiCyan focus:outline-1 outline-none dark:bg-gray-300\"])\n    }\"${\n      _ssrRenderAttr(\"placeholder\", __props.placeholder)\n    }>`)\n  }\n  _push(`</label>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,cAAc,mBAAmB;AAC1C,SAAS,yBAAyB,wBAAwB,kBAAkB,iBAAiB,iBAAiB,gBAAgB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAG1M,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,OAAO;AAAA,IACP,YAAY;AAAA,IACZ,OAAO;AAAA,IACP,aAAa;AAAA,IACb,MAAM;AAAA,IACN,UAAU;AAAA,IACV,OAAO;AAAA,MACL,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,IACA,QAAQ;AAAA,MACN,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAIjB,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,SAAS,gBAAgB,YAAY,EAAE,OAAO,wFAAwF,GAAG,MAAM,CAAC,CAAC,GAAG;AAC1J,UAAI,QAAQ,SAAS,WAAW;AAC9B,cAAM,SAAS,gBAAgB,QAAQ,KAAK,CAAC,GAAG;AAChD,YAAI,QAAQ,UAAU;AACpB,gBAAM,qCAAqC;AAAA,QAC7C,OAAO;AACL,gBAAM,SAAS;AAAA,QACjB;AACA,cAAM,SAAS;AAAA,MACjB,OAAO;AACL,cAAM,SAAS;AAAA,MACjB;AACA,UAAI,QAAQ,SAAO,YAAY;AAC7B,cAAM,8CACH,uBAAuB,QAAQ,QAAQ,IAAK,cAAc,EAC7D,WACE,gBAAgB,CAAC,EAAC,wDAAyD,QAAQ,SAAS,QAAQ,SAAQ,GAAG,gJAAgJ,CAAC,CAClQ,IACE,eAAe,eAAe,QAAQ,KAAK,CAC7C,IACE,gBAAgB,QAAQ,UAAU,CACpC,aAAa;AAAA,MACf,WAAW,QAAQ,SAAS,QAAQ;AAClC,cAAM,SACJ,eAAe,SAAS,QAAQ,UAAU,CAC5C,GACG,uBAAuB,QAAQ,QAAQ,IAAK,cAAc,EAC7D,GACE,eAAe,QAAQ,QAAQ,IAAI,CACrC,+FACE,eAAe,eAAe,QAAQ,WAAW,CACnD,YAAY;AAAA,MACd,OAAO;AACL,cAAM,SACJ,eAAe,SAAS,QAAQ,UAAU,CAC5C,GACG,uBAAuB,QAAQ,QAAQ,IAAK,cAAc,EAC7D,GACE,eAAe,QAAQ,QAAQ,IAAI,CACrC,WACE,gBAAgB,CAAC,EAAC,6BAA8B,QAAQ,OAAO,4BAA6B,QAAQ,QAAQ,qBAAsB,QAAQ,SAAS,eAAe,yEAA0E,QAAQ,SAAS,UAAS,GAAG,+HAA+H,CAAC,CAC3Y,IACE,eAAe,eAAe,QAAQ,WAAW,CACnD,GAAG;AAAA,MACL;AACA,YAAM,UAAU;AAAA,IAClB;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896546388,
+      "end": 1706896546388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896546388,
+      "end": 1706896546388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896546388,
+      "end": 1706896546388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896546388,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896546391,
+      "end": 1706896546391,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896546391,
+      "end": 1706896546391,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896546391,
+      "end": 1706896546391,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896546392,
+      "end": 1706896546393,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896546393,
+      "end": 1706896546393,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896546393,
+      "end": 1706896546393,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896546394,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896546394,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896546400,
+      "end": 1706896546400,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896546400,
+      "end": 1706896546400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896546400,
+      "end": 1706896546400,
+      "order": "normal"
+    }
+  ]
+}

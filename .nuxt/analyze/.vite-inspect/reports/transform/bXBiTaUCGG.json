@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.moniker.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.MonikerRequest = exports.MonikerKind = exports.UniquenessLevel = void 0;\nconst messages_1 = require(\"./messages\");\n/**\n * Moniker uniqueness level to define scope of the moniker.\n *\n * @since 3.16.0\n */\nvar UniquenessLevel;\n(function (UniquenessLevel) {\n    /**\n     * The moniker is only unique inside a document\n     */\n    UniquenessLevel[\"document\"] = \"document\";\n    /**\n     * The moniker is unique inside a project for which a dump got created\n     */\n    UniquenessLevel[\"project\"] = \"project\";\n    /**\n     * The moniker is unique inside the group to which a project belongs\n     */\n    UniquenessLevel[\"group\"] = \"group\";\n    /**\n     * The moniker is unique inside the moniker scheme.\n     */\n    UniquenessLevel[\"scheme\"] = \"scheme\";\n    /**\n     * The moniker is globally unique\n     */\n    UniquenessLevel[\"global\"] = \"global\";\n})(UniquenessLevel = exports.UniquenessLevel || (exports.UniquenessLevel = {}));\n/**\n * The moniker kind.\n *\n * @since 3.16.0\n */\nvar MonikerKind;\n(function (MonikerKind) {\n    /**\n     * The moniker represent a symbol that is imported into a project\n     */\n    MonikerKind[\"import\"] = \"import\";\n    /**\n     * The moniker represents a symbol that is exported from a project\n     */\n    MonikerKind[\"export\"] = \"export\";\n    /**\n     * The moniker represents a symbol that is local to a project (e.g. a local\n     * variable of a function, a class not visible outside the project, ...)\n     */\n    MonikerKind[\"local\"] = \"local\";\n})(MonikerKind = exports.MonikerKind || (exports.MonikerKind = {}));\n/**\n * A request to get the moniker of a symbol at a given text document position.\n * The request parameter is of type [TextDocumentPositionParams](#TextDocumentPositionParams).\n * The response is of type [Moniker[]](#Moniker[]) or `null`.\n */\nvar MonikerRequest;\n(function (MonikerRequest) {\n    MonikerRequest.method = 'textDocument/moniker';\n    MonikerRequest.type = new messages_1.ProtocolRequestType(MonikerRequest.method);\n})(MonikerRequest = exports.MonikerRequest || (exports.MonikerRequest = {}));\n//# sourceMappingURL=protocol.moniker.js.map",
+      "start": 1706896525250,
+      "end": 1706896525344,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525344,
+      "end": 1706896525344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525345,
+      "end": 1706896525345,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as protocol_moniker } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.moniker.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/messages.js?commonjs-proxy\";\n\n(function (exports) {\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.MonikerRequest = exports.MonikerKind = exports.UniquenessLevel = void 0;\n\tconst messages_1 = require$$0;\n\t/**\n\t * Moniker uniqueness level to define scope of the moniker.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar UniquenessLevel;\n\t(function (UniquenessLevel) {\n\t    /**\n\t     * The moniker is only unique inside a document\n\t     */\n\t    UniquenessLevel[\"document\"] = \"document\";\n\t    /**\n\t     * The moniker is unique inside a project for which a dump got created\n\t     */\n\t    UniquenessLevel[\"project\"] = \"project\";\n\t    /**\n\t     * The moniker is unique inside the group to which a project belongs\n\t     */\n\t    UniquenessLevel[\"group\"] = \"group\";\n\t    /**\n\t     * The moniker is unique inside the moniker scheme.\n\t     */\n\t    UniquenessLevel[\"scheme\"] = \"scheme\";\n\t    /**\n\t     * The moniker is globally unique\n\t     */\n\t    UniquenessLevel[\"global\"] = \"global\";\n\t})(UniquenessLevel = exports.UniquenessLevel || (exports.UniquenessLevel = {}));\n\t/**\n\t * The moniker kind.\n\t *\n\t * @since 3.16.0\n\t */\n\tvar MonikerKind;\n\t(function (MonikerKind) {\n\t    /**\n\t     * The moniker represent a symbol that is imported into a project\n\t     */\n\t    MonikerKind[\"import\"] = \"import\";\n\t    /**\n\t     * The moniker represents a symbol that is exported from a project\n\t     */\n\t    MonikerKind[\"export\"] = \"export\";\n\t    /**\n\t     * The moniker represents a symbol that is local to a project (e.g. a local\n\t     * variable of a function, a class not visible outside the project, ...)\n\t     */\n\t    MonikerKind[\"local\"] = \"local\";\n\t})(MonikerKind = exports.MonikerKind || (exports.MonikerKind = {}));\n\t/**\n\t * A request to get the moniker of a symbol at a given text document position.\n\t * The request parameter is of type [TextDocumentPositionParams](#TextDocumentPositionParams).\n\t * The response is of type [Moniker[]](#Moniker[]) or `null`.\n\t */\n\tvar MonikerRequest;\n\t(function (MonikerRequest) {\n\t    MonikerRequest.method = 'textDocument/moniker';\n\t    MonikerRequest.type = new messages_1.ProtocolRequestType(MonikerRequest.method);\n\t})(MonikerRequest = exports.MonikerRequest || (exports.MonikerRequest = {}));\n\t//# sourceMappingURL=protocol.moniker.js.map \n} (protocol_moniker));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(protocol_moniker);\nexport { protocol_moniker as __moduleExports };",
+      "start": 1706896525345,
+      "end": 1706896525533,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;CAAA,YAAY,CAAC;CACb;CACA;CACA;CACA;CACA,MAAM,CAAC,cAAc,UAAU,YAAY,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC;CAC9D,yBAAyB,sBAAsB,0BAA0B,KAAK,CAAC,CAAC;CAChF,MAAM,UAAU,GAAG,UAAqB,CAAC;CACzC;CACA;CACA;CACA;CACA;CACA,IAAI,eAAe,CAAC;CACpB,CAAC,UAAU,eAAe,EAAE;CAC5B;CACA;CACA;CACA,IAAI,eAAe,CAAC,UAAU,CAAC,GAAG,UAAU,CAAC;CAC7C;CACA;CACA;CACA,IAAI,eAAe,CAAC,SAAS,CAAC,GAAG,SAAS,CAAC;CAC3C;CACA;CACA;CACA,IAAI,eAAe,CAAC,OAAO,CAAC,GAAG,OAAO,CAAC;CACvC;CACA;CACA;CACA,IAAI,eAAe,CAAC,QAAQ,CAAC,GAAG,QAAQ,CAAC;CACzC;CACA;CACA;CACA,IAAI,eAAe,CAAC,QAAQ,CAAC,GAAG,QAAQ,CAAC;CACzC,CAAC,EAAE,eAAe,GAAG,OAAO,CAAC,eAAe,KAAK,0BAA0B,EAAE,CAAC,CAAC,CAAC;CAChF;CACA;CACA;CACA;CACA;CACA,IAAI,WAAW,CAAC;CAChB,CAAC,UAAU,WAAW,EAAE;CACxB;CACA;CACA;CACA,IAAI,WAAW,CAAC,QAAQ,CAAC,GAAG,QAAQ,CAAC;CACrC;CACA;CACA;CACA,IAAI,WAAW,CAAC,QAAQ,CAAC,GAAG,QAAQ,CAAC;CACrC;CACA;CACA;CACA;CACA,IAAI,WAAW,CAAC,OAAO,CAAC,GAAG,OAAO,CAAC;CACnC,CAAC,EAAE,WAAW,GAAG,OAAO,CAAC,WAAW,KAAK,sBAAsB,EAAE,CAAC,CAAC,CAAC;CACpE;CACA;CACA;CACA;CACA;CACA,IAAI,cAAc,CAAC;CACnB,CAAC,UAAU,cAAc,EAAE;CAC3B,IAAI,cAAc,CAAC,MAAM,GAAG,sBAAsB,CAAC;CACnD,IAAI,cAAc,CAAC,IAAI,GAAG,IAAI,UAAU,CAAC,mBAAmB,CAAC,cAAc,CAAC,MAAM,CAAC,CAAC;CACpF,CAAC,EAAE,cAAc,GAAG,OAAO,CAAC,cAAc,KAAK,yBAAyB,EAAE,CAAC,CAAC,CAAC;CAC7E"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525533,
+      "end": 1706896525533,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525534,
+      "end": 1706896525534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525535,
+      "end": 1706896525535,
+      "order": "normal"
+    }
+  ]
+}

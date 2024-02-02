@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/lodash/_hashHas.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var nativeCreate = require('./_nativeCreate');\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/**\n * Checks if a hash value for `key` exists.\n *\n * @private\n * @name has\n * @memberOf Hash\n * @param {string} key The key of the entry to check.\n * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.\n */\nfunction hashHas(key) {\n  var data = this.__data__;\n  return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);\n}\n\nmodule.exports = hashHas;\n",
+      "start": 1706896525702,
+      "end": 1706896525718,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525718,
+      "end": 1706896525718,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_nativeCreate.js?commonjs-proxy\";\n\nvar nativeCreate = require$$0;\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/**\n * Checks if a hash value for `key` exists.\n *\n * @private\n * @name has\n * @memberOf Hash\n * @param {string} key The key of the entry to check.\n * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.\n */\nfunction hashHas(key) {\n  var data = this.__data__;\n  return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);\n}\n\nvar _hashHas = hashHas;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_hashHas);\nexport { _hashHas as __moduleExports };",
+      "start": 1706896525718,
+      "end": 1706896525731,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,YAAY,GAAG,UAA0B,CAAC;AAC9C;AACA;AACA,IAAI,WAAW,GAAG,MAAM,CAAC,SAAS,CAAC;AACnC;AACA;AACA,IAAI,cAAc,GAAG,WAAW,CAAC,cAAc,CAAC;AAChD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,OAAO,CAAC,GAAG,EAAE;AACtB,EAAE,IAAI,IAAI,GAAG,IAAI,CAAC,QAAQ,CAAC;AAC3B,EAAE,OAAO,YAAY,IAAI,IAAI,CAAC,GAAG,CAAC,KAAK,SAAS,IAAI,cAAc,CAAC,IAAI,CAAC,IAAI,EAAE,GAAG,CAAC,CAAC;AACnF,CAAC;AACD;IACA,QAAc,GAAG,OAAO"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525731,
+      "end": 1706896525731,
+      "order": "normal"
+    }
+  ]
+}

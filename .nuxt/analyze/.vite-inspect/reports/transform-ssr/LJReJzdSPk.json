@@ -1,0 +1,336 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Tests/TestCreate.vue?vue&type=style&index=0&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.list-enter-active,\r\n.list-leave-active {\r\n  transition: all 0.5s ease;\r\n}\r\n\r\n.list-enter-from,\r\n.list-leave-to {\r\n  opacity: 0;\r\n  transform: translateX(30px);\r\n}\r\n",
+      "start": 1706896545161,
+      "end": 1706896545161,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tests/TestCreate.vue"
+        ],
+        "names": [],
+        "mappings": ";AAuJA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AAC3B;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;EACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B",
+        "file": "D:/Programming/templates/KPIcopy/components/Tests/TestCreate.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TestContentCreateElems from \"~/components/Tests/TestUI/TestContentCreateElems.vue\";\r\nimport TheInput from \"~/components/UI/TheInput.vue\";\r\nimport {useTestList} from \"~/stores/test\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {toast} from \"vue3-toastify\";\r\n\r\n\r\nconst department = useCompanies()\r\nconst test = useTestList()\r\n\r\nconst selectedTestType = ref('')\r\nconst props = defineProps({\r\n  showCreate: {\r\n    type: Boolean,\r\n    default: false,\r\n  },\r\n  trimi: {\r\n    type: Boolean,\r\n    default: null,\r\n  },\r\n  checkAnswer: {\r\n    type: Object,\r\n    default: () => {\r\n    },\r\n  }\r\n})\r\n\r\nconst createForm = ref({\r\n  answer: '',\r\n  options_list: [\r\n    {},\r\n    {}\r\n  ],\r\n  department_id: null,\r\n  question: '',\r\n})\r\n</script>\r\n\r\n<template>\r\n  <div class=\"\">\r\n    <button class=\"font-bold tracking-widest text-white bg-blue-400 mx-auto py-4 rounded-xl px-4 text-sm\"\r\n            @click=\"showCreate = true; department.loadDepartmentList()\">{{ $t('Создать тест') }}\r\n    </button>\r\n    <TheModal v-if=\"showCreate\" @showModal=\"showCreate = !showCreate\">\r\n      <TheTextContent>{{ $t('Создание тест') }}</TheTextContent>\r\n      <form class=\"!overflow-x-hidden p-2\"\r\n            @submit.prevent=\"()=>{\r\n              if(createForm.options_list.find(e=> e.text.trim() == '')) {\r\n                 toast.error('Заполните пустые поля', {autoClose: 1500, theme: 'auto'})\r\n              } else if(selectedTestType === '') {\r\n                selectedTestType = 'error'\r\n                toast.error('Укажите тип теста', {autoClose: 1500, theme: 'auto'})\r\n              } else if(selectedTestType === 'testSpecial' && !createForm.department_id){\r\n                toast.error('Выберите департамент', {autoClose: 1500, theme: 'auto'})\r\n              } else {\r\n                  test.createTest({test: createForm, answer: props.checkAnswer.item?.text, options: createForm.options_list.filter(e=>e.text).map(e=>e.text)}).then(res=>{\r\n                    test.loadAllTest({page: 1, limit: 20})\r\n                  })\r\n                }\r\n            }\">\r\n        <TestContentCreateElems>\r\n          <div class=\"flex flex-wrap gap-y-2 justify-center gap-x-10\">\r\n            <button type=\"button\" class=\"border px-6 py-4 rounded-lg transition-all\"\r\n                    :class=\"{'bg-gray-700 text-white': selectedTestType === 'testIQ', 'bg-red-400 text-white' : selectedTestType === 'error'}\"\r\n                    @click=\"selectedTestType = 'testIQ'; createForm.department_id = null\">\r\n              {{ $t('По IQ') }}\r\n            </button>\r\n            <button type=\"button\" class=\"border px-6 py-4 rounded-lg transition-all\"\r\n                    :class=\"{'bg-gray-700 text-white': selectedTestType === 'testSpecial', 'bg-red-400 text-white' : selectedTestType === 'error'}\"\r\n                    @click=\"selectedTestType = 'testSpecial'\">\r\n              {{ $t('По специальности') }}\r\n            </button>\r\n          </div>\r\n        </TestContentCreateElems>\r\n        <TestContentCreateElems v-if=\"selectedTestType === 'testSpecial'\">\r\n          <div class=\"flex flex-col w-full items-center\">\r\n            <p>{{ $t('Выберите департамент') }}<span class=\"text-red-500 ml-2\">*</span></p>\r\n            <select\r\n              class=\"w-7/12 max-lg:w-full dark:bg-gray-300 dark:border-none border dark:text-black text-sm rounded-lg py-4 px-2\"\r\n              v-model=\"createForm.department_id\">\r\n              <option v-for=\"item in department.get_all_department?.results\" :value=\"item.id\">{{ item.name }}</option>\r\n            </select>\r\n          </div>\r\n        </TestContentCreateElems>\r\n        <TestContentCreateElems>\r\n          <div class=\"w-full \">\r\n            <TheInput type=\"textarea\" :required=\"true\" :label=\"$t('Вопрос')\"\r\n                      :trimi=\"createForm.question.trim() == '' && createForm.question.length !== 0 ? true : false\"\r\n                      v-model=\"createForm.question\"></TheInput>\r\n          </div>\r\n        </TestContentCreateElems>\r\n        <TestContentCreateElems>\r\n          <div class=\"w-full \">\r\n            <div>\r\n              <TheButton class=\"px-10 py-2 mx-auto flex justify-center rounded-full\" type=\"change\" t=\"button\"\r\n                         @click=\"createForm.options_list.push({text: ''})\">\r\n                {{ $t('Добавить ответ') }}\r\n              </TheButton>\r\n              <p class=\"text-center text-sm text-gray-300 my-2\">({{ $t('Выберите правильный ответ') }})</p>\r\n            </div>\r\n            <TransitionGroup clas=\"=\" name=\"list\" class=\"w-full flex flex-col gap-y-4\" tag=\"ul\">\r\n              <li class=\"flex max-[400px]:flex-col max-[400px]: gap-x-2 items-center w-full\"\r\n                  v-for=\"(item, id) in createForm.options_list\" :key=\"id\">\r\n                <div class=\"flex flex-col w-full\">\r\n                  <span>Ответ <span class=\"text-red-500\" v-if=\"id === 0 || id === 1\">*</span></span>\r\n                  <input class=\"w-full p-2 rounded-lg dark:bg-gray-500 bg-gray-200\" :key=\"id\"\r\n                         :class=\"{'!bg-green-500 text-white' : checkAnswer?.id === id}\" type=\"text\"\r\n                         v-model=\"item.text\"/>\r\n                </div>\r\n                <div class=\"flex gap-x-2 mt-8\">\r\n                  <div class=\"cursor-pointer bg-blueSemiLight p-2 rounded-lg\"\r\n                       @click=\"checkAnswer = {id, item}\">\r\n                    <svg class=\"fill-white\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n                         xmlns=\"http://www.w3.org/2000/svg\">\r\n                      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\"\r\n                            d=\"M21.2287 6.60355C21.6193 6.99407 21.6193 7.62723 21.2287 8.01776L10.2559 18.9906C9.86788 19.3786 9.23962 19.3814 8.84811 18.9969L2.66257 12.9218C2.26855 12.5349 2.26284 11.9017 2.64983 11.5077L3.35054 10.7942C3.73753 10.4002 4.37067 10.3945 4.7647 10.7815L9.53613 15.4677L19.1074 5.89644C19.4979 5.50592 20.1311 5.50591 20.5216 5.89644L21.2287 6.60355Z\"/>\r\n                    </svg>\r\n                  </div>\r\n                  <div @click=\"createForm.options_list.splice(id, 1)\" v-if=\"id !== 0 && id !== 1\"\r\n                       class=\" cursor-pointer bg-red-400 p-2 rounded-lg\">\r\n                    <svg class=\"fill-white\" width=\"20px\" height=\"20px\" viewBox=\"-3.5 0 19 19\"\r\n                         xmlns=\"http://www.w3.org/2000/svg\">\r\n                      <path\r\n                        d=\"M11.383 13.644A1.03 1.03 0 0 1 9.928 15.1L6 11.172 2.072 15.1a1.03 1.03 0 1 1-1.455-1.456l3.928-3.928L.617 5.79a1.03 1.03 0 1 1 1.455-1.456L6 8.261l3.928-3.928a1.03 1.03 0 0 1 1.455 1.456L7.455 9.716z\"/>\r\n                    </svg>\r\n                  </div>\r\n                </div>\r\n              </li>\r\n            </TransitionGroup>\r\n          </div>\r\n        </TestContentCreateElems>\r\n        <TestContentCreateElems>\r\n          <TheButton class=\"py-2 max-sm:w-full px-6 rounded-full\" t=\"button\" type=\"danger\" @click=\"showCreate = false\">\r\n            {{ $t('Отменить')\r\n            }}\r\n          </TheButton>\r\n          <TheButton class=\"py-2 max-sm:w-full px-6 rounded-full\" t=\"submit\" type=\"change\">{{ $t('Создать') }}\r\n          </TheButton>\r\n        </TestContentCreateElems>\r\n      </form>\r\n\r\n    </TheModal>\r\n  </div>\r\n</template>\r\n\r\n<style lang=\"scss\">\r\n.list-enter-active,\r\n.list-leave-active {\r\n  transition: all 0.5s ease;\r\n}\r\n\r\n.list-enter-from,\r\n.list-leave-to {\r\n  opacity: 0;\r\n  transform: translateX(30px);\r\n}\r\n</style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545163,
+      "end": 1706896545163,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545163,
+      "end": 1706896545163,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545163,
+      "end": 1706896545163,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545163,
+      "end": 1706896545163,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545163,
+      "end": 1706896545163,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545163,
+      "end": 1706896545163,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896545163,
+      "end": 1706896545163,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".list-enter-active,.list-leave-active{transition:all .5s ease}.list-enter-from,.list-leave-to{opacity:0;transform:translateX(30px)}",
+      "start": 1706896545163,
+      "end": 1706896545742,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "file": "D:/Programming/templates/KPIcopy/components/Tests/TestCreate.vue",
+        "mappings": "AACA,sCAEE,wBAGF,gCAEE,UACA",
+        "names": [],
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tests/TestCreate.vue"
+        ],
+        "sourcesContent": [
+          null
+        ]
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896545743,
+      "end": 1706896545743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896545743,
+      "end": 1706896545743,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896545744,
+      "end": 1706896545744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".list-enter-active,.list-leave-active{transition:all .5s ease}.list-enter-from,.list-leave-to{opacity:0;transform:translateX(30px)}",
+      "start": 1706896545746,
+      "end": 1706896545747,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/Programming/templates/KPIcopy/components/Tests/TestCreate.vue",
+        "mappings": "AAAA,sCAAsC,uBAAuB,CAAC,gCAAgC,SAAS,CAAC,0BAA0B",
+        "names": [],
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tests/TestCreate.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896545748,
+      "end": 1706896545748,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896545748,
+      "end": 1706896545748,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896545748,
+      "end": 1706896545748,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896545748,
+      "end": 1706896545748,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896545748,
+      "end": 1706896545748,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896545749,
+      "end": 1706896545749,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896545749,
+      "end": 1706896545749,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896545749,
+      "end": 1706896545749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896545750,
+      "end": 1706896545750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1706896545750,
+      "end": 1706896545750,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896545750,
+      "end": 1706896545750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896545750,
+      "end": 1706896545750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896545751,
+      "end": 1706896545751,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896545751,
+      "end": 1706896545751,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896545751,
+      "end": 1706896545751,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896545751,
+      "end": 1706896545751,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896545751,
+      "end": 1706896545751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896545751,
+      "end": 1706896545751,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896545751,
+      "end": 1706896545751,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896545751,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896545752,
+      "end": 1706896545752,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896545752,
+      "end": 1706896545753,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896545753,
+      "end": 1706896545753,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896545753,
+      "end": 1706896545753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896545753,
+      "end": 1706896545753,
+      "order": "normal"
+    }
+  ]
+}

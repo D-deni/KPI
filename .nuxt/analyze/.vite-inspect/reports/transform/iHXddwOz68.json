@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/stores/users.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import axios from \"~/composables/axios\"\r\nimport {defineStore} from \"pinia\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport {Router} from 'vue-router'\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\nexport const useUserStore = defineStore('user-list', {\r\n  state: () => ({\r\n    user: {\r\n      id: '',\r\n      first_name: '',\r\n      last_name: '',\r\n      password: '',\r\n      email: '',\r\n      photo_file: '',\r\n      photo: '',\r\n      position_id: '',\r\n      position_name: '',\r\n      position: [{\r\n        id: '',\r\n        name: ''\r\n      }],\r\n      role_id: '',\r\n      role_name: '',\r\n      role_en: '',\r\n      role: {\r\n        id: '',\r\n        name: ''\r\n      },\r\n      phone: '',\r\n      department_id: '',\r\n      department: '',\r\n      company: '',\r\n      company_id: '',\r\n      salary: '',\r\n      date_of_birth: '',\r\n      permissions: [],\r\n    },\r\n    roleList: [],\r\n    userSearch: {},\r\n    permissions: [],\r\n    page: 1\r\n  }),\r\n  getters: {\r\n    get_user_list: (state) => state.user,\r\n    get_user_search: (state) => state.userSearch,\r\n    get_position_list: (state) => state.user.position,\r\n    get_role_list: (state) => state.roleList,\r\n    get_permission_list: (state) => state.permissions,\r\n  },\r\n  actions: {\r\n    async loadUserList(params: {\r\n      page: number,\r\n      limit: number,\r\n      query?: any,\r\n      user_type: any\r\n    }) {\r\n      await axios.get(`api/v1/user/${params.user_type}?query=${params.query}&page=${params.page}&limit=${params.limit}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n      })\r\n    },\r\n    async loadUser(params: { id: any }) {\r\n      axios.get(`api/v1/user/${params.id}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n      }).catch(e => {\r\n      })\r\n    },\r\n    async searchUser(params: { search: any }) {\r\n      axios.get(`api/v1/user/user-list/my-company?search=${params.search}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(res => {\r\n        this.userSearch = res.data\r\n      })\r\n    },\r\n\r\n    async createUser(params: { user: any }) {\r\n      let formD = new FormData();\r\n      formD.set('first_name', params.first_name)\r\n      formD.set('last_name', params.last_name)\r\n      formD.set('email', params.email)\r\n      formD.set('password', params.password)\r\n      formD.set('date_of_birth', params.date_of_birth.toISOString())\r\n      formD.set('photo_file', params.photo_file)\r\n      formD.set('phone', params.phone)\r\n      formD.set('position_id', params.position_id)\r\n      formD.set('role_id', params.role_id)\r\n      this.user.role_en === 'admin' ? formD.set('company_id', params.company_id) : formD.set('department_id', params.department_id)\r\n      if (typeof params.photo_file !== 'string') {\r\n        formD.set('photo_file', params.photo_file)\r\n      }\r\n      axios.post(`api/v1/user/create`, formD, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n        this.loadUserList({user_type: 'user-list/my-company', limit: 5, page: 1, query: ''})\r\n      }).catch(e => {\r\n      })\r\n    },\r\n    async deleteUser(params: { user_id: number }, router: Router) {\r\n      axios.delete(`api/v1/user/delete/${params.user_id}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n        router.push('/base/users')\r\n        toast.success('Пользователь успешно удалён', {autoClose: 1500, theme: 'auto'})\r\n      }).catch(e => {\r\n        toast.error(e, {autoClose: 1500, theme: 'auto'})\r\n      })\r\n    },\r\n\r\n    async loadPositionList() {\r\n      axios.get(`api/v1/position/position-list`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user.position = response.data\r\n      })\r\n    },\r\n    async loadRoleList() {\r\n      axios.get(`api/v1/role/role-list`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.roleList = response.data\r\n      })\r\n    },\r\n    async loadPermissions() {\r\n      axios.get(`api/v1/permission/permission-list`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.permissions = response.data\r\n      })\r\n    }\r\n  }\r\n})",
+      "start": 1706896519400,
+      "end": 1706896519591,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896519591,
+      "end": 1706896519591,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896519591,
+      "end": 1706896519592,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896519592,
+      "end": 1706896519592,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896519592,
+      "end": 1706896519592,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896519592,
+      "end": 1706896519592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import axios from \"~/composables/axios\";\nimport { defineStore } from \"pinia\";\nimport { toast } from \"vue3-toastify\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport const useUserStore = defineStore(\"user-list\", {\n  state: () => ({\n    user: {\n      id: \"\",\n      first_name: \"\",\n      last_name: \"\",\n      password: \"\",\n      email: \"\",\n      photo_file: \"\",\n      photo: \"\",\n      position_id: \"\",\n      position_name: \"\",\n      position: [{\n        id: \"\",\n        name: \"\"\n      }],\n      role_id: \"\",\n      role_name: \"\",\n      role_en: \"\",\n      role: {\n        id: \"\",\n        name: \"\"\n      },\n      phone: \"\",\n      department_id: \"\",\n      department: \"\",\n      company: \"\",\n      company_id: \"\",\n      salary: \"\",\n      date_of_birth: \"\",\n      permissions: []\n    },\n    roleList: [],\n    userSearch: {},\n    permissions: [],\n    page: 1\n  }),\n  getters: {\n    get_user_list: (state) => state.user,\n    get_user_search: (state) => state.userSearch,\n    get_position_list: (state) => state.user.position,\n    get_role_list: (state) => state.roleList,\n    get_permission_list: (state) => state.permissions\n  },\n  actions: {\n    async loadUserList(params) {\n      await axios.get(`api/v1/user/${params.user_type}?query=${params.query}&page=${params.page}&limit=${params.limit}`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.user = response.data;\n      });\n    },\n    async loadUser(params) {\n      axios.get(`api/v1/user/${params.id}`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.user = response.data;\n      }).catch((e) => {\n      });\n    },\n    async searchUser(params) {\n      axios.get(`api/v1/user/user-list/my-company?search=${params.search}`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((res) => {\n        this.userSearch = res.data;\n      });\n    },\n    async createUser(params) {\n      let formD = new FormData();\n      formD.set(\"first_name\", params.first_name);\n      formD.set(\"last_name\", params.last_name);\n      formD.set(\"email\", params.email);\n      formD.set(\"password\", params.password);\n      formD.set(\"date_of_birth\", params.date_of_birth.toISOString());\n      formD.set(\"photo_file\", params.photo_file);\n      formD.set(\"phone\", params.phone);\n      formD.set(\"position_id\", params.position_id);\n      formD.set(\"role_id\", params.role_id);\n      this.user.role_en === \"admin\" ? formD.set(\"company_id\", params.company_id) : formD.set(\"department_id\", params.department_id);\n      if (typeof params.photo_file !== \"string\") {\n        formD.set(\"photo_file\", params.photo_file);\n      }\n      axios.post(`api/v1/user/create`, formD, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.user = response.data;\n        this.loadUserList({ user_type: \"user-list/my-company\", limit: 5, page: 1, query: \"\" });\n      }).catch((e) => {\n      });\n    },\n    async deleteUser(params, router) {\n      axios.delete(`api/v1/user/delete/${params.user_id}`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.user = response.data;\n        router.push(\"/base/users\");\n        toast.success(\"Пользователь успешно удалён\", { autoClose: 1500, theme: \"auto\" });\n      }).catch((e) => {\n        toast.error(e, { autoClose: 1500, theme: \"auto\" });\n      });\n    },\n    async loadPositionList() {\n      axios.get(`api/v1/position/position-list`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.user.position = response.data;\n      });\n    },\n    async loadRoleList() {\n      axios.get(`api/v1/role/role-list`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.roleList = response.data;\n      });\n    },\n    async loadPermissions() {\n      axios.get(`api/v1/permission/permission-list`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.permissions = response.data;\n      });\n    }\n  }\n});\n",
+      "start": 1706896519592,
+      "end": 1706896519784,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/stores/users.ts"
+        ],
+        "sourcesContent": [
+          "import axios from \"~/composables/axios\"\r\nimport {defineStore} from \"pinia\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport {Router} from 'vue-router'\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\nexport const useUserStore = defineStore('user-list', {\r\n  state: () => ({\r\n    user: {\r\n      id: '',\r\n      first_name: '',\r\n      last_name: '',\r\n      password: '',\r\n      email: '',\r\n      photo_file: '',\r\n      photo: '',\r\n      position_id: '',\r\n      position_name: '',\r\n      position: [{\r\n        id: '',\r\n        name: ''\r\n      }],\r\n      role_id: '',\r\n      role_name: '',\r\n      role_en: '',\r\n      role: {\r\n        id: '',\r\n        name: ''\r\n      },\r\n      phone: '',\r\n      department_id: '',\r\n      department: '',\r\n      company: '',\r\n      company_id: '',\r\n      salary: '',\r\n      date_of_birth: '',\r\n      permissions: [],\r\n    },\r\n    roleList: [],\r\n    userSearch: {},\r\n    permissions: [],\r\n    page: 1\r\n  }),\r\n  getters: {\r\n    get_user_list: (state) => state.user,\r\n    get_user_search: (state) => state.userSearch,\r\n    get_position_list: (state) => state.user.position,\r\n    get_role_list: (state) => state.roleList,\r\n    get_permission_list: (state) => state.permissions,\r\n  },\r\n  actions: {\r\n    async loadUserList(params: {\r\n      page: number,\r\n      limit: number,\r\n      query?: any,\r\n      user_type: any\r\n    }) {\r\n      await axios.get(`api/v1/user/${params.user_type}?query=${params.query}&page=${params.page}&limit=${params.limit}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n      })\r\n    },\r\n    async loadUser(params: { id: any }) {\r\n      axios.get(`api/v1/user/${params.id}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n      }).catch(e => {\r\n      })\r\n    },\r\n    async searchUser(params: { search: any }) {\r\n      axios.get(`api/v1/user/user-list/my-company?search=${params.search}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(res => {\r\n        this.userSearch = res.data\r\n      })\r\n    },\r\n\r\n    async createUser(params: { user: any }) {\r\n      let formD = new FormData();\r\n      formD.set('first_name', params.first_name)\r\n      formD.set('last_name', params.last_name)\r\n      formD.set('email', params.email)\r\n      formD.set('password', params.password)\r\n      formD.set('date_of_birth', params.date_of_birth.toISOString())\r\n      formD.set('photo_file', params.photo_file)\r\n      formD.set('phone', params.phone)\r\n      formD.set('position_id', params.position_id)\r\n      formD.set('role_id', params.role_id)\r\n      this.user.role_en === 'admin' ? formD.set('company_id', params.company_id) : formD.set('department_id', params.department_id)\r\n      if (typeof params.photo_file !== 'string') {\r\n        formD.set('photo_file', params.photo_file)\r\n      }\r\n      axios.post(`api/v1/user/create`, formD, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n        this.loadUserList({user_type: 'user-list/my-company', limit: 5, page: 1, query: ''})\r\n      }).catch(e => {\r\n      })\r\n    },\r\n    async deleteUser(params: { user_id: number }, router: Router) {\r\n      axios.delete(`api/v1/user/delete/${params.user_id}`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n        router.push('/base/users')\r\n        toast.success('Пользователь успешно удалён', {autoClose: 1500, theme: 'auto'})\r\n      }).catch(e => {\r\n        toast.error(e, {autoClose: 1500, theme: 'auto'})\r\n      })\r\n    },\r\n\r\n    async loadPositionList() {\r\n      axios.get(`api/v1/position/position-list`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user.position = response.data\r\n      })\r\n    },\r\n    async loadRoleList() {\r\n      axios.get(`api/v1/role/role-list`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.roleList = response.data\r\n      })\r\n    },\r\n    async loadPermissions() {\r\n      axios.get(`api/v1/permission/permission-list`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.permissions = response.data\r\n      })\r\n    }\r\n  }\r\n})"
+        ],
+        "mappings": "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",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896519784,
+      "end": 1706896519784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896519784,
+      "end": 1706896519784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896519784,
+      "end": 1706896519784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896519784,
+      "end": 1706896519784,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896519787,
+      "end": 1706896519787,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896519787,
+      "end": 1706896519787,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896519787,
+      "end": 1706896519787,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896519787,
+      "end": 1706896519787,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896519787,
+      "end": 1706896519787,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896519787,
+      "end": 1706896519788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896519788,
+      "end": 1706896519788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896519788,
+      "end": 1706896519788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896519788,
+      "end": 1706896519789,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896519789,
+      "end": 1706896519789,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896519789,
+      "end": 1706896519789,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896519789,
+      "end": 1706896519789,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896519789,
+      "end": 1706896519789,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896519789,
+      "end": 1706896519789,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896519789,
+      "end": 1706896519789,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896519790,
+      "end": 1706896519790,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896519790,
+      "end": 1706896519790,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896519790,
+      "end": 1706896519790,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896519790,
+      "end": 1706896519793,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896519793,
+      "end": 1706896519793,
+      "order": "normal"
+    }
+  ]
+}

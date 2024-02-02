@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/lodash/_objectToString.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/**\n * Used to resolve the\n * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)\n * of values.\n */\nvar nativeObjectToString = objectProto.toString;\n\n/**\n * Converts `value` to a string using `Object.prototype.toString`.\n *\n * @private\n * @param {*} value The value to convert.\n * @returns {string} Returns the converted string.\n */\nfunction objectToString(value) {\n  return nativeObjectToString.call(value);\n}\n\nmodule.exports = objectToString;\n",
+      "start": 1706896525598,
+      "end": 1706896525655,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525655,
+      "end": 1706896525655,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/** Used for built-in method references. */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nvar objectProto = Object.prototype;\n\n/**\n * Used to resolve the\n * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)\n * of values.\n */\nvar nativeObjectToString = objectProto.toString;\n\n/**\n * Converts `value` to a string using `Object.prototype.toString`.\n *\n * @private\n * @param {*} value The value to convert.\n * @returns {string} Returns the converted string.\n */\nfunction objectToString(value) {\n  return nativeObjectToString.call(value);\n}\n\nvar _objectToString = objectToString;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_objectToString);\nexport { _objectToString as __moduleExports };",
+      "start": 1706896525655,
+      "end": 1706896525656,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AACA,IAAI,WAAW,GAAG,MAAM,CAAC,SAAS,CAAC;AACnC;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,oBAAoB,GAAG,WAAW,CAAC,QAAQ,CAAC;AAChD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,cAAc,CAAC,KAAK,EAAE;AAC/B,EAAE,OAAO,oBAAoB,CAAC,IAAI,CAAC,KAAK,CAAC,CAAC;AAC1C,CAAC;AACD;IACA,eAAc,GAAG,cAAc"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525656,
+      "end": 1706896525656,
+      "order": "normal"
+    }
+  ]
+}

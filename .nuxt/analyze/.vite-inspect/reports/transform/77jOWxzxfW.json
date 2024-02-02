@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/UI/ThePreloader.vue?vue&type=style&index=0&scoped=ee4cf522&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n@for $i from 1 through 6 {\r\n  @keyframes preload-show-#{$i} {\r\n    from {\r\n      transform: rotateZ(60 * $i + deg) rotateY(-90deg) rotateX(0deg);\r\n      border-left-color: #0ea5e9;\r\n    }\r\n  }\r\n  @keyframes preload-hide-#{$i} {\r\n    to {\r\n      transform: rotateZ(60 * $i + deg) rotateY(-90deg) rotateX(0deg);\r\n      border-left-color: #2988c8;\r\n    }\r\n  }\r\n\r\n  @keyframes preload-cycle-#{$i} {\r\n    $startIndex: $i * 5;\r\n    $reverseIndex: (80 - $i * 5);\r\n\r\n    #{$startIndex * 1%} {\r\n      transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg);\r\n      border-left-color: #0ea5e9;\r\n    }\r\n    #{$startIndex + 5%},\r\n    #{$reverseIndex * 1%} {\r\n      transform: rotateZ(60 * $i + deg) rotateY(0) rotateX(0deg);\r\n      border-left-color: #2988c8;\r\n    }\r\n\r\n    #{$reverseIndex + 5%},\r\n    100% {\r\n      transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg);\r\n      border-left-color: #0ea5e9;\r\n    }\r\n  }\r\n}\r\n\r\n@keyframes preload-flip {\r\n  0% {\r\n    transform: rotateY(0deg) rotateZ(-60deg);\r\n  }\r\n  100% {\r\n    transform: rotateY(360deg) rotateZ(-60deg);\r\n  }\r\n}\r\n\r\n.preloader {\r\n  top: 50%;\r\n  left: 50%;\r\n  font-size: 20px;\r\n  display: block;\r\n  width: 3.75em;\r\n  height: 4.25em;\r\n  margin-left: -1.875em;\r\n  margin-top: -2.125em;\r\n  transform-origin: center center;\r\n  transform: rotateY(180deg) rotateZ(-60deg);\r\n\r\n  .slice {\r\n    border-top: 1.125em solid transparent;\r\n    border-right: none;\r\n    border-bottom: 1em solid transparent;\r\n    border-left: 1.875em solid #2988c8;\r\n    position: absolute;\r\n    top: 0px;\r\n    left: 50%;\r\n    transform-origin: left bottom;\r\n    border-radius: 3px 3px 0 0;\r\n  }\r\n\r\n  @for $i from 1 through 6 {\r\n    .slice:nth-child(#{$i}) {\r\n      transform: rotateZ(60 * $i + deg) rotateY(0deg) rotateX(0);\r\n      animation: 0.15s linear 0.9 - $i * 0.08s preload-hide-#{$i} both 1;\r\n    }\r\n  }\r\n\r\n  &.loading {\r\n    animation: 2s preload-flip steps(2) infinite both;\r\n    @for $i from 1 through 6 {\r\n      .slice:nth-child(#{$i}) {\r\n        transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0);\r\n        animation: 2s preload-cycle-#{$i} linear infinite both;\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+      "start": 1706896521975,
+      "end": 1706896521975
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521975,
+      "end": 1706896521975,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521975,
+      "end": 1706896521975,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521975,
+      "end": 1706896521975,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521975,
+      "end": 1706896521976,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "@keyframes preload-show-1{0%{border-left-color:#0ea5e9;transform:rotate(60deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-1{to{border-left-color:#2988c8;transform:rotate(60deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-1{5%{border-left-color:#0ea5e9;transform:rotate(60deg) rotateY(90deg) rotateX(0deg)}10%,75%{border-left-color:#2988c8;transform:rotate(60deg) rotateY(0) rotateX(0deg)}80%,to{border-left-color:#0ea5e9;transform:rotate(60deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-2{0%{border-left-color:#0ea5e9;transform:rotate(120deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-2{to{border-left-color:#2988c8;transform:rotate(120deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-2{10%{border-left-color:#0ea5e9;transform:rotate(120deg) rotateY(90deg) rotateX(0deg)}15%,70%{border-left-color:#2988c8;transform:rotate(120deg) rotateY(0) rotateX(0deg)}75%,to{border-left-color:#0ea5e9;transform:rotate(120deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-3{0%{border-left-color:#0ea5e9;transform:rotate(180deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-3{to{border-left-color:#2988c8;transform:rotate(180deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-3{15%{border-left-color:#0ea5e9;transform:rotate(180deg) rotateY(90deg) rotateX(0deg)}20%,65%{border-left-color:#2988c8;transform:rotate(180deg) rotateY(0) rotateX(0deg)}70%,to{border-left-color:#0ea5e9;transform:rotate(180deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-4{0%{border-left-color:#0ea5e9;transform:rotate(240deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-4{to{border-left-color:#2988c8;transform:rotate(240deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-4{20%{border-left-color:#0ea5e9;transform:rotate(240deg) rotateY(90deg) rotateX(0deg)}25%,60%{border-left-color:#2988c8;transform:rotate(240deg) rotateY(0) rotateX(0deg)}65%,to{border-left-color:#0ea5e9;transform:rotate(240deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-5{0%{border-left-color:#0ea5e9;transform:rotate(300deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-5{to{border-left-color:#2988c8;transform:rotate(300deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-5{25%{border-left-color:#0ea5e9;transform:rotate(300deg) rotateY(90deg) rotateX(0deg)}30%,55%{border-left-color:#2988c8;transform:rotate(300deg) rotateY(0) rotateX(0deg)}60%,to{border-left-color:#0ea5e9;transform:rotate(300deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-6{0%{border-left-color:#0ea5e9;transform:rotate(1turn) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-6{to{border-left-color:#2988c8;transform:rotate(1turn) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-6{30%{border-left-color:#0ea5e9;transform:rotate(1turn) rotateY(90deg) rotateX(0deg)}35%,50%{border-left-color:#2988c8;transform:rotate(1turn) rotateY(0) rotateX(0deg)}55%,to{border-left-color:#0ea5e9;transform:rotate(1turn) rotateY(90deg) rotateX(0deg)}}@keyframes preload-flip{0%{transform:rotateY(0deg) rotate(-60deg)}to{transform:rotateY(1turn) rotate(-60deg)}}.preloader{display:block;font-size:20px;height:4.25em;left:50%;margin-left:-1.875em;margin-top:-2.125em;top:50%;transform:rotateY(180deg) rotate(-60deg);transform-origin:center center;width:3.75em}.preloader .slice{border-color:transparent currentcolor transparent #2988c8;border-radius:3px 3px 0 0;border-style:solid none solid solid;border-width:1.125em medium 1em 1.875em;left:50%;position:absolute;top:0;transform-origin:left bottom}.preloader .slice:first-child{animation:preload-hide-1 .15s linear .82s 1 both;transform:rotate(60deg) rotateY(0deg) rotateX(0)}.preloader .slice:nth-child(2){animation:preload-hide-2 .15s linear .74s 1 both;transform:rotate(120deg) rotateY(0deg) rotateX(0)}.preloader .slice:nth-child(3){animation:preload-hide-3 .15s linear .66s 1 both;transform:rotate(180deg) rotateY(0deg) rotateX(0)}.preloader .slice:nth-child(4){animation:preload-hide-4 .15s linear .58s 1 both;transform:rotate(240deg) rotateY(0deg) rotateX(0)}.preloader .slice:nth-child(5){animation:preload-hide-5 .15s linear .5s 1 both;transform:rotate(300deg) rotateY(0deg) rotateX(0)}.preloader .slice:nth-child(6){animation:preload-hide-6 .15s linear .42s 1 both;transform:rotate(1turn) rotateY(0deg) rotateX(0)}.preloader.loading{animation:preload-flip 2s steps(2) infinite both}.preloader.loading .slice:first-child{animation:preload-cycle-1 2s linear infinite both;transform:rotate(60deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice:nth-child(2){animation:preload-cycle-2 2s linear infinite both;transform:rotate(120deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice:nth-child(3){animation:preload-cycle-3 2s linear infinite both;transform:rotate(180deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice:nth-child(4){animation:preload-cycle-4 2s linear infinite both;transform:rotate(240deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice:nth-child(5){animation:preload-cycle-5 2s linear infinite both;transform:rotate(300deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice:nth-child(6){animation:preload-cycle-6 2s linear infinite both;transform:rotate(1turn) rotateY(90deg) rotateX(0)}",
+      "start": 1706896521976,
+      "end": 1706896522344,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896522344,
+      "end": 1706896522344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522344,
+      "end": 1706896522344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522344,
+      "end": 1706896522344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "@keyframes preload-show-1-ee4cf522{0%{border-left-color:#0ea5e9;transform:rotate(60deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-1-ee4cf522{to{border-left-color:#2988c8;transform:rotate(60deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-1-ee4cf522{5%{border-left-color:#0ea5e9;transform:rotate(60deg) rotateY(90deg) rotateX(0deg)}10%,75%{border-left-color:#2988c8;transform:rotate(60deg) rotateY(0) rotateX(0deg)}80%,to{border-left-color:#0ea5e9;transform:rotate(60deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-2-ee4cf522{0%{border-left-color:#0ea5e9;transform:rotate(120deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-2-ee4cf522{to{border-left-color:#2988c8;transform:rotate(120deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-2-ee4cf522{10%{border-left-color:#0ea5e9;transform:rotate(120deg) rotateY(90deg) rotateX(0deg)}15%,70%{border-left-color:#2988c8;transform:rotate(120deg) rotateY(0) rotateX(0deg)}75%,to{border-left-color:#0ea5e9;transform:rotate(120deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-3-ee4cf522{0%{border-left-color:#0ea5e9;transform:rotate(180deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-3-ee4cf522{to{border-left-color:#2988c8;transform:rotate(180deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-3-ee4cf522{15%{border-left-color:#0ea5e9;transform:rotate(180deg) rotateY(90deg) rotateX(0deg)}20%,65%{border-left-color:#2988c8;transform:rotate(180deg) rotateY(0) rotateX(0deg)}70%,to{border-left-color:#0ea5e9;transform:rotate(180deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-4-ee4cf522{0%{border-left-color:#0ea5e9;transform:rotate(240deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-4-ee4cf522{to{border-left-color:#2988c8;transform:rotate(240deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-4-ee4cf522{20%{border-left-color:#0ea5e9;transform:rotate(240deg) rotateY(90deg) rotateX(0deg)}25%,60%{border-left-color:#2988c8;transform:rotate(240deg) rotateY(0) rotateX(0deg)}65%,to{border-left-color:#0ea5e9;transform:rotate(240deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-5-ee4cf522{0%{border-left-color:#0ea5e9;transform:rotate(300deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-5-ee4cf522{to{border-left-color:#2988c8;transform:rotate(300deg) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-5-ee4cf522{25%{border-left-color:#0ea5e9;transform:rotate(300deg) rotateY(90deg) rotateX(0deg)}30%,55%{border-left-color:#2988c8;transform:rotate(300deg) rotateY(0) rotateX(0deg)}60%,to{border-left-color:#0ea5e9;transform:rotate(300deg) rotateY(90deg) rotateX(0deg)}}@keyframes preload-show-6-ee4cf522{0%{border-left-color:#0ea5e9;transform:rotate(1turn) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-hide-6-ee4cf522{to{border-left-color:#2988c8;transform:rotate(1turn) rotateY(-90deg) rotateX(0deg)}}@keyframes preload-cycle-6-ee4cf522{30%{border-left-color:#0ea5e9;transform:rotate(1turn) rotateY(90deg) rotateX(0deg)}35%,50%{border-left-color:#2988c8;transform:rotate(1turn) rotateY(0) rotateX(0deg)}55%,to{border-left-color:#0ea5e9;transform:rotate(1turn) rotateY(90deg) rotateX(0deg)}}@keyframes preload-flip-ee4cf522{0%{transform:rotateY(0deg) rotate(-60deg)}to{transform:rotateY(1turn) rotate(-60deg)}}.preloader[data-v-ee4cf522]{display:block;font-size:20px;height:4.25em;left:50%;margin-left:-1.875em;margin-top:-2.125em;top:50%;transform:rotateY(180deg) rotate(-60deg);transform-origin:center center;width:3.75em}.preloader .slice[data-v-ee4cf522]{border-color:transparent currentcolor transparent #2988c8;border-radius:3px 3px 0 0;border-style:solid none solid solid;border-width:1.125em medium 1em 1.875em;left:50%;position:absolute;top:0;transform-origin:left bottom}.preloader .slice[data-v-ee4cf522]:first-child{animation:preload-hide-1-ee4cf522 .15s linear .82s 1 both;transform:rotate(60deg) rotateY(0deg) rotateX(0)}.preloader .slice[data-v-ee4cf522]:nth-child(2){animation:preload-hide-2-ee4cf522 .15s linear .74s 1 both;transform:rotate(120deg) rotateY(0deg) rotateX(0)}.preloader .slice[data-v-ee4cf522]:nth-child(3){animation:preload-hide-3-ee4cf522 .15s linear .66s 1 both;transform:rotate(180deg) rotateY(0deg) rotateX(0)}.preloader .slice[data-v-ee4cf522]:nth-child(4){animation:preload-hide-4-ee4cf522 .15s linear .58s 1 both;transform:rotate(240deg) rotateY(0deg) rotateX(0)}.preloader .slice[data-v-ee4cf522]:nth-child(5){animation:preload-hide-5-ee4cf522 .15s linear .5s 1 both;transform:rotate(300deg) rotateY(0deg) rotateX(0)}.preloader .slice[data-v-ee4cf522]:nth-child(6){animation:preload-hide-6-ee4cf522 .15s linear .42s 1 both;transform:rotate(1turn) rotateY(0deg) rotateX(0)}.preloader.loading[data-v-ee4cf522]{animation:preload-flip-ee4cf522 2s steps(2) infinite both}.preloader.loading .slice[data-v-ee4cf522]:first-child{animation:preload-cycle-1-ee4cf522 2s linear infinite both;transform:rotate(60deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice[data-v-ee4cf522]:nth-child(2){animation:preload-cycle-2-ee4cf522 2s linear infinite both;transform:rotate(120deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice[data-v-ee4cf522]:nth-child(3){animation:preload-cycle-3-ee4cf522 2s linear infinite both;transform:rotate(180deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice[data-v-ee4cf522]:nth-child(4){animation:preload-cycle-4-ee4cf522 2s linear infinite both;transform:rotate(240deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice[data-v-ee4cf522]:nth-child(5){animation:preload-cycle-5-ee4cf522 2s linear infinite both;transform:rotate(300deg) rotateY(90deg) rotateX(0)}.preloader.loading .slice[data-v-ee4cf522]:nth-child(6){animation:preload-cycle-6-ee4cf522 2s linear infinite both;transform:rotate(1turn) rotateY(90deg) rotateX(0)}",
+      "start": 1706896522345,
+      "end": 1706896522348,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522348,
+      "end": 1706896522348,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522348,
+      "end": 1706896522348,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522348,
+      "end": 1706896522348,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522348,
+      "end": 1706896522348,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522349,
+      "end": 1706896522349,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522349,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522350,
+      "end": 1706896522350,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522350,
+      "end": 1706896522351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522351,
+      "end": 1706896522351,
+      "order": "normal"
+    }
+  ]
+}

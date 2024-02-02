@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/lodash/_SetCache.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var MapCache = require('./_MapCache'),\n    setCacheAdd = require('./_setCacheAdd'),\n    setCacheHas = require('./_setCacheHas');\n\n/**\n *\n * Creates an array cache object to store unique values.\n *\n * @private\n * @constructor\n * @param {Array} [values] The values to cache.\n */\nfunction SetCache(values) {\n  var index = -1,\n      length = values == null ? 0 : values.length;\n\n  this.__data__ = new MapCache;\n  while (++index < length) {\n    this.add(values[index]);\n  }\n}\n\n// Add methods to `SetCache`.\nSetCache.prototype.add = SetCache.prototype.push = setCacheAdd;\nSetCache.prototype.has = setCacheHas;\n\nmodule.exports = SetCache;\n",
+      "start": 1706896525571,
+      "end": 1706896525600,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525600,
+      "end": 1706896525600,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_MapCache.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_setCacheAdd.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_setCacheHas.js?commonjs-proxy\";\n\nvar MapCache = require$$0,\n    setCacheAdd = require$$1,\n    setCacheHas = require$$2;\n\n/**\n *\n * Creates an array cache object to store unique values.\n *\n * @private\n * @constructor\n * @param {Array} [values] The values to cache.\n */\nfunction SetCache(values) {\n  var index = -1,\n      length = values == null ? 0 : values.length;\n\n  this.__data__ = new MapCache;\n  while (++index < length) {\n    this.add(values[index]);\n  }\n}\n\n// Add methods to `SetCache`.\nSetCache.prototype.add = SetCache.prototype.push = setCacheAdd;\nSetCache.prototype.has = setCacheHas;\n\nvar _SetCache = SetCache;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_SetCache);\nexport { _SetCache as __moduleExports };",
+      "start": 1706896525601,
+      "end": 1706896525738,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,QAAQ,GAAG,UAAsB;AACrC,IAAI,WAAW,GAAG,UAAyB;AAC3C,IAAI,WAAW,GAAG,UAAyB,CAAC;AAC5C;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,QAAQ,CAAC,MAAM,EAAE;AAC1B,EAAE,IAAI,KAAK,GAAG,CAAC,CAAC;AAChB,MAAM,MAAM,GAAG,MAAM,IAAI,IAAI,GAAG,CAAC,GAAG,MAAM,CAAC,MAAM,CAAC;AAClD;AACA,EAAE,IAAI,CAAC,QAAQ,GAAG,IAAI,QAAQ,CAAC;AAC/B,EAAE,OAAO,EAAE,KAAK,GAAG,MAAM,EAAE;AAC3B,IAAI,IAAI,CAAC,GAAG,CAAC,MAAM,CAAC,KAAK,CAAC,CAAC,CAAC;AAC5B,GAAG;AACH,CAAC;AACD;AACA;AACA,QAAQ,CAAC,SAAS,CAAC,GAAG,GAAG,QAAQ,CAAC,SAAS,CAAC,IAAI,GAAG,WAAW,CAAC;AAC/D,QAAQ,CAAC,SAAS,CAAC,GAAG,GAAG,WAAW,CAAC;AACrC;IACA,SAAc,GAAG,QAAQ"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525738,
+      "end": 1706896525738,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525738,
+      "end": 1706896525738,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525738,
+      "end": 1706896525738,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525739,
+      "end": 1706896525739,
+      "order": "normal"
+    }
+  ]
+}

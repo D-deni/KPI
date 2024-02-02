@@ -1,0 +1,311 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vue-advanced-cropper/dist/style.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".vue-advanced-cropper {\n  text-align: center;\n  position: relative;\n  user-select: none;\n  max-height: 100%;\n  max-width: 100%;\n  direction: ltr;\n}\n.vue-advanced-cropper__stretcher {\n  pointer-events: none;\n  position: relative;\n  max-width: 100%;\n  max-height: 100%;\n}\n.vue-advanced-cropper__image {\n  user-select: none;\n  position: absolute;\n  transform-origin: center;\n  max-width: none !important;\n}\n.vue-advanced-cropper__background, .vue-advanced-cropper__foreground {\n  opacity: 1;\n  background: black;\n  transform: translate(-50%, -50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n}\n.vue-advanced-cropper__foreground {\n  opacity: 0.5;\n}\n.vue-advanced-cropper__boundaries {\n  opacity: 1;\n  transform: translate(-50%, -50%);\n  position: absolute;\n  left: 50%;\n  top: 50%;\n}\n.vue-advanced-cropper__cropper-wrapper {\n  width: 100%;\n  height: 100%;\n}\n.vue-advanced-cropper__image-wrapper {\n  overflow: hidden;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.vue-advanced-cropper__stencil-wrapper {\n  position: absolute;\n}\n\n.vue-handler-wrapper {\n  position: absolute;\n  transform: translate(-50%, -50%);\n  width: 30px;\n  height: 30px;\n}\n.vue-handler-wrapper__draggable {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.vue-handler-wrapper--west-north {\n  cursor: nw-resize;\n}\n.vue-handler-wrapper--north {\n  cursor: n-resize;\n}\n.vue-handler-wrapper--east-north {\n  cursor: ne-resize;\n}\n.vue-handler-wrapper--east {\n  cursor: e-resize;\n}\n.vue-handler-wrapper--east-south {\n  cursor: se-resize;\n}\n.vue-handler-wrapper--south {\n  cursor: s-resize;\n}\n.vue-handler-wrapper--west-south {\n  cursor: sw-resize;\n}\n.vue-handler-wrapper--west {\n  cursor: w-resize;\n}\n.vue-handler-wrapper--disabled {\n  cursor: auto;\n}\n\n.vue-line-wrapper {\n  background: none;\n  position: absolute;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.vue-line-wrapper--north, .vue-line-wrapper--south {\n  height: 12px;\n  width: 100%;\n  left: 0;\n  transform: translateY(-50%);\n}\n.vue-line-wrapper--north {\n  top: 0;\n  cursor: n-resize;\n}\n.vue-line-wrapper--south {\n  top: 100%;\n  cursor: s-resize;\n}\n.vue-line-wrapper--east, .vue-line-wrapper--west {\n  width: 12px;\n  height: 100%;\n  transform: translateX(-50%);\n  top: 0;\n}\n.vue-line-wrapper--east {\n  left: 100%;\n  cursor: e-resize;\n}\n.vue-line-wrapper--west {\n  left: 0;\n  cursor: w-resize;\n}\n.vue-line-wrapper--disabled {\n  cursor: auto;\n}\n\n.vue-bounding-box {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n.vue-bounding-box__handler {\n  position: absolute;\n}\n.vue-bounding-box__handler--west-north {\n  left: 0;\n  top: 0;\n}\n.vue-bounding-box__handler--north {\n  left: 50%;\n  top: 0;\n}\n.vue-bounding-box__handler--east-north {\n  left: 100%;\n  top: 0;\n}\n.vue-bounding-box__handler--east {\n  left: 100%;\n  top: 50%;\n}\n.vue-bounding-box__handler--east-south {\n  left: 100%;\n  top: 100%;\n}\n.vue-bounding-box__handler--south {\n  left: 50%;\n  top: 100%;\n}\n.vue-bounding-box__handler--west-south {\n  left: 0;\n  top: 100%;\n}\n.vue-bounding-box__handler--west {\n  left: 0;\n  top: 50%;\n}\n\n.vue-draggable-area {\n  position: relative;\n}\n\n.vue-preview-result {\n  overflow: hidden;\n  box-sizing: border-box;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.vue-preview-result__wrapper {\n  position: absolute;\n}\n.vue-preview-result__image {\n  pointer-events: none;\n  position: relative;\n  user-select: none;\n  transform-origin: center;\n  max-width: none !important;\n}\n\n.vue-simple-handler {\n  display: block;\n  background: white;\n  height: 10px;\n  width: 10px;\n}\n\n.vue-simple-line {\n  background: none;\n  transition: border 0.5s;\n  border-color: rgba(255, 255, 255, 0.3);\n  border-width: 0;\n  border-style: solid;\n}\n.vue-simple-line--south, .vue-simple-line--north {\n  height: 0;\n  width: 100%;\n}\n.vue-simple-line--east, .vue-simple-line--west {\n  height: 100%;\n  width: 0;\n}\n.vue-simple-line--east {\n  border-right-width: 1px;\n}\n.vue-simple-line--west {\n  border-left-width: 1px;\n}\n.vue-simple-line--south {\n  border-bottom-width: 1px;\n}\n.vue-simple-line--north {\n  border-top-width: 1px;\n}\n.vue-simple-line--hover {\n  opacity: 1;\n  border-color: white;\n}\n\n.vue-preview {\n  overflow: hidden;\n  box-sizing: border-box;\n  position: relative;\n}\n.vue-preview--fill {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n}\n.vue-preview__wrapper {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.vue-preview__image {\n  pointer-events: none;\n  position: absolute;\n  user-select: none;\n  transform-origin: center;\n  max-width: none !important;\n}\n\n.vue-rectangle-stencil {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  box-sizing: border-box;\n}\n.vue-rectangle-stencil__preview {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.vue-rectangle-stencil--movable {\n  cursor: move;\n}\n\n.vue-circle-stencil {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  box-sizing: content-box;\n  cursor: move;\n}\n.vue-circle-stencil__preview {\n  border-radius: 50%;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.vue-circle-stencil--movable {\n  cursor: move;\n}",
+      "start": 1706896541582,
+      "end": 1706896543039,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896543039,
+      "end": 1706896543039,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896543039,
+      "end": 1706896543039,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896543039,
+      "end": 1706896543039,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896543039,
+      "end": 1706896543039,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896543039,
+      "end": 1706896543039,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896543039,
+      "end": 1706896543039,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896543039,
+      "end": 1706896543039,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".vue-advanced-cropper{direction:ltr;max-height:100%;max-width:100%;position:relative;text-align:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-advanced-cropper__stretcher{max-height:100%;max-width:100%;pointer-events:none;position:relative}.vue-advanced-cropper__image{max-width:none!important;position:absolute;transform-origin:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-advanced-cropper__background,.vue-advanced-cropper__foreground{background:#000;left:50%;opacity:1;position:absolute;top:50%;transform:translate(-50%,-50%)}.vue-advanced-cropper__foreground{opacity:.5}.vue-advanced-cropper__boundaries{left:50%;opacity:1;position:absolute;top:50%;transform:translate(-50%,-50%)}.vue-advanced-cropper__cropper-wrapper{height:100%;width:100%}.vue-advanced-cropper__image-wrapper{height:100%;overflow:hidden;position:absolute;width:100%}.vue-advanced-cropper__stencil-wrapper{position:absolute}.vue-handler-wrapper{height:30px;position:absolute;transform:translate(-50%,-50%);width:30px}.vue-handler-wrapper__draggable{align-items:center;display:flex;height:100%;justify-content:center;width:100%}.vue-handler-wrapper--west-north{cursor:nw-resize}.vue-handler-wrapper--north{cursor:n-resize}.vue-handler-wrapper--east-north{cursor:ne-resize}.vue-handler-wrapper--east{cursor:e-resize}.vue-handler-wrapper--east-south{cursor:se-resize}.vue-handler-wrapper--south{cursor:s-resize}.vue-handler-wrapper--west-south{cursor:sw-resize}.vue-handler-wrapper--west{cursor:w-resize}.vue-handler-wrapper--disabled{cursor:auto}.vue-line-wrapper{align-items:center;background:none;display:flex;justify-content:center;position:absolute}.vue-line-wrapper--north,.vue-line-wrapper--south{height:12px;left:0;transform:translateY(-50%);width:100%}.vue-line-wrapper--north{cursor:n-resize;top:0}.vue-line-wrapper--south{cursor:s-resize;top:100%}.vue-line-wrapper--east,.vue-line-wrapper--west{height:100%;top:0;transform:translateX(-50%);width:12px}.vue-line-wrapper--east{cursor:e-resize;left:100%}.vue-line-wrapper--west{cursor:w-resize;left:0}.vue-line-wrapper--disabled{cursor:auto}.vue-bounding-box{height:100%;position:relative;width:100%}.vue-bounding-box__handler{position:absolute}.vue-bounding-box__handler--west-north{left:0;top:0}.vue-bounding-box__handler--north{left:50%;top:0}.vue-bounding-box__handler--east-north{left:100%;top:0}.vue-bounding-box__handler--east{left:100%;top:50%}.vue-bounding-box__handler--east-south{left:100%;top:100%}.vue-bounding-box__handler--south{left:50%;top:100%}.vue-bounding-box__handler--west-south{left:0;top:100%}.vue-bounding-box__handler--west{left:0;top:50%}.vue-draggable-area{position:relative}.vue-preview-result{box-sizing:border-box;height:100%;overflow:hidden;position:absolute;width:100%}.vue-preview-result__wrapper{position:absolute}.vue-preview-result__image{max-width:none!important;pointer-events:none;position:relative;transform-origin:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-simple-handler{background:#fff;display:block;height:10px;width:10px}.vue-simple-line{background:none;border:0 solid hsla(0,0%,100%,.3);transition:border .5s}.vue-simple-line--north,.vue-simple-line--south{height:0;width:100%}.vue-simple-line--east,.vue-simple-line--west{height:100%;width:0}.vue-simple-line--east{border-right-width:1px}.vue-simple-line--west{border-left-width:1px}.vue-simple-line--south{border-bottom-width:1px}.vue-simple-line--north{border-top-width:1px}.vue-simple-line--hover{border-color:#fff;opacity:1}.vue-preview{box-sizing:border-box;overflow:hidden;position:relative}.vue-preview--fill,.vue-preview__wrapper{height:100%;position:absolute;width:100%}.vue-preview__image{max-width:none!important;pointer-events:none;position:absolute;transform-origin:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-rectangle-stencil{box-sizing:border-box}.vue-rectangle-stencil,.vue-rectangle-stencil__preview{height:100%;position:absolute;width:100%}.vue-rectangle-stencil--movable{cursor:move}.vue-circle-stencil{box-sizing:content-box;cursor:move;height:100%;position:absolute;width:100%}.vue-circle-stencil__preview{border-radius:50%;height:100%;position:absolute;width:100%}.vue-circle-stencil--movable{cursor:move}",
+      "start": 1706896543039,
+      "end": 1706896543083,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/Programming/templates/KPIcopy/node_modules/vue-advanced-cropper/dist/style.css",
+        "mappings": "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",
+        "names": [],
+        "sources": [
+          "D:/Programming/templates/KPIcopy/node_modules/vue-advanced-cropper/dist/style.css"
+        ],
+        "sourcesContent": [
+          ".vue-advanced-cropper {\n  text-align: center;\n  position: relative;\n  user-select: none;\n  max-height: 100%;\n  max-width: 100%;\n  direction: ltr;\n}\n.vue-advanced-cropper__stretcher {\n  pointer-events: none;\n  position: relative;\n  max-width: 100%;\n  max-height: 100%;\n}\n.vue-advanced-cropper__image {\n  user-select: none;\n  position: absolute;\n  transform-origin: center;\n  max-width: none !important;\n}\n.vue-advanced-cropper__background, .vue-advanced-cropper__foreground {\n  opacity: 1;\n  background: black;\n  transform: translate(-50%, -50%);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n}\n.vue-advanced-cropper__foreground {\n  opacity: 0.5;\n}\n.vue-advanced-cropper__boundaries {\n  opacity: 1;\n  transform: translate(-50%, -50%);\n  position: absolute;\n  left: 50%;\n  top: 50%;\n}\n.vue-advanced-cropper__cropper-wrapper {\n  width: 100%;\n  height: 100%;\n}\n.vue-advanced-cropper__image-wrapper {\n  overflow: hidden;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.vue-advanced-cropper__stencil-wrapper {\n  position: absolute;\n}\n\n.vue-handler-wrapper {\n  position: absolute;\n  transform: translate(-50%, -50%);\n  width: 30px;\n  height: 30px;\n}\n.vue-handler-wrapper__draggable {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.vue-handler-wrapper--west-north {\n  cursor: nw-resize;\n}\n.vue-handler-wrapper--north {\n  cursor: n-resize;\n}\n.vue-handler-wrapper--east-north {\n  cursor: ne-resize;\n}\n.vue-handler-wrapper--east {\n  cursor: e-resize;\n}\n.vue-handler-wrapper--east-south {\n  cursor: se-resize;\n}\n.vue-handler-wrapper--south {\n  cursor: s-resize;\n}\n.vue-handler-wrapper--west-south {\n  cursor: sw-resize;\n}\n.vue-handler-wrapper--west {\n  cursor: w-resize;\n}\n.vue-handler-wrapper--disabled {\n  cursor: auto;\n}\n\n.vue-line-wrapper {\n  background: none;\n  position: absolute;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.vue-line-wrapper--north, .vue-line-wrapper--south {\n  height: 12px;\n  width: 100%;\n  left: 0;\n  transform: translateY(-50%);\n}\n.vue-line-wrapper--north {\n  top: 0;\n  cursor: n-resize;\n}\n.vue-line-wrapper--south {\n  top: 100%;\n  cursor: s-resize;\n}\n.vue-line-wrapper--east, .vue-line-wrapper--west {\n  width: 12px;\n  height: 100%;\n  transform: translateX(-50%);\n  top: 0;\n}\n.vue-line-wrapper--east {\n  left: 100%;\n  cursor: e-resize;\n}\n.vue-line-wrapper--west {\n  left: 0;\n  cursor: w-resize;\n}\n.vue-line-wrapper--disabled {\n  cursor: auto;\n}\n\n.vue-bounding-box {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n.vue-bounding-box__handler {\n  position: absolute;\n}\n.vue-bounding-box__handler--west-north {\n  left: 0;\n  top: 0;\n}\n.vue-bounding-box__handler--north {\n  left: 50%;\n  top: 0;\n}\n.vue-bounding-box__handler--east-north {\n  left: 100%;\n  top: 0;\n}\n.vue-bounding-box__handler--east {\n  left: 100%;\n  top: 50%;\n}\n.vue-bounding-box__handler--east-south {\n  left: 100%;\n  top: 100%;\n}\n.vue-bounding-box__handler--south {\n  left: 50%;\n  top: 100%;\n}\n.vue-bounding-box__handler--west-south {\n  left: 0;\n  top: 100%;\n}\n.vue-bounding-box__handler--west {\n  left: 0;\n  top: 50%;\n}\n\n.vue-draggable-area {\n  position: relative;\n}\n\n.vue-preview-result {\n  overflow: hidden;\n  box-sizing: border-box;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.vue-preview-result__wrapper {\n  position: absolute;\n}\n.vue-preview-result__image {\n  pointer-events: none;\n  position: relative;\n  user-select: none;\n  transform-origin: center;\n  max-width: none !important;\n}\n\n.vue-simple-handler {\n  display: block;\n  background: white;\n  height: 10px;\n  width: 10px;\n}\n\n.vue-simple-line {\n  background: none;\n  transition: border 0.5s;\n  border-color: rgba(255, 255, 255, 0.3);\n  border-width: 0;\n  border-style: solid;\n}\n.vue-simple-line--south, .vue-simple-line--north {\n  height: 0;\n  width: 100%;\n}\n.vue-simple-line--east, .vue-simple-line--west {\n  height: 100%;\n  width: 0;\n}\n.vue-simple-line--east {\n  border-right-width: 1px;\n}\n.vue-simple-line--west {\n  border-left-width: 1px;\n}\n.vue-simple-line--south {\n  border-bottom-width: 1px;\n}\n.vue-simple-line--north {\n  border-top-width: 1px;\n}\n.vue-simple-line--hover {\n  opacity: 1;\n  border-color: white;\n}\n\n.vue-preview {\n  overflow: hidden;\n  box-sizing: border-box;\n  position: relative;\n}\n.vue-preview--fill {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n}\n.vue-preview__wrapper {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.vue-preview__image {\n  pointer-events: none;\n  position: absolute;\n  user-select: none;\n  transform-origin: center;\n  max-width: none !important;\n}\n\n.vue-rectangle-stencil {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  box-sizing: border-box;\n}\n.vue-rectangle-stencil__preview {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.vue-rectangle-stencil--movable {\n  cursor: move;\n}\n\n.vue-circle-stencil {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  box-sizing: content-box;\n  cursor: move;\n}\n.vue-circle-stencil__preview {\n  border-radius: 50%;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.vue-circle-stencil--movable {\n  cursor: move;\n}"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896543083,
+      "end": 1706896543083,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896543083,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".vue-advanced-cropper{direction:ltr;max-height:100%;max-width:100%;position:relative;text-align:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-advanced-cropper__stretcher{max-height:100%;max-width:100%;pointer-events:none;position:relative}.vue-advanced-cropper__image{max-width:none!important;position:absolute;transform-origin:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-advanced-cropper__background,.vue-advanced-cropper__foreground{background:#000;left:50%;opacity:1;position:absolute;top:50%;transform:translate(-50%,-50%)}.vue-advanced-cropper__foreground{opacity:.5}.vue-advanced-cropper__boundaries{left:50%;opacity:1;position:absolute;top:50%;transform:translate(-50%,-50%)}.vue-advanced-cropper__cropper-wrapper{height:100%;width:100%}.vue-advanced-cropper__image-wrapper{height:100%;overflow:hidden;position:absolute;width:100%}.vue-advanced-cropper__stencil-wrapper{position:absolute}.vue-handler-wrapper{height:30px;position:absolute;transform:translate(-50%,-50%);width:30px}.vue-handler-wrapper__draggable{align-items:center;display:flex;height:100%;justify-content:center;width:100%}.vue-handler-wrapper--west-north{cursor:nw-resize}.vue-handler-wrapper--north{cursor:n-resize}.vue-handler-wrapper--east-north{cursor:ne-resize}.vue-handler-wrapper--east{cursor:e-resize}.vue-handler-wrapper--east-south{cursor:se-resize}.vue-handler-wrapper--south{cursor:s-resize}.vue-handler-wrapper--west-south{cursor:sw-resize}.vue-handler-wrapper--west{cursor:w-resize}.vue-handler-wrapper--disabled{cursor:auto}.vue-line-wrapper{align-items:center;background:none;display:flex;justify-content:center;position:absolute}.vue-line-wrapper--north,.vue-line-wrapper--south{height:12px;left:0;transform:translateY(-50%);width:100%}.vue-line-wrapper--north{cursor:n-resize;top:0}.vue-line-wrapper--south{cursor:s-resize;top:100%}.vue-line-wrapper--east,.vue-line-wrapper--west{height:100%;top:0;transform:translateX(-50%);width:12px}.vue-line-wrapper--east{cursor:e-resize;left:100%}.vue-line-wrapper--west{cursor:w-resize;left:0}.vue-line-wrapper--disabled{cursor:auto}.vue-bounding-box{height:100%;position:relative;width:100%}.vue-bounding-box__handler{position:absolute}.vue-bounding-box__handler--west-north{left:0;top:0}.vue-bounding-box__handler--north{left:50%;top:0}.vue-bounding-box__handler--east-north{left:100%;top:0}.vue-bounding-box__handler--east{left:100%;top:50%}.vue-bounding-box__handler--east-south{left:100%;top:100%}.vue-bounding-box__handler--south{left:50%;top:100%}.vue-bounding-box__handler--west-south{left:0;top:100%}.vue-bounding-box__handler--west{left:0;top:50%}.vue-draggable-area{position:relative}.vue-preview-result{box-sizing:border-box;height:100%;overflow:hidden;position:absolute;width:100%}.vue-preview-result__wrapper{position:absolute}.vue-preview-result__image{max-width:none!important;pointer-events:none;position:relative;transform-origin:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-simple-handler{background:#fff;display:block;height:10px;width:10px}.vue-simple-line{background:none;border:0 solid hsla(0,0%,100%,.3);transition:border .5s}.vue-simple-line--north,.vue-simple-line--south{height:0;width:100%}.vue-simple-line--east,.vue-simple-line--west{height:100%;width:0}.vue-simple-line--east{border-right-width:1px}.vue-simple-line--west{border-left-width:1px}.vue-simple-line--south{border-bottom-width:1px}.vue-simple-line--north{border-top-width:1px}.vue-simple-line--hover{border-color:#fff;opacity:1}.vue-preview{box-sizing:border-box;overflow:hidden;position:relative}.vue-preview--fill,.vue-preview__wrapper{height:100%;position:absolute;width:100%}.vue-preview__image{max-width:none!important;pointer-events:none;position:absolute;transform-origin:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.vue-rectangle-stencil{box-sizing:border-box}.vue-rectangle-stencil,.vue-rectangle-stencil__preview{height:100%;position:absolute;width:100%}.vue-rectangle-stencil--movable{cursor:move}.vue-circle-stencil{box-sizing:content-box;cursor:move;height:100%;position:absolute;width:100%}.vue-circle-stencil__preview{border-radius:50%;height:100%;position:absolute;width:100%}.vue-circle-stencil--movable{cursor:move}\"",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896543084,
+      "end": 1706896543084,
+      "order": "normal"
+    }
+  ]
+}

@@ -19,6 +19,11 @@ departmentList.loadDepartmentList()
 defineProps({
   formTitle: String
 })
+
+useSeoMeta({
+  title: 'Департаменты',
+  description: 'Список департаментов компании'
+})
 </script>
 
 <template>

@@ -22,6 +22,11 @@ onBeforeMount(() => {
   }
 })
 
+watchSyncEffect(()=>{
+  useSeoMeta({
+    title: `${documentStore.documentItem.title}`
+  })
+})
 </script>
 
 <template>

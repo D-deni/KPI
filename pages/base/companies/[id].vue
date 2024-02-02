@@ -14,6 +14,12 @@ const params = {
 watchEffect(()=> {
   currentCompany.loadCompany({id: route.params.id})
 })
+
+watchSyncEffect(()=>{
+  useSeoMeta({
+    title: `${currentCompany.company.name}`
+  })
+})
 </script>
 
 <template>

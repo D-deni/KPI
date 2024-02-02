@@ -16,4 +16,9 @@ const props = defineProps({
     default: false
   }
 })
+
+useSeoMeta({
+  title: 'Профиль',
+  description: 'Личный кабинет | Текущая информация обо мне'
+})
 </script>

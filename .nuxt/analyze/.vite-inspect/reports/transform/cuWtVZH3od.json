@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/browser/main.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.createMessageConnection = exports.BrowserMessageWriter = exports.BrowserMessageReader = void 0;\nconst ril_1 = require(\"./ril\");\n// Install the browser runtime abstract.\nril_1.default.install();\nconst api_1 = require(\"../common/api\");\n__exportStar(require(\"../common/api\"), exports);\nclass BrowserMessageReader extends api_1.AbstractMessageReader {\n    constructor(context) {\n        super();\n        this._onData = new api_1.Emitter();\n        this._messageListener = (event) => {\n            this._onData.fire(event.data);\n        };\n        context.addEventListener('error', (event) => this.fireError(event));\n        context.onmessage = this._messageListener;\n    }\n    listen(callback) {\n        return this._onData.event(callback);\n    }\n}\nexports.BrowserMessageReader = BrowserMessageReader;\nclass BrowserMessageWriter extends api_1.AbstractMessageWriter {\n    constructor(context) {\n        super();\n        this.context = context;\n        this.errorCount = 0;\n        context.addEventListener('error', (event) => this.fireError(event));\n    }\n    write(msg) {\n        try {\n            this.context.postMessage(msg);\n            return Promise.resolve();\n        }\n        catch (error) {\n            this.handleError(error, msg);\n            return Promise.reject(error);\n        }\n    }\n    handleError(error, msg) {\n        this.errorCount++;\n        this.fireError(error, msg, this.errorCount);\n    }\n    end() {\n    }\n}\nexports.BrowserMessageWriter = BrowserMessageWriter;\nfunction createMessageConnection(reader, writer, logger, options) {\n    if (logger === undefined) {\n        logger = api_1.NullLogger;\n    }\n    if (api_1.ConnectionStrategy.is(options)) {\n        options = { connectionStrategy: options };\n    }\n    return api_1.createMessageConnection(reader, writer, logger, options);\n}\nexports.createMessageConnection = createMessageConnection;\n//# sourceMappingURL=main.js.map",
+      "start": 1706896524985,
+      "end": 1706896525039,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525039,
+      "end": 1706896525039,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525040,
+      "end": 1706896525040,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as main } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/browser/main.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/browser/ril.js?commonjs-proxy\";\nimport { __require as require$$1 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/api.js?commonjs-wrapped\";\n\n(function (exports) {\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tvar __createBinding = (commonjsHelpers.commonjsGlobal && commonjsHelpers.commonjsGlobal.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n\t    if (k2 === undefined) k2 = k;\n\t    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n\t}) : (function(o, m, k, k2) {\n\t    if (k2 === undefined) k2 = k;\n\t    o[k2] = m[k];\n\t}));\n\tvar __exportStar = (commonjsHelpers.commonjsGlobal && commonjsHelpers.commonjsGlobal.__exportStar) || function(m, exports) {\n\t    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n\t};\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.createMessageConnection = exports.BrowserMessageWriter = exports.BrowserMessageReader = void 0;\n\tconst ril_1 = require$$0;\n\t// Install the browser runtime abstract.\n\tril_1.default.install();\n\tconst api_1 = require$$1();\n\t__exportStar(require$$1(), exports);\n\tclass BrowserMessageReader extends api_1.AbstractMessageReader {\n\t    constructor(context) {\n\t        super();\n\t        this._onData = new api_1.Emitter();\n\t        this._messageListener = (event) => {\n\t            this._onData.fire(event.data);\n\t        };\n\t        context.addEventListener('error', (event) => this.fireError(event));\n\t        context.onmessage = this._messageListener;\n\t    }\n\t    listen(callback) {\n\t        return this._onData.event(callback);\n\t    }\n\t}\n\texports.BrowserMessageReader = BrowserMessageReader;\n\tclass BrowserMessageWriter extends api_1.AbstractMessageWriter {\n\t    constructor(context) {\n\t        super();\n\t        this.context = context;\n\t        this.errorCount = 0;\n\t        context.addEventListener('error', (event) => this.fireError(event));\n\t    }\n\t    write(msg) {\n\t        try {\n\t            this.context.postMessage(msg);\n\t            return Promise.resolve();\n\t        }\n\t        catch (error) {\n\t            this.handleError(error, msg);\n\t            return Promise.reject(error);\n\t        }\n\t    }\n\t    handleError(error, msg) {\n\t        this.errorCount++;\n\t        this.fireError(error, msg, this.errorCount);\n\t    }\n\t    end() {\n\t    }\n\t}\n\texports.BrowserMessageWriter = BrowserMessageWriter;\n\tfunction createMessageConnection(reader, writer, logger, options) {\n\t    if (logger === undefined) {\n\t        logger = api_1.NullLogger;\n\t    }\n\t    if (api_1.ConnectionStrategy.is(options)) {\n\t        options = { connectionStrategy: options };\n\t    }\n\t    return api_1.createMessageConnection(reader, writer, logger, options);\n\t}\n\texports.createMessageConnection = createMessageConnection;\n\t//# sourceMappingURL=main.js.map \n} (main));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(main);\nexport { main as __moduleExports };",
+      "start": 1706896525040,
+      "end": 1706896525526,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [
+          "this"
+        ],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525526,
+      "end": 1706896525526,
+      "order": "normal"
+    }
+  ]
+}

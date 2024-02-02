@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport ChatWindowSettingContentHeader from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentHeader.vue\";\r\nimport ChatWindowSettingContentMain from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentMain.vue\";\r\nimport ChatWindowSettingContentUserList from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentUserList.vue\";\r\nimport {useChat} from \"~/stores/chat\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatWindowSettingContent',\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", {\n    onClick: _cache[0] || (_cache[0] = ($event: any) => (_unref(chat).showSettingChat = false))\n  }, [\n    _createVNode(ChatWindowSettingContentHeader),\n    _createVNode(ChatWindowSettingContentMain),\n    _createVNode(ChatWindowSettingContentUserList)\n  ]))\n}\n}\n\n})",
+      "start": 1706896521064,
+      "end": 1706896521064
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521064,
+      "end": 1706896521064,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521064,
+      "end": 1706896521064,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521064,
+      "end": 1706896521064,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521064,
+      "end": 1706896521064,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521064,
+      "end": 1706896521064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nimport ChatWindowSettingContentHeader from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentHeader.vue\";\nimport ChatWindowSettingContentMain from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentMain.vue\";\nimport ChatWindowSettingContentUserList from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentUserList.vue\";\nimport { useChat } from \"~/stores/chat\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatWindowSettingContent\",\n  setup(__props) {\n    const chat = useChat();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", {\n        onClick: _cache[0] || (_cache[0] = ($event) => _unref(chat).showSettingChat = false)\n      }, [\n        _createVNode(ChatWindowSettingContentHeader),\n        _createVNode(ChatWindowSettingContentMain),\n        _createVNode(ChatWindowSettingContentUserList)\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521064,
+      "end": 1706896521278,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport ChatWindowSettingContentHeader from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentHeader.vue\";\r\nimport ChatWindowSettingContentMain from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentMain.vue\";\r\nimport ChatWindowSettingContentUserList from \"~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentUserList.vue\";\r\nimport {useChat} from \"~/stores/chat\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatWindowSettingContent',\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", {\n    onClick: _cache[0] || (_cache[0] = ($event: any) => (_unref(chat).showSettingChat = false))\n  }, [\n    _createVNode(ChatWindowSettingContentHeader),\n    _createVNode(ChatWindowSettingContentMain),\n    _createVNode(ChatWindowSettingContentUserList)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,eAAe,cAAc,SAAS,QAAQ,aAAa,YAAY,sBAAsB,2BAA2B;AAEjI,OAAO,oCAAoC;AAC3C,OAAO,kCAAkC;AACzC,OAAO,sCAAsC;AAC7C,SAAQ,eAAc;AAEtB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,OAAO,QAAQ;AAErB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO;AAAA,QAC/C,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,OAAO,IAAI,EAAE,kBAAkB;AAAA,MACtF,GAAG;AAAA,QACD,aAAa,8BAA8B;AAAA,QAC3C,aAAa,4BAA4B;AAAA,QACzC,aAAa,gCAAgC;AAAA,MAC/C,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521278,
+      "end": 1706896521278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521278,
+      "end": 1706896521278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521281,
+      "end": 1706896521282,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521284,
+      "end": 1706896521284,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521285,
+      "end": 1706896521285,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521285,
+      "end": 1706896521285,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521285,
+      "end": 1706896521291,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521291,
+      "end": 1706896521291,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521292,
+      "end": 1706896521292,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521292,
+      "end": 1706896521292,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521292,
+      "end": 1706896521292,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521293,
+      "end": 1706896521293,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521293,
+      "end": 1706896521293,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521293,
+      "end": 1706896521294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521294,
+      "end": 1706896521294,
+      "order": "normal"
+    }
+  ]
+}

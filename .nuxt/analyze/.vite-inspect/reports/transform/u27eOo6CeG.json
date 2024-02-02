@@ -1,0 +1,234 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/nuxt-anchorscroll/dist/runtime/anchorscroll-plugin.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { toValue } from \"vue\";\nimport { defineNuxtPlugin, useNuxtApp, useRuntimeConfig } from \"nuxt/app\";\nconst generalAnchorScroll = ({ hash }) => {\n  const scrollVariants = {\n    toTop: {\n      scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toTop) || {}\n    }\n  };\n  if (hash !== \"\") {\n    try {\n      const target = document.querySelector(hash);\n      if (!target) {\n        console.error(`[AnchorScroll]: unable to find element with selector '${hash}'`);\n        return scrollVariants;\n      }\n      scrollVariants.toAnchor = {\n        target,\n        scrollOptions: toValue(useNuxtApp().$anchorScroll?.defaults.toAnchor) ?? {}\n      };\n    } catch (error) {\n      console.error(`[AnchorScroll]: unable to get element for selector '${hash}':`, error);\n    }\n  }\n  return scrollVariants;\n};\nconst anchorScrollExecutor = (hook) => {\n  const nuxtApp = useNuxtApp();\n  const currentRoute = nuxtApp.$router.currentRoute;\n  const disableAnchorScroll = currentRoute.value.meta.disableAnchorScroll ?? {};\n  const {\n    toAnchor: disableToAnchor = false,\n    toTop: disableToTop = false\n  } = disableAnchorScroll === true ? { toAnchor: true, toTop: true } : disableAnchorScroll;\n  if (disableToAnchor && disableToTop)\n    return;\n  const allMatched = [...nuxtApp?.$anchorScroll?.matched ?? [], generalAnchorScroll];\n  for (const matched of allMatched) {\n    const maybeAnchorScrollAlternatives = matched(currentRoute.value, hook);\n    if (maybeAnchorScrollAlternatives === false)\n      return;\n    const { toAnchor, toTop } = maybeAnchorScrollAlternatives ?? {};\n    if (!disableToAnchor && toAnchor) {\n      const {\n        target,\n        scrollOptions: { behavior, offsetLeft, offsetTop },\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\n      } = toAnchor;\n      const { top, left } = target.getBoundingClientRect();\n      const scrollToAnchorOptions = {\n        behavior,\n        ...offsetLeft !== void 0 && { left: left + offsetLeft },\n        ...offsetTop !== void 0 && { top: top + offsetTop }\n      };\n      for (const surface of surfaces)\n        surface.scrollBy(scrollToAnchorOptions);\n      return;\n    }\n    if (!disableToTop && toTop) {\n      const {\n        scrollOptions: { behavior, offsetLeft, offsetTop },\n        surfaces = toValue(nuxtApp.$anchorScroll?.defaults.surfaces) ?? []\n      } = toTop;\n      const scrollToTopOptions = {\n        behavior,\n        left: offsetLeft,\n        top: offsetTop\n      };\n      for (const surface of surfaces)\n        surface.scrollTo(scrollToTopOptions);\n    }\n  }\n};\nexport default defineNuxtPlugin((nuxtApp) => {\n  const {\n    hooks = []\n  } = useRuntimeConfig().public.anchorScroll ?? {};\n  useNuxtApp().$anchorScroll = {\n    matched: [],\n    general: generalAnchorScroll,\n    defaults: {\n      toAnchor: {\n        behavior: \"smooth\",\n        offsetTop: 0\n      },\n      toTop: {\n        behavior: \"instant\",\n        offsetTop: 0\n      },\n      surfaces: () => [document.documentElement, document.body]\n    }\n  };\n  for (const hook of hooks)\n    nuxtApp.hook(hook, () => anchorScrollExecutor(hook));\n});\n",
+      "start": 1706896510749,
+      "end": 1706896510848,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896510848,
+      "end": 1706896510848,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896510848,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896510849,
+      "end": 1706896510849,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896510849,
+      "end": 1706896510850,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896510850,
+      "end": 1706896510850,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896510850,
+      "end": 1706896510852,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896510852,
+      "end": 1706896510852,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896510852,
+      "end": 1706896510852,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896510852,
+      "end": 1706896510852,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896510852,
+      "end": 1706896510852,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896510852,
+      "end": 1706896510852,
+      "order": "normal"
+    }
+  ]
+}

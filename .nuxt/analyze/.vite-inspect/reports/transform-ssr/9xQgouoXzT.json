@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatUserCheckbox.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatUserCheckbox',\n  __ssrInlineRender: true,\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\nconst user = useAuthStore()\r\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  if (!__props.item.is_group && __props.item.user.department) {\n    _push(`<label${\n      _ssrRenderAttrs(_mergeProps({ class: \"flex w-full items-center gap-x-4 relative py-2 px-6 text-black transition-all cursor-pointer dark:hover:bg-gray-600 hover:bg-gray-200\" }, _attrs))\n    }><div class=\"relative\"><img${\n      _ssrRenderAttr(\"src\", _unref(user).get_server_domain + __props.item.user.photo)\n    } class=\"${\n      _ssrRenderClass([{'!p-[2px] transition-all !border' : __props.item.value}, \"rounded-full w-[50px] h-[50px] dark:border-0 border\"])\n    }\" alt=\"\">`)\n    if (__props.item.value) {\n      _push(`<div class=\"${_ssrRenderClass([{'!border-2 !border-semiCyan text-white transition-all' : __props.item.value === true, 'dark:border-none' : __props.item.value === false}, \"absolute top-0 rounded-full w-[50px] h-[50px]\"])}\"></div>`)\n    } else {\n      _push(`<!---->`)\n    }\n    if (__props.item.value) {\n      _push(`<div class=\"absolute bottom-0 right-0\"><svg class=\"bg-semiCyan rounded-full stroke-white\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 13L10 16L17 9\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></div>`)\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</div><span class=\"relative z-10 dark:text-white\">${\n      _ssrInterpolate(__props.item?.user?.first_name + ' ' + __props.item?.user?.last_name)\n    }</span><input type=\"checkbox\" class=\"hidden\"${\n      (_ssrIncludeBooleanAttr(__props.item.value)) ? \" checked\" : \"\"\n    }><span class=\"w-full h-full absolute top-0 left-0\"></span></label>`)\n  } else {\n    _push(`<!---->`)\n  }\n}\n}\n\n})",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatUserCheckbox.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\nconst user = useAuthStore()\r\n\r\ndefineProps({\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n})\r\n</script>\r\n\r\n<template>\r\n    <label v-if=\"!item.is_group && item.user.department\" class=\"flex w-full items-center gap-x-4 relative py-2 px-6 text-black transition-all  cursor-pointer dark:hover:bg-gray-600 hover:bg-gray-200\">\r\n      <div class=\"relative\">\r\n        <img class=\"rounded-full w-[50px] h-[50px] dark:border-0 border\" :src=\"user.get_server_domain + item.user.photo\" :class=\"{'!p-[2px] transition-all !border' : item.value}\" alt=\"\">\r\n        <Transition name=\"fade\">\r\n          <div v-if=\"item.value\" class=\"absolute top-0 rounded-full w-[50px] h-[50px]\" :class=\"{'!border-2 !border-semiCyan text-white transition-all' : item.value === true, 'dark:border-none' : item.value === false}\"></div>\r\n        </Transition>\r\n        <Transition name=\"bounce\">\r\n          <div v-if=\"item.value\" class=\"absolute bottom-0 right-0\">\r\n            <svg class=\"bg-semiCyan rounded-full stroke-white\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path d=\"M7 13L10 16L17 9\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n            </svg>\r\n          </div>\r\n        </Transition>\r\n      </div>\r\n      <span class=\"relative z-10 dark:text-white\">{{ item?.user?.first_name + ' ' + item?.user?.last_name }}</span>\r\n      <input\r\n        type=\"checkbox\"\r\n        class=\"hidden\"\r\n        @change=\"item.value = !item.value\"\r\n        :checked=\"item.value\"\r\n      >\r\n      <span class=\" w-full h-full absolute top-0 left-0 \"></span>\r\n    </label>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC;;;;;;;;;;;;AAFuB,CAAC;AAGzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC;AAMC,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896550192,
+      "end": 1706896550192,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatUserCheckbox\",\n  __ssrInlineRender: true,\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const user = useAuthStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      if (!__props.item.is_group && __props.item.user.department) {\n        _push(`<label${_ssrRenderAttrs(_mergeProps({ class: \"flex w-full items-center gap-x-4 relative py-2 px-6 text-black transition-all cursor-pointer dark:hover:bg-gray-600 hover:bg-gray-200\" }, _attrs))}><div class=\"relative\"><img${_ssrRenderAttr(\"src\", _unref(user).get_server_domain + __props.item.user.photo)} class=\"${_ssrRenderClass([{ \"!p-[2px] transition-all !border\": __props.item.value }, \"rounded-full w-[50px] h-[50px] dark:border-0 border\"])}\" alt=\"\">`);\n        if (__props.item.value) {\n          _push(`<div class=\"${_ssrRenderClass([{ \"!border-2 !border-semiCyan text-white transition-all\": __props.item.value === true, \"dark:border-none\": __props.item.value === false }, \"absolute top-0 rounded-full w-[50px] h-[50px]\"])}\"></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (__props.item.value) {\n          _push(`<div class=\"absolute bottom-0 right-0\"><svg class=\"bg-semiCyan rounded-full stroke-white\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 13L10 16L17 9\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`</div><span class=\"relative z-10 dark:text-white\">${_ssrInterpolate(__props.item?.user?.first_name + \" \" + __props.item?.user?.last_name)}</span><input type=\"checkbox\" class=\"hidden\"${_ssrIncludeBooleanAttr(__props.item.value) ? \" checked\" : \"\"}><span class=\"w-full h-full absolute top-0 left-0\"></span></label>`);\n      } else {\n        _push(`<!---->`);\n      }\n    };\n  }\n});\n",
+      "start": 1706896550192,
+      "end": 1706896550210,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatUserCheckbox.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatUserCheckbox',\n  __ssrInlineRender: true,\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\nconst user = useAuthStore()\r\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  if (!__props.item.is_group && __props.item.user.department) {\n    _push(`<label${\n      _ssrRenderAttrs(_mergeProps({ class: \"flex w-full items-center gap-x-4 relative py-2 px-6 text-black transition-all cursor-pointer dark:hover:bg-gray-600 hover:bg-gray-200\" }, _attrs))\n    }><div class=\"relative\"><img${\n      _ssrRenderAttr(\"src\", _unref(user).get_server_domain + __props.item.user.photo)\n    } class=\"${\n      _ssrRenderClass([{'!p-[2px] transition-all !border' : __props.item.value}, \"rounded-full w-[50px] h-[50px] dark:border-0 border\"])\n    }\" alt=\"\">`)\n    if (__props.item.value) {\n      _push(`<div class=\"${_ssrRenderClass([{'!border-2 !border-semiCyan text-white transition-all' : __props.item.value === true, 'dark:border-none' : __props.item.value === false}, \"absolute top-0 rounded-full w-[50px] h-[50px]\"])}\"></div>`)\n    } else {\n      _push(`<!---->`)\n    }\n    if (__props.item.value) {\n      _push(`<div class=\"absolute bottom-0 right-0\"><svg class=\"bg-semiCyan rounded-full stroke-white\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 13L10 16L17 9\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></div>`)\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</div><span class=\"relative z-10 dark:text-white\">${\n      _ssrInterpolate(__props.item?.user?.first_name + ' ' + __props.item?.user?.last_name)\n    }</span><input type=\"checkbox\" class=\"hidden\"${\n      (_ssrIncludeBooleanAttr(__props.item.value)) ? \" checked\" : \"\"\n    }><span class=\"w-full h-full absolute top-0 left-0\"></span></label>`)\n  } else {\n    _push(`<!---->`)\n  }\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,mBAAmB;AAC3D,SAAS,iBAAiB,gBAAgB,kBAAkB,iBAAiB,yBAAyB,wBAAwB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAE1M,SAAQ,oBAAmB;AAG3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,OAAO;AAAA,IACP,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS,MAAI;AAAA,MAAC;AAAA,IAChB;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAEjB,UAAM,OAAO,aAAa;AAI1B,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,UAAI,CAAC,QAAQ,KAAK,YAAY,QAAQ,KAAK,KAAK,YAAY;AAC1D,cAAM,SACJ,gBAAgB,YAAY,EAAE,OAAO,wIAAwI,GAAG,MAAM,CAAC,CACzL,8BACE,eAAe,OAAO,OAAO,IAAI,EAAE,oBAAoB,QAAQ,KAAK,KAAK,KAAK,CAChF,WACE,gBAAgB,CAAC,EAAC,mCAAoC,QAAQ,KAAK,MAAK,GAAG,qDAAqD,CAAC,CACnI,WAAW;AACX,YAAI,QAAQ,KAAK,OAAO;AACtB,gBAAM,eAAe,gBAAgB,CAAC,EAAC,wDAAyD,QAAQ,KAAK,UAAU,MAAM,oBAAqB,QAAQ,KAAK,UAAU,MAAK,GAAG,+CAA+C,CAAC,CAAC,UAAU;AAAA,QAC9O,OAAO;AACL,gBAAM,SAAS;AAAA,QACjB;AACA,YAAI,QAAQ,KAAK,OAAO;AACtB,gBAAM,wSAAwS;AAAA,QAChT,OAAO;AACL,gBAAM,SAAS;AAAA,QACjB;AACA,cAAM,qDACJ,gBAAgB,QAAQ,MAAM,MAAM,aAAa,MAAM,QAAQ,MAAM,MAAM,SAAS,CACtF,+CACG,uBAAuB,QAAQ,KAAK,KAAK,IAAK,aAAa,EAC9D,oEAAoE;AAAA,MACtE,OAAO;AACL,cAAM,SAAS;AAAA,MACjB;AAAA,IACF;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896550211,
+      "end": 1706896550211,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896550211,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896550212,
+      "end": 1706896550212,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896550213,
+      "end": 1706896550213,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896550213,
+      "end": 1706896550214,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896550214,
+      "end": 1706896550214,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896550214,
+      "end": 1706896550214,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896550214,
+      "end": 1706896550214,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896550214,
+      "end": 1706896550214,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896550214,
+      "end": 1706896550214,
+      "order": "normal"
+    }
+  ]
+}

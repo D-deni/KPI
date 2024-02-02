@@ -19,7 +19,7 @@ import TheInput from "~/components/UI/TheInput.vue";
 import ChatFileError from "~/components/Chat/UI/ChatFileError.vue";
 import ChatUploadWindow from "~/components/Chat/UI/Upload/ChatUploadWindow.vue";
 import ChatUploadError from "~/components/Chat/UI/Upload/ChatUploadError.vue";
-
+import nuxtStorage from "nuxt-storage/nuxt-storage";
 const loadAuthStore = useAuthStore()
 const route = useRoute()
 const router = useRouter()
@@ -82,6 +82,9 @@ onMounted(() => {
   messages()
 })
 
+useSeoMeta({
+  title: 'Чат'
+})
 
 </script>
 <template>

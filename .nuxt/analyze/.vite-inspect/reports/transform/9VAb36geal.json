@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/UI/TheCheckbox.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, unref as _unref, createElementVNode as _createElementVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-cf631f5a\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"container mt-4 w-[250px]\" }\nconst _hoisted_2 = {\n  key: 0,\n  class: \"text-black dark:text-white\"\n}\nconst _hoisted_3 = {\n  key: 1,\n  class: \"text-black dark:text-white\"\n}\nconst _hoisted_4 = [\"checked\"]\nconst _hoisted_5 = [\"checked\"]\nconst _hoisted_6 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", { class: \"checkmark\" }, null, -1))\n\nimport {useChat} from \"~/stores/chat\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheCheckbox',\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  },\r\n  check: {\r\n    type: Boolean,\r\n    default: true\r\n  },\r\n  t: {\r\n    type: String,\r\n    default: ''\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\r\nconst chat = useChat()\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n    (__props.t !== 'checkboxChat')\n      ? (_openBlock(), _createElementBlock(\"span\", _hoisted_2, _toDisplayString(__props.item?.name), 1))\n      : (_openBlock(), _createElementBlock(\"span\", _hoisted_3, _toDisplayString(_ctx.$t('Показать имя отправителя')), 1)),\n    (__props.t !== 'checkboxChat')\n      ? (_openBlock(), _createElementBlock(\"input\", {\n          key: 2,\n          type: \"checkbox\",\n          onChange: _cache[0] || (_cache[0] = ($event: any) => (__props.item.value = !__props.item.value)),\n          checked: __props.item.value\n        }, null, 40, _hoisted_4))\n      : (_openBlock(), _createElementBlock(\"input\", {\n          key: 3,\n          type: \"checkbox\",\n          onChange: _cache[1] || (_cache[1] = ($event: any) => (_unref(chat).checkboxForwarded = !_unref(chat).checkboxForwarded)),\n          checked: _unref(chat).checkboxForwarded\n        }, null, 40, _hoisted_5)),\n    _hoisted_6\n  ]))\n}\n}\n\n})",
+      "start": 1706896521565,
+      "end": 1706896521565
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521566,
+      "end": 1706896521566,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521566,
+      "end": 1706896521566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, unref as _unref, createElementVNode as _createElementVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-cf631f5a\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"container mt-4 w-[250px]\" };\nconst _hoisted_2 = {\n  key: 0,\n  class: \"text-black dark:text-white\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  class: \"text-black dark:text-white\"\n};\nconst _hoisted_4 = [\"checked\"];\nconst _hoisted_5 = [\"checked\"];\nconst _hoisted_6 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"span\", { class: \"checkmark\" }, null, -1));\nimport { useChat } from \"~/stores/chat\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheCheckbox\",\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    check: {\n      type: Boolean,\n      default: true\n    },\n    t: {\n      type: String,\n      default: \"\"\n    }\n  },\n  setup(__props) {\n    const chat = useChat();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n        __props.t !== \"checkboxChat\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_2, _toDisplayString(__props.item?.name), 1)) : (_openBlock(), _createElementBlock(\"span\", _hoisted_3, _toDisplayString(_ctx.$t(\"Показать имя отправителя\")), 1)),\n        __props.t !== \"checkboxChat\" ? (_openBlock(), _createElementBlock(\"input\", {\n          key: 2,\n          type: \"checkbox\",\n          onChange: _cache[0] || (_cache[0] = ($event) => __props.item.value = !__props.item.value),\n          checked: __props.item.value\n        }, null, 40, _hoisted_4)) : (_openBlock(), _createElementBlock(\"input\", {\n          key: 3,\n          type: \"checkbox\",\n          onChange: _cache[1] || (_cache[1] = ($event) => _unref(chat).checkboxForwarded = !_unref(chat).checkboxForwarded),\n          checked: _unref(chat).checkboxForwarded\n        }, null, 40, _hoisted_5)),\n        _hoisted_6\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521566,
+      "end": 1706896521755,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/UI/TheCheckbox.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, unref as _unref, createElementVNode as _createElementVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-cf631f5a\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"container mt-4 w-[250px]\" }\nconst _hoisted_2 = {\n  key: 0,\n  class: \"text-black dark:text-white\"\n}\nconst _hoisted_3 = {\n  key: 1,\n  class: \"text-black dark:text-white\"\n}\nconst _hoisted_4 = [\"checked\"]\nconst _hoisted_5 = [\"checked\"]\nconst _hoisted_6 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", { class: \"checkmark\" }, null, -1))\n\nimport {useChat} from \"~/stores/chat\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheCheckbox',\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  },\r\n  check: {\r\n    type: Boolean,\r\n    default: true\r\n  },\r\n  t: {\r\n    type: String,\r\n    default: ''\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\r\nconst chat = useChat()\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n    (__props.t !== 'checkboxChat')\n      ? (_openBlock(), _createElementBlock(\"span\", _hoisted_2, _toDisplayString(__props.item?.name), 1))\n      : (_openBlock(), _createElementBlock(\"span\", _hoisted_3, _toDisplayString(_ctx.$t('Показать имя отправителя')), 1)),\n    (__props.t !== 'checkboxChat')\n      ? (_openBlock(), _createElementBlock(\"input\", {\n          key: 2,\n          type: \"checkbox\",\n          onChange: _cache[0] || (_cache[0] = ($event: any) => (__props.item.value = !__props.item.value)),\n          checked: __props.item.value\n        }, null, 40, _hoisted_4))\n      : (_openBlock(), _createElementBlock(\"input\", {\n          key: 3,\n          type: \"checkbox\",\n          onChange: _cache[1] || (_cache[1] = ($event: any) => (_unref(chat).checkboxForwarded = !_unref(chat).checkboxForwarded)),\n          checked: _unref(chat).checkboxForwarded\n        }, null, 40, _hoisted_5)),\n    _hoisted_6\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,mBAAmB,kBAAkB,aAAa,YAAY,sBAAsB,qBAAgE,SAAS,QAAQ,sBAAsB,qBAAqB,eAAe,cAAc,cAAc,mBAAmB;AAEvR,MAAM,eAAe,QAAM,aAAa,iBAAiB,GAAE,IAAE,EAAE,GAAE,YAAY,GAAE;AAC/E,MAAM,aAAa,EAAE,OAAO,2BAA2B;AACvD,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa,CAAC,SAAS;AAC7B,MAAM,aAAa,CAAC,SAAS;AAC7B,MAAM,aAA2B,6BAAa,MAAmB,oCAAoB,QAAQ,EAAE,OAAO,YAAY,GAAG,MAAM,EAAE,CAAC;AAE9H,SAAQ,eAAc;AAEtB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS,MAAM;AAAA,MACf;AAAA,IACF;AAAA,IACA,OAAO;AAAA,MACL,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,IACA,GAAG;AAAA,MACD,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAIjB,UAAM,OAAO,QAAQ;AAIrB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,SAAS,YAAY;AAAA,QAC5D,QAAQ,MAAM,kBACV,WAAW,GAAG,oBAAoB,QAAQ,YAAY,iBAAiB,QAAQ,MAAM,IAAI,GAAG,CAAC,MAC7F,WAAW,GAAG,oBAAoB,QAAQ,YAAY,iBAAiB,KAAK,GAAG,0BAA0B,CAAC,GAAG,CAAC;AAAA,QAClH,QAAQ,MAAM,kBACV,WAAW,GAAG,oBAAoB,SAAS;AAAA,UAC1C,KAAK;AAAA,UACL,MAAM;AAAA,UACN,UAAU,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,QAAQ,KAAK,QAAQ,CAAC,QAAQ,KAAK;AAAA,UACzF,SAAS,QAAQ,KAAK;AAAA,QACxB,GAAG,MAAM,IAAI,UAAU,MACtB,WAAW,GAAG,oBAAoB,SAAS;AAAA,UAC1C,KAAK;AAAA,UACL,MAAM;AAAA,UACN,UAAU,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,OAAO,IAAI,EAAE,oBAAoB,CAAC,OAAO,IAAI,EAAE;AAAA,UACrG,SAAS,OAAO,IAAI,EAAE;AAAA,QACxB,GAAG,MAAM,IAAI,UAAU;AAAA,QAC3B;AAAA,MACF,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521755,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521756,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521757,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521758,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521758,
+      "end": 1706896521765,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521769,
+      "end": 1706896521769,
+      "order": "normal"
+    }
+  ]
+}

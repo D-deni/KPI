@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/lodash/_listCacheGet.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var assocIndexOf = require('./_assocIndexOf');\n\n/**\n * Gets the list cache value for `key`.\n *\n * @private\n * @name get\n * @memberOf ListCache\n * @param {string} key The key of the value to get.\n * @returns {*} Returns the entry value.\n */\nfunction listCacheGet(key) {\n  var data = this.__data__,\n      index = assocIndexOf(data, key);\n\n  return index < 0 ? undefined : data[index][1];\n}\n\nmodule.exports = listCacheGet;\n",
+      "start": 1706896525587,
+      "end": 1706896525651,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525651,
+      "end": 1706896525651,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525651,
+      "end": 1706896525652,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525652,
+      "end": 1706896525652,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_assocIndexOf.js?commonjs-proxy\";\n\nvar assocIndexOf = require$$0;\n\n/**\n * Gets the list cache value for `key`.\n *\n * @private\n * @name get\n * @memberOf ListCache\n * @param {string} key The key of the value to get.\n * @returns {*} Returns the entry value.\n */\nfunction listCacheGet(key) {\n  var data = this.__data__,\n      index = assocIndexOf(data, key);\n\n  return index < 0 ? undefined : data[index][1];\n}\n\nvar _listCacheGet = listCacheGet;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_listCacheGet);\nexport { _listCacheGet as __moduleExports };",
+      "start": 1706896525652,
+      "end": 1706896525682,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,YAAY,GAAG,UAA0B,CAAC;AAC9C;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,YAAY,CAAC,GAAG,EAAE;AAC3B,EAAE,IAAI,IAAI,GAAG,IAAI,CAAC,QAAQ;AAC1B,MAAM,KAAK,GAAG,YAAY,CAAC,IAAI,EAAE,GAAG,CAAC,CAAC;AACtC;AACA,EAAE,OAAO,KAAK,GAAG,CAAC,GAAG,SAAS,GAAG,IAAI,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC;AAChD,CAAC;AACD;IACA,aAAc,GAAG,YAAY"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525682,
+      "end": 1706896525682,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525683,
+      "end": 1706896525683,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525683,
+      "end": 1706896525683,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525683,
+      "end": 1706896525683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525683,
+      "end": 1706896525683,
+      "order": "normal"
+    }
+  ]
+}

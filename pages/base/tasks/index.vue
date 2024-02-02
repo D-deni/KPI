@@ -33,6 +33,7 @@ import TasksNotification from "~/components/Tasks/TasksNotification.vue";
 import {Chart as ChartJS, ArcElement, Tooltip, Legend, Chart} from 'chart.js'
 import {Doughnut, Pie} from 'vue-chartjs'
 import {useTaskList} from "~/stores/tasks";
+import {definePageMeta} from "#imports";
 const statsList = useTaskList()
 ChartJS.register(ArcElement, Tooltip, Legend)
 Chart.defaults.color = '#b6b6b6'
@@ -51,7 +52,10 @@ const chartOptions = ref({
   maintainAspectRatio: false
 });
 
-
+useSeoMeta({
+  title: 'Задания',
+  description: 'Страница с заданиями пользователей платформы'
+})
 
 </script>
 

@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\r\nimport TheTitle from \"~/components/UI/TheTitle.vue\"\r\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useRoute} from \"vue-router\";\r\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\r\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\r\nimport TheFilter from \"~/components/UI/TheFilter.vue\";\r\nimport DepartmentUserList from \"~/components/Company/department/DepartmentUserList.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport router from \"#app/plugins/router\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\nconst currentDepartment = useCompanies()\r\nconst route = useRoute()\r\n\r\n\r\ndefineProps({\r\n  showWarning: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n})\r\nwatchEffect(() => {\r\n  currentDepartment.loadDepartment({id: route.params.id})\r\n})\r\nwatchSyncEffect(()=>{\r\n  useSeoMeta({\r\n    title: `${currentDepartment.current_department.name}`\r\n  })\r\n})\r\n</script>\r\n\r\n<template>\r\n  <div>\r\n    <div class=\"mb-10\">\r\n      <TheTextContent :text-type=\"'pageTitle'\">{{ $t('Департамент') }} <span\r\n        class=\"text-base text-white bg-blueSemiLight py-2 px-4 rounded-full\">{{ currentDepartment.get_department.name}}</span>\r\n      </TheTextContent>\r\n    </div>\r\n    <div class=\"flex items-center gap-x-4\">\r\n      <TheBreadcrumbs :breadcrumb-link=\"`/base/companies`\">\r\n        {{ $t('Компания') }}\r\n      </TheBreadcrumbs>\r\n      <div>\r\n        <svg width=\"15px\" height=\"15px\" viewBox=\"0 0 24 24\" fill=\"none\">\r\n          <path class=\"dark:stroke-white stroke-black\"\r\n                d=\"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\"\r\n                stroke-width=\"2\" stroke-linecap=\"round\"></path>\r\n        </svg>\r\n      </div>\r\n      <TheBreadcrumbs :breadcrumb-link=\"`/base/companies/department`\">\r\n        {{ $t('Департаменты') }}\r\n      </TheBreadcrumbs>\r\n      <div>\r\n        <svg width=\"15px\" height=\"15px\" viewBox=\"0 0 24 24\" fill=\"none\">\r\n          <path class=\"dark:stroke-white stroke-black\"\r\n                d=\"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\"\r\n                stroke-width=\"2\" stroke-linecap=\"round\"></path>\r\n        </svg>\r\n      </div>\r\n      <TheBreadcrumbs>\r\n        {{ currentDepartment.get_department.name }}\r\n      </TheBreadcrumbs>\r\n    </div>\r\n    <div class=\"flex items-center gap-x-10\">\r\n      <div class=\"flex items-center w-11/12 gap-x-10\">\r\n        <TheSearch class=\"w-7/12\"></TheSearch>\r\n        <TheFilter/>\r\n      </div>\r\n      <TheButton type=\"danger\" class=\"px-10 py-2 rounded-full\" @click=\"showWarning = true\">{{ $t('Удалить') }}\r\n      </TheButton>\r\n      <TheModal v-if=\"showWarning\" @showModal=\"showWarning = !showWarning\">\r\n        <div>\r\n          <TheTextContent>{{ $t('Предупреждение') }}</TheTextContent>\r\n          <div class=\"text-center text-lg mt-2 tracking-widest\">\r\n            <p>{{ $t('Вы действительно хотите удалить департамент?') }}</p>\r\n            <p class=\"!text-base\">{{ $t('Удалённые департаменты восстановке не подлежат') }}</p>\r\n          </div>\r\n        </div>\r\n        <div class=\"flex justify-center gap-x-10 mt-10\">\r\n          <TheButton type=\"danger\" class=\"w-3/12 py-2 rounded-full\" @click=\"showWarning = false\">{{ $t('Отмена') }}\r\n          </TheButton>\r\n          <TheButton type=\"success\" class=\"w-3/12 py-2 rounded-full\" @click=\"currentDepartment.deleteDepartment({id: currentDepartment.get_department.id}, $router)\">{{ $t('Удалить') }}</TheButton>\r\n        </div>\r\n      </TheModal>\r\n    </div>\r\n    <div class=\"flex gap-x-10 w-full\">\r\n      <div v-if=\"!currentDepartment.get_department?.id\" class=\"flex w-full gap-y-4 flex-col\">\r\n        <TheSceleton v-for=\"i in 5\" border-radius=\"10px\" width=\"90%\" height=\"80px\"></TheSceleton>\r\n      </div>\r\n      <div v-else class=\"w-full\">\r\n        <DepartmentUserList v-for=\"userItem in currentDepartment?.get_department?.participants\"\r\n                            :user-item=\"userItem\"></DepartmentUserList>\r\n      </div>\r\n      <div class=\"w-3/12\">\r\n        <TheContentBlock class=\"w-full\">\r\n          <TheTextContent>Информация</TheTextContent>\r\n          <div>\r\n            <div class=\"flex items-center my-4 gap-x-5 justify-center\">\r\n              <div class=\"flex items-center gap-x-2 w-8/12 max-md:w-9/12\">\r\n                <div>\r\n                  <svg width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\r\n                       data-v-inspector=\"components/TheHeader.vue:26:11\">\r\n                    <g id=\"User / Users_Group\" data-v-inspector=\"components/TheHeader.vue:27:13\">\r\n                      <path id=\"Vector\" class=\"dark:stroke-white stroke-black\"\r\n                            d=\"M17 20C17 18.3431 14.7614 17 12 17C9.23858 17 7 18.3431 7 20M21 17.0004C21 15.7702 19.7659 14.7129 18 14.25M3 17.0004C3 15.7702 4.2341 14.7129 6 14.25M18 10.2361C18.6137 9.68679 19 8.8885 19 8C19 6.34315 17.6569 5 16 5C15.2316 5 14.5308 5.28885 14 5.76389M6 10.2361C5.38625 9.68679 5 8.8885 5 8C5 6.34315 6.34315 5 8 5C8.76835 5 9.46924 5.28885 10 5.76389M12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14Z\"\r\n                            stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\r\n                            data-v-inspector=\"components/TheHeader.vue:28:15\"></path>\r\n                    </g>\r\n                  </svg>\r\n                </div>\r\n                <p class=\"tracking-widest\">{{ $t('Сотрудников') }}: </p></div>\r\n              <div>\r\n                <p\r\n                  class=\"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\" >{{currentDepartment.get_department.participants?.length}}</p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </TheContentBlock>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>",
+      "start": 1706896539520,
+      "end": 1706896541290,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896541290,
+      "end": 1706896541290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"pages/base/companies/department/[id].vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896541290,
+      "end": 1706896541345,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896541345,
+      "end": 1706896541345,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896541345,
+      "end": 1706896541345,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896541345,
+      "end": 1706896541345,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896541346,
+      "end": 1706896541346,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896541347,
+      "end": 1706896541347,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896541347,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896541347,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896541348,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896541348,
+      "end": 1706896541348,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "export { default } from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue?macro=true&vue&type=script&setup=true&lang.ts\"",
+      "start": 1706896541348,
+      "end": 1706896541349,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA"
+      }
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "export { default } from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue?macro=true&vue&type=script&setup=true&lang.ts\"",
+      "start": 1706896541348,
+      "end": 1706896541349,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896541349,
+      "end": 1706896541349,
+      "order": "normal"
+    }
+  ]
+}

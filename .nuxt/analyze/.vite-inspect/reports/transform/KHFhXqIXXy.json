@@ -1,0 +1,238 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/pages/base.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div class=\"\">\r\n    <div class=\"w-screen h-screen z-50 fixed bg-black opacity-30 hidden\"\r\n         :class=\"{'hidden' : !activeNav, 'max-[1150px]:block' : activeNav}\"\r\n         @click=\"activeNav = false\"/>\r\n    <div class=\"flex w-full h-full dark:bg-bgPages\">\r\n      <div\r\n        class=\"bg-white transition-all duration-300 dark:bg-gray-600 max-[880px]:h-screen max-[1150px]:fixed z-[70]\"\r\n        :class=\"{'max-[1150px]:-translate-x-24 transition-all duration-200' : !activeNav, 'max-[600px]:w-full transition-all' : activeNav}\">\r\n        <div\r\n          class=\"absolute bg-gray-300 rounded-l-lg px-2 py-1 z-[100] hidden max-[1150px]:block max-md:block right-2 top-6\"\r\n          @click=\"activeNav = false\">\r\n          <svg width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n            <path\r\n              d=\"M16.9995 15.9995L20.9995 11.9995M20.9995 11.9995L16.9995 7.99951M20.9995 11.9995H8.99951M12.9995 20.9995H6.20029C5.08019 20.9995 4.52014 20.9995 4.09231 20.7815C3.71599 20.5898 3.41003 20.2838 3.21828 19.9075C3.00029 19.4797 3.00029 18.9196 3.00029 17.7995V6.19951C3.00029 5.07941 3.00029 4.51935 3.21828 4.09153C3.41003 3.71521 3.71599 3.40925 4.09231 3.2175C4.52014 2.99951 5.08019 2.99951 6.20029 2.99951L12.9995 2.99951\"\r\n              stroke=\"#000000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n          </svg>\r\n        </div>\r\n        <TheHeader class=\"max-md:overflow-x-hidden\" :class=\"{'mr-24' : activeNav && user.my_scroll>90}\"\r\n                   :activeNav=\"activeNav\"></TheHeader>\r\n      </div>\r\n      <div class=\"w-full relative\">\r\n        <div class=\"cursor-pointer absolute top-8 max-[800px]:top-6 left-5 z-50 dark:fill-white fill-black\"\r\n             :class=\"{'blur' : treeStore.treeFullScreen === true}\"\r\n             @click=\"activeNav = !activeNav; user.openNotification = false; user.openSettings = false\">\r\n          <svg width=\"22\" height=\"16\" viewBox=\"0 0 22 16\" xmlns=\"http://www.w3.org/2000/svg\">\r\n            <path fill-rule=\"evenodd\" clip-rule=\"evenodd\"\r\n                  d=\"M0.999776 1.99957H20.9998C21.5177 1.99957 21.9845 1.46089 21.9845 0.9431C21.9845 0.425798 21.5607 0.00261796 21.0428 0.00261796H0.956408C0.43868 0.00261796 0.014912 0.425798 0.014912 0.9431C0.014912 1.46089 0.482048 1.99957 0.999776 1.99957ZM0.999776 8.99956H20.9998C21.5177 8.99956 21.9845 8.51664 21.9845 7.99933C21.9845 7.48203 21.5177 6.99958 20.9998 6.99958H0.999776C0.482048 6.99958 0.014912 7.48203 0.014912 7.99933C0.014912 8.51664 0.482048 8.99956 0.999776 8.99956ZM21.0428 15.9962H0.956408C0.43868 15.9962 0.014912 15.5727 0.014912 15.0551C0.014912 14.5379 0.482048 13.9997 0.999776 13.9997H20.9998C21.5177 13.9997 21.9845 14.5379 21.9845 15.0551C21.9845 15.5727 21.5607 15.9962 21.0428 15.9962Z\"/>\r\n          </svg>\r\n        </div>\r\n        <HeaderContent class=\"pl-14\">\r\n        </HeaderContent>\r\n        <div class=\"relative\" @click=\"user.openSettings = false; user.openNotification = false\">\r\n          <NuxtPage class=\"mx-6 max-sm:mx-1 py-10 h-full \" :activeNav=\"activeNav\"></NuxtPage>\r\n        </div>\r\n        <!--    <allTips></allTips>-->\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup lang=\"ts\">\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useRouter} from \"vue-router\";\r\nimport {useRoute} from \"vue-router\";\r\nimport {useNotification} from \"~/stores/notification\";\r\nimport {useChat} from \"~/stores/chat\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport {useTreeStore} from \"~/stores/tree\";\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\n\r\nconst treeStore = useTreeStore()\r\nconst chat = useChat()\r\nconst notice = useNotification()\r\nconst route = useRouter()\r\nconst router = useRoute()\r\nconst user = useAuthStore();\r\nconst props = defineProps({\r\n  activeNav: {\r\n    type: Boolean,\r\n    default: false,\r\n  },\r\n})\r\n\r\nfunction notification() {\r\n  let ws = new WebSocket(`wss://api-buildwithus.ai-softdev.com/ws/notification?token=${nuxtStorage.localStorage.getData('token')}`)\r\n  ws.onmessage = (data) => {\r\n    let res = JSON.parse(data.data)\r\n    if (res.type === 'notification') {\r\n      notice.get_notification?.unshift(res.notification)\r\n      toast.info(res.notification.text, {\r\n        autoClose: 1500,\r\n        theme: 'auto'\r\n      })\r\n    } else if (router.path.search(/\\/base\\/chat[\\/\\d]*$/g) !== -1) {\r\n      if (res.type === 'send_message') {\r\n        for (let i = 0; i < chat.chatList.results.length; i++) {\r\n          if (chat.chatList.results[i].id === res.messages?.chat_id) {\r\n            chat.chatList.results[i].last_message = res.messages\r\n          }\r\n          if (res.message.message_type === 'change') {\r\n            if (chat.chatList.results[i].id === chat.userChat.id && res.message.file) {\r\n              chat.chatList.results[i].photo_url = res.message.file\r\n              console.log(res.message)\r\n            }\r\n            if (chat.chatList.results[i].name && chat.chatList.results[i].id === chat.userChat.id) {\r\n              chat.chatList.results[i].name = chat.updateChatName\r\n              console.log(res)\r\n            }\r\n          }\r\n        }\r\n      } else if (res.type === 'read_messages') {\r\n        if (chat.userChat.id === res.messages[0].chat_id) {\r\n          for (let i = 0; i < res.messages.length; i++) {\r\n            for (let j = chat.userChat.messages.length - 1; j >= 0; j--) {\r\n              if (chat.userChat.messages[j].id === res.messages[i].id) {\r\n                chat.userChat.messages[j].read = true;\r\n                break;\r\n              }\r\n            }\r\n          }\r\n        }\r\n        for (let i = 0; i < chat.chatList.results.length; i++) {\r\n          if (chat.chatList.results[i].last_message.id === res.messages[res.messages.length - 1].id) {\r\n            chat.chatList.results[i].last_message.read = true;\r\n            break\r\n          }\r\n        }\r\n      } else if (res.type === 'delete_message') {\r\n        for (let i = 0; i < chat.chatList.results.length; i++) {\r\n          if (chat.chatList.results[i].id === res.last_message?.chat_id) {\r\n            chat.chatList.results[i].last_message = res.last_message\r\n          }\r\n        }\r\n      } else if (res.type === 'update_message') {\r\n        for (let i = 0; i < chat.chatList.results.length; i++) {\r\n          if (chat.chatList.results[i].id === res.last_message?.chat_id) {\r\n            console.log(chat.chatList.results[i], '*****', res.last_message)\r\n            chat.chatList.results[i].last_message = res.last_message\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n\r\n  ws.onclose = function (e) {\r\n    notification();\r\n  };\r\n\r\n  ws.onerror = function (err) {\r\n    ws.close();\r\n  };\r\n}\r\n\r\nonMounted(() => {\r\n  if (!nuxtStorage.localStorage.getData('token')) {\r\n    route.push('/').then(e => {\r\n      toast.info('Для начало авторизуйтесь', {autoClose: 1500, theme: 'auto'})\r\n    })\r\n  } else {\r\n    user.loadCurrentUser()\r\n    notification()\r\n  }\r\n})\r\n\r\nonUpdated(() => {\r\n  if (!nuxtStorage.localStorage.getData('token')) {\r\n    route.push('/').then(e => {\r\n      toast.info('Для начало авторизуйтесь', {autoClose: 1500, theme: 'auto'})\r\n    })\r\n  }\r\n})\r\n\r\nconsole.log(router.meta)\r\nuseHead({\r\n  titleTemplate: (title) => {\r\n    return title\r\n      ? `${title} • ERP`\r\n      : 'ERP'\r\n  }\r\n})\r\n</script>\r\n\r\n<style lang=\"postcss\">\r\n.router-link-active {\r\n  @apply dark:bg-semiCyan bg-cyan dark:border-r-cyan border-r-semiCyan border-r-4;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  @apply w-2\r\n}\r\n\r\n::-webkit-scrollbar-track {\r\n  @apply dark:bg-blueDarkSemiLight\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  @apply bg-semiCyan\r\n}\r\n\r\n.left-fade-enter-active {\r\n  transition: all 0.3s ease-out;\r\n}\r\n\r\n.left-fade-leave-active {\r\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\r\n}\r\n\r\n.left-fade-enter-from,\r\n.left-fade-leave-to {\r\n  transform: translateX(-20px);\r\n  opacity: 0;\r\n}\r\n</style>\r\n<style scoped lang=\"postcss\">\r\n\r\n</style>",
+      "start": 1706896516952,
+      "end": 1706896517009,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896517009,
+      "end": 1706896517009,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896517009,
+      "end": 1706896517009,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896517009,
+      "end": 1706896517009,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896517009,
+      "end": 1706896517009,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896517009,
+      "end": 1706896517009,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896517010,
+      "end": 1706896517010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896517010,
+      "end": 1706896517010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896517010,
+      "end": 1706896517010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/pages/base.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/pages/base.vue?vue&type=script&setup=true&lang.ts\";\nimport \"D:/Programming/templates/KPIcopy/pages/base.vue?vue&type=style&index=0&lang.postcss\";\nexport default _sfc_main;\n",
+      "start": 1706896517010,
+      "end": 1706896517022,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896517022,
+      "end": 1706896517022,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896517023,
+      "end": 1706896517023,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896517023,
+      "end": 1706896517023,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896517023,
+      "end": 1706896517023,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896517023,
+      "end": 1706896517023,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896517024,
+      "end": 1706896517024,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896517024,
+      "end": 1706896517024,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896517024,
+      "end": 1706896517024,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896517024,
+      "end": 1706896517024,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896517024,
+      "end": 1706896517024,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896517024,
+      "end": 1706896517024,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896517024,
+      "end": 1706896517025,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896517025,
+      "end": 1706896517025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896517025,
+      "end": 1706896517025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896517025,
+      "end": 1706896517025,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896517025,
+      "end": 1706896517025,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896517025,
+      "end": 1706896517026,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896517026,
+      "end": 1706896517026,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896517026,
+      "end": 1706896517026,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896517027,
+      "end": 1706896517028,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896517028,
+      "end": 1706896517028,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896517028,
+      "end": 1706896517028,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896517029,
+      "end": 1706896517029,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896517029,
+      "end": 1706896517029,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896517029,
+      "end": 1706896517029,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896517029,
+      "end": 1706896517029,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896517029,
+      "end": 1706896517030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896517030,
+      "end": 1706896517030,
+      "order": "normal"
+    }
+  ]
+}

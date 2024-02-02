@@ -1,0 +1,17 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/types.js",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "",
+      "start": 1706896541241,
+      "end": 1706896541241
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896541241,
+      "end": 1706896541241,
+      "order": "normal"
+    }
+  ]
+}

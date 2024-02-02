@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/cancellation.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\n/*---------------------------------------------------------------------------------------------\n *  Copyright (c) Microsoft Corporation. All rights reserved.\n *  Licensed under the MIT License. See License.txt in the project root for license information.\n *--------------------------------------------------------------------------------------------*/\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.CancellationTokenSource = exports.CancellationToken = void 0;\nconst ral_1 = require(\"./ral\");\nconst Is = require(\"./is\");\nconst events_1 = require(\"./events\");\nvar CancellationToken;\n(function (CancellationToken) {\n    CancellationToken.None = Object.freeze({\n        isCancellationRequested: false,\n        onCancellationRequested: events_1.Event.None\n    });\n    CancellationToken.Cancelled = Object.freeze({\n        isCancellationRequested: true,\n        onCancellationRequested: events_1.Event.None\n    });\n    function is(value) {\n        const candidate = value;\n        return candidate && (candidate === CancellationToken.None\n            || candidate === CancellationToken.Cancelled\n            || (Is.boolean(candidate.isCancellationRequested) && !!candidate.onCancellationRequested));\n    }\n    CancellationToken.is = is;\n})(CancellationToken = exports.CancellationToken || (exports.CancellationToken = {}));\nconst shortcutEvent = Object.freeze(function (callback, context) {\n    const handle = ral_1.default().timer.setTimeout(callback.bind(context), 0);\n    return { dispose() { ral_1.default().timer.clearTimeout(handle); } };\n});\nclass MutableToken {\n    constructor() {\n        this._isCancelled = false;\n    }\n    cancel() {\n        if (!this._isCancelled) {\n            this._isCancelled = true;\n            if (this._emitter) {\n                this._emitter.fire(undefined);\n                this.dispose();\n            }\n        }\n    }\n    get isCancellationRequested() {\n        return this._isCancelled;\n    }\n    get onCancellationRequested() {\n        if (this._isCancelled) {\n            return shortcutEvent;\n        }\n        if (!this._emitter) {\n            this._emitter = new events_1.Emitter();\n        }\n        return this._emitter.event;\n    }\n    dispose() {\n        if (this._emitter) {\n            this._emitter.dispose();\n            this._emitter = undefined;\n        }\n    }\n}\nclass CancellationTokenSource {\n    get token() {\n        if (!this._token) {\n            // be lazy and create the token only when\n            // actually needed\n            this._token = new MutableToken();\n        }\n        return this._token;\n    }\n    cancel() {\n        if (!this._token) {\n            // save an object by returning the default\n            // cancelled token when cancellation happens\n            // before someone asks for the token\n            this._token = CancellationToken.Cancelled;\n        }\n        else {\n            this._token.cancel();\n        }\n    }\n    dispose() {\n        if (!this._token) {\n            // ensure to initialize with an empty token if we had none\n            this._token = CancellationToken.None;\n        }\n        else if (this._token instanceof MutableToken) {\n            // actually dispose\n            this._token.dispose();\n        }\n    }\n}\nexports.CancellationTokenSource = CancellationTokenSource;\n//# sourceMappingURL=cancellation.js.map",
+      "start": 1706896525391,
+      "end": 1706896525435,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525435,
+      "end": 1706896525435,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as cancellation } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/cancellation.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/ral.js?commonjs-proxy\";\nimport { __require as require$$1 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/is.js?commonjs-wrapped\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/events.js?commonjs-proxy\";\n\nvar hasRequiredCancellation;\n\nfunction requireCancellation () {\n\tif (hasRequiredCancellation) return cancellation;\n\thasRequiredCancellation = 1;\n\t(function (exports) {\n\t\t\"use strict\";\n\t\t/*---------------------------------------------------------------------------------------------\n\t\t *  Copyright (c) Microsoft Corporation. All rights reserved.\n\t\t *  Licensed under the MIT License. See License.txt in the project root for license information.\n\t\t *--------------------------------------------------------------------------------------------*/\n\t\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\t\texports.CancellationTokenSource = exports.CancellationToken = void 0;\n\t\tconst ral_1 = require$$0;\n\t\tconst Is = require$$1();\n\t\tconst events_1 = require$$2;\n\t\tvar CancellationToken;\n\t\t(function (CancellationToken) {\n\t\t    CancellationToken.None = Object.freeze({\n\t\t        isCancellationRequested: false,\n\t\t        onCancellationRequested: events_1.Event.None\n\t\t    });\n\t\t    CancellationToken.Cancelled = Object.freeze({\n\t\t        isCancellationRequested: true,\n\t\t        onCancellationRequested: events_1.Event.None\n\t\t    });\n\t\t    function is(value) {\n\t\t        const candidate = value;\n\t\t        return candidate && (candidate === CancellationToken.None\n\t\t            || candidate === CancellationToken.Cancelled\n\t\t            || (Is.boolean(candidate.isCancellationRequested) && !!candidate.onCancellationRequested));\n\t\t    }\n\t\t    CancellationToken.is = is;\n\t\t})(CancellationToken = exports.CancellationToken || (exports.CancellationToken = {}));\n\t\tconst shortcutEvent = Object.freeze(function (callback, context) {\n\t\t    const handle = ral_1.default().timer.setTimeout(callback.bind(context), 0);\n\t\t    return { dispose() { ral_1.default().timer.clearTimeout(handle); } };\n\t\t});\n\t\tclass MutableToken {\n\t\t    constructor() {\n\t\t        this._isCancelled = false;\n\t\t    }\n\t\t    cancel() {\n\t\t        if (!this._isCancelled) {\n\t\t            this._isCancelled = true;\n\t\t            if (this._emitter) {\n\t\t                this._emitter.fire(undefined);\n\t\t                this.dispose();\n\t\t            }\n\t\t        }\n\t\t    }\n\t\t    get isCancellationRequested() {\n\t\t        return this._isCancelled;\n\t\t    }\n\t\t    get onCancellationRequested() {\n\t\t        if (this._isCancelled) {\n\t\t            return shortcutEvent;\n\t\t        }\n\t\t        if (!this._emitter) {\n\t\t            this._emitter = new events_1.Emitter();\n\t\t        }\n\t\t        return this._emitter.event;\n\t\t    }\n\t\t    dispose() {\n\t\t        if (this._emitter) {\n\t\t            this._emitter.dispose();\n\t\t            this._emitter = undefined;\n\t\t        }\n\t\t    }\n\t\t}\n\t\tclass CancellationTokenSource {\n\t\t    get token() {\n\t\t        if (!this._token) {\n\t\t            // be lazy and create the token only when\n\t\t            // actually needed\n\t\t            this._token = new MutableToken();\n\t\t        }\n\t\t        return this._token;\n\t\t    }\n\t\t    cancel() {\n\t\t        if (!this._token) {\n\t\t            // save an object by returning the default\n\t\t            // cancelled token when cancellation happens\n\t\t            // before someone asks for the token\n\t\t            this._token = CancellationToken.Cancelled;\n\t\t        }\n\t\t        else {\n\t\t            this._token.cancel();\n\t\t        }\n\t\t    }\n\t\t    dispose() {\n\t\t        if (!this._token) {\n\t\t            // ensure to initialize with an empty token if we had none\n\t\t            this._token = CancellationToken.None;\n\t\t        }\n\t\t        else if (this._token instanceof MutableToken) {\n\t\t            // actually dispose\n\t\t            this._token.dispose();\n\t\t        }\n\t\t    }\n\t\t}\n\t\texports.CancellationTokenSource = CancellationTokenSource;\n\t\t//# sourceMappingURL=cancellation.js.map \n\t} (cancellation));\n\treturn cancellation;\n}\n\nexport { requireCancellation as __require };",
+      "start": 1706896525435,
+      "end": 1706896525482,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525482,
+      "end": 1706896525482,
+      "order": "normal"
+    }
+  ]
+}

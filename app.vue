@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="">
     <NuxtPage/>
@@ -16,6 +14,7 @@
 .page-leave-active {
   transition: all 0.2s;
 }
+
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
@@ -72,9 +71,11 @@
 <script lang="ts" setup>
 import 'vue3-toastify/dist/index.css';
 import {useI18n} from "vue-i18n";
-import {useColorMode, useMounted} from "@vueuse/core";
+import {useColorMode} from "@vueuse/core";
+import {useRoute} from "vue-router";
 
 const colorMode = useColorMode()
 const {locale} = useI18n()
+const route = useRoute()
 
 </script>

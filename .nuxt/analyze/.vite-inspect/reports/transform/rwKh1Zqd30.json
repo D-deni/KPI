@@ -1,0 +1,238 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport {useAuthStore} from \"~/stores/auth\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport {DraggableElement} from \"vue-advanced-cropper\";\n\nconst documentStore = useDocumentStore()\nconst authStore = useAuthStore()\ndefineProps({\n  item: {\n    type: Object,\n    default: () => {\n    }\n  },\n})\n\nconst startDrag = (event: any, elem: any) => {\n  event.dataTransfer.dropEffect = 'move'\n  event.dataTransfer.effectAllowed = 'move'\n  event.dataTransfer.setData('elemID', elem.id)\n}\n\nfunction dragEnter(event: any) {\n  event.target.classList.add('dragged-enter')\n  event.preventDefault()\n}\n\nfunction dragLeave(event: any) {\n  event.target.classList.remove('dragged-enter')\n  event.preventDefault()\n}\n\n\n</script>\n\n<template>\n  <div class=\"\">\n    <div class=\"border-b p-2 pt-0\"\n         @click=\"()=>{\n           if(documentStore.showDepartment.some(e=> e.id === item.id)){\n             documentStore.showDepartment = documentStore.showDepartment.filter(i => i.id !== item.id)\n           } else {\n             documentStore.showDepartment = [...documentStore.showDepartment, { id: item.id }]\n           }\n           console.log(documentStore.showDepartment.some(e=> e.value))\n         }\">\n      <div class=\"flex items-center justify-between\">\n        <p class=\"tracking-wider text-sm\">{{ item.name }}</p>\n        <div :class=\"{'rotate-180 transition-all' : documentStore.showDepartment.every(e=>e.id !== item?.id)}\">\n          <svg class=\"dark:fill-white fill-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\"\n               xmlns=\"http://www.w3.org/2000/svg\">\n            <path fill-rule=\"evenodd\" clip-rule=\"evenodd\"\n                  d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\"/>\n          </svg>\n        </div>\n      </div>\n      <Transition name=\"slide-down\">\n          <div class=\"flex flex-col gap-y-2 select-none\" v-if=\"documentStore.showDepartment.every(e=>e.id !== item?.id)\">\n            <div @click.stop='()=>{}'\n                 :key=\"user.id\"\n                 v-for=\"user in item.participants.filter(e=>e.id !== authStore.user.id)\">\n              <div v-if=\"documentStore.showUsersNode.every(el=>el.id != user.id)\" class=\" p-2 flex gap-x-4 rounded-lg relative\" draggable=\"true\"\n                   @dragstart=\"startDrag($event, user)\"\n                   @dragend=\"dragLeave\"\n                   @drag=\"dragEnter\"\n              >\n                <div class=\"w-[50px] h-[50px]\">\n                  <img draggable=\"false\" class=\"w-full rounded-full\" :src=\"authStore.get_server_domain + user.photo_url\"\n                       alt=\"\">\n                </div>\n                <div class=\"text-base\">\n                  <p>{{ user.first_name + ' ' + user.last_name }}</p>\n                  <p class=\"text-[13px] tracking-widest text-gray-400\">({{ user.role }})</p>\n                </div>\n              </div>\n            </div>\n          </div>\n      </Transition>\n    </div>\n  </div>\n</template>\n\n<style scoped lang=\"scss\">\n.dragged-enter {\n  filter: blur(1px);\n  background: rgba(14, 165, 233, 0.4);\n  transition: .3s all ease;\n}\n\n.dragged-over {\n  background: #73c4ff;\n}\n\n</style>",
+      "start": 1706896521968,
+      "end": 1706896522552,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522552,
+      "end": 1706896522552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue?vue&type=style&index=0&scoped=013015fa&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-013015fa\"]]);\n",
+      "start": 1706896522552,
+      "end": 1706896522825,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522825,
+      "end": 1706896522825,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522825,
+      "end": 1706896522825,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522825,
+      "end": 1706896522825,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522825,
+      "end": 1706896522825,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522825,
+      "end": 1706896522825,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522825,
+      "end": 1706896522825,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522825,
+      "end": 1706896522825,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522826,
+      "end": 1706896522826,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522826,
+      "end": 1706896522827,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522827,
+      "end": 1706896522827,
+      "order": "normal"
+    }
+  ]
+}

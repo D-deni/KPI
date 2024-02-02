@@ -1,0 +1,340 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue?vue&type=script&setup=true&lang.tsx",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport {useCloudStore} from \"~/stores/cloud\";\r\nimport TheCloudUIStructureSubFolder from \"~/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureSubFolder.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheCloudUIStructureFolder',\n  __ssrInlineRender: true,\n  props: {\r\n  showFolder: {\r\n    type: Object,\r\n    default: () => {\r\n    },\r\n  },\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"p-2 flex items-center gap-x-4 hover:bg-gray-700 transition-all duration-200 cursor-pointer rounded-lg\" }, _attrs))}><div>`)\n  _ssrRenderSlot(_ctx.$slots, \"structureSvg\", {}, null, _push, _parent)\n  _push(`</div><p class=\"tracking-widest text-sm\">`)\n  _ssrRenderSlot(_ctx.$slots, \"structureName\", {}, null, _push, _parent)\n  _push(`</p></div>`)\n}\n}\n\n})",
+      "start": 1706896549430,
+      "end": 1706896549430,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"tsx\">\r\nimport {useCloudStore} from \"~/stores/cloud\";\r\nimport TheCloudUIStructureSubFolder from \"~/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureSubFolder.vue\";\r\n\r\ndefineProps({\r\n  showFolder: {\r\n    type: Object,\r\n    default: () => {\r\n    },\r\n  },\r\n})\r\n</script>\r\n\r\n<template>\r\n  <div class=\"p-2 flex items-center gap-x-4 hover:bg-gray-700 transition-all duration-200 cursor-pointer rounded-lg \">\r\n    <div>\r\n      <slot name=\"structureSvg\"/>\r\n    </div>\r\n    <p class=\"tracking-widest text-sm\"><slot name=\"structureName\"/></p>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzH,CAAC;;;;;;;;;;;;;AAHwB,CAAC;AAUxB,CAAC;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549430,
+      "end": 1706896549430,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549430,
+      "end": 1706896549430,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549430,
+      "end": 1706896549430,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549430,
+      "end": 1706896549430,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549430,
+      "end": 1706896549431,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549430,
+      "end": 1706896549431,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896549431,
+      "end": 1706896549431,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896549431,
+      "end": 1706896549431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896549431,
+      "end": 1706896549431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896549431,
+      "end": 1706896549431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896549431,
+      "end": 1706896549431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896549431,
+      "end": 1706896549431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "result": "import { defineComponent as _defineComponent } from 'vue';\nimport { mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheCloudUIStructureFolder',\n  __ssrInlineRender: true,\n  props: {\n    showFolder: {\n      type: Object,\n      default: () => {}\n    }\n  },\n  setup(__props) {\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({\n        class: \"p-2 flex items-center gap-x-4 hover:bg-gray-700 transition-all duration-200 cursor-pointer rounded-lg\"\n      }, _attrs))}><div>`);\n      _ssrRenderSlot(_ctx.$slots, \"structureSvg\", {}, null, _push, _parent);\n      _push(`</div><p class=\"tracking-widest text-sm\">`);\n      _ssrRenderSlot(_ctx.$slots, \"structureName\", {}, null, _push, _parent);\n      _push(`</p></div>`);\n    };\n  }\n});",
+      "start": 1706896549431,
+      "end": 1706896549452,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "names": [
+          "defineComponent",
+          "_defineComponent",
+          "mergeProps",
+          "_mergeProps",
+          "ssrRenderSlot",
+          "_ssrRenderSlot",
+          "ssrRenderAttrs",
+          "_ssrRenderAttrs",
+          "__name",
+          "__ssrInlineRender",
+          "props",
+          "showFolder",
+          "type",
+          "Object",
+          "default",
+          "setup",
+          "__props",
+          "_ctx",
+          "_push",
+          "_parent",
+          "_attrs",
+          "class",
+          "$slots"
+        ],
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue?vue&type=script&setup=true&lang.tsx"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport {useCloudStore} from \"~/stores/cloud\";\r\nimport TheCloudUIStructureSubFolder from \"~/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureSubFolder.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheCloudUIStructureFolder',\n  __ssrInlineRender: true,\n  props: {\r\n  showFolder: {\r\n    type: Object,\r\n    default: () => {\r\n    },\r\n  },\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"p-2 flex items-center gap-x-4 hover:bg-gray-700 transition-all duration-200 cursor-pointer rounded-lg\" }, _attrs))}><div>`)\n  _ssrRenderSlot(_ctx.$slots, \"structureSvg\", {}, null, _push, _parent)\n  _push(`</div><p class=\"tracking-widest text-sm\">`)\n  _ssrRenderSlot(_ctx.$slots, \"structureName\", {}, null, _push, _parent)\n  _push(`</p></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAASA,eAAe,IAAIC,gBAAgB,QAAQ,KAAK;AACzD,SAASC,UAAU,IAAIC,WAAW,QAAQ,KAAK;AAC/C,SAASC,aAAa,IAAIC,cAAc,EAAEC,cAAc,IAAIC,eAAe,QAAQ,qBAAqB;AAMxG,eAAe,aAAaN,gBAAgB,CAAC;EAC3CO,MAAM,EAAE,2BAA2B;EACnCC,iBAAiB,EAAE,IAAI;EACvBC,KAAK,EAAE;IACPC,UAAU,EAAE;MACVC,IAAI,EAAEC,MAAM;MACZC,OAAO,EAAEA,CAAA,KAAM,CACf;IACF;EACF,CAAC;EACCC,KAAKA,CAACC,OAAO,EAAE;IAIjB,OAAO,CAACC,IAAS,EAACC,KAAU,EAACC,OAAY,EAACC,MAAW,KAAK;MACxDF,KAAK,CAAE,OAAMX,eAAe,CAACJ,WAAW,CAAC;QAAEkB,KAAK,EAAE;MAAwG,CAAC,EAAED,MAAM,CAAC,CAAE,QAAO,CAAC;MAC9Kf,cAAc,CAACY,IAAI,CAACK,MAAM,EAAE,cAAc,EAAE,CAAC,CAAC,EAAE,IAAI,EAAEJ,KAAK,EAAEC,OAAO,CAAC;MACrED,KAAK,CAAE,2CAA0C,CAAC;MAClDb,cAAc,CAACY,IAAI,CAACK,MAAM,EAAE,eAAe,EAAE,CAAC,CAAC,EAAE,IAAI,EAAEJ,KAAK,EAAEC,OAAO,CAAC;MACtED,KAAK,CAAE,YAAW,CAAC;IACrB,CAAC;EACD;AAEA,CAAC,CAAC"
+      }
+    },
+    {
+      "name": "replace",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896549452,
+      "end": 1706896549452,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549452,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549452,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549453,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549453,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549453,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549453,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549453,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549453,
+      "end": 1706896549453,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549453,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549453,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896549454,
+      "end": 1706896549454,
+      "order": "normal"
+    }
+  ]
+}

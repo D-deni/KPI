@@ -1,0 +1,300 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport {useUserStore} from \"~/stores/users\";\nimport {useAuthStore} from \"~/stores/auth\";\nimport DocumentItemInfoChainScheduleItem\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue\";\nimport {LinkedList} from \"~/hooks/Node\";\nimport {useDocumentStore} from \"~/stores/documents\";\nconst authStore = useAuthStore()\nconst documentStore = useDocumentStore()\n</script>\n\n<template>\n  <div class=\"h-full \" @click=\"documentStore.showContext = null\">\n    <div class=\"h-[500px] grid overflow-auto border grid-cols-1\">\n      <DocumentItemInfoChainScheduleItem/>\n    </div>\n  </div>\n</template>\n\n<style scoped lang=\"scss\">\n\n</style>",
+      "start": 1706896549615,
+      "end": 1706896549799,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896549800,
+      "end": 1706896549800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896549800,
+      "end": 1706896549866,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896549866,
+      "end": 1706896549866,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549866,
+      "end": 1706896549866,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549866,
+      "end": 1706896549866,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549866,
+      "end": 1706896549866,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549866,
+      "end": 1706896549866,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896549866,
+      "end": 1706896549866,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549867,
+      "end": 1706896549867,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896549867,
+      "end": 1706896549867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896549868,
+      "end": 1706896549963,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport { useSSRContext as __vite_useSSRContext } from \\\"vue\\\";\\nconst _sfc_setup = _sfc_main.setup;\\n_sfc_main.setup = (props, ctx) => {\\n  const ssrContext = __vite_useSSRContext();\\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\\\"components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainSchedule.vue\\\");\\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\\n};\\nexport default _sfc_main;\\n\"],\n  \"mappings\": \"AAAA,OAAO,eAAe;AACtB,cAAc;AACd,SAAS,iBAAiB,4BAA4B;AACtD,MAAM,aAAa,UAAU;AAC7B,UAAU,QAAQ,CAAC,OAAO,QAAQ;AAChC,QAAM,aAAa,qBAAqB;AACxC,GAAC,WAAW,YAAY,WAAW,UAA0B,oBAAI,IAAI,IAAI,IAAI,8FAA8F;AAC3K,SAAO,aAAa,WAAW,OAAO,GAAG,IAAI;AAC/C;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549963,
+      "end": 1706896549963,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549963,
+      "end": 1706896549964,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549963,
+      "end": 1706896549964,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549964,
+      "end": 1706896549968,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549964,
+      "end": 1706896549968,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549968,
+      "end": 1706896549968,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549968,
+      "end": 1706896549968,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549968,
+      "end": 1706896549969,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549968,
+      "end": 1706896549969,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896549969,
+      "end": 1706896549969,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896549969,
+      "end": 1706896549969,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896549970,
+      "end": 1706896549970,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896549970,
+      "end": 1706896549971,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896549971,
+      "end": 1706896549971,
+      "order": "normal"
+    }
+  ]
+}

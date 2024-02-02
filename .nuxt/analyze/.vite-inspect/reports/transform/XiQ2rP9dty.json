@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatCropper.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = {\n  key: 0,\n  class: \"fixed top-0 left-0 right-0 bottom-0 backdrop-blur z-[1000]\"\n}\nconst _hoisted_2 = { class: \"p-20 w-full h-full max-md:w-screen max-md:h-screen max-md:p-0\" }\nconst _hoisted_3 = { class: \"absolute bottom-2 left-0 right-0 flex justify-center\" }\nconst _hoisted_4 = { class: \"bg-gray-800 bg-opacity-40 p-4 flex gap-x-10 text-sm rounded-lg\" }\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"fill-gray-300 hover:fill-white transition-all\",\n  width: \"30px\",\n  height: \"30px\",\n  viewBox: \"0 0 56 56\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", { d: \"M 7.7265 25.1056 C 8.2656 24.8477 8.5000 24.4493 8.4765 23.7930 C 8.4062 22.9493 7.4452 21.7774 7.4452 18.6603 C 7.4452 13.6446 10.6796 10.1290 15.7421 10.1290 L 15.8124 10.1290 L 15.8124 13.3399 C 15.8124 15.1915 17.2656 15.6134 18.6718 14.5587 L 25.0702 9.8946 C 26.1484 9.1212 26.1484 8.2071 25.0702 7.4103 L 18.6718 2.7227 C 17.2421 1.6444 15.8124 2.0665 15.8124 3.9649 L 15.8124 7.4103 L 15.7187 7.4103 C 8.9921 7.4103 4.5156 11.9337 4.5156 18.6368 C 4.5156 21.1446 5.0312 23.2071 5.7578 24.4493 C 6.1562 25.1290 7.0000 25.4571 7.7265 25.1056 Z M 45.4609 54.3556 C 49.4689 54.3556 51.4844 52.4337 51.4844 48.3321 L 51.4844 25.1524 C 51.4844 21.0508 49.4689 19.1290 45.4609 19.1290 L 22.2343 19.1290 C 18.2265 19.1290 16.2109 21.0508 16.2109 25.1524 L 16.2109 48.3321 C 16.2109 52.4337 18.2265 54.3556 22.2343 54.3556 Z M 45.3905 50.5821 L 22.3046 50.5821 C 20.6874 50.5821 19.9843 49.9259 19.9843 48.2618 L 19.9843 25.2227 C 19.9843 23.5587 20.6874 22.9024 22.3046 22.9024 L 45.3905 22.9024 C 47.0080 22.9024 47.7107 23.5587 47.7107 25.2227 L 47.7107 48.2618 C 47.7107 49.9259 47.0080 50.5821 45.3905 50.5821 Z\" })\n], -1)\n\nimport {Cropper, CircleStencil} from \"vue-advanced-cropper\";\r\nimport 'vue-advanced-cropper/dist/theme.bubble.css';\r\nimport 'vue-advanced-cropper/dist/style.css';\r\n\r\nimport {useChat} from \"~/stores/chat\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatCropper',\n  setup(__props) {\n\r\nconst chat = useChat()\r\nlet fd = new FormData()\r\n\r\nfunction onChangeImage({coordinates, image}) {\r\n  chat.results = {\r\n    coordinates: coordinates,\r\n    image: image,\r\n  }\r\n}\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    (_unref(chat).src && _unref(chat).showChatCropper === true)\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_unref(Cropper), {\n              ref: \"cropper\",\n              class: \"w-screen h-screen\",\n              src: _unref(chat).src,\n              backgroundClass: \"!bg-transparent\",\n              foregroundClass: \"bg-black rounded-lg\",\n              onChange: onChangeImage,\n              \"stencil-component\": _unref(CircleStencil),\n              \"stencil-props\": {\r\n              previewClass: 'border-dashed border w-full h-full',\r\n             }\n            }, null, 8, [\"src\", \"stencil-component\"])\n          ]),\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createVNode(TheButton, {\n                onClick: _cache[0] || (_cache[0] = ($event: any) => {_unref(chat).showChatCropper = false; _unref(chat).file = ''; _unref(chat).src = ''; _unref(chat).results = {image: null, coordinates: null, file: null}})\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, null, {\n                default: _withCtx(() => [\n                  _hoisted_5\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, {\n                class: \"!text-semiCyan\",\n                onClick: _cache[1] || (_cache[1] = ()=>{\r\n          const {canvas} = this.$refs.cropper.getResult()\r\n          if(canvas) {\r\n            canvas?.toBlob(blob => {\r\n                _unref(chat).fileUpload = blob;\r\n                _unref(fd).append('file', blob)\r\n            })\r\n          }\r\n          console.log(canvas)\r\n          _unref(chat).showChatCropper = false;\r\n        })\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Установить фотография')), 1)\n                ]),\n                _: 1\n              })\n            ])\n          ])\n        ]))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})",
+      "start": 1706896520796,
+      "end": 1706896520796
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896520796,
+      "end": 1706896520796,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nconst _hoisted_1 = {\n  key: 0,\n  class: \"fixed top-0 left-0 right-0 bottom-0 backdrop-blur z-[1000]\"\n};\nconst _hoisted_2 = { class: \"p-20 w-full h-full max-md:w-screen max-md:h-screen max-md:p-0\" };\nconst _hoisted_3 = { class: \"absolute bottom-2 left-0 right-0 flex justify-center\" };\nconst _hoisted_4 = { class: \"bg-gray-800 bg-opacity-40 p-4 flex gap-x-10 text-sm rounded-lg\" };\nconst _hoisted_5 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"fill-gray-300 hover:fill-white transition-all\",\n  width: \"30px\",\n  height: \"30px\",\n  viewBox: \"0 0 56 56\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", { d: \"M 7.7265 25.1056 C 8.2656 24.8477 8.5000 24.4493 8.4765 23.7930 C 8.4062 22.9493 7.4452 21.7774 7.4452 18.6603 C 7.4452 13.6446 10.6796 10.1290 15.7421 10.1290 L 15.8124 10.1290 L 15.8124 13.3399 C 15.8124 15.1915 17.2656 15.6134 18.6718 14.5587 L 25.0702 9.8946 C 26.1484 9.1212 26.1484 8.2071 25.0702 7.4103 L 18.6718 2.7227 C 17.2421 1.6444 15.8124 2.0665 15.8124 3.9649 L 15.8124 7.4103 L 15.7187 7.4103 C 8.9921 7.4103 4.5156 11.9337 4.5156 18.6368 C 4.5156 21.1446 5.0312 23.2071 5.7578 24.4493 C 6.1562 25.1290 7.0000 25.4571 7.7265 25.1056 Z M 45.4609 54.3556 C 49.4689 54.3556 51.4844 52.4337 51.4844 48.3321 L 51.4844 25.1524 C 51.4844 21.0508 49.4689 19.1290 45.4609 19.1290 L 22.2343 19.1290 C 18.2265 19.1290 16.2109 21.0508 16.2109 25.1524 L 16.2109 48.3321 C 16.2109 52.4337 18.2265 54.3556 22.2343 54.3556 Z M 45.3905 50.5821 L 22.3046 50.5821 C 20.6874 50.5821 19.9843 49.9259 19.9843 48.2618 L 19.9843 25.2227 C 19.9843 23.5587 20.6874 22.9024 22.3046 22.9024 L 45.3905 22.9024 C 47.0080 22.9024 47.7107 23.5587 47.7107 25.2227 L 47.7107 48.2618 C 47.7107 49.9259 47.0080 50.5821 45.3905 50.5821 Z\" })\n], -1);\nimport { Cropper, CircleStencil } from \"vue-advanced-cropper\";\nimport \"vue-advanced-cropper/dist/theme.bubble.css\";\nimport \"vue-advanced-cropper/dist/style.css\";\nimport { useChat } from \"~/stores/chat\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatCropper\",\n  setup(__props) {\n    const chat = useChat();\n    let fd = new FormData();\n    function onChangeImage({ coordinates, image }) {\n      chat.results = {\n        coordinates,\n        image\n      };\n    }\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _unref(chat).src && _unref(chat).showChatCropper === true ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_unref(Cropper), {\n              ref: \"cropper\",\n              class: \"w-screen h-screen\",\n              src: _unref(chat).src,\n              backgroundClass: \"!bg-transparent\",\n              foregroundClass: \"bg-black rounded-lg\",\n              onChange: onChangeImage,\n              \"stencil-component\": _unref(CircleStencil),\n              \"stencil-props\": {\n                previewClass: \"border-dashed border w-full h-full\"\n              }\n            }, null, 8, [\"src\", \"stencil-component\"])\n          ]),\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createVNode(TheButton, {\n                onClick: _cache[0] || (_cache[0] = ($event) => {\n                  _unref(chat).showChatCropper = false;\n                  _unref(chat).file = \"\";\n                  _unref(chat).src = \"\";\n                  _unref(chat).results = { image: null, coordinates: null, file: null };\n                })\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Отмена\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, null, {\n                default: _withCtx(() => [\n                  _hoisted_5\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, {\n                class: \"!text-semiCyan\",\n                onClick: _cache[1] || (_cache[1] = () => {\n                  const { canvas } = this.$refs.cropper.getResult();\n                  if (canvas) {\n                    canvas?.toBlob((blob) => {\n                      _unref(chat).fileUpload = blob;\n                      _unref(fd).append(\"file\", blob);\n                    });\n                  }\n                  console.log(canvas);\n                  _unref(chat).showChatCropper = false;\n                })\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Установить фотография\")), 1)\n                ]),\n                _: 1\n              })\n            ])\n          ])\n        ])) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896520805,
+      "end": 1706896521233,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatCropper.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = {\n  key: 0,\n  class: \"fixed top-0 left-0 right-0 bottom-0 backdrop-blur z-[1000]\"\n}\nconst _hoisted_2 = { class: \"p-20 w-full h-full max-md:w-screen max-md:h-screen max-md:p-0\" }\nconst _hoisted_3 = { class: \"absolute bottom-2 left-0 right-0 flex justify-center\" }\nconst _hoisted_4 = { class: \"bg-gray-800 bg-opacity-40 p-4 flex gap-x-10 text-sm rounded-lg\" }\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"fill-gray-300 hover:fill-white transition-all\",\n  width: \"30px\",\n  height: \"30px\",\n  viewBox: \"0 0 56 56\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", { d: \"M 7.7265 25.1056 C 8.2656 24.8477 8.5000 24.4493 8.4765 23.7930 C 8.4062 22.9493 7.4452 21.7774 7.4452 18.6603 C 7.4452 13.6446 10.6796 10.1290 15.7421 10.1290 L 15.8124 10.1290 L 15.8124 13.3399 C 15.8124 15.1915 17.2656 15.6134 18.6718 14.5587 L 25.0702 9.8946 C 26.1484 9.1212 26.1484 8.2071 25.0702 7.4103 L 18.6718 2.7227 C 17.2421 1.6444 15.8124 2.0665 15.8124 3.9649 L 15.8124 7.4103 L 15.7187 7.4103 C 8.9921 7.4103 4.5156 11.9337 4.5156 18.6368 C 4.5156 21.1446 5.0312 23.2071 5.7578 24.4493 C 6.1562 25.1290 7.0000 25.4571 7.7265 25.1056 Z M 45.4609 54.3556 C 49.4689 54.3556 51.4844 52.4337 51.4844 48.3321 L 51.4844 25.1524 C 51.4844 21.0508 49.4689 19.1290 45.4609 19.1290 L 22.2343 19.1290 C 18.2265 19.1290 16.2109 21.0508 16.2109 25.1524 L 16.2109 48.3321 C 16.2109 52.4337 18.2265 54.3556 22.2343 54.3556 Z M 45.3905 50.5821 L 22.3046 50.5821 C 20.6874 50.5821 19.9843 49.9259 19.9843 48.2618 L 19.9843 25.2227 C 19.9843 23.5587 20.6874 22.9024 22.3046 22.9024 L 45.3905 22.9024 C 47.0080 22.9024 47.7107 23.5587 47.7107 25.2227 L 47.7107 48.2618 C 47.7107 49.9259 47.0080 50.5821 45.3905 50.5821 Z\" })\n], -1)\n\nimport {Cropper, CircleStencil} from \"vue-advanced-cropper\";\r\nimport 'vue-advanced-cropper/dist/theme.bubble.css';\r\nimport 'vue-advanced-cropper/dist/style.css';\r\n\r\nimport {useChat} from \"~/stores/chat\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatCropper',\n  setup(__props) {\n\r\nconst chat = useChat()\r\nlet fd = new FormData()\r\n\r\nfunction onChangeImage({coordinates, image}) {\r\n  chat.results = {\r\n    coordinates: coordinates,\r\n    image: image,\r\n  }\r\n}\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    (_unref(chat).src && _unref(chat).showChatCropper === true)\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_unref(Cropper), {\n              ref: \"cropper\",\n              class: \"w-screen h-screen\",\n              src: _unref(chat).src,\n              backgroundClass: \"!bg-transparent\",\n              foregroundClass: \"bg-black rounded-lg\",\n              onChange: onChangeImage,\n              \"stencil-component\": _unref(CircleStencil),\n              \"stencil-props\": {\r\n              previewClass: 'border-dashed border w-full h-full',\r\n             }\n            }, null, 8, [\"src\", \"stencil-component\"])\n          ]),\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createVNode(TheButton, {\n                onClick: _cache[0] || (_cache[0] = ($event: any) => {_unref(chat).showChatCropper = false; _unref(chat).file = ''; _unref(chat).src = ''; _unref(chat).results = {image: null, coordinates: null, file: null}})\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, null, {\n                default: _withCtx(() => [\n                  _hoisted_5\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, {\n                class: \"!text-semiCyan\",\n                onClick: _cache[1] || (_cache[1] = ()=>{\r\n          const {canvas} = this.$refs.cropper.getResult()\r\n          if(canvas) {\r\n            canvas?.toBlob(blob => {\r\n                _unref(chat).fileUpload = blob;\r\n                _unref(fd).append('file', blob)\r\n            })\r\n          }\r\n          console.log(canvas)\r\n          _unref(chat).showChatCropper = false;\r\n        })\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Установить фотография')), 1)\n                ]),\n                _: 1\n              })\n            ])\n          ])\n        ]))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "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",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521236,
+      "end": 1706896521241,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521243,
+      "end": 1706896521243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521243,
+      "end": 1706896521243,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521243,
+      "end": 1706896521243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521244,
+      "end": 1706896521244,
+      "order": "normal"
+    }
+  ]
+}

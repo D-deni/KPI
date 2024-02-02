@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/UI/Pinned/TheChatContentPinnedHeader.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"w-full h-[60px] dark:bg-gray-700 bg-gray-200 border-t border-l border-black dark:border-opacity-20 border-opacity-10 z-10\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", null, [\n  /*#__PURE__*/_createElementVNode(\"svg\", {\n    class: \"dark:stroke-white stroke-black\",\n    width: \"20px\",\n    height: \"20px\",\n    viewBox: \"0 0 24 24\",\n    fill: \"none\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"path\", {\n      d: \"M14.9998 19.9201L8.47984 13.4001C7.70984 12.6301 7.70984 11.3701 8.47984 10.6001L14.9998 4.08008\",\n      \"stroke-width\": \"1.5\",\n      \"stroke-miterlimit\": \"10\",\n      \"stroke-linecap\": \"round\",\n      \"stroke-linejoin\": \"round\"\n    })\n  ])\n], -1)\nconst _hoisted_3 = { class: \"text-black dark:text-white tracking-wider\" }\n\nimport {useChat} from \"~/stores/chat\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheChatContentPinnedHeader',\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", {\n      class: \"p-4 flex items-center gap-x-3 cursor-pointer\",\n      onClick: _cache[0] || (_cache[0] = ($event: any) => (_unref(chat).showPinnedWindow = false))\n    }, [\n      _hoisted_2,\n      _createElementVNode(\"p\", _hoisted_3, _toDisplayString(_unref(chat).arrayPin.length + ' ' + _ctx.$t('закреплённых сообщения')), 1)\n    ])\n  ]))\n}\n}\n\n})",
+      "start": 1706896522125,
+      "end": 1706896522125
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896522125,
+      "end": 1706896522125,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896522125,
+      "end": 1706896522125,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896522125,
+      "end": 1706896522125,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896522125,
+      "end": 1706896522125,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896522125,
+      "end": 1706896522125,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"w-full h-[60px] dark:bg-gray-700 bg-gray-200 border-t border-l border-black dark:border-opacity-20 border-opacity-10 z-10\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"div\", null, [\n  /* @__PURE__ */ _createElementVNode(\"svg\", {\n    class: \"dark:stroke-white stroke-black\",\n    width: \"20px\",\n    height: \"20px\",\n    viewBox: \"0 0 24 24\",\n    fill: \"none\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /* @__PURE__ */ _createElementVNode(\"path\", {\n      d: \"M14.9998 19.9201L8.47984 13.4001C7.70984 12.6301 7.70984 11.3701 8.47984 10.6001L14.9998 4.08008\",\n      \"stroke-width\": \"1.5\",\n      \"stroke-miterlimit\": \"10\",\n      \"stroke-linecap\": \"round\",\n      \"stroke-linejoin\": \"round\"\n    })\n  ])\n], -1);\nconst _hoisted_3 = { class: \"text-black dark:text-white tracking-wider\" };\nimport { useChat } from \"~/stores/chat\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheChatContentPinnedHeader\",\n  setup(__props) {\n    const chat = useChat();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          class: \"p-4 flex items-center gap-x-3 cursor-pointer\",\n          onClick: _cache[0] || (_cache[0] = ($event) => _unref(chat).showPinnedWindow = false)\n        }, [\n          _hoisted_2,\n          _createElementVNode(\"p\", _hoisted_3, _toDisplayString(_unref(chat).arrayPin.length + \" \" + _ctx.$t(\"закреплённых сообщения\")), 1)\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896522125,
+      "end": 1706896522526,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/Pinned/TheChatContentPinnedHeader.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"w-full h-[60px] dark:bg-gray-700 bg-gray-200 border-t border-l border-black dark:border-opacity-20 border-opacity-10 z-10\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", null, [\n  /*#__PURE__*/_createElementVNode(\"svg\", {\n    class: \"dark:stroke-white stroke-black\",\n    width: \"20px\",\n    height: \"20px\",\n    viewBox: \"0 0 24 24\",\n    fill: \"none\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"path\", {\n      d: \"M14.9998 19.9201L8.47984 13.4001C7.70984 12.6301 7.70984 11.3701 8.47984 10.6001L14.9998 4.08008\",\n      \"stroke-width\": \"1.5\",\n      \"stroke-miterlimit\": \"10\",\n      \"stroke-linecap\": \"round\",\n      \"stroke-linejoin\": \"round\"\n    })\n  ])\n], -1)\nconst _hoisted_3 = { class: \"text-black dark:text-white tracking-wider\" }\n\nimport {useChat} from \"~/stores/chat\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheChatContentPinnedHeader',\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", {\n      class: \"p-4 flex items-center gap-x-3 cursor-pointer\",\n      onClick: _cache[0] || (_cache[0] = ($event: any) => (_unref(chat).showPinnedWindow = false))\n    }, [\n      _hoisted_2,\n      _createElementVNode(\"p\", _hoisted_3, _toDisplayString(_unref(chat).arrayPin.length + ' ' + _ctx.$t('закреплённых сообщения')), 1)\n    ])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,sBAAsB,qBAAqB,SAAS,QAAQ,mBAAmB,kBAAkB,aAAa,YAAY,sBAAsB,2BAA2B;AAEpL,MAAM,aAAa,EAAE,OAAO,4HAA4H;AACxJ,MAAM,aAA0B,oCAAoB,OAAO,MAAM;AAAA,EAClD,oCAAoB,OAAO;AAAA,IACtC,OAAO;AAAA,IACP,OAAO;AAAA,IACP,QAAQ;AAAA,IACR,SAAS;AAAA,IACT,MAAM;AAAA,IACN,OAAO;AAAA,EACT,GAAG;AAAA,IACY,oCAAoB,QAAQ;AAAA,MACvC,GAAG;AAAA,MACH,gBAAgB;AAAA,MAChB,qBAAqB;AAAA,MACrB,kBAAkB;AAAA,MAClB,mBAAmB;AAAA,IACrB,CAAC;AAAA,EACH,CAAC;AACH,GAAG,EAAE;AACL,MAAM,aAAa,EAAE,OAAO,4CAA4C;AAExE,SAAQ,eAAc;AAGtB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,OAAO,QAAQ;AAErB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D,oBAAoB,OAAO;AAAA,UACzB,OAAO;AAAA,UACP,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,OAAO,IAAI,EAAE,mBAAmB;AAAA,QACvF,GAAG;AAAA,UACD;AAAA,UACA,oBAAoB,KAAK,YAAY,iBAAiB,OAAO,IAAI,EAAE,SAAS,SAAS,MAAM,KAAK,GAAG,wBAAwB,CAAC,GAAG,CAAC;AAAA,QAClI,CAAC;AAAA,MACH,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522527,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522528,
+      "end": 1706896522529,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522529,
+      "end": 1706896522534,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522535,
+      "end": 1706896522535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522535,
+      "end": 1706896522535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522535,
+      "end": 1706896522535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522535,
+      "end": 1706896522536,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522536,
+      "end": 1706896522536,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522536,
+      "end": 1706896522538,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522538,
+      "end": 1706896522538,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522538,
+      "end": 1706896522538,
+      "order": "normal"
+    }
+  ]
+}

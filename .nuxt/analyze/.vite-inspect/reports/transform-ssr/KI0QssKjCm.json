@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksUserCheckbox.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksUserCheckbox',\n  __ssrInlineRender: true,\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  } data-v-30216c86><label class=\"${\n    _ssrRenderClass([{'bg-blueSemiLight text-white' : __props.item.value === true}, \"container w-full relative py-2 px-6 text-black transition-all rounded-lg border\"])\n  }\" data-v-30216c86><span class=\"relative z-10 dark:text-white\" data-v-30216c86>${\n    _ssrInterpolate(__props.item?.first_name + ' ' + __props.item?.last_name)\n  }</span><input type=\"checkbox\"${\n    (_ssrIncludeBooleanAttr(__props.item.value)) ? \" checked\" : \"\"\n  } data-v-30216c86><span class=\"checkmark w-full h-full absolute top-0 left-0\" data-v-30216c86></span></label></div>`)\n}\n}\n\n})",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksUserCheckbox.vue"
+        ],
+        "sourcesContent": [
+          "<template>\r\n  <div>\r\n    <label class=\"container w-full relative py-2 px-6 text-black  transition-all rounded-lg border\"\r\n           :class=\"{'bg-blueSemiLight text-white' : item.value === true}\">\r\n      <span class=\"relative z-10 dark:text-white\">{{ item?.first_name + ' ' + item?.last_name }}</span>\r\n      <input\r\n        type=\"checkbox\"\r\n        @change=\"item.value = !item.value\"\r\n        :checked=\"item.value\"\r\n      >\r\n      <span class=\"checkmark w-full h-full absolute top-0 left-0 \"></span>\r\n    </label>\r\n  </div>\r\n</template>\r\n\r\n<script setup lang=\"ts\">\r\n\r\ndefineProps({\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n})\r\n</script>\r\n\r\n<style scoped>\r\n/* Customize the label (the container) */\r\n.container {\r\n  display: block;\r\n  position: relative;\r\n  cursor: pointer;\r\n  font-size: 16px;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n\r\n}\r\n\r\n/* Hide the browser's default checkbox */\r\n.container input {\r\n  position: absolute;\r\n  opacity: 0;\r\n  cursor: pointer;\r\n  height: 0;\r\n  width: 0;\r\n}\r\n\r\n/* Create a custom checkbox */\r\n\r\n\r\n/* On mouse-over, add a grey background color */\r\n.container input ~ .checkmark {\r\n  border-radius: 5px;\r\n  transition: 0.2s ease-in-out;\r\n\r\n}\r\n\r\n\r\n/* Style the checkmark/indicator */\r\n.container .checkmark:after {\r\n  left: 9px;\r\n  top: 5px;\r\n  width: 5px;\r\n  height: 10px;\r\n  border: solid white;\r\n  border-width: 0 3px 3px 0;\r\n  -webkit-transform: rotate(45deg);\r\n  -ms-transform: rotate(45deg);\r\n  transform: rotate(45deg);\r\n}\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;;;;AAewB,CAAC;AACzB,CAAC;AAMC,CAAC;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896546030,
+      "end": 1706896546030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TasksUserCheckbox\",\n  __ssrInlineRender: true,\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)} data-v-30216c86><label class=\"${_ssrRenderClass([{ \"bg-blueSemiLight text-white\": __props.item.value === true }, \"container w-full relative py-2 px-6 text-black transition-all rounded-lg border\"])}\" data-v-30216c86><span class=\"relative z-10 dark:text-white\" data-v-30216c86>${_ssrInterpolate(__props.item?.first_name + \" \" + __props.item?.last_name)}</span><input type=\"checkbox\"${_ssrIncludeBooleanAttr(__props.item.value) ? \" checked\" : \"\"} data-v-30216c86><span class=\"checkmark w-full h-full absolute top-0 left-0\" data-v-30216c86></span></label></div>`);\n    };\n  }\n});\n",
+      "start": 1706896546031,
+      "end": 1706896546567,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksUserCheckbox.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { ssrIncludeBooleanAttr as _ssrIncludeBooleanAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksUserCheckbox',\n  __ssrInlineRender: true,\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  } data-v-30216c86><label class=\"${\n    _ssrRenderClass([{'bg-blueSemiLight text-white' : __props.item.value === true}, \"container w-full relative py-2 px-6 text-black transition-all rounded-lg border\"])\n  }\" data-v-30216c86><span class=\"relative z-10 dark:text-white\" data-v-30216c86>${\n    _ssrInterpolate(__props.item?.first_name + ' ' + __props.item?.last_name)\n  }</span><input type=\"checkbox\"${\n    (_ssrIncludeBooleanAttr(__props.item.value)) ? \" checked\" : \"\"\n  } data-v-30216c86><span class=\"checkmark w-full h-full absolute top-0 left-0\" data-v-30216c86></span></label></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,yBAAyB,wBAAwB,kBAAkB,iBAAiB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAGzK,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,OAAO;AAAA,IACP,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS,MAAI;AAAA,MAAC;AAAA,IAChB;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAKjB,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,OACJ,gBAAgB,MAAM,CACxB,kCACE,gBAAgB,CAAC,EAAC,+BAAgC,QAAQ,KAAK,UAAU,KAAI,GAAG,iFAAiF,CAAC,CACpK,iFACE,gBAAgB,QAAQ,MAAM,aAAa,MAAM,QAAQ,MAAM,SAAS,CAC1E,gCACG,uBAAuB,QAAQ,KAAK,KAAK,IAAK,aAAa,EAC9D,oHAAoH;AAAA,IACtH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896546567,
+      "end": 1706896546567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896546567,
+      "end": 1706896546567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896546567,
+      "end": 1706896546567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896546567,
+      "end": 1706896546567,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546567,
+      "end": 1706896546567,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546567,
+      "end": 1706896546567,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896546568,
+      "end": 1706896546568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896546569,
+      "end": 1706896546569,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896546569,
+      "end": 1706896546569,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896546569,
+      "end": 1706896546569,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896546569,
+      "end": 1706896546569,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896546569,
+      "end": 1706896546569,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896546570,
+      "end": 1706896546570,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896546570,
+      "end": 1706896546570,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896546570,
+      "end": 1706896546570,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896546570,
+      "end": 1706896546570,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896546571,
+      "end": 1706896546571,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896546571,
+      "end": 1706896546571,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896546572,
+      "end": 1706896546572,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896546572,
+      "end": 1706896546572,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896546572,
+      "end": 1706896546574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896546572,
+      "end": 1706896546574,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896546574,
+      "end": 1706896546574,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896546574,
+      "end": 1706896546574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896546574,
+      "end": 1706896546574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896546574,
+      "end": 1706896546574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896546574,
+      "end": 1706896546574,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896546575,
+      "end": 1706896546575,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896546575,
+      "end": 1706896546575,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896546575,
+      "end": 1706896546575,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896546575,
+      "end": 1706896546575,
+      "order": "normal"
+    }
+  ]
+}

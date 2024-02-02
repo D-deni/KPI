@@ -16,7 +16,8 @@
               stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <TheHeader class="max-md:overflow-x-hidden" :class="{'mr-24' : activeNav && user.my_scroll>90}" :activeNav="activeNav"></TheHeader>
+        <TheHeader class="max-md:overflow-x-hidden" :class="{'mr-24' : activeNav && user.my_scroll>90}"
+                   :activeNav="activeNav"></TheHeader>
       </div>
       <div class="w-full relative">
         <div class="cursor-pointer absolute top-8 max-[800px]:top-6 left-5 z-50 dark:fill-white fill-black"
@@ -32,7 +33,7 @@
         <div class="relative" @click="user.openSettings = false; user.openNotification = false">
           <NuxtPage class="mx-6 max-sm:mx-1 py-10 h-full " :activeNav="activeNav"></NuxtPage>
         </div>
-<!--    <allTips></allTips>-->
+        <!--    <allTips></allTips>-->
       </div>
     </div>
   </div>
@@ -77,12 +78,12 @@ function notification() {
           if (chat.chatList.results[i].id === res.messages?.chat_id) {
             chat.chatList.results[i].last_message = res.messages
           }
-          if(res.message.message_type === 'change'){
-            if(chat.chatList.results[i].id === chat.userChat.id && res.message.file ){
+          if (res.message.message_type === 'change') {
+            if (chat.chatList.results[i].id === chat.userChat.id && res.message.file) {
               chat.chatList.results[i].photo_url = res.message.file
               console.log(res.message)
             }
-            if(chat.chatList.results[i].name && chat.chatList.results[i].id === chat.userChat.id) {
+            if (chat.chatList.results[i].name && chat.chatList.results[i].id === chat.userChat.id) {
               chat.chatList.results[i].name = chat.updateChatName
               console.log(res)
             }
@@ -105,14 +106,13 @@ function notification() {
             break
           }
         }
-      } else if(res.type === 'delete_message') {
+      } else if (res.type === 'delete_message') {
         for (let i = 0; i < chat.chatList.results.length; i++) {
           if (chat.chatList.results[i].id === res.last_message?.chat_id) {
             chat.chatList.results[i].last_message = res.last_message
           }
         }
-      }
-      else if(res.type === 'update_message') {
+      } else if (res.type === 'update_message') {
         for (let i = 0; i < chat.chatList.results.length; i++) {
           if (chat.chatList.results[i].id === res.last_message?.chat_id) {
             console.log(chat.chatList.results[i], '*****', res.last_message)
@@ -149,6 +149,15 @@ onUpdated(() => {
     route.push('/').then(e => {
       toast.info('Для начало авторизуйтесь', {autoClose: 1500, theme: 'auto'})
     })
+  }
+})
+
+console.log(router.meta)
+useHead({
+  titleTemplate: (title) => {
+    return title
+      ? `${title} • ERP`
+      : 'ERP'
   }
 })
 </script>

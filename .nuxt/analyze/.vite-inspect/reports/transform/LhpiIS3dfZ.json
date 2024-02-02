@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Header/HeaderUI/HeaderContentLink.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { renderSlot as _renderSlot, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"dark:fill-white\" }\nconst _hoisted_2 = { class: \"dark:text-white\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'HeaderContentLink',\n  props: {\r\n    to: {\r\n      type: String,\r\n      required: true\r\n    }\r\n  },\n  setup(__props) {\n\r\n  \r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createBlock(_component_NuxtLink, {\n    to: __props.to,\n    class: \"flex select-none items-center gap-x-6 hover:bg-semiCyan p-2 rounded-lg transition-all duration-200 cursor-pointer\"\n  }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _renderSlot(_ctx.$slots, \"headerContentIcon\")\n      ]),\n      _createElementVNode(\"p\", _hoisted_2, [\n        _renderSlot(_ctx.$slots, \"headerContentText\")\n      ])\n    ]),\n    _: 3\n  }, 8, [\"to\"]))\n}\n}\n\n})",
+      "start": 1706896521940,
+      "end": 1706896521940
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521940,
+      "end": 1706896521940,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521940,
+      "end": 1706896521940,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521940,
+      "end": 1706896521940,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521940,
+      "end": 1706896521940,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521940,
+      "end": 1706896521940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { renderSlot as _renderSlot, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"dark:fill-white\" };\nconst _hoisted_2 = { class: \"dark:text-white\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"HeaderContentLink\",\n  props: {\n    to: {\n      type: String,\n      required: true\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createBlock(_component_NuxtLink, {\n        to: __props.to,\n        class: \"flex select-none items-center gap-x-6 hover:bg-semiCyan p-2 rounded-lg transition-all duration-200 cursor-pointer\"\n      }, {\n        default: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _renderSlot(_ctx.$slots, \"headerContentIcon\")\n          ]),\n          _createElementVNode(\"p\", _hoisted_2, [\n            _renderSlot(_ctx.$slots, \"headerContentText\")\n          ])\n        ]),\n        _: 3\n      }, 8, [\"to\"]);\n    };\n  }\n});\n",
+      "start": 1706896521940,
+      "end": 1706896522475,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Header/HeaderUI/HeaderContentLink.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { renderSlot as _renderSlot, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"dark:fill-white\" }\nconst _hoisted_2 = { class: \"dark:text-white\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'HeaderContentLink',\n  props: {\r\n    to: {\r\n      type: String,\r\n      required: true\r\n    }\r\n  },\n  setup(__props) {\n\r\n  \r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createBlock(_component_NuxtLink, {\n    to: __props.to,\n    class: \"flex select-none items-center gap-x-6 hover:bg-semiCyan p-2 rounded-lg transition-all duration-200 cursor-pointer\"\n  }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _renderSlot(_ctx.$slots, \"headerContentIcon\")\n      ]),\n      _createElementVNode(\"p\", _hoisted_2, [\n        _renderSlot(_ctx.$slots, \"headerContentText\")\n      ])\n    ]),\n    _: 3\n  }, 8, [\"to\"]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,cAAc,aAAa,sBAAsB,qBAAqB,oBAAoB,mBAAmB,WAAW,UAAU,aAAa,YAAY,eAAe,oBAAoB;AAEvM,MAAM,aAAa,EAAE,OAAO,kBAAkB;AAC9C,MAAM,aAAa,EAAE,OAAO,kBAAkB;AAG9C,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACL,IAAI;AAAA,MACF,MAAM;AAAA,MACN,UAAU;AAAA,IACZ;AAAA,EACF;AAAA,EACA,MAAM,SAAS;AAIjB,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,sBAAsB,kBAAkB,UAAU;AAExD,aAAQ,WAAW,GAAG,aAAa,qBAAqB;AAAA,QACtD,IAAI,QAAQ;AAAA,QACZ,OAAO;AAAA,MACT,GAAG;AAAA,QACD,SAAS,SAAS,MAAM;AAAA,UACtB,oBAAoB,OAAO,YAAY;AAAA,YACrC,YAAY,KAAK,QAAQ,mBAAmB;AAAA,UAC9C,CAAC;AAAA,UACD,oBAAoB,KAAK,YAAY;AAAA,YACnC,YAAY,KAAK,QAAQ,mBAAmB;AAAA,UAC9C,CAAC;AAAA,QACH,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,GAAG,CAAC,IAAI,CAAC;AAAA,IACd;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522481,
+      "end": 1706896522487,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522487,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522489,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { renderSlot as _renderSlot, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"dark:fill-white\" };\nconst _hoisted_2 = { class: \"dark:text-white\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"HeaderContentLink\",\n  props: {\n    to: {\n      type: String,\n      required: true\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createBlock(_component_NuxtLink, {\n        to: __props.to,\n        class: \"flex select-none items-center gap-x-6 hover:bg-semiCyan p-2 rounded-lg transition-all duration-200 cursor-pointer\"\n      }, {\n        default: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _renderSlot(_ctx.$slots, \"headerContentIcon\")\n          ]),\n          _createElementVNode(\"p\", _hoisted_2, [\n            _renderSlot(_ctx.$slots, \"headerContentText\")\n          ])\n        ]),\n        _: 3\n      }, 8, [\"to\"]);\n    };\n  }\n});\n",
+      "start": 1706896522489,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    }
+  ]
+}

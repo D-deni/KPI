@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Company/User/CurrentCompanyDepartment.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, resolveComponent as _resolveComponent, withCtx as _withCtx, createBlock as _createBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"grid grid-cols-4 max-[1750px]:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 mt-10 items-center gap-x-4 gap-y-4\" }\nconst _hoisted_2 = [\"onMouseenter\"]\nconst _hoisted_3 = { class: \"text-center text-base tracking-widest\" }\nconst _hoisted_4 = { class: \"p-2\" }\nconst _hoisted_5 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" }\nconst _hoisted_6 = { class: \"\" }\nconst _hoisted_7 = { class: \"tracking-widest\" }\nconst _hoisted_8 = { class: \"break-words tracking-wider text-sm\" }\nconst _hoisted_9 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" }\nconst _hoisted_10 = { class: \"\" }\nconst _hoisted_11 = { class: \"tracking-widest\" }\nconst _hoisted_12 = { class: \"break-words tracking-wider text-sm\" }\nconst _hoisted_13 = { class: \"text-center mt-20 mx-auto uppercase text-sm rounded-full dark:bg-gray-400 bg-white w-4/12\" }\n\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CurrentCompanyDepartment',\n  props: {\r\n  more: {\r\n    type: Number,\r\n    default: null\r\n  }\r\n},\n  setup(__props) {\n\r\nconst departments = useCompanies()\r\ndepartments.loadDepartmentList()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(CurrentCompanyElems, null, {\n      blockTitle: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Отделы компании')), 1)\n      ]),\n      blockContent: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_1, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(departments).get_all_department.results, (department) => {\n            return (_openBlock(), _createElementBlock(\"div\", {\n              class: \"relative border p-2 h-full rounded-lg dark:border-gray-400\",\n              onMouseenter: ($event: any) => (__props.more = department.id),\n              onMouseleave: _cache[0] || (_cache[0] = ($event: any) => (__props.more = null))\n            }, [\n              _createElementVNode(\"div\", {\n                class: _normalizeClass({'blur-[1px]' : __props.more === department.id})\n              }, [\n                _createElementVNode(\"div\", _hoisted_3, [\n                  _createElementVNode(\"h2\", null, _toDisplayString(department.name), 1)\n                ]),\n                _createElementVNode(\"div\", _hoisted_4, [\n                  _createElementVNode(\"div\", _hoisted_5, [\n                    _createElementVNode(\"div\", _hoisted_6, [\n                      _createElementVNode(\"p\", _hoisted_7, _toDisplayString(_ctx.$t('Руководитель')), 1)\n                    ]),\n                    _createElementVNode(\"div\", null, [\n                      _createElementVNode(\"p\", _hoisted_8, _toDisplayString(department.department_director_name ? department.department_director_name : 'Отсутсвует'), 1)\n                    ])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_9, [\n                    _createElementVNode(\"div\", _hoisted_10, [\n                      _createElementVNode(\"p\", _hoisted_11, _toDisplayString(_ctx.$t('Заместитель')), 1)\n                    ]),\n                    _createElementVNode(\"div\", null, [\n                      _createElementVNode(\"p\", _hoisted_12, _toDisplayString(department.vice_department_director_name ? department.vice_department_director_name : 'Отсутсвует'), 1)\n                    ])\n                  ])\n                ])\n              ], 2),\n              _createVNode(_Transition, { name: \"fade\" }, {\n                default: _withCtx(() => [\n                  (__props.more === department.id)\n                    ? (_openBlock(), _createBlock(_component_NuxtLink, {\n                        key: 0,\n                        to: `/base/companies/department/${department.id}`,\n                        class: \"cursor-pointer absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 rounded-lg\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"p\", _hoisted_13, _toDisplayString(_ctx.$t('Подробнее')), 1)\n                        ]),\n                        _: 2\n                      }, 1032, [\"to\"]))\n                    : _createCommentVNode(\"\", true)\n                ]),\n                _: 2\n              }, 1024)\n            ], 40, _hoisted_2))\n          }), 256))\n        ])\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n})",
+      "start": 1706896521982,
+      "end": 1706896521982
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521982,
+      "end": 1706896521982,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521982,
+      "end": 1706896521982,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521982,
+      "end": 1706896521982,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521982,
+      "end": 1706896521982,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521982,
+      "end": 1706896521982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, resolveComponent as _resolveComponent, withCtx as _withCtx, createBlock as _createBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, createVNode as _createVNode } from \"vue\";\nconst _hoisted_1 = { class: \"grid grid-cols-4 max-[1750px]:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 mt-10 items-center gap-x-4 gap-y-4\" };\nconst _hoisted_2 = [\"onMouseenter\"];\nconst _hoisted_3 = { class: \"text-center text-base tracking-widest\" };\nconst _hoisted_4 = { class: \"p-2\" };\nconst _hoisted_5 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" };\nconst _hoisted_6 = { class: \"\" };\nconst _hoisted_7 = { class: \"tracking-widest\" };\nconst _hoisted_8 = { class: \"break-words tracking-wider text-sm\" };\nconst _hoisted_9 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" };\nconst _hoisted_10 = { class: \"\" };\nconst _hoisted_11 = { class: \"tracking-widest\" };\nconst _hoisted_12 = { class: \"break-words tracking-wider text-sm\" };\nconst _hoisted_13 = { class: \"text-center mt-20 mx-auto uppercase text-sm rounded-full dark:bg-gray-400 bg-white w-4/12\" };\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyDepartment\",\n  props: {\n    more: {\n      type: Number,\n      default: null\n    }\n  },\n  setup(__props) {\n    const departments = useCompanies();\n    departments.loadDepartmentList();\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(CurrentCompanyElems, null, {\n          blockTitle: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Отделы компании\")), 1)\n          ]),\n          blockContent: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_1, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(departments).get_all_department.results, (department) => {\n                return _openBlock(), _createElementBlock(\"div\", {\n                  class: \"relative border p-2 h-full rounded-lg dark:border-gray-400\",\n                  onMouseenter: ($event) => __props.more = department.id,\n                  onMouseleave: _cache[0] || (_cache[0] = ($event) => __props.more = null)\n                }, [\n                  _createElementVNode(\"div\", {\n                    class: _normalizeClass({ \"blur-[1px]\": __props.more === department.id })\n                  }, [\n                    _createElementVNode(\"div\", _hoisted_3, [\n                      _createElementVNode(\"h2\", null, _toDisplayString(department.name), 1)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createElementVNode(\"div\", _hoisted_5, [\n                        _createElementVNode(\"div\", _hoisted_6, [\n                          _createElementVNode(\"p\", _hoisted_7, _toDisplayString(_ctx.$t(\"Руководитель\")), 1)\n                        ]),\n                        _createElementVNode(\"div\", null, [\n                          _createElementVNode(\"p\", _hoisted_8, _toDisplayString(department.department_director_name ? department.department_director_name : \"Отсутсвует\"), 1)\n                        ])\n                      ]),\n                      _createElementVNode(\"div\", _hoisted_9, [\n                        _createElementVNode(\"div\", _hoisted_10, [\n                          _createElementVNode(\"p\", _hoisted_11, _toDisplayString(_ctx.$t(\"Заместитель\")), 1)\n                        ]),\n                        _createElementVNode(\"div\", null, [\n                          _createElementVNode(\"p\", _hoisted_12, _toDisplayString(department.vice_department_director_name ? department.vice_department_director_name : \"Отсутсвует\"), 1)\n                        ])\n                      ])\n                    ])\n                  ], 2),\n                  _createVNode(_Transition, { name: \"fade\" }, {\n                    default: _withCtx(() => [\n                      __props.more === department.id ? (_openBlock(), _createBlock(_component_NuxtLink, {\n                        key: 0,\n                        to: `/base/companies/department/${department.id}`,\n                        class: \"cursor-pointer absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 rounded-lg\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"p\", _hoisted_13, _toDisplayString(_ctx.$t(\"Подробнее\")), 1)\n                        ]),\n                        _: 2\n                      }, 1032, [\"to\"])) : _createCommentVNode(\"\", true)\n                    ]),\n                    _: 2\n                  }, 1024)\n                ], 40, _hoisted_2);\n              }), 256))\n            ])\n          ]),\n          _: 1\n        })\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521982,
+      "end": 1706896522526,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Company/User/CurrentCompanyDepartment.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, resolveComponent as _resolveComponent, withCtx as _withCtx, createBlock as _createBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"grid grid-cols-4 max-[1750px]:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 mt-10 items-center gap-x-4 gap-y-4\" }\nconst _hoisted_2 = [\"onMouseenter\"]\nconst _hoisted_3 = { class: \"text-center text-base tracking-widest\" }\nconst _hoisted_4 = { class: \"p-2\" }\nconst _hoisted_5 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" }\nconst _hoisted_6 = { class: \"\" }\nconst _hoisted_7 = { class: \"tracking-widest\" }\nconst _hoisted_8 = { class: \"break-words tracking-wider text-sm\" }\nconst _hoisted_9 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" }\nconst _hoisted_10 = { class: \"\" }\nconst _hoisted_11 = { class: \"tracking-widest\" }\nconst _hoisted_12 = { class: \"break-words tracking-wider text-sm\" }\nconst _hoisted_13 = { class: \"text-center mt-20 mx-auto uppercase text-sm rounded-full dark:bg-gray-400 bg-white w-4/12\" }\n\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CurrentCompanyDepartment',\n  props: {\r\n  more: {\r\n    type: Number,\r\n    default: null\r\n  }\r\n},\n  setup(__props) {\n\r\nconst departments = useCompanies()\r\ndepartments.loadDepartmentList()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(CurrentCompanyElems, null, {\n      blockTitle: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Отделы компании')), 1)\n      ]),\n      blockContent: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_1, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(departments).get_all_department.results, (department) => {\n            return (_openBlock(), _createElementBlock(\"div\", {\n              class: \"relative border p-2 h-full rounded-lg dark:border-gray-400\",\n              onMouseenter: ($event: any) => (__props.more = department.id),\n              onMouseleave: _cache[0] || (_cache[0] = ($event: any) => (__props.more = null))\n            }, [\n              _createElementVNode(\"div\", {\n                class: _normalizeClass({'blur-[1px]' : __props.more === department.id})\n              }, [\n                _createElementVNode(\"div\", _hoisted_3, [\n                  _createElementVNode(\"h2\", null, _toDisplayString(department.name), 1)\n                ]),\n                _createElementVNode(\"div\", _hoisted_4, [\n                  _createElementVNode(\"div\", _hoisted_5, [\n                    _createElementVNode(\"div\", _hoisted_6, [\n                      _createElementVNode(\"p\", _hoisted_7, _toDisplayString(_ctx.$t('Руководитель')), 1)\n                    ]),\n                    _createElementVNode(\"div\", null, [\n                      _createElementVNode(\"p\", _hoisted_8, _toDisplayString(department.department_director_name ? department.department_director_name : 'Отсутсвует'), 1)\n                    ])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_9, [\n                    _createElementVNode(\"div\", _hoisted_10, [\n                      _createElementVNode(\"p\", _hoisted_11, _toDisplayString(_ctx.$t('Заместитель')), 1)\n                    ]),\n                    _createElementVNode(\"div\", null, [\n                      _createElementVNode(\"p\", _hoisted_12, _toDisplayString(department.vice_department_director_name ? department.vice_department_director_name : 'Отсутсвует'), 1)\n                    ])\n                  ])\n                ])\n              ], 2),\n              _createVNode(_Transition, { name: \"fade\" }, {\n                default: _withCtx(() => [\n                  (__props.more === department.id)\n                    ? (_openBlock(), _createBlock(_component_NuxtLink, {\n                        key: 0,\n                        to: `/base/companies/department/${department.id}`,\n                        class: \"cursor-pointer absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 rounded-lg\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"p\", _hoisted_13, _toDisplayString(_ctx.$t('Подробнее')), 1)\n                        ]),\n                        _: 2\n                      }, 1032, [\"to\"]))\n                    : _createCommentVNode(\"\", true)\n                ]),\n                _: 2\n              }, 1024)\n            ], 40, _hoisted_2))\n          }), 256))\n        ])\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "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",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522526,
+      "end": 1706896522526,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522527,
+      "end": 1706896522527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522528,
+      "end": 1706896522528,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522529,
+      "end": 1706896522529,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522529,
+      "end": 1706896522534,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522535,
+      "end": 1706896522535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522535,
+      "end": 1706896522535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522535,
+      "end": 1706896522535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522536,
+      "end": 1706896522536,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, resolveComponent as _resolveComponent, withCtx as _withCtx, createBlock as _createBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, createVNode as _createVNode } from \"vue\";\nconst _hoisted_1 = { class: \"grid grid-cols-4 max-[1750px]:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 mt-10 items-center gap-x-4 gap-y-4\" };\nconst _hoisted_2 = [\"onMouseenter\"];\nconst _hoisted_3 = { class: \"text-center text-base tracking-widest\" };\nconst _hoisted_4 = { class: \"p-2\" };\nconst _hoisted_5 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" };\nconst _hoisted_6 = { class: \"\" };\nconst _hoisted_7 = { class: \"tracking-widest\" };\nconst _hoisted_8 = { class: \"break-words tracking-wider text-sm\" };\nconst _hoisted_9 = { class: \"flex h-[50px] flex-col gap-y-2 my-4\" };\nconst _hoisted_10 = { class: \"\" };\nconst _hoisted_11 = { class: \"tracking-widest\" };\nconst _hoisted_12 = { class: \"break-words tracking-wider text-sm\" };\nconst _hoisted_13 = { class: \"text-center mt-20 mx-auto uppercase text-sm rounded-full dark:bg-gray-400 bg-white w-4/12\" };\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyDepartment\",\n  props: {\n    more: {\n      type: Number,\n      default: null\n    }\n  },\n  setup(__props) {\n    const departments = useCompanies();\n    departments.loadDepartmentList();\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(CurrentCompanyElems, null, {\n          blockTitle: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Отделы компании\")), 1)\n          ]),\n          blockContent: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_1, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(departments).get_all_department.results, (department) => {\n                return _openBlock(), _createElementBlock(\"div\", {\n                  class: \"relative border p-2 h-full rounded-lg dark:border-gray-400\",\n                  onMouseenter: ($event) => __props.more = department.id,\n                  onMouseleave: _cache[0] || (_cache[0] = ($event) => __props.more = null)\n                }, [\n                  _createElementVNode(\"div\", {\n                    class: _normalizeClass({ \"blur-[1px]\": __props.more === department.id })\n                  }, [\n                    _createElementVNode(\"div\", _hoisted_3, [\n                      _createElementVNode(\"h2\", null, _toDisplayString(department.name), 1)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createElementVNode(\"div\", _hoisted_5, [\n                        _createElementVNode(\"div\", _hoisted_6, [\n                          _createElementVNode(\"p\", _hoisted_7, _toDisplayString(_ctx.$t(\"Руководитель\")), 1)\n                        ]),\n                        _createElementVNode(\"div\", null, [\n                          _createElementVNode(\"p\", _hoisted_8, _toDisplayString(department.department_director_name ? department.department_director_name : \"Отсутсвует\"), 1)\n                        ])\n                      ]),\n                      _createElementVNode(\"div\", _hoisted_9, [\n                        _createElementVNode(\"div\", _hoisted_10, [\n                          _createElementVNode(\"p\", _hoisted_11, _toDisplayString(_ctx.$t(\"Заместитель\")), 1)\n                        ]),\n                        _createElementVNode(\"div\", null, [\n                          _createElementVNode(\"p\", _hoisted_12, _toDisplayString(department.vice_department_director_name ? department.vice_department_director_name : \"Отсутсвует\"), 1)\n                        ])\n                      ])\n                    ])\n                  ], 2),\n                  _createVNode(_Transition, { name: \"fade\" }, {\n                    default: _withCtx(() => [\n                      __props.more === department.id ? (_openBlock(), _createBlock(_component_NuxtLink, {\n                        key: 0,\n                        to: `/base/companies/department/${department.id}`,\n                        class: \"cursor-pointer absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 rounded-lg\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"p\", _hoisted_13, _toDisplayString(_ctx.$t(\"Подробнее\")), 1)\n                        ]),\n                        _: 2\n                      }, 1032, [\"to\"])) : _createCommentVNode(\"\", true)\n                    ]),\n                    _: 2\n                  }, 1024)\n                ], 40, _hoisted_2);\n              }), 256))\n            ])\n          ]),\n          _: 1\n        })\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896522536,
+      "end": 1706896522536,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522536,
+      "end": 1706896522538,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522538,
+      "end": 1706896522538,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522538,
+      "end": 1706896522538,
+      "order": "normal"
+    }
+  ]
+}

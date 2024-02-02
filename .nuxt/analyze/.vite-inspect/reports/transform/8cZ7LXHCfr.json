@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Objects/ObjectParticipants.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"w-[50px] h-[50px]\" }\nconst _hoisted_2 = [\"src\"]\n\nimport {useObjects} from \"~/stores/objects\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ObjectParticipants',\n  props: {\r\n  user: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\nconst url = useAuthStore()\r\nconst currentObject = useObjects()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtLink, {\n      class: \"flex dark:hover:bg-gray-700 p-2 rounded-lg transition-all items-center gap-x-2\",\n      to: `/base/users/${__props.user.id}`\n    }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createElementVNode(\"img\", {\n            class: \"w-full rounded-full\",\n            src: _unref(url).get_server_domain + __props.user.photo_url,\n            alt: \"\"\n          }, null, 8, _hoisted_2)\n        ]),\n        _createElementVNode(\"p\", null, _toDisplayString(__props.user.first_name + ' ' + __props.user.last_name), 1)\n      ]),\n      _: 1\n    }, 8, [\"to\"])\n  ]))\n}\n}\n\n})",
+      "start": 1706896521565,
+      "end": 1706896521565
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521565,
+      "end": 1706896521565,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"w-[50px] h-[50px]\" };\nconst _hoisted_2 = [\"src\"];\nimport { useObjects } from \"~/stores/objects\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ObjectParticipants\",\n  props: {\n    user: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const url = useAuthStore();\n    const currentObject = useObjects();\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtLink, {\n          class: \"flex dark:hover:bg-gray-700 p-2 rounded-lg transition-all items-center gap-x-2\",\n          to: `/base/users/${__props.user.id}`\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_1, [\n              _createElementVNode(\"img\", {\n                class: \"w-full rounded-full\",\n                src: _unref(url).get_server_domain + __props.user.photo_url,\n                alt: \"\"\n              }, null, 8, _hoisted_2)\n            ]),\n            _createElementVNode(\"p\", null, _toDisplayString(__props.user.first_name + \" \" + __props.user.last_name), 1)\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521565,
+      "end": 1706896521755,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Objects/ObjectParticipants.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"w-[50px] h-[50px]\" }\nconst _hoisted_2 = [\"src\"]\n\nimport {useObjects} from \"~/stores/objects\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ObjectParticipants',\n  props: {\r\n  user: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\nconst url = useAuthStore()\r\nconst currentObject = useObjects()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtLink, {\n      class: \"flex dark:hover:bg-gray-700 p-2 rounded-lg transition-all items-center gap-x-2\",\n      to: `/base/users/${__props.user.id}`\n    }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createElementVNode(\"img\", {\n            class: \"w-full rounded-full\",\n            src: _unref(url).get_server_domain + __props.user.photo_url,\n            alt: \"\"\n          }, null, 8, _hoisted_2)\n        ]),\n        _createElementVNode(\"p\", null, _toDisplayString(__props.user.first_name + ' ' + __props.user.last_name), 1)\n      ]),\n      _: 1\n    }, 8, [\"to\"])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,sBAAsB,qBAAqB,mBAAmB,kBAAkB,oBAAoB,mBAAmB,WAAW,UAAU,eAAe,cAAc,aAAa,YAAY,sBAAsB,2BAA2B;AAE7Q,MAAM,aAAa,EAAE,OAAO,oBAAoB;AAChD,MAAM,aAAa,CAAC,KAAK;AAEzB,SAAQ,kBAAiB;AACzB,SAAQ,oBAAmB;AAE3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS,MAAI;AAAA,MAAC;AAAA,IAChB;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAEjB,UAAM,MAAM,aAAa;AACzB,UAAM,gBAAgB,WAAW;AAGjC,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,sBAAsB,kBAAkB,UAAU;AAExD,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACrD,aAAa,qBAAqB;AAAA,UAChC,OAAO;AAAA,UACP,IAAI,eAAe,QAAQ,KAAK,EAAE;AAAA,QACpC,GAAG;AAAA,UACD,SAAS,SAAS,MAAM;AAAA,YACtB,oBAAoB,OAAO,YAAY;AAAA,cACrC,oBAAoB,OAAO;AAAA,gBACzB,OAAO;AAAA,gBACP,KAAK,OAAO,GAAG,EAAE,oBAAoB,QAAQ,KAAK;AAAA,gBAClD,KAAK;AAAA,cACP,GAAG,MAAM,GAAG,UAAU;AAAA,YACxB,CAAC;AAAA,YACD,oBAAoB,KAAK,MAAM,iBAAiB,QAAQ,KAAK,aAAa,MAAM,QAAQ,KAAK,SAAS,GAAG,CAAC;AAAA,UAC5G,CAAC;AAAA,UACD,GAAG;AAAA,QACL,GAAG,GAAG,CAAC,IAAI,CAAC;AAAA,MACd,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521755,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521756,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521757,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521758,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521758,
+      "end": 1706896521764,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"w-[50px] h-[50px]\" };\nconst _hoisted_2 = [\"src\"];\nimport { useObjects } from \"~/stores/objects\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ObjectParticipants\",\n  props: {\n    user: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const url = useAuthStore();\n    const currentObject = useObjects();\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtLink, {\n          class: \"flex dark:hover:bg-gray-700 p-2 rounded-lg transition-all items-center gap-x-2\",\n          to: `/base/users/${__props.user.id}`\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_1, [\n              _createElementVNode(\"img\", {\n                class: \"w-full rounded-full\",\n                src: _unref(url).get_server_domain + __props.user.photo_url,\n                alt: \"\"\n              }, null, 8, _hoisted_2)\n            ]),\n            _createElementVNode(\"p\", null, _toDisplayString(__props.user.first_name + \" \" + __props.user.last_name), 1)\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521767,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521769,
+      "end": 1706896521769,
+      "order": "normal"
+    }
+  ]
+}

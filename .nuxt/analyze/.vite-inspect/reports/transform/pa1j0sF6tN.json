@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/lodash/_baseIsTypedArray.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var baseGetTag = require('./_baseGetTag'),\n    isLength = require('./isLength'),\n    isObjectLike = require('./isObjectLike');\n\n/** `Object#toString` result references. */\nvar argsTag = '[object Arguments]',\n    arrayTag = '[object Array]',\n    boolTag = '[object Boolean]',\n    dateTag = '[object Date]',\n    errorTag = '[object Error]',\n    funcTag = '[object Function]',\n    mapTag = '[object Map]',\n    numberTag = '[object Number]',\n    objectTag = '[object Object]',\n    regexpTag = '[object RegExp]',\n    setTag = '[object Set]',\n    stringTag = '[object String]',\n    weakMapTag = '[object WeakMap]';\n\nvar arrayBufferTag = '[object ArrayBuffer]',\n    dataViewTag = '[object DataView]',\n    float32Tag = '[object Float32Array]',\n    float64Tag = '[object Float64Array]',\n    int8Tag = '[object Int8Array]',\n    int16Tag = '[object Int16Array]',\n    int32Tag = '[object Int32Array]',\n    uint8Tag = '[object Uint8Array]',\n    uint8ClampedTag = '[object Uint8ClampedArray]',\n    uint16Tag = '[object Uint16Array]',\n    uint32Tag = '[object Uint32Array]';\n\n/** Used to identify `toStringTag` values of typed arrays. */\nvar typedArrayTags = {};\ntypedArrayTags[float32Tag] = typedArrayTags[float64Tag] =\ntypedArrayTags[int8Tag] = typedArrayTags[int16Tag] =\ntypedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =\ntypedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =\ntypedArrayTags[uint32Tag] = true;\ntypedArrayTags[argsTag] = typedArrayTags[arrayTag] =\ntypedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =\ntypedArrayTags[dataViewTag] = typedArrayTags[dateTag] =\ntypedArrayTags[errorTag] = typedArrayTags[funcTag] =\ntypedArrayTags[mapTag] = typedArrayTags[numberTag] =\ntypedArrayTags[objectTag] = typedArrayTags[regexpTag] =\ntypedArrayTags[setTag] = typedArrayTags[stringTag] =\ntypedArrayTags[weakMapTag] = false;\n\n/**\n * The base implementation of `_.isTypedArray` without Node.js optimizations.\n *\n * @private\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.\n */\nfunction baseIsTypedArray(value) {\n  return isObjectLike(value) &&\n    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];\n}\n\nmodule.exports = baseIsTypedArray;\n",
+      "start": 1706896525579,
+      "end": 1706896525641,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525641,
+      "end": 1706896525641,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525642,
+      "end": 1706896525642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525642,
+      "end": 1706896525642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525642,
+      "end": 1706896525642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525642,
+      "end": 1706896525642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525642,
+      "end": 1706896525642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525642,
+      "end": 1706896525642,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_baseGetTag.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/isLength.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/isObjectLike.js?commonjs-proxy\";\n\nvar baseGetTag = require$$0,\n    isLength = require$$1,\n    isObjectLike = require$$2;\n\n/** `Object#toString` result references. */\nvar argsTag = '[object Arguments]',\n    arrayTag = '[object Array]',\n    boolTag = '[object Boolean]',\n    dateTag = '[object Date]',\n    errorTag = '[object Error]',\n    funcTag = '[object Function]',\n    mapTag = '[object Map]',\n    numberTag = '[object Number]',\n    objectTag = '[object Object]',\n    regexpTag = '[object RegExp]',\n    setTag = '[object Set]',\n    stringTag = '[object String]',\n    weakMapTag = '[object WeakMap]';\n\nvar arrayBufferTag = '[object ArrayBuffer]',\n    dataViewTag = '[object DataView]',\n    float32Tag = '[object Float32Array]',\n    float64Tag = '[object Float64Array]',\n    int8Tag = '[object Int8Array]',\n    int16Tag = '[object Int16Array]',\n    int32Tag = '[object Int32Array]',\n    uint8Tag = '[object Uint8Array]',\n    uint8ClampedTag = '[object Uint8ClampedArray]',\n    uint16Tag = '[object Uint16Array]',\n    uint32Tag = '[object Uint32Array]';\n\n/** Used to identify `toStringTag` values of typed arrays. */\nvar typedArrayTags = {};\ntypedArrayTags[float32Tag] = typedArrayTags[float64Tag] =\ntypedArrayTags[int8Tag] = typedArrayTags[int16Tag] =\ntypedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =\ntypedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =\ntypedArrayTags[uint32Tag] = true;\ntypedArrayTags[argsTag] = typedArrayTags[arrayTag] =\ntypedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =\ntypedArrayTags[dataViewTag] = typedArrayTags[dateTag] =\ntypedArrayTags[errorTag] = typedArrayTags[funcTag] =\ntypedArrayTags[mapTag] = typedArrayTags[numberTag] =\ntypedArrayTags[objectTag] = typedArrayTags[regexpTag] =\ntypedArrayTags[setTag] = typedArrayTags[stringTag] =\ntypedArrayTags[weakMapTag] = false;\n\n/**\n * The base implementation of `_.isTypedArray` without Node.js optimizations.\n *\n * @private\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.\n */\nfunction baseIsTypedArray(value) {\n  return isObjectLike(value) &&\n    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];\n}\n\nvar _baseIsTypedArray = baseIsTypedArray;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_baseIsTypedArray);\nexport { _baseIsTypedArray as __moduleExports };",
+      "start": 1706896525642,
+      "end": 1706896525703,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,UAAU,GAAG,UAAwB;AACzC,IAAI,QAAQ,GAAG,UAAqB;AACpC,IAAI,YAAY,GAAG,UAAyB,CAAC;AAC7C;AACA;AACA,IAAI,OAAO,GAAG,oBAAoB;AAClC,IAAI,QAAQ,GAAG,gBAAgB;AAC/B,IAAI,OAAO,GAAG,kBAAkB;AAChC,IAAI,OAAO,GAAG,eAAe;AAC7B,IAAI,QAAQ,GAAG,gBAAgB;AAC/B,IAAI,OAAO,GAAG,mBAAmB;AACjC,IAAI,MAAM,GAAG,cAAc;AAC3B,IAAI,SAAS,GAAG,iBAAiB;AACjC,IAAI,SAAS,GAAG,iBAAiB;AACjC,IAAI,SAAS,GAAG,iBAAiB;AACjC,IAAI,MAAM,GAAG,cAAc;AAC3B,IAAI,SAAS,GAAG,iBAAiB;AACjC,IAAI,UAAU,GAAG,kBAAkB,CAAC;AACpC;AACA,IAAI,cAAc,GAAG,sBAAsB;AAC3C,IAAI,WAAW,GAAG,mBAAmB;AACrC,IAAI,UAAU,GAAG,uBAAuB;AACxC,IAAI,UAAU,GAAG,uBAAuB;AACxC,IAAI,OAAO,GAAG,oBAAoB;AAClC,IAAI,QAAQ,GAAG,qBAAqB;AACpC,IAAI,QAAQ,GAAG,qBAAqB;AACpC,IAAI,QAAQ,GAAG,qBAAqB;AACpC,IAAI,eAAe,GAAG,4BAA4B;AAClD,IAAI,SAAS,GAAG,sBAAsB;AACtC,IAAI,SAAS,GAAG,sBAAsB,CAAC;AACvC;AACA;AACA,IAAI,cAAc,GAAG,EAAE,CAAC;AACxB,cAAc,CAAC,UAAU,CAAC,GAAG,cAAc,CAAC,UAAU,CAAC;AACvD,cAAc,CAAC,OAAO,CAAC,GAAG,cAAc,CAAC,QAAQ,CAAC;AAClD,cAAc,CAAC,QAAQ,CAAC,GAAG,cAAc,CAAC,QAAQ,CAAC;AACnD,cAAc,CAAC,eAAe,CAAC,GAAG,cAAc,CAAC,SAAS,CAAC;AAC3D,cAAc,CAAC,SAAS,CAAC,GAAG,IAAI,CAAC;AACjC,cAAc,CAAC,OAAO,CAAC,GAAG,cAAc,CAAC,QAAQ,CAAC;AAClD,cAAc,CAAC,cAAc,CAAC,GAAG,cAAc,CAAC,OAAO,CAAC;AACxD,cAAc,CAAC,WAAW,CAAC,GAAG,cAAc,CAAC,OAAO,CAAC;AACrD,cAAc,CAAC,QAAQ,CAAC,GAAG,cAAc,CAAC,OAAO,CAAC;AAClD,cAAc,CAAC,MAAM,CAAC,GAAG,cAAc,CAAC,SAAS,CAAC;AAClD,cAAc,CAAC,SAAS,CAAC,GAAG,cAAc,CAAC,SAAS,CAAC;AACrD,cAAc,CAAC,MAAM,CAAC,GAAG,cAAc,CAAC,SAAS,CAAC;AAClD,cAAc,CAAC,UAAU,CAAC,GAAG,KAAK,CAAC;AACnC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,gBAAgB,CAAC,KAAK,EAAE;AACjC,EAAE,OAAO,YAAY,CAAC,KAAK,CAAC;AAC5B,IAAI,QAAQ,CAAC,KAAK,CAAC,MAAM,CAAC,IAAI,CAAC,CAAC,cAAc,CAAC,UAAU,CAAC,KAAK,CAAC,CAAC,CAAC;AAClE,CAAC;AACD;IACA,iBAAc,GAAG,gBAAgB"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525703,
+      "end": 1706896525703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525703,
+      "end": 1706896525703,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525703,
+      "end": 1706896525703,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525704,
+      "end": 1706896525704,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksReportBlock',\n  __ssrInlineRender: true,\n  props: {\r\n  task: {\r\n    type: Number,\r\n    default: null,\r\n  }\r\n},\n  setup(__props) {\n\r\nconst taskList = useTaskList()\r\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  }><div class=\"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\"${\n    _ssrRenderAttr(\"task\", __props.task)\n  }><div class=\"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\">`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskReportSvg\", {}, null, _push, _parent)\n  _push(`</div><div class=\"flex flex-col\"><p class=\"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white\">`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskReportTitle\", {}, null, _push, _parent)\n  _push(`</p><p class=\"text-md dark:text-white text-blue-600\">`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskReportSubtitle\", {}, null, _push, _parent)\n  _push(`</p><div>`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskSceleton\", {}, null, _push, _parent)\n  _push(`</div></div></div></div>`)\n}\n}\n\n})",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue"
+        ],
+        "sourcesContent": [
+          "<template>\r\n<div>\r\n  <div class=\"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\" :task=\"task\">\r\n    <div class=\"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\" >\r\n      <slot name=\"TaskReportSvg\"/>\r\n    </div>\r\n   <div class=\"flex flex-col\">\r\n     <p class=\"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white \"><slot name=\"TaskReportTitle\"/></p>\r\n     <p class=\"text-md dark:text-white text-blue-600\"><slot name=\"TaskReportSubtitle\"/></p>\r\n     <div><slot name=\"TaskSceleton\"/></div>\r\n   </div>\r\n  </div>\r\n</div>\r\n</template>\r\n\r\n<script lang=\"ts\" setup>\r\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\nconst taskList = useTaskList()\r\n\r\ndefineProps({\r\n  task: {\r\n    type: Number,\r\n    default: null,\r\n  }\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;AAgBA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3D,CAAC;;;;;;;;;;;;AAHuB,CAAC;AAIzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC;AAMC,CAAC;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896547857,
+      "end": 1706896547857,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nimport { useTaskList } from \"~/stores/tasks\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TasksReportBlock\",\n  __ssrInlineRender: true,\n  props: {\n    task: {\n      type: Number,\n      default: null\n    }\n  },\n  setup(__props) {\n    const taskList = useTaskList();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}><div class=\"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\"${_ssrRenderAttr(\"task\", __props.task)}><div class=\"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\">`);\n      _ssrRenderSlot(_ctx.$slots, \"TaskReportSvg\", {}, null, _push, _parent);\n      _push(`</div><div class=\"flex flex-col\"><p class=\"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white\">`);\n      _ssrRenderSlot(_ctx.$slots, \"TaskReportTitle\", {}, null, _push, _parent);\n      _push(`</p><p class=\"text-md dark:text-white text-blue-600\">`);\n      _ssrRenderSlot(_ctx.$slots, \"TaskReportSubtitle\", {}, null, _push, _parent);\n      _push(`</p><div>`);\n      _ssrRenderSlot(_ctx.$slots, \"TaskSceleton\", {}, null, _push, _parent);\n      _push(`</div></div></div></div>`);\n    };\n  }\n});\n",
+      "start": 1706896547857,
+      "end": 1706896548022,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksReportBlock',\n  __ssrInlineRender: true,\n  props: {\r\n  task: {\r\n    type: Number,\r\n    default: null,\r\n  }\r\n},\n  setup(__props) {\n\r\nconst taskList = useTaskList()\r\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  }><div class=\"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\"${\n    _ssrRenderAttr(\"task\", __props.task)\n  }><div class=\"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\">`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskReportSvg\", {}, null, _push, _parent)\n  _push(`</div><div class=\"flex flex-col\"><p class=\"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white\">`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskReportTitle\", {}, null, _push, _parent)\n  _push(`</p><p class=\"text-md dark:text-white text-blue-600\">`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskReportSubtitle\", {}, null, _push, _parent)\n  _push(`</p><div>`)\n  _ssrRenderSlot(_ctx.$slots, \"TaskSceleton\", {}, null, _push, _parent)\n  _push(`</div></div></div></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,iBAAiB,gBAAgB,iBAAiB,gBAAgB,kBAAkB,uBAAuB;AAEpH,SAAQ,mBAAkB;AAI1B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,OAAO;AAAA,IACP,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAEjB,UAAM,WAAW,YAAY;AAI7B,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,OACJ,gBAAgB,MAAM,CACxB,0LACE,eAAe,QAAQ,QAAQ,IAAI,CACrC,mHAAmH;AACnH,qBAAe,KAAK,QAAQ,iBAAiB,CAAC,GAAG,MAAM,OAAO,OAAO;AACrE,YAAM,yGAAyG;AAC/G,qBAAe,KAAK,QAAQ,mBAAmB,CAAC,GAAG,MAAM,OAAO,OAAO;AACvE,YAAM,uDAAuD;AAC7D,qBAAe,KAAK,QAAQ,sBAAsB,CAAC,GAAG,MAAM,OAAO,OAAO;AAC1E,YAAM,WAAW;AACjB,qBAAe,KAAK,QAAQ,gBAAgB,CAAC,GAAG,MAAM,OAAO,OAAO;AACpE,YAAM,0BAA0B;AAAA,IAClC;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896548022,
+      "end": 1706896548022,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548022,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896548023,
+      "end": 1706896548023,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548023,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548023,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548024,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548024,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548024,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548024,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548024,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548024,
+      "end": 1706896548024,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548024,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548024,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548027,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548027,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548027,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548027,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896548027,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896548027,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896548027,
+      "end": 1706896548027,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896548027,
+      "end": 1706896548028,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896548028,
+      "end": 1706896548028,
+      "order": "normal"
+    }
+  ]
+}

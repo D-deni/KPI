@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/UI/TheModal.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, renderSlot as _renderSlot, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"fixed left-0 top-0 h-screen w-screen flex justify-center items-center z-[110]\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheModal',\n  props: {\r\n  type: {\r\n    type: String,\r\n    default: ''\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", {\n      class: \"opacity-60 bg-black absolute left-0 top-0 w-screen h-screen\",\n      onClick: _cache[0] || (_cache[0] = ($event: any) => (_ctx.$emit('showModal')))\n    }),\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"dark:bg-gray-400 bg-white rounded-lg w-7/12 max-md:w-10/12 max-sm:w-11/12 max-h-[70%] relative p-5 max-sm:p-3 overflow-y-auto\", {'!w-max dark:!bg-gray-700' : __props.type === 'resize', '!w-max dark:!bg-gray-700 !p-0': __props.type === 'resizeSendWindow', '!w-[400px] dark:!bg-gray-700 !p-0': __props.type === 'resizeInfoWindow'}])\n    }, [\n      _renderSlot(_ctx.$slots, \"default\")\n    ], 2)\n  ]))\n}\n}\n\n})",
+      "start": 1706896520816,
+      "end": 1706896520816
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896520816,
+      "end": 1706896520816,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896520816,
+      "end": 1706896520816,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896520816,
+      "end": 1706896520816,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896520816,
+      "end": 1706896520816,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896520817,
+      "end": 1706896520817,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, renderSlot as _renderSlot, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"fixed left-0 top-0 h-screen w-screen flex justify-center items-center z-[110]\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheModal\",\n  props: {\n    type: {\n      type: String,\n      default: \"\"\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          class: \"opacity-60 bg-black absolute left-0 top-0 w-screen h-screen\",\n          onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit(\"showModal\"))\n        }),\n        _createElementVNode(\"div\", {\n          class: _normalizeClass([\"dark:bg-gray-400 bg-white rounded-lg w-7/12 max-md:w-10/12 max-sm:w-11/12 max-h-[70%] relative p-5 max-sm:p-3 overflow-y-auto\", { \"!w-max dark:!bg-gray-700\": __props.type === \"resize\", \"!w-max dark:!bg-gray-700 !p-0\": __props.type === \"resizeSendWindow\", \"!w-[400px] dark:!bg-gray-700 !p-0\": __props.type === \"resizeInfoWindow\" }])\n        }, [\n          _renderSlot(_ctx.$slots, \"default\")\n        ], 2)\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896520817,
+      "end": 1706896521233,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/UI/TheModal.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, renderSlot as _renderSlot, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"fixed left-0 top-0 h-screen w-screen flex justify-center items-center z-[110]\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheModal',\n  props: {\r\n  type: {\r\n    type: String,\r\n    default: ''\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", {\n      class: \"opacity-60 bg-black absolute left-0 top-0 w-screen h-screen\",\n      onClick: _cache[0] || (_cache[0] = ($event: any) => (_ctx.$emit('showModal')))\n    }),\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"dark:bg-gray-400 bg-white rounded-lg w-7/12 max-md:w-10/12 max-sm:w-11/12 max-h-[70%] relative p-5 max-sm:p-3 overflow-y-auto\", {'!w-max dark:!bg-gray-700' : __props.type === 'resize', '!w-max dark:!bg-gray-700 !p-0': __props.type === 'resizeSendWindow', '!w-[400px] dark:!bg-gray-700 !p-0': __props.type === 'resizeInfoWindow'}])\n    }, [\n      _renderSlot(_ctx.$slots, \"default\")\n    ], 2)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,sBAAsB,qBAAqB,cAAc,aAAa,kBAAkB,iBAAiB,aAAa,YAAY,sBAAsB,2BAA2B;AAE5L,MAAM,aAAa,EAAE,OAAO,gFAAgF;AAG5G,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAIjB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D,oBAAoB,OAAO;AAAA,UACzB,OAAO;AAAA,UACP,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,KAAK,MAAM,WAAW;AAAA,QAC7E,CAAC;AAAA,QACD,oBAAoB,OAAO;AAAA,UACzB,OAAO,gBAAgB,CAAC,iIAAiI,EAAC,4BAA6B,QAAQ,SAAS,UAAU,iCAAiC,QAAQ,SAAS,oBAAoB,qCAAqC,QAAQ,SAAS,mBAAkB,CAAC,CAAC;AAAA,QACpW,GAAG;AAAA,UACD,YAAY,KAAK,QAAQ,SAAS;AAAA,QACpC,GAAG,CAAC;AAAA,MACN,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521233,
+      "end": 1706896521233,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521233,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521234,
+      "end": 1706896521234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521235,
+      "end": 1706896521235,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521236,
+      "end": 1706896521241,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521242,
+      "end": 1706896521242,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521243,
+      "end": 1706896521243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521243,
+      "end": 1706896521243,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521243,
+      "end": 1706896521243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521244,
+      "end": 1706896521244,
+      "order": "normal"
+    }
+  ]
+}

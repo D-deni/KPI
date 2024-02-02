@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messageBuffer.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\n/*---------------------------------------------------------------------------------------------\n *  Copyright (c) Microsoft Corporation. All rights reserved.\n *  Licensed under the MIT License. See License.txt in the project root for license information.\n *--------------------------------------------------------------------------------------------*/\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.AbstractMessageBuffer = void 0;\nconst CR = 13;\nconst LF = 10;\nconst CRLF = '\\r\\n';\nclass AbstractMessageBuffer {\n    constructor(encoding = 'utf-8') {\n        this._encoding = encoding;\n        this._chunks = [];\n        this._totalLength = 0;\n    }\n    get encoding() {\n        return this._encoding;\n    }\n    append(chunk) {\n        const toAppend = typeof chunk === 'string' ? this.fromString(chunk, this._encoding) : chunk;\n        this._chunks.push(toAppend);\n        this._totalLength += toAppend.byteLength;\n    }\n    tryReadHeaders() {\n        if (this._chunks.length === 0) {\n            return undefined;\n        }\n        let state = 0;\n        let chunkIndex = 0;\n        let offset = 0;\n        let chunkBytesRead = 0;\n        row: while (chunkIndex < this._chunks.length) {\n            const chunk = this._chunks[chunkIndex];\n            offset = 0;\n            column: while (offset < chunk.length) {\n                const value = chunk[offset];\n                switch (value) {\n                    case CR:\n                        switch (state) {\n                            case 0:\n                                state = 1;\n                                break;\n                            case 2:\n                                state = 3;\n                                break;\n                            default:\n                                state = 0;\n                        }\n                        break;\n                    case LF:\n                        switch (state) {\n                            case 1:\n                                state = 2;\n                                break;\n                            case 3:\n                                state = 4;\n                                offset++;\n                                break row;\n                            default:\n                                state = 0;\n                        }\n                        break;\n                    default:\n                        state = 0;\n                }\n                offset++;\n            }\n            chunkBytesRead += chunk.byteLength;\n            chunkIndex++;\n        }\n        if (state !== 4) {\n            return undefined;\n        }\n        // The buffer contains the two CRLF at the end. So we will\n        // have two empty lines after the split at the end as well.\n        const buffer = this._read(chunkBytesRead + offset);\n        const result = new Map();\n        const headers = this.toString(buffer, 'ascii').split(CRLF);\n        if (headers.length < 2) {\n            return result;\n        }\n        for (let i = 0; i < headers.length - 2; i++) {\n            const header = headers[i];\n            const index = header.indexOf(':');\n            if (index === -1) {\n                throw new Error('Message header must separate key and value using :');\n            }\n            const key = header.substr(0, index);\n            const value = header.substr(index + 1).trim();\n            result.set(key, value);\n        }\n        return result;\n    }\n    tryReadBody(length) {\n        if (this._totalLength < length) {\n            return undefined;\n        }\n        return this._read(length);\n    }\n    get numberOfBytes() {\n        return this._totalLength;\n    }\n    _read(byteCount) {\n        if (byteCount === 0) {\n            return this.emptyBuffer();\n        }\n        if (byteCount > this._totalLength) {\n            throw new Error(`Cannot read so many bytes!`);\n        }\n        if (this._chunks[0].byteLength === byteCount) {\n            // super fast path, precisely first chunk must be returned\n            const chunk = this._chunks[0];\n            this._chunks.shift();\n            this._totalLength -= byteCount;\n            return this.asNative(chunk);\n        }\n        if (this._chunks[0].byteLength > byteCount) {\n            // fast path, the reading is entirely within the first chunk\n            const chunk = this._chunks[0];\n            const result = this.asNative(chunk, byteCount);\n            this._chunks[0] = chunk.slice(byteCount);\n            this._totalLength -= byteCount;\n            return result;\n        }\n        const result = this.allocNative(byteCount);\n        let resultOffset = 0;\n        let chunkIndex = 0;\n        while (byteCount > 0) {\n            const chunk = this._chunks[chunkIndex];\n            if (chunk.byteLength > byteCount) {\n                // this chunk will survive\n                const chunkPart = chunk.slice(0, byteCount);\n                result.set(chunkPart, resultOffset);\n                resultOffset += byteCount;\n                this._chunks[chunkIndex] = chunk.slice(byteCount);\n                this._totalLength -= byteCount;\n                byteCount -= byteCount;\n            }\n            else {\n                // this chunk will be entirely read\n                result.set(chunk, resultOffset);\n                resultOffset += chunk.byteLength;\n                this._chunks.shift();\n                this._totalLength -= chunk.byteLength;\n                byteCount -= chunk.byteLength;\n            }\n        }\n        return result;\n    }\n}\nexports.AbstractMessageBuffer = AbstractMessageBuffer;\n//# sourceMappingURL=messageBuffer.js.map",
+      "start": 1706896525390,
+      "end": 1706896525431,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525431,
+      "end": 1706896525431,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as messageBuffer } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messageBuffer.js?commonjs-exports\";\n\n\"use strict\";\n/*---------------------------------------------------------------------------------------------\n *  Copyright (c) Microsoft Corporation. All rights reserved.\n *  Licensed under the MIT License. See License.txt in the project root for license information.\n *--------------------------------------------------------------------------------------------*/\nObject.defineProperty(messageBuffer, \"__esModule\", { value: true });\nvar AbstractMessageBuffer_1 = messageBuffer.AbstractMessageBuffer = void 0;\nconst CR = 13;\nconst LF = 10;\nconst CRLF = '\\r\\n';\nclass AbstractMessageBuffer {\n    constructor(encoding = 'utf-8') {\n        this._encoding = encoding;\n        this._chunks = [];\n        this._totalLength = 0;\n    }\n    get encoding() {\n        return this._encoding;\n    }\n    append(chunk) {\n        const toAppend = typeof chunk === 'string' ? this.fromString(chunk, this._encoding) : chunk;\n        this._chunks.push(toAppend);\n        this._totalLength += toAppend.byteLength;\n    }\n    tryReadHeaders() {\n        if (this._chunks.length === 0) {\n            return undefined;\n        }\n        let state = 0;\n        let chunkIndex = 0;\n        let offset = 0;\n        let chunkBytesRead = 0;\n        row: while (chunkIndex < this._chunks.length) {\n            const chunk = this._chunks[chunkIndex];\n            offset = 0;\n            column: while (offset < chunk.length) {\n                const value = chunk[offset];\n                switch (value) {\n                    case CR:\n                        switch (state) {\n                            case 0:\n                                state = 1;\n                                break;\n                            case 2:\n                                state = 3;\n                                break;\n                            default:\n                                state = 0;\n                        }\n                        break;\n                    case LF:\n                        switch (state) {\n                            case 1:\n                                state = 2;\n                                break;\n                            case 3:\n                                state = 4;\n                                offset++;\n                                break row;\n                            default:\n                                state = 0;\n                        }\n                        break;\n                    default:\n                        state = 0;\n                }\n                offset++;\n            }\n            chunkBytesRead += chunk.byteLength;\n            chunkIndex++;\n        }\n        if (state !== 4) {\n            return undefined;\n        }\n        // The buffer contains the two CRLF at the end. So we will\n        // have two empty lines after the split at the end as well.\n        const buffer = this._read(chunkBytesRead + offset);\n        const result = new Map();\n        const headers = this.toString(buffer, 'ascii').split(CRLF);\n        if (headers.length < 2) {\n            return result;\n        }\n        for (let i = 0; i < headers.length - 2; i++) {\n            const header = headers[i];\n            const index = header.indexOf(':');\n            if (index === -1) {\n                throw new Error('Message header must separate key and value using :');\n            }\n            const key = header.substr(0, index);\n            const value = header.substr(index + 1).trim();\n            result.set(key, value);\n        }\n        return result;\n    }\n    tryReadBody(length) {\n        if (this._totalLength < length) {\n            return undefined;\n        }\n        return this._read(length);\n    }\n    get numberOfBytes() {\n        return this._totalLength;\n    }\n    _read(byteCount) {\n        if (byteCount === 0) {\n            return this.emptyBuffer();\n        }\n        if (byteCount > this._totalLength) {\n            throw new Error(`Cannot read so many bytes!`);\n        }\n        if (this._chunks[0].byteLength === byteCount) {\n            // super fast path, precisely first chunk must be returned\n            const chunk = this._chunks[0];\n            this._chunks.shift();\n            this._totalLength -= byteCount;\n            return this.asNative(chunk);\n        }\n        if (this._chunks[0].byteLength > byteCount) {\n            // fast path, the reading is entirely within the first chunk\n            const chunk = this._chunks[0];\n            const result = this.asNative(chunk, byteCount);\n            this._chunks[0] = chunk.slice(byteCount);\n            this._totalLength -= byteCount;\n            return result;\n        }\n        const result = this.allocNative(byteCount);\n        let resultOffset = 0;\n        let chunkIndex = 0;\n        while (byteCount > 0) {\n            const chunk = this._chunks[chunkIndex];\n            if (chunk.byteLength > byteCount) {\n                // this chunk will survive\n                const chunkPart = chunk.slice(0, byteCount);\n                result.set(chunkPart, resultOffset);\n                resultOffset += byteCount;\n                this._chunks[chunkIndex] = chunk.slice(byteCount);\n                this._totalLength -= byteCount;\n                byteCount -= byteCount;\n            }\n            else {\n                // this chunk will be entirely read\n                result.set(chunk, resultOffset);\n                resultOffset += chunk.byteLength;\n                this._chunks.shift();\n                this._totalLength -= chunk.byteLength;\n                byteCount -= chunk.byteLength;\n            }\n        }\n        return result;\n    }\n}\nAbstractMessageBuffer_1 = messageBuffer.AbstractMessageBuffer = AbstractMessageBuffer;\n//# sourceMappingURL=messageBuffer.js.map\n\nexport { messageBuffer as __moduleExports, AbstractMessageBuffer_1 as AbstractMessageBuffer, messageBuffer as default };",
+      "start": 1706896525431,
+      "end": 1706896525432,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525432,
+      "end": 1706896525432,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525432,
+      "end": 1706896525432,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525432,
+      "end": 1706896525432,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525432,
+      "end": 1706896525432,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525432,
+      "end": 1706896525432,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525432,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525433,
+      "end": 1706896525433,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContentElems.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, resolveComponent as _resolveComponent, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderComponent as _ssrRenderComponent, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoChainContentElems',\n  __ssrInlineRender: true,\n  props: ['item'],\n  setup(__props) {\n\r\n\r\n\r\n\r\n\r\nconst authStore = useAuthStore()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_DocumentItemInfoChainContentElems = _resolveComponent(\"DocumentItemInfoChainContentElems\", true)!\n\n  if (__props.item.self) {\n    _push(`<div${\n      _ssrRenderAttrs(_mergeProps({ class: \"transition-all\" }, _attrs))\n    }><div class=\"flex items-center gap-x-6\"><list${\n      _ssrRenderAttrs({\n        name: \"list\",\n        class: \"flex flex-col gap-y-6 transition-all\"\n      })\n    }>`)\n    _ssrRenderList(__props.item.self, (user, userIndex) => {\n      _push(`<div class=\"h-24 border border-gray-500 dark:border-white w-[220px] px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\"><div class=\"flex gap-x-4 items-center\"><div class=\"max-w-[50px]\"><img class=\"w-full rounded-full\"${\n        _ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo)\n      } alt=\"\"></div><p class=\"text-[15px] w-full\">${\n        _ssrInterpolate(user.first_name + ' ' + user.last_name)\n      }</p></div></div>`)\n    })\n    _push(`</list>`)\n    _push(_ssrRenderComponent(_component_DocumentItemInfoChainContentElems, {\n      item: __props.item.parent\n    }, null, _parent))\n    _push(`</div></div>`)\n  } else {\n    _push(`<!---->`)\n  }\n}\n}\n\n})",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContentElems.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\n\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\ndefineProps(['item'])\r\n\r\n\r\nconst authStore = useAuthStore()\r\n</script>\r\n\r\n<template>\r\n    <div v-if=\"item.self\" class=\"transition-all \">\r\n      <div class=\"flex items-center gap-x-6\">\r\n        <TransitionGroup name=\"list\" tag=\"list\" class=\"flex flex-col gap-y-6 transition-all\">\r\n          <div\r\n            class=\"h-24 border border-gray-500 dark:border-white w-[220px] px-2 rounded-lg text-center flex items-center justify-center mx-auto relative \"\r\n            v-for=\"(user, userIndex) in item.self\" :key=\"userIndex\">\r\n            <div class=\"flex gap-x-4 items-center\">\r\n              <div class=\"max-w-[50px]\">\r\n                <img class=\"w-full rounded-full\" :src=\"authStore.get_server_domain + user.photo\" alt=\"\">\r\n              </div>\r\n              <p class=\"text-[15px] w-full\">\r\n                {{ user.first_name + ' ' + user.last_name }}\r\n              </p>\r\n            </div>\r\n          </div>\r\n        </TransitionGroup>\r\n        <DocumentItemInfoChainContentElems :item=\"item.parent\"/>\r\n      </div>\r\n    </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC;;;;;;;AAHuB,CAAC;AACzB,CAAC;AAGoB,CAAC;AACtB,CAAC;AACD,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896550216,
+      "end": 1706896550216,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderComponent as _ssrRenderComponent, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainContentElems\",\n  __ssrInlineRender: true,\n  props: [\"item\"],\n  setup(__props) {\n    const authStore = useAuthStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_DocumentItemInfoChainContentElems = _resolveComponent(\"DocumentItemInfoChainContentElems\", true);\n      if (__props.item.self) {\n        _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"transition-all\" }, _attrs))}><div class=\"flex items-center gap-x-6\"><list${_ssrRenderAttrs({\n          name: \"list\",\n          class: \"flex flex-col gap-y-6 transition-all\"\n        })}>`);\n        _ssrRenderList(__props.item.self, (user, userIndex) => {\n          _push(`<div class=\"h-24 border border-gray-500 dark:border-white w-[220px] px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\"><div class=\"flex gap-x-4 items-center\"><div class=\"max-w-[50px]\"><img class=\"w-full rounded-full\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo)} alt=\"\"></div><p class=\"text-[15px] w-full\">${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</p></div></div>`);\n        });\n        _push(`</list>`);\n        _push(_ssrRenderComponent(_component_DocumentItemInfoChainContentElems, {\n          item: __props.item.parent\n        }, null, _parent));\n        _push(`</div></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n    };\n  }\n});\n",
+      "start": 1706896550216,
+      "end": 1706896550218,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContentElems.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, resolveComponent as _resolveComponent, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderComponent as _ssrRenderComponent, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoChainContentElems',\n  __ssrInlineRender: true,\n  props: ['item'],\n  setup(__props) {\n\r\n\r\n\r\n\r\n\r\nconst authStore = useAuthStore()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_DocumentItemInfoChainContentElems = _resolveComponent(\"DocumentItemInfoChainContentElems\", true)!\n\n  if (__props.item.self) {\n    _push(`<div${\n      _ssrRenderAttrs(_mergeProps({ class: \"transition-all\" }, _attrs))\n    }><div class=\"flex items-center gap-x-6\"><list${\n      _ssrRenderAttrs({\n        name: \"list\",\n        class: \"flex flex-col gap-y-6 transition-all\"\n      })\n    }>`)\n    _ssrRenderList(__props.item.self, (user, userIndex) => {\n      _push(`<div class=\"h-24 border border-gray-500 dark:border-white w-[220px] px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\"><div class=\"flex gap-x-4 items-center\"><div class=\"max-w-[50px]\"><img class=\"w-full rounded-full\"${\n        _ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo)\n      } alt=\"\"></div><p class=\"text-[15px] w-full\">${\n        _ssrInterpolate(user.first_name + ' ' + user.last_name)\n      }</p></div></div>`)\n    })\n    _push(`</list>`)\n    _push(_ssrRenderComponent(_component_DocumentItemInfoChainContentElems, {\n      item: __props.item.parent\n    }, null, _parent))\n    _push(`</div></div>`)\n  } else {\n    _push(`<!---->`)\n  }\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,oBAAoB,mBAAmB,cAAc,mBAAmB;AAClG,SAAS,iBAAiB,gBAAgB,kBAAkB,iBAAiB,sBAAsB,qBAAqB,kBAAkB,iBAAiB,iBAAiB,sBAAsB;AAElM,SAAQ,oBAAmB;AAG3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,OAAO,CAAC,MAAM;AAAA,EACd,MAAM,SAAS;AAMjB,UAAM,YAAY,aAAa;AAE/B,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,+CAA+C,kBAAkB,qCAAqC,IAAI;AAEhH,UAAI,QAAQ,KAAK,MAAM;AACrB,cAAM,OACJ,gBAAgB,YAAY,EAAE,OAAO,iBAAiB,GAAG,MAAM,CAAC,CAClE,gDACE,gBAAgB;AAAA,UACd,MAAM;AAAA,UACN,OAAO;AAAA,QACT,CAAC,CACH,GAAG;AACH,uBAAe,QAAQ,KAAK,MAAM,CAAC,MAAM,cAAc;AACrD,gBAAM,uPACJ,eAAe,OAAO,OAAO,SAAS,EAAE,oBAAoB,KAAK,KAAK,CACxE,+CACE,gBAAgB,KAAK,aAAa,MAAM,KAAK,SAAS,CACxD,kBAAkB;AAAA,QACpB,CAAC;AACD,cAAM,SAAS;AACf,cAAM,oBAAoB,8CAA8C;AAAA,UACtE,MAAM,QAAQ,KAAK;AAAA,QACrB,GAAG,MAAM,OAAO,CAAC;AACjB,cAAM,cAAc;AAAA,MACtB,OAAO;AACL,cAAM,SAAS;AAAA,MACjB;AAAA,IACF;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896550218,
+      "end": 1706896550218,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896550218,
+      "end": 1706896550219,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896550219,
+      "end": 1706896550219,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896550219,
+      "end": 1706896550219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896550219,
+      "end": 1706896550219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896550219,
+      "end": 1706896550219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896550219,
+      "end": 1706896550219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896550220,
+      "end": 1706896550220,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896550221,
+      "end": 1706896550221,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896550222,
+      "end": 1706896550222,
+      "order": "normal"
+    }
+  ]
+}

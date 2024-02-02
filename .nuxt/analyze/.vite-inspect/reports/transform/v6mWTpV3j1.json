@@ -1,0 +1,236 @@
+{
+  "resolvedId": "virtual:nuxt:D:/Programming/templates/KPIcopy/.nuxt/routes.mjs",
+  "transforms": [
+    {
+      "name": "virtual",
+      "result": "import { default as _91id_934Q7MRQRlzJMeta } from \"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue?macro=true\";\nimport { default as chatBdyX0HxF5oMeta } from \"D:/Programming/templates/KPIcopy/pages/base/chat.vue?macro=true\";\nimport { default as indexVOf21EBefhMeta } from \"D:/Programming/templates/KPIcopy/pages/base/cloud/index.vue?macro=true\";\nimport { default as _91id_93k4yCyAUUfRMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/[id].vue?macro=true\";\nimport { default as _91id_93yK6MxEjryGMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue?macro=true\";\nimport { default as indexrRSqV8s5N7Meta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/index.vue?macro=true\";\nimport { default as index2IG861zqoEMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/index.vue?macro=true\";\nimport { default as _91id_93iPNvCAv5hxMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/news/[id].vue?macro=true\";\nimport { default as indexEaHFPOfkq4Meta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/news/index.vue?macro=true\";\nimport { default as _91id_93R1DjiHfTbnMeta } from \"D:/Programming/templates/KPIcopy/pages/base/documents/[id].vue?macro=true\";\nimport { default as indexE5Bki526HuMeta } from \"D:/Programming/templates/KPIcopy/pages/base/documents/index.vue?macro=true\";\nimport { default as indexDRR5A9tPdBMeta } from \"D:/Programming/templates/KPIcopy/pages/base/graph/index.vue?macro=true\";\nimport { default as _91id_93QAZg78rKOaMeta } from \"D:/Programming/templates/KPIcopy/pages/base/objects/[id].vue?macro=true\";\nimport { default as indexj1inhJCK2OMeta } from \"D:/Programming/templates/KPIcopy/pages/base/objects/index.vue?macro=true\";\nimport { default as profilesynmoZNl61Meta } from \"D:/Programming/templates/KPIcopy/pages/base/profile.vue?macro=true\";\nimport { default as _91id_93nFxj5YIKM9Meta } from \"D:/Programming/templates/KPIcopy/pages/base/tasks/[id].vue?macro=true\";\nimport { default as indexxPfIP4uUTTMeta } from \"D:/Programming/templates/KPIcopy/pages/base/tasks/index.vue?macro=true\";\nimport { default as examnNMFGtlWXJMeta } from \"D:/Programming/templates/KPIcopy/pages/base/tests/exam.vue?macro=true\";\nimport { default as indexQDItdvEyR1Meta } from \"D:/Programming/templates/KPIcopy/pages/base/tests/index.vue?macro=true\";\nimport { default as indexIv2w0hW7mEMeta } from \"D:/Programming/templates/KPIcopy/pages/base/tree/index.vue?macro=true\";\nimport { default as _91id_93wYS3AxlZDrMeta } from \"D:/Programming/templates/KPIcopy/pages/base/users/[id].vue?macro=true\";\nimport { default as indexP626qje8uqMeta } from \"D:/Programming/templates/KPIcopy/pages/base/users/index.vue?macro=true\";\nimport { default as baseKHFhXqIXXyMeta } from \"D:/Programming/templates/KPIcopy/pages/base.vue?macro=true\";\nimport { default as indexBkHu4HOPDZMeta } from \"D:/Programming/templates/KPIcopy/pages/index.vue?macro=true\";\nexport default [\n  {\n    name: baseKHFhXqIXXyMeta?.name ?? \"base\",\n    path: baseKHFhXqIXXyMeta?.path ?? \"/base\",\n    children: [\n  {\n    name: chatBdyX0HxF5oMeta?.name ?? \"base-chat\",\n    path: chatBdyX0HxF5oMeta?.path ?? \"chat\",\n    children: [\n  {\n    name: _91id_934Q7MRQRlzJMeta?.name ?? \"base-chat-id\",\n    path: _91id_934Q7MRQRlzJMeta?.path ?? \":id()\",\n    meta: _91id_934Q7MRQRlzJMeta || {},\n    alias: _91id_934Q7MRQRlzJMeta?.alias || [],\n    redirect: _91id_934Q7MRQRlzJMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue\").then(m => m.default || m)\n  }\n],\n    meta: chatBdyX0HxF5oMeta || {},\n    alias: chatBdyX0HxF5oMeta?.alias || [],\n    redirect: chatBdyX0HxF5oMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/chat.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexVOf21EBefhMeta?.name ?? \"base-cloud\",\n    path: indexVOf21EBefhMeta?.path ?? \"cloud\",\n    meta: indexVOf21EBefhMeta || {},\n    alias: indexVOf21EBefhMeta?.alias || [],\n    redirect: indexVOf21EBefhMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/cloud/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: _91id_93k4yCyAUUfRMeta?.name ?? \"base-companies-id\",\n    path: _91id_93k4yCyAUUfRMeta?.path ?? \"companies/:id()\",\n    meta: _91id_93k4yCyAUUfRMeta || {},\n    alias: _91id_93k4yCyAUUfRMeta?.alias || [],\n    redirect: _91id_93k4yCyAUUfRMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/[id].vue\").then(m => m.default || m)\n  },\n  {\n    name: _91id_93yK6MxEjryGMeta?.name ?? \"base-companies-department-id\",\n    path: _91id_93yK6MxEjryGMeta?.path ?? \"companies/department/:id()\",\n    meta: _91id_93yK6MxEjryGMeta || {},\n    alias: _91id_93yK6MxEjryGMeta?.alias || [],\n    redirect: _91id_93yK6MxEjryGMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue\").then(m => m.default || m)\n  },\n  {\n    name: indexrRSqV8s5N7Meta?.name ?? \"base-companies-department\",\n    path: indexrRSqV8s5N7Meta?.path ?? \"companies/department\",\n    meta: indexrRSqV8s5N7Meta || {},\n    alias: indexrRSqV8s5N7Meta?.alias || [],\n    redirect: indexrRSqV8s5N7Meta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/department/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: index2IG861zqoEMeta?.name ?? \"base-companies\",\n    path: index2IG861zqoEMeta?.path ?? \"companies\",\n    meta: index2IG861zqoEMeta || {},\n    alias: index2IG861zqoEMeta?.alias || [],\n    redirect: index2IG861zqoEMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: _91id_93iPNvCAv5hxMeta?.name ?? \"base-companies-news-id\",\n    path: _91id_93iPNvCAv5hxMeta?.path ?? \"companies/news/:id()\",\n    meta: _91id_93iPNvCAv5hxMeta || {},\n    alias: _91id_93iPNvCAv5hxMeta?.alias || [],\n    redirect: _91id_93iPNvCAv5hxMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/news/[id].vue\").then(m => m.default || m)\n  },\n  {\n    name: indexEaHFPOfkq4Meta?.name ?? \"base-companies-news\",\n    path: indexEaHFPOfkq4Meta?.path ?? \"companies/news\",\n    meta: indexEaHFPOfkq4Meta || {},\n    alias: indexEaHFPOfkq4Meta?.alias || [],\n    redirect: indexEaHFPOfkq4Meta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/news/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: _91id_93R1DjiHfTbnMeta?.name ?? \"base-documents-id\",\n    path: _91id_93R1DjiHfTbnMeta?.path ?? \"documents/:id()\",\n    meta: _91id_93R1DjiHfTbnMeta || {},\n    alias: _91id_93R1DjiHfTbnMeta?.alias || [],\n    redirect: _91id_93R1DjiHfTbnMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/documents/[id].vue\").then(m => m.default || m)\n  },\n  {\n    name: indexE5Bki526HuMeta?.name ?? \"base-documents\",\n    path: indexE5Bki526HuMeta?.path ?? \"documents\",\n    meta: indexE5Bki526HuMeta || {},\n    alias: indexE5Bki526HuMeta?.alias || [],\n    redirect: indexE5Bki526HuMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/documents/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexDRR5A9tPdBMeta?.name ?? \"base-graph\",\n    path: indexDRR5A9tPdBMeta?.path ?? \"graph\",\n    meta: indexDRR5A9tPdBMeta || {},\n    alias: indexDRR5A9tPdBMeta?.alias || [],\n    redirect: indexDRR5A9tPdBMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/graph/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: _91id_93QAZg78rKOaMeta?.name ?? \"base-objects-id\",\n    path: _91id_93QAZg78rKOaMeta?.path ?? \"objects/:id()\",\n    meta: _91id_93QAZg78rKOaMeta || {},\n    alias: _91id_93QAZg78rKOaMeta?.alias || [],\n    redirect: _91id_93QAZg78rKOaMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/objects/[id].vue\").then(m => m.default || m)\n  },\n  {\n    name: indexj1inhJCK2OMeta?.name ?? \"base-objects\",\n    path: indexj1inhJCK2OMeta?.path ?? \"objects\",\n    meta: indexj1inhJCK2OMeta || {},\n    alias: indexj1inhJCK2OMeta?.alias || [],\n    redirect: indexj1inhJCK2OMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/objects/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: profilesynmoZNl61Meta?.name ?? \"base-profile\",\n    path: profilesynmoZNl61Meta?.path ?? \"profile\",\n    meta: profilesynmoZNl61Meta || {},\n    alias: profilesynmoZNl61Meta?.alias || [],\n    redirect: profilesynmoZNl61Meta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/profile.vue\").then(m => m.default || m)\n  },\n  {\n    name: _91id_93nFxj5YIKM9Meta?.name ?? \"base-tasks-id\",\n    path: _91id_93nFxj5YIKM9Meta?.path ?? \"tasks/:id()\",\n    meta: _91id_93nFxj5YIKM9Meta || {},\n    alias: _91id_93nFxj5YIKM9Meta?.alias || [],\n    redirect: _91id_93nFxj5YIKM9Meta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/tasks/[id].vue\").then(m => m.default || m)\n  },\n  {\n    name: indexxPfIP4uUTTMeta?.name ?? \"base-tasks\",\n    path: indexxPfIP4uUTTMeta?.path ?? \"tasks\",\n    meta: indexxPfIP4uUTTMeta || {},\n    alias: indexxPfIP4uUTTMeta?.alias || [],\n    redirect: indexxPfIP4uUTTMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/tasks/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: examnNMFGtlWXJMeta?.name ?? \"base-tests-exam\",\n    path: examnNMFGtlWXJMeta?.path ?? \"tests/exam\",\n    meta: examnNMFGtlWXJMeta || {},\n    alias: examnNMFGtlWXJMeta?.alias || [],\n    redirect: examnNMFGtlWXJMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/tests/exam.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexQDItdvEyR1Meta?.name ?? \"base-tests\",\n    path: indexQDItdvEyR1Meta?.path ?? \"tests\",\n    meta: indexQDItdvEyR1Meta || {},\n    alias: indexQDItdvEyR1Meta?.alias || [],\n    redirect: indexQDItdvEyR1Meta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/tests/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexIv2w0hW7mEMeta?.name ?? \"base-tree\",\n    path: indexIv2w0hW7mEMeta?.path ?? \"tree\",\n    meta: indexIv2w0hW7mEMeta || {},\n    alias: indexIv2w0hW7mEMeta?.alias || [],\n    redirect: indexIv2w0hW7mEMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/tree/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: _91id_93wYS3AxlZDrMeta?.name ?? \"base-users-id\",\n    path: _91id_93wYS3AxlZDrMeta?.path ?? \"users/:id()\",\n    meta: _91id_93wYS3AxlZDrMeta || {},\n    alias: _91id_93wYS3AxlZDrMeta?.alias || [],\n    redirect: _91id_93wYS3AxlZDrMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/users/[id].vue\").then(m => m.default || m)\n  },\n  {\n    name: indexP626qje8uqMeta?.name ?? \"base-users\",\n    path: indexP626qje8uqMeta?.path ?? \"users\",\n    meta: indexP626qje8uqMeta || {},\n    alias: indexP626qje8uqMeta?.alias || [],\n    redirect: indexP626qje8uqMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base/users/index.vue\").then(m => m.default || m)\n  }\n],\n    meta: baseKHFhXqIXXyMeta || {},\n    alias: baseKHFhXqIXXyMeta?.alias || [],\n    redirect: baseKHFhXqIXXyMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/base.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexBkHu4HOPDZMeta?.name ?? \"index\",\n    path: indexBkHu4HOPDZMeta?.path ?? \"/\",\n    meta: indexBkHu4HOPDZMeta || {},\n    alias: indexBkHu4HOPDZMeta?.alias || [],\n    redirect: indexBkHu4HOPDZMeta?.redirect || undefined,\n    component: () => import(\"D:/Programming/templates/KPIcopy/pages/index.vue\").then(m => m.default || m)\n  }\n]",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896510884,
+      "end": 1706896510884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896510885,
+      "end": 1706896510885,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896510885,
+      "end": 1706896510886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896510886,
+      "end": 1706896510886,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896510886,
+      "end": 1706896510886,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896510886,
+      "end": 1706896510886,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896510886,
+      "end": 1706896510886,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896510886,
+      "end": 1706896510886,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896510886,
+      "end": 1706896510889,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896510889,
+      "end": 1706896510889,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896510889,
+      "end": 1706896510889,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896510889,
+      "end": 1706896510889,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896510889,
+      "end": 1706896510889,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896510889,
+      "end": 1706896510889,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896510889,
+      "end": 1706896510889,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";import { default as _91id_934Q7MRQRlzJMeta } from \"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue?macro=true\";\nimport { default as chatBdyX0HxF5oMeta } from \"D:/Programming/templates/KPIcopy/pages/base/chat.vue?macro=true\";\nimport { default as indexVOf21EBefhMeta } from \"D:/Programming/templates/KPIcopy/pages/base/cloud/index.vue?macro=true\";\nimport { default as _91id_93k4yCyAUUfRMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/[id].vue?macro=true\";\nimport { default as _91id_93yK6MxEjryGMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue?macro=true\";\nimport { default as indexrRSqV8s5N7Meta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/department/index.vue?macro=true\";\nimport { default as index2IG861zqoEMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/index.vue?macro=true\";\nimport { default as _91id_93iPNvCAv5hxMeta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/news/[id].vue?macro=true\";\nimport { default as indexEaHFPOfkq4Meta } from \"D:/Programming/templates/KPIcopy/pages/base/companies/news/index.vue?macro=true\";\nimport { default as _91id_93R1DjiHfTbnMeta } from \"D:/Programming/templates/KPIcopy/pages/base/documents/[id].vue?macro=true\";\nimport { default as indexE5Bki526HuMeta } from \"D:/Programming/templates/KPIcopy/pages/base/documents/index.vue?macro=true\";\nimport { default as indexDRR5A9tPdBMeta } from \"D:/Programming/templates/KPIcopy/pages/base/graph/index.vue?macro=true\";\nimport { default as _91id_93QAZg78rKOaMeta } from \"D:/Programming/templates/KPIcopy/pages/base/objects/[id].vue?macro=true\";\nimport { default as indexj1inhJCK2OMeta } from \"D:/Programming/templates/KPIcopy/pages/base/objects/index.vue?macro=true\";\nimport { default as profilesynmoZNl61Meta } from \"D:/Programming/templates/KPIcopy/pages/base/profile.vue?macro=true\";\nimport { default as _91id_93nFxj5YIKM9Meta } from \"D:/Programming/templates/KPIcopy/pages/base/tasks/[id].vue?macro=true\";\nimport { default as indexxPfIP4uUTTMeta } from \"D:/Programming/templates/KPIcopy/pages/base/tasks/index.vue?macro=true\";\nimport { default as examnNMFGtlWXJMeta } from \"D:/Programming/templates/KPIcopy/pages/base/tests/exam.vue?macro=true\";\nimport { default as indexQDItdvEyR1Meta } from \"D:/Programming/templates/KPIcopy/pages/base/tests/index.vue?macro=true\";\nimport { default as indexIv2w0hW7mEMeta } from \"D:/Programming/templates/KPIcopy/pages/base/tree/index.vue?macro=true\";\nimport { default as _91id_93wYS3AxlZDrMeta } from \"D:/Programming/templates/KPIcopy/pages/base/users/[id].vue?macro=true\";\nimport { default as indexP626qje8uqMeta } from \"D:/Programming/templates/KPIcopy/pages/base/users/index.vue?macro=true\";\nimport { default as baseKHFhXqIXXyMeta } from \"D:/Programming/templates/KPIcopy/pages/base.vue?macro=true\";\nimport { default as indexBkHu4HOPDZMeta } from \"D:/Programming/templates/KPIcopy/pages/index.vue?macro=true\";\nexport default [\n  {\n    name: baseKHFhXqIXXyMeta?.name ?? \"base\",\n    path: baseKHFhXqIXXyMeta?.path ?? \"/base\",\n    children: [\n  {\n    name: chatBdyX0HxF5oMeta?.name ?? \"base-chat\",\n    path: chatBdyX0HxF5oMeta?.path ?? \"chat\",\n    children: [\n  {\n    name: _91id_934Q7MRQRlzJMeta?.name ?? \"base-chat-id\",\n    path: _91id_934Q7MRQRlzJMeta?.path ?? \":id()\",\n    meta: _91id_934Q7MRQRlzJMeta || {},\n    alias: _91id_934Q7MRQRlzJMeta?.alias || [],\n    redirect: _91id_934Q7MRQRlzJMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/chat/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  }\n],\n    meta: chatBdyX0HxF5oMeta || {},\n    alias: chatBdyX0HxF5oMeta?.alias || [],\n    redirect: chatBdyX0HxF5oMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/chat.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexVOf21EBefhMeta?.name ?? \"base-cloud\",\n    path: indexVOf21EBefhMeta?.path ?? \"cloud\",\n    meta: indexVOf21EBefhMeta || {},\n    alias: indexVOf21EBefhMeta?.alias || [],\n    redirect: indexVOf21EBefhMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/cloud/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: _91id_93k4yCyAUUfRMeta?.name ?? \"base-companies-id\",\n    path: _91id_93k4yCyAUUfRMeta?.path ?? \"companies/:id()\",\n    meta: _91id_93k4yCyAUUfRMeta || {},\n    alias: _91id_93k4yCyAUUfRMeta?.alias || [],\n    redirect: _91id_93k4yCyAUUfRMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: _91id_93yK6MxEjryGMeta?.name ?? \"base-companies-department-id\",\n    path: _91id_93yK6MxEjryGMeta?.path ?? \"companies/department/:id()\",\n    meta: _91id_93yK6MxEjryGMeta || {},\n    alias: _91id_93yK6MxEjryGMeta?.alias || [],\n    redirect: _91id_93yK6MxEjryGMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/department/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexrRSqV8s5N7Meta?.name ?? \"base-companies-department\",\n    path: indexrRSqV8s5N7Meta?.path ?? \"companies/department\",\n    meta: indexrRSqV8s5N7Meta || {},\n    alias: indexrRSqV8s5N7Meta?.alias || [],\n    redirect: indexrRSqV8s5N7Meta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/department/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: index2IG861zqoEMeta?.name ?? \"base-companies\",\n    path: index2IG861zqoEMeta?.path ?? \"companies\",\n    meta: index2IG861zqoEMeta || {},\n    alias: index2IG861zqoEMeta?.alias || [],\n    redirect: index2IG861zqoEMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: _91id_93iPNvCAv5hxMeta?.name ?? \"base-companies-news-id\",\n    path: _91id_93iPNvCAv5hxMeta?.path ?? \"companies/news/:id()\",\n    meta: _91id_93iPNvCAv5hxMeta || {},\n    alias: _91id_93iPNvCAv5hxMeta?.alias || [],\n    redirect: _91id_93iPNvCAv5hxMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/news/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexEaHFPOfkq4Meta?.name ?? \"base-companies-news\",\n    path: indexEaHFPOfkq4Meta?.path ?? \"companies/news\",\n    meta: indexEaHFPOfkq4Meta || {},\n    alias: indexEaHFPOfkq4Meta?.alias || [],\n    redirect: indexEaHFPOfkq4Meta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/companies/news/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: _91id_93R1DjiHfTbnMeta?.name ?? \"base-documents-id\",\n    path: _91id_93R1DjiHfTbnMeta?.path ?? \"documents/:id()\",\n    meta: _91id_93R1DjiHfTbnMeta || {},\n    alias: _91id_93R1DjiHfTbnMeta?.alias || [],\n    redirect: _91id_93R1DjiHfTbnMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/documents/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexE5Bki526HuMeta?.name ?? \"base-documents\",\n    path: indexE5Bki526HuMeta?.path ?? \"documents\",\n    meta: indexE5Bki526HuMeta || {},\n    alias: indexE5Bki526HuMeta?.alias || [],\n    redirect: indexE5Bki526HuMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/documents/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexDRR5A9tPdBMeta?.name ?? \"base-graph\",\n    path: indexDRR5A9tPdBMeta?.path ?? \"graph\",\n    meta: indexDRR5A9tPdBMeta || {},\n    alias: indexDRR5A9tPdBMeta?.alias || [],\n    redirect: indexDRR5A9tPdBMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/graph/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: _91id_93QAZg78rKOaMeta?.name ?? \"base-objects-id\",\n    path: _91id_93QAZg78rKOaMeta?.path ?? \"objects/:id()\",\n    meta: _91id_93QAZg78rKOaMeta || {},\n    alias: _91id_93QAZg78rKOaMeta?.alias || [],\n    redirect: _91id_93QAZg78rKOaMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/objects/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexj1inhJCK2OMeta?.name ?? \"base-objects\",\n    path: indexj1inhJCK2OMeta?.path ?? \"objects\",\n    meta: indexj1inhJCK2OMeta || {},\n    alias: indexj1inhJCK2OMeta?.alias || [],\n    redirect: indexj1inhJCK2OMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/objects/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: profilesynmoZNl61Meta?.name ?? \"base-profile\",\n    path: profilesynmoZNl61Meta?.path ?? \"profile\",\n    meta: profilesynmoZNl61Meta || {},\n    alias: profilesynmoZNl61Meta?.alias || [],\n    redirect: profilesynmoZNl61Meta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/profile.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: _91id_93nFxj5YIKM9Meta?.name ?? \"base-tasks-id\",\n    path: _91id_93nFxj5YIKM9Meta?.path ?? \"tasks/:id()\",\n    meta: _91id_93nFxj5YIKM9Meta || {},\n    alias: _91id_93nFxj5YIKM9Meta?.alias || [],\n    redirect: _91id_93nFxj5YIKM9Meta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/tasks/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexxPfIP4uUTTMeta?.name ?? \"base-tasks\",\n    path: indexxPfIP4uUTTMeta?.path ?? \"tasks\",\n    meta: indexxPfIP4uUTTMeta || {},\n    alias: indexxPfIP4uUTTMeta?.alias || [],\n    redirect: indexxPfIP4uUTTMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/tasks/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: examnNMFGtlWXJMeta?.name ?? \"base-tests-exam\",\n    path: examnNMFGtlWXJMeta?.path ?? \"tests/exam\",\n    meta: examnNMFGtlWXJMeta || {},\n    alias: examnNMFGtlWXJMeta?.alias || [],\n    redirect: examnNMFGtlWXJMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/tests/exam.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexQDItdvEyR1Meta?.name ?? \"base-tests\",\n    path: indexQDItdvEyR1Meta?.path ?? \"tests\",\n    meta: indexQDItdvEyR1Meta || {},\n    alias: indexQDItdvEyR1Meta?.alias || [],\n    redirect: indexQDItdvEyR1Meta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/tests/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexIv2w0hW7mEMeta?.name ?? \"base-tree\",\n    path: indexIv2w0hW7mEMeta?.path ?? \"tree\",\n    meta: indexIv2w0hW7mEMeta || {},\n    alias: indexIv2w0hW7mEMeta?.alias || [],\n    redirect: indexIv2w0hW7mEMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/tree/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: _91id_93wYS3AxlZDrMeta?.name ?? \"base-users-id\",\n    path: _91id_93wYS3AxlZDrMeta?.path ?? \"users/:id()\",\n    meta: _91id_93wYS3AxlZDrMeta || {},\n    alias: _91id_93wYS3AxlZDrMeta?.alias || [],\n    redirect: _91id_93wYS3AxlZDrMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/users/[id].vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexP626qje8uqMeta?.name ?? \"base-users\",\n    path: indexP626qje8uqMeta?.path ?? \"users\",\n    meta: indexP626qje8uqMeta || {},\n    alias: indexP626qje8uqMeta?.alias || [],\n    redirect: indexP626qje8uqMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base/users/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  }\n],\n    meta: baseKHFhXqIXXyMeta || {},\n    alias: baseKHFhXqIXXyMeta?.alias || [],\n    redirect: baseKHFhXqIXXyMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/base.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexBkHu4HOPDZMeta?.name ?? \"index\",\n    path: indexBkHu4HOPDZMeta?.path ?? \"/\",\n    meta: indexBkHu4HOPDZMeta || {},\n    alias: indexBkHu4HOPDZMeta?.alias || [],\n    redirect: indexBkHu4HOPDZMeta?.redirect || undefined,\n    component: () => __vitePreload(() => import(\"D:/Programming/templates/KPIcopy/pages/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  }\n]",
+      "start": 1706896510890,
+      "end": 1706896510891,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896510891,
+      "end": 1706896510891,
+      "order": "normal"
+    }
+  ]
+}

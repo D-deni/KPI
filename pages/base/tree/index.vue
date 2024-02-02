@@ -12,6 +12,11 @@ defineProps({
     default: false
   }
 })
+
+useSeoMeta({
+  title: 'Дерево',
+  description: `Древовидная структура компании ${companies.company.name}`
+})
 </script>
 <template>
   <div>

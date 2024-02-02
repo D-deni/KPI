@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import TheTextContent from "~/components/UI/TheTextContent.vue";
+useSeoMeta({
+  title: 'Пользователи',
+  description: 'Список пользователей данной платформы'
+})
 </script>
 
 <template>

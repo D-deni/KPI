@@ -1,0 +1,318 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserList.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useDocumentStore} from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport {useUserStore} from \"~/stores/users\";\nimport {useCompanies} from \"~/stores/companies\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoUserList',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\nconst user = useUserStore()\nconst company = useCompanies()\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  }><p class=\"text-center tracking-widest font-bold\">${\n    _ssrInterpolate(_ctx.$t('Список сотрудников'))\n  }</p><div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\"><!--[-->`)\n  _ssrRenderList(_unref(company).get_all_department.results, (item) => {\n    _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\n      class: \"rounded-full cursor-pointer\",\n      item: item,\n      onDrag: () => {}\n    }, null, _parent))\n  })\n  _push(`<!--]--></div></div>`)\n}\n}\n\n})",
+      "start": 1706896547858,
+      "end": 1706896547858,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserList.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\nimport {useDocumentStore} from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport {useUserStore} from \"~/stores/users\";\nimport {useCompanies} from \"~/stores/companies\";\n\nconst documentStore = useDocumentStore()\nconst user = useUserStore()\nconst company = useCompanies()\n</script>\n\n<template>\n  <div>\n    <p class=\"text-center tracking-widest font-bold\">{{$t('Список сотрудников')}}</p>\n    <div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\">\n      <DocumentItemInfoUserListElem class=\"rounded-full cursor-pointer\" v-for=\"item in company.get_all_department.results\" :item=\"item\"  @drag.prevent/>\n    </div>\n  </div>\n</template>\n\n<style scoped lang=\"scss\">\n\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChD;;;;;;AALwB;AAMxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896547858,
+      "end": 1706896547858,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896547858,
+      "end": 1706896547858,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896547858,
+      "end": 1706896547859,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896547858,
+      "end": 1706896547859,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896547859,
+      "end": 1706896547859,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896547859,
+      "end": 1706896547859,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896547859,
+      "end": 1706896547859,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896547859,
+      "end": 1706896547859,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoUserList\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    const user = useUserStore();\n    const company = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}><p class=\"text-center tracking-widest font-bold\">${_ssrInterpolate(_ctx.$t(\"Список сотрудников\"))}</p><div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\"><!--[-->`);\n      _ssrRenderList(_unref(company).get_all_department.results, (item) => {\n        _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\n          class: \"rounded-full cursor-pointer\",\n          item,\n          onDrag: () => {\n          }\n        }, null, _parent));\n      });\n      _push(`<!--]--></div></div>`);\n    };\n  }\n});\n",
+      "start": 1706896547859,
+      "end": 1706896548054,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserList.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useDocumentStore} from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport {useUserStore} from \"~/stores/users\";\nimport {useCompanies} from \"~/stores/companies\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoUserList',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\nconst user = useUserStore()\nconst company = useCompanies()\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  }><p class=\"text-center tracking-widest font-bold\">${\n    _ssrInterpolate(_ctx.$t('Список сотрудников'))\n  }</p><div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\"><!--[-->`)\n  _ssrRenderList(_unref(company).get_all_department.results, (item) => {\n    _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\n      class: \"rounded-full cursor-pointer\",\n      item: item,\n      onDrag: () => {}\n    }, null, _parent))\n  })\n  _push(`<!--]--></div></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,cAAc;AAChC,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,iBAAiB,iBAAiB,sBAAsB;AAEjK,SAAQ,wBAAuB;AAC/B,OAAO,kCAAkC;AACzC,SAAQ,oBAAmB;AAC3B,SAAQ,oBAAmB;AAG3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,UAAM,gBAAgB,iBAAiB;AACvC,UAAM,OAAO,aAAa;AAC1B,UAAM,UAAU,aAAa;AAE7B,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,OACJ,gBAAgB,MAAM,CACxB,qDACE,gBAAgB,KAAK,GAAG,oBAAoB,CAAC,CAC/C,+EAA+E;AAC/E,qBAAe,OAAO,OAAO,EAAE,mBAAmB,SAAS,CAAC,SAAS;AACnE,cAAM,oBAAoB,8BAA8B;AAAA,UACtD,OAAO;AAAA,UACP;AAAA,UACA,QAAQ,MAAM;AAAA,UAAC;AAAA,QACjB,GAAG,MAAM,OAAO,CAAC;AAAA,MACnB,CAAC;AACD,YAAM,sBAAsB;AAAA,IAC9B;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896548054,
+      "end": 1706896548054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoUserList\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    const user = useUserStore();\n    const company = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}><p class=\"text-center tracking-widest font-bold\">${_ssrInterpolate(_ctx.$t(\"Список сотрудников\"))}</p><div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\"><!--[-->`);\n      _ssrRenderList(_unref(company).get_all_department.results, (item) => {\n        _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\n          class: \"rounded-full cursor-pointer\",\n          item,\n          onDrag: () => {\n          }\n        }, null, _parent));\n      });\n      _push(`<!--]--></div></div>`);\n    };\n  }\n});\n",
+      "start": 1706896548054,
+      "end": 1706896548410,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserList.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref } from \\\"vue\\\";\\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \\\"vue/server-renderer\\\";\\nimport { useDocumentStore } from \\\"~/stores/documents\\\";\\nimport DocumentItemInfoUserListElem from \\\"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\\\";\\nimport { useUserStore } from \\\"~/stores/users\\\";\\nimport { useCompanies } from \\\"~/stores/companies\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"DocumentItemInfoUserList\\\",\\n  __ssrInlineRender: true,\\n  setup(__props) {\\n    const documentStore = useDocumentStore();\\n    const user = useUserStore();\\n    const company = useCompanies();\\n    return (_ctx, _push, _parent, _attrs) => {\\n      _push(`<div${_ssrRenderAttrs(_attrs)}><p class=\\\"text-center tracking-widest font-bold\\\">${_ssrInterpolate(_ctx.$t(\\\"Список сотрудников\\\"))}</p><div class=\\\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\\\"><!--[-->`);\\n      _ssrRenderList(_unref(company).get_all_department.results, (item) => {\\n        _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\\n          class: \\\"rounded-full cursor-pointer\\\",\\n          item,\\n          onDrag: () => {\\n          }\\n        }, null, _parent));\\n      });\\n      _push(`<!--]--></div></div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,cAAc;AAChC,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,iBAAiB,iBAAiB,sBAAsB;AACjK,SAAS,wBAAwB;AACjC,OAAO,kCAAkC;AACzC,SAAS,oBAAoB;AAC7B,SAAS,oBAAoB;AAC7B,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AACb,UAAM,gBAAgB,iBAAiB;AACvC,UAAM,OAAO,aAAa;AAC1B,UAAM,UAAU,aAAa;AAC7B,WAAO,CAAC,MAAM,OAAO,SAAS,WAAW;AACvC,YAAM,OAAO,gBAAgB,MAAM,CAAC,qDAAqD,gBAAgB,KAAK,GAAG,oBAAoB,CAAC,CAAC,+EAA+E;AACtN,qBAAe,OAAO,OAAO,EAAE,mBAAmB,SAAS,CAAC,SAAS;AACnE,cAAM,oBAAoB,8BAA8B;AAAA,UACtD,OAAO;AAAA,UACP;AAAA,UACA,QAAQ,MAAM;AAAA,UACd;AAAA,QACF,GAAG,MAAM,OAAO,CAAC;AAAA,MACnB,CAAC;AACD,YAAM,sBAAsB;AAAA,IAC9B;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896548411,
+      "end": 1706896548411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896548411,
+      "end": 1706896548411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896548411,
+      "end": 1706896548412,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548413,
+      "end": 1706896548417,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548413,
+      "end": 1706896548417,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548418,
+      "end": 1706896548418,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548418,
+      "end": 1706896548418,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548419,
+      "end": 1706896548419,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548419,
+      "end": 1706896548419,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896548419,
+      "end": 1706896548419,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896548420,
+      "end": 1706896548420,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896548422,
+      "end": 1706896548422,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896548424,
+      "end": 1706896548424,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896548424,
+      "end": 1706896548424,
+      "order": "normal"
+    }
+  ]
+}

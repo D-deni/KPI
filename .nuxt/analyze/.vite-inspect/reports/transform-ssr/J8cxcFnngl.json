@@ -1,0 +1,316 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentMain.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useChat} from \"~/stores/chat\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatWindowSettingContentMain',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst chat = useChat()\r\nconst loadAuthStore = useAuthStore()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"p-4\" }, _attrs))}><div class=\"flex items-center tracking-wider gap-x-4\"><div>`)\n  if (_unref(chat).get_user_chat.user?.id || _unref(chat).get_user_chat.photo_url) {\n    _push(`<img class=\"w-[80px] h-[80px] rounded-full\"${_ssrRenderAttr(\"src\", !_unref(chat).get_user_chat.is_group\r\n                ? _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat.user?.photo\r\n                : _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat?.photo_url)} alt=\"\">`)\n  } else {\n    _push(`<div><div class=\"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight\"><!--[-->`)\n    _ssrRenderList(_unref(chat).get_user_chat.name.split(' ').slice(0,2), (chatName) => {\n      _push(`<p class=\"uppercase\">${_ssrInterpolate(chatName[0])}</p>`)\n    })\n    _push(`<!--]--></div></div>`)\n  }\n  _push(`</div><div><p class=\"text-lg tracking-widest\">${\n    _ssrInterpolate(_unref(chat).get_user_chat.name)\n  }</p><p class=\"text-sm text-gray-400\">${\n    _ssrInterpolate(_unref(chat).get_user_chat.users?.length + ' ' + _ctx.$t('участников'))\n  }</p></div></div></div>`)\n}\n}\n\n})",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentMain.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useChat} from \"~/stores/chat\";\r\nconst chat = useChat()\r\nconst loadAuthStore = useAuthStore()\r\n</script>\r\n\r\n<template>\r\n  <div class=\"p-4\">\r\n    <div class=\"flex items-center tracking-wider gap-x-4\">\r\n      <div>\r\n        <img v-if=\"chat.get_user_chat.user?.id || chat.get_user_chat.photo_url\"\r\n             class=\"w-[80px] h-[80px] rounded-full\"\r\n             :src=\"!chat.get_user_chat.is_group\r\n                ? loadAuthStore.get_server_domain + chat.get_user_chat.user?.photo\r\n                : loadAuthStore.get_server_domain + chat.get_user_chat?.photo_url\"\r\n             alt=\"\">\r\n        <div v-else>\r\n          <div class=\"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight\">\r\n            <p class=\"uppercase\" v-for=\"chatName in chat.get_user_chat.name.split(' ').slice(0,2)\"\r\n               @click=\"console.log(chatName[0])\">{{ chatName[0] }}</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div>\r\n        <p class=\"text-lg tracking-widest\">{{ chat.get_user_chat.name }}</p>\r\n        <p class=\"text-sm text-gray-400\">{{ chat.get_user_chat.users?.length + ' ' + $t('участников') }}</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;AAFf,CAAC;AAGzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896547856,
+      "end": 1706896547856,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useChat } from \"~/stores/chat\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatWindowSettingContentMain\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const chat = useChat();\n    const loadAuthStore = useAuthStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"p-4\" }, _attrs))}><div class=\"flex items-center tracking-wider gap-x-4\"><div>`);\n      if (_unref(chat).get_user_chat.user?.id || _unref(chat).get_user_chat.photo_url) {\n        _push(`<img class=\"w-[80px] h-[80px] rounded-full\"${_ssrRenderAttr(\"src\", !_unref(chat).get_user_chat.is_group ? _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat.user?.photo : _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat?.photo_url)} alt=\"\">`);\n      } else {\n        _push(`<div><div class=\"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight\"><!--[-->`);\n        _ssrRenderList(_unref(chat).get_user_chat.name.split(\" \").slice(0, 2), (chatName) => {\n          _push(`<p class=\"uppercase\">${_ssrInterpolate(chatName[0])}</p>`);\n        });\n        _push(`<!--]--></div></div>`);\n      }\n      _push(`</div><div><p class=\"text-lg tracking-widest\">${_ssrInterpolate(_unref(chat).get_user_chat.name)}</p><p class=\"text-sm text-gray-400\">${_ssrInterpolate(_unref(chat).get_user_chat.users?.length + \" \" + _ctx.$t(\"участников\"))}</p></div></div></div>`);\n    };\n  }\n});\n",
+      "start": 1706896547856,
+      "end": 1706896548029,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentMain.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useChat} from \"~/stores/chat\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatWindowSettingContentMain',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst chat = useChat()\r\nconst loadAuthStore = useAuthStore()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"p-4\" }, _attrs))}><div class=\"flex items-center tracking-wider gap-x-4\"><div>`)\n  if (_unref(chat).get_user_chat.user?.id || _unref(chat).get_user_chat.photo_url) {\n    _push(`<img class=\"w-[80px] h-[80px] rounded-full\"${_ssrRenderAttr(\"src\", !_unref(chat).get_user_chat.is_group\r\n                ? _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat.user?.photo\r\n                : _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat?.photo_url)} alt=\"\">`)\n  } else {\n    _push(`<div><div class=\"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight\"><!--[-->`)\n    _ssrRenderList(_unref(chat).get_user_chat.name.split(' ').slice(0,2), (chatName) => {\n      _push(`<p class=\"uppercase\">${_ssrInterpolate(chatName[0])}</p>`)\n    })\n    _push(`<!--]--></div></div>`)\n  }\n  _push(`</div><div><p class=\"text-lg tracking-widest\">${\n    _ssrInterpolate(_unref(chat).get_user_chat.name)\n  }</p><p class=\"text-sm text-gray-400\">${\n    _ssrInterpolate(_unref(chat).get_user_chat.users?.length + ' ' + _ctx.$t('участников'))\n  }</p></div></div></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,mBAAmB;AAC3D,SAAS,iBAAiB,gBAAgB,kBAAkB,iBAAiB,kBAAkB,iBAAiB,iBAAiB,sBAAsB;AAEvJ,SAAQ,oBAAmB;AAC3B,SAAQ,eAAc;AAEtB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,UAAM,OAAO,QAAQ;AACrB,UAAM,gBAAgB,aAAa;AAEnC,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,MAAM,GAAG,MAAM,CAAC,CAAC,8DAA8D;AACjI,UAAI,OAAO,IAAI,EAAE,cAAc,MAAM,MAAM,OAAO,IAAI,EAAE,cAAc,WAAW;AAC/E,cAAM,8CAA8C,eAAe,OAAO,CAAC,OAAO,IAAI,EAAE,cAAc,WACxF,OAAO,aAAa,EAAE,oBAAoB,OAAO,IAAI,EAAE,cAAc,MAAM,QAC3E,OAAO,aAAa,EAAE,oBAAoB,OAAO,IAAI,EAAE,eAAe,SAAS,CAAC,UAAU;AAAA,MAC1G,OAAO;AACL,cAAM,qHAAqH;AAC3H,uBAAe,OAAO,IAAI,EAAE,cAAc,KAAK,MAAM,GAAG,EAAE,MAAM,GAAE,CAAC,GAAG,CAAC,aAAa;AAClF,gBAAM,wBAAwB,gBAAgB,SAAS,CAAC,CAAC,CAAC,MAAM;AAAA,QAClE,CAAC;AACD,cAAM,sBAAsB;AAAA,MAC9B;AACA,YAAM,iDACJ,gBAAgB,OAAO,IAAI,EAAE,cAAc,IAAI,CACjD,wCACE,gBAAgB,OAAO,IAAI,EAAE,cAAc,OAAO,SAAS,MAAM,KAAK,GAAG,YAAY,CAAC,CACxF,wBAAwB;AAAA,IAC1B;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548029,
+      "end": 1706896548029,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896548030,
+      "end": 1706896548030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548031,
+      "end": 1706896548031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548031,
+      "end": 1706896548034,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548031,
+      "end": 1706896548034,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548035,
+      "end": 1706896548035,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548035,
+      "end": 1706896548035,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548035,
+      "end": 1706896548035,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548035,
+      "end": 1706896548035,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896548035,
+      "end": 1706896548035,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896548035,
+      "end": 1706896548035,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896548035,
+      "end": 1706896548036,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896548036,
+      "end": 1706896548036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896548036,
+      "end": 1706896548036,
+      "order": "normal"
+    }
+  ]
+}

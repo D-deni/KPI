@@ -1,0 +1,319 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatChangeWindow.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatChangeWindowElem from \"~/components/Chat/UI/ChatChangeWindowElem.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatChangeWindow',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))\n  }><div class=\"${\n    _ssrRenderClass([{'dark:bg-gray-500 bg-gray-200' : _unref(chat).showChangeWindowChat}, \"p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200\"])\n  }\"><svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></div>`)\n  if (_unref(chat).showChangeWindowChat) {\n    _push(`<div class=\"absolute top-14 right-8 z-50 dark:bg-gray-600 bg-gray-200 border border-gray-300 dark:border dark:border-gray-500\">`)\n    if (_unref(chat).get_user_chat.is_group) {\n      _push(_ssrRenderComponent(ChatChangeWindowElem, {\n        onClick: ($event: any) => (_unref(chat).showChatInfo = true)\n      }, {\n        chatWindowSettingContentSvg: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`<svg class=\"dark:fill-white fill-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n              _scopeId\n            }><path d=\"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\"${\n              _scopeId\n            }></path><path d=\"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\"${\n              _scopeId\n            }></path><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"${\n              _scopeId\n            }></path></svg>`)\n          } else {\n            return [\n              (_openBlock(), _createBlock(\"svg\", {\n                class: \"dark:fill-white fill-black\",\n                width: \"25px\",\n                height: \"25px\",\n                viewBox: \"0 0 24 24\",\n                fill: \"none\",\n                xmlns: \"http://www.w3.org/2000/svg\"\n              }, [\n                _createVNode(\"path\", { d: \"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\" }),\n                _createVNode(\"path\", { d: \"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\" }),\n                _createVNode(\"path\", {\n                  \"fill-rule\": \"evenodd\",\n                  \"clip-rule\": \"evenodd\",\n                  d: \"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"\n                })\n              ]))\n            ]\n          }\n        }),\n        chatWindowSettingContentText: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(_ctx.$t('Информация о группе'))}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t('Информация о группе')), 1)\n            ]\n          }\n        }),\n        _: 1\n      }, _parent))\n    } else {\n      _push(_ssrRenderComponent(ChatChangeWindowElem, {\n        onClick: ($event: any) => (_unref(chat).showChatInfo = true)\n      }, {\n        chatWindowSettingContentSvg: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`<svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n              _scopeId\n            }><circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\" stroke-width=\"1\" stroke-linecap=\"round\"${\n              _scopeId\n            }></path></svg>`)\n          } else {\n            return [\n              (_openBlock(), _createBlock(\"svg\", {\n                class: \"dark:stroke-white stroke-black\",\n                width: \"25px\",\n                height: \"25px\",\n                viewBox: \"0 0 24 24\",\n                fill: \"none\",\n                xmlns: \"http://www.w3.org/2000/svg\"\n              }, [\n                _createVNode(\"circle\", {\n                  opacity: \"0.5\",\n                  cx: \"12\",\n                  cy: \"9\",\n                  r: \"3\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"circle\", {\n                  cx: \"12\",\n                  cy: \"12\",\n                  r: \"10\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"path\", {\n                  opacity: \"0.5\",\n                  d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n                  \"stroke-width\": \"1\",\n                  \"stroke-linecap\": \"round\"\n                })\n              ]))\n            ]\n          }\n        }),\n        chatWindowSettingContentText: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(_ctx.$t('Показать профиль'))}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t('Показать профиль')), 1)\n            ]\n          }\n        }),\n        _: 1\n      }, _parent))\n    }\n    if (_unref(chat).get_user_chat.is_group) {\n      _push(_ssrRenderComponent(ChatChangeWindowElem, {\n        onClick: ($event: any) => {_unref(chat).showChatChangeInfoModal = true; _unref(chat).updateChatName = _unref(chat).userChat.name}\n      }, {\n        chatWindowSettingContentSvg: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`<svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n              _scopeId\n            }><circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\" stroke-width=\"1\" stroke-linecap=\"round\"${\n              _scopeId\n            }></path></svg>`)\n          } else {\n            return [\n              (_openBlock(), _createBlock(\"svg\", {\n                class: \"dark:stroke-white stroke-black\",\n                width: \"25px\",\n                height: \"25px\",\n                viewBox: \"0 0 24 24\",\n                fill: \"none\",\n                xmlns: \"http://www.w3.org/2000/svg\"\n              }, [\n                _createVNode(\"circle\", {\n                  opacity: \"0.5\",\n                  cx: \"12\",\n                  cy: \"9\",\n                  r: \"3\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"circle\", {\n                  cx: \"12\",\n                  cy: \"12\",\n                  r: \"10\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"path\", {\n                  opacity: \"0.5\",\n                  d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n                  \"stroke-width\": \"1\",\n                  \"stroke-linecap\": \"round\"\n                })\n              ]))\n            ]\n          }\n        }),\n        chatWindowSettingContentText: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(_ctx.$t('Управление группой'))}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t('Управление группой')), 1)\n            ]\n          }\n        }),\n        _: 1\n      }, _parent))\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatChangeWindow.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatChangeWindowElem from \"~/components/Chat/UI/ChatChangeWindowElem.vue\";\r\n\r\nconst chat = useChat()\r\n</script>\r\n\r\n<template>\r\n  <div class=\"\">\r\n    <div @click.stop=\"chat.showChangeWindowChat = !chat.showChangeWindowChat\"\r\n         class=\"p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200\" :class=\"{'dark:bg-gray-500 bg-gray-200' : chat.showChangeWindowChat}\">\r\n      <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n           xmlns=\"http://www.w3.org/2000/svg\">\r\n        <path\r\n          d=\"M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z\"\r\n          stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n      </svg>\r\n    </div>\r\n    <Transition name=\"fade\" >\r\n      <div v-if=\"chat.showChangeWindowChat\" @click.stop=\"chat.showChangeWindowChat = false\" class=\"absolute top-14 right-8 z-50 dark:bg-gray-600 bg-gray-200 border border-gray-300 dark:border dark:border-gray-500\">\r\n        <ChatChangeWindowElem @click=\"chat.showChatInfo = true\" v-if=\"chat.get_user_chat.is_group\">\r\n          <template v-slot:chatWindowSettingContentSvg>\r\n            <svg class=\"dark:fill-white fill-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path d=\"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\" />\r\n              <path d=\"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\" />\r\n              <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\" />\r\n            </svg>\r\n          </template>\r\n          <template v-slot:chatWindowSettingContentText>\r\n            {{$t('Информация о группе')}}\r\n          </template>\r\n        </ChatChangeWindowElem>\r\n        <ChatChangeWindowElem @click=\"chat.showChatInfo = true\" v-else>\r\n          <template v-slot:chatWindowSettingContentSvg>\r\n            <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n              <circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\"  stroke-width=\"1\"/>\r\n              <circle cx=\"12\" cy=\"12\" r=\"10\"  stroke-width=\"1\"/>\r\n              <path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\"  stroke-width=\"1\" stroke-linecap=\"round\"/>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:chatWindowSettingContentText>\r\n            {{$t('Показать профиль')}}\r\n          </template>\r\n        </ChatChangeWindowElem>\r\n        <ChatChangeWindowElem @click=\"chat.showChatChangeInfoModal = true; chat.updateChatName = chat.userChat.name\" v-if=\"chat.get_user_chat.is_group\">\r\n          <template v-slot:chatWindowSettingContentSvg>\r\n            <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n              <circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\"  stroke-width=\"1\"/>\r\n              <circle cx=\"12\" cy=\"12\" r=\"10\"  stroke-width=\"1\"/>\r\n              <path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\"  stroke-width=\"1\" stroke-linecap=\"round\"/>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:chatWindowSettingContentText>\r\n            {{$t('Управление группой')}}\r\n          </template>\r\n        </ChatChangeWindowElem>\r\n      </div>\r\n    </Transition>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClF,CAAC;;;;;;AAHuB,CAAC;AAIzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896545866,
+      "end": 1706896545866,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport { useChat } from \"~/stores/chat\";\nimport ChatChangeWindowElem from \"~/components/Chat/UI/ChatChangeWindowElem.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatChangeWindow\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const chat = useChat();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))}><div class=\"${_ssrRenderClass([{ \"dark:bg-gray-500 bg-gray-200\": _unref(chat).showChangeWindowChat }, \"p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200\"])}\"><svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></div>`);\n      if (_unref(chat).showChangeWindowChat) {\n        _push(`<div class=\"absolute top-14 right-8 z-50 dark:bg-gray-600 bg-gray-200 border border-gray-300 dark:border dark:border-gray-500\">`);\n        if (_unref(chat).get_user_chat.is_group) {\n          _push(_ssrRenderComponent(ChatChangeWindowElem, {\n            onClick: ($event) => _unref(chat).showChatInfo = true\n          }, {\n            chatWindowSettingContentSvg: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`<svg class=\"dark:fill-white fill-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><path d=\"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\"${_scopeId}></path><path d=\"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\"${_scopeId}></path><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"${_scopeId}></path></svg>`);\n              } else {\n                return [\n                  (_openBlock(), _createBlock(\"svg\", {\n                    class: \"dark:fill-white fill-black\",\n                    width: \"25px\",\n                    height: \"25px\",\n                    viewBox: \"0 0 24 24\",\n                    fill: \"none\",\n                    xmlns: \"http://www.w3.org/2000/svg\"\n                  }, [\n                    _createVNode(\"path\", { d: \"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\" }),\n                    _createVNode(\"path\", { d: \"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\" }),\n                    _createVNode(\"path\", {\n                      \"fill-rule\": \"evenodd\",\n                      \"clip-rule\": \"evenodd\",\n                      d: \"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"\n                    })\n                  ]))\n                ];\n              }\n            }),\n            chatWindowSettingContentText: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`${_ssrInterpolate(_ctx.$t(\"Информация о группе\"))}`);\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Информация о группе\")), 1)\n                ];\n              }\n            }),\n            _: 1\n          }, _parent));\n        } else {\n          _push(_ssrRenderComponent(ChatChangeWindowElem, {\n            onClick: ($event) => _unref(chat).showChatInfo = true\n          }, {\n            chatWindowSettingContentSvg: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`<svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\" stroke-width=\"1\"${_scopeId}></circle><circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1\"${_scopeId}></circle><path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\" stroke-width=\"1\" stroke-linecap=\"round\"${_scopeId}></path></svg>`);\n              } else {\n                return [\n                  (_openBlock(), _createBlock(\"svg\", {\n                    class: \"dark:stroke-white stroke-black\",\n                    width: \"25px\",\n                    height: \"25px\",\n                    viewBox: \"0 0 24 24\",\n                    fill: \"none\",\n                    xmlns: \"http://www.w3.org/2000/svg\"\n                  }, [\n                    _createVNode(\"circle\", {\n                      opacity: \"0.5\",\n                      cx: \"12\",\n                      cy: \"9\",\n                      r: \"3\",\n                      \"stroke-width\": \"1\"\n                    }),\n                    _createVNode(\"circle\", {\n                      cx: \"12\",\n                      cy: \"12\",\n                      r: \"10\",\n                      \"stroke-width\": \"1\"\n                    }),\n                    _createVNode(\"path\", {\n                      opacity: \"0.5\",\n                      d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n                      \"stroke-width\": \"1\",\n                      \"stroke-linecap\": \"round\"\n                    })\n                  ]))\n                ];\n              }\n            }),\n            chatWindowSettingContentText: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`${_ssrInterpolate(_ctx.$t(\"Показать профиль\"))}`);\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Показать профиль\")), 1)\n                ];\n              }\n            }),\n            _: 1\n          }, _parent));\n        }\n        if (_unref(chat).get_user_chat.is_group) {\n          _push(_ssrRenderComponent(ChatChangeWindowElem, {\n            onClick: ($event) => {\n              _unref(chat).showChatChangeInfoModal = true;\n              _unref(chat).updateChatName = _unref(chat).userChat.name;\n            }\n          }, {\n            chatWindowSettingContentSvg: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`<svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\" stroke-width=\"1\"${_scopeId}></circle><circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1\"${_scopeId}></circle><path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\" stroke-width=\"1\" stroke-linecap=\"round\"${_scopeId}></path></svg>`);\n              } else {\n                return [\n                  (_openBlock(), _createBlock(\"svg\", {\n                    class: \"dark:stroke-white stroke-black\",\n                    width: \"25px\",\n                    height: \"25px\",\n                    viewBox: \"0 0 24 24\",\n                    fill: \"none\",\n                    xmlns: \"http://www.w3.org/2000/svg\"\n                  }, [\n                    _createVNode(\"circle\", {\n                      opacity: \"0.5\",\n                      cx: \"12\",\n                      cy: \"9\",\n                      r: \"3\",\n                      \"stroke-width\": \"1\"\n                    }),\n                    _createVNode(\"circle\", {\n                      cx: \"12\",\n                      cy: \"12\",\n                      r: \"10\",\n                      \"stroke-width\": \"1\"\n                    }),\n                    _createVNode(\"path\", {\n                      opacity: \"0.5\",\n                      d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n                      \"stroke-width\": \"1\",\n                      \"stroke-linecap\": \"round\"\n                    })\n                  ]))\n                ];\n              }\n            }),\n            chatWindowSettingContentText: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`${_ssrInterpolate(_ctx.$t(\"Управление группой\"))}`);\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Управление группой\")), 1)\n                ];\n              }\n            }),\n            _: 1\n          }, _parent));\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
+      "start": 1706896545866,
+      "end": 1706896546388,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatChangeWindow.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatChangeWindowElem from \"~/components/Chat/UI/ChatChangeWindowElem.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatChangeWindow',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))\n  }><div class=\"${\n    _ssrRenderClass([{'dark:bg-gray-500 bg-gray-200' : _unref(chat).showChangeWindowChat}, \"p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200\"])\n  }\"><svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></div>`)\n  if (_unref(chat).showChangeWindowChat) {\n    _push(`<div class=\"absolute top-14 right-8 z-50 dark:bg-gray-600 bg-gray-200 border border-gray-300 dark:border dark:border-gray-500\">`)\n    if (_unref(chat).get_user_chat.is_group) {\n      _push(_ssrRenderComponent(ChatChangeWindowElem, {\n        onClick: ($event: any) => (_unref(chat).showChatInfo = true)\n      }, {\n        chatWindowSettingContentSvg: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`<svg class=\"dark:fill-white fill-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n              _scopeId\n            }><path d=\"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\"${\n              _scopeId\n            }></path><path d=\"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\"${\n              _scopeId\n            }></path><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"${\n              _scopeId\n            }></path></svg>`)\n          } else {\n            return [\n              (_openBlock(), _createBlock(\"svg\", {\n                class: \"dark:fill-white fill-black\",\n                width: \"25px\",\n                height: \"25px\",\n                viewBox: \"0 0 24 24\",\n                fill: \"none\",\n                xmlns: \"http://www.w3.org/2000/svg\"\n              }, [\n                _createVNode(\"path\", { d: \"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\" }),\n                _createVNode(\"path\", { d: \"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\" }),\n                _createVNode(\"path\", {\n                  \"fill-rule\": \"evenodd\",\n                  \"clip-rule\": \"evenodd\",\n                  d: \"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"\n                })\n              ]))\n            ]\n          }\n        }),\n        chatWindowSettingContentText: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(_ctx.$t('Информация о группе'))}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t('Информация о группе')), 1)\n            ]\n          }\n        }),\n        _: 1\n      }, _parent))\n    } else {\n      _push(_ssrRenderComponent(ChatChangeWindowElem, {\n        onClick: ($event: any) => (_unref(chat).showChatInfo = true)\n      }, {\n        chatWindowSettingContentSvg: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`<svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n              _scopeId\n            }><circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\" stroke-width=\"1\" stroke-linecap=\"round\"${\n              _scopeId\n            }></path></svg>`)\n          } else {\n            return [\n              (_openBlock(), _createBlock(\"svg\", {\n                class: \"dark:stroke-white stroke-black\",\n                width: \"25px\",\n                height: \"25px\",\n                viewBox: \"0 0 24 24\",\n                fill: \"none\",\n                xmlns: \"http://www.w3.org/2000/svg\"\n              }, [\n                _createVNode(\"circle\", {\n                  opacity: \"0.5\",\n                  cx: \"12\",\n                  cy: \"9\",\n                  r: \"3\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"circle\", {\n                  cx: \"12\",\n                  cy: \"12\",\n                  r: \"10\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"path\", {\n                  opacity: \"0.5\",\n                  d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n                  \"stroke-width\": \"1\",\n                  \"stroke-linecap\": \"round\"\n                })\n              ]))\n            ]\n          }\n        }),\n        chatWindowSettingContentText: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(_ctx.$t('Показать профиль'))}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t('Показать профиль')), 1)\n            ]\n          }\n        }),\n        _: 1\n      }, _parent))\n    }\n    if (_unref(chat).get_user_chat.is_group) {\n      _push(_ssrRenderComponent(ChatChangeWindowElem, {\n        onClick: ($event: any) => {_unref(chat).showChatChangeInfoModal = true; _unref(chat).updateChatName = _unref(chat).userChat.name}\n      }, {\n        chatWindowSettingContentSvg: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`<svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n              _scopeId\n            }><circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1\"${\n              _scopeId\n            }></circle><path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\" stroke-width=\"1\" stroke-linecap=\"round\"${\n              _scopeId\n            }></path></svg>`)\n          } else {\n            return [\n              (_openBlock(), _createBlock(\"svg\", {\n                class: \"dark:stroke-white stroke-black\",\n                width: \"25px\",\n                height: \"25px\",\n                viewBox: \"0 0 24 24\",\n                fill: \"none\",\n                xmlns: \"http://www.w3.org/2000/svg\"\n              }, [\n                _createVNode(\"circle\", {\n                  opacity: \"0.5\",\n                  cx: \"12\",\n                  cy: \"9\",\n                  r: \"3\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"circle\", {\n                  cx: \"12\",\n                  cy: \"12\",\n                  r: \"10\",\n                  \"stroke-width\": \"1\"\n                }),\n                _createVNode(\"path\", {\n                  opacity: \"0.5\",\n                  d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n                  \"stroke-width\": \"1\",\n                  \"stroke-linecap\": \"round\"\n                })\n              ]))\n            ]\n          }\n        }),\n        chatWindowSettingContentText: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(_ctx.$t('Управление группой'))}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t('Управление группой')), 1)\n            ]\n          }\n        }),\n        _: 1\n      }, _parent))\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "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",
+        "names": [
+          "_push",
+          "_parent"
+        ]
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896546388,
+      "end": 1706896546388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896546388,
+      "end": 1706896546388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896546388,
+      "end": 1706896546388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896546388,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896546389,
+      "end": 1706896546389,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896546390,
+      "end": 1706896546390,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896546391,
+      "end": 1706896546391,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896546391,
+      "end": 1706896546391,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896546391,
+      "end": 1706896546391,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896546392,
+      "end": 1706896546392,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896546392,
+      "end": 1706896546393,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896546393,
+      "end": 1706896546393,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896546393,
+      "end": 1706896546393,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896546394,
+      "end": 1706896546394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896546394,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896546394,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896546399,
+      "end": 1706896546399,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896546400,
+      "end": 1706896546400,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896546400,
+      "end": 1706896546400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896546400,
+      "end": 1706896546400,
+      "order": "normal"
+    }
+  ]
+}

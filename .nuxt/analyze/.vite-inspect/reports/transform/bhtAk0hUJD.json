@@ -1,0 +1,234 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/@fullcalendar/vue3/dist/FullCalendar.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, Fragment, Teleport } from 'vue';\nimport { Calendar } from '@fullcalendar/core';\nimport { CustomRenderingStore } from '@fullcalendar/core/internal';\nimport { OPTION_IS_COMPLEX } from './options.js';\nconst FullCalendar = defineComponent({\n    props: {\n        options: Object\n    },\n    data() {\n        return {\n            renderId: 0,\n            customRenderingMap: new Map()\n        };\n    },\n    methods: {\n        getApi() {\n            return getSecret(this).calendar;\n        },\n        buildOptions(suppliedOptions) {\n            return {\n                ...suppliedOptions,\n                customRenderingMetaMap: kebabToCamelKeys(this.$slots),\n                handleCustomRendering: getSecret(this).handleCustomRendering,\n            };\n        },\n    },\n    render() {\n        const customRenderingNodes = [];\n        for (const customRendering of this.customRenderingMap.values()) {\n            customRenderingNodes.push(h(CustomRenderingComponent, {\n                key: customRendering.id,\n                customRendering,\n            }));\n        }\n        return h('div', {\n            // when renderId is changed, Vue will trigger a real-DOM async rerender, calling beforeUpdate/updated\n            attrs: { 'data-fc-render-id': this.renderId }\n        }, h(Fragment, customRenderingNodes)); // for containing CustomRendering keys\n    },\n    mounted() {\n        const customRenderingStore = new CustomRenderingStore();\n        getSecret(this).handleCustomRendering = customRenderingStore.handle.bind(customRenderingStore);\n        const calendarOptions = this.buildOptions(this.options);\n        const calendar = new Calendar(this.$el, calendarOptions);\n        getSecret(this).calendar = calendar;\n        calendar.render();\n        customRenderingStore.subscribe((customRenderingMap) => {\n            this.customRenderingMap = customRenderingMap; // likely same reference, so won't rerender\n            this.renderId++; // force rerender\n            getSecret(this).needCustomRenderingResize = true;\n        });\n    },\n    beforeUpdate() {\n        this.getApi().resumeRendering(); // the watcher handlers paused it\n    },\n    updated() {\n        if (getSecret(this).needCustomRenderingResize) {\n            getSecret(this).needCustomRenderingResize = false;\n            this.getApi().updateSize();\n        }\n    },\n    beforeUnmount() {\n        this.getApi().destroy();\n    },\n    watch: buildWatchers()\n});\nexport default FullCalendar;\n// Custom Rendering\n// -------------------------------------------------------------------------------------------------\nconst CustomRenderingComponent = defineComponent({\n    props: {\n        customRendering: Object\n    },\n    render() {\n        const customRendering = this.customRendering;\n        const innerContent = typeof customRendering.generatorMeta === 'function' ?\n            customRendering.generatorMeta(customRendering.renderProps) : // vue-normalized slot function\n            customRendering.generatorMeta; // probably a vue JSX node returned from content-inject func\n        return h(Teleport, { to: customRendering.containerEl }, innerContent);\n    }\n});\n// storing internal state:\n// https://github.com/vuejs/vue/issues/1988#issuecomment-163013818\nfunction getSecret(inst) {\n    return inst;\n}\nfunction buildWatchers() {\n    let watchers = {\n        // watches changes of ALL options and their nested objects,\n        // but this is only a means to be notified of top-level non-complex options changes.\n        options: {\n            deep: true,\n            handler(options) {\n                let calendar = this.getApi();\n                calendar.pauseRendering();\n                let calendarOptions = this.buildOptions(options);\n                calendar.resetOptions(calendarOptions);\n                this.renderId++; // will queue a rerender\n            }\n        }\n    };\n    for (let complexOptionName in OPTION_IS_COMPLEX) {\n        // handlers called when nested objects change\n        watchers[`options.${complexOptionName}`] = {\n            deep: true,\n            handler(val) {\n                // unfortunately the handler is called with undefined if new props were set, but the complex one wasn't ever set\n                if (val !== undefined) {\n                    let calendar = this.getApi();\n                    calendar.pauseRendering();\n                    calendar.resetOptions({\n                        [complexOptionName]: val\n                    }, [complexOptionName]);\n                    this.renderId++; // will queue a rerender\n                }\n            }\n        };\n    }\n    return watchers;\n}\n// General Utils\n// -------------------------------------------------------------------------------------------------\nfunction kebabToCamelKeys(map) {\n    const newMap = {};\n    for (const key in map) {\n        newMap[kebabToCamel(key)] = map[key];\n    }\n    return newMap;\n}\nfunction kebabToCamel(s) {\n    return s\n        .split('-')\n        .map((word, index) => index ? capitalize(word) : word)\n        .join('');\n}\nfunction capitalize(s) {\n    return s.charAt(0).toUpperCase() + s.slice(1);\n}\n//# sourceMappingURL=FullCalendar.js.map",
+      "start": 1706896521966,
+      "end": 1706896522555,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522555,
+      "end": 1706896522555,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522555,
+      "end": 1706896522556,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522556,
+      "end": 1706896522556,
+      "order": "normal"
+    }
+  ]
+}

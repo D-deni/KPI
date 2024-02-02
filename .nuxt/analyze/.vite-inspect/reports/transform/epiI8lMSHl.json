@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/ChatNav/ChatNavHeader.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, vModelText as _vModelText, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, withDirectives as _withDirectives, withModifiers as _withModifiers, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"\" }\nconst _hoisted_2 = {\n  key: 0,\n  class: \"mx-4\"\n}\n\nimport {useRoute} from \"vue-router\";\r\nimport {useUserStore} from \"~/stores/users\";\r\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatNavHeaderElem from \"~/components/Chat/ChatNav/UI/ChatNavHeaderElem.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport ChatGroupCreate from \"~/components/Chat/ChatGroup/ChatGroupCreate.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatNavHeader',\n  props: {\r\n  activeNav: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n},\n  setup(__props) {\n\r\nconst userStore = useUserStore()\r\nconst chat = useChat()\r\nconst route = useRoute()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"form\", {\n      onSubmit: _cache[1] || (_cache[1] = _withModifiers(($event: any) => (_unref(userStore).searchUser({search: _unref(chat).searchElem})), [\"prevent\"])),\n      class: \"px-4 mb-2 pb-4\"\n    }, [\n      _withDirectives(_createElementVNode(\"input\", {\n        \"onUpdate:modelValue\": _cache[0] || (_cache[0] = ($event: any) => ((_unref(chat).searchElem) = $event)),\n        class: _normalizeClass([\"w-full hover:bg-active px-4 py-1 rounded-full max-md:w-9/12 max-md:mx-auto block text-sm bg-gray-100 focus:bg-gray-300 text-black tracking-widest dark:focus:opacity-100 transition-all dark:bg-gray-600 dark:text-white outline-none\", {'max-md:hidden' : !_unref(chat).activeChatNav && _unref(route).path !== '/base/chat'}]),\n        type: \"text\",\n        placeholder: \"Поиск...\"\n      }, null, 2), [\n        [_vModelText, _unref(chat).searchElem]\n      ])\n    ], 32),\n    (_unref(chat).windowWidth < 768 || _unref(chat).windowWidth > 768)\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(ChatGroupCreate),\n          _createVNode(ChatNavHeaderElem)\n        ]))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})",
+      "start": 1706896521966,
+      "end": 1706896521966
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521966,
+      "end": 1706896521966,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521966,
+      "end": 1706896521966,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521966,
+      "end": 1706896521966,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521966,
+      "end": 1706896521966,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521966,
+      "end": 1706896521966,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, vModelText as _vModelText, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, withDirectives as _withDirectives, withModifiers as _withModifiers, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nconst _hoisted_1 = { class: \"\" };\nconst _hoisted_2 = {\n  key: 0,\n  class: \"mx-4\"\n};\nimport { useRoute } from \"vue-router\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useChat } from \"~/stores/chat\";\nimport ChatNavHeaderElem from \"~/components/Chat/ChatNav/UI/ChatNavHeaderElem.vue\";\nimport ChatGroupCreate from \"~/components/Chat/ChatGroup/ChatGroupCreate.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatNavHeader\",\n  props: {\n    activeNav: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const userStore = useUserStore();\n    const chat = useChat();\n    const route = useRoute();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"form\", {\n          onSubmit: _cache[1] || (_cache[1] = _withModifiers(($event) => _unref(userStore).searchUser({ search: _unref(chat).searchElem }), [\"prevent\"])),\n          class: \"px-4 mb-2 pb-4\"\n        }, [\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[0] || (_cache[0] = ($event) => _unref(chat).searchElem = $event),\n            class: _normalizeClass([\"w-full hover:bg-active px-4 py-1 rounded-full max-md:w-9/12 max-md:mx-auto block text-sm bg-gray-100 focus:bg-gray-300 text-black tracking-widest dark:focus:opacity-100 transition-all dark:bg-gray-600 dark:text-white outline-none\", { \"max-md:hidden\": !_unref(chat).activeChatNav && _unref(route).path !== \"/base/chat\" }]),\n            type: \"text\",\n            placeholder: \"Поиск...\"\n          }, null, 2), [\n            [_vModelText, _unref(chat).searchElem]\n          ])\n        ], 32),\n        _unref(chat).windowWidth < 768 || _unref(chat).windowWidth > 768 ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(ChatGroupCreate),\n          _createVNode(ChatNavHeaderElem)\n        ])) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521966,
+      "end": 1706896522475,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/ChatNav/ChatNavHeader.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, vModelText as _vModelText, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, withDirectives as _withDirectives, withModifiers as _withModifiers, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"\" }\nconst _hoisted_2 = {\n  key: 0,\n  class: \"mx-4\"\n}\n\nimport {useRoute} from \"vue-router\";\r\nimport {useUserStore} from \"~/stores/users\";\r\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatNavHeaderElem from \"~/components/Chat/ChatNav/UI/ChatNavHeaderElem.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport ChatGroupCreate from \"~/components/Chat/ChatGroup/ChatGroupCreate.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatNavHeader',\n  props: {\r\n  activeNav: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n},\n  setup(__props) {\n\r\nconst userStore = useUserStore()\r\nconst chat = useChat()\r\nconst route = useRoute()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"form\", {\n      onSubmit: _cache[1] || (_cache[1] = _withModifiers(($event: any) => (_unref(userStore).searchUser({search: _unref(chat).searchElem})), [\"prevent\"])),\n      class: \"px-4 mb-2 pb-4\"\n    }, [\n      _withDirectives(_createElementVNode(\"input\", {\n        \"onUpdate:modelValue\": _cache[0] || (_cache[0] = ($event: any) => ((_unref(chat).searchElem) = $event)),\n        class: _normalizeClass([\"w-full hover:bg-active px-4 py-1 rounded-full max-md:w-9/12 max-md:mx-auto block text-sm bg-gray-100 focus:bg-gray-300 text-black tracking-widest dark:focus:opacity-100 transition-all dark:bg-gray-600 dark:text-white outline-none\", {'max-md:hidden' : !_unref(chat).activeChatNav && _unref(route).path !== '/base/chat'}]),\n        type: \"text\",\n        placeholder: \"Поиск...\"\n      }, null, 2), [\n        [_vModelText, _unref(chat).searchElem]\n      ])\n    ], 32),\n    (_unref(chat).windowWidth < 768 || _unref(chat).windowWidth > 768)\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(ChatGroupCreate),\n          _createVNode(ChatNavHeaderElem)\n        ]))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,aAAa,kBAAkB,iBAAiB,sBAAsB,qBAAqB,kBAAkB,iBAAiB,iBAAiB,gBAAgB,eAAe,cAAc,aAAa,YAAY,sBAAsB,qBAAqB,sBAAsB,2BAA2B;AAEzV,MAAM,aAAa,EAAE,OAAO,GAAG;AAC/B,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AAEA,SAAQ,gBAAe;AACvB,SAAQ,oBAAmB;AAC3B,SAAQ,eAAc;AACtB,OAAO,uBAAuB;AAE9B,OAAO,qBAAqB;AAE5B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,WAAW;AAAA,MACT,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAEjB,UAAM,YAAY,aAAa;AAC/B,UAAM,OAAO,QAAQ;AACrB,UAAM,QAAQ,SAAS;AAGvB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D,oBAAoB,QAAQ;AAAA,UAC1B,UAAU,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,eAAe,CAAC,WAAiB,OAAO,SAAS,EAAE,WAAW,EAAC,QAAQ,OAAO,IAAI,EAAE,WAAU,CAAC,GAAI,CAAC,SAAS,CAAC;AAAA,UAClJ,OAAO;AAAA,QACT,GAAG;AAAA,UACD,gBAAgB,oBAAoB,SAAS;AAAA,YAC3C,uBAAuB,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAkB,OAAO,IAAI,EAAE,aAAc;AAAA,YAC/F,OAAO,gBAAgB,CAAC,yOAAyO,EAAC,iBAAkB,CAAC,OAAO,IAAI,EAAE,iBAAiB,OAAO,KAAK,EAAE,SAAS,aAAY,CAAC,CAAC;AAAA,YACxV,MAAM;AAAA,YACN,aAAa;AAAA,UACf,GAAG,MAAM,CAAC,GAAG;AAAA,YACX,CAAC,aAAa,OAAO,IAAI,EAAE,UAAU;AAAA,UACvC,CAAC;AAAA,QACH,GAAG,EAAE;AAAA,QACJ,OAAO,IAAI,EAAE,cAAc,OAAO,OAAO,IAAI,EAAE,cAAc,OACzD,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UACpD,aAAa,eAAe;AAAA,UAC5B,aAAa,iBAAiB;AAAA,QAChC,CAAC,KACD,oBAAoB,IAAI,IAAI;AAAA,MAClC,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522481,
+      "end": 1706896522487,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522487,
+      "end": 1706896522487,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522488,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522489,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522489,
+      "end": 1706896522490,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    }
+  ]
+}

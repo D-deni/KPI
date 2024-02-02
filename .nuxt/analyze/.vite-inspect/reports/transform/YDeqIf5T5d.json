@@ -1,0 +1,238 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n<div>\r\n  <div class=\"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\" :task=\"task\">\r\n    <div class=\"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\" >\r\n      <slot name=\"TaskReportSvg\"/>\r\n    </div>\r\n   <div class=\"flex flex-col\">\r\n     <p class=\"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white \"><slot name=\"TaskReportTitle\"/></p>\r\n     <p class=\"text-md dark:text-white text-blue-600\"><slot name=\"TaskReportSubtitle\"/></p>\r\n     <div><slot name=\"TaskSceleton\"/></div>\r\n   </div>\r\n  </div>\r\n</div>\r\n</template>\r\n\r\n<script lang=\"ts\" setup>\r\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\nconst taskList = useTaskList()\r\n\r\ndefineProps({\r\n  task: {\r\n    type: Number,\r\n    default: null,\r\n  }\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n\r\n</style>",
+      "start": 1706896521738,
+      "end": 1706896521916,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521916,
+      "end": 1706896521916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue?vue&type=script&setup=true&lang.ts\";\nexport default _sfc_main;\n",
+      "start": 1706896521916,
+      "end": 1706896521930,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521930,
+      "end": 1706896521930,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521931,
+      "end": 1706896521931,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521931,
+      "end": 1706896521931,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521931,
+      "end": 1706896521931,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521931,
+      "end": 1706896521931,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521931,
+      "end": 1706896521931,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521932,
+      "end": 1706896521932,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521932,
+      "end": 1706896521932,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521932,
+      "end": 1706896521932,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521932,
+      "end": 1706896521932,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521932,
+      "end": 1706896521932,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521932,
+      "end": 1706896521932,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521933,
+      "end": 1706896521933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521933,
+      "end": 1706896521933,
+      "order": "normal"
+    }
+  ]
+}

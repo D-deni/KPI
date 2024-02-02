@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserList.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"text-center tracking-widest font-bold\" }\nconst _hoisted_2 = { class: \"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\" }\n\nimport {useDocumentStore} from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport {useUserStore} from \"~/stores/users\";\nimport {useCompanies} from \"~/stores/companies\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoUserList',\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\nconst user = useUserStore()\nconst company = useCompanies()\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"p\", _hoisted_1, _toDisplayString(_ctx.$t('Список сотрудников')), 1),\n    _createElementVNode(\"div\", _hoisted_2, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(company).get_all_department.results, (item) => {\n        return (_openBlock(), _createBlock(DocumentItemInfoUserListElem, {\n          class: \"rounded-full cursor-pointer\",\n          item: item,\n          onDrag: _cache[0] || (_cache[0] = _withModifiers(() => {}, [\"prevent\"]))\n        }, null, 8, [\"item\"]))\n      }), 256))\n    ])\n  ]))\n}\n}\n\n})",
+      "start": 1706896521562,
+      "end": 1706896521562
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521562,
+      "end": 1706896521562,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521562,
+      "end": 1706896521562,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521562,
+      "end": 1706896521562,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521562,
+      "end": 1706896521562,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521562,
+      "end": 1706896521562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"text-center tracking-widest font-bold\" };\nconst _hoisted_2 = { class: \"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\" };\nimport { useDocumentStore } from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoUserList\",\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    const user = useUserStore();\n    const company = useCompanies();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createElementVNode(\"p\", _hoisted_1, _toDisplayString(_ctx.$t(\"Список сотрудников\")), 1),\n        _createElementVNode(\"div\", _hoisted_2, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(company).get_all_department.results, (item) => {\n            return _openBlock(), _createBlock(DocumentItemInfoUserListElem, {\n              class: \"rounded-full cursor-pointer\",\n              item,\n              onDrag: _cache[0] || (_cache[0] = _withModifiers(() => {\n              }, [\"prevent\"]))\n            }, null, 8, [\"item\"]);\n          }), 256))\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521562,
+      "end": 1706896521755,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserList.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"text-center tracking-widest font-bold\" }\nconst _hoisted_2 = { class: \"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\" }\n\nimport {useDocumentStore} from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport {useUserStore} from \"~/stores/users\";\nimport {useCompanies} from \"~/stores/companies\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoUserList',\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\nconst user = useUserStore()\nconst company = useCompanies()\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"p\", _hoisted_1, _toDisplayString(_ctx.$t('Список сотрудников')), 1),\n    _createElementVNode(\"div\", _hoisted_2, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(company).get_all_department.results, (item) => {\n        return (_openBlock(), _createBlock(DocumentItemInfoUserListElem, {\n          class: \"rounded-full cursor-pointer\",\n          item: item,\n          onDrag: _cache[0] || (_cache[0] = _withModifiers(() => {}, [\"prevent\"]))\n        }, null, 8, [\"item\"]))\n      }), 256))\n    ])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,mBAAmB,kBAAkB,sBAAsB,qBAAqB,SAAS,QAAQ,cAAc,aAAa,YAAY,WAAW,aAAa,YAAY,sBAAsB,qBAAqB,iBAAiB,gBAAgB,eAAe,oBAAoB;AAEpS,MAAM,aAAa,EAAE,OAAO,wCAAwC;AACpE,MAAM,aAAa,EAAE,OAAO,sDAAsD;AAElF,SAAQ,wBAAuB;AAC/B,OAAO,kCAAkC;AACzC,SAAQ,oBAAmB;AAC3B,SAAQ,oBAAmB;AAG3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,gBAAgB,iBAAiB;AACvC,UAAM,OAAO,aAAa;AAC1B,UAAM,UAAU,aAAa;AAE7B,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACrD,oBAAoB,KAAK,YAAY,iBAAiB,KAAK,GAAG,oBAAoB,CAAC,GAAG,CAAC;AAAA,QACvF,oBAAoB,OAAO,YAAY;AAAA,WACpC,WAAW,IAAI,GAAG,oBAAoB,WAAW,MAAM,YAAY,OAAO,OAAO,EAAE,mBAAmB,SAAS,CAAC,SAAS;AACxH,mBAAQ,WAAW,GAAG,aAAa,8BAA8B;AAAA,cAC/D,OAAO;AAAA,cACP;AAAA,cACA,QAAQ,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,eAAe,MAAM;AAAA,cAAC,GAAG,CAAC,SAAS,CAAC;AAAA,YACxE,GAAG,MAAM,GAAG,CAAC,MAAM,CAAC;AAAA,UACtB,CAAC,GAAG,GAAG;AAAA,QACT,CAAC;AAAA,MACH,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521755,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521756,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521757,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521758,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521758,
+      "end": 1706896521765,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521769,
+      "end": 1706896521769,
+      "order": "normal"
+    }
+  ]
+}

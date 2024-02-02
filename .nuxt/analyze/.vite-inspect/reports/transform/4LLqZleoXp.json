@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContentElems.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, TransitionGroup as _TransitionGroup, withCtx as _withCtx, createVNode as _createVNode, resolveComponent as _resolveComponent, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = {\n  key: 0,\n  class: \"transition-all\"\n}\nconst _hoisted_2 = { class: \"flex items-center gap-x-6\" }\nconst _hoisted_3 = { class: \"flex gap-x-4 items-center\" }\nconst _hoisted_4 = { class: \"max-w-[50px]\" }\nconst _hoisted_5 = [\"src\"]\nconst _hoisted_6 = { class: \"text-[15px] w-full\" }\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoChainContentElems',\n  props: ['item'],\n  setup(__props) {\n\r\n\r\n\r\n\r\n\r\nconst authStore = useAuthStore()\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_DocumentItemInfoChainContentElems = _resolveComponent(\"DocumentItemInfoChainContentElems\", true)!\n\n  return (__props.item.self)\n    ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createVNode(_TransitionGroup, {\n            name: \"list\",\n            tag: \"list\",\n            class: \"flex flex-col gap-y-6 transition-all\"\n          }, {\n            default: _withCtx(() => [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.item.self, (user, userIndex) => {\n                return (_openBlock(), _createElementBlock(\"div\", {\n                  class: \"h-24 border border-gray-500 dark:border-white w-[220px] px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\",\n                  key: userIndex\n                }, [\n                  _createElementVNode(\"div\", _hoisted_3, [\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createElementVNode(\"img\", {\n                        class: \"w-full rounded-full\",\n                        src: _unref(authStore).get_server_domain + user.photo,\n                        alt: \"\"\n                      }, null, 8, _hoisted_5)\n                    ]),\n                    _createElementVNode(\"p\", _hoisted_6, _toDisplayString(user.first_name + ' ' + user.last_name), 1)\n                  ])\n                ]))\n              }), 128))\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_DocumentItemInfoChainContentElems, {\n            item: __props.item.parent\n          }, null, 8, [\"item\"])\n        ])\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n})",
+      "start": 1706896525252,
+      "end": 1706896525252
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525252,
+      "end": 1706896525252,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525252,
+      "end": 1706896525252,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525252,
+      "end": 1706896525252,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525252,
+      "end": 1706896525252,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525252,
+      "end": 1706896525252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, TransitionGroup as _TransitionGroup, withCtx as _withCtx, createVNode as _createVNode, resolveComponent as _resolveComponent, createCommentVNode as _createCommentVNode } from \"vue\";\nconst _hoisted_1 = {\n  key: 0,\n  class: \"transition-all\"\n};\nconst _hoisted_2 = { class: \"flex items-center gap-x-6\" };\nconst _hoisted_3 = { class: \"flex gap-x-4 items-center\" };\nconst _hoisted_4 = { class: \"max-w-[50px]\" };\nconst _hoisted_5 = [\"src\"];\nconst _hoisted_6 = { class: \"text-[15px] w-full\" };\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainContentElems\",\n  props: [\"item\"],\n  setup(__props) {\n    const authStore = useAuthStore();\n    return (_ctx, _cache) => {\n      const _component_DocumentItemInfoChainContentElems = _resolveComponent(\"DocumentItemInfoChainContentElems\", true);\n      return __props.item.self ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createVNode(_TransitionGroup, {\n            name: \"list\",\n            tag: \"list\",\n            class: \"flex flex-col gap-y-6 transition-all\"\n          }, {\n            default: _withCtx(() => [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.item.self, (user, userIndex) => {\n                return _openBlock(), _createElementBlock(\"div\", {\n                  class: \"h-24 border border-gray-500 dark:border-white w-[220px] px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\",\n                  key: userIndex\n                }, [\n                  _createElementVNode(\"div\", _hoisted_3, [\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createElementVNode(\"img\", {\n                        class: \"w-full rounded-full\",\n                        src: _unref(authStore).get_server_domain + user.photo,\n                        alt: \"\"\n                      }, null, 8, _hoisted_5)\n                    ]),\n                    _createElementVNode(\"p\", _hoisted_6, _toDisplayString(user.first_name + \" \" + user.last_name), 1)\n                  ])\n                ]);\n              }), 128))\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_DocumentItemInfoChainContentElems, {\n            item: __props.item.parent\n          }, null, 8, [\"item\"])\n        ])\n      ])) : _createCommentVNode(\"\", true);\n    };\n  }\n});\n",
+      "start": 1706896525252,
+      "end": 1706896525302,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContentElems.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, TransitionGroup as _TransitionGroup, withCtx as _withCtx, createVNode as _createVNode, resolveComponent as _resolveComponent, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = {\n  key: 0,\n  class: \"transition-all\"\n}\nconst _hoisted_2 = { class: \"flex items-center gap-x-6\" }\nconst _hoisted_3 = { class: \"flex gap-x-4 items-center\" }\nconst _hoisted_4 = { class: \"max-w-[50px]\" }\nconst _hoisted_5 = [\"src\"]\nconst _hoisted_6 = { class: \"text-[15px] w-full\" }\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoChainContentElems',\n  props: ['item'],\n  setup(__props) {\n\r\n\r\n\r\n\r\n\r\nconst authStore = useAuthStore()\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_DocumentItemInfoChainContentElems = _resolveComponent(\"DocumentItemInfoChainContentElems\", true)!\n\n  return (__props.item.self)\n    ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createVNode(_TransitionGroup, {\n            name: \"list\",\n            tag: \"list\",\n            class: \"flex flex-col gap-y-6 transition-all\"\n          }, {\n            default: _withCtx(() => [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.item.self, (user, userIndex) => {\n                return (_openBlock(), _createElementBlock(\"div\", {\n                  class: \"h-24 border border-gray-500 dark:border-white w-[220px] px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\",\n                  key: userIndex\n                }, [\n                  _createElementVNode(\"div\", _hoisted_3, [\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createElementVNode(\"img\", {\n                        class: \"w-full rounded-full\",\n                        src: _unref(authStore).get_server_domain + user.photo,\n                        alt: \"\"\n                      }, null, 8, _hoisted_5)\n                    ]),\n                    _createElementVNode(\"p\", _hoisted_6, _toDisplayString(user.first_name + ' ' + user.last_name), 1)\n                  ])\n                ]))\n              }), 128))\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_DocumentItemInfoChainContentElems, {\n            item: __props.item.parent\n          }, null, 8, [\"item\"])\n        ])\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,cAAc,aAAa,YAAY,WAAW,aAAa,YAAY,sBAAsB,qBAAqB,SAAS,QAAQ,sBAAsB,qBAAqB,mBAAmB,kBAAkB,mBAAmB,kBAAkB,WAAW,UAAU,eAAe,cAAc,oBAAoB,mBAAmB,sBAAsB,2BAA2B;AAE/Y,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa,EAAE,OAAO,4BAA4B;AACxD,MAAM,aAAa,EAAE,OAAO,4BAA4B;AACxD,MAAM,aAAa,EAAE,OAAO,eAAe;AAC3C,MAAM,aAAa,CAAC,KAAK;AACzB,MAAM,aAAa,EAAE,OAAO,qBAAqB;AAEjD,SAAQ,oBAAmB;AAG3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO,CAAC,MAAM;AAAA,EACd,MAAM,SAAS;AAMjB,UAAM,YAAY,aAAa;AAE/B,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,+CAA+C,kBAAkB,qCAAqC,IAAI;AAEhH,aAAQ,QAAQ,KAAK,QAChB,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QACpD,oBAAoB,OAAO,YAAY;AAAA,UACrC,aAAa,kBAAkB;AAAA,YAC7B,MAAM;AAAA,YACN,KAAK;AAAA,YACL,OAAO;AAAA,UACT,GAAG;AAAA,YACD,SAAS,SAAS,MAAM;AAAA,eACrB,WAAW,IAAI,GAAG,oBAAoB,WAAW,MAAM,YAAY,QAAQ,KAAK,MAAM,CAAC,MAAM,cAAc;AAC1G,uBAAQ,WAAW,GAAG,oBAAoB,OAAO;AAAA,kBAC/C,OAAO;AAAA,kBACP,KAAK;AAAA,gBACP,GAAG;AAAA,kBACD,oBAAoB,OAAO,YAAY;AAAA,oBACrC,oBAAoB,OAAO,YAAY;AAAA,sBACrC,oBAAoB,OAAO;AAAA,wBACzB,OAAO;AAAA,wBACP,KAAK,OAAO,SAAS,EAAE,oBAAoB,KAAK;AAAA,wBAChD,KAAK;AAAA,sBACP,GAAG,MAAM,GAAG,UAAU;AAAA,oBACxB,CAAC;AAAA,oBACD,oBAAoB,KAAK,YAAY,iBAAiB,KAAK,aAAa,MAAM,KAAK,SAAS,GAAG,CAAC;AAAA,kBAClG,CAAC;AAAA,gBACH,CAAC;AAAA,cACH,CAAC,GAAG,GAAG;AAAA,YACT,CAAC;AAAA,YACD,GAAG;AAAA,UACL,CAAC;AAAA,UACD,aAAa,8CAA8C;AAAA,YACzD,MAAM,QAAQ,KAAK;AAAA,UACrB,GAAG,MAAM,GAAG,CAAC,MAAM,CAAC;AAAA,QACtB,CAAC;AAAA,MACH,CAAC,KACD,oBAAoB,IAAI,IAAI;AAAA,IAClC;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525302,
+      "end": 1706896525302,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525302,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525303,
+      "end": 1706896525303,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525303,
+      "end": 1706896525304,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525304,
+      "end": 1706896525304,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525304,
+      "end": 1706896525304,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525304,
+      "end": 1706896525304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525304,
+      "end": 1706896525304,
+      "order": "normal"
+    }
+  ]
+}

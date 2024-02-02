@@ -1,0 +1,336 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Tasks/TasksContent.vue?vue&type=style&index=0&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n* {\r\n  scroll-behavior: smooth;\r\n}\r\n\r\n\r\n.active-page {\r\n  background-color: #3498db;\r\n  border: 1px solid #3498db;\r\n  color: white;\r\n}\r\n\r\n.active-page:hover {\r\n  background-color: #2988c8;\r\n}\r\n\r\n.slide-enter-active,\r\n.slide-leave-active {\r\n  transition: all 0.75s ease-out;\r\n}\r\n\r\n.slide-enter-to {\r\n  position: absolute;\r\n  right: 0;\r\n}\r\n\r\n.slide-enter-from {\r\n  position: absolute;\r\n  right: -100%;\r\n}\r\n\r\n.slide-leave-to {\r\n  position: absolute;\r\n  left: -100%;\r\n}\r\n\r\n.slide-leave-from {\r\n  position: absolute;\r\n  left: 0;\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    transform: scale(0.95);\r\n    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);\r\n  }\r\n\r\n  70% {\r\n    transform: scale(1);\r\n    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);\r\n  }\r\n\r\n  100% {\r\n    transform: scale(0.95);\r\n    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);\r\n  }\r\n}\r\n\r\n",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TasksContent.vue"
+        ],
+        "names": [],
+        "mappings": "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",
+        "file": "D:/Programming/templates/KPIcopy/components/Tasks/TasksContent.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"my-6\">\r\n    <form @submit.prevent>\r\n      <h3 class=\"dark:text-white mb-6 tracking-wider\">{{ $t('Поиск по заданиям') }}</h3>\r\n      <div class=\"flex max-lg:flex-wrap max-md:justify-center max-md:gap-y-10\">\r\n        <TheSearch class=\"w-8/12 max-lg:w-6/12 max-md:w-full\" v-model:model-value=\"params.query\"\r\n                   @search=\"tasksList.loadTasksLists({...params,task_type: taskChecked, query: params.query})\"/>\r\n        <TasksContentSearch></TasksContentSearch>\r\n      </div>\r\n    </form>\r\n    <div v-if=\"tasksList.get_tasks.results\" id=\"content\" class=\"mx-auto\">\r\n      <div\r\n        v-if=\"loadCurrentUser.user.permissions?.find(value => value.name_en === 'task.create')\"\r\n        class=\"flex gap-x-10 my-10 ml-10 flex-wrap max-md:mx-auto max-md:justify-center gap-y-5 \">\r\n        <button class=\"p-2 rounded-xl text-black dark:text-white tracking-widest font-bold\"\r\n                :class=\"{'bg-blueDarkSemiLight text-white' : taskChecked === 'task-list'}\"\r\n                @click=\"taskChecked = 'task-list'; tasksList.loadTasksLists({page: 1, limit: params.limit, task_type: taskChecked}); console.log(taskChecked); tasksList.loadTasksStats({task_filter: `tasks_filter=${taskChecked}`})\"\r\n        >\r\n          {{ $t('Общее') }}\r\n        </button>\r\n        <button class=\"p-2 rounded-xl text-black dark:text-white tracking-widest font-bold\"\r\n                :class=\"{'bg-blueDarkSemiLight text-white' : taskChecked === 'to-me'}\"\r\n                @click=\"taskChecked = 'to-me'; tasksList.loadTasksLists({page: 1, limit: params.limit, task_type: taskChecked}); console.log(taskChecked); tasksList.loadTasksStats({task_filter: `tasks_filter=${taskChecked}`})\"\r\n        >\r\n          {{ $t('Для Меня') }}\r\n        </button>\r\n        <button class=\"p-2 rounded-xl text-black dark:text-white tracking-widest font-bold\"\r\n                :class=\"{'bg-blueDarkSemiLight text-white' : taskChecked === 'from-me'}\"\r\n                @click=\"taskChecked = 'from-me'; tasksList.loadTasksLists({page: 1, limit: params.limit, task_type: taskChecked}); console.log(taskChecked); tasksList.loadTasksStats({task_filter: `tasks_filter=${taskChecked}`})\"\r\n        >\r\n          {{ $t('От Меня') }}\r\n        </button>\r\n        <button\r\n          class=\"bg-blue-400 px-4 rounded-full text-white font-bold tracking-widest max-md:py-2 active:scale-95 transition-all duration-200\"\r\n          @click=\"showCreate = true; loads(); \">\r\n          {{ $t('Создать задание') }}\r\n        </button>\r\n      </div>\r\n      <TasksContentBlock v-if=\"params.query === ''\" v-for=\"task of tasksList?.get_tasks.results\" :task=\"task\"/>\r\n      <TasksContentBlock v-if=\"params.query !== ''\" v-for=\"taskSearch in tasksList?.get_search_task.results\" :task=\"taskSearch\"/>\r\n    </div>\r\n    <div v-else class=\"\">\r\n      <div v-if=\"loadCurrentUser.user.permissions?.find(value => value.name_en === 'task.create')\" class=\"flex mt-10 items-center gap-x-10\">\r\n        <div class=\"flex gap-x-4\">\r\n          <TheSceleton v-for=\"i in 3\" border-radius=\"5px\" width=\"100px\" height=\"20px\"></TheSceleton>\r\n        </div>\r\n        <TheSceleton border-radius=\"10px\" width=\"150px\" height=\"30px\"></TheSceleton>\r\n\r\n      </div>\r\n      <div class=\"flex mt-10 flex-col gap-y-6\">\r\n        <TheSceleton v-for=\"i in 5\" class=\"opacity-50\" border-radius=\"5px\" width=\"92%\" height=\"120px\"></TheSceleton>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center mt-10 flex flex-col items-center gap-y-6 gap-x-10\" v-if=\"tasksList?.get_tasks.count === 0\">\r\n      <p class=\"text-2xl dark:text-white font-bold tracking-widest\">{{ $t('Ничего не найдено') }}</p>\r\n      <div>\r\n        <svg width=\"100px\" height=\"100px\" viewBox=\"0 -3.66 65.015 65.015\" xmlns=\"http://www.w3.org/2000/svg\">\r\n          <g id=\"Group_99\" data-name=\"Group 99\" transform=\"translate(-107.858 -217.309)\">\r\n            <g id=\"Group_97\" data-name=\"Group 97\">\r\n              <path id=\"Path_247\" data-name=\"Path 247\"\r\n                    d=\"M158.251,220.766H133.473l-5.725-3.457H114.226a2.911,2.911,0,0,0-2.912,2.912v30.934a2.911,2.911,0,0,0,2.912,2.912h44.025a2.911,2.911,0,0,0,2.911-2.912V223.676A2.911,2.911,0,0,0,158.251,220.766Z\"\r\n                    fill=\"#48CAE4\"/>\r\n              <path id=\"Path_248\" data-name=\"Path 248\"\r\n                    d=\"M161.162,242.6V227.133a2.914,2.914,0,0,0-2.911-2.914H114.226a2.914,2.914,0,0,0-2.912,2.914V242.6Z\"\r\n                    fill=\"#dce2e9\"/>\r\n              <path id=\"Path_249\" data-name=\"Path 249\"\r\n                    d=\"M158.251,220.766H133.473l-5.725-3.457H114.226a2.911,2.911,0,0,0-2.912,2.912V221.6a2.911,2.911,0,0,1,2.912-2.912h13.522l5.725,3.455h24.778a2.913,2.913,0,0,1,2.911,2.912v-1.383A2.911,2.911,0,0,0,158.251,220.766Z\"\r\n                    fill=\"#ffc52f\" opacity=\"0.5\" style=\"mix-blend-mode: screen;isolation: isolate\"/>\r\n              <path id=\"Path_250\" data-name=\"Path 250\"\r\n                    d=\"M161.707,226.293H110.771a2.913,2.913,0,0,0-2.913,2.913l3.456,30.933a2.911,2.911,0,0,0,2.912,2.912h44.025a2.911,2.911,0,0,0,2.911-2.912l3.455-30.933A2.912,2.912,0,0,0,161.707,226.293Z\"\r\n                    fill=\"#48CAE4\"/>\r\n              <path id=\"Path_251\" data-name=\"Path 251\"\r\n                    d=\"M110.771,227.676h50.936a2.911,2.911,0,0,1,2.83,2.254l.08-.724a2.912,2.912,0,0,0-2.91-2.913H110.771a2.913,2.913,0,0,0-2.913,2.913l.081.724A2.911,2.911,0,0,1,110.771,227.676Z\"\r\n                    fill=\"#ffc52f\" opacity=\"0.5\" style=\"mix-blend-mode: screen;isolation: isolate\"/>\r\n            </g>\r\n            <path id=\"Path_252\" data-name=\"Path 252\"\r\n                  d=\"M161.162,260.139l.592-5.3a14.7,14.7,0,1,0-27.687,8.211h24.184A2.911,2.911,0,0,0,161.162,260.139Z\"\r\n                  fill=\"#8c93a1\" opacity=\"0.6\" style=\"mix-blend-mode: multiply;isolation: isolate\"/>\r\n            <g class=\"transition-all duration-200 eye-block\" id=\"Group_98\" data-name=\"Group 98\">\r\n              <rect id=\"Rectangle_36\" data-name=\"Rectangle 36\" width=\"4.156\" height=\"12.401\"\r\n                    transform=\"translate(157.7 262.706) rotate(-45)\" fill=\"#dce2e9\"/>\r\n              <path id=\"Path_253\" data-name=\"Path 253\"\r\n                    d=\"M165.421,252.721a14.7,14.7,0,1,1-14.7-14.7A14.7,14.7,0,0,1,165.421,252.721Z\" fill=\"#dce2e9\"/>\r\n              <path id=\"Path_254\" data-name=\"Path 254\"\r\n                    d=\"M161.682,252.721a10.964,10.964,0,1,1-10.964-10.965A10.965,10.965,0,0,1,161.682,252.721Z\"\r\n                    fill=\"#8c93a1\"/>\r\n              <path id=\"Path_255\" data-name=\"Path 255\"\r\n                    d=\"M150.718,262.616a9.895,9.895,0,1,1,9.894-9.9A9.9,9.9,0,0,1,150.718,262.616Z\" fill=\"#5a6271\"\r\n                    opacity=\"0.6\"/>\r\n              <path class=\"eye\" id=\"Path_256\" data-name=\"Path 256\"\r\n                    d=\"M141.833,253.735a9.895,9.895,0,0,1,16.368-7.484A9.892,9.892,0,1,0,144.247,260.2,9.843,9.843,0,0,1,141.833,253.735Z\"\r\n                    fill=\"#5a6271\" opacity=\"0.6\"/>\r\n              <path class=\"eye\" id=\"Path_257\" data-name=\"Path 257\"\r\n                    d=\"M150.718,257.606a4.885,4.885,0,1,1,4.885-4.885A4.888,4.888,0,0,1,150.718,257.606Z\"\r\n                    fill=\"#5a6271\"/>\r\n              <path class=\"eye\" id=\"Path_259\" data-name=\"Path 259\"\r\n                    d=\"M157.45,251.192c-.937.937-2.879.517-4.336-.94s-1.879-3.4-.942-4.335,2.879-.516,4.337.941S158.385,250.256,157.45,251.192Z\"\r\n                    fill=\"#f3f3f3\" opacity=\"0.5\"/>\r\n              <path id=\"Path_260\" data-name=\"Path 260\"\r\n                    d=\"M160.6,267.028l7.219,7.22a3.055,3.055,0,0,0,4.3-4.3l-7.219-7.219Z\" fill=\"#5a6271\"/>\r\n            </g>\r\n          </g>\r\n        </svg>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"flex justify-center gap-x-4\">\r\n    <div v-if=\"tasksList.get_tasks.count > 5\" v-for=\"(page, id) in tasksList.get_tasks.links\" :key=\"id\"\r\n         class=\"px-4 py-2  rounded-full cursor-pointer\"\r\n         :class=\"{'bg-blue-400 text-white' : page.active, 'bg-gray-200 text-black hover:bg-blue-400 hover:text-white transition-all' : !page.active}\"\r\n         @click=\"loadPage(page.label); tasksList.loadTasksLists({page: params.page, limit: params.limit, task_type: taskChecked, query: params.query})\">\r\n      {{ page.label }}\r\n    </div>\r\n  </div>\r\n  <TheModal v-if=\"showCreate\"\r\n            @showModal=\"showCreate = !showCreate; !showCreate ? createForm.description = '' : createForm \">\r\n    <div>\r\n      <TheTextContent>{{ $t('Создание задания') }}</TheTextContent>\r\n      <form\r\n        @submit.prevent=\"tasksList.create_task({...createForm, performers_ids: createForm.department.participants?.filter(e=>e.value).map(i=>i.id).join(',')}); showCreate = false\">\r\n        <TaskContentCreateElems>\r\n          <div\r\n            v-if=\"loadCurrentUser.user.role_en === 'department_director' || loadCurrentUser.user.role_en === 'vice_department_director'\"\r\n            class=\"w-full max-lg:w-full\">\r\n            <TheInput type=\"text\" :label=\"$t('Заголовок')\" v-model=\"createForm.title\"/>\r\n          </div>\r\n          <div v-else class=\"w-6/12 max-lg:w-full\">\r\n            <TheInput type=\"text\" :label=\"$t('Заголовок')\" v-model=\"createForm.title\"/>\r\n          </div>\r\n          <div class=\"w-6/12 max-lg:w-full flex flex-col gap-y-2\"\r\n               v-if=\"loadCurrentUser.user.role_en !== 'department_director' || loadCurrentUser.user.role_en !== 'department_director'\">\r\n            <p class=\"text-md dark:text-white tracking-wider\">{{ $t('Отдел') }}</p>\r\n            <select type=\"text\" v-model=\"createForm.department\"\r\n                    class=\"w-full text-black rounded-lg p-2.5 border dark:bg-gray-300 dark:border-none outline-semiCyan outline-1\">\r\n              <option v-for=\"department in companies.get_all_department.results\" :value=\"department\">\r\n                {{ department.name }}\r\n              </option>\r\n            </select>\r\n          </div>\r\n        </TaskContentCreateElems>\r\n        <TaskContentCreateElems>\r\n          <div\r\n            v-if=\"loadCurrentUser.user.role_en === 'department_director' || loadCurrentUser.user.role_en === 'vice_department_director'\"\r\n            class=\"w-6/12 max-lg:w-full flex flex-col gap-y-2\">\r\n            <p class=\"text-md dark:text-white tracking-wider\">{{ $t('Ответственный') }}</p>\r\n            <select type=\"text\" v-model=\"createForm.main_performer_id\"\r\n                    class=\"w-full text-black rounded-lg p-2.5 border dark:bg-gray-300 dark:border-none outline-semiCyan outline-1\">\r\n              <option class=\"\" v-for=\"performer in companies.get_department.participants\" :value=\"performer.id\">\r\n                {{ performer.first_name + ' ' + performer.last_name }}\r\n              </option>\r\n            </select>\r\n          </div>\r\n          <div v-else class=\"w-6/12 max-lg:w-full flex flex-col gap-y-2\">\r\n            <p class=\"text-md dark:text-white tracking-wider\">{{ $t('Ответственный') }}</p>\r\n            <select type=\"text\" v-model=\"createForm.main_performer_id\"\r\n                    class=\"w-full text-black rounded-lg p-2.5 border dark:bg-gray-300 dark:border-none outline-semiCyan outline-1\">\r\n              <option  v-for=\"main_performer in createForm.department?.participants\" :value=\"main_performer.id\">\r\n                {{ main_performer.first_name + ' ' + main_performer.last_name }}\r\n              </option>\r\n            </select>\r\n          </div>\r\n          <div v-if=\"loadCurrentUser.user.role_en === 'department_director' || loadCurrentUser.user.role_en === 'vice_department_director'\"\r\n            class=\"w-6/12 max-lg:w-full flex flex-col gap-y-2 border p-2 rounded-lg\">\r\n            <p class=\"text-md dark:text-white tracking-wider text-center\">{{ $t('Исполнители') }}</p>\r\n            <div v-for=\"performer in companies.current_department?.participants\">\r\n              <TheCheckbox :item=\"performer\">\r\n              </TheCheckbox>\r\n              <span class=\"ml-10\">{{ performer.first_name + ' ' + performer.last_name }}</span>\r\n            </div>\r\n          </div>\r\n          <div v-else class=\"w-6/12 max-lg:w-full flex flex-col gap-y-2 border p-2 rounded-lg max-h-[300px] overflow-y-auto\">\r\n            <p class=\"text-md dark:text-white tracking-wider text-center\">{{ $t('Исполнители') }}</p>\r\n            <div v-if=\"createForm.department.participants?.length > 0\">\r\n              <div v-for=\"performer in createForm.department.participants\">\r\n                <TheCheckboxCreateUser v-if=\"loadCurrentUser.user?.priority < performer.priority\" :item=\"performer\">\r\n                </TheCheckboxCreateUser>\r\n              </div>\r\n            </div>\r\n            <p v-else class=\"text-center tracking-widest text-gray-300 text-sm\">{{ $t('В департаменте пусто') }}</p>\r\n          </div>\r\n        </TaskContentCreateElems>\r\n        <TaskContentCreateElems>\r\n          <div class=\"w-6/12 max-lg:w-full text-black\">\r\n            <TheInput type=\"textarea\" :label=\"$t('Описание задания')\" v-model=\"createForm.description\"/>\r\n          </div>\r\n          <div class=\"w-6/12 max-lg:w-full flex flex-col gap-y-2 rounded-lg border\">\r\n            <div class=\"text-center tracking-widest pt-4 pb-10\">\r\n              <h2 class=\"dark:text-white\">{{ $t('Прикрепите файлы к заданию') }}</h2>\r\n              <h2 class=\"text-gray-300\">({{ $t('не обязательно') }})</h2>\r\n            </div>\r\n            <TheInput class=\"\" type=\"file\" id=\"upload-file\"\r\n                      @input=\"createForm.author_file_file = $event.target.files\"></TheInput>\r\n          </div>\r\n        </TaskContentCreateElems>\r\n        <TaskContentCreateElems>\r\n          <div class=\"text-center\">\r\n            <p class=\"text-md dark:text-white tracking-wider mb-2\">{{ $t('Срок до') }}</p>\r\n            <vue-date-picker v-model=\"createForm.deadline\" :select-text=\"$t('Выбрать')\"\r\n                             :min-date=\"new Date()\"\r\n                             :timezone=\"timezone\"\r\n                             :cancel-text=\"$t('Отменить')\" placeholder=\"Start Typing ...\" text-input\r\n                             class=\"w-full rounded-lg p-2 dark:border-none outline-semiCyan outline-1\" auto-apply inline\r\n                             multi-calendars-solo/>\r\n          </div>\r\n        </TaskContentCreateElems>\r\n        <TaskContentCreateElems>\r\n          <TheButton class=\"py-2 px-6 rounded-full\" t=\"button\" type=\"danger\" @click=\"showCreate = false\">\r\n            {{ $t('Отменить') }}\r\n          </TheButton>\r\n          <TheButton class=\"py-2 px-6 rounded-full\" t=\"submit\" type=\"success\" @click=\"validationForm()\">\r\n            {{ $t('Создать') }}\r\n          </TheButton>\r\n        </TaskContentCreateElems>\r\n      </form>\r\n    </div>\r\n  </TheModal>\r\n</template>\r\n<script setup lang=\"ts\">\r\nimport TasksContentSearch from \"~/components/Tasks/TaskUI/TasksContentSearch.vue\";\r\nimport TasksContentBlock from \"~/components/Tasks/TaskUI/TasksContentBlock.vue\";\r\nimport TaskContentCreateElems from \"~/components/Tasks/TaskUI/TaskContentCreateElems.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\r\nimport TheCheckboxCreateUser from \"~/components/User/UserUI/TheCheckboxCreateUser.vue\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useRouter} from \"vue-router\";\r\n\r\nimport VueDatePicker from \"@vuepic/vue-datepicker\";\r\nimport \"@vuepic/vue-datepicker/dist/main.css\"\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport {toast} from \"vue3-toastify\"\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheInput from \"~/components/UI/TheInput.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\nconst router = useRouter()\r\nconst loadCurrentUser = useAuthStore()\r\nconst tasksList = useTaskList()\r\nconst companies = useCompanies()\r\nconst timezone = ref('UTC');\r\nconst createForm = ref({\r\n  title: '',\r\n  description: '',\r\n  deadline: '',\r\n  author_file_file: '',\r\n  performers: [],\r\n  department: {},\r\n  worth: 0,\r\n  main_performer_id: {},\r\n  performer_file: '',\r\n})\r\n\r\nconst params = {\r\n  page: 1,\r\n  limit: 5,\r\n  query: '',\r\n  task_type: 'task-list',\r\n}\r\nfunction loads() {\r\n  if (loadCurrentUser.user?.role_en === 'department_director' || loadCurrentUser.user?.role_en === 'vice_department_director') {\r\n    companies.loadDepartment({id: loadCurrentUser.user?.department_id})\r\n    this.createForm.department = companies.get_department\r\n    this.createForm.department.participants = companies.get_department.participants.map(e => {e.value = createForm.department.participants?.filter(i => i.id == e.id).length != 0})\r\n\r\n  } else {\r\n    companies.loadDepartmentList()\r\n    this.createForm.department.participants = companies.get_all_department.participants.map(e => {e.value = createForm.department.participants?.filter(i => i.id == e.id).length != 0})\r\n  }\r\n}\r\nfunction validationForm() {\r\n  if (createForm?.value.deadline === '') {\r\n    toast.error('Укажите срок', {theme: \"auto\", autoClose: 1500})\r\n  }\r\n}\r\n\r\nfunction loadPage(page: any) {\r\n  if (page === '<') {\r\n    if (Number(params.page) > 1) {\r\n      params.page -= 1;\r\n    }\r\n  } else if (page === '>') {\r\n    if (Number(params.page) < tasksList.task?.number_of_pages) {\r\n      params.page = Number(params.page) + 1\r\n    }\r\n  } else {\r\n    if (Number(page) <= tasksList.task?.number_of_pages) {\r\n      params.page = Number(page)\r\n    }\r\n  }\r\n  // console.log(page)\r\n  if (window.innerWidth > 1000) {\r\n    window.scrollTo({top: 600})\r\n  } else if (window.innerWidth < 1000) {\r\n    window.scrollTo({top: 895})\r\n  } else {\r\n    window.scrollTo()\r\n  }\r\n}\r\n\r\n\r\ndefineProps({\r\n  showTask: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  changeInfo: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  showConfirm: {\r\n    type: Boolean,\r\n    default: false,\r\n  },\r\n  showCreate: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  task_info: {\r\n    type: Object,\r\n    required: true,\r\n    default: () => {\r\n    }\r\n  },\r\n  taskChecked: {\r\n    type: String,\r\n    default: 'task-list'\r\n  },\r\n})\r\n\r\n\r\nonMounted(() => {\r\n  navigateTo({\r\n    params: {\r\n      page: params.page\r\n    }\r\n  })\r\n})\r\nwatchEffect(() => {\r\n    tasksList.loadTasksLists({page: params.page, limit: params.limit, task_type: params.task_type, query: params.query})\r\n    tasksList.loadTasksStats({task_filter: params.task_type})\r\n})\r\n</script>\r\n\r\n<style>\r\n* {\r\n  scroll-behavior: smooth;\r\n}\r\n\r\n\r\n.active-page {\r\n  background-color: #3498db;\r\n  border: 1px solid #3498db;\r\n  color: white;\r\n}\r\n\r\n.active-page:hover {\r\n  background-color: #2988c8;\r\n}\r\n\r\n.slide-enter-active,\r\n.slide-leave-active {\r\n  transition: all 0.75s ease-out;\r\n}\r\n\r\n.slide-enter-to {\r\n  position: absolute;\r\n  right: 0;\r\n}\r\n\r\n.slide-enter-from {\r\n  position: absolute;\r\n  right: -100%;\r\n}\r\n\r\n.slide-leave-to {\r\n  position: absolute;\r\n  left: -100%;\r\n}\r\n\r\n.slide-leave-from {\r\n  position: absolute;\r\n  left: 0;\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    transform: scale(0.95);\r\n    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);\r\n  }\r\n\r\n  70% {\r\n    transform: scale(1);\r\n    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);\r\n  }\r\n\r\n  100% {\r\n    transform: scale(0.95);\r\n    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);\r\n  }\r\n}\r\n\r\n</style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896545058,
+      "end": 1706896545058,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "*{scroll-behavior:smooth}.active-page{background-color:#3498db;border:1px solid #3498db;color:#fff}.active-page:hover{background-color:#2988c8}.slide-enter-active,.slide-leave-active{transition:all .75s ease-out}.slide-enter-to{position:absolute;right:0}.slide-enter-from{position:absolute;right:-100%}.slide-leave-to{left:-100%;position:absolute}.slide-leave-from{left:0;position:absolute}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,0,0,.7);transform:scale(.95)}70%{box-shadow:0 0 0 10px transparent;transform:scale(1)}to{box-shadow:0 0 0 0 transparent;transform:scale(.95)}}",
+      "start": 1706896545058,
+      "end": 1706896545116,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/Programming/templates/KPIcopy/components/Tasks/TasksContent.vue",
+        "mappings": "AACA,EACE,sBACF,CAGA,aACE,wBAAyB,CACzB,wBAAyB,CACzB,UACF,CAEA,mBACE,wBACF,CAEA,wCAEE,4BACF,CAEA,gBACE,iBAAkB,CAClB,OACF,CAEA,kBACE,iBAAkB,CAClB,WACF,CAEA,gBAEE,UAAW,CADX,iBAEF,CAEA,kBAEE,MAAO,CADP,iBAEF,CAEA,iBACE,GAEE,iCAAsC,CADtC,oBAEF,CAEA,IAEE,iCAAuC,CADvC,kBAEF,CAEA,GAEE,8BAAoC,CADpC,oBAEF,CACF",
+        "names": [],
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TasksContent.vue"
+        ],
+        "sourcesContent": [
+          "\r\n* {\r\n  scroll-behavior: smooth;\r\n}\r\n\r\n\r\n.active-page {\r\n  background-color: #3498db;\r\n  border: 1px solid #3498db;\r\n  color: white;\r\n}\r\n\r\n.active-page:hover {\r\n  background-color: #2988c8;\r\n}\r\n\r\n.slide-enter-active,\r\n.slide-leave-active {\r\n  transition: all 0.75s ease-out;\r\n}\r\n\r\n.slide-enter-to {\r\n  position: absolute;\r\n  right: 0;\r\n}\r\n\r\n.slide-enter-from {\r\n  position: absolute;\r\n  right: -100%;\r\n}\r\n\r\n.slide-leave-to {\r\n  position: absolute;\r\n  left: -100%;\r\n}\r\n\r\n.slide-leave-from {\r\n  position: absolute;\r\n  left: 0;\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    transform: scale(0.95);\r\n    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);\r\n  }\r\n\r\n  70% {\r\n    transform: scale(1);\r\n    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);\r\n  }\r\n\r\n  100% {\r\n    transform: scale(0.95);\r\n    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);\r\n  }\r\n}\r\n\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896545116,
+      "end": 1706896545116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896545116,
+      "end": 1706896545116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896545116,
+      "end": 1706896545116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "*{scroll-behavior:smooth}.active-page{background-color:#3498db;border:1px solid #3498db;color:#fff}.active-page:hover{background-color:#2988c8}.slide-enter-active,.slide-leave-active{transition:all .75s ease-out}.slide-enter-to{position:absolute;right:0}.slide-enter-from{position:absolute;right:-100%}.slide-leave-to{left:-100%;position:absolute}.slide-leave-from{left:0;position:absolute}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,0,0,.7);transform:scale(.95)}70%{box-shadow:0 0 0 10px transparent;transform:scale(1)}to{box-shadow:0 0 0 0 transparent;transform:scale(.95)}}",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/Programming/templates/KPIcopy/components/Tasks/TasksContent.vue",
+        "mappings": "AAAA,EAAE,sBAAsB,CAAC,aAAa,wBAAwB,CAAC,wBAAwB,CAAC,UAAU,CAAC,mBAAmB,wBAAwB,CAAC,wCAAwC,4BAA4B,CAAC,gBAAgB,iBAAiB,CAAC,OAAO,CAAC,kBAAkB,iBAAiB,CAAC,WAAW,CAAC,gBAAgB,UAAU,CAAC,iBAAiB,CAAC,kBAAkB,MAAM,CAAC,iBAAiB,CAAC,iBAAiB,GAAG,iCAAiC,CAAC,oBAAoB,CAAC,IAAI,iCAAiC,CAAC,kBAAkB,CAAC,GAAG,8BAA8B,CAAC,oBAAoB,CAAC",
+        "names": [],
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TasksContent.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1706896545117,
+      "end": 1706896545117,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896545118,
+      "end": 1706896545118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896545119,
+      "end": 1706896545119,
+      "order": "normal"
+    }
+  ]
+}

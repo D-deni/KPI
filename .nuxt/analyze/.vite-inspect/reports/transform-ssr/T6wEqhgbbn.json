@@ -1,0 +1,298 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/UI/Pinned/TheChatContentPinnedMessages.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\r\n\r\nimport {useChat} from \"~/stores/chat\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport ChatContentContextMenuItem from \"~/components/Chat/ChatContent/ChatContentContextMenuItem.vue\";\r\n\r\nconst chat = useChat()\r\nconst currentUser = useAuthStore()\r\nconst {x, y} = useMouse()\r\nconst {y: windowY} = useWindowScroll()\r\n\r\nconst isOpen = ref(false)\r\nconst virtualElement = ref({getBoundingClientRect: () => ({})})\r\nconst scrollPosition = ref(null)\r\n\r\nconst pinned_block = ref({\r\n  scrollTop: '',\r\n  scrollHeight: '',\r\n  clientHeight: '',\r\n  root: null\r\n})\r\n\r\nfunction onScrolls({target: {scrollTop, clientHeight, scrollHeight}}) {\r\n  scrollPosition.value = scrollTop\r\n  if (scrollTop === 0) {\r\n    page.value = Number(page.value) + 1\r\n    chat?.loadUserChat({page: page.value, limit: 100, id: route.params.id})\r\n  }\r\n}\r\n\r\nonMounted(() => {\r\n  setTimeout(() => {\r\n    const el = pinned_block.value\r\n    el.scrollTop = el.scrollHeight\r\n  }, 500)\r\n})\r\nwatchEffect(() => {\r\n  setTimeout(() => {\r\n    const el = pinned_block.value\r\n    el.scrollTop = el?.scrollHeight\r\n  }, 500)\r\n})\r\n</script>\r\n\r\n<template>\r\n  <div class=\"overflow-x-hidden gap-y-2 check overflow-y-auto\" @scroll=\"onScrolls\"\r\n       ref=\"pinned_block\" id=\"pinned_block\">\r\n    <UContextMenu @contextmenu.prevent v-model=\"isOpen\" :virtual-element=\"virtualElement\">\r\n      <div class=\"\">\r\n        <ChatContentContextMenuItem>\r\n          <template v-slot:ContextMenuSvg>\r\n            <svg class=\"stroke-black dark:stroke-white\" width=\"22px\" height=\"22px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n                 xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path data-v-a06cf116=\"\"\r\n                    d=\"M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z\"\r\n                    stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n              <path data-v-a06cf116=\"\"\r\n                    d=\"M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13\"\r\n                    stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:ContextMenuText>{{ $t('Изменить') }}</template>\r\n        </ChatContentContextMenuItem>\r\n        <ChatContentContextMenuItem>\r\n          <template v-slot:ContextMenuSvg>\r\n            <svg class=\"dark:fill-white\" xmlns=\"http://www.w3.org/2000/svg\"\r\n                 width=\"22px\" height=\"22px\" viewBox=\"0 0 261.811 261.811\"\r\n                 xml:space=\"preserve\">\r\n                <g>\r\n                  <g>\r\n                    <path d=\"M24.715,261.811c-5.492,0-10.645-2.133-14.521-6.01c-8.011-8.017-8.011-21.054-0.006-29.064\r\n                      l70.375-70.372L38.51,113.785c-7.073-7.179-7.928-18.303-2.039-26.466c0.855-1.184,21.314-28.839,58.964-28.839\r\n                      c2.224,0,4.492,0.101,6.756,0.295L180.62,3.597c8.103-5.729,20.081-4.48,26.863,2.796l44.675,48.037\r\n                      c6.919,7.436,7.319,19.006,0.926,26.906l-55.882,69.151c1.979,23.759,1.052,63.069-23.901,77.725\r\n                      c-7.959,4.666-18.578,3.26-25.021-3.282l-38.837-39.316l-70.206,70.183C35.365,259.678,30.208,261.811,24.715,261.811z\r\n                       M95.43,70.194c-31.735,0-48.763,23.009-49.472,23.987c-2.53,3.502-2.159,8.291,0.883,11.376l50.227,50.865l-78.6,78.594\r\n                      c-3.442,3.448-3.442,9.058,0,12.505c3.319,3.328,9.157,3.328,12.482,0l78.531-78.52l47.122,47.7\r\n                      c2.762,2.813,7.325,3.407,10.761,1.412c20.957-12.316,19.539-52.303,17.961-68.919l-0.229-2.373l58.878-72.854\r\n                      c2.745-3.402,2.573-8.371-0.406-11.567l-44.663-48.031c-2.904-3.116-8.062-3.671-11.545-1.212l-82.042,57.726l-2.213-0.251\r\n                      C100.536,70.34,97.952,70.194,95.43,70.194z\"/>\r\n                  </g>\r\n                </g>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:ContextMenuText>{{ $t('Закрепить') }}</template>\r\n        </ChatContentContextMenuItem>\r\n        <ChatContentContextMenuItem>\r\n          <template v-slot:ContextMenuSvg>\r\n            <svg class=\"dark:fill-white fill-black\" width=\"22px\" height=\"22px\" viewBox=\"0 0 256 256\" id=\"Flat\"\r\n                 xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path\r\n                d=\"M50.96,37.30957A4,4,0,0,0,45.04,42.69043l38.59424,42.4541c-11.416-2.39062-31.02295-2.76172-51.54444,13.79248a12.01279,12.01279,0,0,0-.96484,17.84424L82.34326,168,45.17188,205.17139a3.99992,3.99992,0,1,0,5.65625,5.65722L88,173.65674l51.02051,51.021a12.00814,12.00814,0,0,0,8.49219,3.51954q.42041,0,.84277-.02979a11.97039,11.97039,0,0,0,8.73047-4.74512c6.33252-8.4165,15.40625-23.479,15.38379-40.55859L205.04,218.69043a4,4,0,1,0,5.91992-5.38086Zm99.7334,181.30322a3.99357,3.99357,0,0,1-6.01563.40821L36.78125,111.124a4.01376,4.01376,0,0,1,.332-5.96045c27.17188-21.91943,52.06543-10.09375,53.09766-9.58593a3.99477,3.99477,0,0,0,3.08984.20019l69.71729,76.689C168.36816,191.2041,157.64355,209.374,150.69336,218.61279ZM232.68652,96a11.92292,11.92292,0,0,1-3.51562,8.48584l-41.4043,41.40381a3.99975,3.99975,0,1,1-5.65625-5.65674l41.4043-41.4043a3.99915,3.99915,0,0,0,0-5.65674L162.8291,32.48535a4.00621,4.00621,0,0,0-5.6582.00049l-37.97559,37.9751a3.99957,3.99957,0,1,1-5.65625-5.65625l37.97559-37.97608a12.01526,12.01526,0,0,1,16.9707-.00049L229.1709,87.51465A11.921,11.921,0,0,1,232.68652,96Z\"/>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:ContextMenuText>{{ $t('Открепить') }}</template>\r\n        </ChatContentContextMenuItem>\r\n        <ChatContentContextMenuItem>\r\n          <template v-slot:ContextMenuSvg>\r\n            <svg class=\"dark:stroke-white stroke-black\" width=\"23px\" height=\"23px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n                 xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path data-v-a06cf116=\"\" d=\"M10 12V17\" stroke-width=\"1.5\" stroke-linecap=\"round\"\r\n                    stroke-linejoin=\"round\"></path>\r\n              <path data-v-a06cf116=\"\" d=\"M14 12V17\" stroke-width=\"1.5\" stroke-linecap=\"round\"\r\n                    stroke-linejoin=\"round\"></path>\r\n              <path data-v-a06cf116=\"\" d=\"M4 7H20\" stroke-width=\"1.5\" stroke-linecap=\"round\"\r\n                    stroke-linejoin=\"round\"></path>\r\n              <path data-v-a06cf116=\"\" d=\"M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10\"\r\n                    stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n              <path data-v-a06cf116=\"\" d=\"M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z\"\r\n                    stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:ContextMenuText>{{ $t('Удалить') }}</template>\r\n        </ChatContentContextMenuItem>\r\n      </div>\r\n    </UContextMenu>\r\n    <div class=\"p-2 \">\r\n      <ChatChatContentUserElem class=\"dark:text-white text-black\"\r\n                               v-for=\"item in chat.arrayPin\"\r\n                               :item=\"item\"\r\n                               @contextmenu.prevent=\"()=> {\r\n                                const top = unref(y) - unref(windowY)\r\n                                const left = unref(x)\r\n                                virtualElement.getBoundingClientRect = () => ({\r\n                                  width: 0,\r\n                                  height: 0,\r\n                                  top,\r\n                                  left\r\n                                })\r\n                                isOpen = true\r\n                              }\"\r\n      >\r\n        <template v-slot:userImage>\r\n          <img class=\"w-[30px] h-[30px] rounded-full\"\r\n               :src=\"item.sender.id === currentUser.user?.id ? currentUser.get_server_domain + currentUser.user.photo_url : currentUser.get_server_domain + item.sender.photo\"\r\n               alt=\"\">\r\n        </template>\r\n        <template v-slot:userMessage>{{ item.text }}</template>\r\n        <template v-slot:userDate>{{ new Date(item.created_at).toLocaleTimeString().slice(0, 5) }}</template>\r\n      </ChatChatContentUserElem>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>",
+      "start": 1706896546077,
+      "end": 1706896546277,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896546277,
+      "end": 1706896546277,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/Chat/UI/Pinned/TheChatContentPinnedMessages.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/Chat/UI/Pinned/TheChatContentPinnedMessages.vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/Chat/UI/Pinned/TheChatContentPinnedMessages.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896546277,
+      "end": 1706896547239,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896547240,
+      "end": 1706896547240,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896547241,
+      "end": 1706896547241,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896547241,
+      "end": 1706896547241,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896547242,
+      "end": 1706896547242,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896547242,
+      "end": 1706896547242,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896547245,
+      "end": 1706896547245,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896547245,
+      "end": 1706896547245,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896547250,
+      "end": 1706896547250,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896547250,
+      "end": 1706896547250,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896547252,
+      "end": 1706896547252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896547254,
+      "end": 1706896547254,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896547254,
+      "end": 1706896547254,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896547254,
+      "end": 1706896547254,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896547254,
+      "end": 1706896547254,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896547276,
+      "end": 1706896547282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896547296,
+      "end": 1706896547296,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896547407,
+      "end": 1706896547407,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896547407,
+      "end": 1706896547407,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896547407,
+      "end": 1706896547408,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896547407,
+      "end": 1706896547408,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896547408,
+      "end": 1706896547408,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896547408,
+      "end": 1706896547408,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896547408,
+      "end": 1706896547409,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896547408,
+      "end": 1706896547410,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896547411,
+      "end": 1706896547428,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896547411,
+      "end": 1706896547428,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896547429,
+      "end": 1706896547429,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896547429,
+      "end": 1706896547429,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896547484,
+      "end": 1706896547484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896547484,
+      "end": 1706896547484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896547485,
+      "end": 1706896547485,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896547487,
+      "end": 1706896547487,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896547487,
+      "end": 1706896547487,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896547487,
+      "end": 1706896547488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896547488,
+      "end": 1706896547488,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"tsx\">\r\nimport {useCloudStore} from \"~/stores/cloud\";\r\nimport TheCloudUIStructureSubFolder from \"~/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureSubFolder.vue\";\r\n\r\ndefineProps({\r\n  showFolder: {\r\n    type: Object,\r\n    default: () => {\r\n    },\r\n  },\r\n})\r\n</script>\r\n\r\n<template>\r\n  <div class=\"p-2 flex items-center gap-x-4 hover:bg-gray-700 transition-all duration-200 cursor-pointer rounded-lg \">\r\n    <div>\r\n      <slot name=\"structureSvg\"/>\r\n    </div>\r\n    <p class=\"tracking-widest text-sm\"><slot name=\"structureName\"/></p>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>",
+      "start": 1706896548780,
+      "end": 1706896549156,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896549156,
+      "end": 1706896549156,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue?vue&type=script&setup=true&lang.tsx\";\nexport * from \"D:/Programming/templates/KPIcopy/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue?vue&type=script&setup=true&lang.tsx\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896549156,
+      "end": 1706896549300,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896549302,
+      "end": 1706896549303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896549303,
+      "end": 1706896549303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896549303,
+      "end": 1706896549303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896549303,
+      "end": 1706896549303,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896549304,
+      "end": 1706896549304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896549305,
+      "end": 1706896549305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896549305,
+      "end": 1706896549305,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549305,
+      "end": 1706896549305,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549305,
+      "end": 1706896549305,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549305,
+      "end": 1706896549306,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549305,
+      "end": 1706896549306,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549306,
+      "end": 1706896549306,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549306,
+      "end": 1706896549306,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549323,
+      "end": 1706896549323,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549323,
+      "end": 1706896549323,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549323,
+      "end": 1706896549333,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549323,
+      "end": 1706896549333,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549333,
+      "end": 1706896549333,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549333,
+      "end": 1706896549334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549335,
+      "end": 1706896549335,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549335,
+      "end": 1706896549336,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896549341,
+      "end": 1706896549341,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896549341,
+      "end": 1706896549341,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896549341,
+      "end": 1706896549341,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896549341,
+      "end": 1706896549342,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896549342,
+      "end": 1706896549342,
+      "order": "normal"
+    }
+  ]
+}

@@ -12,6 +12,12 @@ const currentObject = useObjects()
 watchEffect(()=> {
   currentObject.loadObject({id: route.params.id})
 })
+
+watchSyncEffect(()=>{
+  useSeoMeta({
+    title: `${currentObject.objects.name}`
+  })
+})
 </script>
 
 <template>

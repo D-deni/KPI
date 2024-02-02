@@ -15,15 +15,21 @@ import TheSceleton from "~/components/UI/TheSceleton.vue";
 
 const currentDepartment = useCompanies()
 const route = useRoute()
-watchEffect(() => {
-  currentDepartment.loadDepartment({id: route.params.id})
-})
+
 
 defineProps({
   showWarning: {
     type: Boolean,
     default: false
   }
+})
+watchEffect(() => {
+  currentDepartment.loadDepartment({id: route.params.id})
+})
+watchSyncEffect(()=>{
+  useSeoMeta({
+    title: `${currentDepartment.current_department.name}`
+  })
 })
 </script>
 

@@ -1,0 +1,238 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/UI/TheCheckbox.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <label class=\"container mt-4 w-[250px]\">\r\n    <span class=\"text-black dark:text-white\" v-if=\"t !== 'checkboxChat'\">{{ item?.name }}</span>\r\n    <span class=\"text-black dark:text-white\" v-else>{{$t('Показать имя отправителя')}}</span>\r\n    <input  v-if=\"t !== 'checkboxChat'\"\r\n      type=\"checkbox\"\r\n      @change=\"item.value = !item.value\"\r\n      :checked=\"item.value\"\r\n    >\r\n    <input v-else\r\n           type=\"checkbox\"\r\n           @change=\"chat.checkboxForwarded = !chat.checkboxForwarded\"\r\n           :checked=\"chat.checkboxForwarded\"\r\n    >\r\n    <span class=\"checkmark\"></span>\r\n  </label>\r\n</template>\r\n\r\n<script setup lang=\"ts\">\r\nimport {useChat} from \"~/stores/chat\";\r\ndefineProps({\r\n  item: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  },\r\n  check: {\r\n    type: Boolean,\r\n    default: true\r\n  },\r\n  t: {\r\n    type: String,\r\n    default: ''\r\n  }\r\n})\r\n\r\nconst chat = useChat()\r\n\r\n\r\n</script>\r\n\r\n<style scoped>\r\n/* Customize the label (the container) */\r\n.container {\r\n  display: block;\r\n  position: relative;\r\n  padding-left: 35px;\r\n  margin-bottom: 12px;\r\n  cursor: pointer;\r\n  font-size: 16px;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n}\r\n\r\n/* Hide the browser's default checkbox */\r\n.container input {\r\n  position: absolute;\r\n  opacity: 0;\r\n  cursor: pointer;\r\n  height: 0;\r\n  width: 0;\r\n}\r\n\r\n/* Create a custom checkbox */\r\n.checkmark {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  height: 25px;\r\n  width: 25px;\r\n  background-color: #eee;\r\n}\r\n\r\n/* On mouse-over, add a grey background color */\r\n.container input ~ .checkmark {\r\n  border: 1px solid #2988c8;\r\n  border-radius: 5px;\r\n  transition: 0.3s ease-in-out;\r\n}\r\n\r\n.container:hover input ~ .checkmark {\r\n  background-color: #3498db;\r\n}\r\n\r\n/* When the checkbox is checked, add a blue background */\r\n.container input:checked ~ .checkmark {\r\n  background-color: #2988c8;\r\n}\r\n\r\n/* Create the checkmark/indicator (hidden when not checked) */\r\n.checkmark:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  display: none;\r\n}\r\n\r\n/* Show the checkmark when checked */\r\n.container input:checked ~ .checkmark:after {\r\n  display: block;\r\n}\r\n\r\n/* Style the checkmark/indicator */\r\n.container .checkmark:after {\r\n  left: 9px;\r\n  top: 5px;\r\n  width: 5px;\r\n  height: 10px;\r\n  border: solid white;\r\n  border-width: 0 3px 3px 0;\r\n  -webkit-transform: rotate(45deg);\r\n  -ms-transform: rotate(45deg);\r\n  transform: rotate(45deg);\r\n}\r\n</style>",
+      "start": 1706896520638,
+      "end": 1706896521068,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521068,
+      "end": 1706896521068,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/UI/TheCheckbox.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/UI/TheCheckbox.vue?vue&type=script&setup=true&lang.ts\";\nimport \"D:/Programming/templates/KPIcopy/components/UI/TheCheckbox.vue?vue&type=style&index=0&scoped=cf631f5a&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-cf631f5a\"]]);\n",
+      "start": 1706896521068,
+      "end": 1706896521278,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521278,
+      "end": 1706896521278,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521278,
+      "end": 1706896521278,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521279,
+      "end": 1706896521279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521280,
+      "end": 1706896521280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521281,
+      "end": 1706896521281,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521281,
+      "end": 1706896521282,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521284,
+      "end": 1706896521285,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521285,
+      "end": 1706896521285,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521286,
+      "end": 1706896521286,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521290,
+      "end": 1706896521290,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521291,
+      "end": 1706896521291,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521292,
+      "end": 1706896521292,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521292,
+      "end": 1706896521292,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521292,
+      "end": 1706896521292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521293,
+      "end": 1706896521293,
+      "order": "normal"
+    }
+  ]
+}

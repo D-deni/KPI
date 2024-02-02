@@ -21,7 +21,10 @@ onMounted(()=>{
     activeNav.value = false
   }
 })
-
+useSeoMeta({
+  title: 'Чат',
+  description: 'Интерактивный чат для пользователей'
+})
 </script>
 
 <template>

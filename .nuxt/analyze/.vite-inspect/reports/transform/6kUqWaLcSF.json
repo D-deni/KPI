@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { renderSlot as _renderSlot, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = [\"task\"]\nconst _hoisted_2 = { class: \"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\" }\nconst _hoisted_3 = { class: \"flex flex-col\" }\nconst _hoisted_4 = { class: \"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white\" }\nconst _hoisted_5 = { class: \"text-md dark:text-white text-blue-600\" }\n\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksReportBlock',\n  props: {\r\n  task: {\r\n    type: Number,\r\n    default: null,\r\n  }\r\n},\n  setup(__props) {\n\r\nconst taskList = useTaskList()\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"div\", {\n      class: \"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\",\n      task: __props.task\n    }, [\n      _createElementVNode(\"div\", _hoisted_2, [\n        _renderSlot(_ctx.$slots, \"TaskReportSvg\")\n      ]),\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createElementVNode(\"p\", _hoisted_4, [\n          _renderSlot(_ctx.$slots, \"TaskReportTitle\")\n        ]),\n        _createElementVNode(\"p\", _hoisted_5, [\n          _renderSlot(_ctx.$slots, \"TaskReportSubtitle\")\n        ]),\n        _createElementVNode(\"div\", null, [\n          _renderSlot(_ctx.$slots, \"TaskSceleton\")\n        ])\n      ])\n    ], 8, _hoisted_1)\n  ]))\n}\n}\n\n})",
+      "start": 1706896522103,
+      "end": 1706896522103
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896522103,
+      "end": 1706896522103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { renderSlot as _renderSlot, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = [\"task\"];\nconst _hoisted_2 = { class: \"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\" };\nconst _hoisted_3 = { class: \"flex flex-col\" };\nconst _hoisted_4 = { class: \"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white\" };\nconst _hoisted_5 = { class: \"text-md dark:text-white text-blue-600\" };\nimport { useTaskList } from \"~/stores/tasks\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TasksReportBlock\",\n  props: {\n    task: {\n      type: Number,\n      default: null\n    }\n  },\n  setup(__props) {\n    const taskList = useTaskList();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createElementVNode(\"div\", {\n          class: \"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\",\n          task: __props.task\n        }, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _renderSlot(_ctx.$slots, \"TaskReportSvg\")\n          ]),\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"p\", _hoisted_4, [\n              _renderSlot(_ctx.$slots, \"TaskReportTitle\")\n            ]),\n            _createElementVNode(\"p\", _hoisted_5, [\n              _renderSlot(_ctx.$slots, \"TaskReportSubtitle\")\n            ]),\n            _createElementVNode(\"div\", null, [\n              _renderSlot(_ctx.$slots, \"TaskSceleton\")\n            ])\n          ])\n        ], 8, _hoisted_1)\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896522103,
+      "end": 1706896522475,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksReportBlock.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { renderSlot as _renderSlot, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = [\"task\"]\nconst _hoisted_2 = { class: \"dark:bg-gray-100 shadow-lg rounded-full w-[80px] h-[80px] mx-auto flex justify-center items-center\" }\nconst _hoisted_3 = { class: \"flex flex-col\" }\nconst _hoisted_4 = { class: \"mt-6 mb-12 font-bold text-lg text-blue-400 dark:text-white\" }\nconst _hoisted_5 = { class: \"text-md dark:text-white text-blue-600\" }\n\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksReportBlock',\n  props: {\r\n  task: {\r\n    type: Number,\r\n    default: null,\r\n  }\r\n},\n  setup(__props) {\n\r\nconst taskList = useTaskList()\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"div\", {\n      class: \"dark:shadow-gray-500 dark:border dark:border-gray-500 w-[250px] h-[250px] max-[400px]:w-400px transition-all hover:-translate-y-3 shadow-lg dark:shadow-md p-6 rounded-lg\",\n      task: __props.task\n    }, [\n      _createElementVNode(\"div\", _hoisted_2, [\n        _renderSlot(_ctx.$slots, \"TaskReportSvg\")\n      ]),\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createElementVNode(\"p\", _hoisted_4, [\n          _renderSlot(_ctx.$slots, \"TaskReportTitle\")\n        ]),\n        _createElementVNode(\"p\", _hoisted_5, [\n          _renderSlot(_ctx.$slots, \"TaskReportSubtitle\")\n        ]),\n        _createElementVNode(\"div\", null, [\n          _renderSlot(_ctx.$slots, \"TaskSceleton\")\n        ])\n      ])\n    ], 8, _hoisted_1)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,cAAc,aAAa,sBAAsB,qBAAqB,aAAa,YAAY,sBAAsB,2BAA2B;AAEzJ,MAAM,aAAa,CAAC,MAAM;AAC1B,MAAM,aAAa,EAAE,OAAO,qGAAqG;AACjI,MAAM,aAAa,EAAE,OAAO,gBAAgB;AAC5C,MAAM,aAAa,EAAE,OAAO,6DAA6D;AACzF,MAAM,aAAa,EAAE,OAAO,wCAAwC;AAEpE,SAAQ,mBAAkB;AAI1B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,MAAM;AAAA,MACJ,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAEjB,UAAM,WAAW,YAAY;AAI7B,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACrD,oBAAoB,OAAO;AAAA,UACzB,OAAO;AAAA,UACP,MAAM,QAAQ;AAAA,QAChB,GAAG;AAAA,UACD,oBAAoB,OAAO,YAAY;AAAA,YACrC,YAAY,KAAK,QAAQ,eAAe;AAAA,UAC1C,CAAC;AAAA,UACD,oBAAoB,OAAO,YAAY;AAAA,YACrC,oBAAoB,KAAK,YAAY;AAAA,cACnC,YAAY,KAAK,QAAQ,iBAAiB;AAAA,YAC5C,CAAC;AAAA,YACD,oBAAoB,KAAK,YAAY;AAAA,cACnC,YAAY,KAAK,QAAQ,oBAAoB;AAAA,YAC/C,CAAC;AAAA,YACD,oBAAoB,OAAO,MAAM;AAAA,cAC/B,YAAY,KAAK,QAAQ,cAAc;AAAA,YACzC,CAAC;AAAA,UACH,CAAC;AAAA,QACH,GAAG,GAAG,UAAU;AAAA,MAClB,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522475,
+      "end": 1706896522475,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522476,
+      "end": 1706896522476,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522477,
+      "end": 1706896522477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522478,
+      "end": 1706896522478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522479,
+      "end": 1706896522479,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522480,
+      "end": 1706896522480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522481,
+      "end": 1706896522487,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522488,
+      "end": 1706896522488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522489,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522489,
+      "end": 1706896522489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522490,
+      "end": 1706896522490,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Company/User/CurrentCompanyFiles.vue?vue&type=style&index=0&scoped=a06afbbe&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.swiper-slide {\r\n}\r\n.swiper-wrapper {\r\n}\r\n",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Company/User/CurrentCompanyFiles.vue"
+        ],
+        "names": [],
+        "mappings": ";AAuDA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;AACd;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;AAChB",
+        "file": "D:/Programming/templates/KPIcopy/components/Company/User/CurrentCompanyFiles.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\nconst authStore = useAuthStore()\r\nconst companies = useCompanies()\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex max-[900px]:flex-wrap gap-y-10 w-full justify-center mx-auto container gap-x-10\">\r\n    <CurrentCompanyElems class=\"w-9/12 max-[900px]:w-full\">\r\n      <template v-slot:blockTitle>\r\n        <TheTextContent>{{ $t('Галерея') }}</TheTextContent>\r\n      </template>\r\n      <template v-slot:blockContent>\r\n        <Swiper\r\n          :modules=\"[SwiperAutoplay, SwiperEffectCreative]\"\r\n          :slides-per-view=\"1\"\r\n          :loop=\"true\"\r\n          :effect=\"'creative'\"\r\n          :autoplay=\"{\r\n        delay: 4000,\r\n        disableOnInteraction: true\r\n      }\"\r\n          :creative-effect=\"{\r\n        prev: {\r\n          shadow: true,\r\n          translate: ['-100%', 0, -1]\r\n        },\r\n        next: {\r\n          shadow: true,\r\n          translate: ['100%', 0, 0]\r\n        }\r\n      }\"\r\n        >\r\n          <SwiperSlide class=\" rounded-lg\" v-for=\"item in companies.company?.pictures\">\r\n            <img class=\"w-full h-[500px]\" :src=\"authStore.get_server_domain + item.photo_url\" alt=\"\">\r\n          </SwiperSlide>\r\n        </Swiper>\r\n      </template>\r\n    </CurrentCompanyElems>\r\n    <CurrentCompanyElems class=\"w-4/12 max-[900px]:w-full ml-auto\">\r\n      <template v-slot:blockTitle>\r\n        <TheTextContent>{{ $t('Файлы') }}</TheTextContent>\r\n      </template>\r\n      <template v-slot:blockContent>\r\n\r\n      </template>\r\n    </CurrentCompanyElems>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n.swiper-slide {\r\n}\r\n.swiper-wrapper {\r\n}\r\n</style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896548547,
+      "end": 1706896548547,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "",
+      "start": 1706896548547,
+      "end": 1706896548764,
+      "order": "normal",
+      "sourcemaps": {
+        "names": [],
+        "sources": [],
+        "mappings": "",
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896548764,
+      "end": 1706896548764,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896548764,
+      "end": 1706896548764,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896548764,
+      "end": 1706896548764,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "",
+      "start": 1706896548764,
+      "end": 1706896548765,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/Programming/templates/KPIcopy/components/Company/User/CurrentCompanyFiles.vue",
+        "mappings": "",
+        "names": [],
+        "sources": [],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548765,
+      "end": 1706896548765,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896548766,
+      "end": 1706896548766,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896548767,
+      "end": 1706896548767,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896548767,
+      "end": 1706896548767,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896548767,
+      "end": 1706896548767,
+      "order": "normal"
+    }
+  ]
+}

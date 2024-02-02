@@ -1,0 +1,298 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksContentSearch.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div>\r\n    <div\r\n      class=\"flex justify-center gap-x-10 max-md:flex-wrap max-md:gap-y-4 max-md:items-center\">\r\n      <div class=\"w-2/12 max-md:w-full flex max-md:justify-center items-center gap-x-2\">\r\n        <div class=\"cursor-pointer relative transition-all\" @mouseenter=\"moveElem = true\"\r\n             @mouseleave=\"moveElem = false\" @click=\"moveElem = true\">\r\n          <svg class=\"dark:stroke-gray-200 stroke-black\" width=\"30px\" height=\"30px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n               xmlns=\"http://www.w3.org/2000/svg\">\r\n            <circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1.5\"/>\r\n            <path\r\n              d=\"M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13\"\r\n              stroke-width=\"1.5\" stroke-linecap=\"round\"/>\r\n            <circle cx=\"12\" cy=\"16\" r=\"1\" class=\"dark:fill-white fill-black\"/>\r\n          </svg>\r\n          <div\r\n            class=\"absolute dark:bg-gray-400 bg-white w-[200px] max-md:left-0 right-0 top-10 z-10 shadow-md rounded-lg p-2\"\r\n            :class=\"{'hidden' : !moveElem, 'block' : moveElem}\">\r\n            <h3 class=\"text-center tracking-wider\">{{ $t('Статусы выполнения') }}</h3>\r\n            <TaskFilterStatus>\r\n              <template v-slot:statusColor>\r\n                <div class=\"bg-orange-500 w-[25px] h-[25px] rounded-full\"></div>\r\n              </template>\r\n              <template v-slot:statusName>\r\n                {{ $t('Выполняется') }}\r\n              </template>\r\n            </TaskFilterStatus>\r\n            <TaskFilterStatus>\r\n              <template v-slot:statusColor>\r\n                <div class=\"bg-green-500 w-[25px] h-[25px] rounded-full\"></div>\r\n              </template>\r\n              <template v-slot:statusName>\r\n                {{ $t('Выполнено') }}\r\n              </template>\r\n            </TaskFilterStatus>\r\n            <TaskFilterStatus>\r\n              <template v-slot:statusColor>\r\n                <div class=\"bg-red-500 w-[25px] h-[25px] rounded-full\"></div>\r\n              </template>\r\n              <template v-slot:statusName>\r\n                {{ $t('Отклонено') }}\r\n              </template>\r\n            </TaskFilterStatus>\r\n            <TaskFilterStatus>\r\n              <template v-slot:statusColor>\r\n                <div class=\"bg-blue-500 w-[25px] h-[25px] rounded-full\"></div>\r\n              </template>\r\n              <template v-slot:statusName>\r\n                {{ $t('На расмотрении') }}\r\n              </template>\r\n            </TaskFilterStatus>\r\n          </div>\r\n        </div>\r\n        <TheButton\r\n          @click=\"showFilter = !showFilter\"\r\n          type=\"button\"\r\n          class=\"tracking-widest rounded-full dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\">\r\n          {{ $t('Фильтр') }}\r\n        </TheButton>\r\n      </div>\r\n      <TheModal @showModal=\"showFilter = !showFilter\" v-if=\"showFilter\">\r\n        <div>\r\n          <div class=\"relative\">\r\n            <h2 class=\"text-center font-bold text-2xl max-md:text-xl dark:text-white tracking-widest\">\r\n              {{ $t('Фильтрация по поиску') }}</h2>\r\n            <div class=\"absolute top-0 right-0 max-md:-right-3 max-md:-top-2\" @click=\"showFilter = false\">\r\n              <svg class=\"dark:stroke-white stroke-black\" width=\"35px\" height=\"35px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n                   xmlns=\"http://www.w3.org/2000/svg\">\r\n                <circle cx=\"12\" cy=\"12\" r=\"10\" stroke-width=\"1.5\"/>\r\n                <path d=\"M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>\r\n              </svg>\r\n            </div>\r\n          </div>\r\n          <div class=\"flex justify-between mx-auto my-10 max-lg:flex-col items-center gap-y-10\">\r\n            <TaskFilter class=\"p-4\" :class=\"{'box' : showStatus ==='status'}\"\r\n                        @showEvent=\"showStatus = !showStatus; showStatus = 'status'\">\r\n              <template v-slot:filterIcon>\r\n                <svg class=\"fill-black dark:fill-gray-100\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n                     xmlns=\"http://www.w3.org/2000/svg\">\r\n                  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\"\r\n                        d=\"M15.4013 7.5H19C19.2761 7.5 19.5 7.27614 19.5 7C19.5 6.72386 19.2761 6.5 19 6.5H15.0415C15.1017 6.85896 15.2257 7.19631 15.4013 7.5ZM13.2289 7.5C13.1282 7.17938 13.0589 6.84484 13.0247 6.5H5C4.72386 6.5 4.5 6.72386 4.5 7C4.5 7.27614 4.72386 7.5 5 7.5H13.2289ZM5 11.5C4.72386 11.5 4.5 11.7239 4.5 12C4.5 12.2761 4.72386 12.5 5 12.5H19C19.2761 12.5 19.5 12.2761 19.5 12C19.5 11.7239 19.2761 11.5 19 11.5H5ZM5 16.5C4.72386 16.5 4.5 16.7239 4.5 17C4.5 17.2761 4.72386 17.5 5 17.5H19C19.2761 17.5 19.5 17.2761 19.5 17C19.5 16.7239 19.2761 16.5 19 16.5H5Z\"/>\r\n                  <circle cx=\"18\" cy=\"6\" r=\"3\"/>\r\n                </svg>\r\n              </template>\r\n              <template v-slot:filterTitle>\r\n                {{ $t('По статусу') }}\r\n              </template>\r\n              <template v-slot:filterChevron>\r\n                <svg class=\"transition-all dark:stroke-white stroke-black\"\r\n                     :class=\"{'rotate-180' : showStatus === 'status'}\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\"\r\n                     fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n                  <path d=\"M17 9.5L12 14.5L7 9.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n                </svg>\r\n              </template>\r\n            </TaskFilter>\r\n            <TaskFilter class=\"p-4\" :class=\"{'box' : showStatus ==='chart'}\"\r\n                        @showEvent=\"showStatus = !showStatus; showStatus = 'chart'\">\r\n              <template v-slot:filterIcon>\r\n                <svg width=\"25px\" class=\"stroke-black dark:stroke-white\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n                     xmlns=\"http://www.w3.org/2000/svg\">\r\n                  <path d=\"M7 18V9\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>\r\n                  <path d=\"M12 18V6\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>\r\n                  <path d=\"M17 18V13\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>\r\n                  <path\r\n                    d=\"M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8\"\r\n                    stroke-width=\"1.5\" stroke-linecap=\"round\"/>\r\n                </svg>\r\n              </template>\r\n              <template v-slot:filterTitle>\r\n                {{ $t('По графику') }}\r\n              </template>\r\n              <template v-slot:filterChevron>\r\n                <svg class=\"transition-all dark:stroke-white stroke-black\"\r\n                     :class=\"{'rotate-180' : showStatus === 'chart'}\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\"\r\n                     fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n                  <path d=\"M17 9.5L12 14.5L7 9.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n                </svg>\r\n              </template>\r\n            </TaskFilter>\r\n            <TaskFilter class=\"p-4\" :class=\"{'box' : showStatus ==='date'}\"\r\n                        @showEvent=\"showStatus = !showStatus; showStatus = 'date'\">\r\n              <template v-slot:filterIcon>\r\n                <svg class=\"dark:fill-white\" width=\"25px\" height=\"25px\" viewBox=\"0 0 20 20\"\r\n                     xmlns=\"http://www.w3.org/2000/svg\">\r\n                  <path\r\n                    d=\"M5.67326018,0 C6.0598595,0 6.37326018,0.31324366 6.37326018,0.699649298 L6.373,2.009 L13.89,2.009 L13.8901337,0.708141199 C13.8901337,0.321735562 14.2035343,0.00849190182 14.5901337,0.00849190182 C14.976733,0.00849190182 15.2901337,0.321735562 15.2901337,0.708141199 L15.29,2.009 L18,2.00901806 C19.1045695,2.00901806 20,2.90399995 20,4.00801605 L20,18.001002 C20,19.1050181 19.1045695,20 18,20 L2,20 C0.8954305,20 0,19.1050181 0,18.001002 L0,4.00801605 C0,2.90399995 0.8954305,2.00901806 2,2.00901806 L4.973,2.009 L4.97326018,0.699649298 C4.97326018,0.31324366 5.28666085,0 5.67326018,0 Z M1.4,7.742 L1.4,18.001002 C1.4,18.3322068 1.66862915,18.6007014 2,18.6007014 L18,18.6007014 C18.3313708,18.6007014 18.6,18.3322068 18.6,18.001002 L18.6,7.756 L1.4,7.742 Z M6.66666667,14.6186466 L6.66666667,16.284778 L5,16.284778 L5,14.6186466 L6.66666667,14.6186466 Z M10.8333333,14.6186466 L10.8333333,16.284778 L9.16666667,16.284778 L9.16666667,14.6186466 L10.8333333,14.6186466 Z M15,14.6186466 L15,16.284778 L13.3333333,16.284778 L13.3333333,14.6186466 L15,14.6186466 Z M6.66666667,10.6417617 L6.66666667,12.3078931 L5,12.3078931 L5,10.6417617 L6.66666667,10.6417617 Z M10.8333333,10.6417617 L10.8333333,12.3078931 L9.16666667,12.3078931 L9.16666667,10.6417617 L10.8333333,10.6417617 Z M15,10.6417617 L15,12.3078931 L13.3333333,12.3078931 L13.3333333,10.6417617 L15,10.6417617 Z M4.973,3.408 L2,3.40831666 C1.66862915,3.40831666 1.4,3.67681122 1.4,4.00801605 L1.4,6.343 L18.6,6.357 L18.6,4.00801605 C18.6,3.67681122 18.3313708,3.40831666 18,3.40831666 L15.29,3.408 L15.2901337,4.33697436 C15.2901337,4.72338 14.976733,5.03662366 14.5901337,5.03662366 C14.2035343,5.03662366 13.8901337,4.72338 13.8901337,4.33697436 L13.89,3.408 L6.373,3.408 L6.37326018,4.32848246 C6.37326018,4.7148881 6.0598595,5.02813176 5.67326018,5.02813176 C5.28666085,5.02813176 4.97326018,4.7148881 4.97326018,4.32848246 L4.973,3.408 Z\"/>\r\n                </svg>\r\n              </template>\r\n              <template v-slot:filterTitle>\r\n                {{ $t('По дате') }}\r\n              </template>\r\n              <template v-slot:filterChevron>\r\n                <svg class=\"transition-all dark:stroke-white stroke-black\"\r\n                     :class=\"{'rotate-180' : showStatus === 'date'}\"\r\n                     width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n                  <path d=\"M17 9.5L12 14.5L7 9.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n                </svg>\r\n              </template>\r\n            </TaskFilter>\r\n          </div>\r\n          <div>\r\n            <div v-if=\"showStatus === 'status'\">\r\n              <div\r\n                class=\"flex justify-between dark:text-white tracking-widest max-sm:flex-col flex-wrap max-sm:flex-nowrap\">\r\n                <TaskFilterStatus :class=\"{'dark:bg-gray-500 bg-gray-100' : activeStatus === 'performed'}\"\r\n                                  @activeStatus=\"activeStatus = !activeStatus; activeStatus = 'performed'\">\r\n                  <template v-slot:statusColor>\r\n                    <div class=\"bg-orange-500 w-[25px] h-[25px] rounded-full\"></div>\r\n                  </template>\r\n                  <template v-slot:statusName>\r\n                    {{ $t('Выполняется') }}\r\n                  </template>\r\n                </TaskFilterStatus>\r\n                <TaskFilterStatus :class=\"{'dark:bg-gray-500 bg-gray-100' : activeStatus === 'completed'}\"\r\n                                  @activeStatus=\"activeStatus = !activeStatus; activeStatus = 'completed'\">\r\n                  <template v-slot:statusColor>\r\n                    <div class=\"bg-green-500 w-[25px] h-[25px] rounded-full\"></div>\r\n                  </template>\r\n                  <template v-slot:statusName>\r\n                    {{ $t('Выполнено') }}\r\n                  </template>\r\n                </TaskFilterStatus>\r\n                <TaskFilterStatus :class=\"{'dark:bg-gray-500 bg-gray-100' : activeStatus === 'rejected'}\"\r\n                                  @activeStatus=\"activeStatus = !activeStatus; activeStatus = 'rejected'\">\r\n                  <template v-slot:statusColor>\r\n                    <div class=\"bg-red-500 w-[25px] h-[25px] rounded-full\"></div>\r\n                  </template>\r\n                  <template v-slot:statusName>\r\n                    {{ $t('Отклонено') }}\r\n                  </template>\r\n                </TaskFilterStatus>\r\n                <TaskFilterStatus :class=\"{'dark:bg-gray-500 bg-gray-100' : activeStatus === 'expectation'}\"\r\n                                  @activeStatus=\"activeStatus = !activeStatus; activeStatus = 'expectation'\">\r\n                  <template v-slot:statusColor>\r\n                    <div class=\"bg-blue-500 w-[25px] h-[25px] rounded-full\"></div>\r\n                  </template>\r\n                  <template v-slot:statusName>\r\n                    {{ $t('На расмотрении') }}\r\n                  </template>\r\n                </TaskFilterStatus>\r\n              </div>\r\n            </div>\r\n            <div v-if=\"showStatus === 'name'\">\r\n              Lorem ipsum dolor sit amet, c\r\n            </div>\r\n            <div class=\"flex items-center justify-center mx-auto w-full\" v-if=\"showStatus === 'date'\">\r\n              <VueDatePicker class=\"mx-auto max-md:flex-col flex justify-center\" v-model=\"date\" range inline\r\n                             :preset-ranges=\"presetRanges\">\r\n                <template #yearly=\"{label, range, presetDateRange}\">\r\n                  <span @click=\"presetDateRange(range)\"></span>\r\n                </template>\r\n              </VueDatePicker>\r\n            </div>\r\n          </div>\r\n          <div class=\"flex justify-evenly my-10\">\r\n            <TheButton :type=\"'danger'\" class=\"w-3/12 max-sm:w-5/12 py-2 rounded-lg\" @click=\"showFilter = false\">\r\n              Отмена\r\n            </TheButton>\r\n            <TheButton type=\"button\" class=\"w-3/12 max-sm:w-5/12  py-2 rounded-lg bg-semiCyan\">Поиск</TheButton>\r\n          </div>\r\n        </div>\r\n      </TheModal>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup lang=\"ts\">\r\n\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TaskFilter from '~/components/Tasks/TaskUI/TaskUIFilter/TaskFilter.vue'\r\nimport TaskFilterStatus from \"~/components/Tasks/TaskUI/TaskUIFilter/TaskFilterStatus.vue\";\r\nimport VueDatePicker from '@vuepic/vue-datepicker';\r\nimport '@vuepic/vue-datepicker/dist/main.css'\r\nimport {endOfMonth, endOfYear, startOfMonth, startOfYear, subMonths} from \"date-fns\";\r\nimport {move} from \"@antfu/utils\";\r\n\r\nconst params = ref({\r\n  query: ''\r\n})\r\nconst date = ref()\r\nconst presetRanges = ref([\r\n  {label: 'Сегодня', range: [new Date(), new Date()]},\r\n  {label: 'В этом месяце', range: [startOfMonth(new Date()), endOfMonth(new Date())]},\r\n\r\n  {\r\n    label: 'В предидущем месяце',\r\n    range: [startOfMonth(subMonths(new Date(), 1)), endOfMonth(subMonths(new Date(), 1))],\r\n  },\r\n\r\n  {label: 'В этом году', range: [startOfYear(new Date()), endOfYear(new Date())]},\r\n  {label: 'По сроку выполнения', range: [new Date(), new Date()]},\r\n\r\n]);\r\n\r\ndefineProps({\r\n  moveElem: Boolean,\r\n  showFilter: Boolean,\r\n  showStatus: [String, Boolean],\r\n  activeStatus: [String, Boolean],\r\n  searchInput: String,\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.dp__menu_content_wrapper {\r\n  @media screen and (max-width: 610px) {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n}\r\n\r\n.dp__action_select {\r\n  display: none;\r\n}\r\n\r\n@keyframes bg {\r\n  0% {\r\n    background-size: 0 2px,\r\n    2px 0,\r\n    0 2px,\r\n    2px 0;\r\n  }\r\n  25% {\r\n    background-size: 100% 2px,\r\n    2px 0,\r\n    0 2px,\r\n    2px 0;\r\n  }\r\n  50% {\r\n    background-size: 100% 2px,\r\n    2px 100%,\r\n    0 2px,\r\n    2px 0;\r\n  }\r\n  75% {\r\n    background-size: 100% 2px,\r\n    2px 100%,\r\n    100% 2px,\r\n    2px 0;\r\n  }\r\n  100% {\r\n    background-size: 100% 2px,\r\n    2px 100%,\r\n    100% 2px,\r\n    2px 100%;\r\n  }\r\n}\r\n\r\n.box {\r\n  background-repeat: no-repeat;\r\n  background-image: linear-gradient(to right, #fff 100%, #fff 100%),\r\n  linear-gradient(to bottom, #fff 100%, #fff 100%),\r\n  linear-gradient(to right, #fff 100%, #fff 100%),\r\n  linear-gradient(to bottom, #fff 100%, #fff 100%);\r\n  background-size: 100% 2px,\r\n  2px 100%,\r\n  100% 2px,\r\n  2px 100%;\r\n  border-radius: 3px;\r\n  background-position: 0 0,\r\n  100% 0,\r\n  100% 100%,\r\n  0 100%;\r\n  animation: bg 1.25s cubic-bezier(0.19, 1, 0.22, 1) 1;\r\n  animation-play-state: paused;\r\n}\r\n\r\n.box {\r\n  animation-play-state: running;\r\n}\r\n</style>",
+      "start": 1706896547831,
+      "end": 1706896548197,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896548197,
+      "end": 1706896548197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksContentSearch.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksContentSearch.vue?vue&type=script&setup=true&lang.ts\";\nimport \"D:/Programming/templates/KPIcopy/components/Tasks/TaskUI/TasksContentSearch.vue?vue&type=style&index=0&lang.scss\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/Tasks/TaskUI/TasksContentSearch.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1706896548197,
+      "end": 1706896548410,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896548410,
+      "end": 1706896548410,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896548411,
+      "end": 1706896548411,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896548411,
+      "end": 1706896548411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896548412,
+      "end": 1706896548412,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896548414,
+      "end": 1706896548415,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896548417,
+      "end": 1706896548417,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548418,
+      "end": 1706896548418,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896548418,
+      "end": 1706896548418,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548419,
+      "end": 1706896548419,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896548419,
+      "end": 1706896548419,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548419,
+      "end": 1706896548419,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896548419,
+      "end": 1706896548419,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548420,
+      "end": 1706896548420,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896548420,
+      "end": 1706896548422,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548422,
+      "end": 1706896548424,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896548422,
+      "end": 1706896548424,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548425,
+      "end": 1706896548429,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896548425,
+      "end": 1706896548429,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548433,
+      "end": 1706896548433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896548433,
+      "end": 1706896548433,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896548434,
+      "end": 1706896548434,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896548434,
+      "end": 1706896548434,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896548434,
+      "end": 1706896548434,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896548434,
+      "end": 1706896548434,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896548434,
+      "end": 1706896548434,
+      "order": "normal"
+    }
+  ]
+}

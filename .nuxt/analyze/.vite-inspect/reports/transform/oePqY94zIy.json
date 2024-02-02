@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Objects/ObjectList.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '/img/logo-company.png'\n\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"img\", {\n  class: \"w-[50px] h-[50px]\",\n  src: _imports_0,\n  alt: \"\"\n}, null, -1)\nconst _hoisted_2 = { class: \"tracking-widest\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ObjectList',\n  props: {\r\n  object: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtLink, {\n      to: `/base/objects/${__props.object.id}`,\n      class: \"transition-all cursor-pointer dark:bg-gray-400 dark:hover:bg-gray-300 dark:shadow-none shadow-xl hover:bg-gray-100 dark:border-none border-t border-t-gray-100 p-4 rounded-xl flex items-center gap-x-4\"\n    }, {\n      default: _withCtx(() => [\n        _hoisted_1,\n        _createElementVNode(\"h1\", _hoisted_2, _toDisplayString(__props.object.name), 1)\n      ]),\n      _: 1\n    }, 8, [\"to\"])\n  ]))\n}\n}\n\n})",
+      "start": 1706896522857,
+      "end": 1706896522857
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896522858,
+      "end": 1706896522858,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896522858,
+      "end": 1706896522858,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896522858,
+      "end": 1706896522858,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896522858,
+      "end": 1706896522858,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896522858,
+      "end": 1706896522858,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nimport _imports_0 from \"/img/logo-company.png\";\nconst _hoisted_1 = /* @__PURE__ */ _createElementVNode(\"img\", {\n  class: \"w-[50px] h-[50px]\",\n  src: _imports_0,\n  alt: \"\"\n}, null, -1);\nconst _hoisted_2 = { class: \"tracking-widest\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ObjectList\",\n  props: {\n    object: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtLink, {\n          to: `/base/objects/${__props.object.id}`,\n          class: \"transition-all cursor-pointer dark:bg-gray-400 dark:hover:bg-gray-300 dark:shadow-none shadow-xl hover:bg-gray-100 dark:border-none border-t border-t-gray-100 p-4 rounded-xl flex items-center gap-x-4\"\n        }, {\n          default: _withCtx(() => [\n            _hoisted_1,\n            _createElementVNode(\"h1\", _hoisted_2, _toDisplayString(__props.object.name), 1)\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896522858,
+      "end": 1706896522954,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Objects/ObjectList.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '/img/logo-company.png'\n\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"img\", {\n  class: \"w-[50px] h-[50px]\",\n  src: _imports_0,\n  alt: \"\"\n}, null, -1)\nconst _hoisted_2 = { class: \"tracking-widest\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ObjectList',\n  props: {\r\n  object: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtLink, {\n      to: `/base/objects/${__props.object.id}`,\n      class: \"transition-all cursor-pointer dark:bg-gray-400 dark:hover:bg-gray-300 dark:shadow-none shadow-xl hover:bg-gray-100 dark:border-none border-t border-t-gray-100 p-4 rounded-xl flex items-center gap-x-4\"\n    }, {\n      default: _withCtx(() => [\n        _hoisted_1,\n        _createElementVNode(\"h1\", _hoisted_2, _toDisplayString(__props.object.name), 1)\n      ]),\n      _: 1\n    }, 8, [\"to\"])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,sBAAsB,qBAAqB,mBAAmB,kBAAkB,oBAAoB,mBAAmB,WAAW,UAAU,eAAe,cAAc,aAAa,YAAY,sBAAsB,2BAA2B;AAC5P,OAAO,gBAAgB;AAGvB,MAAM,aAA0B,oCAAoB,OAAO;AAAA,EACzD,OAAO;AAAA,EACP,KAAK;AAAA,EACL,KAAK;AACP,GAAG,MAAM,EAAE;AACX,MAAM,aAAa,EAAE,OAAO,kBAAkB;AAG9C,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,QAAQ;AAAA,MACN,MAAM;AAAA,MACN,SAAS,MAAM;AAAA,MACf;AAAA,IACF;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAIjB,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,sBAAsB,kBAAkB,UAAU;AAExD,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACrD,aAAa,qBAAqB;AAAA,UAChC,IAAI,iBAAiB,QAAQ,OAAO,EAAE;AAAA,UACtC,OAAO;AAAA,QACT,GAAG;AAAA,UACD,SAAS,SAAS,MAAM;AAAA,YACtB;AAAA,YACA,oBAAoB,MAAM,YAAY,iBAAiB,QAAQ,OAAO,IAAI,GAAG,CAAC;AAAA,UAChF,CAAC;AAAA,UACD,GAAG;AAAA,QACL,GAAG,GAAG,CAAC,IAAI,CAAC;AAAA,MACd,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522954,
+      "end": 1706896522954,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522954,
+      "end": 1706896522954,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522954,
+      "end": 1706896522954,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522954,
+      "end": 1706896522954,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522954,
+      "end": 1706896522954,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522954,
+      "end": 1706896522954,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522954,
+      "end": 1706896522954,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522954,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522955,
+      "end": 1706896522955,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522955,
+      "end": 1706896522956,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522956,
+      "end": 1706896522956,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522956,
+      "end": 1706896522956,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522956,
+      "end": 1706896522956,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522956,
+      "end": 1706896522963,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522965,
+      "end": 1706896522965,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522966,
+      "end": 1706896522966,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522966,
+      "end": 1706896522966,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522966,
+      "end": 1706896522966,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nimport _imports_0 from \"/img/logo-company.png\";\nconst _hoisted_1 = /* @__PURE__ */ _createElementVNode(\"img\", {\n  class: \"w-[50px] h-[50px]\",\n  src: _imports_0,\n  alt: \"\"\n}, null, -1);\nconst _hoisted_2 = { class: \"tracking-widest\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ObjectList\",\n  props: {\n    object: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtLink, {\n          to: `/base/objects/${__props.object.id}`,\n          class: \"transition-all cursor-pointer dark:bg-gray-400 dark:hover:bg-gray-300 dark:shadow-none shadow-xl hover:bg-gray-100 dark:border-none border-t border-t-gray-100 p-4 rounded-xl flex items-center gap-x-4\"\n        }, {\n          default: _withCtx(() => [\n            _hoisted_1,\n            _createElementVNode(\"h1\", _hoisted_2, _toDisplayString(__props.object.name), 1)\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896522966,
+      "end": 1706896522966,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522966,
+      "end": 1706896522966,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522967,
+      "end": 1706896522967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522967,
+      "end": 1706896522967,
+      "order": "normal"
+    }
+  ]
+}

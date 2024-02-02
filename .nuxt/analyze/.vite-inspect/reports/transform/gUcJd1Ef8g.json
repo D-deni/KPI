@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messageWriter.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = void 0;\nconst ral_1 = require(\"./ral\");\nconst Is = require(\"./is\");\nconst semaphore_1 = require(\"./semaphore\");\nconst events_1 = require(\"./events\");\nconst ContentLength = 'Content-Length: ';\nconst CRLF = '\\r\\n';\nvar MessageWriter;\n(function (MessageWriter) {\n    function is(value) {\n        let candidate = value;\n        return candidate && Is.func(candidate.dispose) && Is.func(candidate.onClose) &&\n            Is.func(candidate.onError) && Is.func(candidate.write);\n    }\n    MessageWriter.is = is;\n})(MessageWriter = exports.MessageWriter || (exports.MessageWriter = {}));\nclass AbstractMessageWriter {\n    constructor() {\n        this.errorEmitter = new events_1.Emitter();\n        this.closeEmitter = new events_1.Emitter();\n    }\n    dispose() {\n        this.errorEmitter.dispose();\n        this.closeEmitter.dispose();\n    }\n    get onError() {\n        return this.errorEmitter.event;\n    }\n    fireError(error, message, count) {\n        this.errorEmitter.fire([this.asError(error), message, count]);\n    }\n    get onClose() {\n        return this.closeEmitter.event;\n    }\n    fireClose() {\n        this.closeEmitter.fire(undefined);\n    }\n    asError(error) {\n        if (error instanceof Error) {\n            return error;\n        }\n        else {\n            return new Error(`Writer received error. Reason: ${Is.string(error.message) ? error.message : 'unknown'}`);\n        }\n    }\n}\nexports.AbstractMessageWriter = AbstractMessageWriter;\nvar ResolvedMessageWriterOptions;\n(function (ResolvedMessageWriterOptions) {\n    function fromOptions(options) {\n        var _a, _b;\n        if (options === undefined || typeof options === 'string') {\n            return { charset: options !== null && options !== void 0 ? options : 'utf-8', contentTypeEncoder: ral_1.default().applicationJson.encoder };\n        }\n        else {\n            return { charset: (_a = options.charset) !== null && _a !== void 0 ? _a : 'utf-8', contentEncoder: options.contentEncoder, contentTypeEncoder: (_b = options.contentTypeEncoder) !== null && _b !== void 0 ? _b : ral_1.default().applicationJson.encoder };\n        }\n    }\n    ResolvedMessageWriterOptions.fromOptions = fromOptions;\n})(ResolvedMessageWriterOptions || (ResolvedMessageWriterOptions = {}));\nclass WriteableStreamMessageWriter extends AbstractMessageWriter {\n    constructor(writable, options) {\n        super();\n        this.writable = writable;\n        this.options = ResolvedMessageWriterOptions.fromOptions(options);\n        this.errorCount = 0;\n        this.writeSemaphore = new semaphore_1.Semaphore(1);\n        this.writable.onError((error) => this.fireError(error));\n        this.writable.onClose(() => this.fireClose());\n    }\n    async write(msg) {\n        return this.writeSemaphore.lock(async () => {\n            const payload = this.options.contentTypeEncoder.encode(msg, this.options).then((buffer) => {\n                if (this.options.contentEncoder !== undefined) {\n                    return this.options.contentEncoder.encode(buffer);\n                }\n                else {\n                    return buffer;\n                }\n            });\n            return payload.then((buffer) => {\n                const headers = [];\n                headers.push(ContentLength, buffer.byteLength.toString(), CRLF);\n                headers.push(CRLF);\n                return this.doWrite(msg, headers, buffer);\n            }, (error) => {\n                this.fireError(error);\n                throw error;\n            });\n        });\n    }\n    async doWrite(msg, headers, data) {\n        try {\n            await this.writable.write(headers.join(''), 'ascii');\n            return this.writable.write(data);\n        }\n        catch (error) {\n            this.handleError(error, msg);\n            return Promise.reject(error);\n        }\n    }\n    handleError(error, msg) {\n        this.errorCount++;\n        this.fireError(error, msg, this.errorCount);\n    }\n    end() {\n        this.writable.end();\n    }\n}\nexports.WriteableStreamMessageWriter = WriteableStreamMessageWriter;\n//# sourceMappingURL=messageWriter.js.map",
+      "start": 1706896525393,
+      "end": 1706896525437,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525437,
+      "end": 1706896525437,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as messageWriter } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messageWriter.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/ral.js?commonjs-proxy\";\nimport { __require as require$$1 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/is.js?commonjs-wrapped\";\nimport { __require as require$$2 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/semaphore.js?commonjs-wrapped\";\nimport require$$3 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/events.js?commonjs-proxy\";\n\nvar hasRequiredMessageWriter;\n\nfunction requireMessageWriter () {\n\tif (hasRequiredMessageWriter) return messageWriter;\n\thasRequiredMessageWriter = 1;\n\t(function (exports) {\n\t\t\"use strict\";\n\t\t/* --------------------------------------------------------------------------------------------\n\t\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t\t * ------------------------------------------------------------------------------------------ */\n\t\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\t\texports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = void 0;\n\t\tconst ral_1 = require$$0;\n\t\tconst Is = require$$1();\n\t\tconst semaphore_1 = require$$2();\n\t\tconst events_1 = require$$3;\n\t\tconst ContentLength = 'Content-Length: ';\n\t\tconst CRLF = '\\r\\n';\n\t\tvar MessageWriter;\n\t\t(function (MessageWriter) {\n\t\t    function is(value) {\n\t\t        let candidate = value;\n\t\t        return candidate && Is.func(candidate.dispose) && Is.func(candidate.onClose) &&\n\t\t            Is.func(candidate.onError) && Is.func(candidate.write);\n\t\t    }\n\t\t    MessageWriter.is = is;\n\t\t})(MessageWriter = exports.MessageWriter || (exports.MessageWriter = {}));\n\t\tclass AbstractMessageWriter {\n\t\t    constructor() {\n\t\t        this.errorEmitter = new events_1.Emitter();\n\t\t        this.closeEmitter = new events_1.Emitter();\n\t\t    }\n\t\t    dispose() {\n\t\t        this.errorEmitter.dispose();\n\t\t        this.closeEmitter.dispose();\n\t\t    }\n\t\t    get onError() {\n\t\t        return this.errorEmitter.event;\n\t\t    }\n\t\t    fireError(error, message, count) {\n\t\t        this.errorEmitter.fire([this.asError(error), message, count]);\n\t\t    }\n\t\t    get onClose() {\n\t\t        return this.closeEmitter.event;\n\t\t    }\n\t\t    fireClose() {\n\t\t        this.closeEmitter.fire(undefined);\n\t\t    }\n\t\t    asError(error) {\n\t\t        if (error instanceof Error) {\n\t\t            return error;\n\t\t        }\n\t\t        else {\n\t\t            return new Error(`Writer received error. Reason: ${Is.string(error.message) ? error.message : 'unknown'}`);\n\t\t        }\n\t\t    }\n\t\t}\n\t\texports.AbstractMessageWriter = AbstractMessageWriter;\n\t\tvar ResolvedMessageWriterOptions;\n\t\t(function (ResolvedMessageWriterOptions) {\n\t\t    function fromOptions(options) {\n\t\t        var _a, _b;\n\t\t        if (options === undefined || typeof options === 'string') {\n\t\t            return { charset: options !== null && options !== void 0 ? options : 'utf-8', contentTypeEncoder: ral_1.default().applicationJson.encoder };\n\t\t        }\n\t\t        else {\n\t\t            return { charset: (_a = options.charset) !== null && _a !== void 0 ? _a : 'utf-8', contentEncoder: options.contentEncoder, contentTypeEncoder: (_b = options.contentTypeEncoder) !== null && _b !== void 0 ? _b : ral_1.default().applicationJson.encoder };\n\t\t        }\n\t\t    }\n\t\t    ResolvedMessageWriterOptions.fromOptions = fromOptions;\n\t\t})(ResolvedMessageWriterOptions || (ResolvedMessageWriterOptions = {}));\n\t\tclass WriteableStreamMessageWriter extends AbstractMessageWriter {\n\t\t    constructor(writable, options) {\n\t\t        super();\n\t\t        this.writable = writable;\n\t\t        this.options = ResolvedMessageWriterOptions.fromOptions(options);\n\t\t        this.errorCount = 0;\n\t\t        this.writeSemaphore = new semaphore_1.Semaphore(1);\n\t\t        this.writable.onError((error) => this.fireError(error));\n\t\t        this.writable.onClose(() => this.fireClose());\n\t\t    }\n\t\t    async write(msg) {\n\t\t        return this.writeSemaphore.lock(async () => {\n\t\t            const payload = this.options.contentTypeEncoder.encode(msg, this.options).then((buffer) => {\n\t\t                if (this.options.contentEncoder !== undefined) {\n\t\t                    return this.options.contentEncoder.encode(buffer);\n\t\t                }\n\t\t                else {\n\t\t                    return buffer;\n\t\t                }\n\t\t            });\n\t\t            return payload.then((buffer) => {\n\t\t                const headers = [];\n\t\t                headers.push(ContentLength, buffer.byteLength.toString(), CRLF);\n\t\t                headers.push(CRLF);\n\t\t                return this.doWrite(msg, headers, buffer);\n\t\t            }, (error) => {\n\t\t                this.fireError(error);\n\t\t                throw error;\n\t\t            });\n\t\t        });\n\t\t    }\n\t\t    async doWrite(msg, headers, data) {\n\t\t        try {\n\t\t            await this.writable.write(headers.join(''), 'ascii');\n\t\t            return this.writable.write(data);\n\t\t        }\n\t\t        catch (error) {\n\t\t            this.handleError(error, msg);\n\t\t            return Promise.reject(error);\n\t\t        }\n\t\t    }\n\t\t    handleError(error, msg) {\n\t\t        this.errorCount++;\n\t\t        this.fireError(error, msg, this.errorCount);\n\t\t    }\n\t\t    end() {\n\t\t        this.writable.end();\n\t\t    }\n\t\t}\n\t\texports.WriteableStreamMessageWriter = WriteableStreamMessageWriter;\n\t\t//# sourceMappingURL=messageWriter.js.map \n\t} (messageWriter));\n\treturn messageWriter;\n}\n\nexport { requireMessageWriter as __require };",
+      "start": 1706896525437,
+      "end": 1706896525484,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525484,
+      "end": 1706896525484,
+      "order": "normal"
+    }
+  ]
+}

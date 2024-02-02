@@ -15,7 +15,11 @@ const testStore = useTestList()
 onMounted(() => {
   testStore.loadCurrentTest()
 })
-
+watchSyncEffect(()=>{
+  useSeoMeta({
+    title: 'Тест'
+  })
+})
 </script>
 
 <template>

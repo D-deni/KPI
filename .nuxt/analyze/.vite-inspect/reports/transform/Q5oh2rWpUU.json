@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/stores/tree.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import {defineStore} from \"pinia\";\r\nimport axios from \"~/composables/axios\";\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\nexport const useTreeStore = defineStore('useTree', {\r\n  state: ()=>({\r\n    tree: {},\r\n    treeFullScreen: false\r\n  }),\r\n  getters: {\r\n    get_list(tree: any) {\r\n      return this.tree\r\n    }\r\n  },\r\n  actions: {\r\n    async loadTreeList(){\r\n      axios.get(`api/v1/user/tree`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(res=> {\r\n        this.tree = res.data\r\n      })\r\n    }\r\n  }\r\n})\r\n\r\n",
+      "start": 1706896518844,
+      "end": 1706896519204,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896519204,
+      "end": 1706896519204,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896519204,
+      "end": 1706896519204,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896519204,
+      "end": 1706896519204,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896519204,
+      "end": 1706896519204,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896519204,
+      "end": 1706896519204,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineStore } from \"pinia\";\nimport axios from \"~/composables/axios\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport const useTreeStore = defineStore(\"useTree\", {\n  state: () => ({\n    tree: {},\n    treeFullScreen: false\n  }),\n  getters: {\n    get_list(tree) {\n      return this.tree;\n    }\n  },\n  actions: {\n    async loadTreeList() {\n      axios.get(`api/v1/user/tree`, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((res) => {\n        this.tree = res.data;\n      });\n    }\n  }\n});\n",
+      "start": 1706896519204,
+      "end": 1706896519709,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/stores/tree.ts"
+        ],
+        "sourcesContent": [
+          "import {defineStore} from \"pinia\";\r\nimport axios from \"~/composables/axios\";\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\nexport const useTreeStore = defineStore('useTree', {\r\n  state: ()=>({\r\n    tree: {},\r\n    treeFullScreen: false\r\n  }),\r\n  getters: {\r\n    get_list(tree: any) {\r\n      return this.tree\r\n    }\r\n  },\r\n  actions: {\r\n    async loadTreeList(){\r\n      axios.get(`api/v1/user/tree`, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(res=> {\r\n        this.tree = res.data\r\n      })\r\n    }\r\n  }\r\n})\r\n\r\n"
+        ],
+        "mappings": "AAAA,SAAQ,mBAAkB;AAC1B,OAAO,WAAW;AAClB,OAAO,iBAAiB;AACjB,aAAM,eAAe,YAAY,WAAW;AAAA,EACjD,OAAO,OAAK;AAAA,IACV,MAAM,CAAC;AAAA,IACP,gBAAgB;AAAA,EAClB;AAAA,EACA,SAAS;AAAA,IACP,SAAS,MAAW;AAClB,aAAO,KAAK;AAAA,IACd;AAAA,EACF;AAAA,EACA,SAAS;AAAA,IACP,MAAM,eAAc;AAClB,YAAM,IAAI,oBAAoB;AAAA,QAC5B,SAAS;AAAA,UACP,eAAe,UAAU,YAAY,aAAa,QAAQ,OAAO,CAAC;AAAA,QACpE;AAAA,MACF,CAAC,EAAE,KAAK,SAAM;AACZ,aAAK,OAAO,IAAI;AAAA,MAClB,CAAC;AAAA,IACH;AAAA,EACF;AACF,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896519709,
+      "end": 1706896519709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896519710,
+      "end": 1706896519710,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896519711,
+      "end": 1706896519711,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896519711,
+      "end": 1706896519711,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896519711,
+      "end": 1706896519711,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896519711,
+      "end": 1706896519711,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896519711,
+      "end": 1706896519712,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896519712,
+      "end": 1706896519712,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896519712,
+      "end": 1706896519712,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896519712,
+      "end": 1706896519712,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896519712,
+      "end": 1706896519712,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896519712,
+      "end": 1706896519712,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896519712,
+      "end": 1706896519712,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896519712,
+      "end": 1706896519713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896519713,
+      "end": 1706896519713,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Company/User/News/CurrentCompanyNewsList.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"mt-10\" }\nconst _hoisted_2 = { class: \"\" }\nconst _hoisted_3 = [\"src\"]\nconst _hoisted_4 = { class: \"w-7/12\" }\nconst _hoisted_5 = { class: \"tracking-widest text-2xl\" }\nconst _hoisted_6 = { class: \"break-words my-4\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CurrentCompanyNewsList',\n  props: {\r\n  newsItem: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_NuxtLink, {\n      to: `/base/companies/news/${__props.newsItem.id}`,\n      class: \"transition-all cursor-pointer p-4 dark:border-gray-500 dark:hover:bg-gray-700 hover:bg-gray-200 hover:rounded-lg flex gap-x-4 border-b\"\n    }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_2, [\n          (__props.newsItem.photo)\n            ? (_openBlock(), _createElementBlock(\"img\", {\n                key: 0,\n                class: \"w-[150px] h-[150px] rounded-lg\",\n                src: __props.newsItem.photo,\n                alt: \"\"\n              }, null, 8, _hoisted_3))\n            : _createCommentVNode(\"\", true)\n        ]),\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"h1\", _hoisted_5, _toDisplayString(__props.newsItem.title), 1),\n          _createElementVNode(\"p\", _hoisted_6, _toDisplayString(__props.newsItem.description), 1)\n        ])\n      ]),\n      _: 1\n    }, 8, [\"to\"])\n  ]))\n}\n}\n\n})",
+      "start": 1706896523805,
+      "end": 1706896523805
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896523805,
+      "end": 1706896523805,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896523805,
+      "end": 1706896523805,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896523805,
+      "end": 1706896523805,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896523805,
+      "end": 1706896523805,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896523805,
+      "end": 1706896523805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode } from \"vue\";\nconst _hoisted_1 = { class: \"mt-10\" };\nconst _hoisted_2 = { class: \"\" };\nconst _hoisted_3 = [\"src\"];\nconst _hoisted_4 = { class: \"w-7/12\" };\nconst _hoisted_5 = { class: \"tracking-widest text-2xl\" };\nconst _hoisted_6 = { class: \"break-words my-4\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyNewsList\",\n  props: {\n    newsItem: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_NuxtLink, {\n          to: `/base/companies/news/${__props.newsItem.id}`,\n          class: \"transition-all cursor-pointer p-4 dark:border-gray-500 dark:hover:bg-gray-700 hover:bg-gray-200 hover:rounded-lg flex gap-x-4 border-b\"\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_2, [\n              __props.newsItem.photo ? (_openBlock(), _createElementBlock(\"img\", {\n                key: 0,\n                class: \"w-[150px] h-[150px] rounded-lg\",\n                src: __props.newsItem.photo,\n                alt: \"\"\n              }, null, 8, _hoisted_3)) : _createCommentVNode(\"\", true)\n            ]),\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"h1\", _hoisted_5, _toDisplayString(__props.newsItem.title), 1),\n              _createElementVNode(\"p\", _hoisted_6, _toDisplayString(__props.newsItem.description), 1)\n            ])\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896523805,
+      "end": 1706896524735,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Company/User/News/CurrentCompanyNewsList.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"mt-10\" }\nconst _hoisted_2 = { class: \"\" }\nconst _hoisted_3 = [\"src\"]\nconst _hoisted_4 = { class: \"w-7/12\" }\nconst _hoisted_5 = { class: \"tracking-widest text-2xl\" }\nconst _hoisted_6 = { class: \"break-words my-4\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CurrentCompanyNewsList',\n  props: {\r\n  newsItem: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_NuxtLink, {\n      to: `/base/companies/news/${__props.newsItem.id}`,\n      class: \"transition-all cursor-pointer p-4 dark:border-gray-500 dark:hover:bg-gray-700 hover:bg-gray-200 hover:rounded-lg flex gap-x-4 border-b\"\n    }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_2, [\n          (__props.newsItem.photo)\n            ? (_openBlock(), _createElementBlock(\"img\", {\n                key: 0,\n                class: \"w-[150px] h-[150px] rounded-lg\",\n                src: __props.newsItem.photo,\n                alt: \"\"\n              }, null, 8, _hoisted_3))\n            : _createCommentVNode(\"\", true)\n        ]),\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"h1\", _hoisted_5, _toDisplayString(__props.newsItem.title), 1),\n          _createElementVNode(\"p\", _hoisted_6, _toDisplayString(__props.newsItem.description), 1)\n        ])\n      ]),\n      _: 1\n    }, 8, [\"to\"])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,aAAa,YAAY,sBAAsB,qBAAqB,sBAAsB,qBAAqB,sBAAsB,qBAAqB,mBAAmB,kBAAkB,oBAAoB,mBAAmB,WAAW,UAAU,eAAe,oBAAoB;AAEvS,MAAM,aAAa,EAAE,OAAO,QAAQ;AACpC,MAAM,aAAa,EAAE,OAAO,GAAG;AAC/B,MAAM,aAAa,CAAC,KAAK;AACzB,MAAM,aAAa,EAAE,OAAO,SAAS;AACrC,MAAM,aAAa,EAAE,OAAO,2BAA2B;AACvD,MAAM,aAAa,EAAE,OAAO,mBAAmB;AAG/C,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,UAAU;AAAA,MACR,MAAM;AAAA,MACN,SAAS,MAAM;AAAA,MACf;AAAA,IACF;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAIjB,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,sBAAsB,kBAAkB,UAAU;AAExD,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D,aAAa,qBAAqB;AAAA,UAChC,IAAI,wBAAwB,QAAQ,SAAS,EAAE;AAAA,UAC/C,OAAO;AAAA,QACT,GAAG;AAAA,UACD,SAAS,SAAS,MAAM;AAAA,YACtB,oBAAoB,OAAO,YAAY;AAAA,cACpC,QAAQ,SAAS,SACb,WAAW,GAAG,oBAAoB,OAAO;AAAA,gBACxC,KAAK;AAAA,gBACL,OAAO;AAAA,gBACP,KAAK,QAAQ,SAAS;AAAA,gBACtB,KAAK;AAAA,cACP,GAAG,MAAM,GAAG,UAAU,KACtB,oBAAoB,IAAI,IAAI;AAAA,YAClC,CAAC;AAAA,YACD,oBAAoB,OAAO,YAAY;AAAA,cACrC,oBAAoB,MAAM,YAAY,iBAAiB,QAAQ,SAAS,KAAK,GAAG,CAAC;AAAA,cACjF,oBAAoB,KAAK,YAAY,iBAAiB,QAAQ,SAAS,WAAW,GAAG,CAAC;AAAA,YACxF,CAAC;AAAA,UACH,CAAC;AAAA,UACD,GAAG;AAAA,QACL,GAAG,GAAG,CAAC,IAAI,CAAC;AAAA,MACd,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896524735,
+      "end": 1706896524735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896524735,
+      "end": 1706896524735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896524735,
+      "end": 1706896524735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896524735,
+      "end": 1706896524735,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896524736,
+      "end": 1706896524736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896524737,
+      "end": 1706896524737,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896524737,
+      "end": 1706896524737,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896524737,
+      "end": 1706896524737,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896524737,
+      "end": 1706896524737,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896524737,
+      "end": 1706896524746,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896524747,
+      "end": 1706896524747,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896524748,
+      "end": 1706896524748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896524748,
+      "end": 1706896524748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896524748,
+      "end": 1706896524748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode } from \"vue\";\nconst _hoisted_1 = { class: \"mt-10\" };\nconst _hoisted_2 = { class: \"\" };\nconst _hoisted_3 = [\"src\"];\nconst _hoisted_4 = { class: \"w-7/12\" };\nconst _hoisted_5 = { class: \"tracking-widest text-2xl\" };\nconst _hoisted_6 = { class: \"break-words my-4\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyNewsList\",\n  props: {\n    newsItem: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_NuxtLink, {\n          to: `/base/companies/news/${__props.newsItem.id}`,\n          class: \"transition-all cursor-pointer p-4 dark:border-gray-500 dark:hover:bg-gray-700 hover:bg-gray-200 hover:rounded-lg flex gap-x-4 border-b\"\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_2, [\n              __props.newsItem.photo ? (_openBlock(), _createElementBlock(\"img\", {\n                key: 0,\n                class: \"w-[150px] h-[150px] rounded-lg\",\n                src: __props.newsItem.photo,\n                alt: \"\"\n              }, null, 8, _hoisted_3)) : _createCommentVNode(\"\", true)\n            ]),\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"h1\", _hoisted_5, _toDisplayString(__props.newsItem.title), 1),\n              _createElementVNode(\"p\", _hoisted_6, _toDisplayString(__props.newsItem.description), 1)\n            ])\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896524748,
+      "end": 1706896524748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896524748,
+      "end": 1706896524748,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896524748,
+      "end": 1706896524749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896524749,
+      "end": 1706896524749,
+      "order": "normal"
+    }
+  ]
+}

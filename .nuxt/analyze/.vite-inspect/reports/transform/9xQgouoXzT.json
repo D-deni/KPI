@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatUserCheckbox.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = {\n  key: 0,\n  class: \"flex w-full items-center gap-x-4 relative py-2 px-6 text-black transition-all cursor-pointer dark:hover:bg-gray-600 hover:bg-gray-200\"\n}\nconst _hoisted_2 = { class: \"relative\" }\nconst _hoisted_3 = [\"src\"]\nconst _hoisted_4 = {\n  key: 0,\n  class: \"absolute bottom-0 right-0\"\n}\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"bg-semiCyan rounded-full stroke-white\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M7 13L10 16L17 9\",\n    \"stroke-width\": \"2\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1)\nconst _hoisted_6 = [\n  _hoisted_5\n]\nconst _hoisted_7 = { class: \"relative z-10 dark:text-white\" }\nconst _hoisted_8 = [\"checked\"]\nconst _hoisted_9 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"w-full h-full absolute top-0 left-0\" }, null, -1)\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatUserCheckbox',\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\nconst user = useAuthStore()\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (!__props.item.is_group && __props.item.user.department)\n    ? (_openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"img\", {\n            class: _normalizeClass([\"rounded-full w-[50px] h-[50px] dark:border-0 border\", {'!p-[2px] transition-all !border' : __props.item.value}]),\n            src: _unref(user).get_server_domain + __props.item.user.photo,\n            alt: \"\"\n          }, null, 10, _hoisted_3),\n          _createVNode(_Transition, { name: \"fade\" }, {\n            default: _withCtx(() => [\n              (__props.item.value)\n                ? (_openBlock(), _createElementBlock(\"div\", {\n                    key: 0,\n                    class: _normalizeClass([\"absolute top-0 rounded-full w-[50px] h-[50px]\", {'!border-2 !border-semiCyan text-white transition-all' : __props.item.value === true, 'dark:border-none' : __props.item.value === false}])\n                  }, null, 2))\n                : _createCommentVNode(\"\", true)\n            ]),\n            _: 1\n          }),\n          _createVNode(_Transition, { name: \"bounce\" }, {\n            default: _withCtx(() => [\n              (__props.item.value)\n                ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, _hoisted_6))\n                : _createCommentVNode(\"\", true)\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"span\", _hoisted_7, _toDisplayString(__props.item?.user?.first_name + ' ' + __props.item?.user?.last_name), 1),\n        _createElementVNode(\"input\", {\n          type: \"checkbox\",\n          class: \"hidden\",\n          onChange: _cache[0] || (_cache[0] = ($event: any) => (__props.item.value = !__props.item.value)),\n          checked: __props.item.value\n        }, null, 40, _hoisted_8),\n        _hoisted_9\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n})",
+      "start": 1706896525072,
+      "end": 1706896525072
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525072,
+      "end": 1706896525072,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525072,
+      "end": 1706896525072,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525072,
+      "end": 1706896525072,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525072,
+      "end": 1706896525072,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525072,
+      "end": 1706896525072,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString } from \"vue\";\nconst _hoisted_1 = {\n  key: 0,\n  class: \"flex w-full items-center gap-x-4 relative py-2 px-6 text-black transition-all cursor-pointer dark:hover:bg-gray-600 hover:bg-gray-200\"\n};\nconst _hoisted_2 = { class: \"relative\" };\nconst _hoisted_3 = [\"src\"];\nconst _hoisted_4 = {\n  key: 0,\n  class: \"absolute bottom-0 right-0\"\n};\nconst _hoisted_5 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"bg-semiCyan rounded-full stroke-white\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M7 13L10 16L17 9\",\n    \"stroke-width\": \"2\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1);\nconst _hoisted_6 = [\n  _hoisted_5\n];\nconst _hoisted_7 = { class: \"relative z-10 dark:text-white\" };\nconst _hoisted_8 = [\"checked\"];\nconst _hoisted_9 = /* @__PURE__ */ _createElementVNode(\"span\", { class: \"w-full h-full absolute top-0 left-0\" }, null, -1);\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatUserCheckbox\",\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const user = useAuthStore();\n    return (_ctx, _cache) => {\n      return !__props.item.is_group && __props.item.user.department ? (_openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"img\", {\n            class: _normalizeClass([\"rounded-full w-[50px] h-[50px] dark:border-0 border\", { \"!p-[2px] transition-all !border\": __props.item.value }]),\n            src: _unref(user).get_server_domain + __props.item.user.photo,\n            alt: \"\"\n          }, null, 10, _hoisted_3),\n          _createVNode(_Transition, { name: \"fade\" }, {\n            default: _withCtx(() => [\n              __props.item.value ? (_openBlock(), _createElementBlock(\"div\", {\n                key: 0,\n                class: _normalizeClass([\"absolute top-0 rounded-full w-[50px] h-[50px]\", { \"!border-2 !border-semiCyan text-white transition-all\": __props.item.value === true, \"dark:border-none\": __props.item.value === false }])\n              }, null, 2)) : _createCommentVNode(\"\", true)\n            ]),\n            _: 1\n          }),\n          _createVNode(_Transition, { name: \"bounce\" }, {\n            default: _withCtx(() => [\n              __props.item.value ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, _hoisted_6)) : _createCommentVNode(\"\", true)\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"span\", _hoisted_7, _toDisplayString(__props.item?.user?.first_name + \" \" + __props.item?.user?.last_name), 1),\n        _createElementVNode(\"input\", {\n          type: \"checkbox\",\n          class: \"hidden\",\n          onChange: _cache[0] || (_cache[0] = ($event) => __props.item.value = !__props.item.value),\n          checked: __props.item.value\n        }, null, 40, _hoisted_8),\n        _hoisted_9\n      ])) : _createCommentVNode(\"\", true);\n    };\n  }\n});\n",
+      "start": 1706896525072,
+      "end": 1706896525100,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/ChatUserCheckbox.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = {\n  key: 0,\n  class: \"flex w-full items-center gap-x-4 relative py-2 px-6 text-black transition-all cursor-pointer dark:hover:bg-gray-600 hover:bg-gray-200\"\n}\nconst _hoisted_2 = { class: \"relative\" }\nconst _hoisted_3 = [\"src\"]\nconst _hoisted_4 = {\n  key: 0,\n  class: \"absolute bottom-0 right-0\"\n}\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"bg-semiCyan rounded-full stroke-white\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M7 13L10 16L17 9\",\n    \"stroke-width\": \"2\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1)\nconst _hoisted_6 = [\n  _hoisted_5\n]\nconst _hoisted_7 = { class: \"relative z-10 dark:text-white\" }\nconst _hoisted_8 = [\"checked\"]\nconst _hoisted_9 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"w-full h-full absolute top-0 left-0\" }, null, -1)\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatUserCheckbox',\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: ()=>{}\r\n  }\r\n},\n  setup(__props) {\n\r\nconst user = useAuthStore()\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (!__props.item.is_group && __props.item.user.department)\n    ? (_openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"img\", {\n            class: _normalizeClass([\"rounded-full w-[50px] h-[50px] dark:border-0 border\", {'!p-[2px] transition-all !border' : __props.item.value}]),\n            src: _unref(user).get_server_domain + __props.item.user.photo,\n            alt: \"\"\n          }, null, 10, _hoisted_3),\n          _createVNode(_Transition, { name: \"fade\" }, {\n            default: _withCtx(() => [\n              (__props.item.value)\n                ? (_openBlock(), _createElementBlock(\"div\", {\n                    key: 0,\n                    class: _normalizeClass([\"absolute top-0 rounded-full w-[50px] h-[50px]\", {'!border-2 !border-semiCyan text-white transition-all' : __props.item.value === true, 'dark:border-none' : __props.item.value === false}])\n                  }, null, 2))\n                : _createCommentVNode(\"\", true)\n            ]),\n            _: 1\n          }),\n          _createVNode(_Transition, { name: \"bounce\" }, {\n            default: _withCtx(() => [\n              (__props.item.value)\n                ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, _hoisted_6))\n                : _createCommentVNode(\"\", true)\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"span\", _hoisted_7, _toDisplayString(__props.item?.user?.first_name + ' ' + __props.item?.user?.last_name), 1),\n        _createElementVNode(\"input\", {\n          type: \"checkbox\",\n          class: \"hidden\",\n          onChange: _cache[0] || (_cache[0] = ($event: any) => (__props.item.value = !__props.item.value)),\n          checked: __props.item.value\n        }, null, 40, _hoisted_8),\n        _hoisted_9\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n})"
+        ],
+        "mappings": "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",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525100,
+      "end": 1706896525100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525100,
+      "end": 1706896525100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525100,
+      "end": 1706896525100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525100,
+      "end": 1706896525100,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525100,
+      "end": 1706896525100,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525100,
+      "end": 1706896525100,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525100,
+      "end": 1706896525100,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525101,
+      "end": 1706896525101,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525101,
+      "end": 1706896525102,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525102,
+      "end": 1706896525102,
+      "order": "normal"
+    }
+  ]
+}

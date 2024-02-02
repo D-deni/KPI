@@ -1,0 +1,243 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/node_modules/lodash/_stackDelete.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * Removes `key` and its value from the stack.\n *\n * @private\n * @name delete\n * @memberOf Stack\n * @param {string} key The key of the value to remove.\n * @returns {boolean} Returns `true` if the entry was removed, else `false`.\n */\nfunction stackDelete(key) {\n  var data = this.__data__,\n      result = data['delete'](key);\n\n  this.size = data.size;\n  return result;\n}\n\nmodule.exports = stackDelete;\n",
+      "start": 1706896525561,
+      "end": 1706896525578,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\n * Removes `key` and its value from the stack.\n *\n * @private\n * @name delete\n * @memberOf Stack\n * @param {string} key The key of the value to remove.\n * @returns {boolean} Returns `true` if the entry was removed, else `false`.\n */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction stackDelete(key) {\n  var data = this.__data__,\n      result = data['delete'](key);\n\n  this.size = data.size;\n  return result;\n}\n\nvar _stackDelete = stackDelete;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_stackDelete);\nexport { _stackDelete as __moduleExports };",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;AASA,SAAS,WAAW,CAAC,GAAG,EAAE;AAC1B,EAAE,IAAI,IAAI,GAAG,IAAI,CAAC,QAAQ;AAC1B,MAAM,MAAM,GAAG,IAAI,CAAC,QAAQ,CAAC,CAAC,GAAG,CAAC,CAAC;AACnC;AACA,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,IAAI,CAAC;AACxB,EAAE,OAAO,MAAM,CAAC;AAChB,CAAC;AACD;IACA,YAAc,GAAG,WAAW"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896525578,
+      "end": 1706896525578,
+      "order": "normal"
+    }
+  ]
+}

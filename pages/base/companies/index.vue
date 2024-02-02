@@ -10,6 +10,7 @@ import CurrentCompanyInfo from "~/components/Company/User/CurrentCompanyInfo.vue
 import CompanyList from "~/components/Company/admin/CompanyList.vue";
 import CompanyStats from "~/components/Company/CompanyUI/CompanyStats.vue";
 import TheContentBlock from "~/components/UI/TheContentBlock.vue";
+import {definePageMeta} from "#imports";
 
 const currentUser = useAuthStore()
 const companies = useCompanies()
@@ -41,7 +42,6 @@ function loadPage(page) {
     window.scrollTo()
   }
 }
-
 watchEffect(() => {
   if (currentUser.user.role_en === 'employee' || currentUser.user.role_en === 'company_admin') {
     companies.loadCurrentCompany()
@@ -49,7 +49,10 @@ watchEffect(() => {
     companies.loadCompanyList({page: params.page, limit: params.limit, query: params.query})
   }
 })
-
+useSeoMeta({
+  title: 'О компании',
+  description: 'Страница с информацией о компании'
+})
 </script>
 
 <template>

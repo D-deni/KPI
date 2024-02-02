@@ -41,7 +41,14 @@ const props = defineProps({
 
 watchEffect(() => {
   currentTask.loadCurrentTask({id: route.params.id})
+
 })
+watchSyncEffect(()=>{
+  useSeoMeta({
+    title: `${currentTask.task.title}`
+  })
+})
+
 </script>
 
 <template>

@@ -10,6 +10,10 @@ const document = useDocumentStore()
 onMounted(()=>{
   document.loadAllDocument({page: 1, limit: 15})
 })
+
+useSeoMeta({
+  title: 'Документы'
+})
 </script>
 
 <template>

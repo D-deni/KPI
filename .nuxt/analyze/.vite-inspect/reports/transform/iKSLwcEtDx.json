@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/stores/auth.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import {defineStore} from \"pinia\";\r\nimport axios from \"~/composables/axios\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport {useUserStore} from \"~/stores/users\";\r\nimport type {Router} from \"vue-router\";\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\nimport {useI18n} from \"vue-i18n\";\r\n\r\nexport const useAuthStore = defineStore('authUser', {\r\n  state: () => ({\r\n    current_user: {\r\n      id: null,\r\n      email: '',\r\n      password: '',\r\n      date_of_birth: '',\r\n      first_name: '',\r\n      last_name: '',\r\n      company_id: '',\r\n      phone: '',\r\n      photo: '',\r\n      position: '',\r\n      role: '',\r\n      role_en: '',\r\n      status: '',\r\n      passport: '',\r\n      salary: {},\r\n      permissions: []\r\n    },\r\n    user: {},\r\n    permissions: [],\r\n    exam_active: false,\r\n    openNotification: false,\r\n    openSettings: false,\r\n    my_scroll: 0,\r\n  }),\r\n  getters: {\r\n    get_current_user(current_user) {\r\n      return this.current_user\r\n    },\r\n    get_user(user){\r\n      return this.user\r\n    },\r\n    get_server_domain(){\r\n      return 'https://api-buildwithus.ai-softdev.com'\r\n    }\r\n  },\r\n  actions: {\r\n    async authorize(params: { email: any, password: any }, router: Router) {\r\n      await axios.post('api/v1/auth/login', {\r\n        email: params.email,\r\n        password: params.password,\r\n      }, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        nuxtStorage.localStorage.setData('token', response.data.access)\r\n        this.loadCurrentUser()\r\n        router.push('/base/companies').then(e=>{\r\n          toast.success('Успешная авторизация', {autoClose: 1500, theme: 'auto'},)\r\n        })\r\n      }).catch(e => {\r\n        router.push('/')\r\n        toast.error('Неверный логин или пароль', {autoClose: 1500, theme: \"auto\"})\r\n      })\r\n    },\r\n    async loadCurrentUser() {\r\n     await axios.get('api/v1/user/current-user', {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n      })\r\n    },\r\n    async update_user(params: { user: any, update_type: any, permissions_ids?: any }) {\r\n      let fd = new FormData();\r\n      fd.set('first_name', params.user.first_name)\r\n      fd.set('last_name', params.user.last_name)\r\n      fd.set('phone', params.user.phone)\r\n      fd.set('password', params.user.password)\r\n      fd.set('salary', params.user.salary)\r\n      fd.set('position', params.user.position)\r\n      fd.set('email', params.user.email)\r\n      fd.set('date_of_birth', params.user.date_of_birth)\r\n      fd.set('passport', params.user.passport)\r\n      if (params.update_type !== 'update-my') {\r\n        fd.set('permissions_ids', params.permissions_ids)\r\n        fd.set('role_id', params.user.role_id)\r\n      }\r\n      if (typeof params.user.photo === 'string') {\r\n        fd.set('photo', params.user.photo)\r\n      }\r\n      await axios.patch(`api/v1/user/${params.update_type}`, fd, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        if(params.update_type !== `update-my`) {\r\n          this.current_user = response.data\r\n          const user = useUserStore()\r\n          user.loadUser({id: params.user.id})\r\n        } else {\r\n          this.loadCurrentUser()\r\n          this.user = response.data\r\n        }\r\n        toast.success('Данные успешно обновлены', {autoClose: 1500, theme: 'auto'})\r\n      }).catch(e => {\r\n        toast.error(e, {autoClose: 1500, theme: 'auto'})\r\n      })\r\n    }\r\n  },\r\n})",
+      "start": 1706896519608,
+      "end": 1706896519900,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896519900,
+      "end": 1706896519900,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896519900,
+      "end": 1706896519900,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896519900,
+      "end": 1706896519900,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896519900,
+      "end": 1706896519900,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896519900,
+      "end": 1706896519900,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineStore } from \"pinia\";\nimport axios from \"~/composables/axios\";\nimport { toast } from \"vue3-toastify\";\nimport { useUserStore } from \"~/stores/users\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport const useAuthStore = defineStore(\"authUser\", {\n  state: () => ({\n    current_user: {\n      id: null,\n      email: \"\",\n      password: \"\",\n      date_of_birth: \"\",\n      first_name: \"\",\n      last_name: \"\",\n      company_id: \"\",\n      phone: \"\",\n      photo: \"\",\n      position: \"\",\n      role: \"\",\n      role_en: \"\",\n      status: \"\",\n      passport: \"\",\n      salary: {},\n      permissions: []\n    },\n    user: {},\n    permissions: [],\n    exam_active: false,\n    openNotification: false,\n    openSettings: false,\n    my_scroll: 0\n  }),\n  getters: {\n    get_current_user(current_user) {\n      return this.current_user;\n    },\n    get_user(user) {\n      return this.user;\n    },\n    get_server_domain() {\n      return \"https://api-buildwithus.ai-softdev.com\";\n    }\n  },\n  actions: {\n    async authorize(params, router) {\n      await axios.post(\"api/v1/auth/login\", {\n        email: params.email,\n        password: params.password\n      }, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        nuxtStorage.localStorage.setData(\"token\", response.data.access);\n        this.loadCurrentUser();\n        router.push(\"/base/companies\").then((e) => {\n          toast.success(\"Успешная авторизация\", { autoClose: 1500, theme: \"auto\" });\n        });\n      }).catch((e) => {\n        router.push(\"/\");\n        toast.error(\"Неверный логин или пароль\", { autoClose: 1500, theme: \"auto\" });\n      });\n    },\n    async loadCurrentUser() {\n      await axios.get(\"api/v1/user/current-user\", {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        this.user = response.data;\n      });\n    },\n    async update_user(params) {\n      let fd = new FormData();\n      fd.set(\"first_name\", params.user.first_name);\n      fd.set(\"last_name\", params.user.last_name);\n      fd.set(\"phone\", params.user.phone);\n      fd.set(\"password\", params.user.password);\n      fd.set(\"salary\", params.user.salary);\n      fd.set(\"position\", params.user.position);\n      fd.set(\"email\", params.user.email);\n      fd.set(\"date_of_birth\", params.user.date_of_birth);\n      fd.set(\"passport\", params.user.passport);\n      if (params.update_type !== \"update-my\") {\n        fd.set(\"permissions_ids\", params.permissions_ids);\n        fd.set(\"role_id\", params.user.role_id);\n      }\n      if (typeof params.user.photo === \"string\") {\n        fd.set(\"photo\", params.user.photo);\n      }\n      await axios.patch(`api/v1/user/${params.update_type}`, fd, {\n        headers: {\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n        }\n      }).then((response) => {\n        if (params.update_type !== `update-my`) {\n          this.current_user = response.data;\n          const user = useUserStore();\n          user.loadUser({ id: params.user.id });\n        } else {\n          this.loadCurrentUser();\n          this.user = response.data;\n        }\n        toast.success(\"Данные успешно обновлены\", { autoClose: 1500, theme: \"auto\" });\n      }).catch((e) => {\n        toast.error(e, { autoClose: 1500, theme: \"auto\" });\n      });\n    }\n  }\n});\n",
+      "start": 1706896519900,
+      "end": 1706896520143,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/stores/auth.ts"
+        ],
+        "sourcesContent": [
+          "import {defineStore} from \"pinia\";\r\nimport axios from \"~/composables/axios\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport {useUserStore} from \"~/stores/users\";\r\nimport type {Router} from \"vue-router\";\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\nimport {useI18n} from \"vue-i18n\";\r\n\r\nexport const useAuthStore = defineStore('authUser', {\r\n  state: () => ({\r\n    current_user: {\r\n      id: null,\r\n      email: '',\r\n      password: '',\r\n      date_of_birth: '',\r\n      first_name: '',\r\n      last_name: '',\r\n      company_id: '',\r\n      phone: '',\r\n      photo: '',\r\n      position: '',\r\n      role: '',\r\n      role_en: '',\r\n      status: '',\r\n      passport: '',\r\n      salary: {},\r\n      permissions: []\r\n    },\r\n    user: {},\r\n    permissions: [],\r\n    exam_active: false,\r\n    openNotification: false,\r\n    openSettings: false,\r\n    my_scroll: 0,\r\n  }),\r\n  getters: {\r\n    get_current_user(current_user) {\r\n      return this.current_user\r\n    },\r\n    get_user(user){\r\n      return this.user\r\n    },\r\n    get_server_domain(){\r\n      return 'https://api-buildwithus.ai-softdev.com'\r\n    }\r\n  },\r\n  actions: {\r\n    async authorize(params: { email: any, password: any }, router: Router) {\r\n      await axios.post('api/v1/auth/login', {\r\n        email: params.email,\r\n        password: params.password,\r\n      }, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        nuxtStorage.localStorage.setData('token', response.data.access)\r\n        this.loadCurrentUser()\r\n        router.push('/base/companies').then(e=>{\r\n          toast.success('Успешная авторизация', {autoClose: 1500, theme: 'auto'},)\r\n        })\r\n      }).catch(e => {\r\n        router.push('/')\r\n        toast.error('Неверный логин или пароль', {autoClose: 1500, theme: \"auto\"})\r\n      })\r\n    },\r\n    async loadCurrentUser() {\r\n     await axios.get('api/v1/user/current-user', {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        this.user = response.data\r\n      })\r\n    },\r\n    async update_user(params: { user: any, update_type: any, permissions_ids?: any }) {\r\n      let fd = new FormData();\r\n      fd.set('first_name', params.user.first_name)\r\n      fd.set('last_name', params.user.last_name)\r\n      fd.set('phone', params.user.phone)\r\n      fd.set('password', params.user.password)\r\n      fd.set('salary', params.user.salary)\r\n      fd.set('position', params.user.position)\r\n      fd.set('email', params.user.email)\r\n      fd.set('date_of_birth', params.user.date_of_birth)\r\n      fd.set('passport', params.user.passport)\r\n      if (params.update_type !== 'update-my') {\r\n        fd.set('permissions_ids', params.permissions_ids)\r\n        fd.set('role_id', params.user.role_id)\r\n      }\r\n      if (typeof params.user.photo === 'string') {\r\n        fd.set('photo', params.user.photo)\r\n      }\r\n      await axios.patch(`api/v1/user/${params.update_type}`, fd, {\r\n        headers: {\r\n          Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n        }\r\n      }).then(response => {\r\n        if(params.update_type !== `update-my`) {\r\n          this.current_user = response.data\r\n          const user = useUserStore()\r\n          user.loadUser({id: params.user.id})\r\n        } else {\r\n          this.loadCurrentUser()\r\n          this.user = response.data\r\n        }\r\n        toast.success('Данные успешно обновлены', {autoClose: 1500, theme: 'auto'})\r\n      }).catch(e => {\r\n        toast.error(e, {autoClose: 1500, theme: 'auto'})\r\n      })\r\n    }\r\n  },\r\n})"
+        ],
+        "mappings": "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",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896520143,
+      "end": 1706896520143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896520143,
+      "end": 1706896520143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896520143,
+      "end": 1706896520143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896520144,
+      "end": 1706896520144,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896520144,
+      "end": 1706896520144,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896520144,
+      "end": 1706896520144,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896520144,
+      "end": 1706896520144,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896520176,
+      "end": 1706896520176,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896520177,
+      "end": 1706896520177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896520178,
+      "end": 1706896520178,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896520178,
+      "end": 1706896520178,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896520178,
+      "end": 1706896520178,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896520179,
+      "end": 1706896520179,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896520179,
+      "end": 1706896520179,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896520179,
+      "end": 1706896520180,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896520180,
+      "end": 1706896520180,
+      "order": "normal"
+    }
+  ]
+}

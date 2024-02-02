@@ -56,7 +56,11 @@ watchEffect(() => {
     company.loadCompanyList({page: 1, limit: 100000, query: ''})
   }
 })
-
+onUpdated(()=>{
+  useSeoMeta({
+    title: `${currentUser.user.first_name + ' ' + currentUser.user.last_name}`,
+  })
+})
 </script>
 
 <template>

@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Objects/ObjectContent.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex gap-x-10\" }\nconst _hoisted_2 = { class: \"w-full flex flex-col gap-y-4\" }\nconst _hoisted_3 = { class: \"dark:border-t dark:border-t-gray-500 border-t border-t-gray-100 dark:shadow-gray-500 shadow-md w-4/12 rounded-lg p-2\" }\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"div\", null, null, -1)\n\nimport ObjectList from \"~/components/Objects/ObjectList.vue\";\r\nimport {useObjects} from \"~/stores/objects\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ObjectContent',\n  setup(__props) {\n\r\nconst objects = useObjects()\r\nobjects.loadObjectList()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(objects).get_objects.results, (object) => {\n        return (_openBlock(), _createBlock(ObjectList, { object: object }, null, 8, [\"object\"]))\n      }), 256))\n    ]),\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createVNode(TheTextContent, null, {\n        default: _withCtx(() => [\n          _createTextVNode(_toDisplayString(_ctx.$t('Информация по объектам')), 1)\n        ]),\n        _: 1\n      }),\n      _hoisted_4\n    ])\n  ]))\n}\n}\n\n})",
+      "start": 1706896521223,
+      "end": 1706896521223
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521223,
+      "end": 1706896521223,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521223,
+      "end": 1706896521223,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521223,
+      "end": 1706896521223,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521223,
+      "end": 1706896521223,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521223,
+      "end": 1706896521223,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode } from \"vue\";\nconst _hoisted_1 = { class: \"flex gap-x-10\" };\nconst _hoisted_2 = { class: \"w-full flex flex-col gap-y-4\" };\nconst _hoisted_3 = { class: \"dark:border-t dark:border-t-gray-500 border-t border-t-gray-100 dark:shadow-gray-500 shadow-md w-4/12 rounded-lg p-2\" };\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"div\", null, null, -1);\nimport ObjectList from \"~/components/Objects/ObjectList.vue\";\nimport { useObjects } from \"~/stores/objects\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ObjectContent\",\n  setup(__props) {\n    const objects = useObjects();\n    objects.loadObjectList();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(objects).get_objects.results, (object) => {\n            return _openBlock(), _createBlock(ObjectList, { object }, null, 8, [\"object\"]);\n          }), 256))\n        ]),\n        _createElementVNode(\"div\", _hoisted_3, [\n          _createVNode(TheTextContent, null, {\n            default: _withCtx(() => [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Информация по объектам\")), 1)\n            ]),\n            _: 1\n          }),\n          _hoisted_4\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896521223,
+      "end": 1706896521473,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Objects/ObjectContent.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex gap-x-10\" }\nconst _hoisted_2 = { class: \"w-full flex flex-col gap-y-4\" }\nconst _hoisted_3 = { class: \"dark:border-t dark:border-t-gray-500 border-t border-t-gray-100 dark:shadow-gray-500 shadow-md w-4/12 rounded-lg p-2\" }\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"div\", null, null, -1)\n\nimport ObjectList from \"~/components/Objects/ObjectList.vue\";\r\nimport {useObjects} from \"~/stores/objects\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ObjectContent',\n  setup(__props) {\n\r\nconst objects = useObjects()\r\nobjects.loadObjectList()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(objects).get_objects.results, (object) => {\n        return (_openBlock(), _createBlock(ObjectList, { object: object }, null, 8, [\"object\"]))\n      }), 256))\n    ]),\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createVNode(TheTextContent, null, {\n        default: _withCtx(() => [\n          _createTextVNode(_toDisplayString(_ctx.$t('Информация по объектам')), 1)\n        ]),\n        _: 1\n      }),\n      _hoisted_4\n    ])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,aAAa,YAAY,WAAW,aAAa,YAAY,sBAAsB,qBAAqB,eAAe,cAAc,sBAAsB,qBAAqB,mBAAmB,kBAAkB,mBAAmB,kBAAkB,WAAW,UAAU,eAAe,oBAAoB;AAE1V,MAAM,aAAa,EAAE,OAAO,gBAAgB;AAC5C,MAAM,aAAa,EAAE,OAAO,+BAA+B;AAC3D,MAAM,aAAa,EAAE,OAAO,uHAAuH;AACnJ,MAAM,aAA0B,oCAAoB,OAAO,MAAM,MAAM,EAAE;AAEzE,OAAO,gBAAgB;AACvB,SAAQ,kBAAiB;AACzB,OAAO,oBAAoB;AAE3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,UAAU,WAAW;AAC3B,YAAQ,eAAe;AAEvB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D,oBAAoB,OAAO,YAAY;AAAA,WACpC,WAAW,IAAI,GAAG,oBAAoB,WAAW,MAAM,YAAY,OAAO,OAAO,EAAE,YAAY,SAAS,CAAC,WAAW;AACnH,mBAAQ,WAAW,GAAG,aAAa,YAAY,EAAE,OAAe,GAAG,MAAM,GAAG,CAAC,QAAQ,CAAC;AAAA,UACxF,CAAC,GAAG,GAAG;AAAA,QACT,CAAC;AAAA,QACD,oBAAoB,OAAO,YAAY;AAAA,UACrC,aAAa,gBAAgB,MAAM;AAAA,YACjC,SAAS,SAAS,MAAM;AAAA,cACtB,iBAAiB,iBAAiB,KAAK,GAAG,wBAAwB,CAAC,GAAG,CAAC;AAAA,YACzE,CAAC;AAAA,YACD,GAAG;AAAA,UACL,CAAC;AAAA,UACD;AAAA,QACF,CAAC;AAAA,MACH,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521473,
+      "end": 1706896521473,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521473,
+      "end": 1706896521473,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521473,
+      "end": 1706896521473,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521473,
+      "end": 1706896521473,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521473,
+      "end": 1706896521473,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521473,
+      "end": 1706896521473,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521473,
+      "end": 1706896521473,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521473,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521474,
+      "end": 1706896521474,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521474,
+      "end": 1706896521475,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521475,
+      "end": 1706896521475,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521475,
+      "end": 1706896521475,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521475,
+      "end": 1706896521480,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521480,
+      "end": 1706896521480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521480,
+      "end": 1706896521480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521480,
+      "end": 1706896521480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521480,
+      "end": 1706896521480,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521481,
+      "end": 1706896521481,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521481,
+      "end": 1706896521481,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521481,
+      "end": 1706896521481,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521481,
+      "end": 1706896521481,
+      "order": "normal"
+    }
+  ]
+}

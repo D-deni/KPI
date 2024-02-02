@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/.nuxt/cookie-control-options.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import type { ModuleOptions } from '#cookie-control/types'\n\nexport default {\n  \"barPosition\": \"bottom-full\",\n  \"closeModalOnClickOutside\": false,\n  \"colors\": {\n    \"barBackground\": \"#000\",\n    \"barButtonBackground\": \"#fff\",\n    \"barButtonColor\": \"#000\",\n    \"barButtonHoverBackground\": \"#333\",\n    \"barButtonHoverColor\": \"#fff\",\n    \"barTextColor\": \"#fff\",\n    \"checkboxActiveBackground\": \"#000\",\n    \"checkboxActiveCircleBackground\": \"#fff\",\n    \"checkboxDisabledBackground\": \"#ddd\",\n    \"checkboxDisabledCircleBackground\": \"#fff\",\n    \"checkboxInactiveBackground\": \"#000\",\n    \"checkboxInactiveCircleBackground\": \"#fff\",\n    \"controlButtonBackground\": \"#fff\",\n    \"controlButtonHoverBackground\": \"#000\",\n    \"controlButtonIconColor\": \"#000\",\n    \"controlButtonIconHoverColor\": \"#fff\",\n    \"focusRingColor\": \"#808080\",\n    \"modalBackground\": \"#fff\",\n    \"modalButtonBackground\": \"#000\",\n    \"modalButtonColor\": \"#fff\",\n    \"modalButtonHoverBackground\": \"#333\",\n    \"modalButtonHoverColor\": \"#fff\",\n    \"modalOverlay\": \"#000\",\n    \"modalOverlayOpacity\": 0.8,\n    \"modalTextColor\": \"#000\",\n    \"modalUnsavedColor\": \"#fff\"\n  },\n  \"cookies\": {\n    \"necessary\": [],\n    \"optional\": []\n  },\n  \"cookieExpiryOffsetMs\": 31536000000,\n  \"cookieNameIsConsentGiven\": \"ncc_c\",\n  \"cookieNameCookiesEnabledIds\": \"ncc_e\",\n  \"cookieOptions\": {\n    \"path\": \"/\"\n  },\n  \"isAcceptNecessaryButtonEnabled\": true,\n  \"isControlButtonEnabled\": true,\n  \"isCookieIdVisible\": false,\n  \"isCssEnabled\": true,\n  \"isCssPonyfillEnabled\": false,\n  \"isDashInDescriptionEnabled\": true,\n  \"isIframeBlocked\": false,\n  \"isModalForced\": false,\n  \"locales\": [\n    \"en\"\n  ],\n  \"localeTexts\": {\n    \"en\": {\n      \"accept\": \"Accept\",\n      \"acceptAll\": \"Accept all\",\n      \"bannerDescription\": \"We use our own cookies and third-party cookies so that we can display this website correctly and better understand how this website is used, with a view to improving the services we offer. A decision on cookie usage permissions can be changed anytime using the cookie button that will appear after a selection has been made on this banner.\",\n      \"bannerTitle\": \"Cookies\",\n      \"close\": \"Close\",\n      \"cookiesFunctional\": \"Functional cookies\",\n      \"cookiesNecessary\": \"Necessary cookies\",\n      \"cookiesOptional\": \"Optional cookies\",\n      \"decline\": \"Decline\",\n      \"declineAll\": \"Decline all\",\n      \"here\": \"here\",\n      \"iframeBlocked\": \"To see this, please enable functional cookies\",\n      \"manageCookies\": \"Learn more and customize\",\n      \"save\": \"Save\",\n      \"settingsUnsaved\": \"You have unsaved settings\"\n    }\n  }\n} as ModuleOptions",
+      "start": 1706896513585,
+      "end": 1706896513851,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896513851,
+      "end": 1706896513851,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896513851,
+      "end": 1706896513851,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896513851,
+      "end": 1706896513851,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896513851,
+      "end": 1706896513851,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896513851,
+      "end": 1706896513851,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "export default {\n  \"barPosition\": \"bottom-full\",\n  \"closeModalOnClickOutside\": false,\n  \"colors\": {\n    \"barBackground\": \"#000\",\n    \"barButtonBackground\": \"#fff\",\n    \"barButtonColor\": \"#000\",\n    \"barButtonHoverBackground\": \"#333\",\n    \"barButtonHoverColor\": \"#fff\",\n    \"barTextColor\": \"#fff\",\n    \"checkboxActiveBackground\": \"#000\",\n    \"checkboxActiveCircleBackground\": \"#fff\",\n    \"checkboxDisabledBackground\": \"#ddd\",\n    \"checkboxDisabledCircleBackground\": \"#fff\",\n    \"checkboxInactiveBackground\": \"#000\",\n    \"checkboxInactiveCircleBackground\": \"#fff\",\n    \"controlButtonBackground\": \"#fff\",\n    \"controlButtonHoverBackground\": \"#000\",\n    \"controlButtonIconColor\": \"#000\",\n    \"controlButtonIconHoverColor\": \"#fff\",\n    \"focusRingColor\": \"#808080\",\n    \"modalBackground\": \"#fff\",\n    \"modalButtonBackground\": \"#000\",\n    \"modalButtonColor\": \"#fff\",\n    \"modalButtonHoverBackground\": \"#333\",\n    \"modalButtonHoverColor\": \"#fff\",\n    \"modalOverlay\": \"#000\",\n    \"modalOverlayOpacity\": 0.8,\n    \"modalTextColor\": \"#000\",\n    \"modalUnsavedColor\": \"#fff\"\n  },\n  \"cookies\": {\n    \"necessary\": [],\n    \"optional\": []\n  },\n  \"cookieExpiryOffsetMs\": 31536e6,\n  \"cookieNameIsConsentGiven\": \"ncc_c\",\n  \"cookieNameCookiesEnabledIds\": \"ncc_e\",\n  \"cookieOptions\": {\n    \"path\": \"/\"\n  },\n  \"isAcceptNecessaryButtonEnabled\": true,\n  \"isControlButtonEnabled\": true,\n  \"isCookieIdVisible\": false,\n  \"isCssEnabled\": true,\n  \"isCssPonyfillEnabled\": false,\n  \"isDashInDescriptionEnabled\": true,\n  \"isIframeBlocked\": false,\n  \"isModalForced\": false,\n  \"locales\": [\n    \"en\"\n  ],\n  \"localeTexts\": {\n    \"en\": {\n      \"accept\": \"Accept\",\n      \"acceptAll\": \"Accept all\",\n      \"bannerDescription\": \"We use our own cookies and third-party cookies so that we can display this website correctly and better understand how this website is used, with a view to improving the services we offer. A decision on cookie usage permissions can be changed anytime using the cookie button that will appear after a selection has been made on this banner.\",\n      \"bannerTitle\": \"Cookies\",\n      \"close\": \"Close\",\n      \"cookiesFunctional\": \"Functional cookies\",\n      \"cookiesNecessary\": \"Necessary cookies\",\n      \"cookiesOptional\": \"Optional cookies\",\n      \"decline\": \"Decline\",\n      \"declineAll\": \"Decline all\",\n      \"here\": \"here\",\n      \"iframeBlocked\": \"To see this, please enable functional cookies\",\n      \"manageCookies\": \"Learn more and customize\",\n      \"save\": \"Save\",\n      \"settingsUnsaved\": \"You have unsaved settings\"\n    }\n  }\n};\n",
+      "start": 1706896513851,
+      "end": 1706896513886,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/.nuxt/cookie-control-options.ts"
+        ],
+        "sourcesContent": [
+          "import type { ModuleOptions } from '#cookie-control/types'\n\nexport default {\n  \"barPosition\": \"bottom-full\",\n  \"closeModalOnClickOutside\": false,\n  \"colors\": {\n    \"barBackground\": \"#000\",\n    \"barButtonBackground\": \"#fff\",\n    \"barButtonColor\": \"#000\",\n    \"barButtonHoverBackground\": \"#333\",\n    \"barButtonHoverColor\": \"#fff\",\n    \"barTextColor\": \"#fff\",\n    \"checkboxActiveBackground\": \"#000\",\n    \"checkboxActiveCircleBackground\": \"#fff\",\n    \"checkboxDisabledBackground\": \"#ddd\",\n    \"checkboxDisabledCircleBackground\": \"#fff\",\n    \"checkboxInactiveBackground\": \"#000\",\n    \"checkboxInactiveCircleBackground\": \"#fff\",\n    \"controlButtonBackground\": \"#fff\",\n    \"controlButtonHoverBackground\": \"#000\",\n    \"controlButtonIconColor\": \"#000\",\n    \"controlButtonIconHoverColor\": \"#fff\",\n    \"focusRingColor\": \"#808080\",\n    \"modalBackground\": \"#fff\",\n    \"modalButtonBackground\": \"#000\",\n    \"modalButtonColor\": \"#fff\",\n    \"modalButtonHoverBackground\": \"#333\",\n    \"modalButtonHoverColor\": \"#fff\",\n    \"modalOverlay\": \"#000\",\n    \"modalOverlayOpacity\": 0.8,\n    \"modalTextColor\": \"#000\",\n    \"modalUnsavedColor\": \"#fff\"\n  },\n  \"cookies\": {\n    \"necessary\": [],\n    \"optional\": []\n  },\n  \"cookieExpiryOffsetMs\": 31536000000,\n  \"cookieNameIsConsentGiven\": \"ncc_c\",\n  \"cookieNameCookiesEnabledIds\": \"ncc_e\",\n  \"cookieOptions\": {\n    \"path\": \"/\"\n  },\n  \"isAcceptNecessaryButtonEnabled\": true,\n  \"isControlButtonEnabled\": true,\n  \"isCookieIdVisible\": false,\n  \"isCssEnabled\": true,\n  \"isCssPonyfillEnabled\": false,\n  \"isDashInDescriptionEnabled\": true,\n  \"isIframeBlocked\": false,\n  \"isModalForced\": false,\n  \"locales\": [\n    \"en\"\n  ],\n  \"localeTexts\": {\n    \"en\": {\n      \"accept\": \"Accept\",\n      \"acceptAll\": \"Accept all\",\n      \"bannerDescription\": \"We use our own cookies and third-party cookies so that we can display this website correctly and better understand how this website is used, with a view to improving the services we offer. A decision on cookie usage permissions can be changed anytime using the cookie button that will appear after a selection has been made on this banner.\",\n      \"bannerTitle\": \"Cookies\",\n      \"close\": \"Close\",\n      \"cookiesFunctional\": \"Functional cookies\",\n      \"cookiesNecessary\": \"Necessary cookies\",\n      \"cookiesOptional\": \"Optional cookies\",\n      \"decline\": \"Decline\",\n      \"declineAll\": \"Decline all\",\n      \"here\": \"here\",\n      \"iframeBlocked\": \"To see this, please enable functional cookies\",\n      \"manageCookies\": \"Learn more and customize\",\n      \"save\": \"Save\",\n      \"settingsUnsaved\": \"You have unsaved settings\"\n    }\n  }\n} as ModuleOptions"
+        ],
+        "mappings": "AAEA,eAAe;AAAA,EACb,eAAe;AAAA,EACf,4BAA4B;AAAA,EAC5B,UAAU;AAAA,IACR,iBAAiB;AAAA,IACjB,uBAAuB;AAAA,IACvB,kBAAkB;AAAA,IAClB,4BAA4B;AAAA,IAC5B,uBAAuB;AAAA,IACvB,gBAAgB;AAAA,IAChB,4BAA4B;AAAA,IAC5B,kCAAkC;AAAA,IAClC,8BAA8B;AAAA,IAC9B,oCAAoC;AAAA,IACpC,8BAA8B;AAAA,IAC9B,oCAAoC;AAAA,IACpC,2BAA2B;AAAA,IAC3B,gCAAgC;AAAA,IAChC,0BAA0B;AAAA,IAC1B,+BAA+B;AAAA,IAC/B,kBAAkB;AAAA,IAClB,mBAAmB;AAAA,IACnB,yBAAyB;AAAA,IACzB,oBAAoB;AAAA,IACpB,8BAA8B;AAAA,IAC9B,yBAAyB;AAAA,IACzB,gBAAgB;AAAA,IAChB,uBAAuB;AAAA,IACvB,kBAAkB;AAAA,IAClB,qBAAqB;AAAA,EACvB;AAAA,EACA,WAAW;AAAA,IACT,aAAa,CAAC;AAAA,IACd,YAAY,CAAC;AAAA,EACf;AAAA,EACA,wBAAwB;AAAA,EACxB,4BAA4B;AAAA,EAC5B,+BAA+B;AAAA,EAC/B,iBAAiB;AAAA,IACf,QAAQ;AAAA,EACV;AAAA,EACA,kCAAkC;AAAA,EAClC,0BAA0B;AAAA,EAC1B,qBAAqB;AAAA,EACrB,gBAAgB;AAAA,EAChB,wBAAwB;AAAA,EACxB,8BAA8B;AAAA,EAC9B,mBAAmB;AAAA,EACnB,iBAAiB;AAAA,EACjB,WAAW;AAAA,IACT;AAAA,EACF;AAAA,EACA,eAAe;AAAA,IACb,MAAM;AAAA,MACJ,UAAU;AAAA,MACV,aAAa;AAAA,MACb,qBAAqB;AAAA,MACrB,eAAe;AAAA,MACf,SAAS;AAAA,MACT,qBAAqB;AAAA,MACrB,oBAAoB;AAAA,MACpB,mBAAmB;AAAA,MACnB,WAAW;AAAA,MACX,cAAc;AAAA,MACd,QAAQ;AAAA,MACR,iBAAiB;AAAA,MACjB,iBAAiB;AAAA,MACjB,QAAQ;AAAA,MACR,mBAAmB;AAAA,IACrB;AAAA,EACF;AACF;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896513886,
+      "end": 1706896513886,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896513886,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896513887,
+      "end": 1706896513887,
+      "order": "normal"
+    }
+  ]
+}

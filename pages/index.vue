@@ -3,6 +3,7 @@ import TheButton from '~/components/UI/TheButton.vue'
 import {useAuthStore} from "~/stores/auth";
 import {useRouter} from "vue-router";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
+
 const router = useRouter()
 const authStore = useAuthStore()
 
@@ -11,8 +12,8 @@ const form = ref({
   password: ''
 })
 
-onMounted(()=>{
-  if(nuxtStorage.localStorage.getData('token')){
+onMounted(() => {
+  if (nuxtStorage.localStorage.getData('token')) {
     router.push('/base/companies')
   }
 })
@@ -21,14 +22,20 @@ defineProps({
   loginShow: Boolean,
   activeEyes: Boolean,
 })
+
+useHead({
+  titleTemplate: 'Авторизация • ERP'
+  }
+)
 </script>
 
 <template>
   <ClientOnly>
     <div class="w-screen h-screen flex items-center justify-center">
       <Transition name="bounceLogin">
-        <form v-if="!loginShow" @submit.prevent="authStore.authorize({email: form.email, password: form.password}, $router)"
-               class="bg-white select-none z-50 bg-opacity-95 w-5/12 max-lg:w-7/12 max-md:w-9/12 max-sm:w-full text-black p-6 rounded-xl ">
+        <form v-if="!loginShow"
+              @submit.prevent="authStore.authorize({email: form.email, password: form.password}, $router)"
+              class="bg-white select-none z-50 bg-opacity-95 w-5/12 max-lg:w-7/12 max-md:w-9/12 max-sm:w-full text-black p-6 rounded-xl ">
           <div class="" @click="loginShow = !loginShow">
             <svg class="hover:scale-125 cursor-pointer transition-all" width="30px" height="30px"
                  viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +104,7 @@ defineProps({
         </svg>
       </div>
       <div class="absolute">
-<!--        <The3dModel class="cursor-grab"/>-->
+        <!--        <The3dModel class="cursor-grab"/>-->
       </div>
     </div>
   </ClientOnly>

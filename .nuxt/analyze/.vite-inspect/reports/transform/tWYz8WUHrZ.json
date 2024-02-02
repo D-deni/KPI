@@ -1,0 +1,246 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/hooks/ElemUI.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import axios from '~/composables/axios'\r\n\r\nexport const uploadImage = (event: any, item: any) => {\r\n  item.file = event\r\n  if (event.type === 'image/svg+xml' || event.type === 'image/jpeg' || event.type === 'image/jpg' || event.type === 'image/png' || event.type === 'image/webp') {\r\n    item.src = URL.createObjectURL(event);\r\n  } else {\r\n    setTimeout(() => {\r\n      item.fileChecked = true\r\n    }, 0)\r\n    setTimeout(() => {\r\n      item.fileChecked = false\r\n    }, 3000)\r\n    item.src = ''\r\n    item.file = ''\r\n  }\r\n}\r\n\r\nexport const uploadFile = (event: any, item: any) => {\r\n  item.file = event\r\n  if (event.type) {\r\n    item.src = URL.createObjectURL(event)\r\n    if (event.size == 0) {\r\n      setTimeout(() => {\r\n        item.fileSizeInfo = true\r\n      }, 0)\r\n      setTimeout(() => {\r\n        item.fileSizeInfo = false\r\n        item.file = ''\r\n        item.src = ''\r\n      }, 3000)\r\n    }\r\n  }\r\n}\r\n\r\nconst forceFileDownload = (res: any, item: any) => {\r\n  const url = window.URL.createObjectURL(new Blob([res.data]))\r\n  const link = document.createElement('a')\r\n  link.href = url\r\n  link.setAttribute('download', `${item.file_name}`)\r\n  document.body.appendChild(link)\r\n  link.click()\r\n}\r\n\r\nexport const downloadWithAxios = (item: any) => {\r\n     axios.post(`api/v1/download`, {\r\n       url: item.file,\r\n       name: item.file.name\r\n     }, {\r\n       headers: {\r\n         Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n       }\r\n     }).then(res => {\r\n      forceFileDownload(res, item)\r\n    })\r\n}",
+      "start": 1706896521269,
+      "end": 1706896521489,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896521489,
+      "end": 1706896521489,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896521489,
+      "end": 1706896521489,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896521489,
+      "end": 1706896521489,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896521489,
+      "end": 1706896521489,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896521489,
+      "end": 1706896521489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import axios from \"~/composables/axios\";\nexport const uploadImage = (event, item) => {\n  item.file = event;\n  if (event.type === \"image/svg+xml\" || event.type === \"image/jpeg\" || event.type === \"image/jpg\" || event.type === \"image/png\" || event.type === \"image/webp\") {\n    item.src = URL.createObjectURL(event);\n  } else {\n    setTimeout(() => {\n      item.fileChecked = true;\n    }, 0);\n    setTimeout(() => {\n      item.fileChecked = false;\n    }, 3e3);\n    item.src = \"\";\n    item.file = \"\";\n  }\n};\nexport const uploadFile = (event, item) => {\n  item.file = event;\n  if (event.type) {\n    item.src = URL.createObjectURL(event);\n    if (event.size == 0) {\n      setTimeout(() => {\n        item.fileSizeInfo = true;\n      }, 0);\n      setTimeout(() => {\n        item.fileSizeInfo = false;\n        item.file = \"\";\n        item.src = \"\";\n      }, 3e3);\n    }\n  }\n};\nconst forceFileDownload = (res, item) => {\n  const url = window.URL.createObjectURL(new Blob([res.data]));\n  const link = document.createElement(\"a\");\n  link.href = url;\n  link.setAttribute(\"download\", `${item.file_name}`);\n  document.body.appendChild(link);\n  link.click();\n};\nexport const downloadWithAxios = (item) => {\n  axios.post(`api/v1/download`, {\n    url: item.file,\n    name: item.file.name\n  }, {\n    headers: {\n      Authorization: `Bearer ${nuxtStorage.localStorage.getData(\"token\")}`\n    }\n  }).then((res) => {\n    forceFileDownload(res, item);\n  });\n};\n",
+      "start": 1706896521489,
+      "end": 1706896521755,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/hooks/ElemUI.ts"
+        ],
+        "sourcesContent": [
+          "import axios from '~/composables/axios'\r\n\r\nexport const uploadImage = (event: any, item: any) => {\r\n  item.file = event\r\n  if (event.type === 'image/svg+xml' || event.type === 'image/jpeg' || event.type === 'image/jpg' || event.type === 'image/png' || event.type === 'image/webp') {\r\n    item.src = URL.createObjectURL(event);\r\n  } else {\r\n    setTimeout(() => {\r\n      item.fileChecked = true\r\n    }, 0)\r\n    setTimeout(() => {\r\n      item.fileChecked = false\r\n    }, 3000)\r\n    item.src = ''\r\n    item.file = ''\r\n  }\r\n}\r\n\r\nexport const uploadFile = (event: any, item: any) => {\r\n  item.file = event\r\n  if (event.type) {\r\n    item.src = URL.createObjectURL(event)\r\n    if (event.size == 0) {\r\n      setTimeout(() => {\r\n        item.fileSizeInfo = true\r\n      }, 0)\r\n      setTimeout(() => {\r\n        item.fileSizeInfo = false\r\n        item.file = ''\r\n        item.src = ''\r\n      }, 3000)\r\n    }\r\n  }\r\n}\r\n\r\nconst forceFileDownload = (res: any, item: any) => {\r\n  const url = window.URL.createObjectURL(new Blob([res.data]))\r\n  const link = document.createElement('a')\r\n  link.href = url\r\n  link.setAttribute('download', `${item.file_name}`)\r\n  document.body.appendChild(link)\r\n  link.click()\r\n}\r\n\r\nexport const downloadWithAxios = (item: any) => {\r\n     axios.post(`api/v1/download`, {\r\n       url: item.file,\r\n       name: item.file.name\r\n     }, {\r\n       headers: {\r\n         Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`\r\n       }\r\n     }).then(res => {\r\n      forceFileDownload(res, item)\r\n    })\r\n}"
+        ],
+        "mappings": "AAAA,OAAO,WAAW;AAEX,aAAM,cAAc,CAAC,OAAY,SAAc;AACpD,OAAK,OAAO;AACZ,MAAI,MAAM,SAAS,mBAAmB,MAAM,SAAS,gBAAgB,MAAM,SAAS,eAAe,MAAM,SAAS,eAAe,MAAM,SAAS,cAAc;AAC5J,SAAK,MAAM,IAAI,gBAAgB,KAAK;AAAA,EACtC,OAAO;AACL,eAAW,MAAM;AACf,WAAK,cAAc;AAAA,IACrB,GAAG,CAAC;AACJ,eAAW,MAAM;AACf,WAAK,cAAc;AAAA,IACrB,GAAG,GAAI;AACP,SAAK,MAAM;AACX,SAAK,OAAO;AAAA,EACd;AACF;AAEO,aAAM,aAAa,CAAC,OAAY,SAAc;AACnD,OAAK,OAAO;AACZ,MAAI,MAAM,MAAM;AACd,SAAK,MAAM,IAAI,gBAAgB,KAAK;AACpC,QAAI,MAAM,QAAQ,GAAG;AACnB,iBAAW,MAAM;AACf,aAAK,eAAe;AAAA,MACtB,GAAG,CAAC;AACJ,iBAAW,MAAM;AACf,aAAK,eAAe;AACpB,aAAK,OAAO;AACZ,aAAK,MAAM;AAAA,MACb,GAAG,GAAI;AAAA,IACT;AAAA,EACF;AACF;AAEA,MAAM,oBAAoB,CAAC,KAAU,SAAc;AACjD,QAAM,MAAM,OAAO,IAAI,gBAAgB,IAAI,KAAK,CAAC,IAAI,IAAI,CAAC,CAAC;AAC3D,QAAM,OAAO,SAAS,cAAc,GAAG;AACvC,OAAK,OAAO;AACZ,OAAK,aAAa,YAAY,GAAG,KAAK,SAAS,EAAE;AACjD,WAAS,KAAK,YAAY,IAAI;AAC9B,OAAK,MAAM;AACb;AAEO,aAAM,oBAAoB,CAAC,SAAc;AAC3C,QAAM,KAAK,mBAAmB;AAAA,IAC5B,KAAK,KAAK;AAAA,IACV,MAAM,KAAK,KAAK;AAAA,EAClB,GAAG;AAAA,IACD,SAAS;AAAA,MACP,eAAe,UAAU,YAAY,aAAa,QAAQ,OAAO,CAAC;AAAA,IACpE;AAAA,EACF,CAAC,EAAE,KAAK,SAAO;AACd,sBAAkB,KAAK,IAAI;AAAA,EAC7B,CAAC;AACL;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521755,
+      "end": 1706896521755,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521756,
+      "end": 1706896521756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521756,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521757,
+      "end": 1706896521757,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521757,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521758,
+      "end": 1706896521758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521758,
+      "end": 1706896521764,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521767,
+      "end": 1706896521767,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521768,
+      "end": 1706896521768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521769,
+      "end": 1706896521769,
+      "order": "normal"
+    }
+  ]
+}

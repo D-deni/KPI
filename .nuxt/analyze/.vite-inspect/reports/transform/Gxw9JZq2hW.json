@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/UI/TheSearch.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withKeys as _withKeys, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheSearch',\n  props: {\r\n  modelValue: String,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"input\", {\n      class: \"w-full px-4 py-3 rounded-full bg-gray-100 focus:bg-gray-200 text-black tracking-widest dark:focus:opacity-100 transition-all dark:opacity-40 outline-none\",\n      type: \"text\",\n      placeholder: \"Найти...\",\n      onInput: _cache[0] || (_cache[0] = ($event: any) => (_ctx.$emit('update:modelValue', $event.target.value))),\n      onFocusout: _cache[1] || (_cache[1] = ($event: any) => (_ctx.$emit('search'))),\n      onKeyup: _cache[2] || (_cache[2] = _withKeys(($event: any) => (_ctx.$emit('search')), [\"enter\"]))\n    }, null, 32)\n  ]))\n}\n}\n\n})",
+      "start": 1706896520805,
+      "end": 1706896520805
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896520805,
+      "end": 1706896520805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withKeys as _withKeys, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheSearch\",\n  props: {\n    modelValue: String\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createElementVNode(\"input\", {\n          class: \"w-full px-4 py-3 rounded-full bg-gray-100 focus:bg-gray-200 text-black tracking-widest dark:focus:opacity-100 transition-all dark:opacity-40 outline-none\",\n          type: \"text\",\n          placeholder: \"Найти...\",\n          onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit(\"update:modelValue\", $event.target.value)),\n          onFocusout: _cache[1] || (_cache[1] = ($event) => _ctx.$emit(\"search\")),\n          onKeyup: _cache[2] || (_cache[2] = _withKeys(($event) => _ctx.$emit(\"search\"), [\"enter\"]))\n        }, null, 32)\n      ]);\n    };\n  }\n});\n",
+      "start": 1706896520805,
+      "end": 1706896521165,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/UI/TheSearch.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { withKeys as _withKeys, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheSearch',\n  props: {\r\n  modelValue: String,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"input\", {\n      class: \"w-full px-4 py-3 rounded-full bg-gray-100 focus:bg-gray-200 text-black tracking-widest dark:focus:opacity-100 transition-all dark:opacity-40 outline-none\",\n      type: \"text\",\n      placeholder: \"Найти...\",\n      onInput: _cache[0] || (_cache[0] = ($event: any) => (_ctx.$emit('update:modelValue', $event.target.value))),\n      onFocusout: _cache[1] || (_cache[1] = ($event: any) => (_ctx.$emit('search'))),\n      onKeyup: _cache[2] || (_cache[2] = _withKeys(($event: any) => (_ctx.$emit('search')), [\"enter\"]))\n    }, null, 32)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,YAAY,WAAW,sBAAsB,qBAAqB,aAAa,YAAY,sBAAsB,2BAA2B;AAGrJ,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,YAAY;AAAA,EACd;AAAA,EACE,MAAM,SAAS;AAIjB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACrD,oBAAoB,SAAS;AAAA,UAC3B,OAAO;AAAA,UACP,MAAM;AAAA,UACN,aAAa;AAAA,UACb,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,KAAK,MAAM,qBAAqB,OAAO,OAAO,KAAK;AAAA,UACxG,YAAY,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,KAAK,MAAM,QAAQ;AAAA,UAC3E,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,UAAU,CAAC,WAAiB,KAAK,MAAM,QAAQ,GAAI,CAAC,OAAO,CAAC;AAAA,QACjG,GAAG,MAAM,EAAE;AAAA,MACb,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896521165,
+      "end": 1706896521165,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896521166,
+      "end": 1706896521166,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896521166,
+      "end": 1706896521166,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896521166,
+      "end": 1706896521166,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521166,
+      "end": 1706896521166,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896521166,
+      "end": 1706896521166,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896521166,
+      "end": 1706896521166,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896521166,
+      "end": 1706896521166,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896521167,
+      "end": 1706896521167,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896521168,
+      "end": 1706896521168,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896521168,
+      "end": 1706896521168,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896521168,
+      "end": 1706896521169,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896521169,
+      "end": 1706896521169,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896521169,
+      "end": 1706896521175,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896521175,
+      "end": 1706896521175,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896521175,
+      "end": 1706896521175,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896521175,
+      "end": 1706896521175,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896521175,
+      "end": 1706896521176,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896521176,
+      "end": 1706896521176,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896521176,
+      "end": 1706896521176,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896521176,
+      "end": 1706896521177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896521177,
+      "end": 1706896521177,
+      "order": "normal"
+    }
+  ]
+}

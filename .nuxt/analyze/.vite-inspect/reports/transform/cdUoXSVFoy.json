@@ -1,0 +1,245 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/Chat/UI/Pinned/TheChatContentPinnedFooter.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex mx-auto mt-4 uppercase text-[12px] tracking-widest text-blueSemiLight font-bold\" }\nconst _hoisted_2 = { class: \"text-lg tracking-wider\" }\nconst _hoisted_3 = { class: \"flex mt-4 gap-x-4 justify-center\" }\n\nimport {useChat} from \"~/stores/chat\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheChatContentPinnedFooter',\n  props: {\r\n  showWarnPinned: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_unref(chat).showPinnedWindow)\n    ? (_openBlock(), _createElementBlock(\"div\", {\n        key: 0,\n        onClick: _cache[3] || (_cache[3] = ($event: any) => (__props.showWarnPinned = true)),\n        class: \"w-full h-[50px] dark:bg-gray-700 bg-gray-200 border-t border-l border-black dark:border-opacity-20 border-opacity-10 z-10 hover:dark:bg-gray-600 cursor-pointer hover:bg-gray-100\"\n      }, [\n        _createElementVNode(\"button\", _hoisted_1, _toDisplayString(_ctx.$t('Открепить') + ' ' + _unref(chat).arrayPin.length + ' ' + _ctx.$t('сообщения')), 1),\n        (__props.showWarnPinned)\n          ? (_openBlock(), _createBlock(TheModal, {\n              key: 0,\n              type: 'resize',\n              onShowModal: _cache[2] || (_cache[2] = ($event: any) => (__props.showWarnPinned = false))\n            }, {\n              default: _withCtx(() => [\n                _createElementVNode(\"div\", null, [\n                  _createElementVNode(\"p\", _hoisted_2, _toDisplayString(_ctx.$t('Открепить все сообщения?')), 1)\n                ]),\n                _createElementVNode(\"div\", _hoisted_3, [\n                  _createVNode(TheButton, {\n                    type: \"chat\",\n                    onClick: _cache[0] || (_cache[0] = ($event: any) => (__props.showWarnPinned = false))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TheButton, {\n                    type: \"chat\",\n                    onClick: _cache[1] || (_cache[1] = ($event: any) => {_unref(chat).makePinned({messages: _unref(chat).arrayPin.filter(e=>e.id).map(e=>e.id)}).then(res=> _unref(toast).info('Сообщения откреплены', {autoClose: 1500, theme: 'auto'})); __props.showWarnPinned = false; _unref(chat).showPinnedWindow = false})\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Открепить')), 1)\n                    ]),\n                    _: 1\n                  })\n                ])\n              ]),\n              _: 1\n            }))\n          : _createCommentVNode(\"\", true)\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n})",
+      "start": 1706896522123,
+      "end": 1706896522123
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896522123,
+      "end": 1706896522123,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896522123,
+      "end": 1706896522123,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896522123,
+      "end": 1706896522123,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896522123,
+      "end": 1706896522123,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896522123,
+      "end": 1706896522123,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"flex mx-auto mt-4 uppercase text-[12px] tracking-widest text-blueSemiLight font-bold\" };\nconst _hoisted_2 = { class: \"text-lg tracking-wider\" };\nconst _hoisted_3 = { class: \"flex mt-4 gap-x-4 justify-center\" };\nimport { useChat } from \"~/stores/chat\";\nimport { toast } from \"vue3-toastify\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheChatContentPinnedFooter\",\n  props: {\n    showWarnPinned: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const chat = useChat();\n    return (_ctx, _cache) => {\n      return _unref(chat).showPinnedWindow ? (_openBlock(), _createElementBlock(\"div\", {\n        key: 0,\n        onClick: _cache[3] || (_cache[3] = ($event) => __props.showWarnPinned = true),\n        class: \"w-full h-[50px] dark:bg-gray-700 bg-gray-200 border-t border-l border-black dark:border-opacity-20 border-opacity-10 z-10 hover:dark:bg-gray-600 cursor-pointer hover:bg-gray-100\"\n      }, [\n        _createElementVNode(\"button\", _hoisted_1, _toDisplayString(_ctx.$t(\"Открепить\") + \" \" + _unref(chat).arrayPin.length + \" \" + _ctx.$t(\"сообщения\")), 1),\n        __props.showWarnPinned ? (_openBlock(), _createBlock(TheModal, {\n          key: 0,\n          type: \"resize\",\n          onShowModal: _cache[2] || (_cache[2] = ($event) => __props.showWarnPinned = false)\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", null, [\n              _createElementVNode(\"p\", _hoisted_2, _toDisplayString(_ctx.$t(\"Открепить все сообщения?\")), 1)\n            ]),\n            _createElementVNode(\"div\", _hoisted_3, [\n              _createVNode(TheButton, {\n                type: \"chat\",\n                onClick: _cache[0] || (_cache[0] = ($event) => __props.showWarnPinned = false)\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Отмена\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, {\n                type: \"chat\",\n                onClick: _cache[1] || (_cache[1] = ($event) => {\n                  _unref(chat).makePinned({ messages: _unref(chat).arrayPin.filter((e) => e.id).map((e) => e.id) }).then((res) => _unref(toast).info(\"Сообщения откреплены\", { autoClose: 1500, theme: \"auto\" }));\n                  __props.showWarnPinned = false;\n                  _unref(chat).showPinnedWindow = false;\n                })\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Открепить\")), 1)\n                ]),\n                _: 1\n              })\n            ])\n          ]),\n          _: 1\n        })) : _createCommentVNode(\"\", true)\n      ])) : _createCommentVNode(\"\", true);\n    };\n  }\n});\n",
+      "start": 1706896522123,
+      "end": 1706896522615,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/Chat/UI/Pinned/TheChatContentPinnedFooter.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex mx-auto mt-4 uppercase text-[12px] tracking-widest text-blueSemiLight font-bold\" }\nconst _hoisted_2 = { class: \"text-lg tracking-wider\" }\nconst _hoisted_3 = { class: \"flex mt-4 gap-x-4 justify-center\" }\n\nimport {useChat} from \"~/stores/chat\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheChatContentPinnedFooter',\n  props: {\r\n  showWarnPinned: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_unref(chat).showPinnedWindow)\n    ? (_openBlock(), _createElementBlock(\"div\", {\n        key: 0,\n        onClick: _cache[3] || (_cache[3] = ($event: any) => (__props.showWarnPinned = true)),\n        class: \"w-full h-[50px] dark:bg-gray-700 bg-gray-200 border-t border-l border-black dark:border-opacity-20 border-opacity-10 z-10 hover:dark:bg-gray-600 cursor-pointer hover:bg-gray-100\"\n      }, [\n        _createElementVNode(\"button\", _hoisted_1, _toDisplayString(_ctx.$t('Открепить') + ' ' + _unref(chat).arrayPin.length + ' ' + _ctx.$t('сообщения')), 1),\n        (__props.showWarnPinned)\n          ? (_openBlock(), _createBlock(TheModal, {\n              key: 0,\n              type: 'resize',\n              onShowModal: _cache[2] || (_cache[2] = ($event: any) => (__props.showWarnPinned = false))\n            }, {\n              default: _withCtx(() => [\n                _createElementVNode(\"div\", null, [\n                  _createElementVNode(\"p\", _hoisted_2, _toDisplayString(_ctx.$t('Открепить все сообщения?')), 1)\n                ]),\n                _createElementVNode(\"div\", _hoisted_3, [\n                  _createVNode(TheButton, {\n                    type: \"chat\",\n                    onClick: _cache[0] || (_cache[0] = ($event: any) => (__props.showWarnPinned = false))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TheButton, {\n                    type: \"chat\",\n                    onClick: _cache[1] || (_cache[1] = ($event: any) => {_unref(chat).makePinned({messages: _unref(chat).arrayPin.filter(e=>e.id).map(e=>e.id)}).then(res=> _unref(toast).info('Сообщения откреплены', {autoClose: 1500, theme: 'auto'})); __props.showWarnPinned = false; _unref(chat).showPinnedWindow = false})\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Открепить')), 1)\n                    ]),\n                    _: 1\n                  })\n                ])\n              ]),\n              _: 1\n            }))\n          : _createCommentVNode(\"\", true)\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,mBAAmB,kBAAkB,sBAAsB,qBAAqB,mBAAmB,kBAAkB,WAAW,UAAU,eAAe,cAAc,aAAa,YAAY,eAAe,cAAc,sBAAsB,qBAAqB,sBAAsB,2BAA2B;AAEnV,MAAM,aAAa,EAAE,OAAO,uFAAuF;AACnH,MAAM,aAAa,EAAE,OAAO,yBAAyB;AACrD,MAAM,aAAa,EAAE,OAAO,mCAAmC;AAE/D,SAAQ,eAAc;AACtB,SAAQ,aAAY;AACpB,OAAO,cAAc;AACrB,OAAO,eAAe;AAGtB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,gBAAgB;AAAA,MACd,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAEjB,UAAM,OAAO,QAAQ;AAGrB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,OAAO,IAAI,EAAE,oBAChB,WAAW,GAAG,oBAAoB,OAAO;AAAA,QACxC,KAAK;AAAA,QACL,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,QAAQ,iBAAiB;AAAA,QAC9E,OAAO;AAAA,MACT,GAAG;AAAA,QACD,oBAAoB,UAAU,YAAY,iBAAiB,KAAK,GAAG,WAAW,IAAI,MAAM,OAAO,IAAI,EAAE,SAAS,SAAS,MAAM,KAAK,GAAG,WAAW,CAAC,GAAG,CAAC;AAAA,QACpJ,QAAQ,kBACJ,WAAW,GAAG,aAAa,UAAU;AAAA,UACpC,KAAK;AAAA,UACL,MAAM;AAAA,UACN,aAAa,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,QAAQ,iBAAiB;AAAA,QACpF,GAAG;AAAA,UACD,SAAS,SAAS,MAAM;AAAA,YACtB,oBAAoB,OAAO,MAAM;AAAA,cAC/B,oBAAoB,KAAK,YAAY,iBAAiB,KAAK,GAAG,0BAA0B,CAAC,GAAG,CAAC;AAAA,YAC/F,CAAC;AAAA,YACD,oBAAoB,OAAO,YAAY;AAAA,cACrC,aAAa,WAAW;AAAA,gBACtB,MAAM;AAAA,gBACN,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAiB,QAAQ,iBAAiB;AAAA,cAChF,GAAG;AAAA,gBACD,SAAS,SAAS,MAAM;AAAA,kBACtB,iBAAiB,iBAAiB,KAAK,GAAG,QAAQ,CAAC,GAAG,CAAC;AAAA,gBACzD,CAAC;AAAA,gBACD,GAAG;AAAA,cACL,CAAC;AAAA,cACD,aAAa,WAAW;AAAA,gBACtB,MAAM;AAAA,gBACN,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAgB;AAAC,yBAAO,IAAI,EAAE,WAAW,EAAC,UAAU,OAAO,IAAI,EAAE,SAAS,OAAO,OAAG,EAAE,EAAE,EAAE,IAAI,OAAG,EAAE,EAAE,EAAC,CAAC,EAAE,KAAK,SAAM,OAAO,KAAK,EAAE,KAAK,wBAAwB,EAAC,WAAW,MAAM,OAAO,OAAM,CAAC,CAAC;AAAG,0BAAQ,iBAAiB;AAAO,yBAAO,IAAI,EAAE,mBAAmB;AAAA,gBAAK;AAAA,cAC9S,GAAG;AAAA,gBACD,SAAS,SAAS,MAAM;AAAA,kBACtB,iBAAiB,iBAAiB,KAAK,GAAG,WAAW,CAAC,GAAG,CAAC;AAAA,gBAC5D,CAAC;AAAA,gBACD,GAAG;AAAA,cACL,CAAC;AAAA,YACH,CAAC;AAAA,UACH,CAAC;AAAA,UACD,GAAG;AAAA,QACL,CAAC,KACD,oBAAoB,IAAI,IAAI;AAAA,MAClC,CAAC,KACD,oBAAoB,IAAI,IAAI;AAAA,IAClC;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896522615,
+      "end": 1706896522615,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1706896522615,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896522616,
+      "end": 1706896522616,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896522616,
+      "end": 1706896522623,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896522627,
+      "end": 1706896522627,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896522627,
+      "end": 1706896522627,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1706896522627,
+      "end": 1706896522627,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1706896522627,
+      "end": 1706896522627,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896522627,
+      "end": 1706896522627,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896522628,
+      "end": 1706896522628,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896522628,
+      "end": 1706896522628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896522628,
+      "end": 1706896522628,
+      "order": "normal"
+    }
+  ]
+}

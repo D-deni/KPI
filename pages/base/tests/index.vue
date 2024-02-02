@@ -22,6 +22,10 @@ watchSyncEffect(() => {
     testContent.loadAllTest({limit: 20, page: 1, usual: 0})
     testContent.loadAllTest({limit: 20, page: 1, usual: 1})
   }
+  useSeoMeta({
+    title: 'Тесты',
+    description: 'Страница с тестированием для пользователей'
+  })
 })
 </script>
 

@@ -1,0 +1,321 @@
+{
+  "resolvedId": "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoContent.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport DocumentItemInfoChainContent\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport DocumentItemInfoChainFile\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoContent',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))}><div class=\"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto\">`)\n  _push(_ssrRenderComponent(DocumentItemInfoChainContent, {\n    item: _unref(documentStore).documentItem\n  }, null, _parent))\n  _push(`</div><div class=\"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm\"><div class=\"flex gap-x-6 justify-center items-center\">`)\n  _push(_ssrRenderComponent(DocumentItemInfoChainFile, {\n    item: _unref(documentStore).documentItem\n  }, null, _parent))\n  _push(`</div><div class=\"flex justify-center gap-x-10 mt-6\">`)\n  _push(_ssrRenderComponent(TheButton, {\n    class: \"px-2 py-1 rounded-full\",\n    type: 'danger'\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Отклонить'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Отклонить')), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(TheButton, {\n    class: \"px-2 py-1 rounded-full\",\n    type: 'success'\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Подтвердить'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Подтвердить')), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div></div><div class=\"my-6\"><p class=\"text-center tracking-widest text-lg\">${\n    _ssrInterpolate(_ctx.$t('Описание:'))\n  }</p><p class=\"text-sm\">${\n    _ssrInterpolate(_unref(documentStore).documentItem.description)\n  }</p></div></div>`)\n}\n}\n\n})",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoContent.vue"
+        ],
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\nimport DocumentItemInfoChainContent\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport DocumentItemInfoChainFile\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\";\n\nconst documentStore = useDocumentStore()\n</script>\n\n<template>\n  <div class=\"\">\n    <div class=\"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto \">\n      <DocumentItemInfoChainContent :item=\"documentStore.documentItem\"/>\n    </div>\n    <div class=\"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm \">\n      <div class=\"flex gap-x-6 justify-center items-center\">\n        <DocumentItemInfoChainFile :item=\"documentStore.documentItem\"/>\n      </div>\n      <div class=\"flex justify-center gap-x-10 mt-6\">\n        <TheButton class=\"px-2 py-1 rounded-full\" :type=\"'danger'\">{{$t('Отклонить')}}</TheButton>\n        <TheButton class=\"px-2 py-1 rounded-full\" :type=\"'success'\">{{$t('Подтвердить')}}</TheButton>\n      </div>\n    </div>\n    <div class=\"my-6\">\n      <p class=\"text-center tracking-widest text-lg\">{{ $t('Описание:') }}</p>\n      <p class=\"text-sm\">{{documentStore.documentItem.description}}</p>\n    </div>\n  </div>\n</template>\n\n<style scoped lang=\"scss\">\n\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpG;;;;;;AAPwB;AAQxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1706896549197,
+      "end": 1706896549197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport DocumentItemInfoChainContent from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport DocumentItemInfoChainFile from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoContent\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))}><div class=\"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto\">`);\n      _push(_ssrRenderComponent(DocumentItemInfoChainContent, {\n        item: _unref(documentStore).documentItem\n      }, null, _parent));\n      _push(`</div><div class=\"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm\"><div class=\"flex gap-x-6 justify-center items-center\">`);\n      _push(_ssrRenderComponent(DocumentItemInfoChainFile, {\n        item: _unref(documentStore).documentItem\n      }, null, _parent));\n      _push(`</div><div class=\"flex justify-center gap-x-10 mt-6\">`);\n      _push(_ssrRenderComponent(TheButton, {\n        class: \"px-2 py-1 rounded-full\",\n        type: \"danger\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Отклонить\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Отклонить\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(TheButton, {\n        class: \"px-2 py-1 rounded-full\",\n        type: \"success\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Подтвердить\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Подтвердить\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div></div><div class=\"my-6\"><p class=\"text-center tracking-widest text-lg\">${_ssrInterpolate(_ctx.$t(\"Описание:\"))}</p><p class=\"text-sm\">${_ssrInterpolate(_unref(documentStore).documentItem.description)}</p></div></div>`);\n    };\n  }\n});\n",
+      "start": 1706896549197,
+      "end": 1706896549300,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoContent.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport DocumentItemInfoChainContent\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport DocumentItemInfoChainFile\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoContent',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))}><div class=\"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto\">`)\n  _push(_ssrRenderComponent(DocumentItemInfoChainContent, {\n    item: _unref(documentStore).documentItem\n  }, null, _parent))\n  _push(`</div><div class=\"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm\"><div class=\"flex gap-x-6 justify-center items-center\">`)\n  _push(_ssrRenderComponent(DocumentItemInfoChainFile, {\n    item: _unref(documentStore).documentItem\n  }, null, _parent))\n  _push(`</div><div class=\"flex justify-center gap-x-10 mt-6\">`)\n  _push(_ssrRenderComponent(TheButton, {\n    class: \"px-2 py-1 rounded-full\",\n    type: 'danger'\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Отклонить'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Отклонить')), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(TheButton, {\n    class: \"px-2 py-1 rounded-full\",\n    type: 'success'\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Подтвердить'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Подтвердить')), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div></div><div class=\"my-6\"><p class=\"text-center tracking-widest text-lg\">${\n    _ssrInterpolate(_ctx.$t('Описание:'))\n  }</p><p class=\"text-sm\">${\n    _ssrInterpolate(_unref(documentStore).documentItem.description)\n  }</p></div></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,WAAW,UAAU,mBAAmB,kBAAkB,mBAAmB,kBAAkB,cAAc,mBAAmB;AAC1J,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAEhI,OAAO,kCACA;AACP,SAAQ,wBAAuB;AAC/B,OAAO,eAAe;AACtB,OAAO,+BACA;AAGP,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,UAAM,gBAAgB,iBAAiB;AAEvC,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,GAAG,GAAG,MAAM,CAAC,CAAC,kGAAkG;AAClK,YAAM,oBAAoB,8BAA8B;AAAA,QACtD,MAAM,OAAO,aAAa,EAAE;AAAA,MAC9B,GAAG,MAAM,OAAO,CAAC;AACjB,YAAM,oIAAoI;AAC1I,YAAM,oBAAoB,2BAA2B;AAAA,QACnD,MAAM,OAAO,aAAa,EAAE;AAAA,MAC9B,GAAG,MAAM,OAAO,CAAC;AACjB,YAAM,uDAAuD;AAC7D,YAAM,oBAAoB,WAAW;AAAA,QACnC,OAAO;AAAA,QACP,MAAM;AAAA,MACR,GAAG;AAAA,QACD,SAAS,SAAS,CAAC,GAAGA,QAAOC,UAAS,aAAa;AACjD,cAAID,QAAO;AACT,YAAAA,OAAM,GAAG,gBAAgB,KAAK,GAAG,WAAW,CAAC,CAAC,EAAE;AAAA,UAClD,OAAO;AACL,mBAAO;AAAA,cACL,iBAAiB,iBAAiB,KAAK,GAAG,WAAW,CAAC,GAAG,CAAC;AAAA,YAC5D;AAAA,UACF;AAAA,QACF,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,OAAO,CAAC;AACX,YAAM,oBAAoB,WAAW;AAAA,QACnC,OAAO;AAAA,QACP,MAAM;AAAA,MACR,GAAG;AAAA,QACD,SAAS,SAAS,CAAC,GAAGA,QAAOC,UAAS,aAAa;AACjD,cAAID,QAAO;AACT,YAAAA,OAAM,GAAG,gBAAgB,KAAK,GAAG,aAAa,CAAC,CAAC,EAAE;AAAA,UACpD,OAAO;AACL,mBAAO;AAAA,cACL,iBAAiB,iBAAiB,KAAK,GAAG,aAAa,CAAC,GAAG,CAAC;AAAA,YAC9D;AAAA,UACF;AAAA,QACF,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,OAAO,CAAC;AACX,YAAM,gFACJ,gBAAgB,KAAK,GAAG,WAAW,CAAC,CACtC,0BACE,gBAAgB,OAAO,aAAa,EAAE,aAAa,WAAW,CAChE,kBAAkB;AAAA,IACpB;AAAA,EACA;AAEA,CAAC;",
+        "names": [
+          "_push",
+          "_parent"
+        ]
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1706896549301,
+      "end": 1706896549301,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1706896549302,
+      "end": 1706896549302,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1706896549303,
+      "end": 1706896549303,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1706896549303,
+      "end": 1706896549303,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport DocumentItemInfoChainContent from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport DocumentItemInfoChainFile from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoContent\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))}><div class=\"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto\">`);\n      _push(_ssrRenderComponent(DocumentItemInfoChainContent, {\n        item: _unref(documentStore).documentItem\n      }, null, _parent));\n      _push(`</div><div class=\"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm\"><div class=\"flex gap-x-6 justify-center items-center\">`);\n      _push(_ssrRenderComponent(DocumentItemInfoChainFile, {\n        item: _unref(documentStore).documentItem\n      }, null, _parent));\n      _push(`</div><div class=\"flex justify-center gap-x-10 mt-6\">`);\n      _push(_ssrRenderComponent(TheButton, {\n        class: \"px-2 py-1 rounded-full\",\n        type: \"danger\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Отклонить\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Отклонить\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(TheButton, {\n        class: \"px-2 py-1 rounded-full\",\n        type: \"success\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Подтвердить\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Подтвердить\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div></div><div class=\"my-6\"><p class=\"text-center tracking-widest text-lg\">${_ssrInterpolate(_ctx.$t(\"Описание:\"))}</p><p class=\"text-sm\">${_ssrInterpolate(_unref(documentStore).documentItem.description)}</p></div></div>`);\n    };\n  }\n});\n",
+      "start": 1706896549303,
+      "end": 1706896549551,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoContent.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \\\"vue\\\";\\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \\\"vue/server-renderer\\\";\\nimport DocumentItemInfoChainContent from \\\"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\\\";\\nimport { useDocumentStore } from \\\"~/stores/documents\\\";\\nimport TheButton from \\\"~/components/UI/TheButton.vue\\\";\\nimport DocumentItemInfoChainFile from \\\"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"DocumentItemInfoContent\\\",\\n  __ssrInlineRender: true,\\n  setup(__props) {\\n    const documentStore = useDocumentStore();\\n    return (_ctx, _push, _parent, _attrs) => {\\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \\\"\\\" }, _attrs))}><div class=\\\"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto\\\">`);\\n      _push(_ssrRenderComponent(DocumentItemInfoChainContent, {\\n        item: _unref(documentStore).documentItem\\n      }, null, _parent));\\n      _push(`</div><div class=\\\"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm\\\"><div class=\\\"flex gap-x-6 justify-center items-center\\\">`);\\n      _push(_ssrRenderComponent(DocumentItemInfoChainFile, {\\n        item: _unref(documentStore).documentItem\\n      }, null, _parent));\\n      _push(`</div><div class=\\\"flex justify-center gap-x-10 mt-6\\\">`);\\n      _push(_ssrRenderComponent(TheButton, {\\n        class: \\\"px-2 py-1 rounded-full\\\",\\n        type: \\\"danger\\\"\\n      }, {\\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\\n          if (_push2) {\\n            _push2(`${_ssrInterpolate(_ctx.$t(\\\"Отклонить\\\"))}`);\\n          } else {\\n            return [\\n              _createTextVNode(_toDisplayString(_ctx.$t(\\\"Отклонить\\\")), 1)\\n            ];\\n          }\\n        }),\\n        _: 1\\n      }, _parent));\\n      _push(_ssrRenderComponent(TheButton, {\\n        class: \\\"px-2 py-1 rounded-full\\\",\\n        type: \\\"success\\\"\\n      }, {\\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\\n          if (_push2) {\\n            _push2(`${_ssrInterpolate(_ctx.$t(\\\"Подтвердить\\\"))}`);\\n          } else {\\n            return [\\n              _createTextVNode(_toDisplayString(_ctx.$t(\\\"Подтвердить\\\")), 1)\\n            ];\\n          }\\n        }),\\n        _: 1\\n      }, _parent));\\n      _push(`</div></div><div class=\\\"my-6\\\"><p class=\\\"text-center tracking-widest text-lg\\\">${_ssrInterpolate(_ctx.$t(\\\"Описание:\\\"))}</p><p class=\\\"text-sm\\\">${_ssrInterpolate(_unref(documentStore).documentItem.description)}</p></div></div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,WAAW,UAAU,mBAAmB,kBAAkB,mBAAmB,kBAAkB,cAAc,mBAAmB;AAC1J,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAChI,OAAO,kCAAkC;AACzC,SAAS,wBAAwB;AACjC,OAAO,eAAe;AACtB,OAAO,+BAA+B;AACtC,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AACb,UAAM,gBAAgB,iBAAiB;AACvC,WAAO,CAAC,MAAM,OAAO,SAAS,WAAW;AACvC,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,GAAG,GAAG,MAAM,CAAC,CAAC,kGAAkG;AAClK,YAAM,oBAAoB,8BAA8B;AAAA,QACtD,MAAM,OAAO,aAAa,EAAE;AAAA,MAC9B,GAAG,MAAM,OAAO,CAAC;AACjB,YAAM,oIAAoI;AAC1I,YAAM,oBAAoB,2BAA2B;AAAA,QACnD,MAAM,OAAO,aAAa,EAAE;AAAA,MAC9B,GAAG,MAAM,OAAO,CAAC;AACjB,YAAM,uDAAuD;AAC7D,YAAM,oBAAoB,WAAW;AAAA,QACnC,OAAO;AAAA,QACP,MAAM;AAAA,MACR,GAAG;AAAA,QACD,SAAS,SAAS,CAAC,GAAG,QAAQ,UAAU,aAAa;AACnD,cAAI,QAAQ;AACV,mBAAO,GAAG,gBAAgB,KAAK,GAAG,WAAW,CAAC,CAAC,EAAE;AAAA,UACnD,OAAO;AACL,mBAAO;AAAA,cACL,iBAAiB,iBAAiB,KAAK,GAAG,WAAW,CAAC,GAAG,CAAC;AAAA,YAC5D;AAAA,UACF;AAAA,QACF,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,OAAO,CAAC;AACX,YAAM,oBAAoB,WAAW;AAAA,QACnC,OAAO;AAAA,QACP,MAAM;AAAA,MACR,GAAG;AAAA,QACD,SAAS,SAAS,CAAC,GAAG,QAAQ,UAAU,aAAa;AACnD,cAAI,QAAQ;AACV,mBAAO,GAAG,gBAAgB,KAAK,GAAG,aAAa,CAAC,CAAC,EAAE;AAAA,UACrD,OAAO;AACL,mBAAO;AAAA,cACL,iBAAiB,iBAAiB,KAAK,GAAG,aAAa,CAAC,GAAG,CAAC;AAAA,YAC9D;AAAA,UACF;AAAA,QACF,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,OAAO,CAAC;AACX,YAAM,gFAAgF,gBAAgB,KAAK,GAAG,WAAW,CAAC,CAAC,0BAA0B,gBAAgB,OAAO,aAAa,EAAE,aAAa,WAAW,CAAC,kBAAkB;AAAA,IACxO;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1706896549551,
+      "end": 1706896549551,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1706896549551,
+      "end": 1706896549551,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1706896549551,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1706896549552,
+      "end": 1706896549552,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1706896549553,
+      "end": 1706896549553,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549554,
+      "end": 1706896549554,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1706896549554,
+      "end": 1706896549554,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549554,
+      "end": 1706896549554,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1706896549554,
+      "end": 1706896549554,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549555,
+      "end": 1706896549555,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1706896549555,
+      "end": 1706896549555,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549555,
+      "end": 1706896549556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1706896549555,
+      "end": 1706896549556,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549556,
+      "end": 1706896549556,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1706896549556,
+      "end": 1706896549556,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549556,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1706896549556,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1706896549557,
+      "end": 1706896549557,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1706896549558,
+      "end": 1706896549558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1706896549558,
+      "end": 1706896549558,
+      "order": "normal"
+    }
+  ]
+}
