@@ -1,0 +1,1 @@
+import{_ as t}from"./_plugin-vue_export-helper.x3n3nnut.js";import{N as s,O as a,a3 as o}from"./swiper-vue.VD2cd0Tn.js";const r={},n={class:"flex max-lg:flex-wrap gap-y-4 justify-center gap-x-10 my-10 mx-auto w-full"};function c(e,l){return s(),a("div",n,[o(e.$slots,"default")])}const _=t(r,[["render",c]]);export{_ as T};

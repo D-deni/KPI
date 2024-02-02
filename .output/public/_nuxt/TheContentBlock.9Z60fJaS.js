@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper.x3n3nnut.js";import{N as o,O as t,a3 as a}from"./swiper-vue.VD2cd0Tn.js";const s={},d={class:"dark:border-t-gray-500 dark:shadow-gray-500 border-t border-t-gray-100 p-4 dark:text-white rounded-lg shadow-md"};function n(r,c){return o(),t("div",d,[a(r.$slots,"default")])}const f=e(s,[["render",n]]);export{f as T};
