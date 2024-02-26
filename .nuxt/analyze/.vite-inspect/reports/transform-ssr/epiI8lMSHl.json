@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport {useRoute} from \"vue-router\";\r\nimport {useUserStore} from \"~/stores/users\";\r\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatNavHeaderElem from \"~/components/Chat/ChatNav/UI/ChatNavHeaderElem.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport ChatGroupCreate from \"~/components/Chat/ChatGroup/ChatGroupCreate.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatNavHeader',\n  __ssrInlineRender: true,\n  props: {\r\n  activeNav: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n},\n  setup(__props) {\n\r\nconst userStore = useUserStore()\r\nconst chat = useChat()\r\nconst route = useRoute()\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))\n  }><form class=\"px-4 mb-2 pb-4\"><input${\n    _ssrRenderAttr(\"value\", _unref(chat).searchElem)\n  } type=\"text\" placeholder=\"Поиск...\" class=\"${\n    _ssrRenderClass([{'max-md:hidden' : !_unref(chat).activeChatNav && _unref(route).path !== '/base/chat'}, \"w-full hover:bg-active px-4 py-1 rounded-full max-md:w-9/12 max-md:mx-auto block text-sm bg-gray-100 focus:bg-gray-300 text-black tracking-widest dark:focus:opacity-100 transition-all dark:bg-gray-600 dark:text-white outline-none\"])\n  }\"></form>`)\n  if (_unref(chat).windowWidth < 768 || _unref(chat).windowWidth > 768) {\n    _push(`<div class=\"mx-4\">`)\n    _push(_ssrRenderComponent(ChatGroupCreate, null, null, _parent))\n    _push(_ssrRenderComponent(ChatNavHeaderElem, null, null, _parent))\n    _push(`</div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896548785,
-      "end": 1706896548785,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548785,
-      "end": 1706896548785,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548785,
-      "end": 1706896548785,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548785,
-      "end": 1706896548785,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548785,
-      "end": 1706896548785,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548785,
-      "end": 1706896548785,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548785,
-      "end": 1706896548785,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896548786,
-      "end": 1706896548786,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896548786,
-      "end": 1706896548786,
+      "start": 1707126071566,
+      "end": 1707126071566,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nimport { useRoute } from \"vue-router\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useChat } from \"~/stores/chat\";\nimport ChatNavHeaderElem from \"~/components/Chat/ChatNav/UI/ChatNavHeaderElem.vue\";\nimport ChatGroupCreate from \"~/components/Chat/ChatGroup/ChatGroupCreate.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatNavHeader\",\n  __ssrInlineRender: true,\n  props: {\n    activeNav: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const userStore = useUserStore();\n    const chat = useChat();\n    const route = useRoute();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))}><form class=\"px-4 mb-2 pb-4\"><input${_ssrRenderAttr(\"value\", _unref(chat).searchElem)} type=\"text\" placeholder=\"Поиск...\" class=\"${_ssrRenderClass([{ \"max-md:hidden\": !_unref(chat).activeChatNav && _unref(route).path !== \"/base/chat\" }, \"w-full hover:bg-active px-4 py-1 rounded-full max-md:w-9/12 max-md:mx-auto block text-sm bg-gray-100 focus:bg-gray-300 text-black tracking-widest dark:focus:opacity-100 transition-all dark:bg-gray-600 dark:text-white outline-none\"])}\"></form>`);\n      if (_unref(chat).windowWidth < 768 || _unref(chat).windowWidth > 768) {\n        _push(`<div class=\"mx-4\">`);\n        _push(_ssrRenderComponent(ChatGroupCreate, null, null, _parent));\n        _push(_ssrRenderComponent(ChatNavHeaderElem, null, null, _parent));\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548786,
-      "end": 1706896549122,
+      "start": 1707126071566,
+      "end": 1707126071762,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -86,232 +86,232 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896549122,
-      "end": 1706896549122,
+      "start": 1707126071762,
+      "end": 1707126071762,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896549122,
-      "end": 1706896549122,
+      "start": 1707126071762,
+      "end": 1707126071762,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896549122,
-      "end": 1706896549123,
+      "start": 1707126071762,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896549123,
-      "end": 1706896549123,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549123,
-      "end": 1706896549123,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549123,
-      "end": 1706896549123,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071763,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071763,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "vite:define",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nimport { useRoute } from \"vue-router\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useChat } from \"~/stores/chat\";\nimport ChatNavHeaderElem from \"~/components/Chat/ChatNav/UI/ChatNavHeaderElem.vue\";\nimport ChatGroupCreate from \"~/components/Chat/ChatGroup/ChatGroupCreate.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatNavHeader\",\n  __ssrInlineRender: true,\n  props: {\n    activeNav: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const userStore = useUserStore();\n    const chat = useChat();\n    const route = useRoute();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"\" }, _attrs))}><form class=\"px-4 mb-2 pb-4\"><input${_ssrRenderAttr(\"value\", _unref(chat).searchElem)} type=\"text\" placeholder=\"Поиск...\" class=\"${_ssrRenderClass([{ \"max-md:hidden\": !_unref(chat).activeChatNav && _unref(route).path !== \"/base/chat\" }, \"w-full hover:bg-active px-4 py-1 rounded-full max-md:w-9/12 max-md:mx-auto block text-sm bg-gray-100 focus:bg-gray-300 text-black tracking-widest dark:focus:opacity-100 transition-all dark:bg-gray-600 dark:text-white outline-none\"])}\"></form>`);\n      if (_unref(chat).windowWidth < 768 || _unref(chat).windowWidth > 768) {\n        _push(`<div class=\"mx-4\">`);\n        _push(_ssrRenderComponent(ChatGroupCreate, null, null, _parent));\n        _push(_ssrRenderComponent(ChatNavHeaderElem, null, null, _parent));\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896549125,
-      "end": 1706896549300,
+      "start": 1707126071764,
+      "end": 1707126071915,
       "order": "normal",
       "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/Chat/ChatNav/ChatNavHeader.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref, mergeProps as _mergeProps } from \\\"vue\\\";\\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \\\"vue/server-renderer\\\";\\nimport { useRoute } from \\\"vue-router\\\";\\nimport { useUserStore } from \\\"~/stores/users\\\";\\nimport { useChat } from \\\"~/stores/chat\\\";\\nimport ChatNavHeaderElem from \\\"~/components/Chat/ChatNav/UI/ChatNavHeaderElem.vue\\\";\\nimport ChatGroupCreate from \\\"~/components/Chat/ChatGroup/ChatGroupCreate.vue\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"ChatNavHeader\\\",\\n  __ssrInlineRender: true,\\n  props: {\\n    activeNav: {\\n      type: Boolean,\\n      default: false\\n    }\\n  },\\n  setup(__props) {\\n    const userStore = useUserStore();\\n    const chat = useChat();\\n    const route = useRoute();\\n    return (_ctx, _push, _parent, _attrs) => {\\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \\\"\\\" }, _attrs))}><form class=\\\"px-4 mb-2 pb-4\\\"><input${_ssrRenderAttr(\\\"value\\\", _unref(chat).searchElem)} type=\\\"text\\\" placeholder=\\\"Поиск...\\\" class=\\\"${_ssrRenderClass([{ \\\"max-md:hidden\\\": !_unref(chat).activeChatNav && _unref(route).path !== \\\"/base/chat\\\" }, \\\"w-full hover:bg-active px-4 py-1 rounded-full max-md:w-9/12 max-md:mx-auto block text-sm bg-gray-100 focus:bg-gray-300 text-black tracking-widest dark:focus:opacity-100 transition-all dark:bg-gray-600 dark:text-white outline-none\\\"])}\\\"></form>`);\\n      if (_unref(chat).windowWidth < 768 || _unref(chat).windowWidth > 768) {\\n        _push(`<div class=\\\"mx-4\\\">`);\\n        _push(_ssrRenderComponent(ChatGroupCreate, null, null, _parent));\\n        _push(_ssrRenderComponent(ChatNavHeaderElem, null, null, _parent));\\n        _push(`</div>`);\\n      } else {\\n        _push(`<!---->`);\\n      }\\n      _push(`</div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,cAAc,mBAAmB;AAC3D,SAAS,iBAAiB,gBAAgB,kBAAkB,iBAAiB,sBAAsB,qBAAqB,kBAAkB,uBAAuB;AACjK,SAAS,gBAAgB;AACzB,SAAS,oBAAoB;AAC7B,SAAS,eAAe;AACxB,OAAO,uBAAuB;AAC9B,OAAO,qBAAqB;AAC5B,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,OAAO;AAAA,IACL,WAAW;AAAA,MACT,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACA,MAAM,SAAS;AACb,UAAM,YAAY,aAAa;AAC/B,UAAM,OAAO,QAAQ;AACrB,UAAM,QAAQ,SAAS;AACvB,WAAO,CAAC,MAAM,OAAO,SAAS,WAAW;AACvC,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,GAAG,GAAG,MAAM,CAAC,CAAC,uCAAuC,eAAe,SAAS,OAAO,IAAI,EAAE,UAAU,CAAC,8CAA8C,gBAAgB,CAAC,EAAE,iBAAiB,CAAC,OAAO,IAAI,EAAE,iBAAiB,OAAO,KAAK,EAAE,SAAS,aAAa,GAAG,uOAAuO,CAAC,CAAC,WAAW;AACniB,UAAI,OAAO,IAAI,EAAE,cAAc,OAAO,OAAO,IAAI,EAAE,cAAc,KAAK;AACpE,cAAM,oBAAoB;AAC1B,cAAM,oBAAoB,iBAAiB,MAAM,MAAM,OAAO,CAAC;AAC/D,cAAM,oBAAoB,mBAAmB,MAAM,MAAM,OAAO,CAAC;AACjE,cAAM,QAAQ;AAAA,MAChB,OAAO;AACL,cAAM,SAAS;AAAA,MACjB;AACA,YAAM,QAAQ;AAAA,IAChB;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896549301,
-      "end": 1706896549301,
+      "start": 1707126071915,
+      "end": 1707126071915,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896549301,
-      "end": 1706896549301,
+      "start": 1707126071915,
+      "end": 1707126071915,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896549301,
-      "end": 1706896549301,
+      "start": 1707126071915,
+      "end": 1707126071915,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896549301,
-      "end": 1706896549301,
+      "start": 1707126071915,
+      "end": 1707126071915,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896549302,
-      "end": 1706896549302,
+      "start": 1707126071915,
+      "end": 1707126071915,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896549302,
-      "end": 1706896549302,
+      "start": 1707126071915,
+      "end": 1707126071916,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896549302,
-      "end": 1706896549302,
+      "start": 1707126071916,
+      "end": 1707126071916,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896549302,
-      "end": 1706896549302,
+      "start": 1707126071916,
+      "end": 1707126071916,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896549302,
-      "end": 1706896549302,
+      "start": 1707126071916,
+      "end": 1707126071917,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896549303,
-      "end": 1706896549303,
+      "start": 1707126071917,
+      "end": 1707126071917,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896549303,
-      "end": 1706896549303,
+      "start": 1707126071917,
+      "end": 1707126071917,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896549303,
-      "end": 1706896549303,
+      "start": 1707126071917,
+      "end": 1707126071917,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896549303,
-      "end": 1706896549303,
+      "start": 1707126071917,
+      "end": 1707126071917,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896549304,
-      "end": 1706896549304,
+      "start": 1707126071917,
+      "end": 1707126071917,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896549304,
-      "end": 1706896549304,
+      "start": 1707126071917,
+      "end": 1707126071917,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896549304,
-      "end": 1706896549305,
+      "start": 1707126071917,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896549304,
-      "end": 1706896549305,
+      "start": 1707126071917,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896549305,
-      "end": 1706896549305,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896549305,
-      "end": 1706896549305,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896549305,
-      "end": 1706896549305,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896549305,
-      "end": 1706896549306,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896549306,
-      "end": 1706896549306,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896549322,
-      "end": 1706896549323,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896549323,
-      "end": 1706896549323,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896549324,
-      "end": 1706896549325,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896549333,
-      "end": 1706896549333,
+      "start": 1707126071918,
+      "end": 1707126071918,
       "order": "normal"
     }
   ]

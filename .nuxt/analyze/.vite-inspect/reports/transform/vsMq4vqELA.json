@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "var hashClear = require('./_hashClear'),\n    hashDelete = require('./_hashDelete'),\n    hashGet = require('./_hashGet'),\n    hashHas = require('./_hashHas'),\n    hashSet = require('./_hashSet');\n\n/**\n * Creates a hash object.\n *\n * @private\n * @constructor\n * @param {Array} [entries] The key-value pairs to cache.\n */\nfunction Hash(entries) {\n  var index = -1,\n      length = entries == null ? 0 : entries.length;\n\n  this.clear();\n  while (++index < length) {\n    var entry = entries[index];\n    this.set(entry[0], entry[1]);\n  }\n}\n\n// Add methods to `Hash`.\nHash.prototype.clear = hashClear;\nHash.prototype['delete'] = hashDelete;\nHash.prototype.get = hashGet;\nHash.prototype.has = hashHas;\nHash.prototype.set = hashSet;\n\nmodule.exports = Hash;\n",
-      "start": 1706896525678,
-      "end": 1706896525699,
+      "start": 1707126050056,
+      "end": 1707126050070,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050070,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050070,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525700,
-      "end": 1706896525700,
+      "start": 1707126050071,
+      "end": 1707126050071,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_hashClear.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_hashDelete.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_hashGet.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_hashHas.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_hashSet.js?commonjs-proxy\";\n\nvar hashClear = require$$0,\n    hashDelete = require$$1,\n    hashGet = require$$2,\n    hashHas = require$$3,\n    hashSet = require$$4;\n\n/**\n * Creates a hash object.\n *\n * @private\n * @constructor\n * @param {Array} [entries] The key-value pairs to cache.\n */\nfunction Hash(entries) {\n  var index = -1,\n      length = entries == null ? 0 : entries.length;\n\n  this.clear();\n  while (++index < length) {\n    var entry = entries[index];\n    this.set(entry[0], entry[1]);\n  }\n}\n\n// Add methods to `Hash`.\nHash.prototype.clear = hashClear;\nHash.prototype['delete'] = hashDelete;\nHash.prototype.get = hashGet;\nHash.prototype.has = hashHas;\nHash.prototype.set = hashSet;\n\nvar _Hash = Hash;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_Hash);\nexport { _Hash as __moduleExports };",
-      "start": 1706896525700,
-      "end": 1706896525734,
+      "start": 1707126050071,
+      "end": 1707126050109,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525734,
-      "end": 1706896525734,
+      "start": 1707126050109,
+      "end": 1707126050109,
       "order": "normal"
     }
   ]

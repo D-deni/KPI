@@ -10,17 +10,18 @@ const chat = useChat()
   <label for="loadFiles"
          class="mx-auto absolute bottom-2 z-0 cursor-pointer flex justify-center"
          :class="{'right-12' : !chat.messageUpdate.file}">
-    <div v-if="!chat.messageUpdate.file && !chat.messageUpdate.id" class="flex justify-center w-full mx-auto ml-2">
-      <svg class="fill-gray-500 dark:hover:fill-gray-300 hover:fill-gray-700 transition-all" width="35px" height="35px"
-           viewBox="0 0 32 32" version="1.1"
-           xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M5.469 16.688l8.75-8.75c0.094-0.094 0.844-0.844 2.031-1.25 1.656-0.531 3.344-0.094 4.688 1.25 1.375 1.344 1.781 3 1.25 4.656-0.375 1.188-1.156 2-1.25 2.094l-9.406 9.406c-1.625 1.625-5.688 3.719-9.438 0-3.719-3.719-1.594-7.813 0-9.406l10.094-10.125c0.375-0.375 0.969-0.375 1.344 0s0.375 0.969 0 1.344l-10.063 10.125c-0.156 0.125-3.313 3.406 0 6.719 3.219 3.219 6.375 0.344 6.719 0l9.406-9.438s0.531-0.531 0.781-1.281c0.313-1 0.094-1.875-0.781-2.75-1.875-1.875-3.688-0.313-4.031 0l-8.75 8.719c-0.313 0.313-0.531 0.844 0 1.375s1.031 0.281 1.344 0l6.063-6.063c0.375-0.344 1-0.344 1.344 0 0.375 0.375 0.375 1 0 1.375l-6.063 6.031c-0.844 0.813-2.563 1.469-4.031 0-1.5-1.469-0.844-3.219 0-4.031z"></path>
-      </svg>
-    </div>
-    <div v-else-if="chat.messageUpdate.file" class="flex justify-center items-centerw-full mx-auto ml-3 mb-2">
-      <svg class="fill-semiCyan hover:fill-blueSemiLight transition-all" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-           viewBox="0 0 452.025 452.025" xml:space="preserve">
+    <Transition name="fade">
+      <div v-if="!chat.messageUpdate.file && !chat.messageUpdate.id && !chat.recordingVoice" class="flex justify-center w-full mx-auto ml-2">
+        <svg class="fill-gray-500 dark:hover:fill-gray-300 hover:fill-gray-700 transition-all" width="35px" height="35px"
+             viewBox="0 0 32 32" version="1.1"
+             xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M5.469 16.688l8.75-8.75c0.094-0.094 0.844-0.844 2.031-1.25 1.656-0.531 3.344-0.094 4.688 1.25 1.375 1.344 1.781 3 1.25 4.656-0.375 1.188-1.156 2-1.25 2.094l-9.406 9.406c-1.625 1.625-5.688 3.719-9.438 0-3.719-3.719-1.594-7.813 0-9.406l10.094-10.125c0.375-0.375 0.969-0.375 1.344 0s0.375 0.969 0 1.344l-10.063 10.125c-0.156 0.125-3.313 3.406 0 6.719 3.219 3.219 6.375 0.344 6.719 0l9.406-9.438s0.531-0.531 0.781-1.281c0.313-1 0.094-1.875-0.781-2.75-1.875-1.875-3.688-0.313-4.031 0l-8.75 8.719c-0.313 0.313-0.531 0.844 0 1.375s1.031 0.281 1.344 0l6.063-6.063c0.375-0.344 1-0.344 1.344 0 0.375 0.375 0.375 1 0 1.375l-6.063 6.031c-0.844 0.813-2.563 1.469-4.031 0-1.5-1.469-0.844-3.219 0-4.031z"></path>
+        </svg>
+      </div>
+      <div v-else-if="chat.messageUpdate.file" class="flex justify-center items-center w-full mx-auto ml-3 mb-2">
+        <svg class="fill-semiCyan hover:fill-blueSemiLight transition-all" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 452.025 452.025" xml:space="preserve">
         <g>
           <g>
             <path d="M147.912,363.325c-4.7-4.7-12.3-4.7-17,0c-4.7,4.7-4.7,12.3,0,17l13.6,13.6h-55.2c-35.9,0-65-29.2-65-65v-40.3
@@ -54,7 +55,8 @@ const chat = useChat()
           </g>
         </g>
       </svg>
-    </div>
+      </div>
+    </Transition>
     <input
       id="loadFiles"
       @change="uploadFile($event.target.files[0], chat); chat.showUploadWindow = true "

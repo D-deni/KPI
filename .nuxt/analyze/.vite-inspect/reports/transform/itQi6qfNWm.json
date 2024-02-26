@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createTextVNode as _createTextVNode, normalizeClass as _normalizeClass } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex flex-col outline-none font-medium gap-y-2 text-md dark:text-white tracking-wider\" }\nconst _hoisted_2 = { key: 0 }\nconst _hoisted_3 = {\n  key: 0,\n  class: \"text-red-500\"\n}\nconst _hoisted_4 = [\"required\", \"value\", \"placeholder\"]\nconst _hoisted_5 = [\"value\", \"required\", \"type\", \"placeholder\"]\nconst _hoisted_6 = [\"value\", \"required\", \"type\", \"placeholder\"]\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheInput',\n  props: {\r\n  modelValue: String,\r\n  label: String,\r\n  placeholder: String,\r\n  type: String,\r\n  required: Boolean,\r\n  trimi: {\r\n    type: Boolean,\r\n    default: null\r\n  },\r\n  answer: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n    (__props.type !== 'default')\n      ? (_openBlock(), _createElementBlock(\"span\", _hoisted_2, [\n          _createTextVNode(_toDisplayString(__props.label) + \" \", 1),\n          (__props.required)\n            ? (_openBlock(), _createElementBlock(\"span\", _hoisted_3, \"*\"))\n            : _createCommentVNode(\"\", true)\n        ]))\n      : _createCommentVNode(\"\", true),\n    (__props.type==='textarea')\n      ? (_openBlock(), _createElementBlock(\"textarea\", {\n          key: 1,\n          name: \"\",\n          id: \"\",\n          cols: \"30\",\n          rows: \"10\",\n          onInput: _cache[0] || (_cache[0] = ($event: any) => (_ctx.$emit('update:modelValue', $event.target.value))),\n          required: __props.required,\n          value: __props.modelValue,\n          class: _normalizeClass([\"text-lg dark:text-black resize-none border outline-3 rounded-lg focus:outline-semiCyan focus:outline-1 outline-none px-4 py-2 dark:bg-gray-300\", {'!bg-red-200 border-red-400 dark:border !outline-none' : __props.trimi && __props.required}]),\n          placeholder: __props.label\n        }, null, 42, _hoisted_4))\n      : (__props.type === 'file')\n        ? (_openBlock(), _createElementBlock(\"input\", {\n            key: 2,\n            value: __props.modelValue,\n            required: __props.required,\n            type: __props.type,\n            class: \"w-full rounded-lg p-2 dark:border-none text-black border outline-semiCyan outline-1\",\n            placeholder: __props.placeholder,\n            multiple: \"\",\n            onInput: _cache[1] || (_cache[1] = ($event: any) => (_ctx.$emit('update:modelValue', $event.target.files)))\n          }, null, 40, _hoisted_5))\n        : (_openBlock(), _createElementBlock(\"input\", {\n            key: 3,\n            value: __props.modelValue,\n            required: __props.required,\n            type: __props.type,\n            class: _normalizeClass([\"w-full rounded-lg p-2 dark:border-none text-black border focus:outline-semiCyan focus:outline-1 outline-none dark:bg-gray-300\", {'!bg-red-200 !outline-none' : __props.trimi, '!bg-green-400 text-white' : __props.answer, '!dark:bg-gray-500' : __props.type === 'createInput', '!bg-transparent dark:text-white text-black !outline-none !border-none' : __props.type === 'default'}]),\n            placeholder: __props.placeholder,\n            onInput: _cache[2] || (_cache[2] = ($event: any) => (_ctx.$emit('update:modelValue', $event.target.value)))\n          }, null, 42, _hoisted_6))\n  ]))\n}\n}\n\n})",
-      "start": 1706896520891,
-      "end": 1706896520891
+      "start": 1707126039960,
+      "end": 1707126039960
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896520891,
-      "end": 1706896520891,
+      "start": 1707126039960,
+      "end": 1707126039960,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896520891,
-      "end": 1706896520891,
+      "start": 1707126039960,
+      "end": 1707126039960,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896520891,
-      "end": 1706896520891,
+      "start": 1707126039960,
+      "end": 1707126039960,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896520891,
-      "end": 1706896520891,
+      "start": 1707126039960,
+      "end": 1707126039960,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896520891,
-      "end": 1706896520891,
+      "start": 1707126039960,
+      "end": 1707126039960,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createTextVNode as _createTextVNode, normalizeClass as _normalizeClass } from \"vue\";\nconst _hoisted_1 = { class: \"flex flex-col outline-none font-medium gap-y-2 text-md dark:text-white tracking-wider\" };\nconst _hoisted_2 = { key: 0 };\nconst _hoisted_3 = {\n  key: 0,\n  class: \"text-red-500\"\n};\nconst _hoisted_4 = [\"required\", \"value\", \"placeholder\"];\nconst _hoisted_5 = [\"value\", \"required\", \"type\", \"placeholder\"];\nconst _hoisted_6 = [\"value\", \"required\", \"type\", \"placeholder\"];\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheInput\",\n  props: {\n    modelValue: String,\n    label: String,\n    placeholder: String,\n    type: String,\n    required: Boolean,\n    trimi: {\n      type: Boolean,\n      default: null\n    },\n    answer: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"label\", _hoisted_1, [\n        __props.type !== \"default\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_2, [\n          _createTextVNode(_toDisplayString(__props.label) + \" \", 1),\n          __props.required ? (_openBlock(), _createElementBlock(\"span\", _hoisted_3, \"*\")) : _createCommentVNode(\"\", true)\n        ])) : _createCommentVNode(\"\", true),\n        __props.type === \"textarea\" ? (_openBlock(), _createElementBlock(\"textarea\", {\n          key: 1,\n          name: \"\",\n          id: \"\",\n          cols: \"30\",\n          rows: \"10\",\n          onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit(\"update:modelValue\", $event.target.value)),\n          required: __props.required,\n          value: __props.modelValue,\n          class: _normalizeClass([\"text-lg dark:text-black resize-none border outline-3 rounded-lg focus:outline-semiCyan focus:outline-1 outline-none px-4 py-2 dark:bg-gray-300\", { \"!bg-red-200 border-red-400 dark:border !outline-none\": __props.trimi && __props.required }]),\n          placeholder: __props.label\n        }, null, 42, _hoisted_4)) : __props.type === \"file\" ? (_openBlock(), _createElementBlock(\"input\", {\n          key: 2,\n          value: __props.modelValue,\n          required: __props.required,\n          type: __props.type,\n          class: \"w-full rounded-lg p-2 dark:border-none text-black border outline-semiCyan outline-1\",\n          placeholder: __props.placeholder,\n          multiple: \"\",\n          onInput: _cache[1] || (_cache[1] = ($event) => _ctx.$emit(\"update:modelValue\", $event.target.files))\n        }, null, 40, _hoisted_5)) : (_openBlock(), _createElementBlock(\"input\", {\n          key: 3,\n          value: __props.modelValue,\n          required: __props.required,\n          type: __props.type,\n          class: _normalizeClass([\"w-full rounded-lg p-2 dark:border-none text-black border focus:outline-semiCyan focus:outline-1 outline-none dark:bg-gray-300\", { \"!bg-red-200 !outline-none\": __props.trimi, \"!bg-green-400 text-white\": __props.answer, \"!dark:bg-gray-500\": __props.type === \"createInput\", \"!bg-transparent dark:text-white text-black !outline-none !border-none\": __props.type === \"default\" }]),\n          placeholder: __props.placeholder,\n          onInput: _cache[2] || (_cache[2] = ($event) => _ctx.$emit(\"update:modelValue\", $event.target.value))\n        }, null, 42, _hoisted_6))\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896520891,
-      "end": 1706896521165,
+      "start": 1707126039960,
+      "end": 1707126040221,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,188 +57,188 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896521165,
-      "end": 1706896521165,
+      "start": 1707126040221,
+      "end": 1707126040221,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040221,
+      "end": 1707126040221,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040221,
+      "end": 1707126040221,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040221,
+      "end": 1707126040221,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040222,
+      "end": 1707126040222,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040222,
+      "end": 1707126040222,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040222,
+      "end": 1707126040222,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040222,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040223,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040223,
+      "end": 1707126040224,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040224,
+      "end": 1707126040224,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040224,
+      "end": 1707126040224,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896521168,
-      "end": 1706896521168,
+      "start": 1707126040224,
+      "end": 1707126040224,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896521168,
-      "end": 1706896521168,
+      "start": 1707126040225,
+      "end": 1707126040225,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896521169,
-      "end": 1706896521169,
+      "start": 1707126040225,
+      "end": 1707126040225,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896521169,
-      "end": 1706896521169,
+      "start": 1707126040226,
+      "end": 1707126040226,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896521169,
-      "end": 1706896521175,
+      "start": 1707126040226,
+      "end": 1707126040234,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896521175,
-      "end": 1706896521175,
+      "start": 1707126040234,
+      "end": 1707126040234,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896521175,
-      "end": 1706896521175,
+      "start": 1707126040235,
+      "end": 1707126040235,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896521175,
-      "end": 1706896521175,
+      "start": 1707126040235,
+      "end": 1707126040235,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896521175,
-      "end": 1706896521176,
+      "start": 1707126040235,
+      "end": 1707126040235,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896521176,
-      "end": 1706896521176,
+      "start": 1707126040236,
+      "end": 1707126040236,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896521176,
-      "end": 1706896521176,
+      "start": 1707126040236,
+      "end": 1707126040236,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896521176,
-      "end": 1706896521177,
+      "start": 1707126040237,
+      "end": 1707126040237,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896521177,
-      "end": 1706896521177,
+      "start": 1707126040237,
+      "end": 1707126040237,
       "order": "normal"
     }
   ]

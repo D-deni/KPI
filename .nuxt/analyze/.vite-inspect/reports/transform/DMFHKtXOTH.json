@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, renderSlot as _renderSlot, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withModifiers as _withModifiers, createStaticVNode as _createStaticVNode } from \"vue\"\n\nconst _hoisted_1 = [\"id\"]\nconst _hoisted_2 = {\n  key: 0,\n  class: \"text-semiCyan font-bold text-[12px]\"\n}\nconst _hoisted_3 = { class: \"break-words relative\" }\nconst _hoisted_4 = {\n  key: 0,\n  class: \"text-[12px] text-blueSemiLight tracking-widest\"\n}\nconst _hoisted_5 = {\n  key: 1,\n  class: \"\"\n}\nconst _hoisted_6 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"bg-blueSemiLight rounded-full p-3\\\"><svg width=\\\"25px\\\" height=\\\"25px\\\" viewBox=\\\"0 0 24 24\\\" fill=\\\"none\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\"><g opacity=\\\"0.5\\\"><path fill-rule=\\\"evenodd\\\" clip-rule=\\\"evenodd\\\" d=\\\"M14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V10C2 6.22876 2 4.34315 3.17157 3.17157C4.34315 2 6.23869 2 10.0298 2C10.6358 2 11.1214 2 11.53 2.01666C11.5166 2.09659 11.5095 2.17813 11.5092 2.26057L11.5 5.09497C11.4999 6.19207 11.4998 7.16164 11.6049 7.94316C11.7188 8.79028 11.9803 9.63726 12.6716 10.3285C13.3628 11.0198 14.2098 11.2813 15.0569 11.3952C15.8385 11.5003 16.808 11.5002 17.9051 11.5001L18 11.5001H21.9574C22 12.0344 22 12.6901 22 13.5629V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22Z\\\" fill=\\\"#1C274C\\\"></path></g><path d=\\\"M11.5092 2.2601L11.5 5.0945C11.4999 6.1916 11.4998 7.16117 11.6049 7.94269C11.7188 8.78981 11.9803 9.6368 12.6716 10.3281C13.3629 11.0193 14.2098 11.2808 15.057 11.3947C15.8385 11.4998 16.808 11.4997 17.9051 11.4996L21.9574 11.4996C21.9698 11.6552 21.9786 11.821 21.9848 11.9995H22C22 11.732 22 11.5983 21.9901 11.4408C21.9335 10.5463 21.5617 9.52125 21.0315 8.79853C20.9382 8.6713 20.8743 8.59493 20.7467 8.44218C19.9542 7.49359 18.911 6.31193 18 5.49953C17.1892 4.77645 16.0787 3.98536 15.1101 3.3385C14.2781 2.78275 13.862 2.50487 13.2915 2.29834C13.1403 2.24359 12.9408 2.18311 12.7846 2.14466C12.4006 2.05013 12.0268 2.01725 11.5 2.00586L11.5092 2.2601Z\\\" fill=\\\"#1C274C\\\"></path></svg></div>\", 1)\nconst _hoisted_7 = { class: \"float-start break-all\" }\nconst _hoisted_8 = { class: \"text-sm dark:text-gray-500 text-gray-400 font-bold\" }\nconst _hoisted_9 = [\"src\"]\nconst _hoisted_10 = { key: 1 }\nconst _hoisted_11 = [\"src\"]\nconst _hoisted_12 = { key: 0 }\nconst _hoisted_13 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"fill-semiCyan\",\n  width: \"13px\",\n  height: \"13px\",\n  viewBox: \"0 0 256 256\",\n  id: \"Flat\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", { d: \"M231.999,107.31445,173.47168,165.8418c4.55664,12.67968,6.44531,33.88965-13.18945,59.98584a15.96991,15.96991,0,0,1-11.64649,6.33007q-.5625.03955-1.124.03956a16.0039,16.0039,0,0,1-11.31934-4.69141L88,179.314,53.65723,213.65674a8.00018,8.00018,0,0,1-11.31446-11.31348L76.686,168,28.2959,119.60986a16.01339,16.01339,0,0,1,1.2832-23.78613C55.00488,75.312,79.34082,79.35205,89.99316,82.69287L148.68555,24l.001-.001a16.02135,16.02135,0,0,1,22.627,0L232,84.68652a15.99888,15.99888,0,0,1-.001,22.62793Z\" })\n], -1)\nconst _hoisted_14 = [\n  _hoisted_13\n]\nconst _hoisted_15 = {\n  key: 1,\n  class: \"text-[12px] tracking-wider font-light dark:text-gray-400 text-gray-400\"\n}\nconst _hoisted_16 = { class: \"text-[12px] text-end text-gray-400\" }\nconst _hoisted_17 = {\n  key: 0,\n  class: \"fill-semiCyan\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}\nconst _hoisted_18 = /*#__PURE__*/_createElementVNode(\"path\", {\n  \"fill-rule\": \"evenodd\",\n  \"clip-rule\": \"evenodd\",\n  d: \"M15.4933 6.93502C15.8053 7.20743 15.8374 7.68122 15.565 7.99325L7.70786 16.9933C7.56543 17.1564 7.35943 17.25 7.14287 17.25C6.9263 17.25 6.72031 17.1564 6.57788 16.9933L3.43502 13.3933C3.16261 13.0812 3.19473 12.6074 3.50677 12.335C3.8188 12.0626 4.29259 12.0947 4.565 12.4068L7.14287 15.3596L14.435 7.00677C14.7074 6.69473 15.1812 6.66261 15.4933 6.93502Z\"\n}, null, -1)\nconst _hoisted_19 = {\n  key: 0,\n  \"fill-rule\": \"evenodd\",\n  \"clip-rule\": \"evenodd\",\n  d: \"M20.5175 7.01946C20.8174 7.30513 20.829 7.77986 20.5433 8.07981L11.9716 17.0798C11.8201 17.2389 11.6065 17.3235 11.3872 17.3114C11.1679 17.2993 10.9649 17.1917 10.8318 17.0169L10.4035 16.4544C10.1526 16.1249 10.2163 15.6543 10.5458 15.4034C10.8289 15.1878 11.2161 15.2044 11.4787 15.4223L19.4571 7.04531C19.7428 6.74537 20.2175 6.73379 20.5175 7.01946Z\"\n}\n\nimport {useChat} from \"~/stores/chat\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {downloadWithAxios} from \"~/hooks/ElemUI\";\r\nimport axios from \"~/composables/axios\"\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatContentUserElem',\n  props: {\r\n  item: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  },\r\n  textType: {\r\n    type: String,\r\n    default: ''\r\n  }\r\n},\n  setup(__props) {\n\r\nconst chat = useChat()\r\nconst currentUser = useAuthStore()\r\n\r\nlet req = new XMLHttpRequest();\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", {\n    onContextmenu: _cache[2] || (_cache[2] = _withModifiers(() => {}, [\"prevent\"])),\n    id: __props.item.id\n  }, [\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"flex items-end gap-x-2 p-1 rounded-lg\", {'max-md:justify-end' : __props.item.sender.id === _unref(currentUser).user.id, 'w-7/12 max-md:w-full text-center ' : __props.item.message_type !== 'default'}])\n    }, [\n      (__props.item.message_type === 'default')\n        ? (_openBlock(), _createElementBlock(\"div\", {\n            key: 0,\n            class: _normalizeClass([\"rounded-full max-md:hidden w-[30px]\", {'max-md:!block': _unref(chat).userChat.is_group, 'max-md:!hidden' : __props.item.sender.id === _unref(currentUser).user.id}])\n          }, [\n            _renderSlot(_ctx.$slots, \"userImage\")\n          ], 2))\n        : _createCommentVNode(\"\", true),\n      _createElementVNode(\"div\", {\n        class: _normalizeClass({\r\n            'mx-auto py-1 px-4 dark:text-gray-300 text-gray-500 tracking-wider rounded-full dark:!bg-black dark:!bg-opacity-30' : __props.item.message_type !== 'default',\r\n            '!bg-transparent dark:!bg-transparent !p-0 !shadow-none' : __props.item.message_type === 'change' && __props.item.file,\r\n            'flex flex-col py-1 px-2 gap-x-2 rounded-xl max-w-[40%] max-lg:max-w-[50%] max-md:max-w-[80%] relative before:absolute before:border-l-[5px] before:border-l-transparent before:border-r-[10px] before:border-b-[10px] before:border-r-transparent before:w-[3px] before:h-[3px] before:bottom-0' : __props.item.message_type === 'default',\r\n            'dark:bg-gray-600 bg-gray-200 dark:shadow-none shadow-md max-md:rounded-r-xl max-md:rounded-l-lg': __props.item.sender.id !== _unref(currentUser).user.id,\r\n            'dark:bg-gray-700 bg-gray-200 dark:shadow-none shadow-md max-md:rounded-l-xl max-md:rounded-r-lg': __props.item.sender.id === _unref(currentUser).user.id,\r\n            'before:dark:border-b-gray-700 before:border-gray-200 before:-left-1 max-md:before:-right-2 max-md:before:left-auto' : __props.item.sender.id === _unref(currentUser).user.id,\r\n            'before:dark:border-b-gray-600 before:border-gray-200 before:-left-1 max-md:before:-left-1' : __props.item.sender.id !== _unref(currentUser).user.id\r\n      })\n      }, [\n        (__props.item.forwarded_from?.id && __props.item.message_type === 'default')\n          ? (_openBlock(), _createElementBlock(\"p\", _hoisted_2, [\n              _renderSlot(_ctx.$slots, \"userForwarded\")\n            ]))\n          : _createCommentVNode(\"\", true),\n        _createElementVNode(\"div\", _hoisted_3, [\n          (_unref(chat).userChat.is_group && !__props.item.forwarded_from?.id && __props.item.sender.id !== _unref(currentUser).user.id && __props.item.message_type === 'default')\n            ? (_openBlock(), _createElementBlock(\"p\", _hoisted_4, [\n                _renderSlot(_ctx.$slots, \"userSenderName\")\n              ]))\n            : _createCommentVNode(\"\", true),\n          (__props.item.file && __props.item.message_type === 'default')\n            ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n                (__props.item.file_name.substr(-4) !== '.png')\n                  ? (_openBlock(), _createElementBlock(\"div\", {\n                      key: 0,\n                      class: \"flex gap-x-4 p-2 items-center cursor-pointer\",\n                      onClick: _cache[0] || (_cache[0] = ($event: any) => (_unref(downloadWithAxios)(__props.item)))\n                    }, [\n                      _hoisted_6,\n                      _createElementVNode(\"div\", _hoisted_7, [\n                        _createElementVNode(\"p\", null, _toDisplayString(__props.item.file_name?.length > 20 ? __props.item.file_name.slice(0,15) + '...' + __props.item.file_name.substr(-6) : __props.item.file_name), 1),\n                        _createElementVNode(\"span\", _hoisted_8, [\n                          _createTextVNode(_toDisplayString(__props.item.file_size) + \" \", 1),\n                          _createElementVNode(\"span\", null, _toDisplayString(__props.item.file_size > 1000 ? _ctx.$t('КБ') : _ctx.$t('Б')), 1)\n                        ])\n                      ])\n                    ]))\n                  : _createCommentVNode(\"\", true),\n                (__props.item.file_name.substr(-4) === '.png')\n                  ? (_openBlock(), _createElementBlock(\"div\", {\n                      key: 1,\n                      class: \"cursor-pointer max-w-[300px]\",\n                      onDragstart: _cache[1] || (_cache[1] = _withModifiers(() => {}, [\"prevent\"]))\n                    }, [\n                      _createElementVNode(\"img\", {\n                        class: \"w-full\",\n                        src: _unref(currentUser).get_server_domain + __props.item.file,\n                        alt: \"\"\n                      }, null, 8, _hoisted_9)\n                    ], 32))\n                  : _createCommentVNode(\"\", true)\n              ]))\n            : _createCommentVNode(\"\", true),\n          _createElementVNode(\"div\", {\n            class: _normalizeClass([\"text-sm break-all\", {'flex flex-col items-center justify-center' : __props.item.message_type === 'change' && __props.item.file}])\n          }, [\n            (__props.item.text)\n              ? (_openBlock(), _createElementBlock(\"span\", {\n                  key: 0,\n                  class: _normalizeClass({'dark:!bg-black dark:!bg-opacity-30 py-1 px-4 rounded-full bg-gray-200' : __props.item.message_type === 'change' && __props.item.file})\n                }, [\n                  _renderSlot(_ctx.$slots, \"userMessage\")\n                ], 2))\n              : _createCommentVNode(\"\", true),\n            (__props.item.message_type === 'change' && __props.item.file)\n              ? (_openBlock(), _createElementBlock(\"div\", _hoisted_10, [\n                  _createElementVNode(\"img\", {\n                    class: \"rounded-full w-[80px] h-[80px] cursor-pointer\",\n                    src: _unref(currentUser).get_server_domain + __props.item.file,\n                    alt: \"\"\n                  }, null, 8, _hoisted_11)\n                ]))\n              : _createCommentVNode(\"\", true),\n            (__props.item.message_type === 'default')\n              ? (_openBlock(), _createElementBlock(\"div\", {\n                  key: 2,\n                  class: _normalizeClass([\"flex items-center justify-end gap-x-1 float-right ml-2\", {'mt-1' : __props.item.text?.length <= 70}])\n                }, [\n                  (__props.item.pinned === true && !_unref(chat).showPinnedWindow)\n                    ? (_openBlock(), _createElementBlock(\"div\", _hoisted_12, _hoisted_14))\n                    : _createCommentVNode(\"\", true),\n                  (new Date(__props.item.updated_at).toLocaleString() !== new Date(__props.item.created_at).toLocaleString())\n                    ? (_openBlock(), _createElementBlock(\"p\", _hoisted_15, _toDisplayString(_ctx.$t('изменено')), 1))\n                    : _createCommentVNode(\"\", true),\n                  _createElementVNode(\"p\", _hoisted_16, [\n                    _renderSlot(_ctx.$slots, \"userDate\")\n                  ]),\n                  _createElementVNode(\"div\", null, [\n                    (__props.item.sender.id === _unref(currentUser).user.id)\n                      ? (_openBlock(), _createElementBlock(\"svg\", _hoisted_17, [\n                          _hoisted_18,\n                          (__props.item.read && __props.item.sender.id === _unref(currentUser).user.id)\n                            ? (_openBlock(), _createElementBlock(\"path\", _hoisted_19))\n                            : _createCommentVNode(\"\", true)\n                        ]))\n                      : _createCommentVNode(\"\", true)\n                  ])\n                ], 2))\n              : _createCommentVNode(\"\", true)\n          ], 2)\n        ])\n      ], 2)\n    ], 2)\n  ], 40, _hoisted_1))\n}\n}\n\n})",
-      "start": 1706896524782,
-      "end": 1706896524782
+      "start": 1707126047105,
+      "end": 1707126047105
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896524782,
-      "end": 1706896524782,
+      "start": 1707126047105,
+      "end": 1707126047105,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896524782,
-      "end": 1706896524782,
+      "start": 1707126047105,
+      "end": 1707126047105,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896524782,
-      "end": 1706896524782,
+      "start": 1707126047105,
+      "end": 1707126047105,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896524782,
-      "end": 1706896524782,
+      "start": 1707126047105,
+      "end": 1707126047106,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896524782,
-      "end": 1706896524782,
+      "start": 1707126047106,
+      "end": 1707126047106,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, renderSlot as _renderSlot, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withModifiers as _withModifiers, createStaticVNode as _createStaticVNode } from \"vue\";\nconst _hoisted_1 = [\"id\"];\nconst _hoisted_2 = {\n  key: 0,\n  class: \"text-semiCyan font-bold text-[12px]\"\n};\nconst _hoisted_3 = { class: \"break-words relative\" };\nconst _hoisted_4 = {\n  key: 0,\n  class: \"text-[12px] text-blueSemiLight tracking-widest\"\n};\nconst _hoisted_5 = {\n  key: 1,\n  class: \"\"\n};\nconst _hoisted_6 = /* @__PURE__ */ _createStaticVNode('<div class=\"bg-blueSemiLight rounded-full p-3\"><svg width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"0.5\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V10C2 6.22876 2 4.34315 3.17157 3.17157C4.34315 2 6.23869 2 10.0298 2C10.6358 2 11.1214 2 11.53 2.01666C11.5166 2.09659 11.5095 2.17813 11.5092 2.26057L11.5 5.09497C11.4999 6.19207 11.4998 7.16164 11.6049 7.94316C11.7188 8.79028 11.9803 9.63726 12.6716 10.3285C13.3628 11.0198 14.2098 11.2813 15.0569 11.3952C15.8385 11.5003 16.808 11.5002 17.9051 11.5001L18 11.5001H21.9574C22 12.0344 22 12.6901 22 13.5629V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22Z\" fill=\"#1C274C\"></path></g><path d=\"M11.5092 2.2601L11.5 5.0945C11.4999 6.1916 11.4998 7.16117 11.6049 7.94269C11.7188 8.78981 11.9803 9.6368 12.6716 10.3281C13.3629 11.0193 14.2098 11.2808 15.057 11.3947C15.8385 11.4998 16.808 11.4997 17.9051 11.4996L21.9574 11.4996C21.9698 11.6552 21.9786 11.821 21.9848 11.9995H22C22 11.732 22 11.5983 21.9901 11.4408C21.9335 10.5463 21.5617 9.52125 21.0315 8.79853C20.9382 8.6713 20.8743 8.59493 20.7467 8.44218C19.9542 7.49359 18.911 6.31193 18 5.49953C17.1892 4.77645 16.0787 3.98536 15.1101 3.3385C14.2781 2.78275 13.862 2.50487 13.2915 2.29834C13.1403 2.24359 12.9408 2.18311 12.7846 2.14466C12.4006 2.05013 12.0268 2.01725 11.5 2.00586L11.5092 2.2601Z\" fill=\"#1C274C\"></path></svg></div>', 1);\nconst _hoisted_7 = { class: \"float-start break-all\" };\nconst _hoisted_8 = { class: \"text-sm dark:text-gray-500 text-gray-400 font-bold\" };\nconst _hoisted_9 = [\"src\"];\nconst _hoisted_10 = { key: 1 };\nconst _hoisted_11 = [\"src\"];\nconst _hoisted_12 = { key: 0 };\nconst _hoisted_13 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"fill-semiCyan\",\n  width: \"13px\",\n  height: \"13px\",\n  viewBox: \"0 0 256 256\",\n  id: \"Flat\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", { d: \"M231.999,107.31445,173.47168,165.8418c4.55664,12.67968,6.44531,33.88965-13.18945,59.98584a15.96991,15.96991,0,0,1-11.64649,6.33007q-.5625.03955-1.124.03956a16.0039,16.0039,0,0,1-11.31934-4.69141L88,179.314,53.65723,213.65674a8.00018,8.00018,0,0,1-11.31446-11.31348L76.686,168,28.2959,119.60986a16.01339,16.01339,0,0,1,1.2832-23.78613C55.00488,75.312,79.34082,79.35205,89.99316,82.69287L148.68555,24l.001-.001a16.02135,16.02135,0,0,1,22.627,0L232,84.68652a15.99888,15.99888,0,0,1-.001,22.62793Z\" })\n], -1);\nconst _hoisted_14 = [\n  _hoisted_13\n];\nconst _hoisted_15 = {\n  key: 1,\n  class: \"text-[12px] tracking-wider font-light dark:text-gray-400 text-gray-400\"\n};\nconst _hoisted_16 = { class: \"text-[12px] text-end text-gray-400\" };\nconst _hoisted_17 = {\n  key: 0,\n  class: \"fill-semiCyan\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n};\nconst _hoisted_18 = /* @__PURE__ */ _createElementVNode(\"path\", {\n  \"fill-rule\": \"evenodd\",\n  \"clip-rule\": \"evenodd\",\n  d: \"M15.4933 6.93502C15.8053 7.20743 15.8374 7.68122 15.565 7.99325L7.70786 16.9933C7.56543 17.1564 7.35943 17.25 7.14287 17.25C6.9263 17.25 6.72031 17.1564 6.57788 16.9933L3.43502 13.3933C3.16261 13.0812 3.19473 12.6074 3.50677 12.335C3.8188 12.0626 4.29259 12.0947 4.565 12.4068L7.14287 15.3596L14.435 7.00677C14.7074 6.69473 15.1812 6.66261 15.4933 6.93502Z\"\n}, null, -1);\nconst _hoisted_19 = {\n  key: 0,\n  \"fill-rule\": \"evenodd\",\n  \"clip-rule\": \"evenodd\",\n  d: \"M20.5175 7.01946C20.8174 7.30513 20.829 7.77986 20.5433 8.07981L11.9716 17.0798C11.8201 17.2389 11.6065 17.3235 11.3872 17.3114C11.1679 17.2993 10.9649 17.1917 10.8318 17.0169L10.4035 16.4544C10.1526 16.1249 10.2163 15.6543 10.5458 15.4034C10.8289 15.1878 11.2161 15.2044 11.4787 15.4223L19.4571 7.04531C19.7428 6.74537 20.2175 6.73379 20.5175 7.01946Z\"\n};\nimport { useChat } from \"~/stores/chat\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { downloadWithAxios } from \"~/hooks/ElemUI\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatContentUserElem\",\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    textType: {\n      type: String,\n      default: \"\"\n    }\n  },\n  setup(__props) {\n    const chat = useChat();\n    const currentUser = useAuthStore();\n    let req = new XMLHttpRequest();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", {\n        onContextmenu: _cache[2] || (_cache[2] = _withModifiers(() => {\n        }, [\"prevent\"])),\n        id: __props.item.id\n      }, [\n        _createElementVNode(\"div\", {\n          class: _normalizeClass([\"flex items-end gap-x-2 p-1 rounded-lg\", { \"max-md:justify-end\": __props.item.sender.id === _unref(currentUser).user.id, \"w-7/12 max-md:w-full text-center \": __props.item.message_type !== \"default\" }])\n        }, [\n          __props.item.message_type === \"default\" ? (_openBlock(), _createElementBlock(\"div\", {\n            key: 0,\n            class: _normalizeClass([\"rounded-full max-md:hidden w-[30px]\", { \"max-md:!block\": _unref(chat).userChat.is_group, \"max-md:!hidden\": __props.item.sender.id === _unref(currentUser).user.id }])\n          }, [\n            _renderSlot(_ctx.$slots, \"userImage\")\n          ], 2)) : _createCommentVNode(\"\", true),\n          _createElementVNode(\"div\", {\n            class: _normalizeClass({\n              \"mx-auto py-1 px-4 dark:text-gray-300 text-gray-500 tracking-wider rounded-full dark:!bg-black dark:!bg-opacity-30\": __props.item.message_type !== \"default\",\n              \"!bg-transparent dark:!bg-transparent !p-0 !shadow-none\": __props.item.message_type === \"change\" && __props.item.file,\n              \"flex flex-col py-1 px-2 gap-x-2 rounded-xl max-w-[40%] max-lg:max-w-[50%] max-md:max-w-[80%] relative before:absolute before:border-l-[5px] before:border-l-transparent before:border-r-[10px] before:border-b-[10px] before:border-r-transparent before:w-[3px] before:h-[3px] before:bottom-0\": __props.item.message_type === \"default\",\n              \"dark:bg-gray-600 bg-gray-200 dark:shadow-none shadow-md max-md:rounded-r-xl max-md:rounded-l-lg\": __props.item.sender.id !== _unref(currentUser).user.id,\n              \"dark:bg-gray-700 bg-gray-200 dark:shadow-none shadow-md max-md:rounded-l-xl max-md:rounded-r-lg\": __props.item.sender.id === _unref(currentUser).user.id,\n              \"before:dark:border-b-gray-700 before:border-gray-200 before:-left-1 max-md:before:-right-2 max-md:before:left-auto\": __props.item.sender.id === _unref(currentUser).user.id,\n              \"before:dark:border-b-gray-600 before:border-gray-200 before:-left-1 max-md:before:-left-1\": __props.item.sender.id !== _unref(currentUser).user.id\n            })\n          }, [\n            __props.item.forwarded_from?.id && __props.item.message_type === \"default\" ? (_openBlock(), _createElementBlock(\"p\", _hoisted_2, [\n              _renderSlot(_ctx.$slots, \"userForwarded\")\n            ])) : _createCommentVNode(\"\", true),\n            _createElementVNode(\"div\", _hoisted_3, [\n              _unref(chat).userChat.is_group && !__props.item.forwarded_from?.id && __props.item.sender.id !== _unref(currentUser).user.id && __props.item.message_type === \"default\" ? (_openBlock(), _createElementBlock(\"p\", _hoisted_4, [\n                _renderSlot(_ctx.$slots, \"userSenderName\")\n              ])) : _createCommentVNode(\"\", true),\n              __props.item.file && __props.item.message_type === \"default\" ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n                __props.item.file_name.substr(-4) !== \".png\" ? (_openBlock(), _createElementBlock(\"div\", {\n                  key: 0,\n                  class: \"flex gap-x-4 p-2 items-center cursor-pointer\",\n                  onClick: _cache[0] || (_cache[0] = ($event) => _unref(downloadWithAxios)(__props.item))\n                }, [\n                  _hoisted_6,\n                  _createElementVNode(\"div\", _hoisted_7, [\n                    _createElementVNode(\"p\", null, _toDisplayString(__props.item.file_name?.length > 20 ? __props.item.file_name.slice(0, 15) + \"...\" + __props.item.file_name.substr(-6) : __props.item.file_name), 1),\n                    _createElementVNode(\"span\", _hoisted_8, [\n                      _createTextVNode(_toDisplayString(__props.item.file_size) + \" \", 1),\n                      _createElementVNode(\"span\", null, _toDisplayString(__props.item.file_size > 1e3 ? _ctx.$t(\"КБ\") : _ctx.$t(\"Б\")), 1)\n                    ])\n                  ])\n                ])) : _createCommentVNode(\"\", true),\n                __props.item.file_name.substr(-4) === \".png\" ? (_openBlock(), _createElementBlock(\"div\", {\n                  key: 1,\n                  class: \"cursor-pointer max-w-[300px]\",\n                  onDragstart: _cache[1] || (_cache[1] = _withModifiers(() => {\n                  }, [\"prevent\"]))\n                }, [\n                  _createElementVNode(\"img\", {\n                    class: \"w-full\",\n                    src: _unref(currentUser).get_server_domain + __props.item.file,\n                    alt: \"\"\n                  }, null, 8, _hoisted_9)\n                ], 32)) : _createCommentVNode(\"\", true)\n              ])) : _createCommentVNode(\"\", true),\n              _createElementVNode(\"div\", {\n                class: _normalizeClass([\"text-sm break-all\", { \"flex flex-col items-center justify-center\": __props.item.message_type === \"change\" && __props.item.file }])\n              }, [\n                __props.item.text ? (_openBlock(), _createElementBlock(\"span\", {\n                  key: 0,\n                  class: _normalizeClass({ \"dark:!bg-black dark:!bg-opacity-30 py-1 px-4 rounded-full bg-gray-200\": __props.item.message_type === \"change\" && __props.item.file })\n                }, [\n                  _renderSlot(_ctx.$slots, \"userMessage\")\n                ], 2)) : _createCommentVNode(\"\", true),\n                __props.item.message_type === \"change\" && __props.item.file ? (_openBlock(), _createElementBlock(\"div\", _hoisted_10, [\n                  _createElementVNode(\"img\", {\n                    class: \"rounded-full w-[80px] h-[80px] cursor-pointer\",\n                    src: _unref(currentUser).get_server_domain + __props.item.file,\n                    alt: \"\"\n                  }, null, 8, _hoisted_11)\n                ])) : _createCommentVNode(\"\", true),\n                __props.item.message_type === \"default\" ? (_openBlock(), _createElementBlock(\"div\", {\n                  key: 2,\n                  class: _normalizeClass([\"flex items-center justify-end gap-x-1 float-right ml-2\", { \"mt-1\": __props.item.text?.length <= 70 }])\n                }, [\n                  __props.item.pinned === true && !_unref(chat).showPinnedWindow ? (_openBlock(), _createElementBlock(\"div\", _hoisted_12, _hoisted_14)) : _createCommentVNode(\"\", true),\n                  new Date(__props.item.updated_at).toLocaleString() !== new Date(__props.item.created_at).toLocaleString() ? (_openBlock(), _createElementBlock(\"p\", _hoisted_15, _toDisplayString(_ctx.$t(\"изменено\")), 1)) : _createCommentVNode(\"\", true),\n                  _createElementVNode(\"p\", _hoisted_16, [\n                    _renderSlot(_ctx.$slots, \"userDate\")\n                  ]),\n                  _createElementVNode(\"div\", null, [\n                    __props.item.sender.id === _unref(currentUser).user.id ? (_openBlock(), _createElementBlock(\"svg\", _hoisted_17, [\n                      _hoisted_18,\n                      __props.item.read && __props.item.sender.id === _unref(currentUser).user.id ? (_openBlock(), _createElementBlock(\"path\", _hoisted_19)) : _createCommentVNode(\"\", true)\n                    ])) : _createCommentVNode(\"\", true)\n                  ])\n                ], 2)) : _createCommentVNode(\"\", true)\n              ], 2)\n            ])\n          ], 2)\n        ], 2)\n      ], 40, _hoisted_1);\n    };\n  }\n});\n",
-      "start": 1706896524782,
-      "end": 1706896524803,
+      "start": 1707126047106,
+      "end": 1707126047120,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,188 +57,188 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047120,
+      "end": 1707126047120,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047121,
+      "end": 1707126047121,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047121,
+      "end": 1707126047121,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047121,
+      "end": 1707126047121,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896524803,
-      "end": 1706896524803,
+      "start": 1707126047121,
+      "end": 1707126047121,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896524803,
-      "end": 1706896524805,
+      "start": 1707126047121,
+      "end": 1707126047125,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896524805,
-      "end": 1706896524806,
+      "start": 1707126047125,
+      "end": 1707126047125,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896524806,
-      "end": 1706896524806,
+      "start": 1707126047125,
+      "end": 1707126047125,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896524806,
-      "end": 1706896524806,
+      "start": 1707126047125,
+      "end": 1707126047126,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896524806,
-      "end": 1706896524806,
+      "start": 1707126047126,
+      "end": 1707126047126,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896524806,
-      "end": 1706896524806,
+      "start": 1707126047126,
+      "end": 1707126047126,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896524806,
-      "end": 1706896524806,
+      "start": 1707126047126,
+      "end": 1707126047126,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896524806,
-      "end": 1706896524806,
+      "start": 1707126047126,
+      "end": 1707126047126,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896524806,
-      "end": 1706896524806,
+      "start": 1707126047126,
+      "end": 1707126047126,
       "order": "normal"
     }
   ]

@@ -1090,7 +1090,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/base-F6kPUp9H.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/base-JHMq566h.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -1202,7 +1202,7 @@ const validate = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
 });
 const inlineConfig = {
   "nuxt": {
-    "buildId": "dev"
+    "buildId": "2e0bb3f4-d1e2-44e7-a872-980f8fb39ac7"
   },
   "ui": {
     "primary": "green",

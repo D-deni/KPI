@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CurrentCompanyFiles',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst authStore = useAuthStore()\r\nconst companies = useCompanies()\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_Swiper = _resolveComponent(\"Swiper\")!\n  const _component_SwiperSlide = _resolveComponent(\"SwiperSlide\")!\n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex max-[900px]:flex-wrap gap-y-10 w-full justify-center mx-auto container gap-x-10\" }, _attrs))} data-v-a06afbbe>`)\n  _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-9/12 max-[900px]:w-full\" }, {\n    blockTitle: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TheTextContent, null, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Галерея'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Галерея')), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(TheTextContent, null, {\n            default: _withCtx(() => [\n              _createTextVNode(_toDisplayString(_ctx.$t('Галерея')), 1)\n            ]),\n            _: 1\n          })\n        ]\n      }\n    }),\n    blockContent: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(_component_Swiper, {\n          modules: [_ctx.SwiperAutoplay, _ctx.SwiperEffectCreative],\n          \"slides-per-view\": 1,\n          loop: true,\n          effect: 'creative',\n          autoplay: {\r\n        delay: 4000,\r\n        disableOnInteraction: true\r\n      },\n          \"creative-effect\": {\r\n        prev: {\r\n          shadow: true,\r\n          translate: ['-100%', 0, -1]\r\n        },\r\n        next: {\r\n          shadow: true,\r\n          translate: ['100%', 0, 0]\r\n        }\r\n      }\n        }, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`<!--[-->`)\n              _ssrRenderList(_unref(companies).company?.pictures, (item) => {\n                _push(_ssrRenderComponent(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                  default: _withCtx((_, _push, _parent, _scopeId) => {\n                    if (_push) {\n                      _push(`<img class=\"w-full h-[500px]\"${\n                        _ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + item.photo_url)\n                      } alt=\"\" data-v-a06afbbe${\n                        _scopeId\n                      }>`)\n                    } else {\n                      return [\n                        _createVNode(\"img\", {\n                          class: \"w-full h-[500px]\",\n                          src: _unref(authStore).get_server_domain + item.photo_url,\n                          alt: \"\"\n                        }, null, 8, [\"src\"])\n                      ]\n                    }\n                  }),\n                  _: 2\n                }, _parent, _scopeId))\n              })\n              _push(`<!--]-->`)\n            } else {\n              return [\n                (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                  return (_openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                    default: _withCtx(() => [\n                      _createVNode(\"img\", {\n                        class: \"w-full h-[500px]\",\n                        src: _unref(authStore).get_server_domain + item.photo_url,\n                        alt: \"\"\n                      }, null, 8, [\"src\"])\n                    ]),\n                    _: 2\n                  }, 1024))\n                }), 256))\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(_component_Swiper, {\n            modules: [_ctx.SwiperAutoplay, _ctx.SwiperEffectCreative],\n            \"slides-per-view\": 1,\n            loop: true,\n            effect: 'creative',\n            autoplay: {\r\n        delay: 4000,\r\n        disableOnInteraction: true\r\n      },\n            \"creative-effect\": {\r\n        prev: {\r\n          shadow: true,\r\n          translate: ['-100%', 0, -1]\r\n        },\r\n        next: {\r\n          shadow: true,\r\n          translate: ['100%', 0, 0]\r\n        }\r\n      }\n          }, {\n            default: _withCtx(() => [\n              (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                return (_openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(\"img\", {\n                      class: \"w-full h-[500px]\",\n                      src: _unref(authStore).get_server_domain + item.photo_url,\n                      alt: \"\"\n                    }, null, 8, [\"src\"])\n                  ]),\n                  _: 2\n                }, 1024))\n              }), 256))\n            ]),\n            _: 1\n          }, 8, [\"modules\"])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-4/12 max-[900px]:w-full ml-auto\" }, {\n    blockTitle: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TheTextContent, null, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Файлы'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Файлы')), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(TheTextContent, null, {\n            default: _withCtx(() => [\n              _createTextVNode(_toDisplayString(_ctx.$t('Файлы')), 1)\n            ]),\n            _: 1\n          })\n        ]\n      }\n    }),\n    blockContent: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        \n      } else {\n        return []\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896548546,
-      "end": 1706896548546,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548546,
-      "end": 1706896548546,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548546,
-      "end": 1706896548546,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548546,
-      "end": 1706896548546,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548546,
-      "end": 1706896548546,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548546,
-      "end": 1706896548547,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548546,
-      "end": 1706896548547,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896548547,
-      "end": 1706896548547,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896548547,
-      "end": 1706896548547,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyFiles\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const authStore = useAuthStore();\n    const companies = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_Swiper = _resolveComponent(\"Swiper\");\n      const _component_SwiperSlide = _resolveComponent(\"SwiperSlide\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex max-[900px]:flex-wrap gap-y-10 w-full justify-center mx-auto container gap-x-10\" }, _attrs))} data-v-a06afbbe>`);\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-9/12 max-[900px]:w-full\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Галерея\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(_component_Swiper, {\n              modules: [_ctx.SwiperAutoplay, _ctx.SwiperEffectCreative],\n              \"slides-per-view\": 1,\n              loop: true,\n              effect: \"creative\",\n              autoplay: {\n                delay: 4e3,\n                disableOnInteraction: true\n              },\n              \"creative-effect\": {\n                prev: {\n                  shadow: true,\n                  translate: [\"-100%\", 0, -1]\n                },\n                next: {\n                  shadow: true,\n                  translate: [\"100%\", 0, 0]\n                }\n              }\n            }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`<!--[-->`);\n                  _ssrRenderList(_unref(companies).company?.pictures, (item) => {\n                    _push3(_ssrRenderComponent(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx((_3, _push4, _parent4, _scopeId3) => {\n                        if (_push4) {\n                          _push4(`<img class=\"w-full h-[500px]\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + item.photo_url)} alt=\"\" data-v-a06afbbe${_scopeId3}>`);\n                        } else {\n                          return [\n                            _createVNode(\"img\", {\n                              class: \"w-full h-[500px]\",\n                              src: _unref(authStore).get_server_domain + item.photo_url,\n                              alt: \"\"\n                            }, null, 8, [\"src\"])\n                          ];\n                        }\n                      }),\n                      _: 2\n                    }, _parent3, _scopeId2));\n                  });\n                  _push3(`<!--]-->`);\n                } else {\n                  return [\n                    (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                      return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"img\", {\n                            class: \"w-full h-[500px]\",\n                            src: _unref(authStore).get_server_domain + item.photo_url,\n                            alt: \"\"\n                          }, null, 8, [\"src\"])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 256))\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(_component_Swiper, {\n                modules: [_ctx.SwiperAutoplay, _ctx.SwiperEffectCreative],\n                \"slides-per-view\": 1,\n                loop: true,\n                effect: \"creative\",\n                autoplay: {\n                  delay: 4e3,\n                  disableOnInteraction: true\n                },\n                \"creative-effect\": {\n                  prev: {\n                    shadow: true,\n                    translate: [\"-100%\", 0, -1]\n                  },\n                  next: {\n                    shadow: true,\n                    translate: [\"100%\", 0, 0]\n                  }\n                }\n              }, {\n                default: _withCtx(() => [\n                  (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                    return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx(() => [\n                        _createVNode(\"img\", {\n                          class: \"w-full h-[500px]\",\n                          src: _unref(authStore).get_server_domain + item.photo_url,\n                          alt: \"\"\n                        }, null, 8, [\"src\"])\n                      ]),\n                      _: 2\n                    }, 1024);\n                  }), 256))\n                ]),\n                _: 1\n              }, 8, [\"modules\"])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-4/12 max-[900px]:w-full ml-auto\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Файлы\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n          } else {\n            return [];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548547,
-      "end": 1706896548957,
+      "start": 1707126071371,
+      "end": 1707126071855,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -91,171 +91,171 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071855,
+      "end": 1707126071855,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071855,
+      "end": 1707126071855,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896548957,
-      "end": 1706896548958,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071856,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071859,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071858,
+      "end": 1707126071859,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { Autoplay as __unimport_SwiperAutoplay, EffectCreative as __unimport_SwiperEffectCreative } from 'swiper/modules';\nimport { unref as __unimport_unref_ } from 'vue';import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyFiles\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const authStore = useAuthStore();\n    const companies = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_Swiper = _resolveComponent(\"Swiper\");\n      const _component_SwiperSlide = _resolveComponent(\"SwiperSlide\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex max-[900px]:flex-wrap gap-y-10 w-full justify-center mx-auto container gap-x-10\" }, _attrs))} data-v-a06afbbe>`);\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-9/12 max-[900px]:w-full\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Галерея\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(_component_Swiper, {\n              modules: [(\"SwiperAutoplay\" in _ctx ? _ctx.SwiperAutoplay : __unimport_unref_(__unimport_SwiperAutoplay)), (\"SwiperEffectCreative\" in _ctx ? _ctx.SwiperEffectCreative : __unimport_unref_(__unimport_SwiperEffectCreative))],\n              \"slides-per-view\": 1,\n              loop: true,\n              effect: \"creative\",\n              autoplay: {\n                delay: 4e3,\n                disableOnInteraction: true\n              },\n              \"creative-effect\": {\n                prev: {\n                  shadow: true,\n                  translate: [\"-100%\", 0, -1]\n                },\n                next: {\n                  shadow: true,\n                  translate: [\"100%\", 0, 0]\n                }\n              }\n            }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`<!--[-->`);\n                  _ssrRenderList(_unref(companies).company?.pictures, (item) => {\n                    _push3(_ssrRenderComponent(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx((_3, _push4, _parent4, _scopeId3) => {\n                        if (_push4) {\n                          _push4(`<img class=\"w-full h-[500px]\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + item.photo_url)} alt=\"\" data-v-a06afbbe${_scopeId3}>`);\n                        } else {\n                          return [\n                            _createVNode(\"img\", {\n                              class: \"w-full h-[500px]\",\n                              src: _unref(authStore).get_server_domain + item.photo_url,\n                              alt: \"\"\n                            }, null, 8, [\"src\"])\n                          ];\n                        }\n                      }),\n                      _: 2\n                    }, _parent3, _scopeId2));\n                  });\n                  _push3(`<!--]-->`);\n                } else {\n                  return [\n                    (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                      return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"img\", {\n                            class: \"w-full h-[500px]\",\n                            src: _unref(authStore).get_server_domain + item.photo_url,\n                            alt: \"\"\n                          }, null, 8, [\"src\"])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 256))\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(_component_Swiper, {\n                modules: [(\"SwiperAutoplay\" in _ctx ? _ctx.SwiperAutoplay : __unimport_unref_(__unimport_SwiperAutoplay)), (\"SwiperEffectCreative\" in _ctx ? _ctx.SwiperEffectCreative : __unimport_unref_(__unimport_SwiperEffectCreative))],\n                \"slides-per-view\": 1,\n                loop: true,\n                effect: \"creative\",\n                autoplay: {\n                  delay: 4e3,\n                  disableOnInteraction: true\n                },\n                \"creative-effect\": {\n                  prev: {\n                    shadow: true,\n                    translate: [\"-100%\", 0, -1]\n                  },\n                  next: {\n                    shadow: true,\n                    translate: [\"100%\", 0, 0]\n                  }\n                }\n              }, {\n                default: _withCtx(() => [\n                  (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                    return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx(() => [\n                        _createVNode(\"img\", {\n                          class: \"w-full h-[500px]\",\n                          src: _unref(authStore).get_server_domain + item.photo_url,\n                          alt: \"\"\n                        }, null, 8, [\"src\"])\n                      ]),\n                      _: 2\n                    }, 1024);\n                  }), 256))\n                ]),\n                _: 1\n              }, 8, [\"modules\"])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-4/12 max-[900px]:w-full ml-auto\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Файлы\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n          } else {\n            return [];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548960,
-      "end": 1706896548972,
+      "start": 1707126071859,
+      "end": 1707126071875,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -269,8 +269,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { Autoplay as __unimport_SwiperAutoplay, EffectCreative as __unimport_SwiperEffectCreative } from 'swiper/modules';\nimport { unref as __unimport_unref_ } from 'vue';import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyFiles\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const authStore = useAuthStore();\n    const companies = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_Swiper = _resolveComponent(\"Swiper\");\n      const _component_SwiperSlide = _resolveComponent(\"SwiperSlide\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex max-[900px]:flex-wrap gap-y-10 w-full justify-center mx-auto container gap-x-10\" }, _attrs))} data-v-a06afbbe>`);\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-9/12 max-[900px]:w-full\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Галерея\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(_component_Swiper, {\n              modules: [(\"SwiperAutoplay\" in _ctx ? _ctx.SwiperAutoplay : __unimport_unref_(__unimport_SwiperAutoplay)), (\"SwiperEffectCreative\" in _ctx ? _ctx.SwiperEffectCreative : __unimport_unref_(__unimport_SwiperEffectCreative))],\n              \"slides-per-view\": 1,\n              loop: true,\n              effect: \"creative\",\n              autoplay: {\n                delay: 4e3,\n                disableOnInteraction: true\n              },\n              \"creative-effect\": {\n                prev: {\n                  shadow: true,\n                  translate: [\"-100%\", 0, -1]\n                },\n                next: {\n                  shadow: true,\n                  translate: [\"100%\", 0, 0]\n                }\n              }\n            }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`<!--[-->`);\n                  _ssrRenderList(_unref(companies).company?.pictures, (item) => {\n                    _push3(_ssrRenderComponent(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx((_3, _push4, _parent4, _scopeId3) => {\n                        if (_push4) {\n                          _push4(`<img class=\"w-full h-[500px]\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + item.photo_url)} alt=\"\" data-v-a06afbbe${_scopeId3}>`);\n                        } else {\n                          return [\n                            _createVNode(\"img\", {\n                              class: \"w-full h-[500px]\",\n                              src: _unref(authStore).get_server_domain + item.photo_url,\n                              alt: \"\"\n                            }, null, 8, [\"src\"])\n                          ];\n                        }\n                      }),\n                      _: 2\n                    }, _parent3, _scopeId2));\n                  });\n                  _push3(`<!--]-->`);\n                } else {\n                  return [\n                    (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                      return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"img\", {\n                            class: \"w-full h-[500px]\",\n                            src: _unref(authStore).get_server_domain + item.photo_url,\n                            alt: \"\"\n                          }, null, 8, [\"src\"])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 256))\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(_component_Swiper, {\n                modules: [(\"SwiperAutoplay\" in _ctx ? _ctx.SwiperAutoplay : __unimport_unref_(__unimport_SwiperAutoplay)), (\"SwiperEffectCreative\" in _ctx ? _ctx.SwiperEffectCreative : __unimport_unref_(__unimport_SwiperEffectCreative))],\n                \"slides-per-view\": 1,\n                loop: true,\n                effect: \"creative\",\n                autoplay: {\n                  delay: 4e3,\n                  disableOnInteraction: true\n                },\n                \"creative-effect\": {\n                  prev: {\n                    shadow: true,\n                    translate: [\"-100%\", 0, -1]\n                  },\n                  next: {\n                    shadow: true,\n                    translate: [\"100%\", 0, 0]\n                  }\n                }\n              }, {\n                default: _withCtx(() => [\n                  (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                    return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx(() => [\n                        _createVNode(\"img\", {\n                          class: \"w-full h-[500px]\",\n                          src: _unref(authStore).get_server_domain + item.photo_url,\n                          alt: \"\"\n                        }, null, 8, [\"src\"])\n                      ]),\n                      _: 2\n                    }, 1024);\n                  }), 256))\n                ]),\n                _: 1\n              }, 8, [\"modules\"])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-4/12 max-[900px]:w-full ml-auto\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Файлы\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n          } else {\n            return [];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548960,
-      "end": 1706896548972,
+      "start": 1707126071859,
+      "end": 1707126071875,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -283,39 +283,39 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548972,
-      "end": 1706896548973,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896548973,
-      "end": 1706896548973,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { Swiper as __nuxt_component_0 } from \"swiper/vue\";\nimport { SwiperSlide as __nuxt_component_1 } from \"swiper/vue\";\nimport { Autoplay as __unimport_SwiperAutoplay, EffectCreative as __unimport_SwiperEffectCreative } from 'swiper/modules';\nimport { unref as __unimport_unref_ } from 'vue';import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, unref as _unref, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyFiles\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const authStore = useAuthStore();\n    const companies = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_Swiper = __nuxt_component_0;\n      const _component_SwiperSlide = __nuxt_component_1;\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex max-[900px]:flex-wrap gap-y-10 w-full justify-center mx-auto container gap-x-10\" }, _attrs))} data-v-a06afbbe>`);\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-9/12 max-[900px]:w-full\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Галерея\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Галерея\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(_component_Swiper, {\n              modules: [(\"SwiperAutoplay\" in _ctx ? _ctx.SwiperAutoplay : __unimport_unref_(__unimport_SwiperAutoplay)), (\"SwiperEffectCreative\" in _ctx ? _ctx.SwiperEffectCreative : __unimport_unref_(__unimport_SwiperEffectCreative))],\n              \"slides-per-view\": 1,\n              loop: true,\n              effect: \"creative\",\n              autoplay: {\n                delay: 4e3,\n                disableOnInteraction: true\n              },\n              \"creative-effect\": {\n                prev: {\n                  shadow: true,\n                  translate: [\"-100%\", 0, -1]\n                },\n                next: {\n                  shadow: true,\n                  translate: [\"100%\", 0, 0]\n                }\n              }\n            }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`<!--[-->`);\n                  _ssrRenderList(_unref(companies).company?.pictures, (item) => {\n                    _push3(_ssrRenderComponent(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx((_3, _push4, _parent4, _scopeId3) => {\n                        if (_push4) {\n                          _push4(`<img class=\"w-full h-[500px]\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + item.photo_url)} alt=\"\" data-v-a06afbbe${_scopeId3}>`);\n                        } else {\n                          return [\n                            _createVNode(\"img\", {\n                              class: \"w-full h-[500px]\",\n                              src: _unref(authStore).get_server_domain + item.photo_url,\n                              alt: \"\"\n                            }, null, 8, [\"src\"])\n                          ];\n                        }\n                      }),\n                      _: 2\n                    }, _parent3, _scopeId2));\n                  });\n                  _push3(`<!--]-->`);\n                } else {\n                  return [\n                    (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                      return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"img\", {\n                            class: \"w-full h-[500px]\",\n                            src: _unref(authStore).get_server_domain + item.photo_url,\n                            alt: \"\"\n                          }, null, 8, [\"src\"])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 256))\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(_component_Swiper, {\n                modules: [(\"SwiperAutoplay\" in _ctx ? _ctx.SwiperAutoplay : __unimport_unref_(__unimport_SwiperAutoplay)), (\"SwiperEffectCreative\" in _ctx ? _ctx.SwiperEffectCreative : __unimport_unref_(__unimport_SwiperEffectCreative))],\n                \"slides-per-view\": 1,\n                loop: true,\n                effect: \"creative\",\n                autoplay: {\n                  delay: 4e3,\n                  disableOnInteraction: true\n                },\n                \"creative-effect\": {\n                  prev: {\n                    shadow: true,\n                    translate: [\"-100%\", 0, -1]\n                  },\n                  next: {\n                    shadow: true,\n                    translate: [\"100%\", 0, 0]\n                  }\n                }\n              }, {\n                default: _withCtx(() => [\n                  (_openBlock(true), _createBlock(_Fragment, null, _renderList(_unref(companies).company?.pictures, (item) => {\n                    return _openBlock(), _createBlock(_component_SwiperSlide, { class: \"rounded-lg\" }, {\n                      default: _withCtx(() => [\n                        _createVNode(\"img\", {\n                          class: \"w-full h-[500px]\",\n                          src: _unref(authStore).get_server_domain + item.photo_url,\n                          alt: \"\"\n                        }, null, 8, [\"src\"])\n                      ]),\n                      _: 2\n                    }, 1024);\n                  }), 256))\n                ]),\n                _: 1\n              }, 8, [\"modules\"])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-4/12 max-[900px]:w-full ml-auto\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Файлы\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Файлы\")), 1)\n                ]),\n                _: 1\n              })\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n          } else {\n            return [];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548973,
-      "end": 1706896548974,
+      "start": 1707126071879,
+      "end": 1707126071879,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -328,20 +328,20 @@
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071880,
+      "end": 1707126071880,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071880,
+      "end": 1707126071881,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071881,
+      "end": 1707126071881,
       "order": "normal"
     }
   ]

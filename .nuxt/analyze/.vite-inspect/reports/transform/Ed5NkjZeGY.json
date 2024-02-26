@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.WorkDoneProgressCancelNotification = exports.WorkDoneProgressCreateRequest = exports.WorkDoneProgress = void 0;\nconst vscode_jsonrpc_1 = require(\"vscode-jsonrpc\");\nconst messages_1 = require(\"./messages\");\nvar WorkDoneProgress;\n(function (WorkDoneProgress) {\n    WorkDoneProgress.type = new vscode_jsonrpc_1.ProgressType();\n    function is(value) {\n        return value === WorkDoneProgress.type;\n    }\n    WorkDoneProgress.is = is;\n})(WorkDoneProgress = exports.WorkDoneProgress || (exports.WorkDoneProgress = {}));\n/**\n * The `window/workDoneProgress/create` request is sent from the server to the client to initiate progress\n * reporting from the server.\n */\nvar WorkDoneProgressCreateRequest;\n(function (WorkDoneProgressCreateRequest) {\n    WorkDoneProgressCreateRequest.type = new messages_1.ProtocolRequestType('window/workDoneProgress/create');\n})(WorkDoneProgressCreateRequest = exports.WorkDoneProgressCreateRequest || (exports.WorkDoneProgressCreateRequest = {}));\n/**\n * The `window/workDoneProgress/cancel` notification is sent from  the client to the server to cancel a progress\n * initiated on the server side.\n */\nvar WorkDoneProgressCancelNotification;\n(function (WorkDoneProgressCancelNotification) {\n    WorkDoneProgressCancelNotification.type = new messages_1.ProtocolNotificationType('window/workDoneProgress/cancel');\n})(WorkDoneProgressCancelNotification = exports.WorkDoneProgressCancelNotification || (exports.WorkDoneProgressCancelNotification = {}));\n//# sourceMappingURL=protocol.progress.js.map",
-      "start": 1706896525234,
-      "end": 1706896525323,
+      "start": 1707126048868,
+      "end": 1707126049094,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049094,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049094,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525323,
-      "end": 1706896525323,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525323,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525324,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525324,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525324,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525324,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525324,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525324,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525324,
-      "end": 1706896525324,
+      "start": 1707126049095,
+      "end": 1707126049095,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as protocol_progress } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.progress.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/browser/main.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/messages.js?commonjs-proxy\";\n\n(function (exports) {\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.WorkDoneProgressCancelNotification = exports.WorkDoneProgressCreateRequest = exports.WorkDoneProgress = void 0;\n\tconst vscode_jsonrpc_1 = require$$0;\n\tconst messages_1 = require$$1;\n\tvar WorkDoneProgress;\n\t(function (WorkDoneProgress) {\n\t    WorkDoneProgress.type = new vscode_jsonrpc_1.ProgressType();\n\t    function is(value) {\n\t        return value === WorkDoneProgress.type;\n\t    }\n\t    WorkDoneProgress.is = is;\n\t})(WorkDoneProgress = exports.WorkDoneProgress || (exports.WorkDoneProgress = {}));\n\t/**\n\t * The `window/workDoneProgress/create` request is sent from the server to the client to initiate progress\n\t * reporting from the server.\n\t */\n\tvar WorkDoneProgressCreateRequest;\n\t(function (WorkDoneProgressCreateRequest) {\n\t    WorkDoneProgressCreateRequest.type = new messages_1.ProtocolRequestType('window/workDoneProgress/create');\n\t})(WorkDoneProgressCreateRequest = exports.WorkDoneProgressCreateRequest || (exports.WorkDoneProgressCreateRequest = {}));\n\t/**\n\t * The `window/workDoneProgress/cancel` notification is sent from  the client to the server to cancel a progress\n\t * initiated on the server side.\n\t */\n\tvar WorkDoneProgressCancelNotification;\n\t(function (WorkDoneProgressCancelNotification) {\n\t    WorkDoneProgressCancelNotification.type = new messages_1.ProtocolNotificationType('window/workDoneProgress/cancel');\n\t})(WorkDoneProgressCancelNotification = exports.WorkDoneProgressCancelNotification || (exports.WorkDoneProgressCancelNotification = {}));\n\t//# sourceMappingURL=protocol.progress.js.map \n} (protocol_progress));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(protocol_progress);\nexport { protocol_progress as __moduleExports };",
-      "start": 1706896525324,
-      "end": 1706896525532,
+      "start": 1707126049095,
+      "end": 1707126049741,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525534,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "normal"
     }
   ]

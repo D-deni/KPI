@@ -1,7 +1,7 @@
 <template>
   <div class="w-full grid gap-y-10 gap-x-10 grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1"
        :class="{'max-[1150px]:grid-cols-2' : activeNav, 'max-[1150px]:grid-cols-3' : !activeNav}">
-    <ProfileContentUserInfo :get-code/>
+    <ProfileContentUserInfo />
     <div
       class="w-full p-6 dark:border-t  dark:border-t-gray-500 dark:shadow-md shadow-lg dark:shadow-gray-500 cursor-pointer rounded-md hover:transform hover:-translate-y-2 transition-all duration-200">
       <h2 class="dark:text-white tracking-widest">{{ $t('Личная статистика') }}</h2>

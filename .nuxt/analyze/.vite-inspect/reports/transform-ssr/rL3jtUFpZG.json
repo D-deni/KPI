@@ -4,233 +4,233 @@
     {
       "name": "vite:load-fallback",
       "result": "import { useRoute, useRouter, useRequestHeaders, useCookie, useNuxtApp } from \"#imports\";\nimport { ref, computed, watch, onUnmounted } from \"vue\";\nimport { parseAcceptLanguage } from \"../internal.mjs\";\nimport { nuxtI18nInternalOptions, nuxtI18nOptionsDefault, localeCodes as _localeCodes } from \"#build/i18n.options.mjs\";\nimport { getActiveHead } from \"unhead\";\nimport { useI18n } from \"vue-i18n\";\nimport {\n  getComposer,\n  findBrowserLocale,\n  getLocale,\n  getLocales,\n  useRouteBaseName as _useRouteBaseName,\n  useLocalePath as _useLocalePath,\n  useLocaleRoute as _useLocaleRoute,\n  useSwitchLocalePath as _useSwitchLocalePath,\n  useLocaleHead as _useLocaleHead\n} from \"vue-i18n-routing\";\nexport * from \"vue-i18n\";\nexport * from \"./shared.mjs\";\nimport {\n  addAlternateOgLocales,\n  addCanonicalLinksAndOgUrl,\n  addCurrentOgLocale,\n  addHreflangLinks,\n  getNormalizedLocales\n} from \"../utils.mjs\";\nexport function useSetI18nParams(seoAttributes) {\n  const route = useRoute();\n  const head = getActiveHead();\n  const i18n = useI18n();\n  const locale = getLocale(i18n);\n  const locales = getNormalizedLocales(getLocales(i18n));\n  const _i18nParams = ref({});\n  const i18nParams = computed({\n    get() {\n      return route.meta.nuxtI18n ?? {};\n    },\n    set(val) {\n      _i18nParams.value = val;\n      route.meta.nuxtI18n = val;\n    }\n  });\n  const stop = watch(\n    () => route.fullPath,\n    () => {\n      route.meta.nuxtI18n = _i18nParams.value;\n    }\n  );\n  onUnmounted(() => {\n    stop();\n  });\n  const currentLocale = getNormalizedLocales(locales).find((l) => l.code === locale) || { code: locale };\n  const currentLocaleIso = currentLocale.iso;\n  const setMeta = () => {\n    const metaObject = {\n      link: [],\n      meta: []\n    };\n    if (locale && i18n.locales) {\n      addHreflangLinks(locales, metaObject, \"id\");\n      addCanonicalLinksAndOgUrl(metaObject, \"id\", seoAttributes);\n      addCurrentOgLocale(currentLocale, currentLocaleIso, metaObject, \"id\");\n      addAlternateOgLocales(locales, currentLocaleIso, metaObject, \"id\");\n    }\n    head?.push(metaObject);\n  };\n  return function(params) {\n    i18nParams.value = { ...params };\n    setMeta();\n  };\n}\nexport function useRouteBaseName(options) {\n  const { route, router, i18n } = options || {};\n  return _useRouteBaseName({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleRoute(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocaleRoute({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useSwitchLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useSwitchLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleHead(options) {\n  const { addDirAttribute, addSeoAttributes, identifierAttribute, route, router, i18n } = options || {};\n  return _useLocaleHead({\n    addDirAttribute: addDirAttribute || false,\n    addSeoAttributes: addSeoAttributes || false,\n    identifierAttribute: identifierAttribute || \"hid\",\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useBrowserLocale(normalizedLocales = nuxtI18nInternalOptions.__normalizedLocales) {\n  const headers = useRequestHeaders([\"accept-language\"]);\n  return findBrowserLocale(\n    normalizedLocales,\n    process.client ? navigator.languages : parseAcceptLanguage(headers[\"accept-language\"] || \"\")\n  ) || null;\n}\nexport function useCookieLocale(options = {\n  useCookie: nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey: nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  localeCodes: _localeCodes\n}) {\n  const locale = ref(\"\");\n  if (options.useCookie) {\n    let code = null;\n    if (process.client) {\n      const cookie = useCookie(options.cookieKey);\n      code = cookie.value;\n    } else if (process.server) {\n      const cookie = useRequestHeaders([\"cookie\"]);\n      code = cookie[options.cookieKey];\n    }\n    if (code && options.localeCodes.includes(code)) {\n      locale.value = code;\n    }\n  }\n  return locale;\n}\nconst warnRuntimeUsage = (method) => console.warn(\n  method + \"() is a compiler-hint helper that is only usable inside the script block of a single file component. Its arguments should be compiled away and passing it at runtime has no effect.\"\n);\nexport function defineI18nRoute(route) {\n  if (process.dev) {\n    warnRuntimeUsage(\"defineI18nRoute\");\n  }\n}\n",
-      "start": 1706896541515,
-      "end": 1706896541895,
+      "start": 1707126066017,
+      "end": 1707126066385,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896541895,
-      "end": 1706896541895,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896541896,
-      "end": 1706896541896,
+      "start": 1707126066385,
+      "end": 1707126066385,
       "order": "normal"
     },
     {
       "name": "vite:define",
       "result": "import { useRoute, useRouter, useRequestHeaders, useCookie, useNuxtApp } from \"#imports\";\nimport { ref, computed, watch, onUnmounted } from \"vue\";\nimport { parseAcceptLanguage } from \"../internal.mjs\";\nimport { nuxtI18nInternalOptions, nuxtI18nOptionsDefault, localeCodes as _localeCodes } from \"#build/i18n.options.mjs\";\nimport { getActiveHead } from \"unhead\";\nimport { useI18n } from \"vue-i18n\";\nimport {\n  getComposer,\n  findBrowserLocale,\n  getLocale,\n  getLocales,\n  useRouteBaseName as _useRouteBaseName,\n  useLocalePath as _useLocalePath,\n  useLocaleRoute as _useLocaleRoute,\n  useSwitchLocalePath as _useSwitchLocalePath,\n  useLocaleHead as _useLocaleHead\n} from \"vue-i18n-routing\";\nexport * from \"vue-i18n\";\nexport * from \"./shared.mjs\";\nimport {\n  addAlternateOgLocales,\n  addCanonicalLinksAndOgUrl,\n  addCurrentOgLocale,\n  addHreflangLinks,\n  getNormalizedLocales\n} from \"../utils.mjs\";\nexport function useSetI18nParams(seoAttributes) {\n  const route = useRoute();\n  const head = getActiveHead();\n  const i18n = useI18n();\n  const locale = getLocale(i18n);\n  const locales = getNormalizedLocales(getLocales(i18n));\n  const _i18nParams = ref({});\n  const i18nParams = computed({\n    get() {\n      return route.meta.nuxtI18n ?? {};\n    },\n    set(val) {\n      _i18nParams.value = val;\n      route.meta.nuxtI18n = val;\n    }\n  });\n  const stop = watch(\n    () => route.fullPath,\n    () => {\n      route.meta.nuxtI18n = _i18nParams.value;\n    }\n  );\n  onUnmounted(() => {\n    stop();\n  });\n  const currentLocale = getNormalizedLocales(locales).find((l) => l.code === locale) || { code: locale };\n  const currentLocaleIso = currentLocale.iso;\n  const setMeta = () => {\n    const metaObject = {\n      link: [],\n      meta: []\n    };\n    if (locale && i18n.locales) {\n      addHreflangLinks(locales, metaObject, \"id\");\n      addCanonicalLinksAndOgUrl(metaObject, \"id\", seoAttributes);\n      addCurrentOgLocale(currentLocale, currentLocaleIso, metaObject, \"id\");\n      addAlternateOgLocales(locales, currentLocaleIso, metaObject, \"id\");\n    }\n    head?.push(metaObject);\n  };\n  return function(params) {\n    i18nParams.value = { ...params };\n    setMeta();\n  };\n}\nexport function useRouteBaseName(options) {\n  const { route, router, i18n } = options || {};\n  return _useRouteBaseName({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleRoute(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocaleRoute({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useSwitchLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useSwitchLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleHead(options) {\n  const { addDirAttribute, addSeoAttributes, identifierAttribute, route, router, i18n } = options || {};\n  return _useLocaleHead({\n    addDirAttribute: addDirAttribute || false,\n    addSeoAttributes: addSeoAttributes || false,\n    identifierAttribute: identifierAttribute || \"hid\",\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useBrowserLocale(normalizedLocales = nuxtI18nInternalOptions.__normalizedLocales) {\n  const headers = useRequestHeaders([\"accept-language\"]);\n  return findBrowserLocale(\n    normalizedLocales,\n    false ? (void 0).languages : parseAcceptLanguage(headers[\"accept-language\"] || \"\")\n  ) || null;\n}\nexport function useCookieLocale(options = {\n  useCookie: nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey: nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  localeCodes: _localeCodes\n}) {\n  const locale = ref(\"\");\n  if (options.useCookie) {\n    let code = null;\n    if (false) {\n      const cookie = useCookie(options.cookieKey);\n      code = cookie.value;\n    } else if (true) {\n      const cookie = useRequestHeaders([\"cookie\"]);\n      code = cookie[options.cookieKey];\n    }\n    if (code && options.localeCodes.includes(code)) {\n      locale.value = code;\n    }\n  }\n  return locale;\n}\nconst warnRuntimeUsage = (method) => console.warn(\n  method + \"() is a compiler-hint helper that is only usable inside the script block of a single file component. Its arguments should be compiled away and passing it at runtime has no effect.\"\n);\nexport function defineI18nRoute(route) {\n  if (false) {\n    warnRuntimeUsage(\"defineI18nRoute\");\n  }\n}\n",
-      "start": 1706896541896,
-      "end": 1706896543710,
+      "start": 1707126066385,
+      "end": 1707126067724,
       "order": "normal",
       "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/node_modules/@nuxtjs/i18n/dist/runtime/composables/index.mjs\"],\n  \"sourcesContent\": [\"import { useRoute, useRouter, useRequestHeaders, useCookie, useNuxtApp } from \\\"#imports\\\";\\nimport { ref, computed, watch, onUnmounted } from \\\"vue\\\";\\nimport { parseAcceptLanguage } from \\\"../internal.mjs\\\";\\nimport { nuxtI18nInternalOptions, nuxtI18nOptionsDefault, localeCodes as _localeCodes } from \\\"#build/i18n.options.mjs\\\";\\nimport { getActiveHead } from \\\"unhead\\\";\\nimport { useI18n } from \\\"vue-i18n\\\";\\nimport {\\n  getComposer,\\n  findBrowserLocale,\\n  getLocale,\\n  getLocales,\\n  useRouteBaseName as _useRouteBaseName,\\n  useLocalePath as _useLocalePath,\\n  useLocaleRoute as _useLocaleRoute,\\n  useSwitchLocalePath as _useSwitchLocalePath,\\n  useLocaleHead as _useLocaleHead\\n} from \\\"vue-i18n-routing\\\";\\nexport * from \\\"vue-i18n\\\";\\nexport * from \\\"./shared.mjs\\\";\\nimport {\\n  addAlternateOgLocales,\\n  addCanonicalLinksAndOgUrl,\\n  addCurrentOgLocale,\\n  addHreflangLinks,\\n  getNormalizedLocales\\n} from \\\"../utils.mjs\\\";\\nexport function useSetI18nParams(seoAttributes) {\\n  const route = useRoute();\\n  const head = getActiveHead();\\n  const i18n = useI18n();\\n  const locale = getLocale(i18n);\\n  const locales = getNormalizedLocales(getLocales(i18n));\\n  const _i18nParams = ref({});\\n  const i18nParams = computed({\\n    get() {\\n      return route.meta.nuxtI18n ?? {};\\n    },\\n    set(val) {\\n      _i18nParams.value = val;\\n      route.meta.nuxtI18n = val;\\n    }\\n  });\\n  const stop = watch(\\n    () => route.fullPath,\\n    () => {\\n      route.meta.nuxtI18n = _i18nParams.value;\\n    }\\n  );\\n  onUnmounted(() => {\\n    stop();\\n  });\\n  const currentLocale = getNormalizedLocales(locales).find((l) => l.code === locale) || { code: locale };\\n  const currentLocaleIso = currentLocale.iso;\\n  const setMeta = () => {\\n    const metaObject = {\\n      link: [],\\n      meta: []\\n    };\\n    if (locale && i18n.locales) {\\n      addHreflangLinks(locales, metaObject, \\\"id\\\");\\n      addCanonicalLinksAndOgUrl(metaObject, \\\"id\\\", seoAttributes);\\n      addCurrentOgLocale(currentLocale, currentLocaleIso, metaObject, \\\"id\\\");\\n      addAlternateOgLocales(locales, currentLocaleIso, metaObject, \\\"id\\\");\\n    }\\n    head?.push(metaObject);\\n  };\\n  return function(params) {\\n    i18nParams.value = { ...params };\\n    setMeta();\\n  };\\n}\\nexport function useRouteBaseName(options) {\\n  const { route, router, i18n } = options || {};\\n  return _useRouteBaseName({\\n    route: route || useRoute(),\\n    router: router || useRouter(),\\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\\n  });\\n}\\nexport function useLocalePath(options) {\\n  const { route, router, i18n } = options || {};\\n  return _useLocalePath({\\n    route: route || useRoute(),\\n    router: router || useRouter(),\\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\\n  });\\n}\\nexport function useLocaleRoute(options) {\\n  const { route, router, i18n } = options || {};\\n  return _useLocaleRoute({\\n    route: route || useRoute(),\\n    router: router || useRouter(),\\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\\n  });\\n}\\nexport function useSwitchLocalePath(options) {\\n  const { route, router, i18n } = options || {};\\n  return _useSwitchLocalePath({\\n    route: route || useRoute(),\\n    router: router || useRouter(),\\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\\n  });\\n}\\nexport function useLocaleHead(options) {\\n  const { addDirAttribute, addSeoAttributes, identifierAttribute, route, router, i18n } = options || {};\\n  return _useLocaleHead({\\n    addDirAttribute: addDirAttribute || false,\\n    addSeoAttributes: addSeoAttributes || false,\\n    identifierAttribute: identifierAttribute || \\\"hid\\\",\\n    route: route || useRoute(),\\n    router: router || useRouter(),\\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\\n  });\\n}\\nexport function useBrowserLocale(normalizedLocales = nuxtI18nInternalOptions.__normalizedLocales) {\\n  const headers = useRequestHeaders([\\\"accept-language\\\"]);\\n  return findBrowserLocale(\\n    normalizedLocales,\\n    process.client ? navigator.languages : parseAcceptLanguage(headers[\\\"accept-language\\\"] || \\\"\\\")\\n  ) || null;\\n}\\nexport function useCookieLocale(options = {\\n  useCookie: nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\\n  cookieKey: nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\\n  localeCodes: _localeCodes\\n}) {\\n  const locale = ref(\\\"\\\");\\n  if (options.useCookie) {\\n    let code = null;\\n    if (process.client) {\\n      const cookie = useCookie(options.cookieKey);\\n      code = cookie.value;\\n    } else if (process.server) {\\n      const cookie = useRequestHeaders([\\\"cookie\\\"]);\\n      code = cookie[options.cookieKey];\\n    }\\n    if (code && options.localeCodes.includes(code)) {\\n      locale.value = code;\\n    }\\n  }\\n  return locale;\\n}\\nconst warnRuntimeUsage = (method) => console.warn(\\n  method + \\\"() is a compiler-hint helper that is only usable inside the script block of a single file component. Its arguments should be compiled away and passing it at runtime has no effect.\\\"\\n);\\nexport function defineI18nRoute(route) {\\n  if (process.dev) {\\n    warnRuntimeUsage(\\\"defineI18nRoute\\\");\\n  }\\n}\\n\"],\n  \"mappings\": \"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\",\n  \"names\": []\n}\n"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067724,
+      "end": 1707126067724,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067725,
+      "end": 1707126067725,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067725,
+      "end": 1707126067725,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896543710,
-      "end": 1706896543710,
+      "start": 1707126067725,
+      "end": 1707126067725,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896543710,
-      "end": 1706896543711,
+      "start": 1707126067725,
+      "end": 1707126067725,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896543711,
-      "end": 1706896543711,
+      "start": 1707126067725,
+      "end": 1707126067725,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896543711,
-      "end": 1706896543711,
+      "start": 1707126067725,
+      "end": 1707126067725,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useRoute, useRouter } from '#app/composables/router';\nimport { useRequestHeaders } from '#app/composables/ssr';\nimport { useCookie } from '#app/composables/cookie';\nimport { useNuxtApp } from '#app/nuxt';\nimport { ref, computed, watch, onUnmounted } from \"vue\";\nimport { parseAcceptLanguage } from \"../internal.mjs\";\nimport { nuxtI18nInternalOptions, nuxtI18nOptionsDefault, localeCodes as _localeCodes } from \"#build/i18n.options.mjs\";\nimport { getActiveHead } from \"unhead\";\nimport { useI18n } from \"vue-i18n\";\nimport {\n  getComposer,\n  findBrowserLocale,\n  getLocale,\n  getLocales,\n  useRouteBaseName as _useRouteBaseName,\n  useLocalePath as _useLocalePath,\n  useLocaleRoute as _useLocaleRoute,\n  useSwitchLocalePath as _useSwitchLocalePath,\n  useLocaleHead as _useLocaleHead\n} from \"vue-i18n-routing\";\nexport * from \"vue-i18n\";\nexport * from \"./shared.mjs\";\nimport {\n  addAlternateOgLocales,\n  addCanonicalLinksAndOgUrl,\n  addCurrentOgLocale,\n  addHreflangLinks,\n  getNormalizedLocales\n} from \"../utils.mjs\";\nexport function useSetI18nParams(seoAttributes) {\n  const route = useRoute();\n  const head = getActiveHead();\n  const i18n = useI18n();\n  const locale = getLocale(i18n);\n  const locales = getNormalizedLocales(getLocales(i18n));\n  const _i18nParams = ref({});\n  const i18nParams = computed({\n    get() {\n      return route.meta.nuxtI18n ?? {};\n    },\n    set(val) {\n      _i18nParams.value = val;\n      route.meta.nuxtI18n = val;\n    }\n  });\n  const stop = watch(\n    () => route.fullPath,\n    () => {\n      route.meta.nuxtI18n = _i18nParams.value;\n    }\n  );\n  onUnmounted(() => {\n    stop();\n  });\n  const currentLocale = getNormalizedLocales(locales).find((l) => l.code === locale) || { code: locale };\n  const currentLocaleIso = currentLocale.iso;\n  const setMeta = () => {\n    const metaObject = {\n      link: [],\n      meta: []\n    };\n    if (locale && i18n.locales) {\n      addHreflangLinks(locales, metaObject, \"id\");\n      addCanonicalLinksAndOgUrl(metaObject, \"id\", seoAttributes);\n      addCurrentOgLocale(currentLocale, currentLocaleIso, metaObject, \"id\");\n      addAlternateOgLocales(locales, currentLocaleIso, metaObject, \"id\");\n    }\n    head?.push(metaObject);\n  };\n  return function(params) {\n    i18nParams.value = { ...params };\n    setMeta();\n  };\n}\nexport function useRouteBaseName(options) {\n  const { route, router, i18n } = options || {};\n  return _useRouteBaseName({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleRoute(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocaleRoute({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useSwitchLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useSwitchLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleHead(options) {\n  const { addDirAttribute, addSeoAttributes, identifierAttribute, route, router, i18n } = options || {};\n  return _useLocaleHead({\n    addDirAttribute: addDirAttribute || false,\n    addSeoAttributes: addSeoAttributes || false,\n    identifierAttribute: identifierAttribute || \"hid\",\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useBrowserLocale(normalizedLocales = nuxtI18nInternalOptions.__normalizedLocales) {\n  const headers = useRequestHeaders([\"accept-language\"]);\n  return findBrowserLocale(\n    normalizedLocales,\n    false ? (void 0).languages : parseAcceptLanguage(headers[\"accept-language\"] || \"\")\n  ) || null;\n}\nexport function useCookieLocale(options = {\n  useCookie: nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey: nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  localeCodes: _localeCodes\n}) {\n  const locale = ref(\"\");\n  if (options.useCookie) {\n    let code = null;\n    if (false) {\n      const cookie = useCookie(options.cookieKey);\n      code = cookie.value;\n    } else if (true) {\n      const cookie = useRequestHeaders([\"cookie\"]);\n      code = cookie[options.cookieKey];\n    }\n    if (code && options.localeCodes.includes(code)) {\n      locale.value = code;\n    }\n  }\n  return locale;\n}\nconst warnRuntimeUsage = (method) => console.warn(\n  method + \"() is a compiler-hint helper that is only usable inside the script block of a single file component. Its arguments should be compiled away and passing it at runtime has no effect.\"\n);\nexport function defineI18nRoute(route) {\n  if (false) {\n    warnRuntimeUsage(\"defineI18nRoute\");\n  }\n}\n",
-      "start": 1706896543711,
-      "end": 1706896543712,
+      "start": 1707126067725,
+      "end": 1707126067726,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -244,8 +244,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { useRoute, useRouter } from '#app/composables/router';\nimport { useRequestHeaders } from '#app/composables/ssr';\nimport { useCookie } from '#app/composables/cookie';\nimport { useNuxtApp } from '#app/nuxt';\nimport { ref, computed, watch, onUnmounted } from \"vue\";\nimport { parseAcceptLanguage } from \"../internal.mjs\";\nimport { nuxtI18nInternalOptions, nuxtI18nOptionsDefault, localeCodes as _localeCodes } from \"#build/i18n.options.mjs\";\nimport { getActiveHead } from \"unhead\";\nimport { useI18n } from \"vue-i18n\";\nimport {\n  getComposer,\n  findBrowserLocale,\n  getLocale,\n  getLocales,\n  useRouteBaseName as _useRouteBaseName,\n  useLocalePath as _useLocalePath,\n  useLocaleRoute as _useLocaleRoute,\n  useSwitchLocalePath as _useSwitchLocalePath,\n  useLocaleHead as _useLocaleHead\n} from \"vue-i18n-routing\";\nexport * from \"vue-i18n\";\nexport * from \"./shared.mjs\";\nimport {\n  addAlternateOgLocales,\n  addCanonicalLinksAndOgUrl,\n  addCurrentOgLocale,\n  addHreflangLinks,\n  getNormalizedLocales\n} from \"../utils.mjs\";\nexport function useSetI18nParams(seoAttributes) {\n  const route = useRoute();\n  const head = getActiveHead();\n  const i18n = useI18n();\n  const locale = getLocale(i18n);\n  const locales = getNormalizedLocales(getLocales(i18n));\n  const _i18nParams = ref({});\n  const i18nParams = computed({\n    get() {\n      return route.meta.nuxtI18n ?? {};\n    },\n    set(val) {\n      _i18nParams.value = val;\n      route.meta.nuxtI18n = val;\n    }\n  });\n  const stop = watch(\n    () => route.fullPath,\n    () => {\n      route.meta.nuxtI18n = _i18nParams.value;\n    }\n  );\n  onUnmounted(() => {\n    stop();\n  });\n  const currentLocale = getNormalizedLocales(locales).find((l) => l.code === locale) || { code: locale };\n  const currentLocaleIso = currentLocale.iso;\n  const setMeta = () => {\n    const metaObject = {\n      link: [],\n      meta: []\n    };\n    if (locale && i18n.locales) {\n      addHreflangLinks(locales, metaObject, \"id\");\n      addCanonicalLinksAndOgUrl(metaObject, \"id\", seoAttributes);\n      addCurrentOgLocale(currentLocale, currentLocaleIso, metaObject, \"id\");\n      addAlternateOgLocales(locales, currentLocaleIso, metaObject, \"id\");\n    }\n    head?.push(metaObject);\n  };\n  return function(params) {\n    i18nParams.value = { ...params };\n    setMeta();\n  };\n}\nexport function useRouteBaseName(options) {\n  const { route, router, i18n } = options || {};\n  return _useRouteBaseName({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleRoute(options) {\n  const { route, router, i18n } = options || {};\n  return _useLocaleRoute({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useSwitchLocalePath(options) {\n  const { route, router, i18n } = options || {};\n  return _useSwitchLocalePath({\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useLocaleHead(options) {\n  const { addDirAttribute, addSeoAttributes, identifierAttribute, route, router, i18n } = options || {};\n  return _useLocaleHead({\n    addDirAttribute: addDirAttribute || false,\n    addSeoAttributes: addSeoAttributes || false,\n    identifierAttribute: identifierAttribute || \"hid\",\n    route: route || useRoute(),\n    router: router || useRouter(),\n    i18n: i18n || getComposer(useNuxtApp().$i18n)\n  });\n}\nexport function useBrowserLocale(normalizedLocales = nuxtI18nInternalOptions.__normalizedLocales) {\n  const headers = useRequestHeaders([\"accept-language\"]);\n  return findBrowserLocale(\n    normalizedLocales,\n    false ? (void 0).languages : parseAcceptLanguage(headers[\"accept-language\"] || \"\")\n  ) || null;\n}\nexport function useCookieLocale(options = {\n  useCookie: nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey: nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  localeCodes: _localeCodes\n}) {\n  const locale = ref(\"\");\n  if (options.useCookie) {\n    let code = null;\n    if (false) {\n      const cookie = useCookie(options.cookieKey);\n      code = cookie.value;\n    } else if (true) {\n      const cookie = useRequestHeaders([\"cookie\"]);\n      code = cookie[options.cookieKey];\n    }\n    if (code && options.localeCodes.includes(code)) {\n      locale.value = code;\n    }\n  }\n  return locale;\n}\nconst warnRuntimeUsage = (method) => console.warn(\n  method + \"() is a compiler-hint helper that is only usable inside the script block of a single file component. Its arguments should be compiled away and passing it at runtime has no effect.\"\n);\nexport function defineI18nRoute(route) {\n  if (false) {\n    warnRuntimeUsage(\"defineI18nRoute\");\n  }\n}\n",
-      "start": 1706896543711,
-      "end": 1706896543712,
+      "start": 1707126067725,
+      "end": 1707126067726,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -258,56 +258,56 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067726,
+      "end": 1707126067726,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067726,
+      "end": 1707126067726,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067726,
+      "end": 1707126067726,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067726,
+      "end": 1707126067726,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067726,
+      "end": 1707126067726,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067726,
+      "end": 1707126067727,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067727,
+      "end": 1707126067727,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896543712,
-      "end": 1706896543712,
+      "start": 1707126067727,
+      "end": 1707126067727,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896543713,
-      "end": 1706896543713,
+      "start": 1707126067727,
+      "end": 1707126067727,
       "order": "normal"
     }
   ]

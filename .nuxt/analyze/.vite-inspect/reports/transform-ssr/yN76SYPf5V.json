@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createVNode as _createVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\r\nimport CompanyCreate from \"~/components/Company/admin/CompanyCreate.vue\";\r\n\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\nimport CurrentCompanyInfo from \"~/components/Company/User/CurrentCompanyInfo.vue\";\r\nimport CompanyList from \"~/components/Company/admin/CompanyList.vue\";\r\nimport CompanyStats from \"~/components/Company/CompanyUI/CompanyStats.vue\";\r\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\r\nimport {definePageMeta} from \"#imports\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst currentUser = useAuthStore()\r\nconst companies = useCompanies()\r\nconst params = {\r\n  page: 1,\r\n  limit: 5,\r\n  query: '',\r\n}\r\nfunction loadPage(page) {\r\n  if (page === '<') {\r\n    if (Number(params.page) > 1) {\r\n      params.page -= 1;\r\n    }\r\n  } else if (page === '>') {\r\n    if (Number(params.page) < companies.company.number_of_pages) {\r\n      params.page = Number(params.page) + 1\r\n    }\r\n  } else {\r\n    if (Number(page) <= companies.company.number_of_pages) {\r\n      params.page = Number(page)\r\n    }\r\n  }\r\n  // console.log(page)\r\n  if (window.innerWidth > 1000) {\r\n    window.scrollTo({top: 600})\r\n  } else if (window.innerWidth < 1000) {\r\n    window.scrollTo({top: 895})\r\n  } else {\r\n    window.scrollTo()\r\n  }\r\n}\r\nwatchEffect(() => {\r\n  if (currentUser.user.role_en === 'employee' || currentUser.user.role_en === 'company_admin') {\r\n    companies.loadCurrentCompany()\r\n  } else if (currentUser.user.role_en === 'admin') {\r\n    companies.loadCompanyList({page: params.page, limit: params.limit, query: params.query})\r\n  }\r\n})\r\nuseSeoMeta({\r\n  title: 'О компании',\r\n  description: 'Страница с информацией о компании'\r\n})\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_attrs)}>`)\n  if (_unref(currentUser).user.role_en !== 'admin') {\n    _push(`<div><div class=\"text-center flex items-center tracking-widest gap-x-2 justify-center max-sm:flex-col mb-10\"><p class=\"text-lg\">${\n      _ssrInterpolate(_ctx.$t('Страница информации о '))\n    }</p><p class=\"font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full\">${\n      _ssrInterpolate(_unref(companies).company.name)\n    }</p></div><div class=\"\">`)\n    _push(_ssrRenderComponent(CurrentCompanyInfo, null, null, _parent))\n    _push(`</div></div>`)\n  } else if (_unref(currentUser).user.role_en === 'admin') {\n    _push(`<div>`)\n    _push(_ssrRenderComponent(TheTextContent, { \"text-type\": 'pageTitle' }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(`${_ssrInterpolate(_ctx.$t('Страница списка Компаний'))}`)\n        } else {\n          return [\n            _createTextVNode(_toDisplayString(_ctx.$t('Страница списка Компаний')), 1)\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n    _push(`<div class=\"flex justify-between items-center\">`)\n    _push(_ssrRenderComponent(TheSearch, { class: \"my-10 w-6/12\" }, null, _parent))\n    _push(_ssrRenderComponent(CompanyCreate, { class: \"w-2/12\" }, null, _parent))\n    _push(`</div><div class=\"flex gap-x-10\"><div class=\"w-full gap-y-10 flex flex-col\"><!--[-->`)\n    _ssrRenderList(_unref(companies)?.get_all_company.results, (item) => {\n      _push(_ssrRenderComponent(CompanyList, { \"company-block\": item }, null, _parent))\n    })\n    _push(`<!--]--></div>`)\n    _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12 h-full transition-all rounded-md p-4\" }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(`<h2 class=\"text-center text-lg tracking-widest font-bold dark:text-white\"${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('Информация Компаний'))\n          }</h2>`)\n          _push(_ssrRenderComponent(CompanyStats, null, {\n            statsName: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Количество компаний'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Количество компаний')), 1)\n                ]\n              }\n            }),\n            statsValue: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                if (_unref(companies).get_all_company.count > 0) {\n                  _push(`<p${\n                    _scopeId\n                  }>${\n                    _ssrInterpolate(_unref(companies).get_all_company.count)\n                  }</p>`)\n                } else {\n                  _push(`<p${\n                    _scopeId\n                  }>${\n                    _ssrInterpolate('0')\n                  }</p>`)\n                }\n              } else {\n                return [\n                  (_unref(companies).get_all_company.count > 0)\n                    ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1))\n                    : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString('0')))\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n        } else {\n          return [\n            _createVNode(\"h2\", { class: \"text-center text-lg tracking-widest font-bold dark:text-white\" }, _toDisplayString(_ctx.$t('Информация Компаний')), 1),\n            _createVNode(CompanyStats, null, {\n              statsName: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Количество компаний')), 1)\n              ]),\n              statsValue: _withCtx(() => [\n                (_unref(companies).get_all_company.count > 0)\n                  ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1))\n                  : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString('0')))\n              ]),\n              _: 1\n            })\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n    _push(`</div><div class=\"flex justify-center gap-x-4 mt-10\">`)\n    if (_unref(companies)?.get_all_company.count > 5) {\n      _push(`<!--[-->`)\n      _ssrRenderList(_unref(companies)?.get_all_company.links, (page, id) => {\n        _push(`<div class=\"${\n          _ssrRenderClass([{'bg-blue-400 text-white' : page.active, 'bg-gray-200 text-black hover:bg-blue-400 hover:text-white transition-all' : !page.active}, \"px-4 py-2 rounded-full cursor-pointer\"])\n        }\">${\n          _ssrInterpolate(page.label)\n        }</div>`)\n      })\n      _push(`<!--]-->`)\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</div></div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896541569,
-      "end": 1706896541569,
+      "start": 1707126066101,
+      "end": 1707126066101,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, openBlock as _openBlock, createBlock as _createBlock, createVNode as _createVNode } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\nimport CompanyCreate from \"~/components/Company/admin/CompanyCreate.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport CurrentCompanyInfo from \"~/components/Company/User/CurrentCompanyInfo.vue\";\nimport CompanyList from \"~/components/Company/admin/CompanyList.vue\";\nimport CompanyStats from \"~/components/Company/CompanyUI/CompanyStats.vue\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const currentUser = useAuthStore();\n    const companies = useCompanies();\n    const params = {\n      page: 1,\n      limit: 5,\n      query: \"\"\n    };\n    function loadPage(page) {\n      if (page === \"<\") {\n        if (Number(params.page) > 1) {\n          params.page -= 1;\n        }\n      } else if (page === \">\") {\n        if (Number(params.page) < companies.company.number_of_pages) {\n          params.page = Number(params.page) + 1;\n        }\n      } else {\n        if (Number(page) <= companies.company.number_of_pages) {\n          params.page = Number(page);\n        }\n      }\n      if (window.innerWidth > 1e3) {\n        window.scrollTo({ top: 600 });\n      } else if (window.innerWidth < 1e3) {\n        window.scrollTo({ top: 895 });\n      } else {\n        window.scrollTo();\n      }\n    }\n    watchEffect(() => {\n      if (currentUser.user.role_en === \"employee\" || currentUser.user.role_en === \"company_admin\") {\n        companies.loadCurrentCompany();\n      } else if (currentUser.user.role_en === \"admin\") {\n        companies.loadCompanyList({ page: params.page, limit: params.limit, query: params.query });\n      }\n    });\n    useSeoMeta({\n      title: \"О компании\",\n      description: \"Страница с информацией о компании\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      if (_unref(currentUser).user.role_en !== \"admin\") {\n        _push(`<div><div class=\"text-center flex items-center tracking-widest gap-x-2 justify-center max-sm:flex-col mb-10\"><p class=\"text-lg\">${_ssrInterpolate(_ctx.$t(\"Страница информации о \"))}</p><p class=\"font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full\">${_ssrInterpolate(_unref(companies).company.name)}</p></div><div class=\"\">`);\n        _push(_ssrRenderComponent(CurrentCompanyInfo, null, null, _parent));\n        _push(`</div></div>`);\n      } else if (_unref(currentUser).user.role_en === \"admin\") {\n        _push(`<div>`);\n        _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`${_ssrInterpolate(_ctx.$t(\"Страница списка Компаний\"))}`);\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Страница списка Компаний\")), 1)\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`<div class=\"flex justify-between items-center\">`);\n        _push(_ssrRenderComponent(TheSearch, { class: \"my-10 w-6/12\" }, null, _parent));\n        _push(_ssrRenderComponent(CompanyCreate, { class: \"w-2/12\" }, null, _parent));\n        _push(`</div><div class=\"flex gap-x-10\"><div class=\"w-full gap-y-10 flex flex-col\"><!--[-->`);\n        _ssrRenderList(_unref(companies)?.get_all_company.results, (item) => {\n          _push(_ssrRenderComponent(CompanyList, { \"company-block\": item }, null, _parent));\n        });\n        _push(`<!--]--></div>`);\n        _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12 h-full transition-all rounded-md p-4\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`<h2 class=\"text-center text-lg tracking-widest font-bold dark:text-white\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Информация Компаний\"))}</h2>`);\n              _push2(_ssrRenderComponent(CompanyStats, null, {\n                statsName: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Количество компаний\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                    ];\n                  }\n                }),\n                statsValue: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    if (_unref(companies).get_all_company.count > 0) {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(_unref(companies).get_all_company.count)}</p>`);\n                    } else {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(\"0\")}</p>`);\n                    }\n                  } else {\n                    return [\n                      _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n            } else {\n              return [\n                _createVNode(\"h2\", { class: \"text-center text-lg tracking-widest font-bold dark:text-white\" }, _toDisplayString(_ctx.$t(\"Информация Компаний\")), 1),\n                _createVNode(CompanyStats, null, {\n                  statsName: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                  ]),\n                  statsValue: _withCtx(() => [\n                    _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                  ]),\n                  _: 1\n                })\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`</div><div class=\"flex justify-center gap-x-4 mt-10\">`);\n        if (_unref(companies)?.get_all_company.count > 5) {\n          _push(`<!--[-->`);\n          _ssrRenderList(_unref(companies)?.get_all_company.links, (page, id) => {\n            _push(`<div class=\"${_ssrRenderClass([{ \"bg-blue-400 text-white\": page.active, \"bg-gray-200 text-black hover:bg-blue-400 hover:text-white transition-all\": !page.active }, \"px-4 py-2 rounded-full cursor-pointer\"])}\">${_ssrInterpolate(page.label)}</div>`);\n          });\n          _push(`<!--]-->`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`</div></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896541569,
-      "end": 1706896542837,
+      "start": 1707126066101,
+      "end": 1707126068090,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -91,173 +91,173 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126068090,
+      "end": 1707126068090,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126068090,
+      "end": 1707126068090,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126068090,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896542837,
-      "end": 1706896542838,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896542837,
-      "end": 1706896542838,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126068091,
+      "end": 1707126068091,
       "order": "normal"
     },
     {
       "name": "vite:define",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, openBlock as _openBlock, createBlock as _createBlock, createVNode as _createVNode } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\nimport CompanyCreate from \"~/components/Company/admin/CompanyCreate.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport CurrentCompanyInfo from \"~/components/Company/User/CurrentCompanyInfo.vue\";\nimport CompanyList from \"~/components/Company/admin/CompanyList.vue\";\nimport CompanyStats from \"~/components/Company/CompanyUI/CompanyStats.vue\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const currentUser = useAuthStore();\n    const companies = useCompanies();\n    const params = {\n      page: 1,\n      limit: 5,\n      query: \"\"\n    };\n    function loadPage(page) {\n      if (page === \"<\") {\n        if (Number(params.page) > 1) {\n          params.page -= 1;\n        }\n      } else if (page === \">\") {\n        if (Number(params.page) < companies.company.number_of_pages) {\n          params.page = Number(params.page) + 1;\n        }\n      } else {\n        if (Number(page) <= companies.company.number_of_pages) {\n          params.page = Number(page);\n        }\n      }\n      if ((void 0).innerWidth > 1e3) {\n        (void 0).scrollTo({ top: 600 });\n      } else if ((void 0).innerWidth < 1e3) {\n        (void 0).scrollTo({ top: 895 });\n      } else {\n        (void 0).scrollTo();\n      }\n    }\n    watchEffect(() => {\n      if (currentUser.user.role_en === \"employee\" || currentUser.user.role_en === \"company_admin\") {\n        companies.loadCurrentCompany();\n      } else if (currentUser.user.role_en === \"admin\") {\n        companies.loadCompanyList({ page: params.page, limit: params.limit, query: params.query });\n      }\n    });\n    useSeoMeta({\n      title: \"О компании\",\n      description: \"Страница с информацией о компании\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      if (_unref(currentUser).user.role_en !== \"admin\") {\n        _push(`<div><div class=\"text-center flex items-center tracking-widest gap-x-2 justify-center max-sm:flex-col mb-10\"><p class=\"text-lg\">${_ssrInterpolate(_ctx.$t(\"Страница информации о \"))}</p><p class=\"font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full\">${_ssrInterpolate(_unref(companies).company.name)}</p></div><div class=\"\">`);\n        _push(_ssrRenderComponent(CurrentCompanyInfo, null, null, _parent));\n        _push(`</div></div>`);\n      } else if (_unref(currentUser).user.role_en === \"admin\") {\n        _push(`<div>`);\n        _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`${_ssrInterpolate(_ctx.$t(\"Страница списка Компаний\"))}`);\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Страница списка Компаний\")), 1)\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`<div class=\"flex justify-between items-center\">`);\n        _push(_ssrRenderComponent(TheSearch, { class: \"my-10 w-6/12\" }, null, _parent));\n        _push(_ssrRenderComponent(CompanyCreate, { class: \"w-2/12\" }, null, _parent));\n        _push(`</div><div class=\"flex gap-x-10\"><div class=\"w-full gap-y-10 flex flex-col\"><!--[-->`);\n        _ssrRenderList(_unref(companies)?.get_all_company.results, (item) => {\n          _push(_ssrRenderComponent(CompanyList, { \"company-block\": item }, null, _parent));\n        });\n        _push(`<!--]--></div>`);\n        _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12 h-full transition-all rounded-md p-4\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`<h2 class=\"text-center text-lg tracking-widest font-bold dark:text-white\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Информация Компаний\"))}</h2>`);\n              _push2(_ssrRenderComponent(CompanyStats, null, {\n                statsName: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Количество компаний\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                    ];\n                  }\n                }),\n                statsValue: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    if (_unref(companies).get_all_company.count > 0) {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(_unref(companies).get_all_company.count)}</p>`);\n                    } else {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(\"0\")}</p>`);\n                    }\n                  } else {\n                    return [\n                      _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n            } else {\n              return [\n                _createVNode(\"h2\", { class: \"text-center text-lg tracking-widest font-bold dark:text-white\" }, _toDisplayString(_ctx.$t(\"Информация Компаний\")), 1),\n                _createVNode(CompanyStats, null, {\n                  statsName: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                  ]),\n                  statsValue: _withCtx(() => [\n                    _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                  ]),\n                  _: 1\n                })\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`</div><div class=\"flex justify-center gap-x-4 mt-10\">`);\n        if (_unref(companies)?.get_all_company.count > 5) {\n          _push(`<!--[-->`);\n          _ssrRenderList(_unref(companies)?.get_all_company.links, (page, id) => {\n            _push(`<div class=\"${_ssrRenderClass([{ \"bg-blue-400 text-white\": page.active, \"bg-gray-200 text-black hover:bg-blue-400 hover:text-white transition-all\": !page.active }, \"px-4 py-2 rounded-full cursor-pointer\"])}\">${_ssrInterpolate(page.label)}</div>`);\n          });\n          _push(`<!--]-->`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`</div></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896542838,
-      "end": 1706896544176,
+      "start": 1707126068091,
+      "end": 1707126068944,
       "order": "normal",
       "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/pages/base/companies/index.vue?macro=true&vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, openBlock as _openBlock, createBlock as _createBlock, createVNode as _createVNode } from \\\"vue\\\";\\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \\\"vue/server-renderer\\\";\\nimport TheTextContent from \\\"~/components/UI/TheTextContent.vue\\\";\\nimport TheSearch from \\\"~/components/UI/TheSearch.vue\\\";\\nimport CompanyCreate from \\\"~/components/Company/admin/CompanyCreate.vue\\\";\\nimport { useCompanies } from \\\"~/stores/companies\\\";\\nimport { useAuthStore } from \\\"~/stores/auth\\\";\\nimport CurrentCompanyInfo from \\\"~/components/Company/User/CurrentCompanyInfo.vue\\\";\\nimport CompanyList from \\\"~/components/Company/admin/CompanyList.vue\\\";\\nimport CompanyStats from \\\"~/components/Company/CompanyUI/CompanyStats.vue\\\";\\nimport TheContentBlock from \\\"~/components/UI/TheContentBlock.vue\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"index\\\",\\n  __ssrInlineRender: true,\\n  setup(__props) {\\n    const currentUser = useAuthStore();\\n    const companies = useCompanies();\\n    const params = {\\n      page: 1,\\n      limit: 5,\\n      query: \\\"\\\"\\n    };\\n    function loadPage(page) {\\n      if (page === \\\"<\\\") {\\n        if (Number(params.page) > 1) {\\n          params.page -= 1;\\n        }\\n      } else if (page === \\\">\\\") {\\n        if (Number(params.page) < companies.company.number_of_pages) {\\n          params.page = Number(params.page) + 1;\\n        }\\n      } else {\\n        if (Number(page) <= companies.company.number_of_pages) {\\n          params.page = Number(page);\\n        }\\n      }\\n      if (window.innerWidth > 1e3) {\\n        window.scrollTo({ top: 600 });\\n      } else if (window.innerWidth < 1e3) {\\n        window.scrollTo({ top: 895 });\\n      } else {\\n        window.scrollTo();\\n      }\\n    }\\n    watchEffect(() => {\\n      if (currentUser.user.role_en === \\\"employee\\\" || currentUser.user.role_en === \\\"company_admin\\\") {\\n        companies.loadCurrentCompany();\\n      } else if (currentUser.user.role_en === \\\"admin\\\") {\\n        companies.loadCompanyList({ page: params.page, limit: params.limit, query: params.query });\\n      }\\n    });\\n    useSeoMeta({\\n      title: \\\"О компании\\\",\\n      description: \\\"Страница с информацией о компании\\\"\\n    });\\n    return (_ctx, _push, _parent, _attrs) => {\\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\\n      if (_unref(currentUser).user.role_en !== \\\"admin\\\") {\\n        _push(`<div><div class=\\\"text-center flex items-center tracking-widest gap-x-2 justify-center max-sm:flex-col mb-10\\\"><p class=\\\"text-lg\\\">${_ssrInterpolate(_ctx.$t(\\\"Страница информации о \\\"))}</p><p class=\\\"font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full\\\">${_ssrInterpolate(_unref(companies).company.name)}</p></div><div class=\\\"\\\">`);\\n        _push(_ssrRenderComponent(CurrentCompanyInfo, null, null, _parent));\\n        _push(`</div></div>`);\\n      } else if (_unref(currentUser).user.role_en === \\\"admin\\\") {\\n        _push(`<div>`);\\n        _push(_ssrRenderComponent(TheTextContent, { \\\"text-type\\\": \\\"pageTitle\\\" }, {\\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\\n            if (_push2) {\\n              _push2(`${_ssrInterpolate(_ctx.$t(\\\"Страница списка Компаний\\\"))}`);\\n            } else {\\n              return [\\n                _createTextVNode(_toDisplayString(_ctx.$t(\\\"Страница списка Компаний\\\")), 1)\\n              ];\\n            }\\n          }),\\n          _: 1\\n        }, _parent));\\n        _push(`<div class=\\\"flex justify-between items-center\\\">`);\\n        _push(_ssrRenderComponent(TheSearch, { class: \\\"my-10 w-6/12\\\" }, null, _parent));\\n        _push(_ssrRenderComponent(CompanyCreate, { class: \\\"w-2/12\\\" }, null, _parent));\\n        _push(`</div><div class=\\\"flex gap-x-10\\\"><div class=\\\"w-full gap-y-10 flex flex-col\\\"><!--[-->`);\\n        _ssrRenderList(_unref(companies)?.get_all_company.results, (item) => {\\n          _push(_ssrRenderComponent(CompanyList, { \\\"company-block\\\": item }, null, _parent));\\n        });\\n        _push(`<!--]--></div>`);\\n        _push(_ssrRenderComponent(TheContentBlock, { class: \\\"w-3/12 h-full transition-all rounded-md p-4\\\" }, {\\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\\n            if (_push2) {\\n              _push2(`<h2 class=\\\"text-center text-lg tracking-widest font-bold dark:text-white\\\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\\\"Информация Компаний\\\"))}</h2>`);\\n              _push2(_ssrRenderComponent(CompanyStats, null, {\\n                statsName: _withCtx((_2, _push3, _parent3, _scopeId2) => {\\n                  if (_push3) {\\n                    _push3(`${_ssrInterpolate(_ctx.$t(\\\"Количество компаний\\\"))}`);\\n                  } else {\\n                    return [\\n                      _createTextVNode(_toDisplayString(_ctx.$t(\\\"Количество компаний\\\")), 1)\\n                    ];\\n                  }\\n                }),\\n                statsValue: _withCtx((_2, _push3, _parent3, _scopeId2) => {\\n                  if (_push3) {\\n                    if (_unref(companies).get_all_company.count > 0) {\\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(_unref(companies).get_all_company.count)}</p>`);\\n                    } else {\\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(\\\"0\\\")}</p>`);\\n                    }\\n                  } else {\\n                    return [\\n                      _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\\\"p\\\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\\\"p\\\", { key: 1 }, _toDisplayString(\\\"0\\\")))\\n                    ];\\n                  }\\n                }),\\n                _: 1\\n              }, _parent2, _scopeId));\\n            } else {\\n              return [\\n                _createVNode(\\\"h2\\\", { class: \\\"text-center text-lg tracking-widest font-bold dark:text-white\\\" }, _toDisplayString(_ctx.$t(\\\"Информация Компаний\\\")), 1),\\n                _createVNode(CompanyStats, null, {\\n                  statsName: _withCtx(() => [\\n                    _createTextVNode(_toDisplayString(_ctx.$t(\\\"Количество компаний\\\")), 1)\\n                  ]),\\n                  statsValue: _withCtx(() => [\\n                    _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\\\"p\\\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\\\"p\\\", { key: 1 }, _toDisplayString(\\\"0\\\")))\\n                  ]),\\n                  _: 1\\n                })\\n              ];\\n            }\\n          }),\\n          _: 1\\n        }, _parent));\\n        _push(`</div><div class=\\\"flex justify-center gap-x-4 mt-10\\\">`);\\n        if (_unref(companies)?.get_all_company.count > 5) {\\n          _push(`<!--[-->`);\\n          _ssrRenderList(_unref(companies)?.get_all_company.links, (page, id) => {\\n            _push(`<div class=\\\"${_ssrRenderClass([{ \\\"bg-blue-400 text-white\\\": page.active, \\\"bg-gray-200 text-black hover:bg-blue-400 hover:text-white transition-all\\\": !page.active }, \\\"px-4 py-2 rounded-full cursor-pointer\\\"])}\\\">${_ssrInterpolate(page.label)}</div>`);\\n          });\\n          _push(`<!--]-->`);\\n        } else {\\n          _push(`<!---->`);\\n        }\\n        _push(`</div></div>`);\\n      } else {\\n        _push(`<!---->`);\\n      }\\n      _push(`</div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"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\",\n  \"names\": []\n}\n"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896544177,
-      "end": 1706896544177,
+      "start": 1707126068945,
+      "end": 1707126068945,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896544177,
-      "end": 1706896544177,
+      "start": 1707126068945,
+      "end": 1707126068945,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896544177,
-      "end": 1706896544177,
+      "start": 1707126068945,
+      "end": 1707126068945,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896544177,
-      "end": 1706896544177,
+      "start": 1707126068945,
+      "end": 1707126068945,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896544177,
-      "end": 1706896544178,
+      "start": 1707126068946,
+      "end": 1707126068946,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896544178,
-      "end": 1706896544178,
+      "start": 1707126068946,
+      "end": 1707126068946,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896544178,
-      "end": 1706896544178,
+      "start": 1707126068946,
+      "end": 1707126068946,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896544179,
-      "end": 1706896544179,
+      "start": 1707126068946,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896544179,
-      "end": 1706896544179,
+      "start": 1707126068946,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896544179,
-      "end": 1706896544179,
+      "start": 1707126068977,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896544179,
-      "end": 1706896544179,
+      "start": 1707126068977,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896544179,
-      "end": 1706896544191,
+      "start": 1707126068977,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896544179,
-      "end": 1706896544191,
+      "start": 1707126068977,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896544191,
-      "end": 1706896544191,
+      "start": 1707126068977,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896544191,
-      "end": 1706896544191,
+      "start": 1707126068977,
+      "end": 1707126068977,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { watchEffect } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, openBlock as _openBlock, createBlock as _createBlock, createVNode as _createVNode } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\nimport CompanyCreate from \"~/components/Company/admin/CompanyCreate.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport CurrentCompanyInfo from \"~/components/Company/User/CurrentCompanyInfo.vue\";\nimport CompanyList from \"~/components/Company/admin/CompanyList.vue\";\nimport CompanyStats from \"~/components/Company/CompanyUI/CompanyStats.vue\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const currentUser = useAuthStore();\n    const companies = useCompanies();\n    const params = {\n      page: 1,\n      limit: 5,\n      query: \"\"\n    };\n    function loadPage(page) {\n      if (page === \"<\") {\n        if (Number(params.page) > 1) {\n          params.page -= 1;\n        }\n      } else if (page === \">\") {\n        if (Number(params.page) < companies.company.number_of_pages) {\n          params.page = Number(params.page) + 1;\n        }\n      } else {\n        if (Number(page) <= companies.company.number_of_pages) {\n          params.page = Number(page);\n        }\n      }\n      if ((void 0).innerWidth > 1e3) {\n        (void 0).scrollTo({ top: 600 });\n      } else if ((void 0).innerWidth < 1e3) {\n        (void 0).scrollTo({ top: 895 });\n      } else {\n        (void 0).scrollTo();\n      }\n    }\n    watchEffect(() => {\n      if (currentUser.user.role_en === \"employee\" || currentUser.user.role_en === \"company_admin\") {\n        companies.loadCurrentCompany();\n      } else if (currentUser.user.role_en === \"admin\") {\n        companies.loadCompanyList({ page: params.page, limit: params.limit, query: params.query });\n      }\n    });\n    useSeoMeta({\n      title: \"О компании\",\n      description: \"Страница с информацией о компании\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      if (_unref(currentUser).user.role_en !== \"admin\") {\n        _push(`<div><div class=\"text-center flex items-center tracking-widest gap-x-2 justify-center max-sm:flex-col mb-10\"><p class=\"text-lg\">${_ssrInterpolate(_ctx.$t(\"Страница информации о \"))}</p><p class=\"font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full\">${_ssrInterpolate(_unref(companies).company.name)}</p></div><div class=\"\">`);\n        _push(_ssrRenderComponent(CurrentCompanyInfo, null, null, _parent));\n        _push(`</div></div>`);\n      } else if (_unref(currentUser).user.role_en === \"admin\") {\n        _push(`<div>`);\n        _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`${_ssrInterpolate(_ctx.$t(\"Страница списка Компаний\"))}`);\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Страница списка Компаний\")), 1)\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`<div class=\"flex justify-between items-center\">`);\n        _push(_ssrRenderComponent(TheSearch, { class: \"my-10 w-6/12\" }, null, _parent));\n        _push(_ssrRenderComponent(CompanyCreate, { class: \"w-2/12\" }, null, _parent));\n        _push(`</div><div class=\"flex gap-x-10\"><div class=\"w-full gap-y-10 flex flex-col\"><!--[-->`);\n        _ssrRenderList(_unref(companies)?.get_all_company.results, (item) => {\n          _push(_ssrRenderComponent(CompanyList, { \"company-block\": item }, null, _parent));\n        });\n        _push(`<!--]--></div>`);\n        _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12 h-full transition-all rounded-md p-4\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`<h2 class=\"text-center text-lg tracking-widest font-bold dark:text-white\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Информация Компаний\"))}</h2>`);\n              _push2(_ssrRenderComponent(CompanyStats, null, {\n                statsName: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Количество компаний\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                    ];\n                  }\n                }),\n                statsValue: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    if (_unref(companies).get_all_company.count > 0) {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(_unref(companies).get_all_company.count)}</p>`);\n                    } else {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(\"0\")}</p>`);\n                    }\n                  } else {\n                    return [\n                      _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n            } else {\n              return [\n                _createVNode(\"h2\", { class: \"text-center text-lg tracking-widest font-bold dark:text-white\" }, _toDisplayString(_ctx.$t(\"Информация Компаний\")), 1),\n                _createVNode(CompanyStats, null, {\n                  statsName: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                  ]),\n                  statsValue: _withCtx(() => [\n                    _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                  ]),\n                  _: 1\n                })\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`</div><div class=\"flex justify-center gap-x-4 mt-10\">`);\n        if (_unref(companies)?.get_all_company.count > 5) {\n          _push(`<!--[-->`);\n          _ssrRenderList(_unref(companies)?.get_all_company.links, (page, id) => {\n            _push(`<div class=\"${_ssrRenderClass([{ \"bg-blue-400 text-white\": page.active, \"bg-gray-200 text-black hover:bg-blue-400 hover:text-white transition-all\": !page.active }, \"px-4 py-2 rounded-full cursor-pointer\"])}\">${_ssrInterpolate(page.label)}</div>`);\n          });\n          _push(`<!--]-->`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`</div></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896544191,
-      "end": 1706896544207,
+      "start": 1707126068977,
+      "end": 1707126068980,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -271,8 +271,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { watchEffect } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, openBlock as _openBlock, createBlock as _createBlock, createVNode as _createVNode } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\nimport CompanyCreate from \"~/components/Company/admin/CompanyCreate.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport CurrentCompanyInfo from \"~/components/Company/User/CurrentCompanyInfo.vue\";\nimport CompanyList from \"~/components/Company/admin/CompanyList.vue\";\nimport CompanyStats from \"~/components/Company/CompanyUI/CompanyStats.vue\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const currentUser = useAuthStore();\n    const companies = useCompanies();\n    const params = {\n      page: 1,\n      limit: 5,\n      query: \"\"\n    };\n    function loadPage(page) {\n      if (page === \"<\") {\n        if (Number(params.page) > 1) {\n          params.page -= 1;\n        }\n      } else if (page === \">\") {\n        if (Number(params.page) < companies.company.number_of_pages) {\n          params.page = Number(params.page) + 1;\n        }\n      } else {\n        if (Number(page) <= companies.company.number_of_pages) {\n          params.page = Number(page);\n        }\n      }\n      if ((void 0).innerWidth > 1e3) {\n        (void 0).scrollTo({ top: 600 });\n      } else if ((void 0).innerWidth < 1e3) {\n        (void 0).scrollTo({ top: 895 });\n      } else {\n        (void 0).scrollTo();\n      }\n    }\n    watchEffect(() => {\n      if (currentUser.user.role_en === \"employee\" || currentUser.user.role_en === \"company_admin\") {\n        companies.loadCurrentCompany();\n      } else if (currentUser.user.role_en === \"admin\") {\n        companies.loadCompanyList({ page: params.page, limit: params.limit, query: params.query });\n      }\n    });\n    useSeoMeta({\n      title: \"О компании\",\n      description: \"Страница с информацией о компании\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      if (_unref(currentUser).user.role_en !== \"admin\") {\n        _push(`<div><div class=\"text-center flex items-center tracking-widest gap-x-2 justify-center max-sm:flex-col mb-10\"><p class=\"text-lg\">${_ssrInterpolate(_ctx.$t(\"Страница информации о \"))}</p><p class=\"font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full\">${_ssrInterpolate(_unref(companies).company.name)}</p></div><div class=\"\">`);\n        _push(_ssrRenderComponent(CurrentCompanyInfo, null, null, _parent));\n        _push(`</div></div>`);\n      } else if (_unref(currentUser).user.role_en === \"admin\") {\n        _push(`<div>`);\n        _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`${_ssrInterpolate(_ctx.$t(\"Страница списка Компаний\"))}`);\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Страница списка Компаний\")), 1)\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`<div class=\"flex justify-between items-center\">`);\n        _push(_ssrRenderComponent(TheSearch, { class: \"my-10 w-6/12\" }, null, _parent));\n        _push(_ssrRenderComponent(CompanyCreate, { class: \"w-2/12\" }, null, _parent));\n        _push(`</div><div class=\"flex gap-x-10\"><div class=\"w-full gap-y-10 flex flex-col\"><!--[-->`);\n        _ssrRenderList(_unref(companies)?.get_all_company.results, (item) => {\n          _push(_ssrRenderComponent(CompanyList, { \"company-block\": item }, null, _parent));\n        });\n        _push(`<!--]--></div>`);\n        _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12 h-full transition-all rounded-md p-4\" }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(`<h2 class=\"text-center text-lg tracking-widest font-bold dark:text-white\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Информация Компаний\"))}</h2>`);\n              _push2(_ssrRenderComponent(CompanyStats, null, {\n                statsName: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Количество компаний\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                    ];\n                  }\n                }),\n                statsValue: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    if (_unref(companies).get_all_company.count > 0) {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(_unref(companies).get_all_company.count)}</p>`);\n                    } else {\n                      _push3(`<p${_scopeId2}>${_ssrInterpolate(\"0\")}</p>`);\n                    }\n                  } else {\n                    return [\n                      _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n            } else {\n              return [\n                _createVNode(\"h2\", { class: \"text-center text-lg tracking-widest font-bold dark:text-white\" }, _toDisplayString(_ctx.$t(\"Информация Компаний\")), 1),\n                _createVNode(CompanyStats, null, {\n                  statsName: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Количество компаний\")), 1)\n                  ]),\n                  statsValue: _withCtx(() => [\n                    _unref(companies).get_all_company.count > 0 ? (_openBlock(), _createBlock(\"p\", { key: 0 }, _toDisplayString(_unref(companies).get_all_company.count), 1)) : (_openBlock(), _createBlock(\"p\", { key: 1 }, _toDisplayString(\"0\")))\n                  ]),\n                  _: 1\n                })\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n        _push(`</div><div class=\"flex justify-center gap-x-4 mt-10\">`);\n        if (_unref(companies)?.get_all_company.count > 5) {\n          _push(`<!--[-->`);\n          _ssrRenderList(_unref(companies)?.get_all_company.links, (page, id) => {\n            _push(`<div class=\"${_ssrRenderClass([{ \"bg-blue-400 text-white\": page.active, \"bg-gray-200 text-black hover:bg-blue-400 hover:text-white transition-all\": !page.active }, \"px-4 py-2 rounded-full cursor-pointer\"])}\">${_ssrInterpolate(page.label)}</div>`);\n          });\n          _push(`<!--]-->`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`</div></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896544191,
-      "end": 1706896544207,
+      "start": 1707126068977,
+      "end": 1707126068980,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -285,21 +285,21 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896544207,
-      "end": 1706896544207,
+      "start": 1707126068980,
+      "end": 1707126068980,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896544207,
-      "end": 1706896544207,
+      "start": 1707126068980,
+      "end": 1707126068980,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1706896544207,
-      "end": 1706896544208,
+      "start": 1707126068980,
+      "end": 1707126068981,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -313,8 +313,8 @@
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1706896544207,
-      "end": 1706896544208,
+      "start": 1707126068980,
+      "end": 1707126068981,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -327,32 +327,32 @@
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896544208,
-      "end": 1706896544208,
+      "start": 1707126068981,
+      "end": 1707126068981,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896544242,
-      "end": 1706896544242,
+      "start": 1707126069034,
+      "end": 1707126069034,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896544242,
-      "end": 1706896544242,
+      "start": 1707126069034,
+      "end": 1707126069034,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896544243,
-      "end": 1706896544330,
+      "start": 1707126069035,
+      "end": 1707126069059,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896544332,
-      "end": 1706896544332,
+      "start": 1707126069059,
+      "end": 1707126069059,
       "order": "normal"
     }
   ]

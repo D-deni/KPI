@@ -9,6 +9,7 @@ const router = useRouter()
 const {x, y} = useMouse()
 const {y: windowY} = useWindowScroll()
 const isOpen = ref(false)
+const userContent = ref()
 const virtualElement = ref({getBoundingClientRect: () => ({})})
 const chat = useChat()
 const loadAuthStore = useAuthStore()
@@ -44,6 +45,7 @@ const loadAuthStore = useAuthStore()
                                 left
                               })
                               isOpen = true
+                              userContent = {...item}
                             }"
            class="flex bg-transparent border-none gap-x-4 items-center w-full dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer transition-all px-5">
         <div>
@@ -65,18 +67,18 @@ const loadAuthStore = useAuthStore()
         </div>
       </div>
       <UContextMenu @contextmenu.prevent v-model="isOpen" :virtual-element="virtualElement">
-        <ChatContentContextMenuItem
-          @click="router.push(`/base/chat/${item?.id}`); isOpen = false">
-          <template v-slot:ContextMenuSvg>
-            <svg class="dark:stroke-white stroke-black" width="23px" height="23px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle opacity="0.5" cx="12" cy="9" r="3" stroke-width="1.2"/>
-              <circle cx="12" cy="12" r="10" stroke-width="1"/>
-              <path opacity="0.5" d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
-          </template>
-          <template v-slot:ContextMenuText>{{ $t('Перейти в чат') }}</template>
-        </ChatContentContextMenuItem>
-        <ChatContentContextMenuItem>
+<!--        <ChatContentContextMenuItem-->
+<!--          @click="router.push(`/base/chat/${userContent?.id}`); isOpen = false">-->
+<!--          <template v-slot:ContextMenuSvg>-->
+<!--            <svg class="dark:stroke-white stroke-black" width="23px" height="23px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--              <circle opacity="0.5" cx="12" cy="9" r="3" stroke-width="1.2"/>-->
+<!--              <circle cx="12" cy="12" r="10" stroke-width="1"/>-->
+<!--              <path opacity="0.5" d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke-width="1.2" stroke-linecap="round"/>-->
+<!--            </svg>-->
+<!--          </template>-->
+<!--          <template v-slot:ContextMenuText>{{ $t('Перейти в чат') }}</template>-->
+<!--        </ChatContentContextMenuItem>-->
+        <ChatContentContextMenuItem @click="chat">
           <template v-slot:ContextMenuSvg>
             <svg class="dark:stroke-white stroke-black" width="23px" height="23px" viewBox="0 0 24 24" fill="none"
                  xmlns="http://www.w3.org/2000/svg">

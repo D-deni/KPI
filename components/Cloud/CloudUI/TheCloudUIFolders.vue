@@ -10,8 +10,8 @@ import TheInput from "~/components/UI/TheInput.vue";
 import TheButton from "~/components/UI/TheButton.vue";
 import TheCloudUIFilesItem from "~/components/Cloud/CloudUI/TheCloudUIFilesItem.vue";
 import TheCloudUIContextMenuItem from "~/components/Cloud/CloudUI/TheCloudUIContextMenuItem.vue";
-import {FileOperationPatternKind} from "vscode-languageserver-protocol";
-import folder = FileOperationPatternKind.folder;
+import {viewSelect} from "~/hooks/ElemUI";
+import {uploadFile} from "~/hooks/ElemUI";
 
 const currentUser = useAuthStore()
 const route = useRouter()
@@ -32,7 +32,6 @@ const accessControl: toasty = {
 
 const activeElem = ref({id: 0, type: ''})
 const cart = ref(true)
-const uploadFile = ref()
 const createFolder = ref({
   name: '',
 })
@@ -50,25 +49,13 @@ const props = defineProps({
     default: () => {
     },
   },
-  elemObject  : {
+  elemObject: {
     type: Object,
     default: {}
   }
 })
 
-const view = [
-  {
-    label: 'Список',
-    icon: 'i-heroicons-list-bullet',
-    type: 'list'
-  },
-  {
-    label: 'Плитка',
-    icon: 'i-heroicons-squares-2x2',
-    type: 'tile'
-  },
-]
-const selected = ref(view[0])
+const selected = ref(viewSelect[0])
 const {x, y} = useMouse()
 const {y: windowY} = useWindowScroll()
 
@@ -87,7 +74,7 @@ watchEffect(() => {
   props.showRead ? folderSettingShow.value = false : folderSettingShow.value
   props.showRead ? fileSettingShow.value = false : fileSettingShow.value
 })
-onUpdated(()=>{
+onUpdated(() => {
   cloudStore.loadhasFileInBin()
 })
 
@@ -142,7 +129,7 @@ function dragLeave(event: any) {
 </script>
 
 <template>
-  <div class="w-full select-none">
+  <div class="w-full ">
     <div class="absolute w-full h-full z-0 left-0 top-0"
          @contextmenu.prevent="function cloudContextMenu() {
                                 const top = unref(y) - unref(windowY)
@@ -195,7 +182,8 @@ function dragLeave(event: any) {
           <span>{{ $t('Загрузить файлы') }}</span>
         </template>
         <template v-slot:ContextMenuContent>
-          <input @click="cloudSettingShow = false" @input="uploadFile = $event.target.files" id="uploadCloudFiles"
+          <input @click="cloudSettingShow = false" @change="uploadFile($event.target.files[0], cloudStore)"
+                 @input="$emit('update:modelValue', $event.target.value)" id="uploadCloudFiles"
                  class="hidden" type="file" multiple/>
         </template>
       </TheCloudUIContextMenuItem>
@@ -204,7 +192,7 @@ function dragLeave(event: any) {
       <div class="flex max-[500px]:flex-col justify-between items-center">
         <h2 class="text-lg dark:text-white tracking-widest mb-6">{{ $t('Файлы и папки') }}</h2>
         <div>
-          <USelectMenu v-model="selected" :options="view">
+          <USelectMenu v-model="selected" :options="viewSelect">
             <template #label>
               <UIcon :name="selected.icon" class="w-4 h-4">
               </UIcon>
@@ -231,18 +219,19 @@ function dragLeave(event: any) {
       <div class="relative flex items-center max-md:justify-center max-md:mt-6 gap-x-2 overflow-hidden"
            @click="cart = true;">
         <button
-          @click="cloudStore.get_folder.parent_id !== null ? cloudStore.loadAllFolders() : console.log('ебан ты и так на главной'); folderSettingShow = false, cloudSettingShow = false, fileSettingShow = false">
+          @click="cloudStore.get_folder.parent_id !== null || cloudStore.get_bin ? cloudStore.loadAllFolders() : ''; folderSettingShow = false, cloudSettingShow = false, fileSettingShow = false">
           <span class="text-sm tracking-widest">{{ $t('Главная') }}</span>
         </button>
-        <button v-if="cloudStore.get_folder.parent_id !== null" class="flex  items-center"
+        <div v-if="cloudStore.get_folder.parent_id !== null">
+          <svg class="dark:fill-gray-400 fill-black" width="20px" height="20px" viewBox="0 0 1024 1024"
+               xmlns="http://www.w3.org/2000/svg" data-v-inspector="pages/base/chat/[id].vue:25:11">
+            <path d="M604.7 759.2l61.8-61.8L481.1 512l185.4-185.4-61.8-61.8L357.5 512z"
+                  data-v-inspector="pages/base/chat/[id].vue:25:140"></path>
+          </svg>
+        </div>
+
+        <button v-if="cloudStore.get_folder.parent_id !== null" class="flex items-center"
                 @click="cloudStore.loadFolder({id: cloudStore.get_folder.parent_id})">
-          <div>
-            <svg class="dark:fill-gray-400 fill-black" width="30px" height="30px" viewBox="0 0 1024 1024"
-                 xmlns="http://www.w3.org/2000/svg" data-v-inspector="pages/base/chat/[id].vue:25:11">
-              <path d="M604.7 759.2l61.8-61.8L481.1 512l185.4-185.4-61.8-61.8L357.5 512z"
-                    data-v-inspector="pages/base/chat/[id].vue:25:140"></path>
-            </svg>
-          </div>
           <span class="text-sm tracking-widest">{{ cloudStore.folder.name }}</span>
         </button>
       </div>
@@ -372,11 +361,16 @@ function dragLeave(event: any) {
                 </template>
                 <template v-slot:ContextMenuContent></template>
               </TheCloudUIContextMenuItem>
-              <TheCloudUIContextMenuItem @click="elemObject = {...folderObject, type: 'folder'}; cloudStore.showObjectElem = true; fileSettingShow = false">
+              <TheCloudUIContextMenuItem
+                @click="elemObject = {...folderObject, type: 'folder'}; cloudStore.showObjectElem = true; fileSettingShow = false">
                 <template v-slot:ContextMenuSvg>
-                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2.51839 20.1752 2.22937 19.3001 2.10149 18M2 12V6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C21.8004 7.62741 21.9482 8.51364 21.9866 10" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M2 15C8.44365 15 6.55635 15 13 15M13 15L8.875 12M13 15L8.875 18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2.51839 20.1752 2.22937 19.3001 2.10149 18M2 12V6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C21.8004 7.62741 21.9482 8.51364 21.9866 10"
+                      stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2 15C8.44365 15 6.55635 15 13 15M13 15L8.875 12M13 15L8.875 18" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </template>
                 <template v-slot:ContextMenuText>{{ $t('Переместить') }}</template>
@@ -402,8 +396,11 @@ function dragLeave(event: any) {
               </TheCloudUIContextMenuItem>
               <TheCloudUIContextMenuItem @click="cloudStore.showAccessSetting = true">
                 <template v-slot:ContextMenuSvg>
-                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 14.5V16.5M7 10.0288C7.47142 10 8.05259 10 8.8 10H15.2C15.9474 10 16.5286 10 17 10.0288M7 10.0288C6.41168 10.0647 5.99429 10.1455 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C18.0057 10.1455 17.5883 10.0647 17 10.0288M7 10.0288V8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V10.0288" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 14.5V16.5M7 10.0288C7.47142 10 8.05259 10 8.8 10H15.2C15.9474 10 16.5286 10 17 10.0288M7 10.0288C6.41168 10.0647 5.99429 10.1455 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C18.0057 10.1455 17.5883 10.0647 17 10.0288M7 10.0288V8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V10.0288"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </template>
                 <template v-slot:ContextMenuText>
@@ -586,19 +583,27 @@ function dragLeave(event: any) {
                 </template>
                 <template v-slot:ContextMenuText>{{ $t('Убрать в корзину') }}</template>
               </TheCloudUIContextMenuItem>
-              <TheCloudUIContextMenuItem @click="elemObject = {...file, type: 'file'}; cloudStore.showObjectElem = true; fileSettingShow = false">
+              <TheCloudUIContextMenuItem
+                @click="elemObject = {...file, type: 'file'}; cloudStore.showObjectElem = true; fileSettingShow = false">
                 <template v-slot:ContextMenuSvg>
-                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2.51839 20.1752 2.22937 19.3001 2.10149 18M2 12V6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C21.8004 7.62741 21.9482 8.51364 21.9866 10" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M2 15C8.44365 15 6.55635 15 13 15M13 15L8.875 12M13 15L8.875 18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2.51839 20.1752 2.22937 19.3001 2.10149 18M2 12V6.94975C2 6.06722 2 5.62595 2.06935 5.25839C2.37464 3.64031 3.64031 2.37464 5.25839 2.06935C5.62595 2 6.06722 2 6.94975 2C7.33642 2 7.52976 2 7.71557 2.01738C8.51665 2.09229 9.27652 2.40704 9.89594 2.92051C10.0396 3.03961 10.1763 3.17633 10.4497 3.44975L11 4C11.8158 4.81578 12.2237 5.22367 12.7121 5.49543C12.9804 5.64471 13.2651 5.7626 13.5604 5.84678C14.0979 6 14.6747 6 15.8284 6H16.2021C18.8345 6 20.1506 6 21.0062 6.76946C21.0849 6.84024 21.1598 6.91514 21.2305 6.99383C21.8004 7.62741 21.9482 8.51364 21.9866 10"
+                      stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2 15C8.44365 15 6.55635 15 13 15M13 15L8.875 12M13 15L8.875 18" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </template>
                 <template v-slot:ContextMenuText>{{ $t('Переместить') }}</template>
               </TheCloudUIContextMenuItem>
               <TheCloudUIContextMenuItem @click="cloudStore.showAccessSetting = true">
                 <template v-slot:ContextMenuSvg>
-                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 14.5V16.5M7 10.0288C7.47142 10 8.05259 10 8.8 10H15.2C15.9474 10 16.5286 10 17 10.0288M7 10.0288C6.41168 10.0647 5.99429 10.1455 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C18.0057 10.1455 17.5883 10.0647 17 10.0288M7 10.0288V8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V10.0288" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 14.5V16.5M7 10.0288C7.47142 10 8.05259 10 8.8 10H15.2C15.9474 10 16.5286 10 17 10.0288M7 10.0288C6.41168 10.0647 5.99429 10.1455 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C18.0057 10.1455 17.5883 10.0647 17 10.0288M7 10.0288V8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V10.0288"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </template>
                 <template v-slot:ContextMenuText>

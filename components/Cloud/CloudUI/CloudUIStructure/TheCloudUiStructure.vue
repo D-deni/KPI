@@ -2,11 +2,11 @@
 import TheInput from "~/components/UI/TheInput.vue";
 import TheButton from "~/components/UI/TheButton.vue";
 import TheTextContent from "~/components/UI/TheTextContent.vue";
-import TheCloudUIBlock from "~/components/Cloud/CloudUI/TheCloudUIBlock.vue";
 import TheModal from "~/components/UI/TheModal.vue";
 import {useCloudStore} from "~/stores/cloud";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
 import TheCloudUIStructureFolder from "~/components/Cloud/CloudUI/CloudUIStructure/TheCloudUIStructureFolder.vue";
+import TheContentBlock from "~/components/UI/TheContentBlock.vue";
 
 const nuxtStore = nuxtStorage
 const {x, y} = useMouse()
@@ -99,7 +99,7 @@ const props = defineProps({
        </div>
      </div>
    </UContextMenu>
-   <TheCloudUIBlock class="max-[840px]:rounded-r-none" :class="{'max-[840px]:shadow-none max-[840px]:border-r-0' : !activeStructure}">
+   <TheContentBlock class="max-[840px]:rounded-r-none h-full" :class="{'max-[840px]:shadow-none max-[840px]:border-r-0' : !activeStructure}">
      <div @click="this.$emit('activeStructures')">
        <div class="absolute bg-gray-300 rounded-l-lg px-2 hidden max-[840px]:block right-0 top-0"
             :class="{'max-[840px]:hidden': activeStructure === false}">
@@ -176,7 +176,7 @@ const props = defineProps({
          </TheCloudUIStructureFolder>
        </div>
      </div>
-   </TheCloudUIBlock>
+   </TheContentBlock>
  </div>
 </template>
 

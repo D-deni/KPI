@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, createVNode as _createVNode, withModifiers as _withModifiers } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport TaskContentCreateElems from \"~/components/Tasks/TaskUI/TaskContentCreateElems.vue\";\r\nimport TheInput from \"~/components/UI/TheInput.vue\";\r\nimport VueDatePicker from \"@vuepic/vue-datepicker\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DepartmentCreate',\n  __ssrInlineRender: true,\n  props: {\r\n  showCreate: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n\r\n},\n  setup(__props) {\n\r\nconst department = useCompanies()\r\nconst props = __props\r\nconst createForm = ref({\r\n  name: '',\r\n  email: '',\r\n  address: '',\r\n})\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_attrs)}>`)\n  _push(_ssrRenderComponent(TheButton, {\n    class: \"w-full mr-auto\",\n    type: \"signIn\",\n    onClick: ($event: any) => (__props.showCreate = true)\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Создать департамент'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Создать департамент')), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  if (__props.showCreate) {\n    _push(_ssrRenderComponent(TheModal, {\n      onShowModal: ($event: any) => (__props.showCreate = !__props.showCreate)\n    }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(_ssrRenderComponent(TheTextContent, null, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Создать департамент'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Создать департамент')), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(`<form${_scopeId}>`)\n          _push(_ssrRenderComponent(TaskContentCreateElems, null, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`<div class=\"w-full\"${_scopeId}>`)\n                _push(_ssrRenderComponent(TheInput, {\n                  type: \"text\",\n                  label: _ctx.$t('Наименование'),\n                  modelValue: _unref(createForm).name,\n                  \"onUpdate:modelValue\": ($event: any) => ((_unref(createForm).name) = $event)\n                }, null, _parent, _scopeId))\n                _push(`</div>`)\n              } else {\n                return [\n                  _createVNode(\"div\", { class: \"w-full\" }, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t('Наименование'),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": ($event: any) => ((_unref(createForm).name) = $event)\n                    }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                  ])\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(`<div class=\"flex justify-center gap-x-10\"${_scopeId}>`)\n          _push(_ssrRenderComponent(TheButton, {\n            class: \"px-10 rounded-full py-2\",\n            t: \"button\",\n            type: \"danger\",\n            onClick: ($event: any) => (__props.showCreate = false)\n          }, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Отменна'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Отменна')), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(_ssrRenderComponent(TheButton, {\n            class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n            t: \"submit\",\n            onClick: ($event: any) => (_unref(department).loadDepartmentList())\n          }, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Создать'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Создать')), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(`</div></form>`)\n        } else {\n          return [\n            _createVNode(TheTextContent, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Создать департамент')), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(\"form\", {\n              onSubmit: _withModifiers(($event: any) => {_unref(department).createDepartment({department: _unref(createForm)}); __props.showCreate = false; _unref(createForm).name = ' ' }, [\"prevent\"])\n            }, [\n              _createVNode(TaskContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createVNode(\"div\", { class: \"w-full\" }, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t('Наименование'),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": ($event: any) => ((_unref(createForm).name) = $event)\n                    }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(\"div\", { class: \"flex justify-center gap-x-10\" }, [\n                _createVNode(TheButton, {\n                  class: \"px-10 rounded-full py-2\",\n                  t: \"button\",\n                  type: \"danger\",\n                  onClick: ($event: any) => (__props.showCreate = false)\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t('Отменна')), 1)\n                  ]),\n                  _: 1\n                }, 8, [\"onClick\"]),\n                _createVNode(TheButton, {\n                  class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n                  t: \"submit\",\n                  onClick: ($event: any) => (_unref(department).loadDepartmentList())\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t('Создать')), 1)\n                  ]),\n                  _: 1\n                }, 8, [\"onClick\"])\n              ])\n            ], 40, [\"onSubmit\"])\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896545171,
-      "end": 1706896545171,
+      "start": 1707126069720,
+      "end": 1707126069720,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, createVNode as _createVNode, withModifiers as _withModifiers } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport TaskContentCreateElems from \"~/components/Tasks/TaskUI/TaskContentCreateElems.vue\";\nimport TheInput from \"~/components/UI/TheInput.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DepartmentCreate\",\n  __ssrInlineRender: true,\n  props: {\n    showCreate: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const department = useCompanies();\n    const props = __props;\n    const createForm = ref({\n      name: \"\",\n      email: \"\",\n      address: \"\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(TheButton, {\n        class: \"w-full mr-auto\",\n        type: \"signIn\",\n        onClick: ($event) => __props.showCreate = true\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Создать департамент\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      if (__props.showCreate) {\n        _push(_ssrRenderComponent(TheModal, {\n          onShowModal: ($event) => __props.showCreate = !__props.showCreate\n        }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(_ssrRenderComponent(TheTextContent, null, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Создать департамент\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<form${_scopeId}>`);\n              _push2(_ssrRenderComponent(TaskContentCreateElems, null, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`<div class=\"w-full\"${_scopeId2}>`);\n                    _push3(_ssrRenderComponent(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Наименование\"),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                    }, null, _parent3, _scopeId2));\n                    _push3(`</div>`);\n                  } else {\n                    return [\n                      _createVNode(\"div\", { class: \"w-full\" }, [\n                        _createVNode(TheInput, {\n                          type: \"text\",\n                          label: _ctx.$t(\"Наименование\"),\n                          modelValue: _unref(createForm).name,\n                          \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                        }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                      ])\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<div class=\"flex justify-center gap-x-10\"${_scopeId}>`);\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 rounded-full py-2\",\n                t: \"button\",\n                type: \"danger\",\n                onClick: ($event) => __props.showCreate = false\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Отменна\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Отменна\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n                t: \"submit\",\n                onClick: ($event) => _unref(department).loadDepartmentList()\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Создать\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`</div></form>`);\n            } else {\n              return [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"form\", {\n                  onSubmit: _withModifiers(($event) => {\n                    _unref(department).createDepartment({ department: _unref(createForm) });\n                    __props.showCreate = false;\n                    _unref(createForm).name = \" \";\n                  }, [\"prevent\"])\n                }, [\n                  _createVNode(TaskContentCreateElems, null, {\n                    default: _withCtx(() => [\n                      _createVNode(\"div\", { class: \"w-full\" }, [\n                        _createVNode(TheInput, {\n                          type: \"text\",\n                          label: _ctx.$t(\"Наименование\"),\n                          modelValue: _unref(createForm).name,\n                          \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                        }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                      ])\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(\"div\", { class: \"flex justify-center gap-x-10\" }, [\n                    _createVNode(TheButton, {\n                      class: \"px-10 rounded-full py-2\",\n                      t: \"button\",\n                      type: \"danger\",\n                      onClick: ($event) => __props.showCreate = false\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Отменна\")), 1)\n                      ]),\n                      _: 1\n                    }, 8, [\"onClick\"]),\n                    _createVNode(TheButton, {\n                      class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n                      t: \"submit\",\n                      onClick: ($event) => _unref(department).loadDepartmentList()\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                      ]),\n                      _: 1\n                    }, 8, [\"onClick\"])\n                  ])\n                ], 40, [\"onSubmit\"])\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896545171,
-      "end": 1706896546353,
+      "start": 1707126069720,
+      "end": 1707126070235,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -91,171 +91,171 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896546353,
-      "end": 1706896546353,
+      "start": 1707126070235,
+      "end": 1707126070235,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896546353,
-      "end": 1706896546353,
+      "start": 1707126070235,
+      "end": 1707126070235,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896546353,
-      "end": 1706896546353,
+      "start": 1707126070235,
+      "end": 1707126070235,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896546353,
-      "end": 1706896546353,
+      "start": 1707126070235,
+      "end": 1707126070236,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546353,
-      "end": 1706896546353,
+      "start": 1707126070236,
+      "end": 1707126070236,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546353,
-      "end": 1706896546353,
+      "start": 1707126070236,
+      "end": 1707126070236,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896546353,
-      "end": 1706896546353,
+      "start": 1707126070236,
+      "end": 1707126070236,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896546353,
-      "end": 1706896546354,
+      "start": 1707126070236,
+      "end": 1707126070236,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070237,
+      "end": 1707126070237,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070237,
+      "end": 1707126070237,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070237,
+      "end": 1707126070237,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070237,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070238,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070238,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070238,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070238,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070238,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070238,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070238,
+      "end": 1707126070238,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070246,
+      "end": 1707126070246,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546354,
-      "end": 1706896546354,
+      "start": 1707126070246,
+      "end": 1707126070246,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546354,
-      "end": 1706896546355,
+      "start": 1707126070246,
+      "end": 1707126070246,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546354,
-      "end": 1706896546355,
+      "start": 1707126070246,
+      "end": 1707126070246,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546355,
-      "end": 1706896546355,
+      "start": 1707126070247,
+      "end": 1707126070247,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546355,
-      "end": 1706896546355,
+      "start": 1707126070247,
+      "end": 1707126070247,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546355,
-      "end": 1706896546355,
+      "start": 1707126070252,
+      "end": 1707126070252,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546355,
-      "end": 1706896546355,
+      "start": 1707126070252,
+      "end": 1707126070252,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, createVNode as _createVNode, withModifiers as _withModifiers } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport TaskContentCreateElems from \"~/components/Tasks/TaskUI/TaskContentCreateElems.vue\";\nimport TheInput from \"~/components/UI/TheInput.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DepartmentCreate\",\n  __ssrInlineRender: true,\n  props: {\n    showCreate: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const department = useCompanies();\n    const props = __props;\n    const createForm = ref({\n      name: \"\",\n      email: \"\",\n      address: \"\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(TheButton, {\n        class: \"w-full mr-auto\",\n        type: \"signIn\",\n        onClick: ($event) => __props.showCreate = true\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Создать департамент\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      if (__props.showCreate) {\n        _push(_ssrRenderComponent(TheModal, {\n          onShowModal: ($event) => __props.showCreate = !__props.showCreate\n        }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(_ssrRenderComponent(TheTextContent, null, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Создать департамент\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<form${_scopeId}>`);\n              _push2(_ssrRenderComponent(TaskContentCreateElems, null, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`<div class=\"w-full\"${_scopeId2}>`);\n                    _push3(_ssrRenderComponent(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Наименование\"),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                    }, null, _parent3, _scopeId2));\n                    _push3(`</div>`);\n                  } else {\n                    return [\n                      _createVNode(\"div\", { class: \"w-full\" }, [\n                        _createVNode(TheInput, {\n                          type: \"text\",\n                          label: _ctx.$t(\"Наименование\"),\n                          modelValue: _unref(createForm).name,\n                          \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                        }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                      ])\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<div class=\"flex justify-center gap-x-10\"${_scopeId}>`);\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 rounded-full py-2\",\n                t: \"button\",\n                type: \"danger\",\n                onClick: ($event) => __props.showCreate = false\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Отменна\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Отменна\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n                t: \"submit\",\n                onClick: ($event) => _unref(department).loadDepartmentList()\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Создать\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`</div></form>`);\n            } else {\n              return [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"form\", {\n                  onSubmit: _withModifiers(($event) => {\n                    _unref(department).createDepartment({ department: _unref(createForm) });\n                    __props.showCreate = false;\n                    _unref(createForm).name = \" \";\n                  }, [\"prevent\"])\n                }, [\n                  _createVNode(TaskContentCreateElems, null, {\n                    default: _withCtx(() => [\n                      _createVNode(\"div\", { class: \"w-full\" }, [\n                        _createVNode(TheInput, {\n                          type: \"text\",\n                          label: _ctx.$t(\"Наименование\"),\n                          modelValue: _unref(createForm).name,\n                          \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                        }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                      ])\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(\"div\", { class: \"flex justify-center gap-x-10\" }, [\n                    _createVNode(TheButton, {\n                      class: \"px-10 rounded-full py-2\",\n                      t: \"button\",\n                      type: \"danger\",\n                      onClick: ($event) => __props.showCreate = false\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Отменна\")), 1)\n                      ]),\n                      _: 1\n                    }, 8, [\"onClick\"]),\n                    _createVNode(TheButton, {\n                      class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n                      t: \"submit\",\n                      onClick: ($event) => _unref(department).loadDepartmentList()\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                      ]),\n                      _: 1\n                    }, 8, [\"onClick\"])\n                  ])\n                ], 40, [\"onSubmit\"])\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896546355,
-      "end": 1706896546358,
+      "start": 1707126070252,
+      "end": 1707126070260,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -269,8 +269,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, createVNode as _createVNode, withModifiers as _withModifiers } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport TaskContentCreateElems from \"~/components/Tasks/TaskUI/TaskContentCreateElems.vue\";\nimport TheInput from \"~/components/UI/TheInput.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DepartmentCreate\",\n  __ssrInlineRender: true,\n  props: {\n    showCreate: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const department = useCompanies();\n    const props = __props;\n    const createForm = ref({\n      name: \"\",\n      email: \"\",\n      address: \"\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(TheButton, {\n        class: \"w-full mr-auto\",\n        type: \"signIn\",\n        onClick: ($event) => __props.showCreate = true\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Создать департамент\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      if (__props.showCreate) {\n        _push(_ssrRenderComponent(TheModal, {\n          onShowModal: ($event) => __props.showCreate = !__props.showCreate\n        }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(_ssrRenderComponent(TheTextContent, null, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Создать департамент\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<form${_scopeId}>`);\n              _push2(_ssrRenderComponent(TaskContentCreateElems, null, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`<div class=\"w-full\"${_scopeId2}>`);\n                    _push3(_ssrRenderComponent(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Наименование\"),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                    }, null, _parent3, _scopeId2));\n                    _push3(`</div>`);\n                  } else {\n                    return [\n                      _createVNode(\"div\", { class: \"w-full\" }, [\n                        _createVNode(TheInput, {\n                          type: \"text\",\n                          label: _ctx.$t(\"Наименование\"),\n                          modelValue: _unref(createForm).name,\n                          \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                        }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                      ])\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<div class=\"flex justify-center gap-x-10\"${_scopeId}>`);\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 rounded-full py-2\",\n                t: \"button\",\n                type: \"danger\",\n                onClick: ($event) => __props.showCreate = false\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Отменна\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Отменна\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n                t: \"submit\",\n                onClick: ($event) => _unref(department).loadDepartmentList()\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Создать\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`</div></form>`);\n            } else {\n              return [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Создать департамент\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"form\", {\n                  onSubmit: _withModifiers(($event) => {\n                    _unref(department).createDepartment({ department: _unref(createForm) });\n                    __props.showCreate = false;\n                    _unref(createForm).name = \" \";\n                  }, [\"prevent\"])\n                }, [\n                  _createVNode(TaskContentCreateElems, null, {\n                    default: _withCtx(() => [\n                      _createVNode(\"div\", { class: \"w-full\" }, [\n                        _createVNode(TheInput, {\n                          type: \"text\",\n                          label: _ctx.$t(\"Наименование\"),\n                          modelValue: _unref(createForm).name,\n                          \"onUpdate:modelValue\": ($event) => _unref(createForm).name = $event\n                        }, null, 8, [\"label\", \"modelValue\", \"onUpdate:modelValue\"])\n                      ])\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(\"div\", { class: \"flex justify-center gap-x-10\" }, [\n                    _createVNode(TheButton, {\n                      class: \"px-10 rounded-full py-2\",\n                      t: \"button\",\n                      type: \"danger\",\n                      onClick: ($event) => __props.showCreate = false\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Отменна\")), 1)\n                      ]),\n                      _: 1\n                    }, 8, [\"onClick\"]),\n                    _createVNode(TheButton, {\n                      class: \"px-10 rounded-full py-2 bg-blueSemiLight\",\n                      t: \"submit\",\n                      onClick: ($event) => _unref(department).loadDepartmentList()\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                      ]),\n                      _: 1\n                    }, 8, [\"onClick\"])\n                  ])\n                ], 40, [\"onSubmit\"])\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896546355,
-      "end": 1706896546358,
+      "start": 1707126070252,
+      "end": 1707126070260,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -283,56 +283,56 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070261,
+      "end": 1707126070261,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896546358,
-      "end": 1706896546358,
+      "start": 1707126070262,
+      "end": 1707126070262,
       "order": "normal"
     }
   ]

@@ -2,7 +2,6 @@
   defineProps({
     to: {
       type: String,
-      required: true
     }
   })
 </script>

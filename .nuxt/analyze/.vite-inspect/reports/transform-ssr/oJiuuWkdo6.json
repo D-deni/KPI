@@ -4,81 +4,81 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup lang=\"ts\">\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport {useChat} from \"~/stores/chat\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useRouter} from \"vue-router\";\r\nimport TheFileInput from \"~/components/UI/TheFileInput.vue\";\r\nimport {Preview} from \"vue-advanced-cropper\";\r\nimport ChatUserCheckbox from \"~/components/Chat/UI/ChatUserCheckbox.vue\";\r\n\r\nconst userCount = ref([])\r\nconst groupName = ref<HTMLElement | null>(null)\r\nconst groupTitle = ref('')\r\nconst uploadFile = ref({})\r\nconst chat = useChat()\r\nconst router = useRouter()\r\nconst currentUser = useAuthStore()\r\nconst setFocus = ()=> {\r\n  nextTick(()=>{\r\n    groupName.value?.focus()\r\n  })\r\n}\r\nonMounted(()=>{\r\n  groupTitle.value.trim()\r\n})\r\n\r\n\r\n</script>\r\n\r\n<template>\r\n  <div >\r\n    <TheButton class=\"mb-2 flex items-center gap-x-4 mx-auto\" type=\"treeBtn\" @click=\"chat.showGroupCreate = true; setFocus()\">\r\n      <svg class=\"fill-gray-600 dark:fill-gray-300\" height=\"20px\" width=\"20px\" version=\"1.1\" id=\"Layer_1\"\r\n           xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 459.863 459.863\" xml:space=\"preserve\"><g><g><g><path d=\"M395.988,193.977c-18.629,24.992-45.641,41.956-77.406,44.25c26.626,31.04,43.84,70.378,47.152,113.55\r\n                c1.243,16.197,0.369,24.083-0.932,30.599c16.064-2.497,30.815-6.128,43.488-10.794c42.626-15.694,51.573-38.891,51.573-55.586\r\n                C459.863,265.521,434.565,220.849,395.988,193.977z\"></path><path d=\"M276.72,199.407c10.642,5.952,22.36,9.093,34.525,9.093c45.83,0,81.115-44.3,81.115-96.677\r\n                c0-52.382-35.29-96.677-81.115-96.677c-18.734,0-36.411,7.436-50.724,21.145c20.03,25.65,31.446,59.072,31.446,94.667\r\n                C291.967,154.544,286.961,178.037,276.72,199.407z\"></path><path d=\"M259.999,226.279c-24.558,31.058-57.739,46.482-91.839,46.482c-36.232,0-68.69-17.206-91.839-46.482\r\n                C30.403,256.333,0,308.217,0,367.076c0,18.127,9.926,43.389,57.213,60.8c29.496,10.861,68.898,16.841,110.947,16.841\r\n                c42.049,0,81.451-5.98,110.947-16.841c47.287-17.411,57.213-42.673,57.213-60.8C336.32,308.217,305.918,256.333,259.999,226.279z\r\n                \"></path><path d=\"M168.16,242.763c53.003,0,93.806-51.234,93.806-111.804c0-60.571-40.808-111.804-93.806-111.804\r\n                c-52.995,0-93.806,51.223-93.806,111.804C74.354,191.541,115.169,242.763,168.16,242.763z\"></path></g></g></g></svg>\r\n      <p class=\"text-sm\">{{ $t('Создать группу') }}</p>\r\n    </TheButton>\r\n    <TheModal @click=\"setFocus()\" v-if=\"chat.showGroupCreate\" @showModal=\"chat.showGroupCreate = false; chat.showGroupCreateChoice = false;\"\r\n              :type=\"'resize'\">\r\n      <div @click=\"setFocus()\" class=\"flex select-none gap-x-6 items-center\">\r\n        <div class=\"relative\" @mouseenter=\"chat.showImageChange = true\" @mouseleave=\"chat.showImageChange = false\">\r\n          <Transition name=\"fade\">\r\n            <TheFileInput :toward=\"chat\"/>\r\n          </Transition>\r\n          <div v-if=\"chat.results.image\">\r\n            <preview class=\"w-[80px] h-[80px] rounded-full\" :image=\"chat.results.image\"\r\n                     :coordinates=\"chat.results.coordinates\"/>\r\n          </div>\r\n\r\n        </div>\r\n        <div>\r\n          <p class=\"text-sm tracking-wider text-semiCyan\">{{ $t('Название группы') }}</p>\r\n          <input ref=\"groupName\" v-model=\"groupTitle\" class=\"bg-transparent border-b-2 border-b-semiCyan !outline-none\" type=\"text\"/>\r\n        </div>\r\n      </div>\r\n      <div @click=\"setFocus()\" class=\"flex select-none text-sm justify-end gap-x-4 \">\r\n        <TheButton type=\"chat\" @click=\"chat.showGroupCreate = false; chat.showGroupCreateChoice = false; chat.isGroup = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {coordinates: null, image: null}\">\r\n          {{ $t('Отмена') }}\r\n        </TheButton>\r\n        <TheButton type=\"chat\" @click=\"chat.showGroupCreate = false; chat.showGroupCreateChoice = true\">\r\n          {{ $t('Далее') }}\r\n        </TheButton>\r\n      </div>\r\n    </TheModal>\r\n    <TheModal :type=\"'resizeSendWindow'\" v-if=\"chat.showGroupCreateChoice\"\r\n              @showModal=\"chat.showGroupCreateChoice = false; chat.showGroupCreate = false\">\r\n      <p class=\"tracking-wider px-4 pt-4\">{{ $t('Добавить участников') }} <span\r\n        class=\"text-sm text-gray-400 ml-2\">{{ userCount.length + '/1000' }}</span></p>\r\n      <div class=\"w-full px-4 relative flex items-center\">\r\n        <div class=\"absolute rotate-90 ml-2\">\r\n          <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n               xmlns=\"http://www.w3.org/2000/svg\">\r\n            <path\r\n              d=\"M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z\"\r\n              stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n          </svg>\r\n        </div>\r\n        <input type=\"text\" class=\"w-full dark:bg-gray-700 outline-none pl-10 h-[50px]\" placeholder=\"Поиск...\"/>\r\n      </div>\r\n        <ChatUserCheckbox v-for=\"item in chat.get_chat_list.results.filter(e=> !e.is_group)\" :item=\"item\"/>\r\n      <div class=\"w-full px-4 h-[50px] flex items-center justify-end text-sm gap-x-4\">\r\n        <TheButton v-if=\"!chat.showSettingChat\" type=\"chat\" @click=\"chat.showGroupCreateChoice = false; chat.showGroupCreate = true; setFocus()\">\r\n          {{ $t('Назад') }}\r\n        </TheButton>\r\n        <TheButton v-else type=\"chat\" @click=\"chat.showGroupCreateChoice = false\">\r\n          {{$t('Отмена')}}\r\n        </TheButton>\r\n        <TheButton type=\"chat\" v-if=\"!chat.showSettingChat\"\r\n                   @click=\"chat.showGroupCreateChoice = false; chat.isGroup = true; chat.createChatUser({users: userCount.filter(e=>e.id).map(e=>e.id), name: groupTitle, photo: chat.fileUpload}).then(res=>{chat.isGroup = false})\">\r\n          {{ $t('Создать') }}\r\n        </TheButton>\r\n        <TheButton v-else type=\"chat\"\r\n                   @click=\"\">\r\n          {{ $t('Добавить') }}\r\n        </TheButton>\r\n      </div>\r\n    </TheModal>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>",
-      "start": 1706896549404,
-      "end": 1706896549641,
+      "start": 1707126071939,
+      "end": 1707126072204,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896549641,
-      "end": 1706896549641,
+      "start": 1707126072204,
+      "end": 1707126072204,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/Chat/ChatGroup/ChatGroupCreate.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/Chat/ChatGroup/ChatGroupCreate.vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/Chat/ChatGroup/ChatGroupCreate.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
-      "start": 1706896549641,
-      "end": 1706896549718,
+      "start": 1707126072204,
+      "end": 1707126072250,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -86,212 +86,212 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896549718,
-      "end": 1706896549718,
+      "start": 1707126072250,
+      "end": 1707126072250,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549718,
-      "end": 1706896549718,
+      "start": 1707126072250,
+      "end": 1707126072250,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549718,
-      "end": 1706896549718,
+      "start": 1707126072250,
+      "end": 1707126072250,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896549718,
-      "end": 1706896549719,
+      "start": 1707126072250,
+      "end": 1707126072250,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896549718,
-      "end": 1706896549719,
+      "start": 1707126072250,
+      "end": 1707126072250,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072250,
+      "end": 1707126072250,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072250,
+      "end": 1707126072250,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072250,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896549719,
-      "end": 1706896549719,
+      "start": 1707126072251,
+      "end": 1707126072251,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896549719,
-      "end": 1706896549720,
+      "start": 1707126072252,
+      "end": 1707126072252,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896549719,
-      "end": 1706896549720,
+      "start": 1707126072252,
+      "end": 1707126072252,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896549720,
-      "end": 1706896549720,
+      "start": 1707126072252,
+      "end": 1707126072252,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896549720,
-      "end": 1706896549720,
+      "start": 1707126072252,
+      "end": 1707126072252,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896549720,
-      "end": 1706896549720,
+      "start": 1707126072253,
+      "end": 1707126072254,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896549720,
-      "end": 1706896549720,
+      "start": 1707126072253,
+      "end": 1707126072254,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896549722,
-      "end": 1706896549722,
+      "start": 1707126072255,
+      "end": 1707126072255,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896549722,
-      "end": 1706896549722,
+      "start": 1707126072255,
+      "end": 1707126072255,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896549722,
-      "end": 1706896549722,
+      "start": 1707126072255,
+      "end": 1707126072255,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896549722,
-      "end": 1706896549722,
+      "start": 1707126072255,
+      "end": 1707126072255,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896549722,
-      "end": 1706896549722,
+      "start": 1707126072255,
+      "end": 1707126072256,
       "order": "normal"
     }
   ]

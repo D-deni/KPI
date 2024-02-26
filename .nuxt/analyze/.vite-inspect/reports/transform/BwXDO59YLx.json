@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.isResponseMessage = exports.isNotificationMessage = exports.isRequestMessage = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType = exports.RequestType0 = exports.AbstractMessageSignature = exports.ParameterStructures = exports.ResponseError = exports.ErrorCodes = void 0;\nconst is = require(\"./is\");\n/**\n * Predefined error codes.\n */\nvar ErrorCodes;\n(function (ErrorCodes) {\n    // Defined by JSON RPC\n    ErrorCodes.ParseError = -32700;\n    ErrorCodes.InvalidRequest = -32600;\n    ErrorCodes.MethodNotFound = -32601;\n    ErrorCodes.InvalidParams = -32602;\n    ErrorCodes.InternalError = -32603;\n    /**\n     * This is the start range of JSON RPC reserved error codes.\n     * It doesn't denote a real error code. No application error codes should\n     * be defined between the start and end range. For backwards\n     * compatibility the `ServerNotInitialized` and the `UnknownErrorCode`\n     * are left in the range.\n     *\n     * @since 3.16.0\n    */\n    ErrorCodes.jsonrpcReservedErrorRangeStart = -32099;\n    /** @deprecated use  jsonrpcReservedErrorRangeStart */\n    ErrorCodes.serverErrorStart = ErrorCodes.jsonrpcReservedErrorRangeStart;\n    ErrorCodes.MessageWriteError = -32099;\n    ErrorCodes.MessageReadError = -32098;\n    ErrorCodes.ServerNotInitialized = -32002;\n    ErrorCodes.UnknownErrorCode = -32001;\n    /**\n     * This is the end range of JSON RPC reserved error codes.\n     * It doesn't denote a real error code.\n     *\n     * @since 3.16.0\n    */\n    ErrorCodes.jsonrpcReservedErrorRangeEnd = -32000;\n    /** @deprecated use  jsonrpcReservedErrorRangeEnd */\n    ErrorCodes.serverErrorEnd = ErrorCodes.jsonrpcReservedErrorRangeEnd;\n})(ErrorCodes = exports.ErrorCodes || (exports.ErrorCodes = {}));\n/**\n * An error object return in a response in case a request\n * has failed.\n */\nclass ResponseError extends Error {\n    constructor(code, message, data) {\n        super(message);\n        this.code = is.number(code) ? code : ErrorCodes.UnknownErrorCode;\n        this.data = data;\n        Object.setPrototypeOf(this, ResponseError.prototype);\n    }\n    toJson() {\n        return {\n            code: this.code,\n            message: this.message,\n            data: this.data,\n        };\n    }\n}\nexports.ResponseError = ResponseError;\nclass ParameterStructures {\n    constructor(kind) {\n        this.kind = kind;\n    }\n    static is(value) {\n        return value === ParameterStructures.auto || value === ParameterStructures.byName || value === ParameterStructures.byPosition;\n    }\n    toString() {\n        return this.kind;\n    }\n}\nexports.ParameterStructures = ParameterStructures;\n/**\n * The parameter structure is automatically inferred on the number of parameters\n * and the parameter type in case of a single param.\n */\nParameterStructures.auto = new ParameterStructures('auto');\n/**\n * Forces `byPosition` parameter structure. This is useful if you have a single\n * parameter which has a literal type.\n */\nParameterStructures.byPosition = new ParameterStructures('byPosition');\n/**\n * Forces `byName` parameter structure. This is only useful when having a single\n * parameter. The library will report errors if used with a different number of\n * parameters.\n */\nParameterStructures.byName = new ParameterStructures('byName');\n/**\n * An abstract implementation of a MessageType.\n */\nclass AbstractMessageSignature {\n    constructor(method, numberOfParams) {\n        this.method = method;\n        this.numberOfParams = numberOfParams;\n    }\n    get parameterStructures() {\n        return ParameterStructures.auto;\n    }\n}\nexports.AbstractMessageSignature = AbstractMessageSignature;\n/**\n * Classes to type request response pairs\n */\nclass RequestType0 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 0);\n    }\n}\nexports.RequestType0 = RequestType0;\nclass RequestType extends AbstractMessageSignature {\n    constructor(method, _parameterStructures = ParameterStructures.auto) {\n        super(method, 1);\n        this._parameterStructures = _parameterStructures;\n    }\n    get parameterStructures() {\n        return this._parameterStructures;\n    }\n}\nexports.RequestType = RequestType;\nclass RequestType1 extends AbstractMessageSignature {\n    constructor(method, _parameterStructures = ParameterStructures.auto) {\n        super(method, 1);\n        this._parameterStructures = _parameterStructures;\n    }\n    get parameterStructures() {\n        return this._parameterStructures;\n    }\n}\nexports.RequestType1 = RequestType1;\nclass RequestType2 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 2);\n    }\n}\nexports.RequestType2 = RequestType2;\nclass RequestType3 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 3);\n    }\n}\nexports.RequestType3 = RequestType3;\nclass RequestType4 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 4);\n    }\n}\nexports.RequestType4 = RequestType4;\nclass RequestType5 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 5);\n    }\n}\nexports.RequestType5 = RequestType5;\nclass RequestType6 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 6);\n    }\n}\nexports.RequestType6 = RequestType6;\nclass RequestType7 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 7);\n    }\n}\nexports.RequestType7 = RequestType7;\nclass RequestType8 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 8);\n    }\n}\nexports.RequestType8 = RequestType8;\nclass RequestType9 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 9);\n    }\n}\nexports.RequestType9 = RequestType9;\nclass NotificationType extends AbstractMessageSignature {\n    constructor(method, _parameterStructures = ParameterStructures.auto) {\n        super(method, 1);\n        this._parameterStructures = _parameterStructures;\n    }\n    get parameterStructures() {\n        return this._parameterStructures;\n    }\n}\nexports.NotificationType = NotificationType;\nclass NotificationType0 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 0);\n    }\n}\nexports.NotificationType0 = NotificationType0;\nclass NotificationType1 extends AbstractMessageSignature {\n    constructor(method, _parameterStructures = ParameterStructures.auto) {\n        super(method, 1);\n        this._parameterStructures = _parameterStructures;\n    }\n    get parameterStructures() {\n        return this._parameterStructures;\n    }\n}\nexports.NotificationType1 = NotificationType1;\nclass NotificationType2 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 2);\n    }\n}\nexports.NotificationType2 = NotificationType2;\nclass NotificationType3 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 3);\n    }\n}\nexports.NotificationType3 = NotificationType3;\nclass NotificationType4 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 4);\n    }\n}\nexports.NotificationType4 = NotificationType4;\nclass NotificationType5 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 5);\n    }\n}\nexports.NotificationType5 = NotificationType5;\nclass NotificationType6 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 6);\n    }\n}\nexports.NotificationType6 = NotificationType6;\nclass NotificationType7 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 7);\n    }\n}\nexports.NotificationType7 = NotificationType7;\nclass NotificationType8 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 8);\n    }\n}\nexports.NotificationType8 = NotificationType8;\nclass NotificationType9 extends AbstractMessageSignature {\n    constructor(method) {\n        super(method, 9);\n    }\n}\nexports.NotificationType9 = NotificationType9;\n/**\n * Tests if the given message is a request message\n */\nfunction isRequestMessage(message) {\n    const candidate = message;\n    return candidate && is.string(candidate.method) && (is.string(candidate.id) || is.number(candidate.id));\n}\nexports.isRequestMessage = isRequestMessage;\n/**\n * Tests if the given message is a notification message\n */\nfunction isNotificationMessage(message) {\n    const candidate = message;\n    return candidate && is.string(candidate.method) && message.id === void 0;\n}\nexports.isNotificationMessage = isNotificationMessage;\n/**\n * Tests if the given message is a response message\n */\nfunction isResponseMessage(message) {\n    const candidate = message;\n    return candidate && (candidate.result !== void 0 || !!candidate.error) && (is.string(candidate.id) || is.number(candidate.id) || candidate.id === null);\n}\nexports.isResponseMessage = isResponseMessage;\n//# sourceMappingURL=messages.js.map",
-      "start": 1706896525391,
-      "end": 1706896525433,
+      "start": 1707126049306,
+      "end": 1707126049463,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525433,
-      "end": 1706896525433,
+      "start": 1707126049464,
+      "end": 1707126049464,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as messages } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messages.js?commonjs-exports\";\nimport { __require as require$$0 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/is.js?commonjs-wrapped\";\n\nvar hasRequiredMessages;\n\nfunction requireMessages () {\n\tif (hasRequiredMessages) return messages;\n\thasRequiredMessages = 1;\n\t(function (exports) {\n\t\t\"use strict\";\n\t\t/* --------------------------------------------------------------------------------------------\n\t\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t\t * ------------------------------------------------------------------------------------------ */\n\t\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\t\texports.isResponseMessage = exports.isNotificationMessage = exports.isRequestMessage = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType = exports.RequestType0 = exports.AbstractMessageSignature = exports.ParameterStructures = exports.ResponseError = exports.ErrorCodes = void 0;\n\t\tconst is = require$$0();\n\t\t/**\n\t\t * Predefined error codes.\n\t\t */\n\t\tvar ErrorCodes;\n\t\t(function (ErrorCodes) {\n\t\t    // Defined by JSON RPC\n\t\t    ErrorCodes.ParseError = -32700;\n\t\t    ErrorCodes.InvalidRequest = -32600;\n\t\t    ErrorCodes.MethodNotFound = -32601;\n\t\t    ErrorCodes.InvalidParams = -32602;\n\t\t    ErrorCodes.InternalError = -32603;\n\t\t    /**\n\t\t     * This is the start range of JSON RPC reserved error codes.\n\t\t     * It doesn't denote a real error code. No application error codes should\n\t\t     * be defined between the start and end range. For backwards\n\t\t     * compatibility the `ServerNotInitialized` and the `UnknownErrorCode`\n\t\t     * are left in the range.\n\t\t     *\n\t\t     * @since 3.16.0\n\t\t    */\n\t\t    ErrorCodes.jsonrpcReservedErrorRangeStart = -32099;\n\t\t    /** @deprecated use  jsonrpcReservedErrorRangeStart */\n\t\t    ErrorCodes.serverErrorStart = ErrorCodes.jsonrpcReservedErrorRangeStart;\n\t\t    ErrorCodes.MessageWriteError = -32099;\n\t\t    ErrorCodes.MessageReadError = -32098;\n\t\t    ErrorCodes.ServerNotInitialized = -32002;\n\t\t    ErrorCodes.UnknownErrorCode = -32001;\n\t\t    /**\n\t\t     * This is the end range of JSON RPC reserved error codes.\n\t\t     * It doesn't denote a real error code.\n\t\t     *\n\t\t     * @since 3.16.0\n\t\t    */\n\t\t    ErrorCodes.jsonrpcReservedErrorRangeEnd = -32000;\n\t\t    /** @deprecated use  jsonrpcReservedErrorRangeEnd */\n\t\t    ErrorCodes.serverErrorEnd = ErrorCodes.jsonrpcReservedErrorRangeEnd;\n\t\t})(ErrorCodes = exports.ErrorCodes || (exports.ErrorCodes = {}));\n\t\t/**\n\t\t * An error object return in a response in case a request\n\t\t * has failed.\n\t\t */\n\t\tclass ResponseError extends Error {\n\t\t    constructor(code, message, data) {\n\t\t        super(message);\n\t\t        this.code = is.number(code) ? code : ErrorCodes.UnknownErrorCode;\n\t\t        this.data = data;\n\t\t        Object.setPrototypeOf(this, ResponseError.prototype);\n\t\t    }\n\t\t    toJson() {\n\t\t        return {\n\t\t            code: this.code,\n\t\t            message: this.message,\n\t\t            data: this.data,\n\t\t        };\n\t\t    }\n\t\t}\n\t\texports.ResponseError = ResponseError;\n\t\tclass ParameterStructures {\n\t\t    constructor(kind) {\n\t\t        this.kind = kind;\n\t\t    }\n\t\t    static is(value) {\n\t\t        return value === ParameterStructures.auto || value === ParameterStructures.byName || value === ParameterStructures.byPosition;\n\t\t    }\n\t\t    toString() {\n\t\t        return this.kind;\n\t\t    }\n\t\t}\n\t\texports.ParameterStructures = ParameterStructures;\n\t\t/**\n\t\t * The parameter structure is automatically inferred on the number of parameters\n\t\t * and the parameter type in case of a single param.\n\t\t */\n\t\tParameterStructures.auto = new ParameterStructures('auto');\n\t\t/**\n\t\t * Forces `byPosition` parameter structure. This is useful if you have a single\n\t\t * parameter which has a literal type.\n\t\t */\n\t\tParameterStructures.byPosition = new ParameterStructures('byPosition');\n\t\t/**\n\t\t * Forces `byName` parameter structure. This is only useful when having a single\n\t\t * parameter. The library will report errors if used with a different number of\n\t\t * parameters.\n\t\t */\n\t\tParameterStructures.byName = new ParameterStructures('byName');\n\t\t/**\n\t\t * An abstract implementation of a MessageType.\n\t\t */\n\t\tclass AbstractMessageSignature {\n\t\t    constructor(method, numberOfParams) {\n\t\t        this.method = method;\n\t\t        this.numberOfParams = numberOfParams;\n\t\t    }\n\t\t    get parameterStructures() {\n\t\t        return ParameterStructures.auto;\n\t\t    }\n\t\t}\n\t\texports.AbstractMessageSignature = AbstractMessageSignature;\n\t\t/**\n\t\t * Classes to type request response pairs\n\t\t */\n\t\tclass RequestType0 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 0);\n\t\t    }\n\t\t}\n\t\texports.RequestType0 = RequestType0;\n\t\tclass RequestType extends AbstractMessageSignature {\n\t\t    constructor(method, _parameterStructures = ParameterStructures.auto) {\n\t\t        super(method, 1);\n\t\t        this._parameterStructures = _parameterStructures;\n\t\t    }\n\t\t    get parameterStructures() {\n\t\t        return this._parameterStructures;\n\t\t    }\n\t\t}\n\t\texports.RequestType = RequestType;\n\t\tclass RequestType1 extends AbstractMessageSignature {\n\t\t    constructor(method, _parameterStructures = ParameterStructures.auto) {\n\t\t        super(method, 1);\n\t\t        this._parameterStructures = _parameterStructures;\n\t\t    }\n\t\t    get parameterStructures() {\n\t\t        return this._parameterStructures;\n\t\t    }\n\t\t}\n\t\texports.RequestType1 = RequestType1;\n\t\tclass RequestType2 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 2);\n\t\t    }\n\t\t}\n\t\texports.RequestType2 = RequestType2;\n\t\tclass RequestType3 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 3);\n\t\t    }\n\t\t}\n\t\texports.RequestType3 = RequestType3;\n\t\tclass RequestType4 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 4);\n\t\t    }\n\t\t}\n\t\texports.RequestType4 = RequestType4;\n\t\tclass RequestType5 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 5);\n\t\t    }\n\t\t}\n\t\texports.RequestType5 = RequestType5;\n\t\tclass RequestType6 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 6);\n\t\t    }\n\t\t}\n\t\texports.RequestType6 = RequestType6;\n\t\tclass RequestType7 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 7);\n\t\t    }\n\t\t}\n\t\texports.RequestType7 = RequestType7;\n\t\tclass RequestType8 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 8);\n\t\t    }\n\t\t}\n\t\texports.RequestType8 = RequestType8;\n\t\tclass RequestType9 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 9);\n\t\t    }\n\t\t}\n\t\texports.RequestType9 = RequestType9;\n\t\tclass NotificationType extends AbstractMessageSignature {\n\t\t    constructor(method, _parameterStructures = ParameterStructures.auto) {\n\t\t        super(method, 1);\n\t\t        this._parameterStructures = _parameterStructures;\n\t\t    }\n\t\t    get parameterStructures() {\n\t\t        return this._parameterStructures;\n\t\t    }\n\t\t}\n\t\texports.NotificationType = NotificationType;\n\t\tclass NotificationType0 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 0);\n\t\t    }\n\t\t}\n\t\texports.NotificationType0 = NotificationType0;\n\t\tclass NotificationType1 extends AbstractMessageSignature {\n\t\t    constructor(method, _parameterStructures = ParameterStructures.auto) {\n\t\t        super(method, 1);\n\t\t        this._parameterStructures = _parameterStructures;\n\t\t    }\n\t\t    get parameterStructures() {\n\t\t        return this._parameterStructures;\n\t\t    }\n\t\t}\n\t\texports.NotificationType1 = NotificationType1;\n\t\tclass NotificationType2 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 2);\n\t\t    }\n\t\t}\n\t\texports.NotificationType2 = NotificationType2;\n\t\tclass NotificationType3 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 3);\n\t\t    }\n\t\t}\n\t\texports.NotificationType3 = NotificationType3;\n\t\tclass NotificationType4 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 4);\n\t\t    }\n\t\t}\n\t\texports.NotificationType4 = NotificationType4;\n\t\tclass NotificationType5 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 5);\n\t\t    }\n\t\t}\n\t\texports.NotificationType5 = NotificationType5;\n\t\tclass NotificationType6 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 6);\n\t\t    }\n\t\t}\n\t\texports.NotificationType6 = NotificationType6;\n\t\tclass NotificationType7 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 7);\n\t\t    }\n\t\t}\n\t\texports.NotificationType7 = NotificationType7;\n\t\tclass NotificationType8 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 8);\n\t\t    }\n\t\t}\n\t\texports.NotificationType8 = NotificationType8;\n\t\tclass NotificationType9 extends AbstractMessageSignature {\n\t\t    constructor(method) {\n\t\t        super(method, 9);\n\t\t    }\n\t\t}\n\t\texports.NotificationType9 = NotificationType9;\n\t\t/**\n\t\t * Tests if the given message is a request message\n\t\t */\n\t\tfunction isRequestMessage(message) {\n\t\t    const candidate = message;\n\t\t    return candidate && is.string(candidate.method) && (is.string(candidate.id) || is.number(candidate.id));\n\t\t}\n\t\texports.isRequestMessage = isRequestMessage;\n\t\t/**\n\t\t * Tests if the given message is a notification message\n\t\t */\n\t\tfunction isNotificationMessage(message) {\n\t\t    const candidate = message;\n\t\t    return candidate && is.string(candidate.method) && message.id === void 0;\n\t\t}\n\t\texports.isNotificationMessage = isNotificationMessage;\n\t\t/**\n\t\t * Tests if the given message is a response message\n\t\t */\n\t\tfunction isResponseMessage(message) {\n\t\t    const candidate = message;\n\t\t    return candidate && (candidate.result !== void 0 || !!candidate.error) && (is.string(candidate.id) || is.number(candidate.id) || candidate.id === null);\n\t\t}\n\t\texports.isResponseMessage = isResponseMessage;\n\t\t//# sourceMappingURL=messages.js.map \n\t} (messages));\n\treturn messages;\n}\n\nexport { requireMessages as __require };",
-      "start": 1706896525433,
-      "end": 1706896525481,
+      "start": 1707126049464,
+      "end": 1707126049655,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049656,
+      "end": 1707126049656,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049656,
+      "end": 1707126049656,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049656,
+      "end": 1707126049656,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049656,
+      "end": 1707126049656,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049656,
+      "end": 1707126049656,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049656,
+      "end": 1707126049656,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525482,
-      "end": 1706896525482,
+      "start": 1707126049657,
+      "end": 1707126049657,
       "order": "normal"
     }
   ]

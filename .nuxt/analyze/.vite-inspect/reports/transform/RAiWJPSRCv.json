@@ -4,230 +4,230 @@
     {
       "name": "vite:load-fallback",
       "result": "import escapeStringRegexp from 'escape-string-regexp';\nimport transliterate from '@sindresorhus/transliterate';\nimport builtinOverridableReplacements from './overridable-replacements.js';\n\nconst decamelize = string => {\n\treturn string\n\t\t// Separate capitalized words.\n\t\t.replace(/([A-Z]{2,})(\\d+)/g, '$1 $2')\n\t\t.replace(/([a-z\\d]+)([A-Z]{2,})/g, '$1 $2')\n\n\t\t.replace(/([a-z\\d])([A-Z])/g, '$1 $2')\n\t\t// `[a-rt-z]` matches all lowercase characters except `s`.\n\t\t// This avoids matching plural acronyms like `APIs`.\n\t\t.replace(/([A-Z]+)([A-Z][a-rt-z\\d]+)/g, '$1 $2');\n};\n\nconst removeMootSeparators = (string, separator) => {\n\tconst escapedSeparator = escapeStringRegexp(separator);\n\n\treturn string\n\t\t.replace(new RegExp(`${escapedSeparator}{2,}`, 'g'), separator)\n\t\t.replace(new RegExp(`^${escapedSeparator}|${escapedSeparator}$`, 'g'), '');\n};\n\nconst buildPatternSlug = options => {\n\tlet negationSetPattern = 'a-z\\\\d';\n\tnegationSetPattern += options.lowercase ? '' : 'A-Z';\n\n\tif (options.preserveCharacters.length > 0) {\n\t\tfor (const character of options.preserveCharacters) {\n\t\t\tif (character === options.separator) {\n\t\t\t\tthrow new Error(`The separator character \\`${options.separator}\\` cannot be included in preserved characters: ${options.preserveCharacters}`);\n\t\t\t}\n\n\t\t\tnegationSetPattern += escapeStringRegexp(character);\n\t\t}\n\t}\n\n\treturn new RegExp(`[^${negationSetPattern}]+`, 'g');\n};\n\nexport default function slugify(string, options) {\n\tif (typeof string !== 'string') {\n\t\tthrow new TypeError(`Expected a string, got \\`${typeof string}\\``);\n\t}\n\n\toptions = {\n\t\tseparator: '-',\n\t\tlowercase: true,\n\t\tdecamelize: true,\n\t\tcustomReplacements: [],\n\t\tpreserveLeadingUnderscore: false,\n\t\tpreserveTrailingDash: false,\n\t\tpreserveCharacters: [],\n\t\t...options\n\t};\n\n\tconst shouldPrependUnderscore = options.preserveLeadingUnderscore && string.startsWith('_');\n\tconst shouldAppendDash = options.preserveTrailingDash && string.endsWith('-');\n\n\tconst customReplacements = new Map([\n\t\t...builtinOverridableReplacements,\n\t\t...options.customReplacements\n\t]);\n\n\tstring = transliterate(string, {customReplacements});\n\n\tif (options.decamelize) {\n\t\tstring = decamelize(string);\n\t}\n\n\tconst patternSlug = buildPatternSlug(options);\n\n\tif (options.lowercase) {\n\t\tstring = string.toLowerCase();\n\t}\n\n\t// Detect contractions/possessives by looking for any word followed by a `'t`\n\t// or `'s` in isolation and then remove it.\n\tstring = string.replace(/([a-zA-Z\\d]+)'([ts])(\\s|$)/g, '$1$2$3');\n\n\tstring = string.replace(patternSlug, options.separator);\n\tstring = string.replace(/\\\\/g, '');\n\n\tif (options.separator) {\n\t\tstring = removeMootSeparators(string, options.separator);\n\t}\n\n\tif (shouldPrependUnderscore) {\n\t\tstring = `_${string}`;\n\t}\n\n\tif (shouldAppendDash) {\n\t\tstring = `${string}-`;\n\t}\n\n\treturn string;\n}\n\nexport function slugifyWithCounter() {\n\tconst occurrences = new Map();\n\n\tconst countable = (string, options) => {\n\t\tstring = slugify(string, options);\n\n\t\tif (!string) {\n\t\t\treturn '';\n\t\t}\n\n\t\tconst stringLower = string.toLowerCase();\n\t\tconst numberless = occurrences.get(stringLower.replace(/(?:-\\d+?)+?$/, '')) || 0;\n\t\tconst counter = occurrences.get(stringLower);\n\t\toccurrences.set(stringLower, typeof counter === 'number' ? counter + 1 : 1);\n\t\tconst newCounter = occurrences.get(stringLower) || 2;\n\t\tif (newCounter >= 2 || numberless > 2) {\n\t\t\tstring = `${string}-${newCounter}`;\n\t\t}\n\n\t\treturn string;\n\t};\n\n\tcountable.reset = () => {\n\t\toccurrences.clear();\n\t};\n\n\treturn countable;\n}\n",
-      "start": 1706896517035,
-      "end": 1706896518858,
+      "start": 1707126036046,
+      "end": 1707126036206,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896518858,
-      "end": 1706896518858,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896518858,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036206,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036206,
+      "end": 1707126036207,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896518859,
-      "end": 1706896518859,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896518859,
-      "end": 1706896518860,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896518860,
-      "end": 1706896518860,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896518860,
-      "end": 1706896518860,
+      "start": 1707126036207,
+      "end": 1707126036207,
       "order": "normal"
     }
   ]

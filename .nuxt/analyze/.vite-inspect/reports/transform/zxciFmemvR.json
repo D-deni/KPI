@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Emitter = exports.Event = void 0;\nconst ral_1 = require(\"./ral\");\nvar Event;\n(function (Event) {\n    const _disposable = { dispose() { } };\n    Event.None = function () { return _disposable; };\n})(Event = exports.Event || (exports.Event = {}));\nclass CallbackList {\n    add(callback, context = null, bucket) {\n        if (!this._callbacks) {\n            this._callbacks = [];\n            this._contexts = [];\n        }\n        this._callbacks.push(callback);\n        this._contexts.push(context);\n        if (Array.isArray(bucket)) {\n            bucket.push({ dispose: () => this.remove(callback, context) });\n        }\n    }\n    remove(callback, context = null) {\n        if (!this._callbacks) {\n            return;\n        }\n        let foundCallbackWithDifferentContext = false;\n        for (let i = 0, len = this._callbacks.length; i < len; i++) {\n            if (this._callbacks[i] === callback) {\n                if (this._contexts[i] === context) {\n                    // callback & context match => remove it\n                    this._callbacks.splice(i, 1);\n                    this._contexts.splice(i, 1);\n                    return;\n                }\n                else {\n                    foundCallbackWithDifferentContext = true;\n                }\n            }\n        }\n        if (foundCallbackWithDifferentContext) {\n            throw new Error('When adding a listener with a context, you should remove it with the same context');\n        }\n    }\n    invoke(...args) {\n        if (!this._callbacks) {\n            return [];\n        }\n        const ret = [], callbacks = this._callbacks.slice(0), contexts = this._contexts.slice(0);\n        for (let i = 0, len = callbacks.length; i < len; i++) {\n            try {\n                ret.push(callbacks[i].apply(contexts[i], args));\n            }\n            catch (e) {\n                // eslint-disable-next-line no-console\n                ral_1.default().console.error(e);\n            }\n        }\n        return ret;\n    }\n    isEmpty() {\n        return !this._callbacks || this._callbacks.length === 0;\n    }\n    dispose() {\n        this._callbacks = undefined;\n        this._contexts = undefined;\n    }\n}\nclass Emitter {\n    constructor(_options) {\n        this._options = _options;\n    }\n    /**\n     * For the public to allow to subscribe\n     * to events from this Emitter\n     */\n    get event() {\n        if (!this._event) {\n            this._event = (listener, thisArgs, disposables) => {\n                if (!this._callbacks) {\n                    this._callbacks = new CallbackList();\n                }\n                if (this._options && this._options.onFirstListenerAdd && this._callbacks.isEmpty()) {\n                    this._options.onFirstListenerAdd(this);\n                }\n                this._callbacks.add(listener, thisArgs);\n                const result = {\n                    dispose: () => {\n                        if (!this._callbacks) {\n                            // disposable is disposed after emitter is disposed.\n                            return;\n                        }\n                        this._callbacks.remove(listener, thisArgs);\n                        result.dispose = Emitter._noop;\n                        if (this._options && this._options.onLastListenerRemove && this._callbacks.isEmpty()) {\n                            this._options.onLastListenerRemove(this);\n                        }\n                    }\n                };\n                if (Array.isArray(disposables)) {\n                    disposables.push(result);\n                }\n                return result;\n            };\n        }\n        return this._event;\n    }\n    /**\n     * To be kept private to fire an event to\n     * subscribers\n     */\n    fire(event) {\n        if (this._callbacks) {\n            this._callbacks.invoke.call(this._callbacks, event);\n        }\n    }\n    dispose() {\n        if (this._callbacks) {\n            this._callbacks.dispose();\n            this._callbacks = undefined;\n        }\n    }\n}\nexports.Emitter = Emitter;\nEmitter._noop = function () { };\n//# sourceMappingURL=events.js.map",
-      "start": 1706896525389,
-      "end": 1706896525428,
+      "start": 1707126049367,
+      "end": 1707126049479,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525428,
-      "end": 1706896525428,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525428,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525429,
-      "end": 1706896525429,
+      "start": 1707126049479,
+      "end": 1707126049479,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as events } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/events.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/ral.js?commonjs-proxy\";\n\n(function (exports) {\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.Emitter = exports.Event = void 0;\n\tconst ral_1 = require$$0;\n\tvar Event;\n\t(function (Event) {\n\t    const _disposable = { dispose() { } };\n\t    Event.None = function () { return _disposable; };\n\t})(Event = exports.Event || (exports.Event = {}));\n\tclass CallbackList {\n\t    add(callback, context = null, bucket) {\n\t        if (!this._callbacks) {\n\t            this._callbacks = [];\n\t            this._contexts = [];\n\t        }\n\t        this._callbacks.push(callback);\n\t        this._contexts.push(context);\n\t        if (Array.isArray(bucket)) {\n\t            bucket.push({ dispose: () => this.remove(callback, context) });\n\t        }\n\t    }\n\t    remove(callback, context = null) {\n\t        if (!this._callbacks) {\n\t            return;\n\t        }\n\t        let foundCallbackWithDifferentContext = false;\n\t        for (let i = 0, len = this._callbacks.length; i < len; i++) {\n\t            if (this._callbacks[i] === callback) {\n\t                if (this._contexts[i] === context) {\n\t                    // callback & context match => remove it\n\t                    this._callbacks.splice(i, 1);\n\t                    this._contexts.splice(i, 1);\n\t                    return;\n\t                }\n\t                else {\n\t                    foundCallbackWithDifferentContext = true;\n\t                }\n\t            }\n\t        }\n\t        if (foundCallbackWithDifferentContext) {\n\t            throw new Error('When adding a listener with a context, you should remove it with the same context');\n\t        }\n\t    }\n\t    invoke(...args) {\n\t        if (!this._callbacks) {\n\t            return [];\n\t        }\n\t        const ret = [], callbacks = this._callbacks.slice(0), contexts = this._contexts.slice(0);\n\t        for (let i = 0, len = callbacks.length; i < len; i++) {\n\t            try {\n\t                ret.push(callbacks[i].apply(contexts[i], args));\n\t            }\n\t            catch (e) {\n\t                // eslint-disable-next-line no-console\n\t                ral_1.default().console.error(e);\n\t            }\n\t        }\n\t        return ret;\n\t    }\n\t    isEmpty() {\n\t        return !this._callbacks || this._callbacks.length === 0;\n\t    }\n\t    dispose() {\n\t        this._callbacks = undefined;\n\t        this._contexts = undefined;\n\t    }\n\t}\n\tclass Emitter {\n\t    constructor(_options) {\n\t        this._options = _options;\n\t    }\n\t    /**\n\t     * For the public to allow to subscribe\n\t     * to events from this Emitter\n\t     */\n\t    get event() {\n\t        if (!this._event) {\n\t            this._event = (listener, thisArgs, disposables) => {\n\t                if (!this._callbacks) {\n\t                    this._callbacks = new CallbackList();\n\t                }\n\t                if (this._options && this._options.onFirstListenerAdd && this._callbacks.isEmpty()) {\n\t                    this._options.onFirstListenerAdd(this);\n\t                }\n\t                this._callbacks.add(listener, thisArgs);\n\t                const result = {\n\t                    dispose: () => {\n\t                        if (!this._callbacks) {\n\t                            // disposable is disposed after emitter is disposed.\n\t                            return;\n\t                        }\n\t                        this._callbacks.remove(listener, thisArgs);\n\t                        result.dispose = Emitter._noop;\n\t                        if (this._options && this._options.onLastListenerRemove && this._callbacks.isEmpty()) {\n\t                            this._options.onLastListenerRemove(this);\n\t                        }\n\t                    }\n\t                };\n\t                if (Array.isArray(disposables)) {\n\t                    disposables.push(result);\n\t                }\n\t                return result;\n\t            };\n\t        }\n\t        return this._event;\n\t    }\n\t    /**\n\t     * To be kept private to fire an event to\n\t     * subscribers\n\t     */\n\t    fire(event) {\n\t        if (this._callbacks) {\n\t            this._callbacks.invoke.call(this._callbacks, event);\n\t        }\n\t    }\n\t    dispose() {\n\t        if (this._callbacks) {\n\t            this._callbacks.dispose();\n\t            this._callbacks = undefined;\n\t        }\n\t    }\n\t}\n\texports.Emitter = Emitter;\n\tEmitter._noop = function () { };\n\t//# sourceMappingURL=events.js.map \n} (events));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(events);\nexport { events as __moduleExports };",
-      "start": 1706896525429,
-      "end": 1706896525431,
+      "start": 1707126049479,
+      "end": 1707126049516,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525431,
-      "end": 1706896525431,
+      "start": 1707126049516,
+      "end": 1707126049516,
       "order": "normal"
     }
   ]

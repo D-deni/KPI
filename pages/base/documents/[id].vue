@@ -48,6 +48,9 @@ watchSyncEffect(()=>{
           {{ documentStore.documentItem.title }}
         </TheBreadcrumbs>
       </div>
+      <div class="mt-4">
+        <UMeter min="0" max="100" indicator></UMeter>
+      </div>
       <DocumentItemInfo :item="documentStore.documentItem"/>
     </TheContentBlock>
     <TheContentBlock class="w-3/12">

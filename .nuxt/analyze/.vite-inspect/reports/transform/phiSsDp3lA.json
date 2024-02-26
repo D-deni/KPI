@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, normalizeClass as _normalizeClass, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createBlock as _createBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"dark:stroke-white stroke-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z\",\n    \"stroke-width\": \"2\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1)\nconst _hoisted_3 = [\n  _hoisted_2\n]\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"dark:fill-white fill-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", { d: \"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\" }),\n  /*#__PURE__*/_createElementVNode(\"path\", { d: \"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\" }),\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    \"fill-rule\": \"evenodd\",\n    \"clip-rule\": \"evenodd\",\n    d: \"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"\n  })\n], -1)\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"dark:stroke-white stroke-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"circle\", {\n    opacity: \"0.5\",\n    cx: \"12\",\n    cy: \"9\",\n    r: \"3\",\n    \"stroke-width\": \"1\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"circle\", {\n    cx: \"12\",\n    cy: \"12\",\n    r: \"10\",\n    \"stroke-width\": \"1\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    opacity: \"0.5\",\n    d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n    \"stroke-width\": \"1\",\n    \"stroke-linecap\": \"round\"\n  })\n], -1)\nconst _hoisted_6 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"dark:stroke-white stroke-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"circle\", {\n    opacity: \"0.5\",\n    cx: \"12\",\n    cy: \"9\",\n    r: \"3\",\n    \"stroke-width\": \"1\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"circle\", {\n    cx: \"12\",\n    cy: \"12\",\n    r: \"10\",\n    \"stroke-width\": \"1\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    opacity: \"0.5\",\n    d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n    \"stroke-width\": \"1\",\n    \"stroke-linecap\": \"round\"\n  })\n], -1)\n\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatChangeWindowElem from \"~/components/Chat/UI/ChatChangeWindowElem.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatChangeWindow',\n  setup(__props) {\n\r\nconst chat = useChat()\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", {\n      onClick: _cache[0] || (_cache[0] = _withModifiers(($event: any) => (_unref(chat).showChangeWindowChat = !_unref(chat).showChangeWindowChat), [\"stop\"])),\n      class: _normalizeClass([\"p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200\", {'dark:bg-gray-500 bg-gray-200' : _unref(chat).showChangeWindowChat}])\n    }, _hoisted_3, 2),\n    _createVNode(_Transition, { name: \"fade\" }, {\n      default: _withCtx(() => [\n        (_unref(chat).showChangeWindowChat)\n          ? (_openBlock(), _createElementBlock(\"div\", {\n              key: 0,\n              onClick: _cache[4] || (_cache[4] = _withModifiers(($event: any) => (_unref(chat).showChangeWindowChat = false), [\"stop\"])),\n              class: \"absolute top-14 right-8 z-50 dark:bg-gray-600 bg-gray-200 border border-gray-300 dark:border dark:border-gray-500\"\n            }, [\n              (_unref(chat).get_user_chat.is_group)\n                ? (_openBlock(), _createBlock(ChatChangeWindowElem, {\n                    key: 0,\n                    onClick: _cache[1] || (_cache[1] = ($event: any) => (_unref(chat).showChatInfo = true))\n                  }, {\n                    chatWindowSettingContentSvg: _withCtx(() => [\n                      _hoisted_4\n                    ]),\n                    chatWindowSettingContentText: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Информация о группе')), 1)\n                    ]),\n                    _: 1\n                  }))\n                : (_openBlock(), _createBlock(ChatChangeWindowElem, {\n                    key: 1,\n                    onClick: _cache[2] || (_cache[2] = ($event: any) => (_unref(chat).showChatInfo = true))\n                  }, {\n                    chatWindowSettingContentSvg: _withCtx(() => [\n                      _hoisted_5\n                    ]),\n                    chatWindowSettingContentText: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Показать профиль')), 1)\n                    ]),\n                    _: 1\n                  })),\n              (_unref(chat).get_user_chat.is_group)\n                ? (_openBlock(), _createBlock(ChatChangeWindowElem, {\n                    key: 2,\n                    onClick: _cache[3] || (_cache[3] = ($event: any) => {_unref(chat).showChatChangeInfoModal = true; _unref(chat).updateChatName = _unref(chat).userChat.name})\n                  }, {\n                    chatWindowSettingContentSvg: _withCtx(() => [\n                      _hoisted_6\n                    ]),\n                    chatWindowSettingContentText: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Управление группой')), 1)\n                    ]),\n                    _: 1\n                  }))\n                : _createCommentVNode(\"\", true)\n            ]))\n          : _createCommentVNode(\"\", true)\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n})",
-      "start": 1706896520888,
-      "end": 1706896520888
+      "start": 1707126040003,
+      "end": 1707126040003
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896520888,
-      "end": 1706896520888,
+      "start": 1707126040003,
+      "end": 1707126040003,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896520889,
-      "end": 1706896520889,
+      "start": 1707126040003,
+      "end": 1707126040003,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896520889,
-      "end": 1706896520889,
+      "start": 1707126040003,
+      "end": 1707126040003,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896520889,
-      "end": 1706896520889,
+      "start": 1707126040003,
+      "end": 1707126040003,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896520889,
-      "end": 1706896520889,
+      "start": 1707126040003,
+      "end": 1707126040003,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, normalizeClass as _normalizeClass, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createBlock as _createBlock, createCommentVNode as _createCommentVNode, Transition as _Transition, createVNode as _createVNode } from \"vue\";\nconst _hoisted_1 = { class: \"\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"dark:stroke-white stroke-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z\",\n    \"stroke-width\": \"2\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1);\nconst _hoisted_3 = [\n  _hoisted_2\n];\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"dark:fill-white fill-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", { d: \"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\" }),\n  /* @__PURE__ */ _createElementVNode(\"path\", { d: \"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\" }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    \"fill-rule\": \"evenodd\",\n    \"clip-rule\": \"evenodd\",\n    d: \"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\"\n  })\n], -1);\nconst _hoisted_5 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"dark:stroke-white stroke-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"circle\", {\n    opacity: \"0.5\",\n    cx: \"12\",\n    cy: \"9\",\n    r: \"3\",\n    \"stroke-width\": \"1\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"circle\", {\n    cx: \"12\",\n    cy: \"12\",\n    r: \"10\",\n    \"stroke-width\": \"1\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    opacity: \"0.5\",\n    d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n    \"stroke-width\": \"1\",\n    \"stroke-linecap\": \"round\"\n  })\n], -1);\nconst _hoisted_6 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"dark:stroke-white stroke-black\",\n  width: \"25px\",\n  height: \"25px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"circle\", {\n    opacity: \"0.5\",\n    cx: \"12\",\n    cy: \"9\",\n    r: \"3\",\n    \"stroke-width\": \"1\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"circle\", {\n    cx: \"12\",\n    cy: \"12\",\n    r: \"10\",\n    \"stroke-width\": \"1\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    opacity: \"0.5\",\n    d: \"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\",\n    \"stroke-width\": \"1\",\n    \"stroke-linecap\": \"round\"\n  })\n], -1);\nimport { useChat } from \"~/stores/chat\";\nimport ChatChangeWindowElem from \"~/components/Chat/UI/ChatChangeWindowElem.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatChangeWindow\",\n  setup(__props) {\n    const chat = useChat();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          onClick: _cache[0] || (_cache[0] = _withModifiers(($event) => _unref(chat).showChangeWindowChat = !_unref(chat).showChangeWindowChat, [\"stop\"])),\n          class: _normalizeClass([\"p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200\", { \"dark:bg-gray-500 bg-gray-200\": _unref(chat).showChangeWindowChat }])\n        }, _hoisted_3, 2),\n        _createVNode(_Transition, { name: \"fade\" }, {\n          default: _withCtx(() => [\n            _unref(chat).showChangeWindowChat ? (_openBlock(), _createElementBlock(\"div\", {\n              key: 0,\n              onClick: _cache[4] || (_cache[4] = _withModifiers(($event) => _unref(chat).showChangeWindowChat = false, [\"stop\"])),\n              class: \"absolute top-14 right-8 z-50 dark:bg-gray-600 bg-gray-200 border border-gray-300 dark:border dark:border-gray-500\"\n            }, [\n              _unref(chat).get_user_chat.is_group ? (_openBlock(), _createBlock(ChatChangeWindowElem, {\n                key: 0,\n                onClick: _cache[1] || (_cache[1] = ($event) => _unref(chat).showChatInfo = true)\n              }, {\n                chatWindowSettingContentSvg: _withCtx(() => [\n                  _hoisted_4\n                ]),\n                chatWindowSettingContentText: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Информация о группе\")), 1)\n                ]),\n                _: 1\n              })) : (_openBlock(), _createBlock(ChatChangeWindowElem, {\n                key: 1,\n                onClick: _cache[2] || (_cache[2] = ($event) => _unref(chat).showChatInfo = true)\n              }, {\n                chatWindowSettingContentSvg: _withCtx(() => [\n                  _hoisted_5\n                ]),\n                chatWindowSettingContentText: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Показать профиль\")), 1)\n                ]),\n                _: 1\n              })),\n              _unref(chat).get_user_chat.is_group ? (_openBlock(), _createBlock(ChatChangeWindowElem, {\n                key: 2,\n                onClick: _cache[3] || (_cache[3] = ($event) => {\n                  _unref(chat).showChatChangeInfoModal = true;\n                  _unref(chat).updateChatName = _unref(chat).userChat.name;\n                })\n              }, {\n                chatWindowSettingContentSvg: _withCtx(() => [\n                  _hoisted_6\n                ]),\n                chatWindowSettingContentText: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Управление группой\")), 1)\n                ]),\n                _: 1\n              })) : _createCommentVNode(\"\", true)\n            ])) : _createCommentVNode(\"\", true)\n          ]),\n          _: 1\n        })\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896520889,
-      "end": 1706896521165,
+      "start": 1707126040003,
+      "end": 1707126040581,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,188 +57,188 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896521165,
-      "end": 1706896521165,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896521166,
-      "end": 1706896521166,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040581,
+      "end": 1707126040581,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896521167,
-      "end": 1706896521167,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896521168,
-      "end": 1706896521168,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896521168,
-      "end": 1706896521168,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896521169,
-      "end": 1706896521169,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896521169,
-      "end": 1706896521169,
+      "start": 1707126040582,
+      "end": 1707126040582,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896521169,
-      "end": 1706896521175,
+      "start": 1707126040582,
+      "end": 1707126040588,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896521175,
-      "end": 1706896521175,
+      "start": 1707126040588,
+      "end": 1707126040588,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896521175,
-      "end": 1706896521175,
+      "start": 1707126040588,
+      "end": 1707126040588,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896521175,
-      "end": 1706896521175,
+      "start": 1707126040589,
+      "end": 1707126040589,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896521175,
-      "end": 1706896521176,
+      "start": 1707126040589,
+      "end": 1707126040589,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896521176,
-      "end": 1706896521176,
+      "start": 1707126040589,
+      "end": 1707126040589,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896521176,
-      "end": 1706896521176,
+      "start": 1707126040589,
+      "end": 1707126040589,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896521176,
-      "end": 1706896521177,
+      "start": 1707126040589,
+      "end": 1707126040590,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896521177,
-      "end": 1706896521177,
+      "start": 1707126040590,
+      "end": 1707126040590,
       "order": "normal"
     }
   ]

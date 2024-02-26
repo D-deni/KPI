@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheFilter',\n  __ssrInlineRender: true,\n  props: {\r\n  showFilter: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst params = ref({\r\n  query: ''\r\n})\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"mx-auto max-md:absolute max-md:bottom-11 max-md:right-0\" }, _attrs))}><form class=\"flex items-center gap-x-10 my-10\">`)\n  _push(_ssrRenderComponent(TheButton, {\n    onClick: ($event: any) => (__props.showFilter = !__props.showFilter),\n    class: \"tracking-widest rounded-full max-md:!bg-transparent dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<p class=\"max-md:hidden\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_ctx.$t('Фильтр'))\n        }</p><div class=\"max-md:block hidden\"${\n          _scopeId\n        }><svg class=\"${\n          _ssrRenderClass([{'!stroke-gray-300' : __props.showFilter}, \"!stroke-gray-700\"])\n        }\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n          _scopeId\n        }><path d=\"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${\n          _scopeId\n        }></path></svg></div>`)\n      } else {\n        return [\n          _createVNode(\"p\", { class: \"max-md:hidden\" }, _toDisplayString(_ctx.$t('Фильтр')), 1),\n          _createVNode(\"div\", { class: \"max-md:block hidden\" }, [\n            (_openBlock(), _createBlock(\"svg\", {\n              class: [\"!stroke-gray-700\", {'!stroke-gray-300' : __props.showFilter}],\n              width: \"24px\",\n              height: \"24px\",\n              viewBox: \"0 0 24 24\",\n              fill: \"none\",\n              xmlns: \"http://www.w3.org/2000/svg\"\n            }, [\n              _createVNode(\"path\", {\n                d: \"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\",\n                \"stroke-width\": \"2\",\n                \"stroke-linecap\": \"round\",\n                \"stroke-linejoin\": \"round\"\n              })\n            ], 2))\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</form></div>`)\n}\n}\n\n})",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896545121,
-      "end": 1706896545121,
+      "start": 1707126069209,
+      "end": 1707126069209,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheFilter\",\n  __ssrInlineRender: true,\n  props: {\n    showFilter: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const params = ref({\n      query: \"\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"mx-auto max-md:absolute max-md:bottom-11 max-md:right-0\" }, _attrs))}><form class=\"flex items-center gap-x-10 my-10\">`);\n      _push(_ssrRenderComponent(TheButton, {\n        onClick: ($event) => __props.showFilter = !__props.showFilter,\n        class: \"tracking-widest rounded-full max-md:!bg-transparent dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<p class=\"max-md:hidden\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Фильтр\"))}</p><div class=\"max-md:block hidden\"${_scopeId}><svg class=\"${_ssrRenderClass([{ \"!stroke-gray-300\": __props.showFilter }, \"!stroke-gray-700\"])}\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><path d=\"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${_scopeId}></path></svg></div>`);\n          } else {\n            return [\n              _createVNode(\"p\", { class: \"max-md:hidden\" }, _toDisplayString(_ctx.$t(\"Фильтр\")), 1),\n              _createVNode(\"div\", { class: \"max-md:block hidden\" }, [\n                (_openBlock(), _createBlock(\"svg\", {\n                  class: [\"!stroke-gray-700\", { \"!stroke-gray-300\": __props.showFilter }],\n                  width: \"24px\",\n                  height: \"24px\",\n                  viewBox: \"0 0 24 24\",\n                  fill: \"none\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, [\n                  _createVNode(\"path\", {\n                    d: \"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\",\n                    \"stroke-width\": \"2\",\n                    \"stroke-linecap\": \"round\",\n                    \"stroke-linejoin\": \"round\"\n                  })\n                ], 2))\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</form></div>`);\n    };\n  }\n});\n",
-      "start": 1706896545121,
-      "end": 1706896545998,
+      "start": 1707126069209,
+      "end": 1707126069554,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -89,171 +89,171 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896545998,
-      "end": 1706896545998,
+      "start": 1707126069554,
+      "end": 1707126069554,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896545998,
-      "end": 1706896545998,
+      "start": 1707126069554,
+      "end": 1707126069555,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069555,
+      "end": 1707126069555,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069555,
+      "end": 1707126069555,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069555,
+      "end": 1707126069555,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069555,
+      "end": 1707126069555,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069556,
+      "end": 1707126069556,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069556,
+      "end": 1707126069556,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069556,
+      "end": 1707126069556,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069556,
+      "end": 1707126069556,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069556,
+      "end": 1707126069556,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069556,
+      "end": 1707126069557,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069557,
+      "end": 1707126069557,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069557,
+      "end": 1707126069557,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069557,
+      "end": 1707126069557,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069557,
+      "end": 1707126069557,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069558,
+      "end": 1707126069558,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069558,
+      "end": 1707126069558,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069558,
+      "end": 1707126069558,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069558,
+      "end": 1707126069558,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069558,
+      "end": 1707126069559,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069559,
+      "end": 1707126069559,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069559,
+      "end": 1707126069559,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069560,
+      "end": 1707126069560,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069560,
+      "end": 1707126069560,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546003,
-      "end": 1706896546003,
+      "start": 1707126069560,
+      "end": 1707126069561,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546003,
-      "end": 1706896546003,
+      "start": 1707126069560,
+      "end": 1707126069561,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheFilter\",\n  __ssrInlineRender: true,\n  props: {\n    showFilter: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const params = ref({\n      query: \"\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"mx-auto max-md:absolute max-md:bottom-11 max-md:right-0\" }, _attrs))}><form class=\"flex items-center gap-x-10 my-10\">`);\n      _push(_ssrRenderComponent(TheButton, {\n        onClick: ($event) => __props.showFilter = !__props.showFilter,\n        class: \"tracking-widest rounded-full max-md:!bg-transparent dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<p class=\"max-md:hidden\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Фильтр\"))}</p><div class=\"max-md:block hidden\"${_scopeId}><svg class=\"${_ssrRenderClass([{ \"!stroke-gray-300\": __props.showFilter }, \"!stroke-gray-700\"])}\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><path d=\"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${_scopeId}></path></svg></div>`);\n          } else {\n            return [\n              _createVNode(\"p\", { class: \"max-md:hidden\" }, _toDisplayString(_ctx.$t(\"Фильтр\")), 1),\n              _createVNode(\"div\", { class: \"max-md:block hidden\" }, [\n                (_openBlock(), _createBlock(\"svg\", {\n                  class: [\"!stroke-gray-700\", { \"!stroke-gray-300\": __props.showFilter }],\n                  width: \"24px\",\n                  height: \"24px\",\n                  viewBox: \"0 0 24 24\",\n                  fill: \"none\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, [\n                  _createVNode(\"path\", {\n                    d: \"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\",\n                    \"stroke-width\": \"2\",\n                    \"stroke-linecap\": \"round\",\n                    \"stroke-linejoin\": \"round\"\n                  })\n                ], 2))\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</form></div>`);\n    };\n  }\n});\n",
-      "start": 1706896546003,
-      "end": 1706896546018,
+      "start": 1707126069561,
+      "end": 1707126069568,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -267,8 +267,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheFilter\",\n  __ssrInlineRender: true,\n  props: {\n    showFilter: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const params = ref({\n      query: \"\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"mx-auto max-md:absolute max-md:bottom-11 max-md:right-0\" }, _attrs))}><form class=\"flex items-center gap-x-10 my-10\">`);\n      _push(_ssrRenderComponent(TheButton, {\n        onClick: ($event) => __props.showFilter = !__props.showFilter,\n        class: \"tracking-widest rounded-full max-md:!bg-transparent dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<p class=\"max-md:hidden\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Фильтр\"))}</p><div class=\"max-md:block hidden\"${_scopeId}><svg class=\"${_ssrRenderClass([{ \"!stroke-gray-300\": __props.showFilter }, \"!stroke-gray-700\"])}\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><path d=\"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${_scopeId}></path></svg></div>`);\n          } else {\n            return [\n              _createVNode(\"p\", { class: \"max-md:hidden\" }, _toDisplayString(_ctx.$t(\"Фильтр\")), 1),\n              _createVNode(\"div\", { class: \"max-md:block hidden\" }, [\n                (_openBlock(), _createBlock(\"svg\", {\n                  class: [\"!stroke-gray-700\", { \"!stroke-gray-300\": __props.showFilter }],\n                  width: \"24px\",\n                  height: \"24px\",\n                  viewBox: \"0 0 24 24\",\n                  fill: \"none\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, [\n                  _createVNode(\"path\", {\n                    d: \"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\",\n                    \"stroke-width\": \"2\",\n                    \"stroke-linecap\": \"round\",\n                    \"stroke-linejoin\": \"round\"\n                  })\n                ], 2))\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</form></div>`);\n    };\n  }\n});\n",
-      "start": 1706896546003,
-      "end": 1706896546018,
+      "start": 1707126069561,
+      "end": 1707126069568,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -281,56 +281,56 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069568,
+      "end": 1707126069568,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069568,
+      "end": 1707126069568,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069568,
+      "end": 1707126069568,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069568,
+      "end": 1707126069568,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069568,
+      "end": 1707126069569,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896546020,
-      "end": 1706896546020,
+      "start": 1707126069570,
+      "end": 1707126069570,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896546021,
-      "end": 1706896546021,
+      "start": 1707126069570,
+      "end": 1707126069570,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896546022,
-      "end": 1706896546022,
+      "start": 1707126069570,
+      "end": 1707126069570,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896546022,
-      "end": 1706896546022,
+      "start": 1707126069570,
+      "end": 1707126069570,
       "order": "normal"
     }
   ]

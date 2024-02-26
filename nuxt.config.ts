@@ -1,4 +1,10 @@
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      API_BASE_URL:  process.env.API_BASE_URL || "http://127.0.0.1:10005/"
+    }
+  },
+  ssr: true,
   app: {
     head: {
       charset: 'urf-8',

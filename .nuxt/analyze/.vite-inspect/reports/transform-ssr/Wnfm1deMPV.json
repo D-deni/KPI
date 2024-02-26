@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, renderSlot as _renderSlot, createVNode as _createVNode, unref as _unref } from \"vue\"\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'HeaderNavLinks',\n  __ssrInlineRender: true,\n  props: {\r\n  to: String,\r\n  activeNav: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst authUser = useAuthStore()\r\nconst props = __props\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  _push(`<div${_ssrRenderAttrs(_attrs)}>`)\n  _push(_ssrRenderComponent(_component_NuxtLink, {\n    to: __props.to,\n    onClick: ($event: any) => {_unref(authUser).openSettings = false; _unref(authUser).openNotification = false;},\n    class: [\"flex transition-all hover:bg-cyan dark:hover:bg-semiCyan dark:hover:border-r-cyan hover:border-r-4 hover:border-r-semiCyan p-4 w-full rounded-l-lg items-center gap-x-6 dark:text-white text-black\", {'rounded-l-none pl-[22px]' : !__props.activeNav}]\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div class=\"dark:fill-white fill-black\"${_scopeId}>`)\n        _ssrRenderSlot(_ctx.$slots, \"navIcon\", {}, null, _push, _parent, _scopeId)\n        _push(`</div><div class=\"${\n          _ssrRenderClass({'hidden' : !__props.activeNav})\n        }\"${\n          _scopeId\n        }>`)\n        _ssrRenderSlot(_ctx.$slots, \"navLink\", {}, null, _push, _parent, _scopeId)\n        _push(`</div>`)\n      } else {\n        return [\n          _createVNode(\"div\", { class: \"dark:fill-white fill-black\" }, [\n            _renderSlot(_ctx.$slots, \"navIcon\")\n          ]),\n          _createVNode(\"div\", {\n            class: {'hidden' : !__props.activeNav}\n          }, [\n            _renderSlot(_ctx.$slots, \"navLink\")\n          ], 2)\n        ]\n      }\n    }),\n    _: 3\n  }, _parent))\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071366,
+      "end": 1707126071366,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071366,
+      "end": 1707126071366,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071366,
+      "end": 1707126071366,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071366,
+      "end": 1707126071367,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071366,
+      "end": 1707126071367,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071367,
+      "end": 1707126071367,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071367,
+      "end": 1707126071367,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071367,
+      "end": 1707126071367,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896548548,
-      "end": 1706896548548,
+      "start": 1707126071367,
+      "end": 1707126071367,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, renderSlot as _renderSlot, createVNode as _createVNode, unref as _unref } from \"vue\";\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"HeaderNavLinks\",\n  __ssrInlineRender: true,\n  props: {\n    to: String,\n    activeNav: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const authUser = useAuthStore();\n    const props = __props;\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(_component_NuxtLink, {\n        to: __props.to,\n        onClick: ($event) => {\n          _unref(authUser).openSettings = false;\n          _unref(authUser).openNotification = false;\n        },\n        class: [\"flex transition-all hover:bg-cyan dark:hover:bg-semiCyan dark:hover:border-r-cyan hover:border-r-4 hover:border-r-semiCyan p-4 w-full rounded-l-lg items-center gap-x-6 dark:text-white text-black\", { \"rounded-l-none pl-[22px]\": !__props.activeNav }]\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"dark:fill-white fill-black\"${_scopeId}>`);\n            _ssrRenderSlot(_ctx.$slots, \"navIcon\", {}, null, _push2, _parent2, _scopeId);\n            _push2(`</div><div class=\"${_ssrRenderClass({ \"hidden\": !__props.activeNav })}\"${_scopeId}>`);\n            _ssrRenderSlot(_ctx.$slots, \"navLink\", {}, null, _push2, _parent2, _scopeId);\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"dark:fill-white fill-black\" }, [\n                _renderSlot(_ctx.$slots, \"navIcon\")\n              ]),\n              _createVNode(\"div\", {\n                class: { \"hidden\": !__props.activeNav }\n              }, [\n                _renderSlot(_ctx.$slots, \"navLink\")\n              ], 2)\n            ];\n          }\n        }),\n        _: 3\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548548,
-      "end": 1706896548957,
+      "start": 1707126071367,
+      "end": 1707126071762,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -89,213 +89,213 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071762,
+      "end": 1707126071762,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071762,
+      "end": 1707126071762,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896548957,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896548958,
-      "end": 1706896548959,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548959,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548959,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071767,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071767,
+      "end": 1707126071767,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071767,
+      "end": 1707126071767,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896548960,
-      "end": 1706896548972,
+      "start": 1707126071767,
+      "end": 1707126071772,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896548960,
-      "end": 1706896548972,
+      "start": 1707126071767,
+      "end": 1707126071772,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071772,
+      "end": 1707126071772,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071772,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071773,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548972,
-      "end": 1706896548973,
+      "start": 1707126071773,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896548973,
-      "end": 1706896548973,
+      "start": 1707126071773,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, renderSlot as _renderSlot, createVNode as _createVNode, unref as _unref } from \"vue\";\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderClass as _ssrRenderClass, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"HeaderNavLinks\",\n  __ssrInlineRender: true,\n  props: {\n    to: String,\n    activeNav: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const authUser = useAuthStore();\n    const props = __props;\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(_component_NuxtLink, {\n        to: __props.to,\n        onClick: ($event) => {\n          _unref(authUser).openSettings = false;\n          _unref(authUser).openNotification = false;\n        },\n        class: [\"flex transition-all hover:bg-cyan dark:hover:bg-semiCyan dark:hover:border-r-cyan hover:border-r-4 hover:border-r-semiCyan p-4 w-full rounded-l-lg items-center gap-x-6 dark:text-white text-black\", { \"rounded-l-none pl-[22px]\": !__props.activeNav }]\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"dark:fill-white fill-black\"${_scopeId}>`);\n            _ssrRenderSlot(_ctx.$slots, \"navIcon\", {}, null, _push2, _parent2, _scopeId);\n            _push2(`</div><div class=\"${_ssrRenderClass({ \"hidden\": !__props.activeNav })}\"${_scopeId}>`);\n            _ssrRenderSlot(_ctx.$slots, \"navLink\", {}, null, _push2, _parent2, _scopeId);\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"dark:fill-white fill-black\" }, [\n                _renderSlot(_ctx.$slots, \"navIcon\")\n              ]),\n              _createVNode(\"div\", {\n                class: { \"hidden\": !__props.activeNav }\n              }, [\n                _renderSlot(_ctx.$slots, \"navLink\")\n              ], 2)\n            ];\n          }\n        }),\n        _: 3\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548973,
-      "end": 1706896548974,
+      "start": 1707126071774,
+      "end": 1707126071774,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -308,20 +308,20 @@
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071775,
+      "end": 1707126071775,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071775,
+      "end": 1707126071775,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071775,
+      "end": 1707126071775,
       "order": "normal"
     }
   ]

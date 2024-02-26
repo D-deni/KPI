@@ -4,8 +4,11 @@ import {toast} from "vue3-toastify";
 import {useUserStore} from "~/stores/users";
 import type {Router} from "vue-router";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
-import {useI18n} from "vue-i18n";
+import {isDevelopment, isProduction} from "std-env";
 
+interface IUser {
+  user: object | unknown
+}
 export const useAuthStore = defineStore('authUser', {
   state: () => ({
     current_user: {
@@ -26,12 +29,13 @@ export const useAuthStore = defineStore('authUser', {
       salary: {},
       permissions: []
     },
-    user: {},
+    user: {} as IUser,
     permissions: [],
     exam_active: false,
     openNotification: false,
     openSettings: false,
     my_scroll: 0,
+    activeNav: false,
   }),
   getters: {
     get_current_user(current_user) {
@@ -54,7 +58,7 @@ export const useAuthStore = defineStore('authUser', {
           Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(response => {
-        nuxtStorage.localStorage.setData('token', response.data.access)
+        nuxtStorage.localStorage.setData('token', response.data.access, isProduction ? 30 : 1200)
         this.loadCurrentUser()
         router.push('/base/companies').then(e=>{
           toast.success('Успешная авторизация', {autoClose: 1500, theme: 'auto'},)
@@ -84,6 +88,8 @@ export const useAuthStore = defineStore('authUser', {
       fd.set('email', params.user.email)
       fd.set('date_of_birth', params.user.date_of_birth)
       fd.set('passport', params.user.passport)
+      fd.set('department_id', params.user.department_id)
+      fd.set('position_id', params.user.position_id)
       if (params.update_type !== 'update-my') {
         fd.set('permissions_ids', params.permissions_ids)
         fd.set('role_id', params.user.role_id)

@@ -4,81 +4,81 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup lang=\"ts\">\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useChat} from \"~/stores/chat\";\r\nimport {useRoute, useRouter} from \"vue-router\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport {vIntersectionObserver} from '@vueuse/components'\r\nimport ChatContentContextMenuItem from \"~/components/Chat/ChatContent/ChatContentContextMenuItem.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheChatContentEmpty from \"~/components/Chat/ChatNav/UI/TheChatContentEmpty.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheChatAvatar from \"~/components/Chat/ChatNav/UI/TheChatAvatar.vue\";\r\nimport {useAnchorScroll} from \"#imports\";\r\n\r\nconst router = useRouter()\r\nconst route = useRoute()\r\nconst chat = useChat()\r\nconst currentUser = useAuthStore()\r\nconst {x, y} = useMouse()\r\nconst {y: windowY} = useWindowScroll()\r\nconst isOpen = ref(false)\r\nconst virtualElement = ref({getBoundingClientRect: () => ({})})\r\nconst scrollPosition = ref(null)\r\nconst page = ref(1)\r\nconst limit = ref(99)\r\nconst messages_block = ref({\r\n  scrollTop: '',\r\n  scrollHeight: '',\r\n  clientHeight: '',\r\n  root: null,\r\n})\r\nconst props = defineProps({\r\n  messageObject: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  },\r\n  showDeleteWarn: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  showPinnedWarn: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  showUnPinWarn: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  showDateModal: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n})\r\n\r\nfunction onScroll({target: {scrollTop, clientHeight, scrollHeight}}) {\r\n  scrollPosition.value = scrollTop\r\n  if (scrollTop === 0) {\r\n    page.value = Number(page.value) + 1\r\n    if(chat.messageLimit == 100){\r\n      chat?.loadUserChat({page: page.value, limit: 100, id: route.params.id})\r\n    }\r\n  }\r\n}\r\n\r\nonMounted(() => {\r\n  setTimeout(() => {\r\n    const el = messages_block.value\r\n    el.scrollTop = el?.scrollHeight\r\n  }, 500)\r\n})\r\nwatchEffect(() => {\r\n  setTimeout(() => {\r\n    const el = messages_block.value\r\n    el.scrollTop = el?.scrollHeight\r\n  }, 500)\r\n})\r\n\r\nfunction scrollBottom() {\r\n  const el = document.getElementById('messages_block')\r\n  el?.scrollTo({\r\n    top: el?.scrollHeight,\r\n    behavior: \"smooth\"\r\n  })\r\n}\r\n\r\nlet to = ref(null)\r\n\r\nfunction onIntersectionObserver([{target}]: IntersectionObserverEntry[]) {\r\n  if (target.dataset.read === '0' && target.dataset.senderId !== `${currentUser.user.id}`) {\r\n    if (chat.messagesMakeRead.indexOf(target.id) === -1) {\r\n      chat.messagesMakeRead.push(target.id)\r\n      clearTimeout(to)\r\n      to = setTimeout(() => {\r\n        chat.makeRead({messages: chat.messagesMakeRead})\r\n      }, 1000)\r\n    }\r\n  }\r\n}\r\nfunction StartRecording(){\r\n  if (chat.showVoiceInfo && chat.voiceTimer === 0) {\r\n    setTimeout(() => {\r\n      chat.showVoiceInfo = false\r\n    }, 2000)\r\n  } else {\r\n    chat.showVoiceInfo = false;\r\n    setTimeout(() => {\r\n      chat.voiceTimer += 1\r\n    }, 1000)\r\n  }\r\n  console.log(chat.voiceTimer)\r\n}\r\n\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex flex-col !overflow-x-hidden gap-y-2 check overflow-y-auto\" @dragenter.prevent=\"chat.showDragInfo = true\" @scroll=\"onScroll\"\r\n       ref=\"messages_block\" id=\"messages_block\">\r\n    <Transition name=\"slide-up\">\r\n      <button v-if=\"scrollPosition < this.$refs.messages_block?.scrollHeight - this.$refs.messages_block?.clientHeight\"\r\n              @click=\"scrollBottom\"\r\n              class=\"absolute bottom-20 right-3 dark:bg-gray-700 bg-white rounded-full\">\r\n        <svg class=\"stroke-blueSemiLight\" width=\"40px\" height=\"40px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n             xmlns=\"http://www.w3.org/2000/svg\">\r\n          <path d=\"M17 9.5L12 14.5L7 9.5\" stroke-width=\"1.5\" stroke-linecap=\"round\"\r\n                stroke-linejoin=\"round\"/>\r\n        </svg>\r\n      </button>\r\n    </Transition>\r\n    <Transition name=\"fade\">\r\n      <div\r\n        class=\"mr-4 absolute bottom-10 right-0 bg-black dark:bg-opacity-70 z-50 bg-opacity-20 dark:text-white text-white tracking-wide p-4 rounded-lg mb-4 max-[400px]:mx-4 break-words\"\r\n        v-if=\"chat.showVoiceInfo\">\r\n        <p class=\"text-sm\">{{ $t('Удерживайте для записи голосового сообщения') }}</p>\r\n      </div>\r\n    </Transition>\r\n    <UContextMenu @contextmenu.prevent v-model=\"isOpen\" :virtual-element=\"virtualElement\">\r\n      <ChatContentContextMenuItem\r\n        v-if=\"currentUser.user?.id === messageObject.sender?.id && !messageObject.forwarded_from && messageObject.message_type === 'default'\"\r\n        @click=\"chat.messageUpdate = {...messageObject, updateText: messageObject?.text}; chat.messageText = ''; chat.messageReplied = {}; chat.messagePinned = {}; chat.messageForwarded = {}; isOpen = false\">\r\n        <template v-slot:ContextMenuSvg>\r\n          <svg class=\"stroke-black dark:stroke-white\" width=\"22px\" height=\"22px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n               xmlns=\"http://www.w3.org/2000/svg\">\r\n            <path data-v-a06cf116=\"\"\r\n                  d=\"M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z\"\r\n                  stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n            <path data-v-a06cf116=\"\"\r\n                  d=\"M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13\"\r\n                  stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n          </svg>\r\n        </template>\r\n        <template v-slot:ContextMenuText>{{ $t('Изменить') }}</template>\r\n      </ChatContentContextMenuItem>\r\n      <ChatContentContextMenuItem v-if=\"messageObject.message_type === 'default'\"\r\n                                  @click=\"chat.messageReplied = messageObject; messageObject = {}; chat.messageUpdate = {}; isOpen = false\">\r\n        <template v-slot:ContextMenuSvg>\r\n          <svg version=\"1.1\" id=\"Icons\" xmlns=\"http://www.w3.org/2000/svg\"\r\n               viewBox=\"0 0 32 32\" xml:space=\"preserve\" fill=\"none\" width=\"22px\" height=\"22px\" class=\"dark:stroke-white stroke-black\">\r\n            <path class=\"st0\" d=\"M11.7,8.1V6c0-0.8-0.9-1.3-1.5-0.8l-6.8,6c-0.5,0.4-0.5,1.2,0,1.6l6.8,6c0.6,0.5,1.5,0,1.5-0.8v-2h0.9\r\n              c7.1,0,13.5,4.3,16.5,11C29,16.8,21.3,8.6,11.7,8.1z\"/>\r\n          </svg>\r\n        </template>\r\n        <template v-slot:ContextMenuText>{{ $t('Ответить') }}</template>\r\n      </ChatContentContextMenuItem>\r\n      <ChatContentContextMenuItem v-if=\"messageObject.message_type === 'default'\"\r\n        @click=\"chat.showSendWindow = true; isOpen = false; chat.messageReplied = {}; chat.messageUpdate = {}\">\r\n        <template v-slot:ContextMenuSvg>\r\n          <svg class=\"dark:stroke-white stroke-black fill-none\" width=\"22px\" height=\"22px\" version=\"1.1\" id=\"Icons\"\r\n               xmlns=\"http://www.w3.org/2000/svg\"\r\n               viewBox=\"0 0 32 32\" xml:space=\"preserve\">\r\n              <path d=\"M20.3,8.1V6c0-0.8,0.9-1.3,1.5-0.8l6.8,6c0.5,0.4,0.5,1.2,0,1.6l-6.8,6c-0.6,0.5-1.5,0-1.5-0.8v-2h-0.9\r\n              C12.4,16,5.9,20.3,3,27C3,16.8,10.7,8.6,20.3,8.1z\"/>\r\n          </svg>\r\n        </template>\r\n        <template v-slot:ContextMenuText>{{ $t('Переслать') }}</template>\r\n      </ChatContentContextMenuItem>\r\n      <ChatContentContextMenuItem v-if=\"!messageObject.pinned && messageObject.message_type === 'default'\"\r\n                                  @click=\"chat.messagePinned = {...messageObject}; showPinnedWarn = true; isOpen = false;\">\r\n        <template v-slot:ContextMenuSvg>\r\n          <svg class=\"dark:fill-white\" xmlns=\"http://www.w3.org/2000/svg\"\r\n               width=\"22px\" height=\"22px\" viewBox=\"0 0 261.811 261.811\"\r\n               xml:space=\"preserve\">\r\n                <g>\r\n                  <g>\r\n                    <path d=\"M24.715,261.811c-5.492,0-10.645-2.133-14.521-6.01c-8.011-8.017-8.011-21.054-0.006-29.064\r\n                      l70.375-70.372L38.51,113.785c-7.073-7.179-7.928-18.303-2.039-26.466c0.855-1.184,21.314-28.839,58.964-28.839\r\n                      c2.224,0,4.492,0.101,6.756,0.295L180.62,3.597c8.103-5.729,20.081-4.48,26.863,2.796l44.675,48.037\r\n                      c6.919,7.436,7.319,19.006,0.926,26.906l-55.882,69.151c1.979,23.759,1.052,63.069-23.901,77.725\r\n                      c-7.959,4.666-18.578,3.26-25.021-3.282l-38.837-39.316l-70.206,70.183C35.365,259.678,30.208,261.811,24.715,261.811z\r\n                       M95.43,70.194c-31.735,0-48.763,23.009-49.472,23.987c-2.53,3.502-2.159,8.291,0.883,11.376l50.227,50.865l-78.6,78.594\r\n                      c-3.442,3.448-3.442,9.058,0,12.505c3.319,3.328,9.157,3.328,12.482,0l78.531-78.52l47.122,47.7\r\n                      c2.762,2.813,7.325,3.407,10.761,1.412c20.957-12.316,19.539-52.303,17.961-68.919l-0.229-2.373l58.878-72.854\r\n                      c2.745-3.402,2.573-8.371-0.406-11.567l-44.663-48.031c-2.904-3.116-8.062-3.671-11.545-1.212l-82.042,57.726l-2.213-0.251\r\n                      C100.536,70.34,97.952,70.194,95.43,70.194z\"/>\r\n                  </g>\r\n                </g>\r\n            </svg>\r\n        </template>\r\n        <template v-slot:ContextMenuText>{{ $t('Закрепить') }}</template>\r\n      </ChatContentContextMenuItem>\r\n      <ChatContentContextMenuItem v-else-if=\"messageObject.pinned && messageObject.message_type === 'default'\" @click=\"showUnPinWarn = true; isOpen = false\">\r\n        <template v-slot:ContextMenuSvg>\r\n          <svg class=\"dark:fill-white fill-black\" width=\"22px\" height=\"22px\" viewBox=\"0 0 256 256\" id=\"Flat\"\r\n               xmlns=\"http://www.w3.org/2000/svg\">\r\n            <path\r\n              d=\"M50.96,37.30957A4,4,0,0,0,45.04,42.69043l38.59424,42.4541c-11.416-2.39062-31.02295-2.76172-51.54444,13.79248a12.01279,12.01279,0,0,0-.96484,17.84424L82.34326,168,45.17188,205.17139a3.99992,3.99992,0,1,0,5.65625,5.65722L88,173.65674l51.02051,51.021a12.00814,12.00814,0,0,0,8.49219,3.51954q.42041,0,.84277-.02979a11.97039,11.97039,0,0,0,8.73047-4.74512c6.33252-8.4165,15.40625-23.479,15.38379-40.55859L205.04,218.69043a4,4,0,1,0,5.91992-5.38086Zm99.7334,181.30322a3.99357,3.99357,0,0,1-6.01563.40821L36.78125,111.124a4.01376,4.01376,0,0,1,.332-5.96045c27.17188-21.91943,52.06543-10.09375,53.09766-9.58593a3.99477,3.99477,0,0,0,3.08984.20019l69.71729,76.689C168.36816,191.2041,157.64355,209.374,150.69336,218.61279ZM232.68652,96a11.92292,11.92292,0,0,1-3.51562,8.48584l-41.4043,41.40381a3.99975,3.99975,0,1,1-5.65625-5.65674l41.4043-41.4043a3.99915,3.99915,0,0,0,0-5.65674L162.8291,32.48535a4.00621,4.00621,0,0,0-5.6582.00049l-37.97559,37.9751a3.99957,3.99957,0,1,1-5.65625-5.65625l37.97559-37.97608a12.01526,12.01526,0,0,1,16.9707-.00049L229.1709,87.51465A11.921,11.921,0,0,1,232.68652,96Z\"/>\r\n          </svg>\r\n        </template>\r\n        <template v-slot:ContextMenuText>{{ $t('Открепить') }}</template>\r\n      </ChatContentContextMenuItem>\r\n      <ChatContentContextMenuItem @click=\"showDeleteWarn = true; isOpen = false\">\r\n        <template v-slot:ContextMenuSvg>\r\n          <svg class=\"dark:stroke-white stroke-black\" width=\"23px\" height=\"23px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n               xmlns=\"http://www.w3.org/2000/svg\">\r\n            <path data-v-a06cf116=\"\" d=\"M10 12V17\" stroke-width=\"1.5\" stroke-linecap=\"round\"\r\n                  stroke-linejoin=\"round\"></path>\r\n            <path data-v-a06cf116=\"\" d=\"M14 12V17\" stroke-width=\"1.5\" stroke-linecap=\"round\"\r\n                  stroke-linejoin=\"round\"></path>\r\n            <path data-v-a06cf116=\"\" d=\"M4 7H20\" stroke-width=\"1.5\" stroke-linecap=\"round\"\r\n                  stroke-linejoin=\"round\"></path>\r\n            <path data-v-a06cf116=\"\" d=\"M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10\"\r\n                  stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n            <path data-v-a06cf116=\"\" d=\"M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z\"\r\n                  stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n          </svg>\r\n        </template>\r\n        <template v-slot:ContextMenuText>{{ $t('Удалить') }}</template>\r\n      </ChatContentContextMenuItem>\r\n    </UContextMenu>\r\n    <div class=\"p-2\">\r\n      <div v-for=\"(date, i) in chat.userChat?.messages\" :key=\"i\">\r\n        <div class=\"w-6/12 mx-auto max-md:w-3/12 \" @contextmenu.stop>\r\n          <p class=\"bg-white bg-opacity-20 w-[120px] max-[450px]:w-[90px] py-1 text-sm text-center rounded-full\"\r\n             @click=\"showDateModal = true\">\r\n            {{ date.date }}\r\n          </p>\r\n        </div>\r\n        <ChatChatContentUserElem class=\"\"\r\n                                 :id=\"item.id\"\r\n                                 :data-read=\"item.read ? 1 : 0\"\r\n                                 :data-sender-id=\"item.sender.id\"\r\n                                 v-for=\"(item, id) in date.messages\"\r\n                                 :item=\"item\"\r\n                                 :key=\"id\"\r\n                                 v-intersection-observer=\"[onIntersectionObserver, {item}]\"\r\n                                 @click=\"messageObject = {}\"\r\n                                 @contextmenu.prevent=\"()=> {\r\n                              const top = unref(y) - unref(windowY)\r\n                              const left = unref(x)\r\n                              virtualElement.getBoundingClientRect = () => ({\r\n                                width: 0,\r\n                                height: 0,\r\n                                top,\r\n                                left\r\n                              })\r\n                              isOpen = true\r\n                              messageObject = {...item}\r\n                            }\">\r\n          <template v-slot:userForwarded>\r\n            {{ $t('Переслано от') + ' ' + item.forwarded_from.name }}\r\n          </template>\r\n          <template v-slot:userImage>\r\n            <img class=\"w-[30px] h-[30px] rounded-full\"\r\n                 :src=\"currentUser.get_server_domain + item.sender.photo\"\r\n                 alt=\"\">\r\n          </template>\r\n          <template v-slot:userSenderName>{{ item.sender.first_name + ' ' + item.sender.last_name }}</template>\r\n          <template v-slot:userMessage>\r\n            <span v-if=\"item.message_type !== 'default' && item.message_type !== 'change'\" class=\"\">\r\n              <button @click=\"router.push(chat.chatList.results[i]?.user?.id === item.sender.id ? `/base/chat/${chat.chatList.results[i]?.id}` : ``)\" class=\"hover:underline hover:text-blueDarkSemiLight cursor-pointer\">{{item.text.split(' ').slice(0, 1)[0]}}</button>\r\n              <span>{{' ' + item.text.split(' ').slice(0, 2)[1] + ' '}}</span>\r\n              <button class=\"hover:underline hover:text-blueDarkSemiLight cursor-pointer\">{{item.text.split(' ').slice(2, 3)[0]}}</button>\r\n            </span>\r\n            <span v-else>\r\n              {{item.text }}\r\n            </span>\r\n          </template>\r\n          <template v-slot:userDate>{{ new Date(item.updated_at).toLocaleTimeString().slice(0, 5) }}</template>\r\n        </ChatChatContentUserElem>\r\n      </div>\r\n    </div>\r\n    <TheChatContentEmpty/>\r\n    <div>\r\n      <TheModal :type=\"'resize'\" v-if=\"showDeleteWarn\" @showModal=\"showDeleteWarn = false; messageObject = {}\">\r\n        <div>\r\n          <p class=\"text-lg tracking-wider\">{{ $t('Удалить выбранное сообщение?') }}</p>\r\n        </div>\r\n        <div class=\"flex mt-4 gap-x-4 justify-center\">\r\n          <TheButton class=\"py-2 px-4 rounded-lg\" type=\"change\" @click=\"showDeleteWarn = false\">\r\n            {{ $t('Отмена') }}\r\n          </TheButton>\r\n          <TheButton class=\"py-2 px-4 rounded-lg\" type=\"change\"\r\n                     @click=\"chat.deleteMessage({id: messageObject?.id}); isOpen = false; showDeleteWarn = false\">\r\n            {{ $t('Удалить') }}\r\n          </TheButton>\r\n        </div>\r\n      </TheModal>\r\n      <TheModal :type=\"'resizeSendWindow'\" class=\"overflow-hidden \" v-if=\"chat.showSendWindow\"\r\n                @showModal=\"chat.showSendWindow = false; messageObject = {}\">\r\n        <TheTextContent class=\"mt-2\">{{ $t('Переслать') }}</TheTextContent>\r\n        <div class=\"w-full relative flex items-center\">\r\n          <div class=\"absolute rotate-90 ml-2\">\r\n            <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n                 xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path\r\n                d=\"M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z\"\r\n                stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\r\n            </svg>\r\n          </div>\r\n          <input type=\"text\" class=\"w-full dark:bg-gray-700 outline-none pl-10 h-[50px]\" placeholder=\"Поиск...\"/>\r\n        </div>\r\n        <div class=\"dark:bg-gray-800 bg-gray-200 flex flex-col gap-y-3 py-4 h-[400px] overflow-y-auto\">\r\n          <div v-for=\"item in chat.get_chat_list.results\"\r\n               @click=\"messageObject.id ? chat.messageForwarded = messageObject : chat.messageForwarded; router.push(`/base/chat/${item.id}`); chat.showSendWindow = false\"\r\n               class=\"flex bg-transparent border-none gap-x-4 items-center w-full dark:hover:bg-gray-600 hover:bg-gray-300 cursor-pointer transition-all px-5\">\r\n            <TheChatAvatar :user=\"currentUser\" :chat=\"item\"/>\r\n            <div class=\"w-9/12 break-words\">\r\n              <p class=\"text-sm\" v-if=\"item.user?.id || item.is_group\">\r\n                {{ item.user?.id && !item.is_group ? item.user?.first_name + ' ' + item.user?.last_name : item.name }}</p>\r\n              <p class=\"text-sm\" v-else>{{ $t('Избранное') }}</p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"w-full h-[50px] flex items-center justify-center\">\r\n          <TheButton type=\"chat\" @click=\"chat.showSendWindow = false\">{{ $t('Отмена') }}\r\n          </TheButton>\r\n        </div>\r\n      </TheModal>\r\n      <TheModal :type=\"'resize'\" v-if=\"showPinnedWarn\" @showModal=\"showPinnedWarn = false; messageObject = {}\">\r\n        <div>\r\n          <p class=\"text-lg tracking-wider\">{{ $t('Закрепить это сообщение?') }}</p>\r\n        </div>\r\n        <div class=\"flex mt-4 gap-x-4 justify-center\">\r\n          <TheButton type=\"chat\" @click=\"showPinnedWarn = false; chat.messagePinned = {}\">\r\n            {{ $t('Отмена') }}\r\n          </TheButton>\r\n          <TheButton type=\"chat\"\r\n                     @click=\"chat.makePinned({messages: [chat.messagePinned?.id]}).then(res=>{\r\n                       chat.messagePinned = {}\r\n                       toast.info('Сообщение закреплено', {autoClose: 1500, theme: 'auto'})\r\n                     }); isOpen = false; showPinnedWarn = false\">\r\n            {{ $t('Закрепить') }}\r\n          </TheButton>\r\n        </div>\r\n      </TheModal>\r\n      <TheModal :type=\"'resize'\" v-if=\"showUnPinWarn\" @showModal=\"showUnPinWarn = false; messageObject = {}\">\r\n        <div>\r\n          <p class=\"text-lg tracking-wider\">{{ $t('Открепить это сообщение?') }}</p>\r\n        </div>\r\n        <div class=\"flex mt-4 gap-x-4 justify-center\">\r\n          <TheButton type=\"chat\" @click=\"showUnPinWarn = false\">\r\n            {{ $t('Отмена') }}\r\n          </TheButton>\r\n          <TheButton type=\"chat\"\r\n                     @click=\"chat.makePinned({messages:[ messageObject?.id]}).then(res=>{\r\n                       toast.info('Сообщение откреплено', {autoClose: 1500, theme: 'auto'})\r\n                     }); isOpen = false; showUnPinWarn = false\">\r\n            {{ $t('Открепить') }}\r\n          </TheButton>\r\n        </div>\r\n      </TheModal>\r\n      <TheModal :type=\"'resize'\" v-if=\"showDateModal\" @showModal=\"showDateModal = false\">\r\n      </TheModal>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>",
-      "start": 1706896546236,
-      "end": 1706896546503,
+      "start": 1707126069756,
+      "end": 1707126070143,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896546503,
-      "end": 1706896546503,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896546503,
-      "end": 1706896546503,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896546503,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896546503,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896546504,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896546504,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896546504,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896546504,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896546504,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896546504,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896546504,
-      "end": 1706896546504,
+      "start": 1707126070144,
+      "end": 1707126070144,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/Chat/ChatContent/ChatContentUser.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/Chat/ChatContent/ChatContentUser.vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/Chat/ChatContent/ChatContentUser.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
-      "start": 1706896546504,
-      "end": 1706896547706,
+      "start": 1707126070144,
+      "end": 1707126070634,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -86,212 +86,212 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070636,
+      "end": 1707126070636,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070636,
+      "end": 1707126070636,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070636,
+      "end": 1707126070636,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070637,
+      "end": 1707126070637,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070638,
+      "end": 1707126070638,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070639,
+      "end": 1707126070639,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070639,
+      "end": 1707126070639,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070639,
+      "end": 1707126070639,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896547708,
-      "end": 1706896547709,
+      "start": 1707126070640,
+      "end": 1707126070640,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896547708,
-      "end": 1706896547709,
+      "start": 1707126070640,
+      "end": 1707126070640,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896547709,
-      "end": 1706896547709,
+      "start": 1707126070640,
+      "end": 1707126070640,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896547709,
-      "end": 1706896547709,
+      "start": 1707126070640,
+      "end": 1707126070640,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896547713,
-      "end": 1706896547714,
+      "start": 1707126070640,
+      "end": 1707126070641,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896547713,
-      "end": 1706896547714,
+      "start": 1707126070640,
+      "end": 1707126070641,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896547714,
-      "end": 1706896547716,
+      "start": 1707126070641,
+      "end": 1707126070643,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896547714,
-      "end": 1706896547716,
+      "start": 1707126070641,
+      "end": 1707126070643,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896547716,
-      "end": 1706896547717,
+      "start": 1707126070643,
+      "end": 1707126070643,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896547716,
-      "end": 1706896547717,
+      "start": 1707126070643,
+      "end": 1707126070644,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896547719,
-      "end": 1706896547719,
+      "start": 1707126070646,
+      "end": 1707126070647,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896547719,
-      "end": 1706896547719,
+      "start": 1707126070646,
+      "end": 1707126070647,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896547724,
-      "end": 1706896547724,
+      "start": 1707126070652,
+      "end": 1707126070652,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896547724,
-      "end": 1706896547724,
+      "start": 1707126070652,
+      "end": 1707126070653,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896547724,
-      "end": 1706896547724,
+      "start": 1707126070653,
+      "end": 1707126070653,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896547724,
-      "end": 1706896547725,
+      "start": 1707126070653,
+      "end": 1707126070653,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896547725,
-      "end": 1706896547725,
+      "start": 1707126070653,
+      "end": 1707126070654,
       "order": "normal"
     }
   ]

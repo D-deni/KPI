@@ -3,22 +3,33 @@ import {useChat} from "~/stores/chat";
 import {useRoute, useRouter} from "vue-router";
 import {useAuthStore} from "~/stores/auth";
 import {toast} from "vue3-toastify";
-import ChatWindowSettingContentHeadersElems from "~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentHeaderUI/ChatWindowSettingContentHeadersElems.vue";
-import ChatWindowSettingContentHeaderChange from "~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentHeaderUI/ChatWindowSettingContentHeaderChange.vue";
+import ChatWindowSettingContentHeadersElems
+  from "~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentHeaderUI/ChatWindowSettingContentHeadersElems.vue";
+import ChatWindowSettingContentHeaderChange
+  from "~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent/ChatWindowSettingContentHeaderUI/ChatWindowSettingContentHeaderChange.vue";
+import ChatUserCheckbox from "~/components/Chat/UI/ChatUserCheckbox.vue";
+import TheModal from "~/components/UI/TheModal.vue";
+import TheButton from "~/components/UI/TheButton.vue";
 
 const loadAuthStore = useAuthStore()
 const route = useRoute()
 const router = useRouter()
 const chat = useChat()
-
+defineProps({
+  showGroupAdd: {
+    type: Boolean,
+    default: false
+  }
+})
 </script>
 
 <template>
-  <div class="p-4 flex justify-between tracking-wider items-center">
+  <div class="p-4 flex justify-between tracking-wider items-center relative">
     <p class="tracking-widest">{{ $t('Информация о группе') }}</p>
     <div class="flex gap-x-4 items-center ">
       <div class="p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200"
-           :class="{'dark:bg-gray-500 bg-gray-200' : chat.showSettingChat}" @click.stop="chat.showSettingChat = !chat.showSettingChat">
+           :class="{'dark:bg-gray-500 bg-gray-200' : chat.showSettingChat}"
+           @click.stop="chat.showSettingChat = !chat.showSettingChat">
         <svg class="dark:stroke-white stroke-black" width="25px" height="25px" viewBox="0 0 24 24" fill="none"
              xmlns="http://www.w3.org/2000/svg">
           <path
@@ -27,8 +38,9 @@ const chat = useChat()
         </svg>
       </div>
       <Transition name="slide-down" @click.stop>
-        <div v-if="chat.showSettingChat" class="absolute top-10 right-16 py-1 dark:bg-gray-800 bg-gray-200 flex flex-col gap-y-2">
-          <ChatWindowSettingContentHeadersElems @click="chat.showGroupCreateChoice = true">
+        <div v-if="chat.showSettingChat"
+             class="absolute top-10 right-16 py-1 dark:bg-gray-800 bg-gray-200 flex flex-col gap-y-2">
+          <ChatWindowSettingContentHeadersElems @click="$emit('showGroupAdd'); chat.showSettingChat = false;">
             <template v-slot:chatWindowSettingContentSvg>
               <svg class="stroke-black dark:stroke-white" width="20px" height="20px" viewBox="0 0 24 24"
                    xmlns="http://www.w3.org/2000/svg">
@@ -53,15 +65,22 @@ const chat = useChat()
               {{ $t('Добавить участников') }}
             </template>
           </ChatWindowSettingContentHeadersElems>
-          <ChatWindowSettingContentHeadersElems @click="chat.showChatChangeInfo = true; chat.showSettingChat = false; chat.updateChatName = chat.userChat.name">
+          <ChatWindowSettingContentHeadersElems
+            @click="chat.showChatChangeInfo = true; chat.showSettingChat = false; chat.updateChatName = chat.userChat.name">
             <template v-slot:chatWindowSettingContentSvg>
-              <svg class="stroke-black dark:stroke-white" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.48 18.5368H21M4.68 12L3 12.044M4.68 12C4.68 13.3255 5.75451 14.4 7.08 14.4C8.40548 14.4 9.48 13.3255 9.48 12C9.48 10.6745 8.40548 9.6 7.08 9.6C5.75451 9.6 4.68 10.6745 4.68 12ZM10.169 12.0441H21M12.801 5.55124L3 5.55124M21 5.55124H18.48M3 18.5368H12.801M17.88 18.6C17.88 19.9255 16.8055 21 15.48 21C14.1545 21 13.08 19.9255 13.08 18.6C13.08 17.2745 14.1545 16.2 15.48 16.2C16.8055 16.2 17.88 17.2745 17.88 18.6ZM17.88 5.4C17.88 6.72548 16.8055 7.8 15.48 7.8C14.1545 7.8 13.08 6.72548 13.08 5.4C13.08 4.07452 14.1545 3 15.48 3C16.8055 3 17.88 4.07452 17.88 5.4Z" stroke-width="1.5" stroke-linecap="round"></path></svg>
+              <svg class="stroke-black dark:stroke-white" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.48 18.5368H21M4.68 12L3 12.044M4.68 12C4.68 13.3255 5.75451 14.4 7.08 14.4C8.40548 14.4 9.48 13.3255 9.48 12C9.48 10.6745 8.40548 9.6 7.08 9.6C5.75451 9.6 4.68 10.6745 4.68 12ZM10.169 12.0441H21M12.801 5.55124L3 5.55124M21 5.55124H18.48M3 18.5368H12.801M17.88 18.6C17.88 19.9255 16.8055 21 15.48 21C14.1545 21 13.08 19.9255 13.08 18.6C13.08 17.2745 14.1545 16.2 15.48 16.2C16.8055 16.2 17.88 17.2745 17.88 18.6ZM17.88 5.4C17.88 6.72548 16.8055 7.8 15.48 7.8C14.1545 7.8 13.08 6.72548 13.08 5.4C13.08 4.07452 14.1545 3 15.48 3C16.8055 3 17.88 4.07452 17.88 5.4Z"
+                  stroke-width="1.5" stroke-linecap="round"></path>
+              </svg>
             </template>
             <template v-slot:chatWindowSettingContentText>
               {{ $t('Управление группой') }}
             </template>
           </ChatWindowSettingContentHeadersElems>
-          <ChatWindowSettingContentHeadersElems class="text-red-400" @click="chat.chatDelete({id: route.params.id}).then(res=>{chat.showSettingChat = false; chat.showGroupCreateChoice = false; chat.showChatInfo = false; router.push('/base/chat').then(response=>{toast.success('Чат успешно удалён', {theme: 'auto', autoClose: 1000})})})">
+          <ChatWindowSettingContentHeadersElems class="text-red-400"
+                                                @click="chat.chatDelete({id: route.params.id}).then(res=>{chat.showSettingChat = false; showGroupAdd = false; chat.showChatInfo = false; router.push('/base/chat').then(response=>{toast.success('Чат успешно удалён', {theme: 'auto', autoClose: 1000})})})">
             <template v-slot:chatWindowSettingContentSvg>
               <svg class="stroke-red-400" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                    xmlns="http://www.w3.org/2000/svg">
@@ -89,15 +108,12 @@ const chat = useChat()
       </div>
     </div>
   </div>
-  <Transition name="fade">
-    <ChatWindowSettingContentHeaderChange></ChatWindowSettingContentHeaderChange>
-  </Transition>
-<!--  <Transition name="fade">-->
-<!--   <div>-->
-<!--     <div class="fixed w-screen h-screen top-0 left-0"-->
-<!--          @click="chat.showChatChangeInfo = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}"></div>-->
-<!--   </div>-->
-<!--  </Transition>-->
+  <!--  <Transition name="fade">-->
+  <!--   <div>-->
+  <!--     <div class="fixed w-screen h-screen top-0 left-0"-->
+  <!--          @click="chat.showChatChangeInfo = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}"></div>-->
+  <!--   </div>-->
+  <!--  </Transition>-->
 </template>
 
 <style scoped lang="scss">

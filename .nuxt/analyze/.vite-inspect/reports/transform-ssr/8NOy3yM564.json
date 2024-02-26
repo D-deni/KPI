@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, unref as _unref } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useTestList} from \"~/stores/test\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TestLists',\n  __ssrInlineRender: true,\n  props: {\r\n  test: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  },\r\n  openTest: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  showTestError: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst testList = useTestList()\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  }><div class=\"p-2 border flex items-center justify-between cursor-pointer rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all\"><div class=\"w-full\"><p>${\n    _ssrInterpolate(__props.test?.question.length > 20 ? __props.test.question?.slice(0, 20) + '...' : __props.test?.question)\n  }</p></div><div><div class=\"cursor-pointer bg-red-400 p-2 rounded-lg\"><svg class=\"fill-white\" width=\"20px\" height=\"20px\" viewBox=\"-3.5 0 19 19\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.383 13.644A1.03 1.03 0 0 1 9.928 15.1L6 11.172 2.072 15.1a1.03 1.03 0 1 1-1.455-1.456l3.928-3.928L.617 5.79a1.03 1.03 0 1 1 1.455-1.456L6 8.261l3.928-3.928a1.03 1.03 0 0 1 1.455 1.456L7.455 9.716z\"></path></svg></div></div></div>`)\n  if (__props.openTest) {\n    _push(_ssrRenderComponent(TheModal, {\n      onShowModal: ($event: any) => (__props.openTest = !__props.openTest)\n    }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(_ssrRenderComponent(TheTextContent, { class: \"break-words\" }, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Тест:') + ' ' + __props.test.question)}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Тест:') + ' ' + __props.test.question), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(`<p class=\"my-2\"${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('Варианты ответа:'))\n          }</p><div class=\"flex gap-x-2 w-full justify-center max-lg:flex-wrap gap-y-2\"${\n            _scopeId\n          }><!--[-->`)\n          _ssrRenderList(__props.test.options, (item) => {\n            _push(`<div class=\"max-lg:w-full w-6/12\"${\n              _scopeId\n            }><p class=\"border p-2 rounded-lg break-words\"${\n              _scopeId\n            }>${\n              _ssrInterpolate(item.text)\n            }</p></div>`)\n          })\n          _push(`<!--]--></div>`)\n        } else {\n          return [\n            _createVNode(TheTextContent, { class: \"break-words\" }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Тест:') + ' ' + __props.test.question), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(\"p\", { class: \"my-2\" }, _toDisplayString(_ctx.$t('Варианты ответа:')), 1),\n            _createVNode(\"div\", { class: \"flex gap-x-2 w-full justify-center max-lg:flex-wrap gap-y-2\" }, [\n              (_openBlock(true), _createBlock(_Fragment, null, _renderList(__props.test.options, (item) => {\n                return (_openBlock(), _createBlock(\"div\", { class: \"max-lg:w-full w-6/12\" }, [\n                  _createVNode(\"p\", { class: \"border p-2 rounded-lg break-words\" }, _toDisplayString(item.text), 1)\n                ]))\n              }), 256))\n            ])\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n  } else {\n    _push(`<!---->`)\n  }\n  if (__props.showTestError) {\n    _push(_ssrRenderComponent(TheModal, {\n      onShowModal: ($event: any) => (__props.showTestError = !__props.showTestError)\n    }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(_ssrRenderComponent(TheTextContent, null, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Вы уверены что хотите удалить тест?'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Вы уверены что хотите удалить тест?')), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(`<p class=\"text-center text-xl tracking-widest\"${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('Удалённые тесты возврату') + ' ')\n          }<span class=\"font-bold underline\"${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('не подлежат'))\n          }</span></p><div class=\"flex justify-center gap-x-10 mt-10\"${\n            _scopeId\n          }>`)\n          _push(_ssrRenderComponent(TheButton, {\n            class: \"px-10 py-2 rounded-full\",\n            type: \"danger\",\n            onClick: ($event: any) => (__props.showTestError = false)\n          }, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Отмена'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(_ssrRenderComponent(TheButton, {\n            class: \"px-10 py-2 rounded-full\",\n            type: \"success\",\n            onClick: ($event: any) => (_unref(testList).deleteTest({test_id: __props.test?.id}))\n          }, {\n            default: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Удалить'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Удалить')), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n          _push(`</div>`)\n        } else {\n          return [\n            _createVNode(TheTextContent, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Вы уверены что хотите удалить тест?')), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(\"p\", { class: \"text-center text-xl tracking-widest\" }, [\n              _createTextVNode(_toDisplayString(_ctx.$t('Удалённые тесты возврату') + ' '), 1),\n              _createVNode(\"span\", { class: \"font-bold underline\" }, _toDisplayString(_ctx.$t('не подлежат')), 1)\n            ]),\n            _createVNode(\"div\", { class: \"flex justify-center gap-x-10 mt-10\" }, [\n              _createVNode(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"danger\",\n                onClick: ($event: any) => (__props.showTestError = false)\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n                ]),\n                _: 1\n              }, 8, [\"onClick\"]),\n              _createVNode(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"success\",\n                onClick: ($event: any) => (_unref(testList).deleteTest({test_id: __props.test?.id}))\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Удалить')), 1)\n                ]),\n                _: 1\n              }, 8, [\"onClick\"])\n            ])\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069613,
+      "end": 1707126069613,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069613,
+      "end": 1707126069613,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069613,
+      "end": 1707126069613,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069613,
+      "end": 1707126069613,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069613,
+      "end": 1707126069613,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069614,
+      "end": 1707126069614,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069614,
+      "end": 1707126069614,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069614,
+      "end": 1707126069614,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896545165,
-      "end": 1706896545165,
+      "start": 1707126069614,
+      "end": 1707126069614,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useTestList } from \"~/stores/test\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TestLists\",\n  __ssrInlineRender: true,\n  props: {\n    test: {\n      type: Object,\n      default: () => {\n      }\n    },\n    openTest: {\n      type: Boolean,\n      default: false\n    },\n    showTestError: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const testList = useTestList();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}><div class=\"p-2 border flex items-center justify-between cursor-pointer rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all\"><div class=\"w-full\"><p>${_ssrInterpolate(__props.test?.question.length > 20 ? __props.test.question?.slice(0, 20) + \"...\" : __props.test?.question)}</p></div><div><div class=\"cursor-pointer bg-red-400 p-2 rounded-lg\"><svg class=\"fill-white\" width=\"20px\" height=\"20px\" viewBox=\"-3.5 0 19 19\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.383 13.644A1.03 1.03 0 0 1 9.928 15.1L6 11.172 2.072 15.1a1.03 1.03 0 1 1-1.455-1.456l3.928-3.928L.617 5.79a1.03 1.03 0 1 1 1.455-1.456L6 8.261l3.928-3.928a1.03 1.03 0 0 1 1.455 1.456L7.455 9.716z\"></path></svg></div></div></div>`);\n      if (__props.openTest) {\n        _push(_ssrRenderComponent(TheModal, {\n          onShowModal: ($event) => __props.openTest = !__props.openTest\n        }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(_ssrRenderComponent(TheTextContent, { class: \"break-words\" }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Тест:\") + \" \" + __props.test.question)}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Тест:\") + \" \" + __props.test.question), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<p class=\"my-2\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Варианты ответа:\"))}</p><div class=\"flex gap-x-2 w-full justify-center max-lg:flex-wrap gap-y-2\"${_scopeId}><!--[-->`);\n              _ssrRenderList(__props.test.options, (item) => {\n                _push2(`<div class=\"max-lg:w-full w-6/12\"${_scopeId}><p class=\"border p-2 rounded-lg break-words\"${_scopeId}>${_ssrInterpolate(item.text)}</p></div>`);\n              });\n              _push2(`<!--]--></div>`);\n            } else {\n              return [\n                _createVNode(TheTextContent, { class: \"break-words\" }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Тест:\") + \" \" + __props.test.question), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"p\", { class: \"my-2\" }, _toDisplayString(_ctx.$t(\"Варианты ответа:\")), 1),\n                _createVNode(\"div\", { class: \"flex gap-x-2 w-full justify-center max-lg:flex-wrap gap-y-2\" }, [\n                  (_openBlock(true), _createBlock(_Fragment, null, _renderList(__props.test.options, (item) => {\n                    return _openBlock(), _createBlock(\"div\", { class: \"max-lg:w-full w-6/12\" }, [\n                      _createVNode(\"p\", { class: \"border p-2 rounded-lg break-words\" }, _toDisplayString(item.text), 1)\n                    ]);\n                  }), 256))\n                ])\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n      } else {\n        _push(`<!---->`);\n      }\n      if (__props.showTestError) {\n        _push(_ssrRenderComponent(TheModal, {\n          onShowModal: ($event) => __props.showTestError = !__props.showTestError\n        }, {\n          default: _withCtx((_, _push2, _parent2, _scopeId) => {\n            if (_push2) {\n              _push2(_ssrRenderComponent(TheTextContent, null, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Вы уверены что хотите удалить тест?\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Вы уверены что хотите удалить тест?\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`<p class=\"text-center text-xl tracking-widest\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Удалённые тесты возврату\") + \" \")}<span class=\"font-bold underline\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"не подлежат\"))}</span></p><div class=\"flex justify-center gap-x-10 mt-10\"${_scopeId}>`);\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"danger\",\n                onClick: ($event) => __props.showTestError = false\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Отмена\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Отмена\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(_ssrRenderComponent(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"success\",\n                onClick: ($event) => _unref(testList).deleteTest({ test_id: __props.test?.id })\n              }, {\n                default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Удалить\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Удалить\")), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n              _push2(`</div>`);\n            } else {\n              return [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Вы уверены что хотите удалить тест?\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"p\", { class: \"text-center text-xl tracking-widest\" }, [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Удалённые тесты возврату\") + \" \"), 1),\n                  _createVNode(\"span\", { class: \"font-bold underline\" }, _toDisplayString(_ctx.$t(\"не подлежат\")), 1)\n                ]),\n                _createVNode(\"div\", { class: \"flex justify-center gap-x-10 mt-10\" }, [\n                  _createVNode(TheButton, {\n                    class: \"px-10 py-2 rounded-full\",\n                    type: \"danger\",\n                    onClick: ($event) => __props.showTestError = false\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Отмена\")), 1)\n                    ]),\n                    _: 1\n                  }, 8, [\"onClick\"]),\n                  _createVNode(TheButton, {\n                    class: \"px-10 py-2 rounded-full\",\n                    type: \"success\",\n                    onClick: ($event) => _unref(testList).deleteTest({ test_id: __props.test?.id })\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Удалить\")), 1)\n                    ]),\n                    _: 1\n                  }, 8, [\"onClick\"])\n                ])\n              ];\n            }\n          }),\n          _: 1\n        }, _parent));\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896545165,
-      "end": 1706896546082,
+      "start": 1707126069614,
+      "end": 1707126070109,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -91,230 +91,230 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896546082,
-      "end": 1706896546082,
+      "start": 1707126070109,
+      "end": 1707126070109,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896546082,
-      "end": 1706896546082,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896546082,
-      "end": 1706896546082,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896546082,
-      "end": 1706896546082,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546082,
-      "end": 1706896546082,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546082,
-      "end": 1706896546082,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070110,
+      "end": 1707126070110,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070110,
+      "end": 1707126070111,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070111,
+      "end": 1707126070111,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070111,
+      "end": 1707126070111,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070111,
+      "end": 1707126070111,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070111,
+      "end": 1707126070111,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070112,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070112,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070112,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070112,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070112,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070112,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070112,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070113,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546083,
-      "end": 1706896546083,
+      "start": 1707126070112,
+      "end": 1707126070113,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546083,
-      "end": 1706896546084,
+      "start": 1707126070113,
+      "end": 1707126070113,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546083,
-      "end": 1706896546084,
+      "start": 1707126070113,
+      "end": 1707126070113,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546084,
-      "end": 1706896546084,
+      "start": 1707126070113,
+      "end": 1707126070113,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546084,
-      "end": 1706896546084,
+      "start": 1707126070113,
+      "end": 1707126070113,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896546084,
-      "end": 1706896546089,
+      "start": 1707126070113,
+      "end": 1707126070126,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896546084,
-      "end": 1706896546090,
+      "start": 1707126070113,
+      "end": 1707126070126,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546090,
-      "end": 1706896546090,
+      "start": 1707126070127,
+      "end": 1707126070127,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546090,
-      "end": 1706896546090,
+      "start": 1707126070127,
+      "end": 1707126070127,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546090,
-      "end": 1706896546090,
+      "start": 1707126070127,
+      "end": 1707126070127,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546090,
-      "end": 1706896546090,
+      "start": 1707126070127,
+      "end": 1707126070127,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896546091,
-      "end": 1706896546091,
+      "start": 1707126070127,
+      "end": 1707126070127,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896546091,
-      "end": 1706896546091,
+      "start": 1707126070127,
+      "end": 1707126070128,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896546091,
-      "end": 1706896546091,
+      "start": 1707126070129,
+      "end": 1707126070129,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896546091,
-      "end": 1706896546091,
+      "start": 1707126070129,
+      "end": 1707126070129,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896546092,
-      "end": 1706896546092,
+      "start": 1707126070130,
+      "end": 1707126070130,
       "order": "normal"
     }
   ]

@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, resolveComponent as _resolveComponent, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"mt-6\" }\nconst _hoisted_2 = { class: \"flex relative justify-between max-[425px]:gap-y-6\" }\nconst _hoisted_3 = { class: \"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\" }\nconst _hoisted_4 = { class: \"my-10 font-bold tracking-widest\" }\n\nimport TaskTable from '/components/Tasks/TaskUI/TasksTable.vue'\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksContentBlock',\n  props: {\r\n  task: {\r\n    type: Object,\r\n    required: true,\r\n  }\r\n},\n  setup(__props) {\n\r\nconst loadCurrentUser = useAuthStore()\r\nconst props = __props\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_NuxtLink, {\n      to: `/base/tasks/${__props.task.id}`,\n      class: \"shadow-xl dark:bg-gray-400 hover:bg-gray-100 dark:hover:bg-gray-300 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between\"\n    }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(TaskTable, null, {\n              tableHead: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Наименование')), 1)\n              ]),\n              tableBody: _withCtx(() => [\n                _createTextVNode(_toDisplayString(__props.task.title), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(TaskTable, null, {\n              tableHead: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Дата')), 1)\n              ]),\n              tableBody: _withCtx(() => [\n                _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(TaskTable, { class: \"text-center\" }, {\n              tableHead: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Срок выполнения')), 1)\n              ]),\n              tableBody: _withCtx(() => [\n                _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n              ]),\n              _: 1\n            }),\n            (_unref(loadCurrentUser).user.role_en === 'company_admin')\n              ? (_openBlock(), _createBlock(TaskTable, {\n                  key: 0,\n                  class: \"text-center\"\n                }, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t('Ответственный')), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + ' ' + __props.task.main_performer.last_name), 1)\n                  ]),\n                  _: 1\n                }))\n              : _createCommentVNode(\"\", true)\n          ]),\n          _createElementVNode(\"div\", {\n            class: _normalizeClass([\"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\", {'bg-orange-500' : __props.task.status === 'performing', 'bg-red-500' : __props.task.status === 'rejected', 'bg-green-500' : __props.task.status === 'completed', 'bg-blue-500' : __props.task.status === 'watching'}])\n          }, null, 2)\n        ]),\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"p\", null, _toDisplayString(__props.task.description), 1)\n        ])\n      ]),\n      _: 1\n    }, 8, [\"to\"])\n  ]))\n}\n}\n\n})",
-      "start": 1706896522861,
-      "end": 1706896522861
+      "start": 1707126042112,
+      "end": 1707126042112
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896522861,
-      "end": 1706896522861,
+      "start": 1707126042112,
+      "end": 1707126042112,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896522861,
-      "end": 1706896522861,
+      "start": 1707126042112,
+      "end": 1707126042112,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896522861,
-      "end": 1706896522861,
+      "start": 1707126042112,
+      "end": 1707126042112,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896522861,
-      "end": 1706896522861,
+      "start": 1707126042112,
+      "end": 1707126042112,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896522861,
-      "end": 1706896522861,
+      "start": 1707126042112,
+      "end": 1707126042112,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, resolveComponent as _resolveComponent, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"mt-6\" };\nconst _hoisted_2 = { class: \"flex relative justify-between max-[425px]:gap-y-6\" };\nconst _hoisted_3 = { class: \"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\" };\nconst _hoisted_4 = { class: \"my-10 font-bold tracking-widest\" };\nimport TaskTable from \"/components/Tasks/TaskUI/TasksTable.vue\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TasksContentBlock\",\n  props: {\n    task: {\n      type: Object,\n      required: true\n    }\n  },\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    const props = __props;\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_NuxtLink, {\n          to: `/base/tasks/${__props.task.id}`,\n          class: \"shadow-xl dark:bg-gray-400 hover:bg-gray-100 dark:hover:bg-gray-300 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between\"\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_2, [\n              _createElementVNode(\"div\", _hoisted_3, [\n                _createVNode(TaskTable, null, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Наименование\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(__props.task.title), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(TaskTable, null, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Дата\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(TaskTable, { class: \"text-center\" }, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Срок выполнения\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n                  ]),\n                  _: 1\n                }),\n                _unref(loadCurrentUser).user.role_en === \"company_admin\" ? (_openBlock(), _createBlock(TaskTable, {\n                  key: 0,\n                  class: \"text-center\"\n                }, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Ответственный\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name), 1)\n                  ]),\n                  _: 1\n                })) : _createCommentVNode(\"\", true)\n              ]),\n              _createElementVNode(\"div\", {\n                class: _normalizeClass([\"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\", { \"bg-orange-500\": __props.task.status === \"performing\", \"bg-red-500\": __props.task.status === \"rejected\", \"bg-green-500\": __props.task.status === \"completed\", \"bg-blue-500\": __props.task.status === \"watching\" }])\n              }, null, 2)\n            ]),\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"p\", null, _toDisplayString(__props.task.description), 1)\n            ])\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896522861,
-      "end": 1706896522954,
+      "start": 1707126042112,
+      "end": 1707126042487,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,189 +57,189 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126042487,
+      "end": 1707126042487,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126042487,
+      "end": 1707126042487,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126042487,
+      "end": 1707126042487,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126042487,
+      "end": 1707126042487,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896522955,
-      "end": 1706896522956,
+      "start": 1707126042488,
+      "end": 1707126042488,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896522956,
-      "end": 1706896522956,
+      "start": 1707126042489,
+      "end": 1707126042489,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896522956,
-      "end": 1706896522956,
+      "start": 1707126042489,
+      "end": 1707126042489,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896522956,
-      "end": 1706896522956,
+      "start": 1707126042489,
+      "end": 1707126042489,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896522956,
-      "end": 1706896522964,
+      "start": 1707126042489,
+      "end": 1707126042494,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896522965,
-      "end": 1706896522965,
+      "start": 1707126042495,
+      "end": 1707126042495,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126042495,
+      "end": 1707126042495,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126042495,
+      "end": 1707126042495,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126042495,
+      "end": 1707126042495,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, resolveComponent as _resolveComponent, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"mt-6\" };\nconst _hoisted_2 = { class: \"flex relative justify-between max-[425px]:gap-y-6\" };\nconst _hoisted_3 = { class: \"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\" };\nconst _hoisted_4 = { class: \"my-10 font-bold tracking-widest\" };\nimport TaskTable from \"/components/Tasks/TaskUI/TasksTable.vue\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TasksContentBlock\",\n  props: {\n    task: {\n      type: Object,\n      required: true\n    }\n  },\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    const props = __props;\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_NuxtLink, {\n          to: `/base/tasks/${__props.task.id}`,\n          class: \"shadow-xl dark:bg-gray-400 hover:bg-gray-100 dark:hover:bg-gray-300 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between\"\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"div\", _hoisted_2, [\n              _createElementVNode(\"div\", _hoisted_3, [\n                _createVNode(TaskTable, null, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Наименование\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(__props.task.title), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(TaskTable, null, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Дата\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(TaskTable, { class: \"text-center\" }, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Срок выполнения\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n                  ]),\n                  _: 1\n                }),\n                _unref(loadCurrentUser).user.role_en === \"company_admin\" ? (_openBlock(), _createBlock(TaskTable, {\n                  key: 0,\n                  class: \"text-center\"\n                }, {\n                  tableHead: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Ответственный\")), 1)\n                  ]),\n                  tableBody: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name), 1)\n                  ]),\n                  _: 1\n                })) : _createCommentVNode(\"\", true)\n              ]),\n              _createElementVNode(\"div\", {\n                class: _normalizeClass([\"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\", { \"bg-orange-500\": __props.task.status === \"performing\", \"bg-red-500\": __props.task.status === \"rejected\", \"bg-green-500\": __props.task.status === \"completed\", \"bg-blue-500\": __props.task.status === \"watching\" }])\n              }, null, 2)\n            ]),\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"p\", null, _toDisplayString(__props.task.description), 1)\n            ])\n          ]),\n          _: 1\n        }, 8, [\"to\"])\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126042495,
+      "end": 1707126042495,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896522967,
-      "end": 1706896522967,
+      "start": 1707126042496,
+      "end": 1707126042496,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896522967,
-      "end": 1706896522967,
+      "start": 1707126042496,
+      "end": 1707126042496,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896522967,
-      "end": 1706896522967,
+      "start": 1707126042496,
+      "end": 1707126042496,
       "order": "normal"
     }
   ]

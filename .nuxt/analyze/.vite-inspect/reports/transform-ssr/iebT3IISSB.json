@@ -4,63 +4,63 @@
     {
       "name": "vite:load-fallback",
       "result": "import isEqual from 'lodash/isEqual'\nimport {node} from \"unenv\";\nimport {nodeVersion} from \"std-env\";\nimport {toast} from \"vue3-toastify\";\n\nclass Node {\n    constructor(self: any, parent = null, previous = null) {\n        this.self = self\n        this.parent = parent\n        this.previous = previous\n    }\n}\n\nexport class LinkedList {\n    constructor() {\n        this.head = null\n        this.tail = null\n    }\n\n    append(self: any): void {\n        const node = new Node(self)\n        if (this.tail) {\n            this.tail.parent = node\n        }\n        if (!this.head) {\n            this.head = node\n        }\n\n        this.tail = node\n    }\n    getPrevious(node){\n        let current = this.head\n        while(current && current.parent !== node){\n            current = current.parent\n        }\n        return current\n    }\n    prepend(self: any): void {\n        const node = new Node(self, this.parent)\n        this.head = node\n        // if(!this.tail){\n        //     this.tail = node\n        // }\n    }\n\n    delete(value: any) {\n        if (!this.head) {\n            return null\n        }\n        let deletedNode = null\n        while (this.head && isEqual(this.head.self, value)) {\n            deletedNode = this.head\n            this.head = this.head.parent\n        }\n        let currentNode = this.head\n        if (currentNode !== null) {\n            while (currentNode.parent) {\n                if (isEqual(currentNode.parent.self, value)) {\n                    deletedNode = currentNode.parent;\n                    currentNode.parent = currentNode.parent.parent\n                } else {\n                    currentNode = currentNode.parent\n                }\n            }\n        }\n        if (isEqual(this.tail?.self, value)) {\n            this.tail = currentNode;\n        }\n        return deletedNode\n    }\n\n    deleteNodeValue(targetValue: any, removeObject: any): void {\n        let current = this.head\n        while (current) {\n            if (isEqual(current.self, targetValue) && Array.isArray(current.self)) {\n                const indexToRemove = current.self.findIndex(obj => isEqual(obj, removeObject))\n                if (indexToRemove !== -1) {\n                    current.self.splice(indexToRemove, 1)\n                    return\n                }\n            }\n            current = current.parent\n        }\n    }\n\n    replaceNodeValue(targetValue: any, newValue: any): void {\n        let current = this.head\n        while (current) {\n            if (isEqual(current.self, targetValue)) {\n                current.self = newValue\n                return\n            }\n            current = current.parent\n        }\n    }\n\n    addContentToNode(targetValue: any, content: any): void {\n        let current = this.head\n        while (current) {\n            if (isEqual(current.self, targetValue)) {\n                current.self.push(content);\n                return\n            }\n            current = current.parent\n        }\n\n    }\n\n    find(value: any) {\n        if (!this.head) {\n            return null\n        }\n        let currentNode = this.head\n        while (currentNode) {\n            if (isEqual(currentNode.self, value)) {\n                return currentNode\n            }\n            currentNode = currentNode.parent\n        }\n        return null\n    }\n\n    insertAfter(after: any, data: any) {\n        const found = this.find(after)\n        if (!found) {\n            return this\n        }\n        found.next = new Node(data, found.next)\n    }\n\n    swipeIfCondition() {\n        let current = this.head\n\n        while(current && current.parent){\n          if(current.self[0].priority < current.parent.self[0].priority){\n              const tempSelf = current.self;\n              current.self = current.parent.self;\n              current.parent.self = tempSelf;\n\n              const tempParent = current.self.parent;\n              current.self.parent = current.parent.self.parent;\n              current.parent.self.parent = tempParent;\n            toast.info('Пользователь был перемещен', {theme: 'auto', autoClose: 1500})\n          }\n          console.log(current)\n          current = current.parent\n        }\n\n    }\n\n    toArray(): any[] {\n        const nodes: any[] = []\n        let currentNode = this.head\n        while (currentNode) {\n            nodes.push(currentNode)\n            currentNode = currentNode.parent\n        }\n        return nodes\n    }\n}\n",
-      "start": 1706896550293,
-      "end": 1706896550353,
+      "start": 1707126072739,
+      "end": 1707126072741,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896550353,
-      "end": 1706896550353,
+      "start": 1707126072741,
+      "end": 1707126072741,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import isEqual from \"lodash/isEqual\";\nimport { toast } from \"vue3-toastify\";\nclass Node {\n  constructor(self, parent = null, previous = null) {\n    this.self = self;\n    this.parent = parent;\n    this.previous = previous;\n  }\n}\nexport class LinkedList {\n  constructor() {\n    this.head = null;\n    this.tail = null;\n  }\n  append(self) {\n    const node2 = new Node(self);\n    if (this.tail) {\n      this.tail.parent = node2;\n    }\n    if (!this.head) {\n      this.head = node2;\n    }\n    this.tail = node2;\n  }\n  getPrevious(node2) {\n    let current = this.head;\n    while (current && current.parent !== node2) {\n      current = current.parent;\n    }\n    return current;\n  }\n  prepend(self) {\n    const node2 = new Node(self, this.parent);\n    this.head = node2;\n  }\n  delete(value) {\n    if (!this.head) {\n      return null;\n    }\n    let deletedNode = null;\n    while (this.head && isEqual(this.head.self, value)) {\n      deletedNode = this.head;\n      this.head = this.head.parent;\n    }\n    let currentNode = this.head;\n    if (currentNode !== null) {\n      while (currentNode.parent) {\n        if (isEqual(currentNode.parent.self, value)) {\n          deletedNode = currentNode.parent;\n          currentNode.parent = currentNode.parent.parent;\n        } else {\n          currentNode = currentNode.parent;\n        }\n      }\n    }\n    if (isEqual(this.tail?.self, value)) {\n      this.tail = currentNode;\n    }\n    return deletedNode;\n  }\n  deleteNodeValue(targetValue, removeObject) {\n    let current = this.head;\n    while (current) {\n      if (isEqual(current.self, targetValue) && Array.isArray(current.self)) {\n        const indexToRemove = current.self.findIndex((obj) => isEqual(obj, removeObject));\n        if (indexToRemove !== -1) {\n          current.self.splice(indexToRemove, 1);\n          return;\n        }\n      }\n      current = current.parent;\n    }\n  }\n  replaceNodeValue(targetValue, newValue) {\n    let current = this.head;\n    while (current) {\n      if (isEqual(current.self, targetValue)) {\n        current.self = newValue;\n        return;\n      }\n      current = current.parent;\n    }\n  }\n  addContentToNode(targetValue, content) {\n    let current = this.head;\n    while (current) {\n      if (isEqual(current.self, targetValue)) {\n        current.self.push(content);\n        return;\n      }\n      current = current.parent;\n    }\n  }\n  find(value) {\n    if (!this.head) {\n      return null;\n    }\n    let currentNode = this.head;\n    while (currentNode) {\n      if (isEqual(currentNode.self, value)) {\n        return currentNode;\n      }\n      currentNode = currentNode.parent;\n    }\n    return null;\n  }\n  insertAfter(after, data) {\n    const found = this.find(after);\n    if (!found) {\n      return this;\n    }\n    found.next = new Node(data, found.next);\n  }\n  swipeIfCondition() {\n    let current = this.head;\n    while (current && current.parent) {\n      if (current.self[0].priority < current.parent.self[0].priority) {\n        const tempSelf = current.self;\n        current.self = current.parent.self;\n        current.parent.self = tempSelf;\n        const tempParent = current.self.parent;\n        current.self.parent = current.parent.self.parent;\n        current.parent.self.parent = tempParent;\n        toast.info(\"Пользователь был перемещен\", { theme: \"auto\", autoClose: 1500 });\n      }\n      console.log(current);\n      current = current.parent;\n    }\n  }\n  toArray() {\n    const nodes = [];\n    let currentNode = this.head;\n    while (currentNode) {\n      nodes.push(currentNode);\n      currentNode = currentNode.parent;\n    }\n    return nodes;\n  }\n}\n",
-      "start": 1706896550353,
-      "end": 1706896550354,
+      "start": 1707126072741,
+      "end": 1707126072742,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -78,230 +78,230 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896550354,
-      "end": 1706896550354,
+      "start": 1707126072742,
+      "end": 1707126072742,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896550354,
-      "end": 1706896550354,
+      "start": 1707126072742,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896550354,
-      "end": 1706896550354,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896550354,
-      "end": 1706896550354,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550354,
-      "end": 1706896550354,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550354,
-      "end": 1706896550354,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896550354,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896550354,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896550355,
-      "end": 1706896550355,
+      "start": 1707126072743,
+      "end": 1707126072743,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896550355,
-      "end": 1706896550356,
+      "start": 1707126072743,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896550355,
-      "end": 1706896550356,
+      "start": 1707126072743,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072744,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896550356,
-      "end": 1706896550356,
+      "start": 1707126072744,
+      "end": 1707126072745,
       "order": "normal"
     }
   ]

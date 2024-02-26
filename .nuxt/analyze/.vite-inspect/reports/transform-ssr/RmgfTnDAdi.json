@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\r\nimport {useUserStore} from \"~/stores/users\";\r\nimport {useChat} from \"~/stores/chat\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {useRoute} from \"vue-router\";\r\nimport ChatNavContentUser from \"~/components/Chat/ChatNav/ChatNavContentUser.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatNavContent',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst userStore = useUserStore()\r\nconst chatStore = useChat()\r\nconst user = useAuthStore()\r\nconst route = useRoute()\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-[80%] max-md:h-[80%] overflow-y-auto mt-4 max-md:w-full\" }, _attrs))}>`)\n  if (_unref(chatStore).searchElem === '') {\n    _push(`<div class=\"flex flex-col mb-20\">`)\n    if (_unref(userStore).get_user_list.results) {\n      _push(_ssrRenderComponent(ChatNavContentUser, null, null, _parent))\n    } else {\n      _push(`<!--[-->`)\n      _ssrRenderList(4, (i) => {\n        _push(`<div class=\"flex justify-center relative flex-col items-center mb-2\">`)\n        _push(_ssrRenderComponent(TheSceleton, {\n          class: \"dark:opacity-20 opacity-60\",\n          width: \"90%\",\n          height: \"70px\",\n          \"border-radius\": \"10px\"\n        }, null, _parent))\n        _push(`<div class=\"absolute left-6 max-md:left-10 flex items-center\">`)\n        _push(_ssrRenderComponent(TheSceleton, {\n          class: \"dark:opacity-20\",\n          width: \"50px\",\n          height: \"50px\",\n          \"border-radius\": \"100%\"\n        }, null, _parent))\n        _push(`<div class=\"ml-4 flex flex-col dark:opacity-20 gap-y-2\">`)\n        _push(_ssrRenderComponent(TheSceleton, {\n          class: \"\",\n          width: \"150px\",\n          height: \"10px\",\n          \"border-radius\": \"4px\"\n        }, null, _parent))\n        _push(_ssrRenderComponent(TheSceleton, {\n          class: \"\",\n          width: \"150px\",\n          height: \"10px\",\n          \"border-radius\": \"4px\"\n        }, null, _parent))\n        _push(`</div></div></div>`)\n      })\n      _push(`<!--]-->`)\n    }\n    _push(`</div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  if (_unref(chatStore).searchElem !== '') {\n    _push(`<div class=\"\"><!--[-->`)\n    _ssrRenderList(_unref(userStore).get_user_search.results, (userSearchList) => {\n      _push(_ssrRenderComponent(_component_NuxtLink, {\n        onClick: ($event: any) => {userSearchList.id !== _unref(chatStore).get_user_chat.user?.id ? _unref(chatStore).createChatUser({user_id: userSearchList.id}) : ()=>{\r\n                  _unref(chatStore).flag = false;\r\n                  _ctx.nextTick(()=>{\r\n                    _unref(chatStore).flag = true\r\n                  })\r\n                  _ctx.router.push(`/base/chat/${_unref(chatStore).get_user_chat?.id}`);\r\n                }; _unref(chatStore).showPinnedWindow = false; _unref(chatStore).searchElem = '' ; _unref(chatStore).activeChatNav = false},\n        class: [\"flex items-center px-4 gap-x-2 dark:hover:bg-gray-500 hover:bg-gray-300 cursor-pointer transition-all duration-200 p-1\", {'dark:hover:!bg-semiCyan' : _unref(route).path === `/base/chat/${userSearchList.id}`, 'hover:!bg-cyan' : _unref(route).path === `/base/chat/${userSearchList.id}`}]\n      }, {\n        default: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`<img class=\"w-[50px] h-[50px] rounded-full\"${\n              _ssrRenderAttr(\"src\", _unref(user).get_server_domain + userSearchList.photo_url)\n            } alt=\"\"${\n              _scopeId\n            }><p class=\"text-sm break-words\"${\n              _scopeId\n            }>${\n              _ssrInterpolate(userSearchList.first_name + ' ' + userSearchList.last_name)\n            }</p>`)\n          } else {\n            return [\n              _createVNode(\"img\", {\n                class: \"w-[50px] h-[50px] rounded-full\",\n                src: _unref(user).get_server_domain + userSearchList.photo_url,\n                alt: \"\"\n              }, null, 8, [\"src\"]),\n              _createVNode(\"p\", { class: \"text-sm break-words\" }, _toDisplayString(userSearchList.first_name + ' ' + userSearchList.last_name), 1)\n            ]\n          }\n        }),\n        _: 2\n      }, _parent))\n    })\n    _push(`<!--]--></div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896548784,
-      "end": 1706896548784,
+      "start": 1707126071565,
+      "end": 1707126071565,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useChat } from \"~/stores/chat\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useRoute } from \"vue-router\";\nimport ChatNavContentUser from \"~/components/Chat/ChatNav/ChatNavContentUser.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatNavContent\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const userStore = useUserStore();\n    const chatStore = useChat();\n    const user = useAuthStore();\n    const route = useRoute();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-[80%] max-md:h-[80%] overflow-y-auto mt-4 max-md:w-full\" }, _attrs))}>`);\n      if (_unref(chatStore).searchElem === \"\") {\n        _push(`<div class=\"flex flex-col mb-20\">`);\n        if (_unref(userStore).get_user_list.results) {\n          _push(_ssrRenderComponent(ChatNavContentUser, null, null, _parent));\n        } else {\n          _push(`<!--[-->`);\n          _ssrRenderList(4, (i) => {\n            _push(`<div class=\"flex justify-center relative flex-col items-center mb-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20 opacity-60\",\n              width: \"90%\",\n              height: \"70px\",\n              \"border-radius\": \"10px\"\n            }, null, _parent));\n            _push(`<div class=\"absolute left-6 max-md:left-10 flex items-center\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20\",\n              width: \"50px\",\n              height: \"50px\",\n              \"border-radius\": \"100%\"\n            }, null, _parent));\n            _push(`<div class=\"ml-4 flex flex-col dark:opacity-20 gap-y-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(`</div></div></div>`);\n          });\n          _push(`<!--]-->`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      if (_unref(chatStore).searchElem !== \"\") {\n        _push(`<div class=\"\"><!--[-->`);\n        _ssrRenderList(_unref(userStore).get_user_search.results, (userSearchList) => {\n          _push(_ssrRenderComponent(_component_NuxtLink, {\n            onClick: ($event) => {\n              userSearchList.id !== _unref(chatStore).get_user_chat.user?.id ? _unref(chatStore).createChatUser({ user_id: userSearchList.id }) : () => {\n                _unref(chatStore).flag = false;\n                _ctx.nextTick(() => {\n                  _unref(chatStore).flag = true;\n                });\n                _ctx.router.push(`/base/chat/${_unref(chatStore).get_user_chat?.id}`);\n              };\n              _unref(chatStore).showPinnedWindow = false;\n              _unref(chatStore).searchElem = \"\";\n              _unref(chatStore).activeChatNav = false;\n            },\n            class: [\"flex items-center px-4 gap-x-2 dark:hover:bg-gray-500 hover:bg-gray-300 cursor-pointer transition-all duration-200 p-1\", { \"dark:hover:!bg-semiCyan\": _unref(route).path === `/base/chat/${userSearchList.id}`, \"hover:!bg-cyan\": _unref(route).path === `/base/chat/${userSearchList.id}` }]\n          }, {\n            default: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`<img class=\"w-[50px] h-[50px] rounded-full\"${_ssrRenderAttr(\"src\", _unref(user).get_server_domain + userSearchList.photo_url)} alt=\"\"${_scopeId}><p class=\"text-sm break-words\"${_scopeId}>${_ssrInterpolate(userSearchList.first_name + \" \" + userSearchList.last_name)}</p>`);\n              } else {\n                return [\n                  _createVNode(\"img\", {\n                    class: \"w-[50px] h-[50px] rounded-full\",\n                    src: _unref(user).get_server_domain + userSearchList.photo_url,\n                    alt: \"\"\n                  }, null, 8, [\"src\"]),\n                  _createVNode(\"p\", { class: \"text-sm break-words\" }, _toDisplayString(userSearchList.first_name + \" \" + userSearchList.last_name), 1)\n                ];\n              }\n            }),\n            _: 2\n          }, _parent));\n        });\n        _push(`<!--]--></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548784,
-      "end": 1706896549122,
+      "start": 1707126071565,
+      "end": 1707126071855,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -89,171 +89,171 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896549122,
-      "end": 1706896549122,
+      "start": 1707126071855,
+      "end": 1707126071855,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896549122,
-      "end": 1706896549122,
+      "start": 1707126071855,
+      "end": 1707126071855,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896549122,
-      "end": 1706896549123,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896549123,
-      "end": 1706896549123,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549123,
-      "end": 1706896549123,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549123,
-      "end": 1706896549123,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071856,
+      "end": 1707126071856,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071856,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896549124,
-      "end": 1706896549124,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896549125,
-      "end": 1706896549125,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896549125,
-      "end": 1706896549125,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896549125,
-      "end": 1706896549125,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896549126,
-      "end": 1706896549126,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896549126,
-      "end": 1706896549126,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896549126,
-      "end": 1706896549126,
+      "start": 1707126071857,
+      "end": 1707126071857,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896549126,
-      "end": 1706896549126,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896549127,
-      "end": 1706896549127,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896549127,
-      "end": 1706896549127,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896549127,
-      "end": 1706896549127,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896549127,
-      "end": 1706896549127,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896549127,
-      "end": 1706896549127,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896549127,
-      "end": 1706896549128,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896549127,
-      "end": 1706896549128,
+      "start": 1707126071858,
+      "end": 1707126071858,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896549128,
-      "end": 1706896549128,
+      "start": 1707126071858,
+      "end": 1707126071859,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896549128,
-      "end": 1706896549128,
+      "start": 1707126071858,
+      "end": 1707126071859,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { nextTick as __unimport_nextTick, unref as __unimport_unref_ } from 'vue';import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useChat } from \"~/stores/chat\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useRoute } from \"vue-router\";\nimport ChatNavContentUser from \"~/components/Chat/ChatNav/ChatNavContentUser.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatNavContent\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const userStore = useUserStore();\n    const chatStore = useChat();\n    const user = useAuthStore();\n    const route = useRoute();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-[80%] max-md:h-[80%] overflow-y-auto mt-4 max-md:w-full\" }, _attrs))}>`);\n      if (_unref(chatStore).searchElem === \"\") {\n        _push(`<div class=\"flex flex-col mb-20\">`);\n        if (_unref(userStore).get_user_list.results) {\n          _push(_ssrRenderComponent(ChatNavContentUser, null, null, _parent));\n        } else {\n          _push(`<!--[-->`);\n          _ssrRenderList(4, (i) => {\n            _push(`<div class=\"flex justify-center relative flex-col items-center mb-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20 opacity-60\",\n              width: \"90%\",\n              height: \"70px\",\n              \"border-radius\": \"10px\"\n            }, null, _parent));\n            _push(`<div class=\"absolute left-6 max-md:left-10 flex items-center\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20\",\n              width: \"50px\",\n              height: \"50px\",\n              \"border-radius\": \"100%\"\n            }, null, _parent));\n            _push(`<div class=\"ml-4 flex flex-col dark:opacity-20 gap-y-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(`</div></div></div>`);\n          });\n          _push(`<!--]-->`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      if (_unref(chatStore).searchElem !== \"\") {\n        _push(`<div class=\"\"><!--[-->`);\n        _ssrRenderList(_unref(userStore).get_user_search.results, (userSearchList) => {\n          _push(_ssrRenderComponent(_component_NuxtLink, {\n            onClick: ($event) => {\n              userSearchList.id !== _unref(chatStore).get_user_chat.user?.id ? _unref(chatStore).createChatUser({ user_id: userSearchList.id }) : () => {\n                _unref(chatStore).flag = false;\n                (\"nextTick\" in _ctx ? _ctx.nextTick : __unimport_unref_(__unimport_nextTick))(() => {\n                  _unref(chatStore).flag = true;\n                });\n                _ctx.router.push(`/base/chat/${_unref(chatStore).get_user_chat?.id}`);\n              };\n              _unref(chatStore).showPinnedWindow = false;\n              _unref(chatStore).searchElem = \"\";\n              _unref(chatStore).activeChatNav = false;\n            },\n            class: [\"flex items-center px-4 gap-x-2 dark:hover:bg-gray-500 hover:bg-gray-300 cursor-pointer transition-all duration-200 p-1\", { \"dark:hover:!bg-semiCyan\": _unref(route).path === `/base/chat/${userSearchList.id}`, \"hover:!bg-cyan\": _unref(route).path === `/base/chat/${userSearchList.id}` }]\n          }, {\n            default: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`<img class=\"w-[50px] h-[50px] rounded-full\"${_ssrRenderAttr(\"src\", _unref(user).get_server_domain + userSearchList.photo_url)} alt=\"\"${_scopeId}><p class=\"text-sm break-words\"${_scopeId}>${_ssrInterpolate(userSearchList.first_name + \" \" + userSearchList.last_name)}</p>`);\n              } else {\n                return [\n                  _createVNode(\"img\", {\n                    class: \"w-[50px] h-[50px] rounded-full\",\n                    src: _unref(user).get_server_domain + userSearchList.photo_url,\n                    alt: \"\"\n                  }, null, 8, [\"src\"]),\n                  _createVNode(\"p\", { class: \"text-sm break-words\" }, _toDisplayString(userSearchList.first_name + \" \" + userSearchList.last_name), 1)\n                ];\n              }\n            }),\n            _: 2\n          }, _parent));\n        });\n        _push(`<!--]--></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896549128,
-      "end": 1706896549132,
+      "start": 1707126071859,
+      "end": 1707126071875,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -267,8 +267,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { nextTick as __unimport_nextTick, unref as __unimport_unref_ } from 'vue';import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useChat } from \"~/stores/chat\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useRoute } from \"vue-router\";\nimport ChatNavContentUser from \"~/components/Chat/ChatNav/ChatNavContentUser.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatNavContent\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const userStore = useUserStore();\n    const chatStore = useChat();\n    const user = useAuthStore();\n    const route = useRoute();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-[80%] max-md:h-[80%] overflow-y-auto mt-4 max-md:w-full\" }, _attrs))}>`);\n      if (_unref(chatStore).searchElem === \"\") {\n        _push(`<div class=\"flex flex-col mb-20\">`);\n        if (_unref(userStore).get_user_list.results) {\n          _push(_ssrRenderComponent(ChatNavContentUser, null, null, _parent));\n        } else {\n          _push(`<!--[-->`);\n          _ssrRenderList(4, (i) => {\n            _push(`<div class=\"flex justify-center relative flex-col items-center mb-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20 opacity-60\",\n              width: \"90%\",\n              height: \"70px\",\n              \"border-radius\": \"10px\"\n            }, null, _parent));\n            _push(`<div class=\"absolute left-6 max-md:left-10 flex items-center\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20\",\n              width: \"50px\",\n              height: \"50px\",\n              \"border-radius\": \"100%\"\n            }, null, _parent));\n            _push(`<div class=\"ml-4 flex flex-col dark:opacity-20 gap-y-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(`</div></div></div>`);\n          });\n          _push(`<!--]-->`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      if (_unref(chatStore).searchElem !== \"\") {\n        _push(`<div class=\"\"><!--[-->`);\n        _ssrRenderList(_unref(userStore).get_user_search.results, (userSearchList) => {\n          _push(_ssrRenderComponent(_component_NuxtLink, {\n            onClick: ($event) => {\n              userSearchList.id !== _unref(chatStore).get_user_chat.user?.id ? _unref(chatStore).createChatUser({ user_id: userSearchList.id }) : () => {\n                _unref(chatStore).flag = false;\n                (\"nextTick\" in _ctx ? _ctx.nextTick : __unimport_unref_(__unimport_nextTick))(() => {\n                  _unref(chatStore).flag = true;\n                });\n                _ctx.router.push(`/base/chat/${_unref(chatStore).get_user_chat?.id}`);\n              };\n              _unref(chatStore).showPinnedWindow = false;\n              _unref(chatStore).searchElem = \"\";\n              _unref(chatStore).activeChatNav = false;\n            },\n            class: [\"flex items-center px-4 gap-x-2 dark:hover:bg-gray-500 hover:bg-gray-300 cursor-pointer transition-all duration-200 p-1\", { \"dark:hover:!bg-semiCyan\": _unref(route).path === `/base/chat/${userSearchList.id}`, \"hover:!bg-cyan\": _unref(route).path === `/base/chat/${userSearchList.id}` }]\n          }, {\n            default: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`<img class=\"w-[50px] h-[50px] rounded-full\"${_ssrRenderAttr(\"src\", _unref(user).get_server_domain + userSearchList.photo_url)} alt=\"\"${_scopeId}><p class=\"text-sm break-words\"${_scopeId}>${_ssrInterpolate(userSearchList.first_name + \" \" + userSearchList.last_name)}</p>`);\n              } else {\n                return [\n                  _createVNode(\"img\", {\n                    class: \"w-[50px] h-[50px] rounded-full\",\n                    src: _unref(user).get_server_domain + userSearchList.photo_url,\n                    alt: \"\"\n                  }, null, 8, [\"src\"]),\n                  _createVNode(\"p\", { class: \"text-sm break-words\" }, _toDisplayString(userSearchList.first_name + \" \" + userSearchList.last_name), 1)\n                ];\n              }\n            }),\n            _: 2\n          }, _parent));\n        });\n        _push(`<!--]--></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896549128,
-      "end": 1706896549132,
+      "start": 1707126071859,
+      "end": 1707126071875,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -281,39 +281,39 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896549132,
-      "end": 1706896549132,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896549132,
-      "end": 1706896549132,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896549132,
-      "end": 1706896549132,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896549132,
-      "end": 1706896549132,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896549132,
-      "end": 1706896549132,
+      "start": 1707126071878,
+      "end": 1707126071878,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { nextTick as __unimport_nextTick, unref as __unimport_unref_ } from 'vue';import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttr as _ssrRenderAttr, ssrRenderAttrs as _ssrRenderAttrs, ssrRenderList as _ssrRenderList, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TheSceleton from \"~/components/UI/TheSceleton.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useChat } from \"~/stores/chat\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useRoute } from \"vue-router\";\nimport ChatNavContentUser from \"~/components/Chat/ChatNav/ChatNavContentUser.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatNavContent\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const userStore = useUserStore();\n    const chatStore = useChat();\n    const user = useAuthStore();\n    const route = useRoute();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-[80%] max-md:h-[80%] overflow-y-auto mt-4 max-md:w-full\" }, _attrs))}>`);\n      if (_unref(chatStore).searchElem === \"\") {\n        _push(`<div class=\"flex flex-col mb-20\">`);\n        if (_unref(userStore).get_user_list.results) {\n          _push(_ssrRenderComponent(ChatNavContentUser, null, null, _parent));\n        } else {\n          _push(`<!--[-->`);\n          _ssrRenderList(4, (i) => {\n            _push(`<div class=\"flex justify-center relative flex-col items-center mb-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20 opacity-60\",\n              width: \"90%\",\n              height: \"70px\",\n              \"border-radius\": \"10px\"\n            }, null, _parent));\n            _push(`<div class=\"absolute left-6 max-md:left-10 flex items-center\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"dark:opacity-20\",\n              width: \"50px\",\n              height: \"50px\",\n              \"border-radius\": \"100%\"\n            }, null, _parent));\n            _push(`<div class=\"ml-4 flex flex-col dark:opacity-20 gap-y-2\">`);\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(_ssrRenderComponent(TheSceleton, {\n              class: \"\",\n              width: \"150px\",\n              height: \"10px\",\n              \"border-radius\": \"4px\"\n            }, null, _parent));\n            _push(`</div></div></div>`);\n          });\n          _push(`<!--]-->`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      if (_unref(chatStore).searchElem !== \"\") {\n        _push(`<div class=\"\"><!--[-->`);\n        _ssrRenderList(_unref(userStore).get_user_search.results, (userSearchList) => {\n          _push(_ssrRenderComponent(_component_NuxtLink, {\n            onClick: ($event) => {\n              userSearchList.id !== _unref(chatStore).get_user_chat.user?.id ? _unref(chatStore).createChatUser({ user_id: userSearchList.id }) : () => {\n                _unref(chatStore).flag = false;\n                (\"nextTick\" in _ctx ? _ctx.nextTick : __unimport_unref_(__unimport_nextTick))(() => {\n                  _unref(chatStore).flag = true;\n                });\n                _ctx.router.push(`/base/chat/${_unref(chatStore).get_user_chat?.id}`);\n              };\n              _unref(chatStore).showPinnedWindow = false;\n              _unref(chatStore).searchElem = \"\";\n              _unref(chatStore).activeChatNav = false;\n            },\n            class: [\"flex items-center px-4 gap-x-2 dark:hover:bg-gray-500 hover:bg-gray-300 cursor-pointer transition-all duration-200 p-1\", { \"dark:hover:!bg-semiCyan\": _unref(route).path === `/base/chat/${userSearchList.id}`, \"hover:!bg-cyan\": _unref(route).path === `/base/chat/${userSearchList.id}` }]\n          }, {\n            default: _withCtx((_, _push2, _parent2, _scopeId) => {\n              if (_push2) {\n                _push2(`<img class=\"w-[50px] h-[50px] rounded-full\"${_ssrRenderAttr(\"src\", _unref(user).get_server_domain + userSearchList.photo_url)} alt=\"\"${_scopeId}><p class=\"text-sm break-words\"${_scopeId}>${_ssrInterpolate(userSearchList.first_name + \" \" + userSearchList.last_name)}</p>`);\n              } else {\n                return [\n                  _createVNode(\"img\", {\n                    class: \"w-[50px] h-[50px] rounded-full\",\n                    src: _unref(user).get_server_domain + userSearchList.photo_url,\n                    alt: \"\"\n                  }, null, 8, [\"src\"]),\n                  _createVNode(\"p\", { class: \"text-sm break-words\" }, _toDisplayString(userSearchList.first_name + \" \" + userSearchList.last_name), 1)\n                ];\n              }\n            }),\n            _: 2\n          }, _parent));\n        });\n        _push(`<!--]--></div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896549132,
-      "end": 1706896549132,
+      "start": 1707126071878,
+      "end": 1707126071879,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -326,20 +326,20 @@
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896549132,
-      "end": 1706896549133,
+      "start": 1707126071880,
+      "end": 1707126071880,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896549133,
-      "end": 1706896549133,
+      "start": 1707126071880,
+      "end": 1707126071881,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896549133,
-      "end": 1706896549133,
+      "start": 1707126071881,
+      "end": 1707126071881,
       "order": "normal"
     }
   ]

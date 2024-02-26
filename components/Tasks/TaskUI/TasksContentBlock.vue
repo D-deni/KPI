@@ -1,7 +1,7 @@
 <template>
   <div class="mt-6">
     <NuxtLink :to="`/base/tasks/${task.id}`"
-      class="shadow-xl dark:bg-gray-400 hover:bg-gray-100 dark:hover:bg-gray-300 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between">
+      class="shadow-xl dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between">
       <div class="flex relative justify-between max-[425px]:gap-y-6">
         <div class="flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around">
           <TaskTable>

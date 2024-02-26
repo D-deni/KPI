@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock, normalizeClass as _normalizeClass } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex max-[1170px]:flex-col max-lg:items-center justify-between\" }\nconst _hoisted_2 = { class: \"flex flex-col w-full max-xl:flex-wrap gap-y-10 max-xl:items-center\" }\nconst _hoisted_3 = { class: \"w-full mx-auto\" }\nconst _hoisted_4 = { class: \"w-full\" }\nconst _hoisted_5 = { class: \"flex flex-col w-4/12 max-[1170px]:w-full gap-y-10\" }\nconst _hoisted_6 = {\n  key: 1,\n  class: \"text-2xl break-words dark:text-white tracking-widest text-center\"\n}\nconst _hoisted_7 = { class: \"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full\" }\n\nimport TasksReport from \"../../../components/Tasks/TasksReport.vue\";\r\nimport TaskContent from \"~/components/Tasks/TasksContent\"\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TasksNotification from \"~/components/Tasks/TasksNotification.vue\";\r\nimport {Chart as ChartJS, ArcElement, Tooltip, Legend, Chart} from 'chart.js'\r\nimport {Doughnut, Pie} from 'vue-chartjs'\r\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport {definePageMeta} from \"#imports\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\r\nconst statsList = useTaskList()\r\nChartJS.register(ArcElement, Tooltip, Legend)\r\nChart.defaults.color = '#b6b6b6'\r\n\r\nconst chartData = ref({\r\n  labels:['Выполненые', 'В процессе', 'На расмотрении', 'Отмененные'],\r\n  datasets: [\r\n    {\r\n      backgroundColor: ['#41B883', '#E46651', '#3b82f6', '#DD1B16'],\r\n      data: [statsList?.get_stats[2]?.count, statsList?.get_stats[0]?.count, statsList?.get_stats[4]?.count, statsList?.get_stats[3]?.count]\r\n    }\r\n  ]\r\n});\r\nconst chartOptions = ref({\r\n  responsive: true,\r\n  maintainAspectRatio: false\r\n});\r\n\r\nuseSeoMeta({\r\n  title: 'Задания',\r\n  description: 'Страница с заданиями пользователей платформы'\r\n})\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(TheTextContent, { \"text-type\": 'pageTitle' }, {\n      default: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Страница c заданиями')), 1)\n      ]),\n      _: 1\n    }),\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createElementVNode(\"div\", _hoisted_2, [\n        _createElementVNode(\"div\", _hoisted_3, [\n          _createVNode(TasksReport)\n        ]),\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createVNode(_unref(TaskContent))\n        ])\n      ]),\n      _createElementVNode(\"div\", _hoisted_5, [\n        (_unref(chartData).datasets[0].data[0]!=undefined)\n          ? (_openBlock(), _createElementBlock(\"div\", {\n              key: 0,\n              class: _normalizeClass([\"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full bg-blue-5\", {'h-[400px]' : _unref(statsList).get_tasks.count > 0}])\n            }, [\n              (_unref(statsList).get_tasks.count > 0)\n                ? (_openBlock(), _createBlock(_unref(Pie), {\n                    key: 0,\n                    class: \"tracking-wider cursor-pointer\",\n                    data: _unref(chartData),\n                    options: _unref(chartOptions)\n                  }, null, 8, [\"data\", \"options\"]))\n                : (_openBlock(), _createElementBlock(\"p\", _hoisted_6, _toDisplayString(_ctx.$t('Статистика отсутствует')), 1))\n            ], 2))\n          : _createCommentVNode(\"\", true),\n        _createElementVNode(\"div\", _hoisted_7, [\n          _createVNode(TasksNotification, { class: \"\" })\n        ])\n      ])\n    ])\n  ]))\n}\n}\n\n})",
-      "start": 1706896518973,
-      "end": 1706896518973
+      "start": 1707126036263,
+      "end": 1707126036263
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896518974,
-      "end": 1706896518974,
+      "start": 1707126036263,
+      "end": 1707126036263,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896518974,
-      "end": 1706896518974,
+      "start": 1707126036264,
+      "end": 1707126036264,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896518974,
-      "end": 1706896518974,
+      "start": 1707126036264,
+      "end": 1707126036264,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896518974,
-      "end": 1706896518974,
+      "start": 1707126036264,
+      "end": 1707126036264,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896518974,
-      "end": 1706896518974,
+      "start": 1707126036264,
+      "end": 1707126036264,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock, normalizeClass as _normalizeClass } from \"vue\";\nconst _hoisted_1 = { class: \"flex max-[1170px]:flex-col max-lg:items-center justify-between\" };\nconst _hoisted_2 = { class: \"flex flex-col w-full max-xl:flex-wrap gap-y-10 max-xl:items-center\" };\nconst _hoisted_3 = { class: \"w-full mx-auto\" };\nconst _hoisted_4 = { class: \"w-full\" };\nconst _hoisted_5 = { class: \"flex flex-col w-4/12 max-[1170px]:w-full gap-y-10\" };\nconst _hoisted_6 = {\n  key: 1,\n  class: \"text-2xl break-words dark:text-white tracking-widest text-center\"\n};\nconst _hoisted_7 = { class: \"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full\" };\nimport TasksReport from \"../../../components/Tasks/TasksReport.vue\";\nimport TaskContent from \"~/components/Tasks/TasksContent\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TasksNotification from \"~/components/Tasks/TasksNotification.vue\";\nimport { Chart as ChartJS, ArcElement, Tooltip, Legend, Chart } from \"chart.js\";\nimport { Pie } from \"vue-chartjs\";\nimport { useTaskList } from \"~/stores/tasks\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    const statsList = useTaskList();\n    ChartJS.register(ArcElement, Tooltip, Legend);\n    Chart.defaults.color = \"#b6b6b6\";\n    const chartData = ref({\n      labels: [\"Выполненые\", \"В процессе\", \"На расмотрении\", \"Отмененные\"],\n      datasets: [\n        {\n          backgroundColor: [\"#41B883\", \"#E46651\", \"#3b82f6\", \"#DD1B16\"],\n          data: [statsList?.get_stats[2]?.count, statsList?.get_stats[0]?.count, statsList?.get_stats[4]?.count, statsList?.get_stats[3]?.count]\n        }\n      ]\n    });\n    const chartOptions = ref({\n      responsive: true,\n      maintainAspectRatio: false\n    });\n    useSeoMeta({\n      title: \"Задания\",\n      description: \"Страница с заданиями пользователей платформы\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Страница c заданиями\")), 1)\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createElementVNode(\"div\", _hoisted_3, [\n              _createVNode(TasksReport)\n            ]),\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createVNode(_unref(TaskContent))\n            ])\n          ]),\n          _createElementVNode(\"div\", _hoisted_5, [\n            _unref(chartData).datasets[0].data[0] != void 0 ? (_openBlock(), _createElementBlock(\"div\", {\n              key: 0,\n              class: _normalizeClass([\"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full bg-blue-5\", { \"h-[400px]\": _unref(statsList).get_tasks.count > 0 }])\n            }, [\n              _unref(statsList).get_tasks.count > 0 ? (_openBlock(), _createBlock(_unref(Pie), {\n                key: 0,\n                class: \"tracking-wider cursor-pointer\",\n                data: _unref(chartData),\n                options: _unref(chartOptions)\n              }, null, 8, [\"data\", \"options\"])) : (_openBlock(), _createElementBlock(\"p\", _hoisted_6, _toDisplayString(_ctx.$t(\"Статистика отсутствует\")), 1))\n            ], 2)) : _createCommentVNode(\"\", true),\n            _createElementVNode(\"div\", _hoisted_7, [\n              _createVNode(TasksNotification, { class: \"\" })\n            ])\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896518974,
-      "end": 1706896519534,
+      "start": 1707126036264,
+      "end": 1707126036696,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896519534,
-      "end": 1706896519534,
+      "start": 1707126036696,
+      "end": 1707126036696,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896519534,
-      "end": 1706896519534,
+      "start": 1707126036696,
+      "end": 1707126036696,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896519534,
-      "end": 1706896519534,
+      "start": 1707126036696,
+      "end": 1707126036696,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896519534,
-      "end": 1706896519534,
+      "start": 1707126036696,
+      "end": 1707126036696,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519534,
-      "end": 1706896519534,
+      "start": 1707126036696,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896519534,
-      "end": 1706896519534,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896519534,
-      "end": 1706896519534,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896519535,
-      "end": 1706896519535,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896519536,
-      "end": 1706896519536,
+      "start": 1707126036697,
+      "end": 1707126036697,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896519536,
-      "end": 1706896519536,
+      "start": 1707126036697,
+      "end": 1707126036698,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896519536,
-      "end": 1706896519536,
+      "start": 1707126036698,
+      "end": 1707126036698,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896519536,
-      "end": 1706896519536,
+      "start": 1707126036698,
+      "end": 1707126036698,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896519536,
-      "end": 1706896519536,
+      "start": 1707126036698,
+      "end": 1707126036698,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock, normalizeClass as _normalizeClass } from \"vue\";\nconst _hoisted_1 = { class: \"flex max-[1170px]:flex-col max-lg:items-center justify-between\" };\nconst _hoisted_2 = { class: \"flex flex-col w-full max-xl:flex-wrap gap-y-10 max-xl:items-center\" };\nconst _hoisted_3 = { class: \"w-full mx-auto\" };\nconst _hoisted_4 = { class: \"w-full\" };\nconst _hoisted_5 = { class: \"flex flex-col w-4/12 max-[1170px]:w-full gap-y-10\" };\nconst _hoisted_6 = {\n  key: 1,\n  class: \"text-2xl break-words dark:text-white tracking-widest text-center\"\n};\nconst _hoisted_7 = { class: \"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full\" };\nimport TasksReport from \"../../../components/Tasks/TasksReport.vue\";\nimport TaskContent from \"~/components/Tasks/TasksContent\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TasksNotification from \"~/components/Tasks/TasksNotification.vue\";\nimport { Chart as ChartJS, ArcElement, Tooltip, Legend, Chart } from \"chart.js\";\nimport { Pie } from \"vue-chartjs\";\nimport { useTaskList } from \"~/stores/tasks\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    const statsList = useTaskList();\n    ChartJS.register(ArcElement, Tooltip, Legend);\n    Chart.defaults.color = \"#b6b6b6\";\n    const chartData = ref({\n      labels: [\"Выполненые\", \"В процессе\", \"На расмотрении\", \"Отмененные\"],\n      datasets: [\n        {\n          backgroundColor: [\"#41B883\", \"#E46651\", \"#3b82f6\", \"#DD1B16\"],\n          data: [statsList?.get_stats[2]?.count, statsList?.get_stats[0]?.count, statsList?.get_stats[4]?.count, statsList?.get_stats[3]?.count]\n        }\n      ]\n    });\n    const chartOptions = ref({\n      responsive: true,\n      maintainAspectRatio: false\n    });\n    useSeoMeta({\n      title: \"Задания\",\n      description: \"Страница с заданиями пользователей платформы\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Страница c заданиями\")), 1)\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createElementVNode(\"div\", _hoisted_3, [\n              _createVNode(TasksReport)\n            ]),\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createVNode(_unref(TaskContent))\n            ])\n          ]),\n          _createElementVNode(\"div\", _hoisted_5, [\n            _unref(chartData).datasets[0].data[0] != void 0 ? (_openBlock(), _createElementBlock(\"div\", {\n              key: 0,\n              class: _normalizeClass([\"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full bg-blue-5\", { \"h-[400px]\": _unref(statsList).get_tasks.count > 0 }])\n            }, [\n              _unref(statsList).get_tasks.count > 0 ? (_openBlock(), _createBlock(_unref(Pie), {\n                key: 0,\n                class: \"tracking-wider cursor-pointer\",\n                data: _unref(chartData),\n                options: _unref(chartOptions)\n              }, null, 8, [\"data\", \"options\"])) : (_openBlock(), _createElementBlock(\"p\", _hoisted_6, _toDisplayString(_ctx.$t(\"Статистика отсутствует\")), 1))\n            ], 2)) : _createCommentVNode(\"\", true),\n            _createElementVNode(\"div\", _hoisted_7, [\n              _createVNode(TasksNotification, { class: \"\" })\n            ])\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896519537,
-      "end": 1706896519542,
+      "start": 1707126036698,
+      "end": 1707126036706,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,50 +204,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896519543,
-      "end": 1706896519543,
+      "start": 1707126036706,
+      "end": 1707126036706,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896519543,
-      "end": 1706896519543,
+      "start": 1707126036706,
+      "end": 1707126036706,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896519543,
-      "end": 1706896519543,
+      "start": 1707126036706,
+      "end": 1707126036707,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896519543,
-      "end": 1706896519543,
+      "start": 1707126036707,
+      "end": 1707126036707,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896519543,
-      "end": 1706896519544,
+      "start": 1707126036707,
+      "end": 1707126036707,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896519544,
-      "end": 1706896519544,
+      "start": 1707126036707,
+      "end": 1707126036707,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896519544,
-      "end": 1706896519544,
+      "start": 1707126036708,
+      "end": 1707126036708,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896519544,
-      "end": 1706896519544,
+      "start": 1707126036708,
+      "end": 1707126036708,
       "order": "normal"
     }
   ]

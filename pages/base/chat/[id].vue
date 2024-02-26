@@ -6,12 +6,9 @@ import ChatContent from "~/components/Chat/ChatContent.vue";
 import Sceleton from "~/components/UI/TheSceleton.vue";
 import ChatContentUserPinned from "~/components/Chat/ChatContent/ChatContentUserPinned.vue";
 import TheModal from "~/components/UI/TheModal.vue";
-import ChatContentContextMenuItem from "~/components/Chat/ChatContent/ChatContentContextMenuItem.vue";
 import ChatWindowSettingContent from "~/components/Chat/ChatContent/ChatWindowSetting/ChatWindowSettingContent.vue";
 import ChatChangeWindow from "~/components/Chat/UI/ChatChangeWindow.vue";
-import {uploadImage} from "~/hooks/ElemUI";
 import ChatCropperFileInput from "~/components/Chat/UI/ChatCropperFileInput.vue";
-import ChatCropper from "~/components/Chat/UI/ChatCropper.vue";
 import {Preview} from "vue-advanced-cropper";
 import TheButton from "~/components/UI/TheButton.vue";
 import {toast} from "vue3-toastify";
@@ -31,6 +28,9 @@ defineProps({
   },
 })
 
+onUnmounted(()=>{
+  chat.messageText = ''
+})
 function messages() {
   let mes = new WebSocket(`wss://api-buildwithus.ai-softdev.com/ws/chat/${route.params.id}?token=${nuxtStorage.localStorage.getData('token')}`)
   mes.onmessage = (event) => {
@@ -132,65 +132,69 @@ useSeoMeta({
     </div>
     <ChatContentUserPinned/>
     <ChatContent></ChatContent>
-    <TheModal :type="'resizeInfoWindow'" v-if="chat.showChatInfo && chat.userChat?.is_group"
-              @showModal="chat.showChatInfo = false; chat.showSettingChat = false">
-      <ChatWindowSettingContent/>
-    </TheModal>
-    <TheModal v-if='chat.showChatChangeInfoModal' :type="'resize'"
-              @showModal="chat.showChatChangeInfoModal = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}">
-      <div class="dark:bg-gray-700 rounded-lg h-max relative mx-auto my-auto">
-        <div class="">
-          <p class="text-lg">{{ $t('Настройки группы') }}</p>
-        </div>
-        <div class="py-1 flex items-center gap-x-6 select-none">
-          <div class="relative" @mouseenter="chat.showImageChange = true" @mouseleave="chat.showImageChange = false">
-            <Transition name="fade">
-              <ChatCropperFileInput/>
-            </Transition>
-            <div v-if="!chat.src && !chat.results.image">
-              <img v-if="chat.get_user_chat.user?.id || chat.get_user_chat.photo_url"
-                   class="w-[80px] h-[80px] rounded-full"
-                   :src="!chat.get_user_chat.is_group
+    <Transition name="slide-down">
+      <TheModal :type="'resizeInfoWindow'" class="" v-if="chat.showChatInfo && chat.userChat?.is_group"
+                @showModal="chat.showChatInfo = false; chat.showSettingChat = false; chat.showChatChangeInfo = false">
+        <ChatWindowSettingContent/>
+      </TheModal>
+    </Transition>
+    <Transition name="fade">
+      <TheModal v-if='chat.showChatChangeInfoModal' :type="'resize'"
+                @showModal="chat.showChatChangeInfoModal = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}">
+        <div class="dark:bg-gray-700 rounded-lg h-max relative mx-auto my-auto">
+          <div class="">
+            <p class="text-lg">{{ $t('Настройки группы') }}</p>
+          </div>
+          <div class="py-1 flex items-center gap-x-6 select-none">
+            <div class="relative" @mouseenter="chat.showImageChange = true" @mouseleave="chat.showImageChange = false">
+              <Transition name="fade">
+                <ChatCropperFileInput/>
+              </Transition>
+              <div v-if="!chat.src && !chat.results.image">
+                <img v-if="chat.get_user_chat.user?.id || chat.get_user_chat.photo_url"
+                     class="w-[80px] h-[80px] rounded-full"
+                     :src="!chat.get_user_chat.is_group
               ? loadAuthStore.get_server_domain + chat.get_user_chat.user?.photo
               : loadAuthStore.get_server_domain + chat.get_user_chat?.photo_url"
-                   alt="">
-              <div v-else>
-                <div class="w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight">
-                  <p class="uppercase" v-for="chatName in chat.get_user_chat.name.split(' ').slice(0,2)"
-                     @click="console.log(chatName[0])">{{ chatName[0] }}</p>
+                     alt="">
+                <div v-else>
+                  <div class="w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight">
+                    <p class="uppercase" v-for="chatName in chat.get_user_chat.name.split(' ').slice(0,2)"
+                       @click="console.log(chatName[0])">{{ chatName[0] }}</p>
+                  </div>
                 </div>
               </div>
+              <div v-else-if="chat.results.image">
+                <preview class="w-[80px] h-[80px] rounded-full" :image="chat.results.image"
+                         :coordinates="chat.results.coordinates"/>
+              </div>
+              <div v-else-if="chat.src && !chat.results.image">
+                <img class="w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full"
+                     :src="chat.src"/>
+              </div>
             </div>
-            <div v-else-if="chat.results.image">
-              <preview class="w-[80px] h-[80px] rounded-full" :image="chat.results.image"
-                       :coordinates="chat.results.coordinates"/>
-            </div>
-            <div v-else-if="chat.src && !chat.results.image">
-              <img class="w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full"
-                   :src="chat.src"/>
-            </div>
-          </div>
-          <div>
             <div>
-              <p class="text-sm tracking-wider text-semiCyan">{{ $t('Название группы') }}</p>
-              <TheInput :type="'default'" v-model="chat.updateChatName"
-                        class="bg-transparent bg-opacity-0 border-b-2 border-b-semiCyan outline-none" type="text"/>
+              <div>
+                <p class="text-sm tracking-wider text-semiCyan">{{ $t('Название группы') }}</p>
+                <TheInput :type="'default'" v-model="chat.updateChatName"
+                          class="bg-transparent bg-opacity-0 border-b-2 border-b-semiCyan outline-none" type="text"/>
+              </div>
             </div>
           </div>
+          <div class="flex justify-end gap-x-2 !text-sm">
+            <TheButton :type="'chat'"
+                       @click="chat.showChatChangeInfoModal = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}">
+              {{ $t('Отмена') }}
+            </TheButton>
+            <TheButton :type="'chat'"
+                       @click="chat.updateChatName !== chat.userChat.name || chat.updateDescription !== chat.userChat.description || chat.fileUpload ? chat.chatUpdate({id: route.params.id, update: {name: chat.updateChatName , description: '', photo: chat.fileUpload}}).then(res=>{chat.showChatChangeInfoModal = false; chat.fileUpload = null; chat.userChat.name = chat.updateChatName; chat.updateChatName = ''}) : toast.info($t('Измените содержимое для сохранения'), {autoClose: 1500, theme: 'auto'})">
+              {{ $t('Сохранить') }}
+            </TheButton>
+          </div>
         </div>
-        <div class="flex justify-end gap-x-2 !text-sm">
-          <TheButton :type="'chat'"
-                     @click="chat.showChatChangeInfoModal = false; chat.file = ''; chat.src = ''; chat.fileUpload = null; chat.results = {image: null, coordinates: null}">
-            {{ $t('Отмена') }}
-          </TheButton>
-          <TheButton :type="'chat'"
-                     @click="chat.updateChatName !== chat.userChat.name || chat.updateDescription !== chat.userChat.description || chat.fileUpload ? chat.chatUpdate({id: route.params.id, update: {name: chat.updateChatName , description: '', photo: chat.fileUpload}}).then(res=>{chat.showChatChangeInfoModal = false; chat.fileUpload = null; chat.userChat.name = chat.updateChatName; chat.updateChatName = ''}) : toast.info($t('Измените содержимое для сохранения'), {autoClose: 1500, theme: 'auto'})">
-            {{ $t('Сохранить') }}
-          </TheButton>
-        </div>
-      </div>
-      <ChatFileError/>
-    </TheModal>
+        <ChatFileError/>
+      </TheModal>
+    </Transition>
     <Transition name="fade" >
       <div v-if="chat.showChatGallery" class="fixed left-0 top-0 h-screen w-screen flex justify-center items-center z-[110]" >
         <div class="opacity-60 bg-black absolute left-0 top-0 w-screen h-screen" @click="chat.showChatGallery = false"></div>

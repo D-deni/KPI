@@ -1,18 +1,31 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   modelValue: String,
+  mode: {
+    type: String,
+    default: ''
+  }
+})
+const focusInput = ref()
+watchSyncEffect(() => {
+  if (props.mode === 'scan') {
+    nextTick(() => {
+      focusInput.value.focus()
+    })
+  }
 })
 </script>
 
 <template>
   <div>
-    <input
-      class="w-full px-4 py-3 rounded-full bg-gray-100 focus:bg-gray-200 text-black tracking-widest dark:focus:opacity-100 transition-all dark:opacity-40 outline-none"
-      type="text" placeholder="Найти..."
-      @input="$emit('update:modelValue', $event.target.value)"
-      @focusout="$emit('search')"
-      @keyup.enter="$emit('search')"
-      >
+    <input ref="focusInput"
+           class="w-full px-4 py-3 rounded-full bg-gray-100 focus:bg-gray-200 text-black tracking-widest dark:focus:opacity-100 transition-all dark:opacity-40 outline-none"
+           :class="{'': mode === 'scan'}"
+           type="text" :placeholder="mode === 'scan' ?  $t('Сканирование') : $t('Найти')"
+           @input="$emit('update:modelValue', $event.target.value)"
+           @focusout="$emit('search')"
+           @keyup.enter="$emit('search')"
+    >
   </div>
 </template>
 

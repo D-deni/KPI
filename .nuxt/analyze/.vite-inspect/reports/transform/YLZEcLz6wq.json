@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nlet _ral;\nfunction RAL() {\n    if (_ral === undefined) {\n        throw new Error(`No runtime abstraction layer installed`);\n    }\n    return _ral;\n}\n(function (RAL) {\n    function install(ral) {\n        if (ral === undefined) {\n            throw new Error(`No runtime abstraction layer provided`);\n        }\n        _ral = ral;\n    }\n    RAL.install = install;\n})(RAL || (RAL = {}));\nexports.default = RAL;\n//# sourceMappingURL=ral.js.map",
-      "start": 1706896525384,
-      "end": 1706896525423,
+      "start": 1707126049372,
+      "end": 1707126049483,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049483,
+      "end": 1707126049483,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049483,
+      "end": 1707126049483,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049483,
+      "end": 1707126049483,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049483,
+      "end": 1707126049483,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049483,
+      "end": 1707126049483,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as ral } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/ral.js?commonjs-exports\";\n\n\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(ral, \"__esModule\", { value: true });\nlet _ral;\nfunction RAL() {\n    if (_ral === undefined) {\n        throw new Error(`No runtime abstraction layer installed`);\n    }\n    return _ral;\n}\n(function (RAL) {\n    function install(ral) {\n        if (ral === undefined) {\n            throw new Error(`No runtime abstraction layer provided`);\n        }\n        _ral = ral;\n    }\n    RAL.install = install;\n})(RAL || (RAL = {}));\nvar _default = ral.default = RAL;\n//# sourceMappingURL=ral.js.map\n\nexport { ral as __moduleExports, _default as default };",
-      "start": 1706896525423,
-      "end": 1706896525423,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525423,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525424,
-      "end": 1706896525424,
+      "start": 1707126049484,
+      "end": 1707126049484,
       "order": "normal"
     }
   ]

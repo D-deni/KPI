@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.LSPErrorCodes = exports.createProtocolConnection = void 0;\n__exportStar(require(\"vscode-jsonrpc\"), exports);\n__exportStar(require(\"vscode-languageserver-types\"), exports);\n__exportStar(require(\"./messages\"), exports);\n__exportStar(require(\"./protocol\"), exports);\nvar connection_1 = require(\"./connection\");\nObject.defineProperty(exports, \"createProtocolConnection\", { enumerable: true, get: function () { return connection_1.createProtocolConnection; } });\nvar LSPErrorCodes;\n(function (LSPErrorCodes) {\n    /**\n    * This is the start range of LSP reserved error codes.\n    * It doesn't denote a real error code.\n    *\n    * @since 3.16.0\n    */\n    LSPErrorCodes.lspReservedErrorRangeStart = -32899;\n    LSPErrorCodes.ContentModified = -32801;\n    LSPErrorCodes.RequestCancelled = -32800;\n    /**\n    * This is the end range of LSP reserved error codes.\n    * It doesn't denote a real error code.\n    *\n    * @since 3.16.0\n    */\n    LSPErrorCodes.lspReservedErrorRangeEnd = -32800;\n})(LSPErrorCodes = exports.LSPErrorCodes || (exports.LSPErrorCodes = {}));\n//# sourceMappingURL=api.js.map",
-      "start": 1706896524824,
-      "end": 1706896524873,
+      "start": 1707126046605,
+      "end": 1707126046893,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046893,
+      "end": 1707126046893,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896524873,
-      "end": 1706896524873,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896524873,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896524874,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896524874,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896524874,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896524874,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896524874,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896524874,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896524874,
-      "end": 1706896524874,
+      "start": 1707126046894,
+      "end": 1707126046894,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as api } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/api.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/browser/main.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-types/lib/esm/main.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/messages.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/connection.js?commonjs-proxy\";\n\n(function (exports) {\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tvar __createBinding = (commonjsHelpers.commonjsGlobal && commonjsHelpers.commonjsGlobal.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n\t    if (k2 === undefined) k2 = k;\n\t    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n\t}) : (function(o, m, k, k2) {\n\t    if (k2 === undefined) k2 = k;\n\t    o[k2] = m[k];\n\t}));\n\tvar __exportStar = (commonjsHelpers.commonjsGlobal && commonjsHelpers.commonjsGlobal.__exportStar) || function(m, exports) {\n\t    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n\t};\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.LSPErrorCodes = exports.createProtocolConnection = void 0;\n\t__exportStar(require$$0, exports);\n\t__exportStar(require$$1, exports);\n\t__exportStar(require$$2, exports);\n\t__exportStar(require$$3, exports);\n\tvar connection_1 = require$$4;\n\tObject.defineProperty(exports, \"createProtocolConnection\", { enumerable: true, get: function () { return connection_1.createProtocolConnection; } });\n\tvar LSPErrorCodes;\n\t(function (LSPErrorCodes) {\n\t    /**\n\t    * This is the start range of LSP reserved error codes.\n\t    * It doesn't denote a real error code.\n\t    *\n\t    * @since 3.16.0\n\t    */\n\t    LSPErrorCodes.lspReservedErrorRangeStart = -32899;\n\t    LSPErrorCodes.ContentModified = -32801;\n\t    LSPErrorCodes.RequestCancelled = -32800;\n\t    /**\n\t    * This is the end range of LSP reserved error codes.\n\t    * It doesn't denote a real error code.\n\t    *\n\t    * @since 3.16.0\n\t    */\n\t    LSPErrorCodes.lspReservedErrorRangeEnd = -32800;\n\t})(LSPErrorCodes = exports.LSPErrorCodes || (exports.LSPErrorCodes = {}));\n\t//# sourceMappingURL=api.js.map \n} (api));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(api);\nexport { api as __moduleExports };",
-      "start": 1706896524874,
-      "end": 1706896525557,
+      "start": 1707126046894,
+      "end": 1707126049763,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -153,92 +153,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525557,
-      "end": 1706896525557,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525557,
-      "end": 1706896525558,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525558,
-      "end": 1706896525558,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525558,
-      "end": 1706896525558,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525558,
-      "end": 1706896525558,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525558,
-      "end": 1706896525558,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525558,
-      "end": 1706896525558,
+      "start": 1707126049763,
+      "end": 1707126049763,
       "order": "normal"
     }
   ]

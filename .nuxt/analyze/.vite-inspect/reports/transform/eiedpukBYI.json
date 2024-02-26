@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/*---------------------------------------------------------------------------------------------\n *  Copyright (c) Microsoft Corporation. All rights reserved.\n *  Licensed under the MIT License. See License.txt in the project root for license information.\n *--------------------------------------------------------------------------------------------*/\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.FoldingRangeRequest = exports.FoldingRangeKind = void 0;\nconst messages_1 = require(\"./messages\");\n/**\n * Enum of known range kinds\n */\nvar FoldingRangeKind;\n(function (FoldingRangeKind) {\n    /**\n     * Folding range for a comment\n     */\n    FoldingRangeKind[\"Comment\"] = \"comment\";\n    /**\n     * Folding range for a imports or includes\n     */\n    FoldingRangeKind[\"Imports\"] = \"imports\";\n    /**\n     * Folding range for a region (e.g. `#region`)\n     */\n    FoldingRangeKind[\"Region\"] = \"region\";\n})(FoldingRangeKind = exports.FoldingRangeKind || (exports.FoldingRangeKind = {}));\n/**\n * A request to provide folding ranges in a document. The request's\n * parameter is of type [FoldingRangeParams](#FoldingRangeParams), the\n * response is of type [FoldingRangeList](#FoldingRangeList) or a Thenable\n * that resolves to such.\n */\nvar FoldingRangeRequest;\n(function (FoldingRangeRequest) {\n    FoldingRangeRequest.method = 'textDocument/foldingRange';\n    FoldingRangeRequest.type = new messages_1.ProtocolRequestType(FoldingRangeRequest.method);\n})(FoldingRangeRequest = exports.FoldingRangeRequest || (exports.FoldingRangeRequest = {}));\n//# sourceMappingURL=protocol.foldingRange.js.map",
-      "start": 1706896525230,
-      "end": 1706896525319,
+      "start": 1707126048852,
+      "end": 1707126049089,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049089,
+      "end": 1707126049089,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049089,
+      "end": 1707126049090,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525319,
-      "end": 1706896525319,
+      "start": 1707126049090,
+      "end": 1707126049090,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as protocol_foldingRange } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.foldingRange.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/messages.js?commonjs-proxy\";\n\n(function (exports) {\n\t\"use strict\";\n\t/*---------------------------------------------------------------------------------------------\n\t *  Copyright (c) Microsoft Corporation. All rights reserved.\n\t *  Licensed under the MIT License. See License.txt in the project root for license information.\n\t *--------------------------------------------------------------------------------------------*/\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.FoldingRangeRequest = exports.FoldingRangeKind = void 0;\n\tconst messages_1 = require$$0;\n\t/**\n\t * Enum of known range kinds\n\t */\n\tvar FoldingRangeKind;\n\t(function (FoldingRangeKind) {\n\t    /**\n\t     * Folding range for a comment\n\t     */\n\t    FoldingRangeKind[\"Comment\"] = \"comment\";\n\t    /**\n\t     * Folding range for a imports or includes\n\t     */\n\t    FoldingRangeKind[\"Imports\"] = \"imports\";\n\t    /**\n\t     * Folding range for a region (e.g. `#region`)\n\t     */\n\t    FoldingRangeKind[\"Region\"] = \"region\";\n\t})(FoldingRangeKind = exports.FoldingRangeKind || (exports.FoldingRangeKind = {}));\n\t/**\n\t * A request to provide folding ranges in a document. The request's\n\t * parameter is of type [FoldingRangeParams](#FoldingRangeParams), the\n\t * response is of type [FoldingRangeList](#FoldingRangeList) or a Thenable\n\t * that resolves to such.\n\t */\n\tvar FoldingRangeRequest;\n\t(function (FoldingRangeRequest) {\n\t    FoldingRangeRequest.method = 'textDocument/foldingRange';\n\t    FoldingRangeRequest.type = new messages_1.ProtocolRequestType(FoldingRangeRequest.method);\n\t})(FoldingRangeRequest = exports.FoldingRangeRequest || (exports.FoldingRangeRequest = {}));\n\t//# sourceMappingURL=protocol.foldingRange.js.map \n} (protocol_foldingRange));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(protocol_foldingRange);\nexport { protocol_foldingRange as __moduleExports };",
-      "start": 1706896525319,
-      "end": 1706896525532,
+      "start": 1707126049090,
+      "end": 1707126049741,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525534,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "normal"
     }
   ]

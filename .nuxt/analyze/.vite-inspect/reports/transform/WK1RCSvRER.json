@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "var Symbol = require('./_Symbol'),\n    getRawTag = require('./_getRawTag'),\n    objectToString = require('./_objectToString');\n\n/** `Object#toString` result references. */\nvar nullTag = '[object Null]',\n    undefinedTag = '[object Undefined]';\n\n/** Built-in value references. */\nvar symToStringTag = Symbol ? Symbol.toStringTag : undefined;\n\n/**\n * The base implementation of `getTag` without fallbacks for buggy environments.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the `toStringTag`.\n */\nfunction baseGetTag(value) {\n  if (value == null) {\n    return value === undefined ? undefinedTag : nullTag;\n  }\n  return (symToStringTag && symToStringTag in Object(value))\n    ? getRawTag(value)\n    : objectToString(value);\n}\n\nmodule.exports = baseGetTag;\n",
-      "start": 1706896525568,
-      "end": 1706896525596,
+      "start": 1707126049988,
+      "end": 1707126050024,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525596,
-      "end": 1706896525596,
+      "start": 1707126050024,
+      "end": 1707126050024,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_Symbol.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_getRawTag.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_objectToString.js?commonjs-proxy\";\n\nvar Symbol = require$$0,\n    getRawTag = require$$1,\n    objectToString = require$$2;\n\n/** `Object#toString` result references. */\nvar nullTag = '[object Null]',\n    undefinedTag = '[object Undefined]';\n\n/** Built-in value references. */\nvar symToStringTag = Symbol ? Symbol.toStringTag : undefined;\n\n/**\n * The base implementation of `getTag` without fallbacks for buggy environments.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the `toStringTag`.\n */\nfunction baseGetTag(value) {\n  if (value == null) {\n    return value === undefined ? undefinedTag : nullTag;\n  }\n  return (symToStringTag && symToStringTag in Object(value))\n    ? getRawTag(value)\n    : objectToString(value);\n}\n\nvar _baseGetTag = baseGetTag;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_baseGetTag);\nexport { _baseGetTag as __moduleExports };",
-      "start": 1706896525596,
-      "end": 1706896525691,
+      "start": 1707126050024,
+      "end": 1707126050052,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525691,
-      "end": 1706896525691,
+      "start": 1707126050052,
+      "end": 1707126050052,
       "order": "normal"
     }
   ]

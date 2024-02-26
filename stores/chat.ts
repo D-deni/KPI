@@ -1,6 +1,8 @@
 import {defineStore} from "pinia";
 import axios from "~/composables/axios";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
+
+type TClickTimeout = NodeJS.Timeout | null
 export const useChat = defineStore('chat', {
   state: () => ({
     chatList: {},
@@ -15,9 +17,7 @@ export const useChat = defineStore('chat', {
     messageReplied: {},
     messageText: '',
     searchElem: '',
-    messageForwarded: {
-      id: null
-    },
+    messageForwarded: {},
     showForwardInfo: false,
     checkboxForwarded: true,
     showSendWindow: false,
@@ -44,14 +44,14 @@ export const useChat = defineStore('chat', {
     showChatGallery: false,
     showDragInfo: false,
     showUploadWindow: false,
-
     updateChatName: '',
     updateDescription: '',
     voiceTimer: 0,
+    recordingVoice: false,
     isGroup: false,
+    clickerTimeout: null as TClickTimeout,
     flag: true,
     displayChat: 'all',
-
     file: '',
     src: '',
     signature: '',
@@ -63,6 +63,7 @@ export const useChat = defineStore('chat', {
       coordinates: null,
       image: null,
     },
+    focusInput: null,
   }),
   getters: {
     get_chat_list: (state) => state.chatList,
@@ -79,7 +80,7 @@ export const useChat = defineStore('chat', {
         this.chatList = res.data
       })
     },
-    async loadUserChat(params: { id: any, limit: any, page: any }) {
+    async loadUserChat(params: { id: number, limit: number, page: number }) {
       await axios.get(`api/v1/chat/${params.id}?limit=${params.limit}&page=${params.page}`, {
         headers: {
           Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
@@ -90,11 +91,11 @@ export const useChat = defineStore('chat', {
           this.userChat = res.data
           let new_array = res.data.messages.reverse()
           let temp = [...new_array]
-          new_array = new_array.map(el => {
+          new_array = new_array.map((el: any) => {
             return new Date(el.created_at).toLocaleDateString()
           })
           new_array = [...new Set(new_array)]
-          let new_messages = new_array.map((el) => {
+          let new_messages = new_array.map((el: string) => {
             return {
               messages: temp.filter(e => {
                 return new Date(e.created_at).toLocaleDateString() == el
@@ -109,7 +110,7 @@ export const useChat = defineStore('chat', {
         // }
       })
     },
-    async loadPinnedList(params: {id: any, page: number, limit: number }) {
+    async loadPinnedList(params: {id: number, page: number, limit: number }) {
       await axios.get(`api/v1/chat/message/pinned-list/${params.id}`, {
         headers: {
           Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
@@ -152,7 +153,7 @@ export const useChat = defineStore('chat', {
       })
     },
 
-    async createMessage(params: { id: any, text: any, message_id: any, file: any }) {
+    async createMessage(params: { id: number, text: string, message_id?: number, file?: any }) {
       let fd = new FormData();
       if (!this.messageForwarded.id && !this.file) {
         fd.set('text', params.text)
@@ -170,7 +171,7 @@ export const useChat = defineStore('chat', {
           Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
         }
       }).then(res=>{
-        this.messageForwarded = {}
+        this.messageForwarded = {id: null}
       })
     },
     async updateMessage(params: { id: number, text: any }) {
@@ -210,6 +211,8 @@ export const useChat = defineStore('chat', {
         this.loadChatList()
       })
     },
+
+
 
     async makeRead(params: { messages: any }) {
       await axios.post(`api/v1/chat/message/make-read`, {

@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.ColorPresentationRequest = exports.DocumentColorRequest = void 0;\nconst messages_1 = require(\"./messages\");\n/**\n * A request to list all color symbols found in a given text document. The request's\n * parameter is of type [DocumentColorParams](#DocumentColorParams) the\n * response is of type [ColorInformation[]](#ColorInformation) or a Thenable\n * that resolves to such.\n */\nvar DocumentColorRequest;\n(function (DocumentColorRequest) {\n    DocumentColorRequest.method = 'textDocument/documentColor';\n    DocumentColorRequest.type = new messages_1.ProtocolRequestType(DocumentColorRequest.method);\n})(DocumentColorRequest = exports.DocumentColorRequest || (exports.DocumentColorRequest = {}));\n/**\n * A request to list all presentation for a color. The request's\n * parameter is of type [ColorPresentationParams](#ColorPresentationParams) the\n * response is of type [ColorInformation[]](#ColorInformation) or a Thenable\n * that resolves to such.\n */\nvar ColorPresentationRequest;\n(function (ColorPresentationRequest) {\n    ColorPresentationRequest.type = new messages_1.ProtocolRequestType('textDocument/colorPresentation');\n})(ColorPresentationRequest = exports.ColorPresentationRequest || (exports.ColorPresentationRequest = {}));\n//# sourceMappingURL=protocol.colorProvider.js.map",
-      "start": 1706896525229,
-      "end": 1706896525318,
+      "start": 1707126048849,
+      "end": 1707126049093,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525318,
-      "end": 1706896525318,
+      "start": 1707126049093,
+      "end": 1707126049093,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as protocol_colorProvider } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/protocol.colorProvider.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/messages.js?commonjs-proxy\";\n\n(function (exports) {\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\texports.ColorPresentationRequest = exports.DocumentColorRequest = void 0;\n\tconst messages_1 = require$$0;\n\t/**\n\t * A request to list all color symbols found in a given text document. The request's\n\t * parameter is of type [DocumentColorParams](#DocumentColorParams) the\n\t * response is of type [ColorInformation[]](#ColorInformation) or a Thenable\n\t * that resolves to such.\n\t */\n\tvar DocumentColorRequest;\n\t(function (DocumentColorRequest) {\n\t    DocumentColorRequest.method = 'textDocument/documentColor';\n\t    DocumentColorRequest.type = new messages_1.ProtocolRequestType(DocumentColorRequest.method);\n\t})(DocumentColorRequest = exports.DocumentColorRequest || (exports.DocumentColorRequest = {}));\n\t/**\n\t * A request to list all presentation for a color. The request's\n\t * parameter is of type [ColorPresentationParams](#ColorPresentationParams) the\n\t * response is of type [ColorInformation[]](#ColorInformation) or a Thenable\n\t * that resolves to such.\n\t */\n\tvar ColorPresentationRequest;\n\t(function (ColorPresentationRequest) {\n\t    ColorPresentationRequest.type = new messages_1.ProtocolRequestType('textDocument/colorPresentation');\n\t})(ColorPresentationRequest = exports.ColorPresentationRequest || (exports.ColorPresentationRequest = {}));\n\t//# sourceMappingURL=protocol.colorProvider.js.map \n} (protocol_colorProvider));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(protocol_colorProvider);\nexport { protocol_colorProvider as __moduleExports };",
-      "start": 1706896525318,
-      "end": 1706896525532,
+      "start": 1707126049093,
+      "end": 1707126049741,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049741,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049741,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525533,
-      "end": 1706896525533,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049742,
+      "end": 1707126049742,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525534,
-      "end": 1706896525534,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525534,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525535,
-      "end": 1706896525535,
+      "start": 1707126049743,
+      "end": 1707126049743,
       "order": "normal"
     }
   ]

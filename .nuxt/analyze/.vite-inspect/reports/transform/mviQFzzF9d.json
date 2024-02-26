@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\n/// <reference path=\"../../typings/thenable.d.ts\" />\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = exports.TraceFormat = exports.Trace = exports.ProgressType = exports.createMessageConnection = exports.NullLogger = exports.ConnectionOptions = exports.ConnectionStrategy = exports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = exports.ReadableStreamMessageReader = exports.AbstractMessageReader = exports.MessageReader = exports.CancellationToken = exports.CancellationTokenSource = exports.Emitter = exports.Event = exports.Disposable = exports.ParameterStructures = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.ErrorCodes = exports.ResponseError = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType0 = exports.RequestType = exports.RAL = void 0;\nexports.CancellationStrategy = void 0;\nconst messages_1 = require(\"../common/messages\");\nObject.defineProperty(exports, \"RequestType\", { enumerable: true, get: function () { return messages_1.RequestType; } });\nObject.defineProperty(exports, \"RequestType0\", { enumerable: true, get: function () { return messages_1.RequestType0; } });\nObject.defineProperty(exports, \"RequestType1\", { enumerable: true, get: function () { return messages_1.RequestType1; } });\nObject.defineProperty(exports, \"RequestType2\", { enumerable: true, get: function () { return messages_1.RequestType2; } });\nObject.defineProperty(exports, \"RequestType3\", { enumerable: true, get: function () { return messages_1.RequestType3; } });\nObject.defineProperty(exports, \"RequestType4\", { enumerable: true, get: function () { return messages_1.RequestType4; } });\nObject.defineProperty(exports, \"RequestType5\", { enumerable: true, get: function () { return messages_1.RequestType5; } });\nObject.defineProperty(exports, \"RequestType6\", { enumerable: true, get: function () { return messages_1.RequestType6; } });\nObject.defineProperty(exports, \"RequestType7\", { enumerable: true, get: function () { return messages_1.RequestType7; } });\nObject.defineProperty(exports, \"RequestType8\", { enumerable: true, get: function () { return messages_1.RequestType8; } });\nObject.defineProperty(exports, \"RequestType9\", { enumerable: true, get: function () { return messages_1.RequestType9; } });\nObject.defineProperty(exports, \"ResponseError\", { enumerable: true, get: function () { return messages_1.ResponseError; } });\nObject.defineProperty(exports, \"ErrorCodes\", { enumerable: true, get: function () { return messages_1.ErrorCodes; } });\nObject.defineProperty(exports, \"NotificationType\", { enumerable: true, get: function () { return messages_1.NotificationType; } });\nObject.defineProperty(exports, \"NotificationType0\", { enumerable: true, get: function () { return messages_1.NotificationType0; } });\nObject.defineProperty(exports, \"NotificationType1\", { enumerable: true, get: function () { return messages_1.NotificationType1; } });\nObject.defineProperty(exports, \"NotificationType2\", { enumerable: true, get: function () { return messages_1.NotificationType2; } });\nObject.defineProperty(exports, \"NotificationType3\", { enumerable: true, get: function () { return messages_1.NotificationType3; } });\nObject.defineProperty(exports, \"NotificationType4\", { enumerable: true, get: function () { return messages_1.NotificationType4; } });\nObject.defineProperty(exports, \"NotificationType5\", { enumerable: true, get: function () { return messages_1.NotificationType5; } });\nObject.defineProperty(exports, \"NotificationType6\", { enumerable: true, get: function () { return messages_1.NotificationType6; } });\nObject.defineProperty(exports, \"NotificationType7\", { enumerable: true, get: function () { return messages_1.NotificationType7; } });\nObject.defineProperty(exports, \"NotificationType8\", { enumerable: true, get: function () { return messages_1.NotificationType8; } });\nObject.defineProperty(exports, \"NotificationType9\", { enumerable: true, get: function () { return messages_1.NotificationType9; } });\nObject.defineProperty(exports, \"ParameterStructures\", { enumerable: true, get: function () { return messages_1.ParameterStructures; } });\nconst disposable_1 = require(\"../common/disposable\");\nObject.defineProperty(exports, \"Disposable\", { enumerable: true, get: function () { return disposable_1.Disposable; } });\nconst events_1 = require(\"../common/events\");\nObject.defineProperty(exports, \"Event\", { enumerable: true, get: function () { return events_1.Event; } });\nObject.defineProperty(exports, \"Emitter\", { enumerable: true, get: function () { return events_1.Emitter; } });\nconst cancellation_1 = require(\"../common/cancellation\");\nObject.defineProperty(exports, \"CancellationTokenSource\", { enumerable: true, get: function () { return cancellation_1.CancellationTokenSource; } });\nObject.defineProperty(exports, \"CancellationToken\", { enumerable: true, get: function () { return cancellation_1.CancellationToken; } });\nconst messageReader_1 = require(\"../common/messageReader\");\nObject.defineProperty(exports, \"MessageReader\", { enumerable: true, get: function () { return messageReader_1.MessageReader; } });\nObject.defineProperty(exports, \"AbstractMessageReader\", { enumerable: true, get: function () { return messageReader_1.AbstractMessageReader; } });\nObject.defineProperty(exports, \"ReadableStreamMessageReader\", { enumerable: true, get: function () { return messageReader_1.ReadableStreamMessageReader; } });\nconst messageWriter_1 = require(\"../common/messageWriter\");\nObject.defineProperty(exports, \"MessageWriter\", { enumerable: true, get: function () { return messageWriter_1.MessageWriter; } });\nObject.defineProperty(exports, \"AbstractMessageWriter\", { enumerable: true, get: function () { return messageWriter_1.AbstractMessageWriter; } });\nObject.defineProperty(exports, \"WriteableStreamMessageWriter\", { enumerable: true, get: function () { return messageWriter_1.WriteableStreamMessageWriter; } });\nconst connection_1 = require(\"../common/connection\");\nObject.defineProperty(exports, \"ConnectionStrategy\", { enumerable: true, get: function () { return connection_1.ConnectionStrategy; } });\nObject.defineProperty(exports, \"ConnectionOptions\", { enumerable: true, get: function () { return connection_1.ConnectionOptions; } });\nObject.defineProperty(exports, \"NullLogger\", { enumerable: true, get: function () { return connection_1.NullLogger; } });\nObject.defineProperty(exports, \"createMessageConnection\", { enumerable: true, get: function () { return connection_1.createMessageConnection; } });\nObject.defineProperty(exports, \"ProgressType\", { enumerable: true, get: function () { return connection_1.ProgressType; } });\nObject.defineProperty(exports, \"Trace\", { enumerable: true, get: function () { return connection_1.Trace; } });\nObject.defineProperty(exports, \"TraceFormat\", { enumerable: true, get: function () { return connection_1.TraceFormat; } });\nObject.defineProperty(exports, \"SetTraceNotification\", { enumerable: true, get: function () { return connection_1.SetTraceNotification; } });\nObject.defineProperty(exports, \"LogTraceNotification\", { enumerable: true, get: function () { return connection_1.LogTraceNotification; } });\nObject.defineProperty(exports, \"ConnectionErrors\", { enumerable: true, get: function () { return connection_1.ConnectionErrors; } });\nObject.defineProperty(exports, \"ConnectionError\", { enumerable: true, get: function () { return connection_1.ConnectionError; } });\nObject.defineProperty(exports, \"CancellationReceiverStrategy\", { enumerable: true, get: function () { return connection_1.CancellationReceiverStrategy; } });\nObject.defineProperty(exports, \"CancellationSenderStrategy\", { enumerable: true, get: function () { return connection_1.CancellationSenderStrategy; } });\nObject.defineProperty(exports, \"CancellationStrategy\", { enumerable: true, get: function () { return connection_1.CancellationStrategy; } });\nconst ral_1 = require(\"./ral\");\nexports.RAL = ral_1.default;\n//# sourceMappingURL=api.js.map",
-      "start": 1706896525224,
-      "end": 1706896525307,
+      "start": 1707126048763,
+      "end": 1707126048875,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525307,
-      "end": 1706896525307,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525307,
-      "end": 1706896525307,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525307,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048875,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525308,
-      "end": 1706896525308,
+      "start": 1707126048875,
+      "end": 1707126048876,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as api } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/api.js?commonjs-exports\";\nimport { __require as require$$0 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messages.js?commonjs-wrapped\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/disposable.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/events.js?commonjs-proxy\";\nimport { __require as require$$3 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/cancellation.js?commonjs-wrapped\";\nimport { __require as require$$4 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messageReader.js?commonjs-wrapped\";\nimport { __require as require$$5 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messageWriter.js?commonjs-wrapped\";\nimport { __require as require$$6 } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/connection.js?commonjs-wrapped\";\nimport require$$7 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/ral.js?commonjs-proxy\";\n\nvar hasRequiredApi;\n\nfunction requireApi () {\n\tif (hasRequiredApi) return api;\n\thasRequiredApi = 1;\n\t(function (exports) {\n\t\t\"use strict\";\n\t\t/* --------------------------------------------------------------------------------------------\n\t\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t\t * ------------------------------------------------------------------------------------------ */\n\t\t/// <reference path=\"../../typings/thenable.d.ts\" />\n\t\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\t\texports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = exports.TraceFormat = exports.Trace = exports.ProgressType = exports.createMessageConnection = exports.NullLogger = exports.ConnectionOptions = exports.ConnectionStrategy = exports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = exports.ReadableStreamMessageReader = exports.AbstractMessageReader = exports.MessageReader = exports.CancellationToken = exports.CancellationTokenSource = exports.Emitter = exports.Event = exports.Disposable = exports.ParameterStructures = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.ErrorCodes = exports.ResponseError = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType0 = exports.RequestType = exports.RAL = void 0;\n\t\texports.CancellationStrategy = void 0;\n\t\tconst messages_1 = require$$0();\n\t\tObject.defineProperty(exports, \"RequestType\", { enumerable: true, get: function () { return messages_1.RequestType; } });\n\t\tObject.defineProperty(exports, \"RequestType0\", { enumerable: true, get: function () { return messages_1.RequestType0; } });\n\t\tObject.defineProperty(exports, \"RequestType1\", { enumerable: true, get: function () { return messages_1.RequestType1; } });\n\t\tObject.defineProperty(exports, \"RequestType2\", { enumerable: true, get: function () { return messages_1.RequestType2; } });\n\t\tObject.defineProperty(exports, \"RequestType3\", { enumerable: true, get: function () { return messages_1.RequestType3; } });\n\t\tObject.defineProperty(exports, \"RequestType4\", { enumerable: true, get: function () { return messages_1.RequestType4; } });\n\t\tObject.defineProperty(exports, \"RequestType5\", { enumerable: true, get: function () { return messages_1.RequestType5; } });\n\t\tObject.defineProperty(exports, \"RequestType6\", { enumerable: true, get: function () { return messages_1.RequestType6; } });\n\t\tObject.defineProperty(exports, \"RequestType7\", { enumerable: true, get: function () { return messages_1.RequestType7; } });\n\t\tObject.defineProperty(exports, \"RequestType8\", { enumerable: true, get: function () { return messages_1.RequestType8; } });\n\t\tObject.defineProperty(exports, \"RequestType9\", { enumerable: true, get: function () { return messages_1.RequestType9; } });\n\t\tObject.defineProperty(exports, \"ResponseError\", { enumerable: true, get: function () { return messages_1.ResponseError; } });\n\t\tObject.defineProperty(exports, \"ErrorCodes\", { enumerable: true, get: function () { return messages_1.ErrorCodes; } });\n\t\tObject.defineProperty(exports, \"NotificationType\", { enumerable: true, get: function () { return messages_1.NotificationType; } });\n\t\tObject.defineProperty(exports, \"NotificationType0\", { enumerable: true, get: function () { return messages_1.NotificationType0; } });\n\t\tObject.defineProperty(exports, \"NotificationType1\", { enumerable: true, get: function () { return messages_1.NotificationType1; } });\n\t\tObject.defineProperty(exports, \"NotificationType2\", { enumerable: true, get: function () { return messages_1.NotificationType2; } });\n\t\tObject.defineProperty(exports, \"NotificationType3\", { enumerable: true, get: function () { return messages_1.NotificationType3; } });\n\t\tObject.defineProperty(exports, \"NotificationType4\", { enumerable: true, get: function () { return messages_1.NotificationType4; } });\n\t\tObject.defineProperty(exports, \"NotificationType5\", { enumerable: true, get: function () { return messages_1.NotificationType5; } });\n\t\tObject.defineProperty(exports, \"NotificationType6\", { enumerable: true, get: function () { return messages_1.NotificationType6; } });\n\t\tObject.defineProperty(exports, \"NotificationType7\", { enumerable: true, get: function () { return messages_1.NotificationType7; } });\n\t\tObject.defineProperty(exports, \"NotificationType8\", { enumerable: true, get: function () { return messages_1.NotificationType8; } });\n\t\tObject.defineProperty(exports, \"NotificationType9\", { enumerable: true, get: function () { return messages_1.NotificationType9; } });\n\t\tObject.defineProperty(exports, \"ParameterStructures\", { enumerable: true, get: function () { return messages_1.ParameterStructures; } });\n\t\tconst disposable_1 = require$$1;\n\t\tObject.defineProperty(exports, \"Disposable\", { enumerable: true, get: function () { return disposable_1.Disposable; } });\n\t\tconst events_1 = require$$2;\n\t\tObject.defineProperty(exports, \"Event\", { enumerable: true, get: function () { return events_1.Event; } });\n\t\tObject.defineProperty(exports, \"Emitter\", { enumerable: true, get: function () { return events_1.Emitter; } });\n\t\tconst cancellation_1 = require$$3();\n\t\tObject.defineProperty(exports, \"CancellationTokenSource\", { enumerable: true, get: function () { return cancellation_1.CancellationTokenSource; } });\n\t\tObject.defineProperty(exports, \"CancellationToken\", { enumerable: true, get: function () { return cancellation_1.CancellationToken; } });\n\t\tconst messageReader_1 = require$$4();\n\t\tObject.defineProperty(exports, \"MessageReader\", { enumerable: true, get: function () { return messageReader_1.MessageReader; } });\n\t\tObject.defineProperty(exports, \"AbstractMessageReader\", { enumerable: true, get: function () { return messageReader_1.AbstractMessageReader; } });\n\t\tObject.defineProperty(exports, \"ReadableStreamMessageReader\", { enumerable: true, get: function () { return messageReader_1.ReadableStreamMessageReader; } });\n\t\tconst messageWriter_1 = require$$5();\n\t\tObject.defineProperty(exports, \"MessageWriter\", { enumerable: true, get: function () { return messageWriter_1.MessageWriter; } });\n\t\tObject.defineProperty(exports, \"AbstractMessageWriter\", { enumerable: true, get: function () { return messageWriter_1.AbstractMessageWriter; } });\n\t\tObject.defineProperty(exports, \"WriteableStreamMessageWriter\", { enumerable: true, get: function () { return messageWriter_1.WriteableStreamMessageWriter; } });\n\t\tconst connection_1 = require$$6();\n\t\tObject.defineProperty(exports, \"ConnectionStrategy\", { enumerable: true, get: function () { return connection_1.ConnectionStrategy; } });\n\t\tObject.defineProperty(exports, \"ConnectionOptions\", { enumerable: true, get: function () { return connection_1.ConnectionOptions; } });\n\t\tObject.defineProperty(exports, \"NullLogger\", { enumerable: true, get: function () { return connection_1.NullLogger; } });\n\t\tObject.defineProperty(exports, \"createMessageConnection\", { enumerable: true, get: function () { return connection_1.createMessageConnection; } });\n\t\tObject.defineProperty(exports, \"ProgressType\", { enumerable: true, get: function () { return connection_1.ProgressType; } });\n\t\tObject.defineProperty(exports, \"Trace\", { enumerable: true, get: function () { return connection_1.Trace; } });\n\t\tObject.defineProperty(exports, \"TraceFormat\", { enumerable: true, get: function () { return connection_1.TraceFormat; } });\n\t\tObject.defineProperty(exports, \"SetTraceNotification\", { enumerable: true, get: function () { return connection_1.SetTraceNotification; } });\n\t\tObject.defineProperty(exports, \"LogTraceNotification\", { enumerable: true, get: function () { return connection_1.LogTraceNotification; } });\n\t\tObject.defineProperty(exports, \"ConnectionErrors\", { enumerable: true, get: function () { return connection_1.ConnectionErrors; } });\n\t\tObject.defineProperty(exports, \"ConnectionError\", { enumerable: true, get: function () { return connection_1.ConnectionError; } });\n\t\tObject.defineProperty(exports, \"CancellationReceiverStrategy\", { enumerable: true, get: function () { return connection_1.CancellationReceiverStrategy; } });\n\t\tObject.defineProperty(exports, \"CancellationSenderStrategy\", { enumerable: true, get: function () { return connection_1.CancellationSenderStrategy; } });\n\t\tObject.defineProperty(exports, \"CancellationStrategy\", { enumerable: true, get: function () { return connection_1.CancellationStrategy; } });\n\t\tconst ral_1 = require$$7;\n\t\texports.RAL = ral_1.default;\n\t\t//# sourceMappingURL=api.js.map \n\t} (api));\n\treturn api;\n}\n\nexport { requireApi as __require };",
-      "start": 1706896525308,
-      "end": 1706896525519,
+      "start": 1707126048876,
+      "end": 1707126049702,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049702,
+      "end": 1707126049702,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525519,
-      "end": 1706896525519,
+      "start": 1707126049703,
+      "end": 1707126049703,
       "order": "normal"
     }
   ]

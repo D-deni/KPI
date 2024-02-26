@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "var arrayFilter = require('./_arrayFilter'),\n    stubArray = require('./stubArray');\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Built-in value references. */\nvar propertyIsEnumerable = objectProto.propertyIsEnumerable;\n\n/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeGetSymbols = Object.getOwnPropertySymbols;\n\n/**\n * Creates an array of the own enumerable symbols of `object`.\n *\n * @private\n * @param {Object} object The object to query.\n * @returns {Array} Returns the array of symbols.\n */\nvar getSymbols = !nativeGetSymbols ? stubArray : function(object) {\n  if (object == null) {\n    return [];\n  }\n  object = Object(object);\n  return arrayFilter(nativeGetSymbols(object), function(symbol) {\n    return propertyIsEnumerable.call(object, symbol);\n  });\n};\n\nmodule.exports = getSymbols;\n",
-      "start": 1706896525647,
-      "end": 1706896525668,
+      "start": 1707126050008,
+      "end": 1707126050061,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050061,
+      "end": 1707126050061,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050061,
+      "end": 1707126050061,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050061,
+      "end": 1707126050061,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050061,
+      "end": 1707126050061,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050061,
+      "end": 1707126050061,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050061,
+      "end": 1707126050061,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050061,
+      "end": 1707126050061,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525668,
-      "end": 1706896525668,
+      "start": 1707126050062,
+      "end": 1707126050062,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_arrayFilter.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/stubArray.js?commonjs-proxy\";\n\nvar arrayFilter = require$$0,\n    stubArray = require$$1;\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Built-in value references. */\nvar propertyIsEnumerable = objectProto.propertyIsEnumerable;\n\n/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeGetSymbols = Object.getOwnPropertySymbols;\n\n/**\n * Creates an array of the own enumerable symbols of `object`.\n *\n * @private\n * @param {Object} object The object to query.\n * @returns {Array} Returns the array of symbols.\n */\nvar getSymbols = !nativeGetSymbols ? stubArray : function(object) {\n  if (object == null) {\n    return [];\n  }\n  object = Object(object);\n  return arrayFilter(nativeGetSymbols(object), function(symbol) {\n    return propertyIsEnumerable.call(object, symbol);\n  });\n};\n\nvar _getSymbols = getSymbols;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_getSymbols);\nexport { _getSymbols as __moduleExports };",
-      "start": 1706896525668,
-      "end": 1706896525702,
+      "start": 1707126050062,
+      "end": 1707126050084,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525702,
-      "end": 1706896525702,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050084,
+      "end": 1707126050084,
       "order": "normal"
     }
   ]

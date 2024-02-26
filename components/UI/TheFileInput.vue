@@ -65,7 +65,7 @@ const documentStore = useDocumentStore()
       </div>
       <div v-else class="flex justify-around items-center text-center">
         <div>
-          <div v-if="documentStore.createForm.file.type.slice(0 - 3) === 'pdf'">
+          <div v-if="documentStore.createForm.file.type?.slice(0 - 3) === 'pdf'">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="60px" height="60px" viewBox="0 0 56 64" enable-background="new 0 0 56 64"
                  xml:space="preserve">

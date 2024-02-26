@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"\" }\nconst _hoisted_2 = { class: \"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto\" }\nconst _hoisted_3 = { class: \"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm\" }\nconst _hoisted_4 = { class: \"flex gap-x-6 justify-center items-center\" }\nconst _hoisted_5 = { class: \"flex justify-center gap-x-10 mt-6\" }\nconst _hoisted_6 = { class: \"my-6\" }\nconst _hoisted_7 = { class: \"text-center tracking-widest text-lg\" }\nconst _hoisted_8 = { class: \"text-sm\" }\n\nimport DocumentItemInfoChainContent\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport DocumentItemInfoChainFile\n  from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoContent',\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createVNode(DocumentItemInfoChainContent, {\n        item: _unref(documentStore).documentItem\n      }, null, 8, [\"item\"])\n    ]),\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createElementVNode(\"div\", _hoisted_4, [\n        _createVNode(DocumentItemInfoChainFile, {\n          item: _unref(documentStore).documentItem\n        }, null, 8, [\"item\"])\n      ]),\n      _createElementVNode(\"div\", _hoisted_5, [\n        _createVNode(TheButton, {\n          class: \"px-2 py-1 rounded-full\",\n          type: 'danger'\n        }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t('Отклонить')), 1)\n          ]),\n          _: 1\n        }),\n        _createVNode(TheButton, {\n          class: \"px-2 py-1 rounded-full\",\n          type: 'success'\n        }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t('Подтвердить')), 1)\n          ]),\n          _: 1\n        })\n      ])\n    ]),\n    _createElementVNode(\"div\", _hoisted_6, [\n      _createElementVNode(\"p\", _hoisted_7, _toDisplayString(_ctx.$t('Описание:')), 1),\n      _createElementVNode(\"p\", _hoisted_8, _toDisplayString(_unref(documentStore).documentItem.description), 1)\n    ])\n  ]))\n}\n}\n\n})",
-      "start": 1706896522862,
-      "end": 1706896522862
+      "start": 1707126041464,
+      "end": 1707126041464
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896522862,
-      "end": 1706896522862,
+      "start": 1707126041464,
+      "end": 1707126041464,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896522862,
-      "end": 1706896522862,
+      "start": 1707126041464,
+      "end": 1707126041464,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896522862,
-      "end": 1706896522862,
+      "start": 1707126041464,
+      "end": 1707126041464,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896522862,
-      "end": 1706896522862,
+      "start": 1707126041464,
+      "end": 1707126041464,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896522862,
-      "end": 1706896522862,
+      "start": 1707126041464,
+      "end": 1707126041464,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"\" };\nconst _hoisted_2 = { class: \"border rounded-t-lg rounded-b-sm h-[500px] grid gap-x-10 px-2 mt-10 overflow-auto\" };\nconst _hoisted_3 = { class: \"border-b border-l border-r p-4 rounded-b-xl rounded-t-sm\" };\nconst _hoisted_4 = { class: \"flex gap-x-6 justify-center items-center\" };\nconst _hoisted_5 = { class: \"flex justify-center gap-x-10 mt-6\" };\nconst _hoisted_6 = { class: \"my-6\" };\nconst _hoisted_7 = { class: \"text-center tracking-widest text-lg\" };\nconst _hoisted_8 = { class: \"text-sm\" };\nimport DocumentItemInfoChainContent from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainContent.vue\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport DocumentItemInfoChainFile from \"~/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainFile.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoContent\",\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createVNode(DocumentItemInfoChainContent, {\n            item: _unref(documentStore).documentItem\n          }, null, 8, [\"item\"])\n        ]),\n        _createElementVNode(\"div\", _hoisted_3, [\n          _createElementVNode(\"div\", _hoisted_4, [\n            _createVNode(DocumentItemInfoChainFile, {\n              item: _unref(documentStore).documentItem\n            }, null, 8, [\"item\"])\n          ]),\n          _createElementVNode(\"div\", _hoisted_5, [\n            _createVNode(TheButton, {\n              class: \"px-2 py-1 rounded-full\",\n              type: \"danger\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Отклонить\")), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(TheButton, {\n              class: \"px-2 py-1 rounded-full\",\n              type: \"success\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Подтвердить\")), 1)\n              ]),\n              _: 1\n            })\n          ])\n        ]),\n        _createElementVNode(\"div\", _hoisted_6, [\n          _createElementVNode(\"p\", _hoisted_7, _toDisplayString(_ctx.$t(\"Описание:\")), 1),\n          _createElementVNode(\"p\", _hoisted_8, _toDisplayString(_unref(documentStore).documentItem.description), 1)\n        ])\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896522862,
-      "end": 1706896522954,
+      "start": 1707126041464,
+      "end": 1707126041861,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,188 +57,188 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126041861,
+      "end": 1707126041861,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126041861,
+      "end": 1707126041861,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126041861,
+      "end": 1707126041861,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126041861,
+      "end": 1707126041861,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126041862,
+      "end": 1707126041862,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126041862,
+      "end": 1707126041862,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896522954,
-      "end": 1706896522954,
+      "start": 1707126041862,
+      "end": 1707126041862,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041862,
+      "end": 1707126041862,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041862,
+      "end": 1707126041862,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041863,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041863,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041863,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041863,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041863,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041863,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041863,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041863,
+      "end": 1707126041864,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896522955,
-      "end": 1706896522955,
+      "start": 1707126041864,
+      "end": 1707126041864,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896522955,
-      "end": 1706896522956,
+      "start": 1707126041864,
+      "end": 1707126041864,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896522956,
-      "end": 1706896522956,
+      "start": 1707126041864,
+      "end": 1707126041865,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896522956,
-      "end": 1706896522956,
+      "start": 1707126041865,
+      "end": 1707126041865,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896522956,
-      "end": 1706896522956,
+      "start": 1707126041865,
+      "end": 1707126041866,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896522956,
-      "end": 1706896522964,
+      "start": 1707126041866,
+      "end": 1707126041871,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896522965,
-      "end": 1706896522965,
+      "start": 1707126041871,
+      "end": 1707126041871,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126041871,
+      "end": 1707126041872,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126041872,
+      "end": 1707126041873,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126041873,
+      "end": 1707126041873,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896522966,
-      "end": 1706896522966,
+      "start": 1707126041874,
+      "end": 1707126041874,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896522966,
-      "end": 1706896522967,
+      "start": 1707126041874,
+      "end": 1707126041874,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896522967,
-      "end": 1706896522967,
+      "start": 1707126041874,
+      "end": 1707126041875,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896522967,
-      "end": 1706896522967,
+      "start": 1707126041875,
+      "end": 1707126041875,
       "order": "normal"
     }
   ]

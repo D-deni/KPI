@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, unref as _unref, vModelText as _vModelText, withDirectives as _withDirectives, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, withModifiers as _withModifiers, createCommentVNode as _createCommentVNode, Transition as _Transition, resolveComponent as _resolveComponent, createBlock as _createBlock } from \"vue\"\nimport _imports_0 from '/img/Logo.webp'\n\n\nconst _hoisted_1 = { class: \"w-screen h-screen flex items-center justify-center\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"hover:scale-125 cursor-pointer transition-all\",\n  width: \"30px\",\n  height: \"30px\",\n  viewBox: \"0 0 1024 1024\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M876.8 156.8c0-9.6-3.2-16-9.6-22.4-6.4-6.4-12.8-9.6-22.4-9.6-9.6 0-16 3.2-22.4 9.6L736 220.8c-64-32-137.6-51.2-224-60.8-160 16-288 73.6-377.6 176C44.8 438.4 0 496 0 512s48 73.6 134.4 176c22.4 25.6 44.8 48 73.6 67.2l-86.4 89.6c-6.4 6.4-9.6 12.8-9.6 22.4 0 9.6 3.2 16 9.6 22.4 6.4 6.4 12.8 9.6 22.4 9.6 9.6 0 16-3.2 22.4-9.6l704-710.4c3.2-6.4 6.4-12.8 6.4-22.4Zm-646.4 528c-76.8-70.4-128-128-153.6-172.8 28.8-48 80-105.6 153.6-172.8C304 272 400 230.4 512 224c64 3.2 124.8 19.2 176 44.8l-54.4 54.4C598.4 300.8 560 288 512 288c-64 0-115.2 22.4-160 64s-64 96-64 160c0 48 12.8 89.6 35.2 124.8L256 707.2c-9.6-6.4-19.2-16-25.6-22.4Zm140.8-96c-12.8-22.4-19.2-48-19.2-76.8 0-44.8 16-83.2 48-112 32-28.8 67.2-48 112-48 28.8 0 54.4 6.4 73.6 19.2L371.2 588.8ZM889.599 336c-12.8-16-28.8-28.8-41.6-41.6l-48 48c73.6 67.2 124.8 124.8 150.4 169.6-28.8 48-80 105.6-153.6 172.8-73.6 67.2-172.8 108.8-284.8 115.2-51.2-3.2-99.2-12.8-140.8-28.8l-48 48c57.6 22.4 118.4 38.4 188.8 44.8 160-16 288-73.6 377.6-176C979.199 585.6 1024 528 1024 512s-48.001-73.6-134.401-176Z\",\n    fill: \"#000000\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M511.998 672c-12.8 0-25.6-3.2-38.4-6.4l-51.2 51.2c28.8 12.8 57.6 19.2 89.6 19.2 64 0 115.2-22.4 160-64 41.6-41.6 64-96 64-160 0-32-6.4-64-19.2-89.6l-51.2 51.2c3.2 12.8 6.4 25.6 6.4 38.4 0 44.8-16 83.2-48 112-32 28.8-67.2 48-112 48Z\",\n    fill: \"#000000\"\n  })\n], -1)\nconst _hoisted_3 = [\n  _hoisted_2\n]\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"mx-auto text-center my-6\" }, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    class: \"w-2/12 mx-auto\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1)\nconst _hoisted_5 = { class: \"text-center text-xl leading-6 tracking-wide text-[#464A53]\" }\nconst _hoisted_6 = { class: \"p-4 flex flex-col gap-y-4\" }\nconst _hoisted_7 = { class: \"flex flex-col\" }\nconst _hoisted_8 = {\n  for: \"input\",\n  class: \"text-[#464A53]\"\n}\nconst _hoisted_9 = { class: \"flex flex-col relative\" }\nconst _hoisted_10 = {\n  for: \"input\",\n  class: \"text-[#464A53]\"\n}\nconst _hoisted_11 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"relative z-10\",\n  width: \"40px\",\n  height: \"40px\",\n  viewBox: \"0 0 24 24\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M12 18.75C6.17 18.75 3.43 12.56 3.31 12.3C3.27039 12.2049 3.25 12.103 3.25 12C3.25 11.897 3.27039 11.7951 3.31 11.7C3.43 11.44 6.17 5.25 12 5.25C17.83 5.25 20.57 11.44 20.69 11.7C20.7296 11.7951 20.75 11.897 20.75 12C20.75 12.103 20.7296 12.2049 20.69 12.3C20.57 12.56 17.83 18.75 12 18.75ZM4.83 12C5.42 13.15 7.83 17.25 12 17.25C16.17 17.25 18.58 13.15 19.17 12C18.58 10.85 16.17 6.75 12 6.75C7.83 6.75 5.42 10.85 4.83 12Z\",\n    fill: \"#000000\"\n  })\n], -1)\nconst _hoisted_12 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"w-[11px] h-[11px] top-3.5 right-3.5 absolute rounded-full border-2 border-black\" }, null, -1)\nconst _hoisted_13 = [\n  _hoisted_11,\n  _hoisted_12\n]\nconst _hoisted_14 = { class: \"flex justify-between max-sm:flex-wrap max-sm:justify-center max-sm:gap-y-4 max-sm:gap-x-4 mx-4 text-sm\" }\nconst _hoisted_15 = { class: \"items-center flex gap-x-2 hover:text-blue-500 transition-all\" }\nconst _hoisted_16 = /*#__PURE__*/_createElementVNode(\"input\", {\n  class: \"cursor-pointer\",\n  type: \"checkbox\",\n  id: \"checked\"\n}, null, -1)\nconst _hoisted_17 = {\n  class: \"cursor-pointer select-none\",\n  for: \"checked\"\n}\nconst _hoisted_18 = { class: \"cursor-pointer text-blue-500 hover:text-blue-400 transition-all\" }\nconst _hoisted_19 = /*#__PURE__*/_createElementVNode(\"svg\", {\n  width: \"40px\",\n  height: \"40px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M8 16C8 18.8284 8 20.2426 8.87868 21.1213C9.51998 21.7626 10.4466 21.9359 12 21.9827M8 8C8 5.17157 8 3.75736 8.87868 2.87868C9.75736 2 11.1716 2 14 2H15C17.8284 2 19.2426 2 20.1213 2.87868C21 3.75736 21 5.17157 21 8V10V14V16C21 18.8284 21 20.2426 20.1213 21.1213C19.3529 21.8897 18.175 21.9862 16 21.9983\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M3 9.5V14.5C3 16.857 3 18.0355 3.73223 18.7678C4.46447 19.5 5.64298 19.5 8 19.5M3.73223 5.23223C4.46447 4.5 5.64298 4.5 8 4.5\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    d: \"M6 12L15 12M15 12L12.5 14.5M15 12L12.5 9.5\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1)\nconst _hoisted_20 = [\n  _hoisted_19\n]\nconst _hoisted_21 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"absolute\" }, null, -1)\n\nimport TheButton from '~/components/UI/TheButton.vue'\nimport {useAuthStore} from \"~/stores/auth\";\nimport {useRouter} from \"vue-router\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  props: {\n  loginShow: Boolean,\n  activeEyes: Boolean,\n},\n  setup(__props) {\n\nconst router = useRouter()\nconst authStore = useAuthStore()\n\nconst form = ref({\n  email: '',\n  password: ''\n})\n\nonMounted(() => {\n  if (nuxtStorage.localStorage.getData('token')) {\n    router.push('/base/companies')\n  }\n})\n\n\n\nuseHead({\n  titleTemplate: 'Авторизация • ERP'\n  }\n)\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")!\n\n  return (_openBlock(), _createBlock(_component_ClientOnly, null, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createVNode(_Transition, { name: \"bounceLogin\" }, {\n          default: _withCtx(() => [\n            (!__props.loginShow)\n              ? (_openBlock(), _createElementBlock(\"form\", {\n                  key: 0,\n                  onSubmit: _cache[4] || (_cache[4] = _withModifiers(($event: any) => (_unref(authStore).authorize({email: _unref(form).email, password: _unref(form).password}, _ctx.$router)), [\"prevent\"])),\n                  class: \"bg-white select-none z-50 bg-opacity-95 w-5/12 max-lg:w-7/12 max-md:w-9/12 max-sm:w-full text-black p-6 rounded-xl\"\n                }, [\n                  _createElementVNode(\"div\", {\n                    class: \"\",\n                    onClick: _cache[0] || (_cache[0] = ($event: any) => (__props.loginShow = !__props.loginShow))\n                  }, _hoisted_3),\n                  _hoisted_4,\n                  _createElementVNode(\"h1\", _hoisted_5, _toDisplayString(_ctx.$t('Авторизация')), 1),\n                  _createElementVNode(\"div\", _hoisted_6, [\n                    _createElementVNode(\"div\", _hoisted_7, [\n                      _createElementVNode(\"label\", _hoisted_8, _toDisplayString(_ctx.$t('Email')), 1),\n                      _withDirectives(_createElementVNode(\"input\", {\n                        name: \"email\",\n                        class: \"text-sm py-4 px-2 outline-gray-300 rounded-md border dark:bg-gray-300\",\n                        \"onUpdate:modelValue\": _cache[1] || (_cache[1] = ($event: any) => ((_unref(form).email) = $event)),\n                        type: \"text\"\n                      }, null, 512), [\n                        [_vModelText, _unref(form).email]\n                      ])\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_9, [\n                      _createElementVNode(\"label\", _hoisted_10, _toDisplayString(_ctx.$t('Пароль')), 1),\n                      _withDirectives(_createElementVNode(\"input\", {\n                        name: \"password\",\n                        ref: \"password\",\n                        class: \"text-sm py-4 px-2 outline-gray-300 dark:bg-gray-300 rounded-md border\",\n                        \"onUpdate:modelValue\": _cache[2] || (_cache[2] = ($event: any) => ((_unref(form).password) = $event)),\n                        type: \"password\"\n                      }, null, 512), [\n                        [_vModelText, _unref(form).password]\n                      ]),\n                      _createElementVNode(\"div\", {\n                        class: \"absolute cursor-pointer right-2 top-8 z-10\",\n                        onClick: _cache[3] || (_cache[3] = ($event: any) => (_ctx.$refs.password.type = _ctx.$refs.password.type === 'password'?'text': 'password'))\n                      }, _hoisted_13)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_14, [\n                      _createElementVNode(\"div\", _hoisted_15, [\n                        _hoisted_16,\n                        _createElementVNode(\"label\", _hoisted_17, _toDisplayString(_ctx.$t('Запомнить меня')), 1)\n                      ]),\n                      _createElementVNode(\"div\", null, [\n                        _createElementVNode(\"p\", _hoisted_18, _toDisplayString(_ctx.$t('Забыли пароль?')), 1)\n                      ])\n                    ]),\n                    _createVNode(TheButton, {\n                      t: \"submit\",\n                      class: \"max-sm:w-full\",\n                      type: \"signIn\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t('Войти')), 1)\n                      ]),\n                      _: 1\n                    })\n                  ])\n                ], 32))\n              : _createCommentVNode(\"\", true)\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", {\n          class: \"absolute active:scale-90 hover:bg-white stroke-white hover:stroke-black p-2 rounded-xl transition-all duration-200 cursor-pointer z-50 text-white right-10 top-10\",\n          onClick: _cache[5] || (_cache[5] = ($event: any) => (__props.loginShow = !__props.loginShow))\n        }, _hoisted_20),\n        _hoisted_21\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n})",
-      "start": 1706896517106,
-      "end": 1706896517106
+      "start": 1707126036263,
+      "end": 1707126036263
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036263,
+      "end": 1707126036263,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036263,
+      "end": 1707126036263,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036263,
+      "end": 1707126036263,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036263,
+      "end": 1707126036263,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036263,
+      "end": 1707126036263,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, unref as _unref, vModelText as _vModelText, withDirectives as _withDirectives, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, withModifiers as _withModifiers, createCommentVNode as _createCommentVNode, Transition as _Transition, resolveComponent as _resolveComponent, createBlock as _createBlock } from \"vue\";\nimport _imports_0 from \"/img/Logo.webp\";\nconst _hoisted_1 = { class: \"w-screen h-screen flex items-center justify-center\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"hover:scale-125 cursor-pointer transition-all\",\n  width: \"30px\",\n  height: \"30px\",\n  viewBox: \"0 0 1024 1024\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M876.8 156.8c0-9.6-3.2-16-9.6-22.4-6.4-6.4-12.8-9.6-22.4-9.6-9.6 0-16 3.2-22.4 9.6L736 220.8c-64-32-137.6-51.2-224-60.8-160 16-288 73.6-377.6 176C44.8 438.4 0 496 0 512s48 73.6 134.4 176c22.4 25.6 44.8 48 73.6 67.2l-86.4 89.6c-6.4 6.4-9.6 12.8-9.6 22.4 0 9.6 3.2 16 9.6 22.4 6.4 6.4 12.8 9.6 22.4 9.6 9.6 0 16-3.2 22.4-9.6l704-710.4c3.2-6.4 6.4-12.8 6.4-22.4Zm-646.4 528c-76.8-70.4-128-128-153.6-172.8 28.8-48 80-105.6 153.6-172.8C304 272 400 230.4 512 224c64 3.2 124.8 19.2 176 44.8l-54.4 54.4C598.4 300.8 560 288 512 288c-64 0-115.2 22.4-160 64s-64 96-64 160c0 48 12.8 89.6 35.2 124.8L256 707.2c-9.6-6.4-19.2-16-25.6-22.4Zm140.8-96c-12.8-22.4-19.2-48-19.2-76.8 0-44.8 16-83.2 48-112 32-28.8 67.2-48 112-48 28.8 0 54.4 6.4 73.6 19.2L371.2 588.8ZM889.599 336c-12.8-16-28.8-28.8-41.6-41.6l-48 48c73.6 67.2 124.8 124.8 150.4 169.6-28.8 48-80 105.6-153.6 172.8-73.6 67.2-172.8 108.8-284.8 115.2-51.2-3.2-99.2-12.8-140.8-28.8l-48 48c57.6 22.4 118.4 38.4 188.8 44.8 160-16 288-73.6 377.6-176C979.199 585.6 1024 528 1024 512s-48.001-73.6-134.401-176Z\",\n    fill: \"#000000\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M511.998 672c-12.8 0-25.6-3.2-38.4-6.4l-51.2 51.2c28.8 12.8 57.6 19.2 89.6 19.2 64 0 115.2-22.4 160-64 41.6-41.6 64-96 64-160 0-32-6.4-64-19.2-89.6l-51.2 51.2c3.2 12.8 6.4 25.6 6.4 38.4 0 44.8-16 83.2-48 112-32 28.8-67.2 48-112 48Z\",\n    fill: \"#000000\"\n  })\n], -1);\nconst _hoisted_3 = [\n  _hoisted_2\n];\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"mx-auto text-center my-6\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"w-2/12 mx-auto\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_5 = { class: \"text-center text-xl leading-6 tracking-wide text-[#464A53]\" };\nconst _hoisted_6 = { class: \"p-4 flex flex-col gap-y-4\" };\nconst _hoisted_7 = { class: \"flex flex-col\" };\nconst _hoisted_8 = {\n  for: \"input\",\n  class: \"text-[#464A53]\"\n};\nconst _hoisted_9 = { class: \"flex flex-col relative\" };\nconst _hoisted_10 = {\n  for: \"input\",\n  class: \"text-[#464A53]\"\n};\nconst _hoisted_11 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"relative z-10\",\n  width: \"40px\",\n  height: \"40px\",\n  viewBox: \"0 0 24 24\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M12 18.75C6.17 18.75 3.43 12.56 3.31 12.3C3.27039 12.2049 3.25 12.103 3.25 12C3.25 11.897 3.27039 11.7951 3.31 11.7C3.43 11.44 6.17 5.25 12 5.25C17.83 5.25 20.57 11.44 20.69 11.7C20.7296 11.7951 20.75 11.897 20.75 12C20.75 12.103 20.7296 12.2049 20.69 12.3C20.57 12.56 17.83 18.75 12 18.75ZM4.83 12C5.42 13.15 7.83 17.25 12 17.25C16.17 17.25 18.58 13.15 19.17 12C18.58 10.85 16.17 6.75 12 6.75C7.83 6.75 5.42 10.85 4.83 12Z\",\n    fill: \"#000000\"\n  })\n], -1);\nconst _hoisted_12 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"w-[11px] h-[11px] top-3.5 right-3.5 absolute rounded-full border-2 border-black\" }, null, -1);\nconst _hoisted_13 = [\n  _hoisted_11,\n  _hoisted_12\n];\nconst _hoisted_14 = { class: \"flex justify-between max-sm:flex-wrap max-sm:justify-center max-sm:gap-y-4 max-sm:gap-x-4 mx-4 text-sm\" };\nconst _hoisted_15 = { class: \"items-center flex gap-x-2 hover:text-blue-500 transition-all\" };\nconst _hoisted_16 = /* @__PURE__ */ _createElementVNode(\"input\", {\n  class: \"cursor-pointer\",\n  type: \"checkbox\",\n  id: \"checked\"\n}, null, -1);\nconst _hoisted_17 = {\n  class: \"cursor-pointer select-none\",\n  for: \"checked\"\n};\nconst _hoisted_18 = { class: \"cursor-pointer text-blue-500 hover:text-blue-400 transition-all\" };\nconst _hoisted_19 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  width: \"40px\",\n  height: \"40px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M8 16C8 18.8284 8 20.2426 8.87868 21.1213C9.51998 21.7626 10.4466 21.9359 12 21.9827M8 8C8 5.17157 8 3.75736 8.87868 2.87868C9.75736 2 11.1716 2 14 2H15C17.8284 2 19.2426 2 20.1213 2.87868C21 3.75736 21 5.17157 21 8V10V14V16C21 18.8284 21 20.2426 20.1213 21.1213C19.3529 21.8897 18.175 21.9862 16 21.9983\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M3 9.5V14.5C3 16.857 3 18.0355 3.73223 18.7678C4.46447 19.5 5.64298 19.5 8 19.5M3.73223 5.23223C4.46447 4.5 5.64298 4.5 8 4.5\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M6 12L15 12M15 12L12.5 14.5M15 12L12.5 9.5\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1);\nconst _hoisted_20 = [\n  _hoisted_19\n];\nconst _hoisted_21 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"absolute\" }, null, -1);\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useRouter } from \"vue-router\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  props: {\n    loginShow: Boolean,\n    activeEyes: Boolean\n  },\n  setup(__props) {\n    const router = useRouter();\n    const authStore = useAuthStore();\n    const form = ref({\n      email: \"\",\n      password: \"\"\n    });\n    onMounted(() => {\n      if (nuxtStorage.localStorage.getData(\"token\")) {\n        router.push(\"/base/companies\");\n      }\n    });\n    useHead(\n      {\n        titleTemplate: \"Авторизация • ERP\"\n      }\n    );\n    return (_ctx, _cache) => {\n      const _component_ClientOnly = _resolveComponent(\"ClientOnly\");\n      return _openBlock(), _createBlock(_component_ClientOnly, null, {\n        default: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _createVNode(_Transition, { name: \"bounceLogin\" }, {\n              default: _withCtx(() => [\n                !__props.loginShow ? (_openBlock(), _createElementBlock(\"form\", {\n                  key: 0,\n                  onSubmit: _cache[4] || (_cache[4] = _withModifiers(($event) => _unref(authStore).authorize({ email: _unref(form).email, password: _unref(form).password }, _ctx.$router), [\"prevent\"])),\n                  class: \"bg-white select-none z-50 bg-opacity-95 w-5/12 max-lg:w-7/12 max-md:w-9/12 max-sm:w-full text-black p-6 rounded-xl\"\n                }, [\n                  _createElementVNode(\"div\", {\n                    class: \"\",\n                    onClick: _cache[0] || (_cache[0] = ($event) => __props.loginShow = !__props.loginShow)\n                  }, _hoisted_3),\n                  _hoisted_4,\n                  _createElementVNode(\"h1\", _hoisted_5, _toDisplayString(_ctx.$t(\"Авторизация\")), 1),\n                  _createElementVNode(\"div\", _hoisted_6, [\n                    _createElementVNode(\"div\", _hoisted_7, [\n                      _createElementVNode(\"label\", _hoisted_8, _toDisplayString(_ctx.$t(\"Email\")), 1),\n                      _withDirectives(_createElementVNode(\"input\", {\n                        name: \"email\",\n                        class: \"text-sm py-4 px-2 outline-gray-300 rounded-md border dark:bg-gray-300\",\n                        \"onUpdate:modelValue\": _cache[1] || (_cache[1] = ($event) => _unref(form).email = $event),\n                        type: \"text\"\n                      }, null, 512), [\n                        [_vModelText, _unref(form).email]\n                      ])\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_9, [\n                      _createElementVNode(\"label\", _hoisted_10, _toDisplayString(_ctx.$t(\"Пароль\")), 1),\n                      _withDirectives(_createElementVNode(\"input\", {\n                        name: \"password\",\n                        ref: \"password\",\n                        class: \"text-sm py-4 px-2 outline-gray-300 dark:bg-gray-300 rounded-md border\",\n                        \"onUpdate:modelValue\": _cache[2] || (_cache[2] = ($event) => _unref(form).password = $event),\n                        type: \"password\"\n                      }, null, 512), [\n                        [_vModelText, _unref(form).password]\n                      ]),\n                      _createElementVNode(\"div\", {\n                        class: \"absolute cursor-pointer right-2 top-8 z-10\",\n                        onClick: _cache[3] || (_cache[3] = ($event) => _ctx.$refs.password.type = _ctx.$refs.password.type === \"password\" ? \"text\" : \"password\")\n                      }, _hoisted_13)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_14, [\n                      _createElementVNode(\"div\", _hoisted_15, [\n                        _hoisted_16,\n                        _createElementVNode(\"label\", _hoisted_17, _toDisplayString(_ctx.$t(\"Запомнить меня\")), 1)\n                      ]),\n                      _createElementVNode(\"div\", null, [\n                        _createElementVNode(\"p\", _hoisted_18, _toDisplayString(_ctx.$t(\"Забыли пароль?\")), 1)\n                      ])\n                    ]),\n                    _createVNode(TheButton, {\n                      t: \"submit\",\n                      class: \"max-sm:w-full\",\n                      type: \"signIn\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Войти\")), 1)\n                      ]),\n                      _: 1\n                    })\n                  ])\n                ], 32)) : _createCommentVNode(\"\", true)\n              ]),\n              _: 1\n            }),\n            _createElementVNode(\"div\", {\n              class: \"absolute active:scale-90 hover:bg-white stroke-white hover:stroke-black p-2 rounded-xl transition-all duration-200 cursor-pointer z-50 text-white right-10 top-10\",\n              onClick: _cache[5] || (_cache[5] = ($event) => __props.loginShow = !__props.loginShow)\n            }, _hoisted_20),\n            _hoisted_21\n          ])\n        ]),\n        _: 1\n      });\n    };\n  }\n});\n",
-      "start": 1706896517107,
-      "end": 1706896519119,
+      "start": 1707126036263,
+      "end": 1707126036539,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896519119,
-      "end": 1706896519119,
+      "start": 1707126036539,
+      "end": 1707126036539,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896519119,
-      "end": 1706896519119,
+      "start": 1707126036539,
+      "end": 1707126036539,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896519119,
-      "end": 1706896519119,
+      "start": 1707126036539,
+      "end": 1707126036539,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896519119,
-      "end": 1706896519119,
+      "start": 1707126036539,
+      "end": 1707126036539,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519119,
-      "end": 1706896519119,
+      "start": 1707126036539,
+      "end": 1707126036539,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896519119,
-      "end": 1706896519119,
+      "start": 1707126036539,
+      "end": 1707126036539,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036539,
+      "end": 1707126036539,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896519120,
-      "end": 1706896519120,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896519120,
-      "end": 1706896519121,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896519121,
-      "end": 1706896519121,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896519121,
-      "end": 1706896519121,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896519121,
-      "end": 1706896519121,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896519121,
-      "end": 1706896519121,
+      "start": 1707126036540,
+      "end": 1707126036540,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896519121,
-      "end": 1706896519121,
+      "start": 1707126036541,
+      "end": 1707126036541,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896519121,
-      "end": 1706896519121,
+      "start": 1707126036541,
+      "end": 1707126036541,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896519122,
-      "end": 1706896519122,
+      "start": 1707126036541,
+      "end": 1707126036541,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref, onMounted } from 'vue';\nimport { useHead } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, unref as _unref, vModelText as _vModelText, withDirectives as _withDirectives, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, withModifiers as _withModifiers, createCommentVNode as _createCommentVNode, Transition as _Transition, resolveComponent as _resolveComponent, createBlock as _createBlock } from \"vue\";\nimport _imports_0 from \"/img/Logo.webp\";\nconst _hoisted_1 = { class: \"w-screen h-screen flex items-center justify-center\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"hover:scale-125 cursor-pointer transition-all\",\n  width: \"30px\",\n  height: \"30px\",\n  viewBox: \"0 0 1024 1024\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M876.8 156.8c0-9.6-3.2-16-9.6-22.4-6.4-6.4-12.8-9.6-22.4-9.6-9.6 0-16 3.2-22.4 9.6L736 220.8c-64-32-137.6-51.2-224-60.8-160 16-288 73.6-377.6 176C44.8 438.4 0 496 0 512s48 73.6 134.4 176c22.4 25.6 44.8 48 73.6 67.2l-86.4 89.6c-6.4 6.4-9.6 12.8-9.6 22.4 0 9.6 3.2 16 9.6 22.4 6.4 6.4 12.8 9.6 22.4 9.6 9.6 0 16-3.2 22.4-9.6l704-710.4c3.2-6.4 6.4-12.8 6.4-22.4Zm-646.4 528c-76.8-70.4-128-128-153.6-172.8 28.8-48 80-105.6 153.6-172.8C304 272 400 230.4 512 224c64 3.2 124.8 19.2 176 44.8l-54.4 54.4C598.4 300.8 560 288 512 288c-64 0-115.2 22.4-160 64s-64 96-64 160c0 48 12.8 89.6 35.2 124.8L256 707.2c-9.6-6.4-19.2-16-25.6-22.4Zm140.8-96c-12.8-22.4-19.2-48-19.2-76.8 0-44.8 16-83.2 48-112 32-28.8 67.2-48 112-48 28.8 0 54.4 6.4 73.6 19.2L371.2 588.8ZM889.599 336c-12.8-16-28.8-28.8-41.6-41.6l-48 48c73.6 67.2 124.8 124.8 150.4 169.6-28.8 48-80 105.6-153.6 172.8-73.6 67.2-172.8 108.8-284.8 115.2-51.2-3.2-99.2-12.8-140.8-28.8l-48 48c57.6 22.4 118.4 38.4 188.8 44.8 160-16 288-73.6 377.6-176C979.199 585.6 1024 528 1024 512s-48.001-73.6-134.401-176Z\",\n    fill: \"#000000\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M511.998 672c-12.8 0-25.6-3.2-38.4-6.4l-51.2 51.2c28.8 12.8 57.6 19.2 89.6 19.2 64 0 115.2-22.4 160-64 41.6-41.6 64-96 64-160 0-32-6.4-64-19.2-89.6l-51.2 51.2c3.2 12.8 6.4 25.6 6.4 38.4 0 44.8-16 83.2-48 112-32 28.8-67.2 48-112 48Z\",\n    fill: \"#000000\"\n  })\n], -1);\nconst _hoisted_3 = [\n  _hoisted_2\n];\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"mx-auto text-center my-6\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"w-2/12 mx-auto\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_5 = { class: \"text-center text-xl leading-6 tracking-wide text-[#464A53]\" };\nconst _hoisted_6 = { class: \"p-4 flex flex-col gap-y-4\" };\nconst _hoisted_7 = { class: \"flex flex-col\" };\nconst _hoisted_8 = {\n  for: \"input\",\n  class: \"text-[#464A53]\"\n};\nconst _hoisted_9 = { class: \"flex flex-col relative\" };\nconst _hoisted_10 = {\n  for: \"input\",\n  class: \"text-[#464A53]\"\n};\nconst _hoisted_11 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"relative z-10\",\n  width: \"40px\",\n  height: \"40px\",\n  viewBox: \"0 0 24 24\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M12 18.75C6.17 18.75 3.43 12.56 3.31 12.3C3.27039 12.2049 3.25 12.103 3.25 12C3.25 11.897 3.27039 11.7951 3.31 11.7C3.43 11.44 6.17 5.25 12 5.25C17.83 5.25 20.57 11.44 20.69 11.7C20.7296 11.7951 20.75 11.897 20.75 12C20.75 12.103 20.7296 12.2049 20.69 12.3C20.57 12.56 17.83 18.75 12 18.75ZM4.83 12C5.42 13.15 7.83 17.25 12 17.25C16.17 17.25 18.58 13.15 19.17 12C18.58 10.85 16.17 6.75 12 6.75C7.83 6.75 5.42 10.85 4.83 12Z\",\n    fill: \"#000000\"\n  })\n], -1);\nconst _hoisted_12 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"w-[11px] h-[11px] top-3.5 right-3.5 absolute rounded-full border-2 border-black\" }, null, -1);\nconst _hoisted_13 = [\n  _hoisted_11,\n  _hoisted_12\n];\nconst _hoisted_14 = { class: \"flex justify-between max-sm:flex-wrap max-sm:justify-center max-sm:gap-y-4 max-sm:gap-x-4 mx-4 text-sm\" };\nconst _hoisted_15 = { class: \"items-center flex gap-x-2 hover:text-blue-500 transition-all\" };\nconst _hoisted_16 = /* @__PURE__ */ _createElementVNode(\"input\", {\n  class: \"cursor-pointer\",\n  type: \"checkbox\",\n  id: \"checked\"\n}, null, -1);\nconst _hoisted_17 = {\n  class: \"cursor-pointer select-none\",\n  for: \"checked\"\n};\nconst _hoisted_18 = { class: \"cursor-pointer text-blue-500 hover:text-blue-400 transition-all\" };\nconst _hoisted_19 = /* @__PURE__ */ _createElementVNode(\"svg\", {\n  width: \"40px\",\n  height: \"40px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M8 16C8 18.8284 8 20.2426 8.87868 21.1213C9.51998 21.7626 10.4466 21.9359 12 21.9827M8 8C8 5.17157 8 3.75736 8.87868 2.87868C9.75736 2 11.1716 2 14 2H15C17.8284 2 19.2426 2 20.1213 2.87868C21 3.75736 21 5.17157 21 8V10V14V16C21 18.8284 21 20.2426 20.1213 21.1213C19.3529 21.8897 18.175 21.9862 16 21.9983\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M3 9.5V14.5C3 16.857 3 18.0355 3.73223 18.7678C4.46447 19.5 5.64298 19.5 8 19.5M3.73223 5.23223C4.46447 4.5 5.64298 4.5 8 4.5\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\"\n  }),\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    d: \"M6 12L15 12M15 12L12.5 14.5M15 12L12.5 9.5\",\n    \"stroke-width\": \"1.5\",\n    \"stroke-linecap\": \"round\",\n    \"stroke-linejoin\": \"round\"\n  })\n], -1);\nconst _hoisted_20 = [\n  _hoisted_19\n];\nconst _hoisted_21 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"absolute\" }, null, -1);\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useRouter } from \"vue-router\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  props: {\n    loginShow: Boolean,\n    activeEyes: Boolean\n  },\n  setup(__props) {\n    const router = useRouter();\n    const authStore = useAuthStore();\n    const form = ref({\n      email: \"\",\n      password: \"\"\n    });\n    onMounted(() => {\n      if (nuxtStorage.localStorage.getData(\"token\")) {\n        router.push(\"/base/companies\");\n      }\n    });\n    useHead(\n      {\n        titleTemplate: \"Авторизация • ERP\"\n      }\n    );\n    return (_ctx, _cache) => {\n      const _component_ClientOnly = _resolveComponent(\"ClientOnly\");\n      return _openBlock(), _createBlock(_component_ClientOnly, null, {\n        default: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _createVNode(_Transition, { name: \"bounceLogin\" }, {\n              default: _withCtx(() => [\n                !__props.loginShow ? (_openBlock(), _createElementBlock(\"form\", {\n                  key: 0,\n                  onSubmit: _cache[4] || (_cache[4] = _withModifiers(($event) => _unref(authStore).authorize({ email: _unref(form).email, password: _unref(form).password }, _ctx.$router), [\"prevent\"])),\n                  class: \"bg-white select-none z-50 bg-opacity-95 w-5/12 max-lg:w-7/12 max-md:w-9/12 max-sm:w-full text-black p-6 rounded-xl\"\n                }, [\n                  _createElementVNode(\"div\", {\n                    class: \"\",\n                    onClick: _cache[0] || (_cache[0] = ($event) => __props.loginShow = !__props.loginShow)\n                  }, _hoisted_3),\n                  _hoisted_4,\n                  _createElementVNode(\"h1\", _hoisted_5, _toDisplayString(_ctx.$t(\"Авторизация\")), 1),\n                  _createElementVNode(\"div\", _hoisted_6, [\n                    _createElementVNode(\"div\", _hoisted_7, [\n                      _createElementVNode(\"label\", _hoisted_8, _toDisplayString(_ctx.$t(\"Email\")), 1),\n                      _withDirectives(_createElementVNode(\"input\", {\n                        name: \"email\",\n                        class: \"text-sm py-4 px-2 outline-gray-300 rounded-md border dark:bg-gray-300\",\n                        \"onUpdate:modelValue\": _cache[1] || (_cache[1] = ($event) => _unref(form).email = $event),\n                        type: \"text\"\n                      }, null, 512), [\n                        [_vModelText, _unref(form).email]\n                      ])\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_9, [\n                      _createElementVNode(\"label\", _hoisted_10, _toDisplayString(_ctx.$t(\"Пароль\")), 1),\n                      _withDirectives(_createElementVNode(\"input\", {\n                        name: \"password\",\n                        ref: \"password\",\n                        class: \"text-sm py-4 px-2 outline-gray-300 dark:bg-gray-300 rounded-md border\",\n                        \"onUpdate:modelValue\": _cache[2] || (_cache[2] = ($event) => _unref(form).password = $event),\n                        type: \"password\"\n                      }, null, 512), [\n                        [_vModelText, _unref(form).password]\n                      ]),\n                      _createElementVNode(\"div\", {\n                        class: \"absolute cursor-pointer right-2 top-8 z-10\",\n                        onClick: _cache[3] || (_cache[3] = ($event) => _ctx.$refs.password.type = _ctx.$refs.password.type === \"password\" ? \"text\" : \"password\")\n                      }, _hoisted_13)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_14, [\n                      _createElementVNode(\"div\", _hoisted_15, [\n                        _hoisted_16,\n                        _createElementVNode(\"label\", _hoisted_17, _toDisplayString(_ctx.$t(\"Запомнить меня\")), 1)\n                      ]),\n                      _createElementVNode(\"div\", null, [\n                        _createElementVNode(\"p\", _hoisted_18, _toDisplayString(_ctx.$t(\"Забыли пароль?\")), 1)\n                      ])\n                    ]),\n                    _createVNode(TheButton, {\n                      t: \"submit\",\n                      class: \"max-sm:w-full\",\n                      type: \"signIn\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createTextVNode(_toDisplayString(_ctx.$t(\"Войти\")), 1)\n                      ]),\n                      _: 1\n                    })\n                  ])\n                ], 32)) : _createCommentVNode(\"\", true)\n              ]),\n              _: 1\n            }),\n            _createElementVNode(\"div\", {\n              class: \"absolute active:scale-90 hover:bg-white stroke-white hover:stroke-black p-2 rounded-xl transition-all duration-200 cursor-pointer z-50 text-white right-10 top-10\",\n              onClick: _cache[5] || (_cache[5] = ($event) => __props.loginShow = !__props.loginShow)\n            }, _hoisted_20),\n            _hoisted_21\n          ])\n        ]),\n        _: 1\n      });\n    };\n  }\n});\n",
-      "start": 1706896519122,
-      "end": 1706896519132,
+      "start": 1707126036541,
+      "end": 1707126036548,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,15 +204,15 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896519132,
-      "end": 1706896519132,
+      "start": 1707126036548,
+      "end": 1707126036548,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1706896519133,
-      "end": 1706896519134,
+      "start": 1707126036548,
+      "end": 1707126036549,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -225,38 +225,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896519134,
-      "end": 1706896519134,
+      "start": 1707126036549,
+      "end": 1707126036549,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896519134,
-      "end": 1706896519134,
+      "start": 1707126036549,
+      "end": 1707126036549,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896519134,
-      "end": 1706896519135,
+      "start": 1707126036549,
+      "end": 1707126036550,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896519135,
-      "end": 1706896519135,
+      "start": 1707126036550,
+      "end": 1707126036550,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896519135,
-      "end": 1706896519135,
+      "start": 1707126036550,
+      "end": 1707126036550,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896519135,
-      "end": 1706896519135,
+      "start": 1707126036550,
+      "end": 1707126036550,
       "order": "normal"
     }
   ]

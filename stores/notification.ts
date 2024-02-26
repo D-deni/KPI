@@ -8,9 +8,7 @@ export const useNotification = defineStore('notification', {
     notification: []
   }),
   getters: {
-    get_notification(notification){
-      return this.notification
-    }
+    get_notification: (state) => state.notification
   },
   actions: {
     loadNotification(){

@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useDocumentStore} from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport {useUserStore} from \"~/stores/users\";\nimport {useCompanies} from \"~/stores/companies\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoUserList',\n  __ssrInlineRender: true,\n  setup(__props) {\n\nconst documentStore = useDocumentStore()\nconst user = useUserStore()\nconst company = useCompanies()\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${\n    _ssrRenderAttrs(_attrs)\n  }><p class=\"text-center tracking-widest font-bold\">${\n    _ssrInterpolate(_ctx.$t('Список сотрудников'))\n  }</p><div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\"><!--[-->`)\n  _ssrRenderList(_unref(company).get_all_department.results, (item) => {\n    _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\n      class: \"rounded-full cursor-pointer\",\n      item: item,\n      onDrag: () => {}\n    }, null, _parent))\n  })\n  _push(`<!--]--></div></div>`)\n}\n}\n\n})",
-      "start": 1706896547858,
-      "end": 1706896547858,
+      "start": 1707126070962,
+      "end": 1707126070962,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896547858,
-      "end": 1706896547858,
+      "start": 1707126070962,
+      "end": 1707126070962,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896547858,
-      "end": 1706896547858,
+      "start": 1707126070962,
+      "end": 1707126070962,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896547858,
-      "end": 1706896547859,
+      "start": 1707126070962,
+      "end": 1707126070963,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896547858,
-      "end": 1706896547859,
+      "start": 1707126070962,
+      "end": 1707126070963,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896547859,
-      "end": 1706896547859,
+      "start": 1707126070963,
+      "end": 1707126070963,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896547859,
-      "end": 1706896547859,
+      "start": 1707126070963,
+      "end": 1707126070963,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896547859,
-      "end": 1706896547859,
+      "start": 1707126070963,
+      "end": 1707126070963,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896547859,
-      "end": 1706896547859,
+      "start": 1707126070963,
+      "end": 1707126070963,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoUserList\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    const user = useUserStore();\n    const company = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}><p class=\"text-center tracking-widest font-bold\">${_ssrInterpolate(_ctx.$t(\"Список сотрудников\"))}</p><div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\"><!--[-->`);\n      _ssrRenderList(_unref(company).get_all_department.results, (item) => {\n        _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\n          class: \"rounded-full cursor-pointer\",\n          item,\n          onDrag: () => {\n          }\n        }, null, _parent));\n      });\n      _push(`<!--]--></div></div>`);\n    };\n  }\n});\n",
-      "start": 1706896547859,
-      "end": 1706896548054,
+      "start": 1707126070963,
+      "end": 1707126071145,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -86,232 +86,232 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896548054,
-      "end": 1706896548054,
+      "start": 1707126071146,
+      "end": 1707126071146,
       "order": "normal"
     },
     {
       "name": "vite:define",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport DocumentItemInfoUserListElem from \"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\";\nimport { useUserStore } from \"~/stores/users\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoUserList\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const documentStore = useDocumentStore();\n    const user = useUserStore();\n    const company = useCompanies();\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}><p class=\"text-center tracking-widest font-bold\">${_ssrInterpolate(_ctx.$t(\"Список сотрудников\"))}</p><div class=\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\"><!--[-->`);\n      _ssrRenderList(_unref(company).get_all_department.results, (item) => {\n        _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\n          class: \"rounded-full cursor-pointer\",\n          item,\n          onDrag: () => {\n          }\n        }, null, _parent));\n      });\n      _push(`<!--]--></div></div>`);\n    };\n  }\n});\n",
-      "start": 1706896548054,
-      "end": 1706896548410,
+      "start": 1707126071147,
+      "end": 1707126071330,
       "order": "normal",
       "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentItemInfoUserList.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref } from \\\"vue\\\";\\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \\\"vue/server-renderer\\\";\\nimport { useDocumentStore } from \\\"~/stores/documents\\\";\\nimport DocumentItemInfoUserListElem from \\\"~/components/documents/DocumentItemInfo/DocumentItemInfoUserListElem.vue\\\";\\nimport { useUserStore } from \\\"~/stores/users\\\";\\nimport { useCompanies } from \\\"~/stores/companies\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"DocumentItemInfoUserList\\\",\\n  __ssrInlineRender: true,\\n  setup(__props) {\\n    const documentStore = useDocumentStore();\\n    const user = useUserStore();\\n    const company = useCompanies();\\n    return (_ctx, _push, _parent, _attrs) => {\\n      _push(`<div${_ssrRenderAttrs(_attrs)}><p class=\\\"text-center tracking-widest font-bold\\\">${_ssrInterpolate(_ctx.$t(\\\"Список сотрудников\\\"))}</p><div class=\\\"flex flex-col gap-y-2 my-2 overflow-y-auto h-screen\\\"><!--[-->`);\\n      _ssrRenderList(_unref(company).get_all_department.results, (item) => {\\n        _push(_ssrRenderComponent(DocumentItemInfoUserListElem, {\\n          class: \\\"rounded-full cursor-pointer\\\",\\n          item,\\n          onDrag: () => {\\n          }\\n        }, null, _parent));\\n      });\\n      _push(`<!--]--></div></div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,cAAc;AAChC,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,iBAAiB,iBAAiB,sBAAsB;AACjK,SAAS,wBAAwB;AACjC,OAAO,kCAAkC;AACzC,SAAS,oBAAoB;AAC7B,SAAS,oBAAoB;AAC7B,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AACb,UAAM,gBAAgB,iBAAiB;AACvC,UAAM,OAAO,aAAa;AAC1B,UAAM,UAAU,aAAa;AAC7B,WAAO,CAAC,MAAM,OAAO,SAAS,WAAW;AACvC,YAAM,OAAO,gBAAgB,MAAM,CAAC,qDAAqD,gBAAgB,KAAK,GAAG,oBAAoB,CAAC,CAAC,+EAA+E;AACtN,qBAAe,OAAO,OAAO,EAAE,mBAAmB,SAAS,CAAC,SAAS;AACnE,cAAM,oBAAoB,8BAA8B;AAAA,UACtD,OAAO;AAAA,UACP;AAAA,UACA,QAAQ,MAAM;AAAA,UACd;AAAA,QACF,GAAG,MAAM,OAAO,CAAC;AAAA,MACnB,CAAC;AACD,YAAM,sBAAsB;AAAA,IAC9B;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896548410,
-      "end": 1706896548410,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896548410,
-      "end": 1706896548410,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896548410,
-      "end": 1706896548410,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896548410,
-      "end": 1706896548410,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896548411,
-      "end": 1706896548411,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896548411,
-      "end": 1706896548411,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896548411,
-      "end": 1706896548412,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071331,
+      "end": 1707126071331,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071331,
+      "end": 1707126071332,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071331,
+      "end": 1707126071332,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071332,
+      "end": 1707126071332,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071332,
+      "end": 1707126071332,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071332,
+      "end": 1707126071332,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548412,
-      "end": 1706896548412,
+      "start": 1707126071332,
+      "end": 1707126071332,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896548413,
-      "end": 1706896548417,
+      "start": 1707126071332,
+      "end": 1707126071340,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896548413,
-      "end": 1706896548417,
+      "start": 1707126071332,
+      "end": 1707126071340,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548418,
-      "end": 1706896548418,
+      "start": 1707126071345,
+      "end": 1707126071345,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548418,
-      "end": 1706896548418,
+      "start": 1707126071345,
+      "end": 1707126071345,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548419,
-      "end": 1706896548419,
+      "start": 1707126071345,
+      "end": 1707126071346,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548419,
-      "end": 1706896548419,
+      "start": 1707126071345,
+      "end": 1707126071346,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896548419,
-      "end": 1706896548419,
+      "start": 1707126071346,
+      "end": 1707126071346,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896548420,
-      "end": 1706896548420,
+      "start": 1707126071346,
+      "end": 1707126071347,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896548422,
-      "end": 1706896548422,
+      "start": 1707126071349,
+      "end": 1707126071349,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896548424,
-      "end": 1706896548424,
+      "start": 1707126071350,
+      "end": 1707126071351,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896548424,
-      "end": 1706896548424,
+      "start": 1707126071351,
+      "end": 1707126071351,
       "order": "normal"
     }
   ]

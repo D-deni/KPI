@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst ral_1 = require(\"../common/ral\");\nconst disposable_1 = require(\"../common/disposable\");\nconst events_1 = require(\"../common/events\");\nconst messageBuffer_1 = require(\"../common/messageBuffer\");\nclass MessageBuffer extends messageBuffer_1.AbstractMessageBuffer {\n    constructor(encoding = 'utf-8') {\n        super(encoding);\n        this.asciiDecoder = new TextDecoder('ascii');\n    }\n    emptyBuffer() {\n        return MessageBuffer.emptyBuffer;\n    }\n    fromString(value, _encoding) {\n        return (new TextEncoder()).encode(value);\n    }\n    toString(value, encoding) {\n        if (encoding === 'ascii') {\n            return this.asciiDecoder.decode(value);\n        }\n        else {\n            return (new TextDecoder(encoding)).decode(value);\n        }\n    }\n    asNative(buffer, length) {\n        if (length === undefined) {\n            return buffer;\n        }\n        else {\n            return buffer.slice(0, length);\n        }\n    }\n    allocNative(length) {\n        return new Uint8Array(length);\n    }\n}\nMessageBuffer.emptyBuffer = new Uint8Array(0);\nclass ReadableStreamWrapper {\n    constructor(socket) {\n        this.socket = socket;\n        this._onData = new events_1.Emitter();\n        this._messageListener = (event) => {\n            const blob = event.data;\n            blob.arrayBuffer().then((buffer) => {\n                this._onData.fire(new Uint8Array(buffer));\n            });\n        };\n        this.socket.addEventListener('message', this._messageListener);\n    }\n    onClose(listener) {\n        this.socket.addEventListener('close', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('close', listener));\n    }\n    onError(listener) {\n        this.socket.addEventListener('error', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('error', listener));\n    }\n    onEnd(listener) {\n        this.socket.addEventListener('end', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('end', listener));\n    }\n    onData(listener) {\n        return this._onData.event(listener);\n    }\n}\nclass WritableStreamWrapper {\n    constructor(socket) {\n        this.socket = socket;\n    }\n    onClose(listener) {\n        this.socket.addEventListener('close', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('close', listener));\n    }\n    onError(listener) {\n        this.socket.addEventListener('error', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('error', listener));\n    }\n    onEnd(listener) {\n        this.socket.addEventListener('end', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('end', listener));\n    }\n    write(data, encoding) {\n        if (typeof data === 'string') {\n            if (encoding !== undefined && encoding !== 'utf-8') {\n                throw new Error(`In a Browser environments only utf-8 text encding is supported. But got encoding: ${encoding}`);\n            }\n            this.socket.send(data);\n        }\n        else {\n            this.socket.send(data);\n        }\n        return Promise.resolve();\n    }\n    end() {\n        this.socket.close();\n    }\n}\nconst _textEncoder = new TextEncoder();\nconst _ril = Object.freeze({\n    messageBuffer: Object.freeze({\n        create: (encoding) => new MessageBuffer(encoding)\n    }),\n    applicationJson: Object.freeze({\n        encoder: Object.freeze({\n            name: 'application/json',\n            encode: (msg, options) => {\n                if (options.charset !== 'utf-8') {\n                    throw new Error(`In a Browser environments only utf-8 text encding is supported. But got encoding: ${options.charset}`);\n                }\n                return Promise.resolve(_textEncoder.encode(JSON.stringify(msg, undefined, 0)));\n            }\n        }),\n        decoder: Object.freeze({\n            name: 'application/json',\n            decode: (buffer, options) => {\n                if (!(buffer instanceof Uint8Array)) {\n                    throw new Error(`In a Browser environments only Uint8Arrays are supported.`);\n                }\n                return Promise.resolve(JSON.parse(new TextDecoder(options.charset).decode(buffer)));\n            }\n        })\n    }),\n    stream: Object.freeze({\n        asReadableStream: (socket) => new ReadableStreamWrapper(socket),\n        asWritableStream: (socket) => new WritableStreamWrapper(socket)\n    }),\n    console: console,\n    timer: Object.freeze({\n        setTimeout(callback, ms, ...args) {\n            return setTimeout(callback, ms, ...args);\n        },\n        clearTimeout(handle) {\n            clearTimeout(handle);\n        },\n        setImmediate(callback, ...args) {\n            return setTimeout(callback, 0, ...args);\n        },\n        clearImmediate(handle) {\n            clearTimeout(handle);\n        }\n    })\n});\nfunction RIL() {\n    return _ril;\n}\n(function (RIL) {\n    function install() {\n        ral_1.default.install(_ril);\n    }\n    RIL.install = install;\n})(RIL || (RIL = {}));\nexports.default = RIL;\n//# sourceMappingURL=ril.js.map",
-      "start": 1706896525223,
-      "end": 1706896525304,
+      "start": 1707126048762,
+      "end": 1707126048921,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525304,
-      "end": 1706896525304,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525304,
-      "end": 1706896525305,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525305,
-      "end": 1706896525305,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525305,
-      "end": 1706896525305,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525305,
-      "end": 1706896525305,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525305,
-      "end": 1706896525305,
+      "start": 1707126048921,
+      "end": 1707126048921,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as ril } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/browser/ril.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/ral.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/disposable.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/events.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/messageBuffer.js?commonjs-proxy\";\n\n\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(ril, \"__esModule\", { value: true });\nconst ral_1 = require$$0;\nconst disposable_1 = require$$1;\nconst events_1 = require$$2;\nconst messageBuffer_1 = require$$3;\nclass MessageBuffer extends messageBuffer_1.AbstractMessageBuffer {\n    constructor(encoding = 'utf-8') {\n        super(encoding);\n        this.asciiDecoder = new TextDecoder('ascii');\n    }\n    emptyBuffer() {\n        return MessageBuffer.emptyBuffer;\n    }\n    fromString(value, _encoding) {\n        return (new TextEncoder()).encode(value);\n    }\n    toString(value, encoding) {\n        if (encoding === 'ascii') {\n            return this.asciiDecoder.decode(value);\n        }\n        else {\n            return (new TextDecoder(encoding)).decode(value);\n        }\n    }\n    asNative(buffer, length) {\n        if (length === undefined) {\n            return buffer;\n        }\n        else {\n            return buffer.slice(0, length);\n        }\n    }\n    allocNative(length) {\n        return new Uint8Array(length);\n    }\n}\nMessageBuffer.emptyBuffer = new Uint8Array(0);\nclass ReadableStreamWrapper {\n    constructor(socket) {\n        this.socket = socket;\n        this._onData = new events_1.Emitter();\n        this._messageListener = (event) => {\n            const blob = event.data;\n            blob.arrayBuffer().then((buffer) => {\n                this._onData.fire(new Uint8Array(buffer));\n            });\n        };\n        this.socket.addEventListener('message', this._messageListener);\n    }\n    onClose(listener) {\n        this.socket.addEventListener('close', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('close', listener));\n    }\n    onError(listener) {\n        this.socket.addEventListener('error', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('error', listener));\n    }\n    onEnd(listener) {\n        this.socket.addEventListener('end', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('end', listener));\n    }\n    onData(listener) {\n        return this._onData.event(listener);\n    }\n}\nclass WritableStreamWrapper {\n    constructor(socket) {\n        this.socket = socket;\n    }\n    onClose(listener) {\n        this.socket.addEventListener('close', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('close', listener));\n    }\n    onError(listener) {\n        this.socket.addEventListener('error', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('error', listener));\n    }\n    onEnd(listener) {\n        this.socket.addEventListener('end', listener);\n        return disposable_1.Disposable.create(() => this.socket.removeEventListener('end', listener));\n    }\n    write(data, encoding) {\n        if (typeof data === 'string') {\n            if (encoding !== undefined && encoding !== 'utf-8') {\n                throw new Error(`In a Browser environments only utf-8 text encding is supported. But got encoding: ${encoding}`);\n            }\n            this.socket.send(data);\n        }\n        else {\n            this.socket.send(data);\n        }\n        return Promise.resolve();\n    }\n    end() {\n        this.socket.close();\n    }\n}\nconst _textEncoder = new TextEncoder();\nconst _ril = Object.freeze({\n    messageBuffer: Object.freeze({\n        create: (encoding) => new MessageBuffer(encoding)\n    }),\n    applicationJson: Object.freeze({\n        encoder: Object.freeze({\n            name: 'application/json',\n            encode: (msg, options) => {\n                if (options.charset !== 'utf-8') {\n                    throw new Error(`In a Browser environments only utf-8 text encding is supported. But got encoding: ${options.charset}`);\n                }\n                return Promise.resolve(_textEncoder.encode(JSON.stringify(msg, undefined, 0)));\n            }\n        }),\n        decoder: Object.freeze({\n            name: 'application/json',\n            decode: (buffer, options) => {\n                if (!(buffer instanceof Uint8Array)) {\n                    throw new Error(`In a Browser environments only Uint8Arrays are supported.`);\n                }\n                return Promise.resolve(JSON.parse(new TextDecoder(options.charset).decode(buffer)));\n            }\n        })\n    }),\n    stream: Object.freeze({\n        asReadableStream: (socket) => new ReadableStreamWrapper(socket),\n        asWritableStream: (socket) => new WritableStreamWrapper(socket)\n    }),\n    console: console,\n    timer: Object.freeze({\n        setTimeout(callback, ms, ...args) {\n            return setTimeout(callback, ms, ...args);\n        },\n        clearTimeout(handle) {\n            clearTimeout(handle);\n        },\n        setImmediate(callback, ...args) {\n            return setTimeout(callback, 0, ...args);\n        },\n        clearImmediate(handle) {\n            clearTimeout(handle);\n        }\n    })\n});\nfunction RIL() {\n    return _ril;\n}\n(function (RIL) {\n    function install() {\n        ral_1.default.install(_ril);\n    }\n    RIL.install = install;\n})(RIL || (RIL = {}));\nvar _default = ril.default = RIL;\n//# sourceMappingURL=ril.js.map\n\nexport { ril as __moduleExports, _default as default };",
-      "start": 1706896525305,
-      "end": 1706896525459,
+      "start": 1707126048921,
+      "end": 1707126049616,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525459,
-      "end": 1706896525459,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525459,
-      "end": 1706896525459,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525459,
-      "end": 1706896525459,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525459,
-      "end": 1706896525459,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525459,
-      "end": 1706896525459,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525460,
-      "end": 1706896525460,
+      "start": 1707126049616,
+      "end": 1707126049616,
       "order": "normal"
     }
   ]

@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex items-center gap-x-4\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", null, [\n  /*#__PURE__*/_createElementVNode(\"svg\", {\n    width: \"15px\",\n    height: \"15px\",\n    viewBox: \"0 0 24 24\",\n    fill: \"none\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"path\", {\n      class: \"dark:stroke-white stroke-black\",\n      d: \"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\",\n      \"stroke-width\": \"2\",\n      \"stroke-linecap\": \"round\"\n    })\n  ])\n], -1)\n\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useRoute} from \"vue-router\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: '[id]',\n  setup(__props) {\n\r\nconst route = useRoute()\r\nconst currentCompany = useCompanies()\r\nconst params = {\r\n  page: 1,\r\n  limit: 1,\r\n}\r\n\r\nwatchEffect(()=> {\r\n  currentCompany.loadCompany({id: route.params.id})\r\n})\r\n\r\nwatchSyncEffect(()=>{\r\n  useSeoMeta({\r\n    title: `${currentCompany.company.name}`\r\n  })\r\n})\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(TheTextContent, null, {\n      default: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Страница компании ' + _unref(currentCompany).get_all_company.name)), 1)\n      ]),\n      _: 1\n    }),\n    _createElementVNode(\"div\", null, [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createVNode(TheBreadcrumbs, { \"breadcrumb-link\": '/base/companies' }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t('Список компаний')), 1)\n          ]),\n          _: 1\n        }),\n        _hoisted_2,\n        _createVNode(TheBreadcrumbs, null, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_unref(currentCompany).get_all_company.name), 1)\n          ]),\n          _: 1\n        })\n      ])\n    ])\n  ]))\n}\n}\n\n})",
-      "start": 1706896517107,
-      "end": 1706896517107
+      "start": 1707126036251,
+      "end": 1707126036251
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036251,
+      "end": 1707126036251,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036251,
+      "end": 1707126036251,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036251,
+      "end": 1707126036251,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036251,
+      "end": 1707126036251,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896517107,
-      "end": 1706896517107,
+      "start": 1707126036251,
+      "end": 1707126036251,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"flex items-center gap-x-4\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"div\", null, [\n  /* @__PURE__ */ _createElementVNode(\"svg\", {\n    width: \"15px\",\n    height: \"15px\",\n    viewBox: \"0 0 24 24\",\n    fill: \"none\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /* @__PURE__ */ _createElementVNode(\"path\", {\n      class: \"dark:stroke-white stroke-black\",\n      d: \"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\",\n      \"stroke-width\": \"2\",\n      \"stroke-linecap\": \"round\"\n    })\n  ])\n], -1);\nimport { useCompanies } from \"~/stores/companies\";\nimport { useRoute } from \"vue-router\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"[id]\",\n  setup(__props) {\n    const route = useRoute();\n    const currentCompany = useCompanies();\n    const params = {\n      page: 1,\n      limit: 1\n    };\n    watchEffect(() => {\n      currentCompany.loadCompany({ id: route.params.id });\n    });\n    watchSyncEffect(() => {\n      useSeoMeta({\n        title: `${currentCompany.company.name}`\n      });\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheTextContent, null, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Страница компании \" + _unref(currentCompany).get_all_company.name)), 1)\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", null, [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _createVNode(TheBreadcrumbs, { \"breadcrumb-link\": \"/base/companies\" }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Список компаний\")), 1)\n              ]),\n              _: 1\n            }),\n            _hoisted_2,\n            _createVNode(TheBreadcrumbs, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_unref(currentCompany).get_all_company.name), 1)\n              ]),\n              _: 1\n            })\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896517111,
-      "end": 1706896518872,
+      "start": 1707126036251,
+      "end": 1707126036326,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896518872,
-      "end": 1706896518872,
+      "start": 1707126036326,
+      "end": 1707126036326,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896518872,
-      "end": 1706896518873,
+      "start": 1707126036326,
+      "end": 1707126036326,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896518873,
-      "end": 1706896518873,
+      "start": 1707126036326,
+      "end": 1707126036326,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896518873,
-      "end": 1706896518873,
+      "start": 1707126036326,
+      "end": 1707126036326,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896518873,
-      "end": 1706896518873,
+      "start": 1707126036326,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896518873,
-      "end": 1706896518873,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896518873,
-      "end": 1706896518873,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896518873,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036327,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036327,
+      "end": 1707126036328,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036328,
+      "end": 1707126036328,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036328,
+      "end": 1707126036328,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896518874,
-      "end": 1706896518874,
+      "start": 1707126036328,
+      "end": 1707126036328,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896518875,
-      "end": 1706896518875,
+      "start": 1707126036328,
+      "end": 1707126036328,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896518875,
-      "end": 1706896518875,
+      "start": 1707126036328,
+      "end": 1707126036328,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896518875,
-      "end": 1706896518875,
+      "start": 1707126036328,
+      "end": 1707126036328,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896518875,
-      "end": 1706896518876,
+      "start": 1707126036329,
+      "end": 1707126036329,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { watchEffect, watchSyncEffect } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"flex items-center gap-x-4\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"div\", null, [\n  /* @__PURE__ */ _createElementVNode(\"svg\", {\n    width: \"15px\",\n    height: \"15px\",\n    viewBox: \"0 0 24 24\",\n    fill: \"none\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /* @__PURE__ */ _createElementVNode(\"path\", {\n      class: \"dark:stroke-white stroke-black\",\n      d: \"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\",\n      \"stroke-width\": \"2\",\n      \"stroke-linecap\": \"round\"\n    })\n  ])\n], -1);\nimport { useCompanies } from \"~/stores/companies\";\nimport { useRoute } from \"vue-router\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"[id]\",\n  setup(__props) {\n    const route = useRoute();\n    const currentCompany = useCompanies();\n    const params = {\n      page: 1,\n      limit: 1\n    };\n    watchEffect(() => {\n      currentCompany.loadCompany({ id: route.params.id });\n    });\n    watchSyncEffect(() => {\n      useSeoMeta({\n        title: `${currentCompany.company.name}`\n      });\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheTextContent, null, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Страница компании \" + _unref(currentCompany).get_all_company.name)), 1)\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", null, [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _createVNode(TheBreadcrumbs, { \"breadcrumb-link\": \"/base/companies\" }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Список компаний\")), 1)\n              ]),\n              _: 1\n            }),\n            _hoisted_2,\n            _createVNode(TheBreadcrumbs, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_unref(currentCompany).get_all_company.name), 1)\n              ]),\n              _: 1\n            })\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896518876,
-      "end": 1706896518885,
+      "start": 1707126036329,
+      "end": 1707126036336,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,50 +204,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896518885,
-      "end": 1706896518885,
+      "start": 1707126036336,
+      "end": 1707126036337,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896518887,
-      "end": 1706896518888,
+      "start": 1707126036337,
+      "end": 1707126036340,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896518888,
-      "end": 1706896518888,
+      "start": 1707126036340,
+      "end": 1707126036340,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896518889,
-      "end": 1706896518889,
+      "start": 1707126036340,
+      "end": 1707126036340,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896518889,
-      "end": 1706896518889,
+      "start": 1707126036340,
+      "end": 1707126036340,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896518889,
-      "end": 1706896518889,
+      "start": 1707126036341,
+      "end": 1707126036341,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896518889,
-      "end": 1706896518890,
+      "start": 1707126036341,
+      "end": 1707126036341,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896518890,
-      "end": 1706896518890,
+      "start": 1707126036341,
+      "end": 1707126036341,
       "order": "normal"
     }
   ]

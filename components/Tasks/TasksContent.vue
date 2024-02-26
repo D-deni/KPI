@@ -45,7 +45,6 @@
           <TheSceleton v-for="i in 3" border-radius="5px" width="100px" height="20px"></TheSceleton>
         </div>
         <TheSceleton border-radius="10px" width="150px" height="30px"></TheSceleton>
-
       </div>
       <div class="flex mt-10 flex-col gap-y-6">
         <TheSceleton v-for="i in 5" class="opacity-50" border-radius="5px" width="92%" height="120px"></TheSceleton>

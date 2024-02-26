@@ -15,6 +15,7 @@ import TheInput from "~/components/UI/TheInput.vue";
 import TheCheckbox from "~/components/UI/TheCheckbox.vue";
 import TheSceleton from "~/components/UI/TheSceleton.vue";
 import ThePreloader from "~/components/UI/ThePreloader.vue";
+import UserChange from "~/components/User/UserChange.vue";
 
 const container = ref(null)
 const route = useRoute()
@@ -279,85 +280,7 @@ onUpdated(()=>{
         <TheTextContent>
           {{ $t('Редактирование пользователя') }}
         </TheTextContent>
-        <form
-          @submit.prevent="loadCurrentUser?.update_user({user: userEdit, update_type: `update/${userEdit.id}`, permissions_ids: userEdit.permissions.filter(e=>e.value).map(e=>e.id).join(',')}); showChange = false"
-          class="mt-10">
-          <div class="flex flex-wrap items-center justify-around gap-x-10 max-sm:gap-y-4 mb-6">
-            <div class="w-5/12 max-sm:w-full">
-              <TheInput :label="$t('Имя')" :placeholder="currentUser.user.first_name"
-                        v-model="userEdit.first_name"></TheInput>
-            </div>
-            <div class="w-5/12 max-sm:w-full">
-              <TheInput :label="$t('Фамилия')" :placeholder="currentUser.user.last_name"
-                        v-model="userEdit.last_name"></TheInput>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center justify-around gap-x-10 max-sm:gap-y-4 mb-6">
-            <div class="w-5/12 max-sm:w-full">
-              <TheInput :label="$t('Email')" :placeholder="currentUser.user.email" v-model="userEdit.email"></TheInput>
-            </div>
-            <div class="w-5/12 max-sm:w-full">
-              <TheInput type="tel" :label="$t('Номер')" :placeholder="currentUser.user.phone"
-                        v-model="userEdit.phone"></TheInput>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center justify-around gap-x-10 max-sm:gap-y-4 mb-6">
-            <div class="w-5/12 max-sm:w-full">
-              <TheInput type="password" :label="$t('Пароль')" :placeholder="currentUser.user.password"
-                        v-model="userEdit.password"></TheInput>
-            </div>
-            <div class="w-5/12 max-sm:w-full">
-              <TheInput :label="$t('Паспорт')" :placeholder="currentUser.user.passport"
-                        v-model="userEdit.passport"></TheInput>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center justify-around gap-x-10 max-sm:gap-y-4 mb-6">
-            <div class="w-5/12 max-sm:w-full">
-              <p>{{ $t('Департаменты') }}</p>
-              <select class="w-full dark:bg-gray-300 py-2 px-4 rounded-lg text-black" type="password"
-                      v-model="userEdit.department_id">
-                <option v-for="department in company?.get_all_department.results" :value="department.id">
-                  {{ department.name }}
-                </option>
-              </select>
-            </div>
-            <div class="w-5/12 max-sm:w-full">
-              <TheInput :label="$t('Зароботная плата')" v-model="userEdit.salary"></TheInput>
-            </div>
-
-          </div>
-          <div class="mb-6">
-            <div class="w-full mx-auto text-center">
-              <label class="w-full">
-                <span class="text-lg tracking-widest">Фото</span>
-                <div class="flex justify-center items-center my-2">
-                  <img class="rounded-full h-20 w-20"
-                       :src="loadCurrentUser.get_server_domain + currentUser.get_user_list.photo_url">
-                  <!--<TheInput class="" type="file" v-model="userEdit.photo"></TheInput>-->
-                </div>
-              </label>
-            </div>
-          </div>
-          <div class="flex items-center justify-around gap-x-10 mb-6">
-            <div class="w-10/12">
-              <p class="tracking-widest">{{ $t('Возможности') }}</p>
-              <div class="flex flex-wrap justify-center mt-4">
-                <TheCheckbox
-                  v-for="permission in userEdit.permissions"
-                  :item="permission"
-                >
-                </TheCheckbox>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-y-3 items-center justify-center gap-x-10">
-            <TheButton class="py-2 px-6 rounded-full max-[450px]:w-full" t="button" @click="showChange = false"
-                       type="danger">
-              {{ $t('Отменить') }}
-            </TheButton>
-            <TheButton class="py-2 px-6 rounded-full max-[450px]:w-full" type="success">{{ $t('Изменить') }}</TheButton>
-          </div>
-        </form>
+        <UserChange :user-edit="userEdit" @showChange="showChange = false"/>
       </TheModal>
     </div>
   </div>

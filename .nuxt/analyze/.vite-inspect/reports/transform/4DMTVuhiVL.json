@@ -4,63 +4,63 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup lang=\"ts\">\r\nimport {useChat} from \"~/stores/chat\";\r\nimport ChatChangeWindowElem from \"~/components/Chat/UI/ChatChangeWindowElem.vue\";\r\n\r\nconst chat = useChat()\r\n</script>\r\n\r\n<template>\r\n  <div class=\"\">\r\n    <div @click.stop=\"chat.showChangeWindowChat = !chat.showChangeWindowChat\"\r\n         class=\"p-1 rounded-full transition-all duration-200 cursor-pointer dark:hover:bg-gray-500 hover:bg-gray-200\" :class=\"{'dark:bg-gray-500 bg-gray-200' : chat.showChangeWindowChat}\">\r\n      <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\"\r\n           xmlns=\"http://www.w3.org/2000/svg\">\r\n        <path\r\n          d=\"M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z\"\r\n          stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\r\n      </svg>\r\n    </div>\r\n    <Transition name=\"fade\" >\r\n      <div v-if=\"chat.showChangeWindowChat\" @click.stop=\"chat.showChangeWindowChat = false\" class=\"absolute top-14 right-8 z-50 dark:bg-gray-600 bg-gray-200 border border-gray-300 dark:border dark:border-gray-500\">\r\n        <ChatChangeWindowElem @click=\"chat.showChatInfo = true\" v-if=\"chat.get_user_chat.is_group\">\r\n          <template v-slot:chatWindowSettingContentSvg>\r\n            <svg class=\"dark:fill-white fill-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n              <path d=\"M12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75Z\" />\r\n              <path d=\"M12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z\" />\r\n              <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75Z\" />\r\n            </svg>\r\n          </template>\r\n          <template v-slot:chatWindowSettingContentText>\r\n            {{$t('Информация о группе')}}\r\n          </template>\r\n        </ChatChangeWindowElem>\r\n        <ChatChangeWindowElem @click=\"chat.showChatInfo = true\" v-else>\r\n          <template v-slot:chatWindowSettingContentSvg>\r\n            <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n              <circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\"  stroke-width=\"1\"/>\r\n              <circle cx=\"12\" cy=\"12\" r=\"10\"  stroke-width=\"1\"/>\r\n              <path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\"  stroke-width=\"1\" stroke-linecap=\"round\"/>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:chatWindowSettingContentText>\r\n            {{$t('Показать профиль')}}\r\n          </template>\r\n        </ChatChangeWindowElem>\r\n        <ChatChangeWindowElem @click=\"chat.showChatChangeInfoModal = true; chat.updateChatName = chat.userChat.name\" v-if=\"chat.get_user_chat.is_group\">\r\n          <template v-slot:chatWindowSettingContentSvg>\r\n            <svg class=\"dark:stroke-white stroke-black\" width=\"25px\" height=\"25px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n              <circle opacity=\"0.5\" cx=\"12\" cy=\"9\" r=\"3\"  stroke-width=\"1\"/>\r\n              <circle cx=\"12\" cy=\"12\" r=\"10\"  stroke-width=\"1\"/>\r\n              <path opacity=\"0.5\" d=\"M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20\"  stroke-width=\"1\" stroke-linecap=\"round\"/>\r\n            </svg>\r\n          </template>\r\n          <template v-slot:chatWindowSettingContentText>\r\n            {{$t('Управление группой')}}\r\n          </template>\r\n        </ChatChangeWindowElem>\r\n      </div>\r\n    </Transition>\r\n  </div>\r\n</template>\r\n\r\n<style scoped lang=\"scss\">\r\n\r\n</style>",
-      "start": 1706896519818,
-      "end": 1706896520408,
+      "start": 1707126038987,
+      "end": 1707126039116,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896520408,
-      "end": 1706896520408,
+      "start": 1707126039116,
+      "end": 1707126039116,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/Chat/UI/ChatChangeWindow.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/Chat/UI/ChatChangeWindow.vue?vue&type=script&setup=true&lang.ts\";\nexport default _sfc_main;\n",
-      "start": 1706896520408,
-      "end": 1706896520537,
+      "start": 1707126039116,
+      "end": 1707126039220,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -68,170 +68,170 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896520538,
-      "end": 1706896520538,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039220,
+      "end": 1707126039220,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039220,
+      "end": 1707126039221,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039221,
+      "end": 1707126039221,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039221,
+      "end": 1707126039221,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039221,
+      "end": 1707126039221,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896520539,
-      "end": 1706896520539,
+      "start": 1707126039221,
+      "end": 1707126039221,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896520539,
-      "end": 1706896520540,
+      "start": 1707126039221,
+      "end": 1707126039221,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896520540,
-      "end": 1706896520540,
+      "start": 1707126039221,
+      "end": 1707126039221,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896520541,
-      "end": 1706896520543,
+      "start": 1707126039221,
+      "end": 1707126039222,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896520543,
-      "end": 1706896520543,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896520544,
-      "end": 1706896520544,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896520544,
-      "end": 1706896520545,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896520545,
-      "end": 1706896520545,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896520545,
-      "end": 1706896520546,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896520546,
-      "end": 1706896520546,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896520546,
-      "end": 1706896520546,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896520546,
-      "end": 1706896520546,
+      "start": 1707126039222,
+      "end": 1707126039222,
       "order": "normal"
     }
   ]

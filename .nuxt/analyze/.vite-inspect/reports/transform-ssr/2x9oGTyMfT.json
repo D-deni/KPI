@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\nimport {LinkedList} from \"~/hooks/Node\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport {useCompanies} from \"~/stores/companies\";\nimport isEqual from \"lodash/isEqual\";\nimport {toast} from \"vue3-toastify\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoChainScheduleItem',\n  __ssrInlineRender: true,\n  props: {\n  item: {\n    type: Object,\n    default: () => {\n    }\n  },\n  currentUser: {\n    type: Object,\n    default: () => {\n    }\n  },\n},\n  setup(__props) {\n\nconst props = __props\n\n\nconst company = useCompanies()\nconst authStore = useAuthStore()\n\nconst draggedNode = ref(false)\nconst list = ref(new LinkedList())\nconst documentStore = useDocumentStore()\nconst appendData = (data: any) => {\n  list.value.append(data)\n}\nconst deleteData = (data: any) => {\n  list.value.delete(data)\n}\n\nconst deleteNodeValue = (targetValue: any, removeObject: any) => {\n  list.value.deleteNodeValue(targetValue, removeObject)\n}\n\nconst addContentNode = (targetValue: any, content: any) => {\n  list.value.addContentToNode(targetValue, content)\n  console.log(documentStore.userList)\n}\n\nconst swipeData = () => {\n  list.value.swipeIfCondition()\n}\n\nfunction dragEnterNode(event: any) {\n  draggedNode.value = true\n  event.target.classList.add('draggedToNode')\n  event.preventDefault()\n}\n\nfunction dragLeaveNode(event: any) {\n  draggedNode.value = false\n  event.target.classList.remove('draggedToNode')\n  event.preventDefault()\n}\n\nfunction dragEnterNodeValue(event: any) {\n  event.target.classList.add('draggedUser')\n  event.preventDefault()\n}\n\nfunction dragLeaveNodeValue(event: any) {\n  event.target.classList.remove('draggedUser')\n  event.preventDefault()\n}\n\nonMounted(() => {\n  appendData([{\n    first_name: authStore.user?.first_name,\n    last_name: authStore.user?.last_name,\n    photo_url: authStore.user?.photo_url,\n    id: authStore.user?.id\n  }])\n  appendData([])\n  watchSyncEffect(() => {\n    // console.log(documentStore.documentItem.chain)\n    documentStore.userList = list.value.toArray().map(node => node.self)\n  })\n})\n\n\nonUnmounted(() => {\n  documentStore.showUsersNode = []\n  documentStore.showDepartment = []\n})\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({\n    name: \"list\",\n    class: \"flex items-center\"\n  }, _attrs))} data-v-f2659d0b>`)\n  _ssrRenderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n    _push(`<div class=\"px-2 h-full z-20 relative flex items-center transition-all\" data-v-f2659d0b><div class=\"transition-all\" data-v-f2659d0b></div><div class=\"${_ssrRenderClass([{'border border-dashed border-blueSemiLight h-20 rounded-lg' : userGroup.length === 0 || userGroup === null}, \"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\"])}\" data-v-f2659d0b>`)\n    if (userGroup.length === 0) {\n      _push(`<p class=\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\" data-v-f2659d0b>${_ssrInterpolate(_ctx.$t('Область для добавления'))}</p>`)\n    } else {\n      _push(`<!---->`)\n    }\n    if (groupIndex !== 0) {\n      _push(`<div class=\"absolute top-0\" data-v-f2659d0b><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\" data-v-f2659d0b> + </button><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\" data-v-f2659d0b> X </button></div>`)\n    } else {\n      _push(`<!---->`)\n    }\n    if (_unref(documentStore).showContext === groupIndex) {\n      _push(`<div class=\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\" data-v-f2659d0b><input type=\"text\" class=\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\"${_ssrRenderAttr(\"placeholder\", _ctx.$t('Поиск...'))} data-v-f2659d0b><div class=\"overflow-auto max-h-[150px]\" data-v-f2659d0b><!--[-->`)\n      _ssrRenderList(_unref(company).get_all_department.results, (department) => {\n        _push(`<div data-v-f2659d0b><button class=\"flex items-center justify-between gap-x-2 w-full break-words break-all\" data-v-f2659d0b><span data-v-f2659d0b>${\n          _ssrInterpolate(department.name)\n        }</span><div class=\"${\n          _ssrRenderClass({'rotate-180' : _unref(documentStore).showContextDepartment === department.id})\n        }\" data-v-f2659d0b><svg class=\"dark:fill-white fill-black\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-f2659d0b><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\" data-v-f2659d0b></path></svg></div></button>`)\n        if (_unref(documentStore).showContextDepartment === department.id) {\n          _push(`<div data-v-f2659d0b><!--[-->`)\n          _ssrRenderList(department.participants, (user) => {\n            _push(`<div data-v-f2659d0b>`)\n            if (department.participants && _unref(documentStore).showUsersNode.every(e=>e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every(e=>e.priority === user.priority) ) {\n              _push(`<button class=\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\" data-v-f2659d0b><span class=\"\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + ' ' + user.last_name)}</span></button>`)\n            } else {\n              _push(`<!---->`)\n            }\n            _push(`</div>`)\n          })\n          _push(`<!--]--></div>`)\n        } else {\n          _push(`<!---->`)\n        }\n        _push(`</div>`)\n      })\n      _push(`<!--]--></div></div>`)\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`<list${_ssrRenderAttrs({\n      name: \"list\",\n      class: \"flex flex-col gap-y-6 transition-all\"\n    })} data-v-f2659d0b>`)\n    _ssrRenderList(userGroup, (user, userIndex) => {\n      _push(`<div class=\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\" data-v-f2659d0b><div class=\"flex items-center gap-x-2\" data-v-f2659d0b>`)\n      if (user.photo_url) {\n        _push(`<div class=\"max-w-[50px]\" data-v-f2659d0b><img class=\"w-full rounded-full\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo_url)} alt=\"\" data-v-f2659d0b></div>`)\n      } else {\n        _push(`<!---->`)\n      }\n      _push(`<div class=\"break-words\" data-v-f2659d0b><p class=\"text-sm w-full\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + ' ' + user.last_name)}</p></div></div>`)\n      if (user.id !== _unref(authStore).user.id && groupIndex !== 0) {\n        _push(`<button class=\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\" data-v-f2659d0b> X </button>`)\n      } else {\n        _push(`<!---->`)\n      }\n      _push(`</div>`)\n    })\n    _push(`</list></div></div>`)\n  })\n  _push(`<button class=\"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\" data-v-f2659d0b> + </button></div>`)\n}\n}\n\n})",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896550224,
-      "end": 1706896550224,
+      "start": 1707126072664,
+      "end": 1707126072664,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { LinkedList } from \"~/hooks/Node\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainScheduleItem\",\n  __ssrInlineRender: true,\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    currentUser: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const company = useCompanies();\n    const authStore = useAuthStore();\n    const draggedNode = ref(false);\n    const list = ref(new LinkedList());\n    const documentStore = useDocumentStore();\n    const appendData = (data) => {\n      list.value.append(data);\n    };\n    const deleteData = (data) => {\n      list.value.delete(data);\n    };\n    const deleteNodeValue = (targetValue, removeObject) => {\n      list.value.deleteNodeValue(targetValue, removeObject);\n    };\n    const addContentNode = (targetValue, content) => {\n      list.value.addContentToNode(targetValue, content);\n      console.log(documentStore.userList);\n    };\n    const swipeData = () => {\n      list.value.swipeIfCondition();\n    };\n    function dragEnterNode(event) {\n      draggedNode.value = true;\n      event.target.classList.add(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragLeaveNode(event) {\n      draggedNode.value = false;\n      event.target.classList.remove(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragEnterNodeValue(event) {\n      event.target.classList.add(\"draggedUser\");\n      event.preventDefault();\n    }\n    function dragLeaveNodeValue(event) {\n      event.target.classList.remove(\"draggedUser\");\n      event.preventDefault();\n    }\n    onMounted(() => {\n      appendData([{\n        first_name: authStore.user?.first_name,\n        last_name: authStore.user?.last_name,\n        photo_url: authStore.user?.photo_url,\n        id: authStore.user?.id\n      }]);\n      appendData([]);\n      watchSyncEffect(() => {\n        documentStore.userList = list.value.toArray().map((node) => node.self);\n      });\n    });\n    onUnmounted(() => {\n      documentStore.showUsersNode = [];\n      documentStore.showDepartment = [];\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({\n        name: \"list\",\n        class: \"flex items-center\"\n      }, _attrs))} data-v-f2659d0b>`);\n      _ssrRenderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n        _push(`<div class=\"px-2 h-full z-20 relative flex items-center transition-all\" data-v-f2659d0b><div class=\"transition-all\" data-v-f2659d0b></div><div class=\"${_ssrRenderClass([{ \"border border-dashed border-blueSemiLight h-20 rounded-lg\": userGroup.length === 0 || userGroup === null }, \"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\"])}\" data-v-f2659d0b>`);\n        if (userGroup.length === 0) {\n          _push(`<p class=\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\" data-v-f2659d0b>${_ssrInterpolate(_ctx.$t(\"Область для добавления\"))}</p>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (groupIndex !== 0) {\n          _push(`<div class=\"absolute top-0\" data-v-f2659d0b><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\" data-v-f2659d0b> + </button><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\" data-v-f2659d0b> X </button></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (_unref(documentStore).showContext === groupIndex) {\n          _push(`<div class=\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\" data-v-f2659d0b><input type=\"text\" class=\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\"${_ssrRenderAttr(\"placeholder\", _ctx.$t(\"Поиск...\"))} data-v-f2659d0b><div class=\"overflow-auto max-h-[150px]\" data-v-f2659d0b><!--[-->`);\n          _ssrRenderList(_unref(company).get_all_department.results, (department) => {\n            _push(`<div data-v-f2659d0b><button class=\"flex items-center justify-between gap-x-2 w-full break-words break-all\" data-v-f2659d0b><span data-v-f2659d0b>${_ssrInterpolate(department.name)}</span><div class=\"${_ssrRenderClass({ \"rotate-180\": _unref(documentStore).showContextDepartment === department.id })}\" data-v-f2659d0b><svg class=\"dark:fill-white fill-black\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-f2659d0b><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\" data-v-f2659d0b></path></svg></div></button>`);\n            if (_unref(documentStore).showContextDepartment === department.id) {\n              _push(`<div data-v-f2659d0b><!--[-->`);\n              _ssrRenderList(department.participants, (user) => {\n                _push(`<div data-v-f2659d0b>`);\n                if (department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority)) {\n                  _push(`<button class=\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\" data-v-f2659d0b><span class=\"\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</span></button>`);\n                } else {\n                  _push(`<!---->`);\n                }\n                _push(`</div>`);\n              });\n              _push(`<!--]--></div>`);\n            } else {\n              _push(`<!---->`);\n            }\n            _push(`</div>`);\n          });\n          _push(`<!--]--></div></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`<list${_ssrRenderAttrs({\n          name: \"list\",\n          class: \"flex flex-col gap-y-6 transition-all\"\n        })} data-v-f2659d0b>`);\n        _ssrRenderList(userGroup, (user, userIndex) => {\n          _push(`<div class=\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\" data-v-f2659d0b><div class=\"flex items-center gap-x-2\" data-v-f2659d0b>`);\n          if (user.photo_url) {\n            _push(`<div class=\"max-w-[50px]\" data-v-f2659d0b><img class=\"w-full rounded-full\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo_url)} alt=\"\" data-v-f2659d0b></div>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`<div class=\"break-words\" data-v-f2659d0b><p class=\"text-sm w-full\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</p></div></div>`);\n          if (user.id !== _unref(authStore).user.id && groupIndex !== 0) {\n            _push(`<button class=\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\" data-v-f2659d0b> X </button>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`</div>`);\n        });\n        _push(`</list></div></div>`);\n      });\n      _push(`<button class=\"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\" data-v-f2659d0b> + </button></div>`);\n    };\n  }\n});\n",
-      "start": 1706896550226,
-      "end": 1706896550275,
+      "start": 1707126072665,
+      "end": 1707126072707,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -86,173 +86,173 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896550275,
-      "end": 1706896550275,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550275,
-      "end": 1706896550276,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896550276,
-      "end": 1706896550276,
+      "start": 1707126072707,
+      "end": 1707126072707,
       "order": "normal"
     },
     {
       "name": "vite:define",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { LinkedList } from \"~/hooks/Node\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainScheduleItem\",\n  __ssrInlineRender: true,\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    currentUser: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const company = useCompanies();\n    const authStore = useAuthStore();\n    const draggedNode = ref(false);\n    const list = ref(new LinkedList());\n    const documentStore = useDocumentStore();\n    const appendData = (data) => {\n      list.value.append(data);\n    };\n    const deleteData = (data) => {\n      list.value.delete(data);\n    };\n    const deleteNodeValue = (targetValue, removeObject) => {\n      list.value.deleteNodeValue(targetValue, removeObject);\n    };\n    const addContentNode = (targetValue, content) => {\n      list.value.addContentToNode(targetValue, content);\n      console.log(documentStore.userList);\n    };\n    const swipeData = () => {\n      list.value.swipeIfCondition();\n    };\n    function dragEnterNode(event) {\n      draggedNode.value = true;\n      event.target.classList.add(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragLeaveNode(event) {\n      draggedNode.value = false;\n      event.target.classList.remove(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragEnterNodeValue(event) {\n      event.target.classList.add(\"draggedUser\");\n      event.preventDefault();\n    }\n    function dragLeaveNodeValue(event) {\n      event.target.classList.remove(\"draggedUser\");\n      event.preventDefault();\n    }\n    onMounted(() => {\n      appendData([{\n        first_name: authStore.user?.first_name,\n        last_name: authStore.user?.last_name,\n        photo_url: authStore.user?.photo_url,\n        id: authStore.user?.id\n      }]);\n      appendData([]);\n      watchSyncEffect(() => {\n        documentStore.userList = list.value.toArray().map((node) => node.self);\n      });\n    });\n    onUnmounted(() => {\n      documentStore.showUsersNode = [];\n      documentStore.showDepartment = [];\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({\n        name: \"list\",\n        class: \"flex items-center\"\n      }, _attrs))} data-v-f2659d0b>`);\n      _ssrRenderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n        _push(`<div class=\"px-2 h-full z-20 relative flex items-center transition-all\" data-v-f2659d0b><div class=\"transition-all\" data-v-f2659d0b></div><div class=\"${_ssrRenderClass([{ \"border border-dashed border-blueSemiLight h-20 rounded-lg\": userGroup.length === 0 || userGroup === null }, \"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\"])}\" data-v-f2659d0b>`);\n        if (userGroup.length === 0) {\n          _push(`<p class=\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\" data-v-f2659d0b>${_ssrInterpolate(_ctx.$t(\"Область для добавления\"))}</p>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (groupIndex !== 0) {\n          _push(`<div class=\"absolute top-0\" data-v-f2659d0b><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\" data-v-f2659d0b> + </button><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\" data-v-f2659d0b> X </button></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (_unref(documentStore).showContext === groupIndex) {\n          _push(`<div class=\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\" data-v-f2659d0b><input type=\"text\" class=\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\"${_ssrRenderAttr(\"placeholder\", _ctx.$t(\"Поиск...\"))} data-v-f2659d0b><div class=\"overflow-auto max-h-[150px]\" data-v-f2659d0b><!--[-->`);\n          _ssrRenderList(_unref(company).get_all_department.results, (department) => {\n            _push(`<div data-v-f2659d0b><button class=\"flex items-center justify-between gap-x-2 w-full break-words break-all\" data-v-f2659d0b><span data-v-f2659d0b>${_ssrInterpolate(department.name)}</span><div class=\"${_ssrRenderClass({ \"rotate-180\": _unref(documentStore).showContextDepartment === department.id })}\" data-v-f2659d0b><svg class=\"dark:fill-white fill-black\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-f2659d0b><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\" data-v-f2659d0b></path></svg></div></button>`);\n            if (_unref(documentStore).showContextDepartment === department.id) {\n              _push(`<div data-v-f2659d0b><!--[-->`);\n              _ssrRenderList(department.participants, (user) => {\n                _push(`<div data-v-f2659d0b>`);\n                if (department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority)) {\n                  _push(`<button class=\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\" data-v-f2659d0b><span class=\"\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</span></button>`);\n                } else {\n                  _push(`<!---->`);\n                }\n                _push(`</div>`);\n              });\n              _push(`<!--]--></div>`);\n            } else {\n              _push(`<!---->`);\n            }\n            _push(`</div>`);\n          });\n          _push(`<!--]--></div></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`<list${_ssrRenderAttrs({\n          name: \"list\",\n          class: \"flex flex-col gap-y-6 transition-all\"\n        })} data-v-f2659d0b>`);\n        _ssrRenderList(userGroup, (user, userIndex) => {\n          _push(`<div class=\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\" data-v-f2659d0b><div class=\"flex items-center gap-x-2\" data-v-f2659d0b>`);\n          if (user.photo_url) {\n            _push(`<div class=\"max-w-[50px]\" data-v-f2659d0b><img class=\"w-full rounded-full\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo_url)} alt=\"\" data-v-f2659d0b></div>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`<div class=\"break-words\" data-v-f2659d0b><p class=\"text-sm w-full\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</p></div></div>`);\n          if (user.id !== _unref(authStore).user.id && groupIndex !== 0) {\n            _push(`<button class=\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\" data-v-f2659d0b> X </button>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`</div>`);\n        });\n        _push(`</list></div></div>`);\n      });\n      _push(`<button class=\"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\" data-v-f2659d0b> + </button></div>`);\n    };\n  }\n});\n",
-      "start": 1706896550276,
-      "end": 1706896550281,
+      "start": 1707126072707,
+      "end": 1707126072722,
       "order": "normal",
       "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref, mergeProps as _mergeProps } from \\\"vue\\\";\\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \\\"vue/server-renderer\\\";\\nimport { useAuthStore } from \\\"~/stores/auth\\\";\\nimport { LinkedList } from \\\"~/hooks/Node\\\";\\nimport { useDocumentStore } from \\\"~/stores/documents\\\";\\nimport { useCompanies } from \\\"~/stores/companies\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"DocumentItemInfoChainScheduleItem\\\",\\n  __ssrInlineRender: true,\\n  props: {\\n    item: {\\n      type: Object,\\n      default: () => {\\n      }\\n    },\\n    currentUser: {\\n      type: Object,\\n      default: () => {\\n      }\\n    }\\n  },\\n  setup(__props) {\\n    const props = __props;\\n    const company = useCompanies();\\n    const authStore = useAuthStore();\\n    const draggedNode = ref(false);\\n    const list = ref(new LinkedList());\\n    const documentStore = useDocumentStore();\\n    const appendData = (data) => {\\n      list.value.append(data);\\n    };\\n    const deleteData = (data) => {\\n      list.value.delete(data);\\n    };\\n    const deleteNodeValue = (targetValue, removeObject) => {\\n      list.value.deleteNodeValue(targetValue, removeObject);\\n    };\\n    const addContentNode = (targetValue, content) => {\\n      list.value.addContentToNode(targetValue, content);\\n      console.log(documentStore.userList);\\n    };\\n    const swipeData = () => {\\n      list.value.swipeIfCondition();\\n    };\\n    function dragEnterNode(event) {\\n      draggedNode.value = true;\\n      event.target.classList.add(\\\"draggedToNode\\\");\\n      event.preventDefault();\\n    }\\n    function dragLeaveNode(event) {\\n      draggedNode.value = false;\\n      event.target.classList.remove(\\\"draggedToNode\\\");\\n      event.preventDefault();\\n    }\\n    function dragEnterNodeValue(event) {\\n      event.target.classList.add(\\\"draggedUser\\\");\\n      event.preventDefault();\\n    }\\n    function dragLeaveNodeValue(event) {\\n      event.target.classList.remove(\\\"draggedUser\\\");\\n      event.preventDefault();\\n    }\\n    onMounted(() => {\\n      appendData([{\\n        first_name: authStore.user?.first_name,\\n        last_name: authStore.user?.last_name,\\n        photo_url: authStore.user?.photo_url,\\n        id: authStore.user?.id\\n      }]);\\n      appendData([]);\\n      watchSyncEffect(() => {\\n        documentStore.userList = list.value.toArray().map((node) => node.self);\\n      });\\n    });\\n    onUnmounted(() => {\\n      documentStore.showUsersNode = [];\\n      documentStore.showDepartment = [];\\n    });\\n    return (_ctx, _push, _parent, _attrs) => {\\n      _push(`<div${_ssrRenderAttrs(_mergeProps({\\n        name: \\\"list\\\",\\n        class: \\\"flex items-center\\\"\\n      }, _attrs))} data-v-f2659d0b>`);\\n      _ssrRenderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\\n        _push(`<div class=\\\"px-2 h-full z-20 relative flex items-center transition-all\\\" data-v-f2659d0b><div class=\\\"transition-all\\\" data-v-f2659d0b></div><div class=\\\"${_ssrRenderClass([{ \\\"border border-dashed border-blueSemiLight h-20 rounded-lg\\\": userGroup.length === 0 || userGroup === null }, \\\"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\\\"])}\\\" data-v-f2659d0b>`);\\n        if (userGroup.length === 0) {\\n          _push(`<p class=\\\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\\\" data-v-f2659d0b>${_ssrInterpolate(_ctx.$t(\\\"Область для добавления\\\"))}</p>`);\\n        } else {\\n          _push(`<!---->`);\\n        }\\n        if (groupIndex !== 0) {\\n          _push(`<div class=\\\"absolute top-0\\\" data-v-f2659d0b><button class=\\\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\\\" data-v-f2659d0b> + </button><button class=\\\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\\\" data-v-f2659d0b> X </button></div>`);\\n        } else {\\n          _push(`<!---->`);\\n        }\\n        if (_unref(documentStore).showContext === groupIndex) {\\n          _push(`<div class=\\\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\\\" data-v-f2659d0b><input type=\\\"text\\\" class=\\\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\\\"${_ssrRenderAttr(\\\"placeholder\\\", _ctx.$t(\\\"Поиск...\\\"))} data-v-f2659d0b><div class=\\\"overflow-auto max-h-[150px]\\\" data-v-f2659d0b><!--[-->`);\\n          _ssrRenderList(_unref(company).get_all_department.results, (department) => {\\n            _push(`<div data-v-f2659d0b><button class=\\\"flex items-center justify-between gap-x-2 w-full break-words break-all\\\" data-v-f2659d0b><span data-v-f2659d0b>${_ssrInterpolate(department.name)}</span><div class=\\\"${_ssrRenderClass({ \\\"rotate-180\\\": _unref(documentStore).showContextDepartment === department.id })}\\\" data-v-f2659d0b><svg class=\\\"dark:fill-white fill-black\\\" width=\\\"20px\\\" height=\\\"20px\\\" viewBox=\\\"0 0 24 24\\\" fill=\\\"none\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" data-v-f2659d0b><path fill-rule=\\\"evenodd\\\" clip-rule=\\\"evenodd\\\" d=\\\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\\\" data-v-f2659d0b></path></svg></div></button>`);\\n            if (_unref(documentStore).showContextDepartment === department.id) {\\n              _push(`<div data-v-f2659d0b><!--[-->`);\\n              _ssrRenderList(department.participants, (user) => {\\n                _push(`<div data-v-f2659d0b>`);\\n                if (department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority)) {\\n                  _push(`<button class=\\\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\\\" data-v-f2659d0b><span class=\\\"\\\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \\\" \\\" + user.last_name)}</span></button>`);\\n                } else {\\n                  _push(`<!---->`);\\n                }\\n                _push(`</div>`);\\n              });\\n              _push(`<!--]--></div>`);\\n            } else {\\n              _push(`<!---->`);\\n            }\\n            _push(`</div>`);\\n          });\\n          _push(`<!--]--></div></div>`);\\n        } else {\\n          _push(`<!---->`);\\n        }\\n        _push(`<list${_ssrRenderAttrs({\\n          name: \\\"list\\\",\\n          class: \\\"flex flex-col gap-y-6 transition-all\\\"\\n        })} data-v-f2659d0b>`);\\n        _ssrRenderList(userGroup, (user, userIndex) => {\\n          _push(`<div class=\\\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\\\" data-v-f2659d0b><div class=\\\"flex items-center gap-x-2\\\" data-v-f2659d0b>`);\\n          if (user.photo_url) {\\n            _push(`<div class=\\\"max-w-[50px]\\\" data-v-f2659d0b><img class=\\\"w-full rounded-full\\\"${_ssrRenderAttr(\\\"src\\\", _unref(authStore).get_server_domain + user.photo_url)} alt=\\\"\\\" data-v-f2659d0b></div>`);\\n          } else {\\n            _push(`<!---->`);\\n          }\\n          _push(`<div class=\\\"break-words\\\" data-v-f2659d0b><p class=\\\"text-sm w-full\\\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \\\" \\\" + user.last_name)}</p></div></div>`);\\n          if (user.id !== _unref(authStore).user.id && groupIndex !== 0) {\\n            _push(`<button class=\\\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\\\" data-v-f2659d0b> X </button>`);\\n          } else {\\n            _push(`<!---->`);\\n          }\\n          _push(`</div>`);\\n        });\\n        _push(`</list></div></div>`);\\n      });\\n      _push(`<button class=\\\"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\\\" data-v-f2659d0b> + </button></div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"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\",\n  \"names\": []\n}\n"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072722,
+      "end": 1707126072722,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072722,
+      "end": 1707126072722,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072722,
+      "end": 1707126072722,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072722,
+      "end": 1707126072722,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072723,
+      "end": 1707126072723,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072723,
+      "end": 1707126072723,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072723,
+      "end": 1707126072723,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896550281,
-      "end": 1706896550281,
+      "start": 1707126072724,
+      "end": 1707126072724,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref, onMounted, watchSyncEffect, onUnmounted } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { LinkedList } from \"~/hooks/Node\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainScheduleItem\",\n  __ssrInlineRender: true,\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    currentUser: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const company = useCompanies();\n    const authStore = useAuthStore();\n    const draggedNode = ref(false);\n    const list = ref(new LinkedList());\n    const documentStore = useDocumentStore();\n    const appendData = (data) => {\n      list.value.append(data);\n    };\n    const deleteData = (data) => {\n      list.value.delete(data);\n    };\n    const deleteNodeValue = (targetValue, removeObject) => {\n      list.value.deleteNodeValue(targetValue, removeObject);\n    };\n    const addContentNode = (targetValue, content) => {\n      list.value.addContentToNode(targetValue, content);\n      console.log(documentStore.userList);\n    };\n    const swipeData = () => {\n      list.value.swipeIfCondition();\n    };\n    function dragEnterNode(event) {\n      draggedNode.value = true;\n      event.target.classList.add(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragLeaveNode(event) {\n      draggedNode.value = false;\n      event.target.classList.remove(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragEnterNodeValue(event) {\n      event.target.classList.add(\"draggedUser\");\n      event.preventDefault();\n    }\n    function dragLeaveNodeValue(event) {\n      event.target.classList.remove(\"draggedUser\");\n      event.preventDefault();\n    }\n    onMounted(() => {\n      appendData([{\n        first_name: authStore.user?.first_name,\n        last_name: authStore.user?.last_name,\n        photo_url: authStore.user?.photo_url,\n        id: authStore.user?.id\n      }]);\n      appendData([]);\n      watchSyncEffect(() => {\n        documentStore.userList = list.value.toArray().map((node) => node.self);\n      });\n    });\n    onUnmounted(() => {\n      documentStore.showUsersNode = [];\n      documentStore.showDepartment = [];\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({\n        name: \"list\",\n        class: \"flex items-center\"\n      }, _attrs))} data-v-f2659d0b>`);\n      _ssrRenderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n        _push(`<div class=\"px-2 h-full z-20 relative flex items-center transition-all\" data-v-f2659d0b><div class=\"transition-all\" data-v-f2659d0b></div><div class=\"${_ssrRenderClass([{ \"border border-dashed border-blueSemiLight h-20 rounded-lg\": userGroup.length === 0 || userGroup === null }, \"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\"])}\" data-v-f2659d0b>`);\n        if (userGroup.length === 0) {\n          _push(`<p class=\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\" data-v-f2659d0b>${_ssrInterpolate(_ctx.$t(\"Область для добавления\"))}</p>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (groupIndex !== 0) {\n          _push(`<div class=\"absolute top-0\" data-v-f2659d0b><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\" data-v-f2659d0b> + </button><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\" data-v-f2659d0b> X </button></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (_unref(documentStore).showContext === groupIndex) {\n          _push(`<div class=\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\" data-v-f2659d0b><input type=\"text\" class=\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\"${_ssrRenderAttr(\"placeholder\", _ctx.$t(\"Поиск...\"))} data-v-f2659d0b><div class=\"overflow-auto max-h-[150px]\" data-v-f2659d0b><!--[-->`);\n          _ssrRenderList(_unref(company).get_all_department.results, (department) => {\n            _push(`<div data-v-f2659d0b><button class=\"flex items-center justify-between gap-x-2 w-full break-words break-all\" data-v-f2659d0b><span data-v-f2659d0b>${_ssrInterpolate(department.name)}</span><div class=\"${_ssrRenderClass({ \"rotate-180\": _unref(documentStore).showContextDepartment === department.id })}\" data-v-f2659d0b><svg class=\"dark:fill-white fill-black\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-f2659d0b><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\" data-v-f2659d0b></path></svg></div></button>`);\n            if (_unref(documentStore).showContextDepartment === department.id) {\n              _push(`<div data-v-f2659d0b><!--[-->`);\n              _ssrRenderList(department.participants, (user) => {\n                _push(`<div data-v-f2659d0b>`);\n                if (department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority)) {\n                  _push(`<button class=\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\" data-v-f2659d0b><span class=\"\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</span></button>`);\n                } else {\n                  _push(`<!---->`);\n                }\n                _push(`</div>`);\n              });\n              _push(`<!--]--></div>`);\n            } else {\n              _push(`<!---->`);\n            }\n            _push(`</div>`);\n          });\n          _push(`<!--]--></div></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`<list${_ssrRenderAttrs({\n          name: \"list\",\n          class: \"flex flex-col gap-y-6 transition-all\"\n        })} data-v-f2659d0b>`);\n        _ssrRenderList(userGroup, (user, userIndex) => {\n          _push(`<div class=\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\" data-v-f2659d0b><div class=\"flex items-center gap-x-2\" data-v-f2659d0b>`);\n          if (user.photo_url) {\n            _push(`<div class=\"max-w-[50px]\" data-v-f2659d0b><img class=\"w-full rounded-full\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo_url)} alt=\"\" data-v-f2659d0b></div>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`<div class=\"break-words\" data-v-f2659d0b><p class=\"text-sm w-full\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</p></div></div>`);\n          if (user.id !== _unref(authStore).user.id && groupIndex !== 0) {\n            _push(`<button class=\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\" data-v-f2659d0b> X </button>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`</div>`);\n        });\n        _push(`</list></div></div>`);\n      });\n      _push(`<button class=\"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\" data-v-f2659d0b> + </button></div>`);\n    };\n  }\n});\n",
-      "start": 1706896550282,
-      "end": 1706896550284,
+      "start": 1707126072724,
+      "end": 1707126072728,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -266,8 +266,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref, onMounted, watchSyncEffect, onUnmounted } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { LinkedList } from \"~/hooks/Node\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainScheduleItem\",\n  __ssrInlineRender: true,\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    currentUser: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const company = useCompanies();\n    const authStore = useAuthStore();\n    const draggedNode = ref(false);\n    const list = ref(new LinkedList());\n    const documentStore = useDocumentStore();\n    const appendData = (data) => {\n      list.value.append(data);\n    };\n    const deleteData = (data) => {\n      list.value.delete(data);\n    };\n    const deleteNodeValue = (targetValue, removeObject) => {\n      list.value.deleteNodeValue(targetValue, removeObject);\n    };\n    const addContentNode = (targetValue, content) => {\n      list.value.addContentToNode(targetValue, content);\n      console.log(documentStore.userList);\n    };\n    const swipeData = () => {\n      list.value.swipeIfCondition();\n    };\n    function dragEnterNode(event) {\n      draggedNode.value = true;\n      event.target.classList.add(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragLeaveNode(event) {\n      draggedNode.value = false;\n      event.target.classList.remove(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragEnterNodeValue(event) {\n      event.target.classList.add(\"draggedUser\");\n      event.preventDefault();\n    }\n    function dragLeaveNodeValue(event) {\n      event.target.classList.remove(\"draggedUser\");\n      event.preventDefault();\n    }\n    onMounted(() => {\n      appendData([{\n        first_name: authStore.user?.first_name,\n        last_name: authStore.user?.last_name,\n        photo_url: authStore.user?.photo_url,\n        id: authStore.user?.id\n      }]);\n      appendData([]);\n      watchSyncEffect(() => {\n        documentStore.userList = list.value.toArray().map((node) => node.self);\n      });\n    });\n    onUnmounted(() => {\n      documentStore.showUsersNode = [];\n      documentStore.showDepartment = [];\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({\n        name: \"list\",\n        class: \"flex items-center\"\n      }, _attrs))} data-v-f2659d0b>`);\n      _ssrRenderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n        _push(`<div class=\"px-2 h-full z-20 relative flex items-center transition-all\" data-v-f2659d0b><div class=\"transition-all\" data-v-f2659d0b></div><div class=\"${_ssrRenderClass([{ \"border border-dashed border-blueSemiLight h-20 rounded-lg\": userGroup.length === 0 || userGroup === null }, \"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\"])}\" data-v-f2659d0b>`);\n        if (userGroup.length === 0) {\n          _push(`<p class=\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\" data-v-f2659d0b>${_ssrInterpolate(_ctx.$t(\"Область для добавления\"))}</p>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (groupIndex !== 0) {\n          _push(`<div class=\"absolute top-0\" data-v-f2659d0b><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\" data-v-f2659d0b> + </button><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\" data-v-f2659d0b> X </button></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (_unref(documentStore).showContext === groupIndex) {\n          _push(`<div class=\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\" data-v-f2659d0b><input type=\"text\" class=\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\"${_ssrRenderAttr(\"placeholder\", _ctx.$t(\"Поиск...\"))} data-v-f2659d0b><div class=\"overflow-auto max-h-[150px]\" data-v-f2659d0b><!--[-->`);\n          _ssrRenderList(_unref(company).get_all_department.results, (department) => {\n            _push(`<div data-v-f2659d0b><button class=\"flex items-center justify-between gap-x-2 w-full break-words break-all\" data-v-f2659d0b><span data-v-f2659d0b>${_ssrInterpolate(department.name)}</span><div class=\"${_ssrRenderClass({ \"rotate-180\": _unref(documentStore).showContextDepartment === department.id })}\" data-v-f2659d0b><svg class=\"dark:fill-white fill-black\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-f2659d0b><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\" data-v-f2659d0b></path></svg></div></button>`);\n            if (_unref(documentStore).showContextDepartment === department.id) {\n              _push(`<div data-v-f2659d0b><!--[-->`);\n              _ssrRenderList(department.participants, (user) => {\n                _push(`<div data-v-f2659d0b>`);\n                if (department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority)) {\n                  _push(`<button class=\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\" data-v-f2659d0b><span class=\"\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</span></button>`);\n                } else {\n                  _push(`<!---->`);\n                }\n                _push(`</div>`);\n              });\n              _push(`<!--]--></div>`);\n            } else {\n              _push(`<!---->`);\n            }\n            _push(`</div>`);\n          });\n          _push(`<!--]--></div></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`<list${_ssrRenderAttrs({\n          name: \"list\",\n          class: \"flex flex-col gap-y-6 transition-all\"\n        })} data-v-f2659d0b>`);\n        _ssrRenderList(userGroup, (user, userIndex) => {\n          _push(`<div class=\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\" data-v-f2659d0b><div class=\"flex items-center gap-x-2\" data-v-f2659d0b>`);\n          if (user.photo_url) {\n            _push(`<div class=\"max-w-[50px]\" data-v-f2659d0b><img class=\"w-full rounded-full\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo_url)} alt=\"\" data-v-f2659d0b></div>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`<div class=\"break-words\" data-v-f2659d0b><p class=\"text-sm w-full\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</p></div></div>`);\n          if (user.id !== _unref(authStore).user.id && groupIndex !== 0) {\n            _push(`<button class=\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\" data-v-f2659d0b> X </button>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`</div>`);\n        });\n        _push(`</list></div></div>`);\n      });\n      _push(`<button class=\"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\" data-v-f2659d0b> + </button></div>`);\n    };\n  }\n});\n",
-      "start": 1706896550282,
-      "end": 1706896550284,
+      "start": 1707126072724,
+      "end": 1707126072728,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -280,45 +280,45 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896550284,
-      "end": 1706896550284,
+      "start": 1707126072728,
+      "end": 1707126072728,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896550284,
-      "end": 1706896550284,
+      "start": 1707126072728,
+      "end": 1707126072728,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896550284,
-      "end": 1706896550284,
+      "start": 1707126072728,
+      "end": 1707126072728,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896550284,
-      "end": 1706896550284,
+      "start": 1707126072728,
+      "end": 1707126072728,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896550284,
-      "end": 1706896550284,
+      "start": 1707126072728,
+      "end": 1707126072728,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896550284,
-      "end": 1706896550284,
+      "start": 1707126072728,
+      "end": 1707126072729,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
       "result": "import { ref, onMounted, watchSyncEffect, onUnmounted } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { LinkedList } from \"~/hooks/Node\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainScheduleItem\",\n  __ssrInlineRender: true,\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    currentUser: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const company = useCompanies();\n    const authStore = useAuthStore();\n    const draggedNode = ref(false);\n    const list = ref(new LinkedList());\n    const documentStore = useDocumentStore();\n    const appendData = (data) => {\n      list.value.append(data);\n    };\n    const deleteData = (data) => {\n      list.value.delete(data);\n    };\n    const deleteNodeValue = (targetValue, removeObject) => {\n      list.value.deleteNodeValue(targetValue, removeObject);\n    };\n    const addContentNode = (targetValue, content) => {\n      list.value.addContentToNode(targetValue, content);\n      console.log(documentStore.userList);\n    };\n    const swipeData = () => {\n      list.value.swipeIfCondition();\n    };\n    function dragEnterNode(event) {\n      draggedNode.value = true;\n      event.target.classList.add(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragLeaveNode(event) {\n      draggedNode.value = false;\n      event.target.classList.remove(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragEnterNodeValue(event) {\n      event.target.classList.add(\"draggedUser\");\n      event.preventDefault();\n    }\n    function dragLeaveNodeValue(event) {\n      event.target.classList.remove(\"draggedUser\");\n      event.preventDefault();\n    }\n     false && /*@__PURE__*/ onMounted(() => {\n      appendData([{\n        first_name: authStore.user?.first_name,\n        last_name: authStore.user?.last_name,\n        photo_url: authStore.user?.photo_url,\n        id: authStore.user?.id\n      }]);\n      appendData([]);\n      watchSyncEffect(() => {\n        documentStore.userList = list.value.toArray().map((node) => node.self);\n      });\n    });\n    onUnmounted(() => {\n      documentStore.showUsersNode = [];\n      documentStore.showDepartment = [];\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({\n        name: \"list\",\n        class: \"flex items-center\"\n      }, _attrs))} data-v-f2659d0b>`);\n      _ssrRenderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n        _push(`<div class=\"px-2 h-full z-20 relative flex items-center transition-all\" data-v-f2659d0b><div class=\"transition-all\" data-v-f2659d0b></div><div class=\"${_ssrRenderClass([{ \"border border-dashed border-blueSemiLight h-20 rounded-lg\": userGroup.length === 0 || userGroup === null }, \"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\"])}\" data-v-f2659d0b>`);\n        if (userGroup.length === 0) {\n          _push(`<p class=\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\" data-v-f2659d0b>${_ssrInterpolate(_ctx.$t(\"Область для добавления\"))}</p>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (groupIndex !== 0) {\n          _push(`<div class=\"absolute top-0\" data-v-f2659d0b><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\" data-v-f2659d0b> + </button><button class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\" data-v-f2659d0b> X </button></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        if (_unref(documentStore).showContext === groupIndex) {\n          _push(`<div class=\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\" data-v-f2659d0b><input type=\"text\" class=\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\"${_ssrRenderAttr(\"placeholder\", _ctx.$t(\"Поиск...\"))} data-v-f2659d0b><div class=\"overflow-auto max-h-[150px]\" data-v-f2659d0b><!--[-->`);\n          _ssrRenderList(_unref(company).get_all_department.results, (department) => {\n            _push(`<div data-v-f2659d0b><button class=\"flex items-center justify-between gap-x-2 w-full break-words break-all\" data-v-f2659d0b><span data-v-f2659d0b>${_ssrInterpolate(department.name)}</span><div class=\"${_ssrRenderClass({ \"rotate-180\": _unref(documentStore).showContextDepartment === department.id })}\" data-v-f2659d0b><svg class=\"dark:fill-white fill-black\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" data-v-f2659d0b><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\" data-v-f2659d0b></path></svg></div></button>`);\n            if (_unref(documentStore).showContextDepartment === department.id) {\n              _push(`<div data-v-f2659d0b><!--[-->`);\n              _ssrRenderList(department.participants, (user) => {\n                _push(`<div data-v-f2659d0b>`);\n                if (department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority)) {\n                  _push(`<button class=\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\" data-v-f2659d0b><span class=\"\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</span></button>`);\n                } else {\n                  _push(`<!---->`);\n                }\n                _push(`</div>`);\n              });\n              _push(`<!--]--></div>`);\n            } else {\n              _push(`<!---->`);\n            }\n            _push(`</div>`);\n          });\n          _push(`<!--]--></div></div>`);\n        } else {\n          _push(`<!---->`);\n        }\n        _push(`<list${_ssrRenderAttrs({\n          name: \"list\",\n          class: \"flex flex-col gap-y-6 transition-all\"\n        })} data-v-f2659d0b>`);\n        _ssrRenderList(userGroup, (user, userIndex) => {\n          _push(`<div class=\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\" data-v-f2659d0b><div class=\"flex items-center gap-x-2\" data-v-f2659d0b>`);\n          if (user.photo_url) {\n            _push(`<div class=\"max-w-[50px]\" data-v-f2659d0b><img class=\"w-full rounded-full\"${_ssrRenderAttr(\"src\", _unref(authStore).get_server_domain + user.photo_url)} alt=\"\" data-v-f2659d0b></div>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`<div class=\"break-words\" data-v-f2659d0b><p class=\"text-sm w-full\" data-v-f2659d0b>${_ssrInterpolate(user.first_name + \" \" + user.last_name)}</p></div></div>`);\n          if (user.id !== _unref(authStore).user.id && groupIndex !== 0) {\n            _push(`<button class=\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\" data-v-f2659d0b> X </button>`);\n          } else {\n            _push(`<!---->`);\n          }\n          _push(`</div>`);\n        });\n        _push(`</list></div></div>`);\n      });\n      _push(`<button class=\"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\" data-v-f2659d0b> + </button></div>`);\n    };\n  }\n});\n",
-      "start": 1706896550284,
-      "end": 1706896550285,
+      "start": 1707126072729,
+      "end": 1707126072731,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -331,14 +331,14 @@
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896550285,
-      "end": 1706896550285,
+      "start": 1707126072731,
+      "end": 1707126072731,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896550285,
-      "end": 1706896550285,
+      "start": 1707126072731,
+      "end": 1707126072731,
       "order": "normal"
     }
   ]

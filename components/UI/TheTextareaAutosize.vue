@@ -1,21 +1,29 @@
 <script setup lang="ts">
 import autosize from "autosize";
+import {setFocus} from "~/hooks/ElemUI";
 
 const el = ref()
 
 onMounted(() => {
+  autosize.destroy(el.value)
+  setFocus(el.value)
+
+})
+onUpdated(()=>{
   autosize(el.value)
+  console.log(12312312)
 })
 onBeforeUnmount(() => {
   autosize.destroy(el.value)
 })
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: String,
     default: ''
   }
 })
+
 </script>
 
 <template>

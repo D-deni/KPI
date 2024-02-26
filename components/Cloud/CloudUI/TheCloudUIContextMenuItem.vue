@@ -16,7 +16,7 @@ defineProps({
       <slot name="ContextMenuText"/>
     </span>
     <div>
-      <slot name="ContextMenuContent"/>
+      <slot name="ContextMenuContent" />
     </div>
   </label>
   <div v-else class="dark:hover:bg-gray-500 hover:bg-gray-200 p-2 cursor-pointer flex items-center gap-x-10">

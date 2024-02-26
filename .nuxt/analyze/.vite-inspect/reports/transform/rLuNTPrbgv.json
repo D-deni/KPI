@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.ProtocolNotificationType = exports.ProtocolNotificationType0 = exports.ProtocolRequestType = exports.ProtocolRequestType0 = exports.RegistrationType = void 0;\nconst vscode_jsonrpc_1 = require(\"vscode-jsonrpc\");\nclass RegistrationType {\n    constructor(method) {\n        this.method = method;\n    }\n}\nexports.RegistrationType = RegistrationType;\nclass ProtocolRequestType0 extends vscode_jsonrpc_1.RequestType0 {\n    constructor(method) {\n        super(method);\n    }\n}\nexports.ProtocolRequestType0 = ProtocolRequestType0;\nclass ProtocolRequestType extends vscode_jsonrpc_1.RequestType {\n    constructor(method) {\n        super(method, vscode_jsonrpc_1.ParameterStructures.byName);\n    }\n}\nexports.ProtocolRequestType = ProtocolRequestType;\nclass ProtocolNotificationType0 extends vscode_jsonrpc_1.NotificationType0 {\n    constructor(method) {\n        super(method);\n    }\n}\nexports.ProtocolNotificationType0 = ProtocolNotificationType0;\nclass ProtocolNotificationType extends vscode_jsonrpc_1.NotificationType {\n    constructor(method) {\n        super(method, vscode_jsonrpc_1.ParameterStructures.byName);\n    }\n}\nexports.ProtocolNotificationType = ProtocolNotificationType;\n// let x: ProtocolNotificationType<number, { value: number}>;\n// let y: ProtocolNotificationType<string, { value: number}>;\n// x = y;\n//# sourceMappingURL=messages.js.map",
-      "start": 1706896524986,
-      "end": 1706896525046,
+      "start": 1707126047469,
+      "end": 1707126047801,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525046,
-      "end": 1706896525046,
+      "start": 1707126047801,
+      "end": 1707126047801,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as messages } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-languageserver-protocol/lib/common/messages.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/browser/main.js?commonjs-proxy\";\n\n\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(messages, \"__esModule\", { value: true });\nvar ProtocolNotificationType_1 = messages.ProtocolNotificationType = ProtocolNotificationType0_1 = messages.ProtocolNotificationType0 = ProtocolRequestType_1 = messages.ProtocolRequestType = ProtocolRequestType0_1 = messages.ProtocolRequestType0 = RegistrationType_1 = messages.RegistrationType = void 0;\nconst vscode_jsonrpc_1 = require$$0;\nclass RegistrationType {\n    constructor(method) {\n        this.method = method;\n    }\n}\nvar RegistrationType_1 = messages.RegistrationType = RegistrationType;\nclass ProtocolRequestType0 extends vscode_jsonrpc_1.RequestType0 {\n    constructor(method) {\n        super(method);\n    }\n}\nvar ProtocolRequestType0_1 = messages.ProtocolRequestType0 = ProtocolRequestType0;\nclass ProtocolRequestType extends vscode_jsonrpc_1.RequestType {\n    constructor(method) {\n        super(method, vscode_jsonrpc_1.ParameterStructures.byName);\n    }\n}\nvar ProtocolRequestType_1 = messages.ProtocolRequestType = ProtocolRequestType;\nclass ProtocolNotificationType0 extends vscode_jsonrpc_1.NotificationType0 {\n    constructor(method) {\n        super(method);\n    }\n}\nvar ProtocolNotificationType0_1 = messages.ProtocolNotificationType0 = ProtocolNotificationType0;\nclass ProtocolNotificationType extends vscode_jsonrpc_1.NotificationType {\n    constructor(method) {\n        super(method, vscode_jsonrpc_1.ParameterStructures.byName);\n    }\n}\nProtocolNotificationType_1 = messages.ProtocolNotificationType = ProtocolNotificationType;\n// let x: ProtocolNotificationType<number, { value: number}>;\n// let y: ProtocolNotificationType<string, { value: number}>;\n// x = y;\n//# sourceMappingURL=messages.js.map\n\nexport { messages as __moduleExports, ProtocolNotificationType_1 as ProtocolNotificationType, ProtocolNotificationType0_1 as ProtocolNotificationType0, ProtocolRequestType_1 as ProtocolRequestType, ProtocolRequestType0_1 as ProtocolRequestType0, RegistrationType_1 as RegistrationType, messages as default };",
-      "start": 1706896525046,
-      "end": 1706896525529,
+      "start": 1707126047801,
+      "end": 1707126049737,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049737,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049737,
+      "end": 1707126049738,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049738,
+      "end": 1707126049738,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049738,
+      "end": 1707126049738,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049738,
+      "end": 1707126049738,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049738,
+      "end": 1707126049738,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049738,
+      "end": 1707126049738,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525530,
-      "end": 1706896525530,
+      "start": 1707126049738,
+      "end": 1707126049738,
       "order": "normal"
     }
   ]

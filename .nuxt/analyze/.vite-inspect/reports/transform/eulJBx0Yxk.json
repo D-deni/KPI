@@ -4,63 +4,63 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup>\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TreeContent from \"~/components/Tree/TreeContent.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useTreeStore} from \"~/stores/tree\";\r\nconst treeStore = useTreeStore()\r\nconst companies = useCompanies()\r\ncompanies.loadCurrentCompany()\r\ndefineProps({\r\n  treeFullScreen: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n})\r\n\r\nuseSeoMeta({\r\n  title: 'Дерево',\r\n  description: `Древовидная структура компании ${companies.company.name}`\r\n})\r\n</script>\r\n<template>\r\n  <div>\r\n    <TheTextContent :text-type=\"'pageTitle'\" :class=\"{'blur' : useTreeStore().treeFullScreen === true}\">\r\n      {{$t('Дерево ' + companies.company.name )}}\r\n    </TheTextContent>\r\n    <TreeContent />\r\n  </div>\r\n</template>\r\n\r\n<style scoped>\r\n\r\n</style>",
-      "start": 1706896513895,
-      "end": 1706896516917,
+      "start": 1707126033524,
+      "end": 1707126033799,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896516917,
-      "end": 1706896516917,
+      "start": 1707126033799,
+      "end": 1707126033799,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import { unref as _unref, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, normalizeClass as _normalizeClass, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TreeContent from \"~/components/Tree/TreeContent.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useTreeStore} from \"~/stores/tree\";\r\n\nconst _sfc_main = {\n  __name: 'index',\n  props: {\r\n  treeFullScreen: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst treeStore = useTreeStore()\r\nconst companies = useCompanies()\r\ncompanies.loadCurrentCompany()\r\n\r\n\r\nuseSeoMeta({\r\n  title: 'Дерево',\r\n  description: `Древовидная структура компании ${companies.company.name}`\r\n})\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(TheTextContent, {\n      \"text-type\": 'pageTitle',\n      class: _normalizeClass({'blur' : _unref(useTreeStore)().treeFullScreen === true})\n    }, {\n      default: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Дерево ' + _unref(companies).company.name )), 1)\n      ]),\n      _: 1\n    }, 8, [\"class\"]),\n    _createVNode(TreeContent)\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
-      "start": 1706896516917,
-      "end": 1706896516919,
+      "start": 1707126033799,
+      "end": 1707126033801,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -68,123 +68,123 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896516919,
-      "end": 1706896516919,
+      "start": 1707126033801,
+      "end": 1707126033801,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useSeoMeta } from '@unhead/vue';\nimport { unref as _unref, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, normalizeClass as _normalizeClass, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TreeContent from \"~/components/Tree/TreeContent.vue\";\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport {useTreeStore} from \"~/stores/tree\";\r\n\nconst _sfc_main = {\n  __name: 'index',\n  props: {\r\n  treeFullScreen: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst treeStore = useTreeStore()\r\nconst companies = useCompanies()\r\ncompanies.loadCurrentCompany()\r\n\r\n\r\nuseSeoMeta({\r\n  title: 'Дерево',\r\n  description: `Древовидная структура компании ${companies.company.name}`\r\n})\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(TheTextContent, {\n      \"text-type\": 'pageTitle',\n      class: _normalizeClass({'blur' : _unref(useTreeStore)().treeFullScreen === true})\n    }, {\n      default: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Дерево ' + _unref(companies).company.name )), 1)\n      ]),\n      _: 1\n    }, 8, [\"class\"]),\n    _createVNode(TreeContent)\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
-      "start": 1706896516919,
-      "end": 1706896516921,
+      "start": 1707126033801,
+      "end": 1707126033802,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -197,15 +197,15 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896516921,
-      "end": 1706896516921,
+      "start": 1707126033802,
+      "end": 1707126033802,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1706896516921,
-      "end": 1706896516922,
+      "start": 1707126033802,
+      "end": 1707126033803,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -218,38 +218,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896516922,
-      "end": 1706896516922,
+      "start": 1707126033803,
+      "end": 1707126033803,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896516922,
-      "end": 1706896516922,
+      "start": 1707126033803,
+      "end": 1707126033803,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896516922,
-      "end": 1706896516922,
+      "start": 1707126033803,
+      "end": 1707126033803,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896516922,
-      "end": 1706896516922,
+      "start": 1707126033803,
+      "end": 1707126033803,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896516922,
-      "end": 1706896516922,
+      "start": 1707126033803,
+      "end": 1707126033803,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896516922,
-      "end": 1706896516922,
+      "start": 1707126033803,
+      "end": 1707126033803,
       "order": "normal"
     }
   ]

@@ -4,230 +4,230 @@
     {
       "name": "vite:load-fallback",
       "result": "import { Chart as Chart$1, BarController, DoughnutController, LineController, PieController, PolarAreaController, RadarController, BubbleController, ScatterController } from 'chart.js';\nimport { version, isProxy, toRaw, defineComponent, ref, shallowRef, onMounted, onBeforeUnmount, watch, nextTick, h } from 'vue';\n\nconst CommonProps = {\n    data: {\n        type: Object,\n        required: true\n    },\n    options: {\n        type: Object,\n        default: ()=>({})\n    },\n    plugins: {\n        type: Array,\n        default: ()=>[]\n    },\n    datasetIdKey: {\n        type: String,\n        default: \"label\"\n    },\n    updateMode: {\n        type: String,\n        default: undefined\n    }\n};\nconst A11yProps = {\n    ariaLabel: {\n        type: String\n    },\n    ariaDescribedby: {\n        type: String\n    }\n};\nconst Props = {\n    type: {\n        type: String,\n        required: true\n    },\n    ...CommonProps,\n    ...A11yProps\n};\n\nconst compatProps = version[0] === \"2\" ? (internals, props)=>Object.assign(internals, {\n        attrs: props\n    }) : (internals, props)=>Object.assign(internals, props);\nfunction toRawIfProxy(obj) {\n    return isProxy(obj) ? toRaw(obj) : obj;\n}\nfunction cloneProxy(obj) {\n    let src = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : obj;\n    return isProxy(src) ? new Proxy(obj, {}) : obj;\n}\nfunction setOptions(chart, nextOptions) {\n    const options = chart.options;\n    if (options && nextOptions) {\n        Object.assign(options, nextOptions);\n    }\n}\nfunction setLabels(currentData, nextLabels) {\n    currentData.labels = nextLabels;\n}\nfunction setDatasets(currentData, nextDatasets, datasetIdKey) {\n    const addedDatasets = [];\n    currentData.datasets = nextDatasets.map((nextDataset)=>{\n        // given the new set, find it's current match\n        const currentDataset = currentData.datasets.find((dataset)=>dataset[datasetIdKey] === nextDataset[datasetIdKey]);\n        // There is no original to update, so simply add new one\n        if (!currentDataset || !nextDataset.data || addedDatasets.includes(currentDataset)) {\n            return {\n                ...nextDataset\n            };\n        }\n        addedDatasets.push(currentDataset);\n        Object.assign(currentDataset, nextDataset);\n        return currentDataset;\n    });\n}\nfunction cloneData(data, datasetIdKey) {\n    const nextData = {\n        labels: [],\n        datasets: []\n    };\n    setLabels(nextData, data.labels);\n    setDatasets(nextData, data.datasets, datasetIdKey);\n    return nextData;\n}\n/**\n * Get dataset from mouse click event\n * @param chart - Chart.js instance\n * @param event - Mouse click event\n * @returns Dataset\n */ function getDatasetAtEvent(chart, event) {\n    return chart.getElementsAtEventForMode(event, \"dataset\", {\n        intersect: true\n    }, false);\n}\n/**\n * Get single dataset element from mouse click event\n * @param chart - Chart.js instance\n * @param event - Mouse click event\n * @returns Dataset\n */ function getElementAtEvent(chart, event) {\n    return chart.getElementsAtEventForMode(event, \"nearest\", {\n        intersect: true\n    }, false);\n}\n/**\n * Get all dataset elements from mouse click event\n * @param chart - Chart.js instance\n * @param event - Mouse click event\n * @returns Dataset\n */ function getElementsAtEvent(chart, event) {\n    return chart.getElementsAtEventForMode(event, \"index\", {\n        intersect: true\n    }, false);\n}\n\nconst Chart = defineComponent({\n    props: Props,\n    setup (props, param) {\n        let { expose , slots  } = param;\n        const canvasRef = ref(null);\n        const chartRef = shallowRef(null);\n        expose({\n            chart: chartRef\n        });\n        const renderChart = ()=>{\n            if (!canvasRef.value) return;\n            const { type , data , options , plugins , datasetIdKey  } = props;\n            const clonedData = cloneData(data, datasetIdKey);\n            const proxiedData = cloneProxy(clonedData, data);\n            chartRef.value = new Chart$1(canvasRef.value, {\n                type,\n                data: proxiedData,\n                options: {\n                    ...options\n                },\n                plugins\n            });\n        };\n        const destroyChart = ()=>{\n            const chart = toRaw(chartRef.value);\n            if (chart) {\n                chart.destroy();\n                chartRef.value = null;\n            }\n        };\n        const update = (chart)=>{\n            chart.update(props.updateMode);\n        };\n        onMounted(renderChart);\n        onBeforeUnmount(destroyChart);\n        watch([\n            ()=>props.options,\n            ()=>props.data\n        ], (param, param1)=>{\n            let [nextOptionsProxy, nextDataProxy] = param, [prevOptionsProxy, prevDataProxy] = param1;\n            const chart = toRaw(chartRef.value);\n            if (!chart) {\n                return;\n            }\n            let shouldUpdate = false;\n            if (nextOptionsProxy) {\n                const nextOptions = toRawIfProxy(nextOptionsProxy);\n                const prevOptions = toRawIfProxy(prevOptionsProxy);\n                if (nextOptions && nextOptions !== prevOptions) {\n                    setOptions(chart, nextOptions);\n                    shouldUpdate = true;\n                }\n            }\n            if (nextDataProxy) {\n                const nextLabels = toRawIfProxy(nextDataProxy.labels);\n                const prevLabels = toRawIfProxy(prevDataProxy.labels);\n                const nextDatasets = toRawIfProxy(nextDataProxy.datasets);\n                const prevDatasets = toRawIfProxy(prevDataProxy.datasets);\n                if (nextLabels !== prevLabels) {\n                    setLabels(chart.config.data, nextLabels);\n                    shouldUpdate = true;\n                }\n                if (nextDatasets && nextDatasets !== prevDatasets) {\n                    setDatasets(chart.config.data, nextDatasets, props.datasetIdKey);\n                    shouldUpdate = true;\n                }\n            }\n            if (shouldUpdate) {\n                nextTick(()=>{\n                    update(chart);\n                });\n            }\n        }, {\n            deep: true\n        });\n        return ()=>{\n            return h(\"canvas\", {\n                role: \"img\",\n                ariaLabel: props.ariaLabel,\n                ariaDescribedby: props.ariaDescribedby,\n                ref: canvasRef\n            }, [\n                h(\"p\", {}, [\n                    slots.default ? slots.default() : \"\"\n                ])\n            ]);\n        };\n    }\n});\n\nfunction createTypedChart(type, registerables) {\n    Chart$1.register(registerables);\n    return defineComponent({\n        props: CommonProps,\n        setup (props, param) {\n            let { expose  } = param;\n            const ref = shallowRef(null);\n            const reforwardRef = (chartRef)=>{\n                ref.value = chartRef?.chart;\n            };\n            expose({\n                chart: ref\n            });\n            return ()=>{\n                return h(Chart, compatProps({\n                    ref: reforwardRef\n                }, {\n                    type,\n                    ...props\n                }));\n            };\n        }\n    });\n}\nconst Bar = /* #__PURE__ */ createTypedChart(\"bar\", BarController);\nconst Doughnut = /* #__PURE__ */ createTypedChart(\"doughnut\", DoughnutController);\nconst Line = /* #__PURE__ */ createTypedChart(\"line\", LineController);\nconst Pie = /* #__PURE__ */ createTypedChart(\"pie\", PieController);\nconst PolarArea = /* #__PURE__ */ createTypedChart(\"polarArea\", PolarAreaController);\nconst Radar = /* #__PURE__ */ createTypedChart(\"radar\", RadarController);\nconst Bubble = /* #__PURE__ */ createTypedChart(\"bubble\", BubbleController);\nconst Scatter = /* #__PURE__ */ createTypedChart(\"scatter\", ScatterController);\n\nexport { Bar, Bubble, Chart, Doughnut, Line, Pie, PolarArea, Radar, Scatter, createTypedChart, getDatasetAtEvent, getElementAtEvent, getElementsAtEvent };\n//# sourceMappingURL=index.js.map\n",
-      "start": 1706896520387,
-      "end": 1706896520612,
+      "start": 1707126038884,
+      "end": 1707126039098,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896520612,
-      "end": 1706896520612,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896520612,
-      "end": 1706896520612,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896520612,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039098,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039098,
+      "end": 1707126039099,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896520613,
-      "end": 1706896520613,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896520613,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896520614,
-      "end": 1706896520614,
+      "start": 1707126039099,
+      "end": 1707126039099,
       "order": "normal"
     }
   ]

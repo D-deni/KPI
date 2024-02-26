@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, withCtx as _withCtx, createVNode as _createVNode, withModifiers as _withModifiers } from \"vue\"\n\nconst _hoisted_1 = { class: \"mx-auto max-md:absolute max-md:bottom-11 max-md:right-0\" }\nconst _hoisted_2 = { class: \"max-md:hidden\" }\nconst _hoisted_3 = { class: \"max-md:block hidden\" }\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"path\", {\n  d: \"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\",\n  \"stroke-width\": \"2\",\n  \"stroke-linecap\": \"round\",\n  \"stroke-linejoin\": \"round\"\n}, null, -1)\nconst _hoisted_5 = [\n  _hoisted_4\n]\n\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TheFilter',\n  props: {\r\n  showFilter: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst params = ref({\r\n  query: ''\r\n})\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"form\", {\n      onSubmit: _cache[1] || (_cache[1] = _withModifiers(() => {}, [\"prevent\"])),\n      class: \"flex items-center gap-x-10 my-10\"\n    }, [\n      _createVNode(TheButton, {\n        onClick: _cache[0] || (_cache[0] = ($event: any) => (__props.showFilter = !__props.showFilter)),\n        class: \"tracking-widest rounded-full max-md:!bg-transparent dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\"\n      }, {\n        default: _withCtx(() => [\n          _createElementVNode(\"p\", _hoisted_2, _toDisplayString(_ctx.$t('Фильтр')), 1),\n          _createElementVNode(\"div\", _hoisted_3, [\n            (_openBlock(), _createElementBlock(\"svg\", {\n              class: _normalizeClass([\"!stroke-gray-700\", {'!stroke-gray-300' : __props.showFilter}]),\n              width: \"24px\",\n              height: \"24px\",\n              viewBox: \"0 0 24 24\",\n              fill: \"none\",\n              xmlns: \"http://www.w3.org/2000/svg\"\n            }, _hoisted_5, 2))\n          ])\n        ]),\n        _: 1\n      })\n    ], 32)\n  ]))\n}\n}\n\n})",
-      "start": 1706896520819,
-      "end": 1706896520819
+      "start": 1707126039715,
+      "end": 1707126039715
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896520819,
-      "end": 1706896520819,
+      "start": 1707126039715,
+      "end": 1707126039715,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896520820,
-      "end": 1706896520820,
+      "start": 1707126039715,
+      "end": 1707126039715,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896520820,
-      "end": 1706896520820,
+      "start": 1707126039715,
+      "end": 1707126039715,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896520820,
-      "end": 1706896520820,
+      "start": 1707126039715,
+      "end": 1707126039715,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896520820,
-      "end": 1706896520820,
+      "start": 1707126039715,
+      "end": 1707126039715,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, withCtx as _withCtx, createVNode as _createVNode, withModifiers as _withModifiers } from \"vue\";\nconst _hoisted_1 = { class: \"mx-auto max-md:absolute max-md:bottom-11 max-md:right-0\" };\nconst _hoisted_2 = { class: \"max-md:hidden\" };\nconst _hoisted_3 = { class: \"max-md:block hidden\" };\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"path\", {\n  d: \"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\",\n  \"stroke-width\": \"2\",\n  \"stroke-linecap\": \"round\",\n  \"stroke-linejoin\": \"round\"\n}, null, -1);\nconst _hoisted_5 = [\n  _hoisted_4\n];\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheFilter\",\n  props: {\n    showFilter: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const params = ref({\n      query: \"\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"form\", {\n          onSubmit: _cache[1] || (_cache[1] = _withModifiers(() => {\n          }, [\"prevent\"])),\n          class: \"flex items-center gap-x-10 my-10\"\n        }, [\n          _createVNode(TheButton, {\n            onClick: _cache[0] || (_cache[0] = ($event) => __props.showFilter = !__props.showFilter),\n            class: \"tracking-widest rounded-full max-md:!bg-transparent dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"p\", _hoisted_2, _toDisplayString(_ctx.$t(\"Фильтр\")), 1),\n              _createElementVNode(\"div\", _hoisted_3, [\n                (_openBlock(), _createElementBlock(\"svg\", {\n                  class: _normalizeClass([\"!stroke-gray-700\", { \"!stroke-gray-300\": __props.showFilter }]),\n                  width: \"24px\",\n                  height: \"24px\",\n                  viewBox: \"0 0 24 24\",\n                  fill: \"none\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, _hoisted_5, 2))\n              ])\n            ]),\n            _: 1\n          })\n        ], 32)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896520820,
-      "end": 1706896521233,
+      "start": 1707126039715,
+      "end": 1707126040105,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040105,
+      "end": 1707126040105,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040105,
+      "end": 1707126040105,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040106,
+      "end": 1707126040106,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040106,
+      "end": 1707126040106,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521233,
-      "end": 1706896521234,
+      "start": 1707126040106,
+      "end": 1707126040107,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040107,
+      "end": 1707126040107,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040107,
+      "end": 1707126040107,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040108,
+      "end": 1707126040108,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040108,
+      "end": 1707126040108,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040109,
+      "end": 1707126040109,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040109,
+      "end": 1707126040109,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040109,
+      "end": 1707126040109,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040109,
+      "end": 1707126040109,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040109,
+      "end": 1707126040109,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040109,
+      "end": 1707126040109,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040110,
+      "end": 1707126040110,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040110,
+      "end": 1707126040110,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040110,
+      "end": 1707126040110,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040111,
+      "end": 1707126040111,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040112,
+      "end": 1707126040112,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040112,
+      "end": 1707126040113,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040113,
+      "end": 1707126040113,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, withCtx as _withCtx, createVNode as _createVNode, withModifiers as _withModifiers } from \"vue\";\nconst _hoisted_1 = { class: \"mx-auto max-md:absolute max-md:bottom-11 max-md:right-0\" };\nconst _hoisted_2 = { class: \"max-md:hidden\" };\nconst _hoisted_3 = { class: \"max-md:block hidden\" };\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"path\", {\n  d: \"M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z\",\n  \"stroke-width\": \"2\",\n  \"stroke-linecap\": \"round\",\n  \"stroke-linejoin\": \"round\"\n}, null, -1);\nconst _hoisted_5 = [\n  _hoisted_4\n];\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TheFilter\",\n  props: {\n    showFilter: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const params = ref({\n      query: \"\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"form\", {\n          onSubmit: _cache[1] || (_cache[1] = _withModifiers(() => {\n          }, [\"prevent\"])),\n          class: \"flex items-center gap-x-10 my-10\"\n        }, [\n          _createVNode(TheButton, {\n            onClick: _cache[0] || (_cache[0] = ($event) => __props.showFilter = !__props.showFilter),\n            class: \"tracking-widest rounded-full max-md:!bg-transparent dark:bg-gray-400 p-3 bg-gray-300 hover:bg-gray-400 transition-all duration-200\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"p\", _hoisted_2, _toDisplayString(_ctx.$t(\"Фильтр\")), 1),\n              _createElementVNode(\"div\", _hoisted_3, [\n                (_openBlock(), _createElementBlock(\"svg\", {\n                  class: _normalizeClass([\"!stroke-gray-700\", { \"!stroke-gray-300\": __props.showFilter }]),\n                  width: \"24px\",\n                  height: \"24px\",\n                  viewBox: \"0 0 24 24\",\n                  fill: \"none\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, _hoisted_5, 2))\n              ])\n            ]),\n            _: 1\n          })\n        ], 32)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896521236,
-      "end": 1706896521242,
+      "start": 1707126040114,
+      "end": 1707126040125,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,50 +204,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040126,
+      "end": 1707126040126,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040126,
+      "end": 1707126040126,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040127,
+      "end": 1707126040127,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040127,
+      "end": 1707126040127,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896521243,
-      "end": 1706896521243,
+      "start": 1707126040127,
+      "end": 1707126040128,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896521243,
-      "end": 1706896521243,
+      "start": 1707126040128,
+      "end": 1707126040128,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896521243,
-      "end": 1706896521243,
+      "start": 1707126040128,
+      "end": 1707126040128,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896521244,
-      "end": 1706896521244,
+      "start": 1707126040128,
+      "end": 1707126040128,
       "order": "normal"
     }
   ]

@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport TasksReport from \"../../../components/Tasks/TasksReport.vue\";\r\nimport TaskContent from \"~/components/Tasks/TasksContent\"\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TasksNotification from \"~/components/Tasks/TasksNotification.vue\";\r\nimport {Chart as ChartJS, ArcElement, Tooltip, Legend, Chart} from 'chart.js'\r\nimport {Doughnut, Pie} from 'vue-chartjs'\r\nimport {useTaskList} from \"~/stores/tasks\";\r\nimport {definePageMeta} from \"#imports\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst statsList = useTaskList()\r\nChartJS.register(ArcElement, Tooltip, Legend)\r\nChart.defaults.color = '#b6b6b6'\r\n\r\nconst chartData = ref({\r\n  labels:['Выполненые', 'В процессе', 'На расмотрении', 'Отмененные'],\r\n  datasets: [\r\n    {\r\n      backgroundColor: ['#41B883', '#E46651', '#3b82f6', '#DD1B16'],\r\n      data: [statsList?.get_stats[2]?.count, statsList?.get_stats[0]?.count, statsList?.get_stats[4]?.count, statsList?.get_stats[3]?.count]\r\n    }\r\n  ]\r\n});\r\nconst chartOptions = ref({\r\n  responsive: true,\r\n  maintainAspectRatio: false\r\n});\r\n\r\nuseSeoMeta({\r\n  title: 'Задания',\r\n  description: 'Страница с заданиями пользователей платформы'\r\n})\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_attrs)}>`)\n  _push(_ssrRenderComponent(TheTextContent, { \"text-type\": 'pageTitle' }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Страница c заданиями'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Страница c заданиями')), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`<div class=\"flex max-[1170px]:flex-col max-lg:items-center justify-between\"><div class=\"flex flex-col w-full max-xl:flex-wrap gap-y-10 max-xl:items-center\"><div class=\"w-full mx-auto\">`)\n  _push(_ssrRenderComponent(TasksReport, null, null, _parent))\n  _push(`</div><div class=\"w-full\">`)\n  _push(_ssrRenderComponent(_unref(TaskContent), null, null, _parent))\n  _push(`</div></div><div class=\"flex flex-col w-4/12 max-[1170px]:w-full gap-y-10\">`)\n  if (_unref(chartData).datasets[0].data[0]!=undefined) {\n    _push(`<div class=\"${_ssrRenderClass([{'h-[400px]' : _unref(statsList).get_tasks.count > 0}, \"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full bg-blue-5\"])}\">`)\n    if (_unref(statsList).get_tasks.count > 0) {\n      _push(_ssrRenderComponent(_unref(Pie), {\n        class: \"tracking-wider cursor-pointer\",\n        data: _unref(chartData),\n        options: _unref(chartOptions)\n      }, null, _parent))\n    } else {\n      _push(`<p class=\"text-2xl break-words dark:text-white tracking-widest text-center\">${_ssrInterpolate(_ctx.$t('Статистика отсутствует'))}</p>`)\n    }\n    _push(`</div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`<div class=\"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full\">`)\n  _push(_ssrRenderComponent(TasksNotification, { class: \"\" }, null, _parent))\n  _push(`</div></div></div></div>`)\n}\n}\n\n})",
-      "start": 1706896542147,
-      "end": 1706896542147,
+      "start": 1707126067042,
+      "end": 1707126067042,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896542147,
-      "end": 1706896542147,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896542147,
-      "end": 1706896542147,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896542147,
-      "end": 1706896542147,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896542147,
-      "end": 1706896542147,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896542147,
-      "end": 1706896542147,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896542147,
-      "end": 1706896542147,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896542147,
-      "end": 1706896542148,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896542148,
-      "end": 1706896542148,
+      "start": 1707126067043,
+      "end": 1707126067043,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TasksReport from \"../../../components/Tasks/TasksReport.vue\";\nimport TaskContent from \"~/components/Tasks/TasksContent\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TasksNotification from \"~/components/Tasks/TasksNotification.vue\";\nimport { Chart as ChartJS, ArcElement, Tooltip, Legend, Chart } from \"chart.js\";\nimport { Pie } from \"vue-chartjs\";\nimport { useTaskList } from \"~/stores/tasks\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const statsList = useTaskList();\n    ChartJS.register(ArcElement, Tooltip, Legend);\n    Chart.defaults.color = \"#b6b6b6\";\n    const chartData = ref({\n      labels: [\"Выполненые\", \"В процессе\", \"На расмотрении\", \"Отмененные\"],\n      datasets: [\n        {\n          backgroundColor: [\"#41B883\", \"#E46651\", \"#3b82f6\", \"#DD1B16\"],\n          data: [statsList?.get_stats[2]?.count, statsList?.get_stats[0]?.count, statsList?.get_stats[4]?.count, statsList?.get_stats[3]?.count]\n        }\n      ]\n    });\n    const chartOptions = ref({\n      responsive: true,\n      maintainAspectRatio: false\n    });\n    useSeoMeta({\n      title: \"Задания\",\n      description: \"Страница с заданиями пользователей платформы\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Страница c заданиями\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Страница c заданиями\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div class=\"flex max-[1170px]:flex-col max-lg:items-center justify-between\"><div class=\"flex flex-col w-full max-xl:flex-wrap gap-y-10 max-xl:items-center\"><div class=\"w-full mx-auto\">`);\n      _push(_ssrRenderComponent(TasksReport, null, null, _parent));\n      _push(`</div><div class=\"w-full\">`);\n      _push(_ssrRenderComponent(_unref(TaskContent), null, null, _parent));\n      _push(`</div></div><div class=\"flex flex-col w-4/12 max-[1170px]:w-full gap-y-10\">`);\n      if (_unref(chartData).datasets[0].data[0] != void 0) {\n        _push(`<div class=\"${_ssrRenderClass([{ \"h-[400px]\": _unref(statsList).get_tasks.count > 0 }, \"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full bg-blue-5\"])}\">`);\n        if (_unref(statsList).get_tasks.count > 0) {\n          _push(_ssrRenderComponent(_unref(Pie), {\n            class: \"tracking-wider cursor-pointer\",\n            data: _unref(chartData),\n            options: _unref(chartOptions)\n          }, null, _parent));\n        } else {\n          _push(`<p class=\"text-2xl break-words dark:text-white tracking-widest text-center\">${_ssrInterpolate(_ctx.$t(\"Статистика отсутствует\"))}</p>`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`<div class=\"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full\">`);\n      _push(_ssrRenderComponent(TasksNotification, { class: \"\" }, null, _parent));\n      _push(`</div></div></div></div>`);\n    };\n  }\n});\n",
-      "start": 1706896542148,
-      "end": 1706896543592,
+      "start": 1707126067043,
+      "end": 1707126068522,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -89,171 +89,171 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896543592,
-      "end": 1706896543592,
+      "start": 1707126068522,
+      "end": 1707126068522,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068522,
+      "end": 1707126068522,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068522,
+      "end": 1707126068522,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068523,
+      "end": 1707126068523,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068523,
+      "end": 1707126068523,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068523,
+      "end": 1707126068523,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068523,
+      "end": 1707126068523,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068523,
+      "end": 1707126068523,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068523,
+      "end": 1707126068523,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068523,
+      "end": 1707126068524,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896543593,
-      "end": 1706896543593,
+      "start": 1707126068524,
+      "end": 1707126068524,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068524,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068525,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068526,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896543594,
-      "end": 1706896543594,
+      "start": 1707126068525,
+      "end": 1707126068526,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896543594,
-      "end": 1706896543595,
+      "start": 1707126068526,
+      "end": 1707126068527,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896543594,
-      "end": 1706896543595,
+      "start": 1707126068526,
+      "end": 1707126068527,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896543595,
-      "end": 1706896543595,
+      "start": 1707126068527,
+      "end": 1707126068527,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896543595,
-      "end": 1706896543595,
+      "start": 1707126068527,
+      "end": 1707126068527,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896543595,
-      "end": 1706896543595,
+      "start": 1707126068527,
+      "end": 1707126068527,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896543595,
-      "end": 1706896543595,
+      "start": 1707126068527,
+      "end": 1707126068527,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TasksReport from \"../../../components/Tasks/TasksReport.vue\";\nimport TaskContent from \"~/components/Tasks/TasksContent\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TasksNotification from \"~/components/Tasks/TasksNotification.vue\";\nimport { Chart as ChartJS, ArcElement, Tooltip, Legend, Chart } from \"chart.js\";\nimport { Pie } from \"vue-chartjs\";\nimport { useTaskList } from \"~/stores/tasks\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const statsList = useTaskList();\n    ChartJS.register(ArcElement, Tooltip, Legend);\n    Chart.defaults.color = \"#b6b6b6\";\n    const chartData = ref({\n      labels: [\"Выполненые\", \"В процессе\", \"На расмотрении\", \"Отмененные\"],\n      datasets: [\n        {\n          backgroundColor: [\"#41B883\", \"#E46651\", \"#3b82f6\", \"#DD1B16\"],\n          data: [statsList?.get_stats[2]?.count, statsList?.get_stats[0]?.count, statsList?.get_stats[4]?.count, statsList?.get_stats[3]?.count]\n        }\n      ]\n    });\n    const chartOptions = ref({\n      responsive: true,\n      maintainAspectRatio: false\n    });\n    useSeoMeta({\n      title: \"Задания\",\n      description: \"Страница с заданиями пользователей платформы\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Страница c заданиями\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Страница c заданиями\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div class=\"flex max-[1170px]:flex-col max-lg:items-center justify-between\"><div class=\"flex flex-col w-full max-xl:flex-wrap gap-y-10 max-xl:items-center\"><div class=\"w-full mx-auto\">`);\n      _push(_ssrRenderComponent(TasksReport, null, null, _parent));\n      _push(`</div><div class=\"w-full\">`);\n      _push(_ssrRenderComponent(_unref(TaskContent), null, null, _parent));\n      _push(`</div></div><div class=\"flex flex-col w-4/12 max-[1170px]:w-full gap-y-10\">`);\n      if (_unref(chartData).datasets[0].data[0] != void 0) {\n        _push(`<div class=\"${_ssrRenderClass([{ \"h-[400px]\": _unref(statsList).get_tasks.count > 0 }, \"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full bg-blue-5\"])}\">`);\n        if (_unref(statsList).get_tasks.count > 0) {\n          _push(_ssrRenderComponent(_unref(Pie), {\n            class: \"tracking-wider cursor-pointer\",\n            data: _unref(chartData),\n            options: _unref(chartOptions)\n          }, null, _parent));\n        } else {\n          _push(`<p class=\"text-2xl break-words dark:text-white tracking-widest text-center\">${_ssrInterpolate(_ctx.$t(\"Статистика отсутствует\"))}</p>`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`<div class=\"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full\">`);\n      _push(_ssrRenderComponent(TasksNotification, { class: \"\" }, null, _parent));\n      _push(`</div></div></div></div>`);\n    };\n  }\n});\n",
-      "start": 1706896543595,
-      "end": 1706896543600,
+      "start": 1707126068527,
+      "end": 1707126068533,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -267,8 +267,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TasksReport from \"../../../components/Tasks/TasksReport.vue\";\nimport TaskContent from \"~/components/Tasks/TasksContent\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TasksNotification from \"~/components/Tasks/TasksNotification.vue\";\nimport { Chart as ChartJS, ArcElement, Tooltip, Legend, Chart } from \"chart.js\";\nimport { Pie } from \"vue-chartjs\";\nimport { useTaskList } from \"~/stores/tasks\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const statsList = useTaskList();\n    ChartJS.register(ArcElement, Tooltip, Legend);\n    Chart.defaults.color = \"#b6b6b6\";\n    const chartData = ref({\n      labels: [\"Выполненые\", \"В процессе\", \"На расмотрении\", \"Отмененные\"],\n      datasets: [\n        {\n          backgroundColor: [\"#41B883\", \"#E46651\", \"#3b82f6\", \"#DD1B16\"],\n          data: [statsList?.get_stats[2]?.count, statsList?.get_stats[0]?.count, statsList?.get_stats[4]?.count, statsList?.get_stats[3]?.count]\n        }\n      ]\n    });\n    const chartOptions = ref({\n      responsive: true,\n      maintainAspectRatio: false\n    });\n    useSeoMeta({\n      title: \"Задания\",\n      description: \"Страница с заданиями пользователей платформы\"\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Страница c заданиями\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Страница c заданиями\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div class=\"flex max-[1170px]:flex-col max-lg:items-center justify-between\"><div class=\"flex flex-col w-full max-xl:flex-wrap gap-y-10 max-xl:items-center\"><div class=\"w-full mx-auto\">`);\n      _push(_ssrRenderComponent(TasksReport, null, null, _parent));\n      _push(`</div><div class=\"w-full\">`);\n      _push(_ssrRenderComponent(_unref(TaskContent), null, null, _parent));\n      _push(`</div></div><div class=\"flex flex-col w-4/12 max-[1170px]:w-full gap-y-10\">`);\n      if (_unref(chartData).datasets[0].data[0] != void 0) {\n        _push(`<div class=\"${_ssrRenderClass([{ \"h-[400px]\": _unref(statsList).get_tasks.count > 0 }, \"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full bg-blue-5\"])}\">`);\n        if (_unref(statsList).get_tasks.count > 0) {\n          _push(_ssrRenderComponent(_unref(Pie), {\n            class: \"tracking-wider cursor-pointer\",\n            data: _unref(chartData),\n            options: _unref(chartOptions)\n          }, null, _parent));\n        } else {\n          _push(`<p class=\"text-2xl break-words dark:text-white tracking-widest text-center\">${_ssrInterpolate(_ctx.$t(\"Статистика отсутствует\"))}</p>`);\n        }\n        _push(`</div>`);\n      } else {\n        _push(`<!---->`);\n      }\n      _push(`<div class=\"dark:border dark:border-gray-500 dark:shadow-md dark:shadow-gray-500 shadow-2xl rounded-lg p-4 w-full\">`);\n      _push(_ssrRenderComponent(TasksNotification, { class: \"\" }, null, _parent));\n      _push(`</div></div></div></div>`);\n    };\n  }\n});\n",
-      "start": 1706896543595,
-      "end": 1706896543600,
+      "start": 1707126068527,
+      "end": 1707126068533,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -281,56 +281,56 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896543600,
-      "end": 1706896543600,
+      "start": 1707126068533,
+      "end": 1707126068533,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896543600,
-      "end": 1706896543600,
+      "start": 1707126068533,
+      "end": 1707126068533,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896543600,
-      "end": 1706896543600,
+      "start": 1707126068533,
+      "end": 1707126068533,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896543600,
-      "end": 1706896543600,
+      "start": 1707126068533,
+      "end": 1707126068533,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896543600,
-      "end": 1706896543600,
+      "start": 1707126068533,
+      "end": 1707126068533,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896543601,
-      "end": 1706896543601,
+      "start": 1707126068533,
+      "end": 1707126068534,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896543601,
-      "end": 1706896543602,
+      "start": 1707126068535,
+      "end": 1707126068535,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896543602,
-      "end": 1706896543602,
+      "start": 1707126068535,
+      "end": 1707126068535,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896543603,
-      "end": 1706896543603,
+      "start": 1707126068535,
+      "end": 1707126068535,
       "order": "normal"
     }
   ]

@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "var DataView = require('./_DataView'),\n    Map = require('./_Map'),\n    Promise = require('./_Promise'),\n    Set = require('./_Set'),\n    WeakMap = require('./_WeakMap'),\n    baseGetTag = require('./_baseGetTag'),\n    toSource = require('./_toSource');\n\n/** `Object#toString` result references. */\nvar mapTag = '[object Map]',\n    objectTag = '[object Object]',\n    promiseTag = '[object Promise]',\n    setTag = '[object Set]',\n    weakMapTag = '[object WeakMap]';\n\nvar dataViewTag = '[object DataView]';\n\n/** Used to detect maps, sets, and weakmaps. */\nvar dataViewCtorString = toSource(DataView),\n    mapCtorString = toSource(Map),\n    promiseCtorString = toSource(Promise),\n    setCtorString = toSource(Set),\n    weakMapCtorString = toSource(WeakMap);\n\n/**\n * Gets the `toStringTag` of `value`.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the `toStringTag`.\n */\nvar getTag = baseGetTag;\n\n// Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.\nif ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||\n    (Map && getTag(new Map) != mapTag) ||\n    (Promise && getTag(Promise.resolve()) != promiseTag) ||\n    (Set && getTag(new Set) != setTag) ||\n    (WeakMap && getTag(new WeakMap) != weakMapTag)) {\n  getTag = function(value) {\n    var result = baseGetTag(value),\n        Ctor = result == objectTag ? value.constructor : undefined,\n        ctorString = Ctor ? toSource(Ctor) : '';\n\n    if (ctorString) {\n      switch (ctorString) {\n        case dataViewCtorString: return dataViewTag;\n        case mapCtorString: return mapTag;\n        case promiseCtorString: return promiseTag;\n        case setCtorString: return setTag;\n        case weakMapCtorString: return weakMapTag;\n      }\n    }\n    return result;\n  };\n}\n\nmodule.exports = getTag;\n",
-      "start": 1706896525542,
-      "end": 1706896525563,
+      "start": 1707126049864,
+      "end": 1707126049957,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525563,
-      "end": 1706896525563,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525563,
-      "end": 1706896525563,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525563,
-      "end": 1706896525563,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525563,
-      "end": 1706896525563,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525563,
-      "end": 1706896525563,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525563,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525564,
-      "end": 1706896525564,
+      "start": 1707126049957,
+      "end": 1707126049957,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_DataView.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_Map.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_Promise.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_Set.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_WeakMap.js?commonjs-proxy\";\nimport require$$5 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_baseGetTag.js?commonjs-proxy\";\nimport require$$6 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_toSource.js?commonjs-proxy\";\n\nvar DataView = require$$0,\n    Map = require$$1,\n    Promise = require$$2,\n    Set = require$$3,\n    WeakMap = require$$4,\n    baseGetTag = require$$5,\n    toSource = require$$6;\n\n/** `Object#toString` result references. */\nvar mapTag = '[object Map]',\n    objectTag = '[object Object]',\n    promiseTag = '[object Promise]',\n    setTag = '[object Set]',\n    weakMapTag = '[object WeakMap]';\n\nvar dataViewTag = '[object DataView]';\n\n/** Used to detect maps, sets, and weakmaps. */\nvar dataViewCtorString = toSource(DataView),\n    mapCtorString = toSource(Map),\n    promiseCtorString = toSource(Promise),\n    setCtorString = toSource(Set),\n    weakMapCtorString = toSource(WeakMap);\n\n/**\n * Gets the `toStringTag` of `value`.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the `toStringTag`.\n */\nvar getTag = baseGetTag;\n\n// Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.\nif ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||\n    (Map && getTag(new Map) != mapTag) ||\n    (Promise && getTag(Promise.resolve()) != promiseTag) ||\n    (Set && getTag(new Set) != setTag) ||\n    (WeakMap && getTag(new WeakMap) != weakMapTag)) {\n  getTag = function(value) {\n    var result = baseGetTag(value),\n        Ctor = result == objectTag ? value.constructor : undefined,\n        ctorString = Ctor ? toSource(Ctor) : '';\n\n    if (ctorString) {\n      switch (ctorString) {\n        case dataViewCtorString: return dataViewTag;\n        case mapCtorString: return mapTag;\n        case promiseCtorString: return promiseTag;\n        case setCtorString: return setTag;\n        case weakMapCtorString: return weakMapTag;\n      }\n    }\n    return result;\n  };\n}\n\nvar _getTag = getTag;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_getTag);\nexport { _getTag as __moduleExports };",
-      "start": 1706896525564,
-      "end": 1706896525732,
+      "start": 1707126049957,
+      "end": 1707126050106,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525732,
-      "end": 1706896525732,
+      "start": 1707126050106,
+      "end": 1707126050106,
       "order": "normal"
     }
   ]

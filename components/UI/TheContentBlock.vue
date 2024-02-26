@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="dark:border-t-gray-500 dark:shadow-gray-500 border-t border-t-gray-100 p-4 dark:text-white rounded-lg shadow-md">
+  <div class=" p-4 dark:text-white rounded-lg border-[#8E959E] border-opacity-10 border shadow-[0_2px_20px_-16px_rgba(0,0,0,0.3)]">
     <slot/>
   </div>
 </template>

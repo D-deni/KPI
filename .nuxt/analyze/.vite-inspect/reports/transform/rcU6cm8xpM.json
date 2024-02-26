@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex items-center gap-x-6\" }\n\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport ObjectContent from \"~/components/Objects/ObjectContent.vue\";\r\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\r\nimport TheFilter from \"~/components/UI/TheFilter.vue\";\r\nimport ObjectCreate from \"~/components/Objects/ObjectCreate.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\r\nuseSeoMeta({\r\n  title: 'Объекты',\r\n  description: 'Объекты компании'\r\n})\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(TheTextContent, { \"text-type\": 'pageTitle' }, {\n      default: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Страница с объектами')), 1)\n      ]),\n      _: 1\n    }),\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createVNode(TheSearch, { class: \"w-8/12\" }),\n      _createVNode(TheFilter),\n      _createVNode(ObjectCreate, { class: \"w-2/12 ml-auto\" })\n    ]),\n    _createVNode(ObjectContent)\n  ]))\n}\n}\n\n})",
-      "start": 1706896518975,
-      "end": 1706896518975
+      "start": 1707126036255,
+      "end": 1707126036255
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896518975,
-      "end": 1706896518975,
+      "start": 1707126036255,
+      "end": 1707126036255,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896518975,
-      "end": 1706896518976,
+      "start": 1707126036255,
+      "end": 1707126036255,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896518976,
-      "end": 1706896518976,
+      "start": 1707126036255,
+      "end": 1707126036255,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896518976,
-      "end": 1706896518976,
+      "start": 1707126036255,
+      "end": 1707126036255,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896518976,
-      "end": 1706896518976,
+      "start": 1707126036255,
+      "end": 1707126036255,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"flex items-center gap-x-6\" };\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport ObjectContent from \"~/components/Objects/ObjectContent.vue\";\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\nimport TheFilter from \"~/components/UI/TheFilter.vue\";\nimport ObjectCreate from \"~/components/Objects/ObjectCreate.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    useSeoMeta({\n      title: \"Объекты\",\n      description: \"Объекты компании\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Страница с объектами\")), 1)\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createVNode(TheSearch, { class: \"w-8/12\" }),\n          _createVNode(TheFilter),\n          _createVNode(ObjectCreate, { class: \"w-2/12 ml-auto\" })\n        ]),\n        _createVNode(ObjectContent)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896518976,
-      "end": 1706896519569,
+      "start": 1707126036255,
+      "end": 1707126036344,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036344,
+      "end": 1707126036344,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036344,
+      "end": 1707126036344,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896519569,
-      "end": 1706896519569,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036347,
+      "end": 1707126036347,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036347,
+      "end": 1707126036347,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896519570,
-      "end": 1706896519570,
+      "start": 1707126036347,
+      "end": 1707126036347,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"flex items-center gap-x-6\" };\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport ObjectContent from \"~/components/Objects/ObjectContent.vue\";\nimport TheSearch from \"~/components/UI/TheSearch.vue\";\nimport TheFilter from \"~/components/UI/TheFilter.vue\";\nimport ObjectCreate from \"~/components/Objects/ObjectCreate.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    useSeoMeta({\n      title: \"Объекты\",\n      description: \"Объекты компании\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Страница с объектами\")), 1)\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createVNode(TheSearch, { class: \"w-8/12\" }),\n          _createVNode(TheFilter),\n          _createVNode(ObjectCreate, { class: \"w-2/12 ml-auto\" })\n        ]),\n        _createVNode(ObjectContent)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896519570,
-      "end": 1706896519577,
+      "start": 1707126036347,
+      "end": 1707126036357,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,50 +204,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896519577,
-      "end": 1706896519577,
+      "start": 1707126036357,
+      "end": 1707126036357,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896519577,
-      "end": 1706896519577,
+      "start": 1707126036357,
+      "end": 1707126036358,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896519580,
-      "end": 1706896519580,
+      "start": 1707126036358,
+      "end": 1707126036358,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896519580,
-      "end": 1706896519580,
+      "start": 1707126036358,
+      "end": 1707126036358,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896519580,
-      "end": 1706896519581,
+      "start": 1707126036359,
+      "end": 1707126036359,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896519581,
-      "end": 1706896519581,
+      "start": 1707126036359,
+      "end": 1707126036359,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896519581,
-      "end": 1706896519582,
+      "start": 1707126036359,
+      "end": 1707126036359,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896519582,
-      "end": 1706896519582,
+      "start": 1707126036359,
+      "end": 1707126036359,
       "order": "normal"
     }
   ]

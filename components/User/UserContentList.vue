@@ -11,22 +11,25 @@ defineProps({
 </script>
 
 <template>
-  <div class="my-10">
-    <NuxtLink :to="`/base/users/${userItem.id}`" class="transition-all shadow-md hover:shadow-lg border dark:border-none dark:shadow-none dark:bg-gray-400 dark:hover:bg-gray-300 p-4 rounded-lg w-11/12 max-lg:w-full flex max-[1241px]:flex-col max-[1241px]:gap-y-4 justify-between items-center cursor-pointer ">
-      <div class="flex items-center gap-x-4 w-3/12 max-lg:w-full max-lg:x-mx-auto">
+  <div class="my-2 flex">
+    <NuxtLink :to="`/base/users/${userItem.id}`" class="transition-all shadow-md hover:shadow-lg border dark:border-none dark:shadow-none dark:bg-gray-700  dark:hover:bg-gray-800 p-4 rounded-lg items-center max-md:flex  max-md:w-full max-sm:flex-col max-sm:gap-y-4">
+      <div class="flex   items-center max-md:w-4/12 gap-x-4 max-lg:mx-auto">
         <img class="w-14 h-14 rounded-full" :src="loadCurrentUser.get_server_domain + userItem.photo_url" alt="">
-        <h2 class="tracking-widest font-bold max-xl:text-center">{{ userItem.first_name + ' ' + userItem.last_name }}</h2>
+        <h2 class="tracking-widest font-bold  break-words">{{ userItem.first_name + ' ' + userItem.last_name }}</h2>
       </div>
-      <div class="flex flex-col items-center justify-center w-5/12 max-lg:w-full  mx-auto">
-        <p class="text-lg font-bold tracking-widest mb-2" v-if="loadCurrentUser.user.role === 'Администратор сайта'">{{$t('Роль | Должность')}}</p>
-        <p class="text-lg font-bold tracking-widest mb-2" v-else>{{$t('Должность')}}</p>
-        <div class="text-center flex flex-col gap-y-2">
-          <h2 class="tracking-widest text-sm text-gray-600" v-if="loadCurrentUser.user.role === 'Администратор сайта'">({{ userItem.role }})</h2>
+      <div class="flex flex-col items-center justify-center my-2 max-md:w-4/12  mx-auto">
+        <div>
+          <p class="text-lg font-bold tracking-widest mb-2" v-if="loadCurrentUser.user.role_en === 'admin'">{{$t('Роль | Должность')}}</p>
+          <p class="text-lg font-bold tracking-widest mb-2" v-else>{{$t('Должность')}}</p>
+        </div>
+        <div class="text-center flex flex-col gap-y-2 tes-sm">
+          <h2 class="tracking-widest text-sm text-gray-600" v-if="loadCurrentUser.user.role_en === 'admin'">({{ userItem.role }})</h2>
           <h2 class="tracking-widest text-md ">{{ userItem.position }}</h2>
         </div>
       </div>
-      <div class="w-2/12 max-[1241px]:w-full max-lg:x-mx-auto text-center">
-        <h2 class="tracking-widest font-bold" v-if="loadCurrentUser.user.role === 'Администратор сайта' || loadCurrentUser.user.role === 'Администратор компании'">{{$t('Дата регистрации')}}</h2>
+      <div class="flex flex-col items-center text-center">
+        <h2 class="tracking-widest font-bold" v-if="['company_admin', 'director', 'vice_director'].includes(loadCurrentUser.user.role_en)">{{$t('Дата регистрации')}}</h2>
+        <p>123123123</p>
       </div>
     </NuxtLink>
   </div>

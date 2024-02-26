@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport {useObjects} from \"~/stores/objects\";\r\nimport {useRoute} from \"vue-router\";\r\nimport TheTitle from '~/components/UI/TheTitle.vue'\r\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\r\nimport ObjectParticipants from \"~/components/Objects/ObjectParticipants.vue\";\r\nimport ObjectSwiper from \"~/components/Objects/ObjectSwiper.vue\";\r\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: '[id]',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst route = useRoute()\r\nconst currentObject = useObjects()\r\nwatchEffect(()=> {\r\n  currentObject.loadObject({id: route.params.id})\r\n})\r\n\r\nwatchSyncEffect(()=>{\r\n  useSeoMeta({\r\n    title: `${currentObject.objects.name}`\r\n  })\r\n})\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"text-center\" }, _attrs))}>`)\n  _push(_ssrRenderComponent(TheTextContent, { \"text-type\": 'pageTitle' }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${\n          _ssrInterpolate(_ctx.$t('Страница объекта '))\n        } <span class=\"bg-semiCyan px-2 py-1 rounded-full text-white\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_unref(currentObject).get_objects.name)\n        }</span>`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Страница объекта ')) + \" \", 1),\n          _createVNode(\"span\", { class: \"bg-semiCyan px-2 py-1 rounded-full text-white\" }, _toDisplayString(_unref(currentObject).get_objects.name), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`<div class=\"flex max-sm:flex-col max-sm:my-6 items-center gap-x-4\">`)\n  _push(_ssrRenderComponent(TheBreadcrumbs, { \"breadcrumb-link\": '/base/objects' }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Список объектов'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Список объектов')), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`<div><svg width=\"15px\" height=\"15px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path class=\"dark:stroke-white stroke-black\" d=\"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg></div>`)\n  _push(_ssrRenderComponent(TheBreadcrumbs, null, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_unref(currentObject).get_objects.name)}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_unref(currentObject).get_objects.name), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div><div class=\"flex mt-6 gap-x-4\">`)\n  _push(_ssrRenderComponent(TheContentBlock, { class: \"w-9/12\" }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div class=\"flex justify-between gap-x-2\"${\n          _scopeId\n        }><div${\n          _scopeId\n        }><p${\n          _scopeId\n        }>${\n          _ssrInterpolate(_ctx.$t('Дата создания:'))\n        }</p><p${\n          _scopeId\n        }>${\n          _ssrInterpolate(new Date((_unref(currentObject)).get_objects.created_at).toLocaleDateString())\n        }</p></div>`)\n        _push(_ssrRenderComponent(TheTextContent, { \"text-type\": 'pageTitle' }, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Описание'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Описание')), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n        _push(`<div${\n          _scopeId\n        }><p${\n          _scopeId\n        }>${\n          _ssrInterpolate(_ctx.$t('Email:'))\n        }</p><p${\n          _scopeId\n        }>${\n          _ssrInterpolate(_unref(currentObject).get_objects.email)\n        }</p></div></div><div${\n          _scopeId\n        }><p${\n          _scopeId\n        }>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!</p></div>`)\n      } else {\n        return [\n          _createVNode(\"div\", { class: \"flex justify-between gap-x-2\" }, [\n            _createVNode(\"div\", null, [\n              _createVNode(\"p\", null, _toDisplayString(_ctx.$t('Дата создания:')), 1),\n              _createVNode(\"p\", null, _toDisplayString(new Date((_unref(currentObject)).get_objects.created_at).toLocaleDateString()), 1)\n            ]),\n            _createVNode(TheTextContent, { \"text-type\": 'pageTitle' }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Описание')), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(\"div\", null, [\n              _createVNode(\"p\", null, _toDisplayString(_ctx.$t('Email:')), 1),\n              _createVNode(\"p\", null, _toDisplayString(_unref(currentObject).get_objects.email), 1)\n            ])\n          ]),\n          _createVNode(\"div\", null, [\n            _createVNode(\"p\", null, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!\")\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12\" }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TheTextContent, null, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Участники'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Участники')), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n        _push(`<div${_scopeId}>`)\n        if (_unref(currentObject).get_objects.participants?.length > 0) {\n          _push(`<!--[-->`)\n          _ssrRenderList(_unref(currentObject).get_objects.participants, (user) => {\n            _push(_ssrRenderComponent(ObjectParticipants, { user: user }, null, _parent, _scopeId))\n          })\n          _push(`<!--]-->`)\n        } else {\n          _push(`<div${\n            _scopeId\n          }><p${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('Участники отсутствуют'))\n          }</p></div>`)\n        }\n        _push(`</div>`)\n      } else {\n        return [\n          _createVNode(TheTextContent, null, {\n            default: _withCtx(() => [\n              _createTextVNode(_toDisplayString(_ctx.$t('Участники')), 1)\n            ]),\n            _: 1\n          }),\n          _createVNode(\"div\", null, [\n            (_unref(currentObject).get_objects.participants?.length > 0)\n              ? (_openBlock(true), _createBlock(_Fragment, { key: 0 }, _renderList(_unref(currentObject).get_objects.participants, (user) => {\n                  return (_openBlock(), _createBlock(ObjectParticipants, { user: user }, null, 8, [\"user\"]))\n                }), 256))\n              : (_openBlock(), _createBlock(\"div\", { key: 1 }, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t('Участники отсутствуют')), 1)\n                ]))\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div>`)\n  _push(_ssrRenderComponent(TheContentBlock, { class: \"my-10\" }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TheTextContent, { \"text-type\": 'pageTitle' }, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Изображения объекта'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Изображения объекта')), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n        _push(_ssrRenderComponent(ObjectSwiper, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(TheTextContent, { \"text-type\": 'pageTitle' }, {\n            default: _withCtx(() => [\n              _createTextVNode(_toDisplayString(_ctx.$t('Изображения объекта')), 1)\n            ]),\n            _: 1\n          }),\n          _createVNode(ObjectSwiper)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066106,
+      "end": 1707126066106,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066106,
+      "end": 1707126066106,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066106,
+      "end": 1707126066106,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066106,
+      "end": 1707126066106,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066106,
+      "end": 1707126066106,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066106,
+      "end": 1707126066106,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066106,
+      "end": 1707126066106,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066107,
+      "end": 1707126066107,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896541571,
-      "end": 1706896541571,
+      "start": 1707126066107,
+      "end": 1707126066107,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useObjects } from \"~/stores/objects\";\nimport { useRoute } from \"vue-router\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nimport ObjectParticipants from \"~/components/Objects/ObjectParticipants.vue\";\nimport ObjectSwiper from \"~/components/Objects/ObjectSwiper.vue\";\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"[id]\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const route = useRoute();\n    const currentObject = useObjects();\n    watchEffect(() => {\n      currentObject.loadObject({ id: route.params.id });\n    });\n    watchSyncEffect(() => {\n      useSeoMeta({\n        title: `${currentObject.objects.name}`\n      });\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"text-center\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Страница объекта \"))} <span class=\"bg-semiCyan px-2 py-1 rounded-full text-white\"${_scopeId}>${_ssrInterpolate(_unref(currentObject).get_objects.name)}</span>`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Страница объекта \")) + \" \", 1),\n              _createVNode(\"span\", { class: \"bg-semiCyan px-2 py-1 rounded-full text-white\" }, _toDisplayString(_unref(currentObject).get_objects.name), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div class=\"flex max-sm:flex-col max-sm:my-6 items-center gap-x-4\">`);\n      _push(_ssrRenderComponent(TheBreadcrumbs, { \"breadcrumb-link\": \"/base/objects\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Список объектов\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Список объектов\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div><svg width=\"15px\" height=\"15px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path class=\"dark:stroke-white stroke-black\" d=\"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg></div>`);\n      _push(_ssrRenderComponent(TheBreadcrumbs, null, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_unref(currentObject).get_objects.name)}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_unref(currentObject).get_objects.name), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div><div class=\"flex mt-6 gap-x-4\">`);\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"w-9/12\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex justify-between gap-x-2\"${_scopeId}><div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Дата создания:\"))}</p><p${_scopeId}>${_ssrInterpolate(new Date(_unref(currentObject).get_objects.created_at).toLocaleDateString())}</p></div>`);\n            _push2(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Описание\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Описание\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(`<div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Email:\"))}</p><p${_scopeId}>${_ssrInterpolate(_unref(currentObject).get_objects.email)}</p></div></div><div${_scopeId}><p${_scopeId}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!</p></div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex justify-between gap-x-2\" }, [\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Дата создания:\")), 1),\n                  _createVNode(\"p\", null, _toDisplayString(new Date(_unref(currentObject).get_objects.created_at).toLocaleDateString()), 1)\n                ]),\n                _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Описание\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Email:\")), 1),\n                  _createVNode(\"p\", null, _toDisplayString(_unref(currentObject).get_objects.email), 1)\n                ])\n              ]),\n              _createVNode(\"div\", null, [\n                _createVNode(\"p\", null, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!\")\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Участники\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Участники\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(`<div${_scopeId}>`);\n            if (_unref(currentObject).get_objects.participants?.length > 0) {\n              _push2(`<!--[-->`);\n              _ssrRenderList(_unref(currentObject).get_objects.participants, (user) => {\n                _push2(_ssrRenderComponent(ObjectParticipants, { user }, null, _parent2, _scopeId));\n              });\n              _push2(`<!--]-->`);\n            } else {\n              _push2(`<div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Участники отсутствуют\"))}</p></div>`);\n            }\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Участники\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(\"div\", null, [\n                _unref(currentObject).get_objects.participants?.length > 0 ? (_openBlock(true), _createBlock(_Fragment, { key: 0 }, _renderList(_unref(currentObject).get_objects.participants, (user) => {\n                  return _openBlock(), _createBlock(ObjectParticipants, { user }, null, 8, [\"user\"]);\n                }), 256)) : (_openBlock(), _createBlock(\"div\", { key: 1 }, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Участники отсутствуют\")), 1)\n                ]))\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"my-10\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Изображения объекта\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Изображения объекта\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(_ssrRenderComponent(ObjectSwiper, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Изображения объекта\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(ObjectSwiper)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896541571,
-      "end": 1706896542837,
+      "start": 1707126066107,
+      "end": 1707126067926,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -91,171 +91,171 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126067926,
+      "end": 1707126067926,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126067926,
+      "end": 1707126067926,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126067926,
+      "end": 1707126067926,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896542837,
-      "end": 1706896542837,
+      "start": 1707126067927,
+      "end": 1707126067927,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896542837,
-      "end": 1706896542838,
+      "start": 1707126067927,
+      "end": 1707126067927,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896542837,
-      "end": 1706896542838,
+      "start": 1707126067927,
+      "end": 1707126067927,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067927,
+      "end": 1707126067927,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067927,
+      "end": 1707126067927,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067927,
+      "end": 1707126067927,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067927,
+      "end": 1707126067927,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896542838,
-      "end": 1706896542838,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896542838,
-      "end": 1706896542839,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896542838,
-      "end": 1706896542839,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896542839,
-      "end": 1706896542839,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896542839,
-      "end": 1706896542839,
+      "start": 1707126067928,
+      "end": 1707126067928,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896542839,
-      "end": 1706896542839,
+      "start": 1707126067928,
+      "end": 1707126067929,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896542839,
-      "end": 1706896542839,
+      "start": 1707126067928,
+      "end": 1707126067929,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896542839,
-      "end": 1706896542839,
+      "start": 1707126067929,
+      "end": 1707126067929,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896542839,
-      "end": 1706896542839,
+      "start": 1707126067929,
+      "end": 1707126067929,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { watchEffect, watchSyncEffect } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useObjects } from \"~/stores/objects\";\nimport { useRoute } from \"vue-router\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nimport ObjectParticipants from \"~/components/Objects/ObjectParticipants.vue\";\nimport ObjectSwiper from \"~/components/Objects/ObjectSwiper.vue\";\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"[id]\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const route = useRoute();\n    const currentObject = useObjects();\n    watchEffect(() => {\n      currentObject.loadObject({ id: route.params.id });\n    });\n    watchSyncEffect(() => {\n      useSeoMeta({\n        title: `${currentObject.objects.name}`\n      });\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"text-center\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Страница объекта \"))} <span class=\"bg-semiCyan px-2 py-1 rounded-full text-white\"${_scopeId}>${_ssrInterpolate(_unref(currentObject).get_objects.name)}</span>`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Страница объекта \")) + \" \", 1),\n              _createVNode(\"span\", { class: \"bg-semiCyan px-2 py-1 rounded-full text-white\" }, _toDisplayString(_unref(currentObject).get_objects.name), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div class=\"flex max-sm:flex-col max-sm:my-6 items-center gap-x-4\">`);\n      _push(_ssrRenderComponent(TheBreadcrumbs, { \"breadcrumb-link\": \"/base/objects\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Список объектов\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Список объектов\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div><svg width=\"15px\" height=\"15px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path class=\"dark:stroke-white stroke-black\" d=\"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg></div>`);\n      _push(_ssrRenderComponent(TheBreadcrumbs, null, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_unref(currentObject).get_objects.name)}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_unref(currentObject).get_objects.name), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div><div class=\"flex mt-6 gap-x-4\">`);\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"w-9/12\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex justify-between gap-x-2\"${_scopeId}><div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Дата создания:\"))}</p><p${_scopeId}>${_ssrInterpolate(new Date(_unref(currentObject).get_objects.created_at).toLocaleDateString())}</p></div>`);\n            _push2(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Описание\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Описание\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(`<div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Email:\"))}</p><p${_scopeId}>${_ssrInterpolate(_unref(currentObject).get_objects.email)}</p></div></div><div${_scopeId}><p${_scopeId}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!</p></div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex justify-between gap-x-2\" }, [\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Дата создания:\")), 1),\n                  _createVNode(\"p\", null, _toDisplayString(new Date(_unref(currentObject).get_objects.created_at).toLocaleDateString()), 1)\n                ]),\n                _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Описание\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Email:\")), 1),\n                  _createVNode(\"p\", null, _toDisplayString(_unref(currentObject).get_objects.email), 1)\n                ])\n              ]),\n              _createVNode(\"div\", null, [\n                _createVNode(\"p\", null, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!\")\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Участники\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Участники\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(`<div${_scopeId}>`);\n            if (_unref(currentObject).get_objects.participants?.length > 0) {\n              _push2(`<!--[-->`);\n              _ssrRenderList(_unref(currentObject).get_objects.participants, (user) => {\n                _push2(_ssrRenderComponent(ObjectParticipants, { user }, null, _parent2, _scopeId));\n              });\n              _push2(`<!--]-->`);\n            } else {\n              _push2(`<div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Участники отсутствуют\"))}</p></div>`);\n            }\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Участники\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(\"div\", null, [\n                _unref(currentObject).get_objects.participants?.length > 0 ? (_openBlock(true), _createBlock(_Fragment, { key: 0 }, _renderList(_unref(currentObject).get_objects.participants, (user) => {\n                  return _openBlock(), _createBlock(ObjectParticipants, { user }, null, 8, [\"user\"]);\n                }), 256)) : (_openBlock(), _createBlock(\"div\", { key: 1 }, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Участники отсутствуют\")), 1)\n                ]))\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"my-10\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Изображения объекта\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Изображения объекта\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(_ssrRenderComponent(ObjectSwiper, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Изображения объекта\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(ObjectSwiper)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896542839,
-      "end": 1706896542846,
+      "start": 1707126067929,
+      "end": 1707126067939,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -269,8 +269,8 @@
     {
       "name": "nuxt:imports-transform",
       "result": "import { watchEffect, watchSyncEffect } from 'vue';\nimport { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\";\nimport { useObjects } from \"~/stores/objects\";\nimport { useRoute } from \"vue-router\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nimport ObjectParticipants from \"~/components/Objects/ObjectParticipants.vue\";\nimport ObjectSwiper from \"~/components/Objects/ObjectSwiper.vue\";\nimport TheBreadcrumbs from \"~/components/UI/TheBreadcrumbs.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"[id]\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const route = useRoute();\n    const currentObject = useObjects();\n    watchEffect(() => {\n      currentObject.loadObject({ id: route.params.id });\n    });\n    watchSyncEffect(() => {\n      useSeoMeta({\n        title: `${currentObject.objects.name}`\n      });\n    });\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"text-center\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Страница объекта \"))} <span class=\"bg-semiCyan px-2 py-1 rounded-full text-white\"${_scopeId}>${_ssrInterpolate(_unref(currentObject).get_objects.name)}</span>`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Страница объекта \")) + \" \", 1),\n              _createVNode(\"span\", { class: \"bg-semiCyan px-2 py-1 rounded-full text-white\" }, _toDisplayString(_unref(currentObject).get_objects.name), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div class=\"flex max-sm:flex-col max-sm:my-6 items-center gap-x-4\">`);\n      _push(_ssrRenderComponent(TheBreadcrumbs, { \"breadcrumb-link\": \"/base/objects\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Список объектов\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Список объектов\")), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`<div><svg width=\"15px\" height=\"15px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path class=\"dark:stroke-white stroke-black\" d=\"M14 12C14 14.7614 11.7614 17 9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H7.5M10 12C10 9.23858 12.2386 7 15 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H16.5\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg></div>`);\n      _push(_ssrRenderComponent(TheBreadcrumbs, null, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_unref(currentObject).get_objects.name)}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_unref(currentObject).get_objects.name), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div><div class=\"flex mt-6 gap-x-4\">`);\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"w-9/12\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex justify-between gap-x-2\"${_scopeId}><div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Дата создания:\"))}</p><p${_scopeId}>${_ssrInterpolate(new Date(_unref(currentObject).get_objects.created_at).toLocaleDateString())}</p></div>`);\n            _push2(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Описание\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Описание\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(`<div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Email:\"))}</p><p${_scopeId}>${_ssrInterpolate(_unref(currentObject).get_objects.email)}</p></div></div><div${_scopeId}><p${_scopeId}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!</p></div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex justify-between gap-x-2\" }, [\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Дата создания:\")), 1),\n                  _createVNode(\"p\", null, _toDisplayString(new Date(_unref(currentObject).get_objects.created_at).toLocaleDateString()), 1)\n                ]),\n                _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Описание\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Email:\")), 1),\n                  _createVNode(\"p\", null, _toDisplayString(_unref(currentObject).get_objects.email), 1)\n                ])\n              ]),\n              _createVNode(\"div\", null, [\n                _createVNode(\"p\", null, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur exercitationem fugiat in minus non suscipit velit voluptatum? Expedita facere itaque iusto magni possimus quis reiciendis rem tenetur totam voluptatibus. Beatae commodi corporis culpa hic iusto, natus numquam perferendis quas repellat saepe sed totam, vel voluptatum. Amet architecto at commodi consequuntur culpa delectus deleniti dicta dolore ea eius eos est eum explicabo, id impedit ipsam itaque necessitatibus nemo neque officia pariatur perspiciatis placeat praesentium quaerat quam quas quos repellat repudiandae saepe sint soluta tenetur vel voluptatum. Aliquam asperiores incidunt omnis repellendus. Beatae eaque exercitationem quia sed tempore? Maiores quia, quo!\")\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"w-3/12\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, null, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Участники\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Участники\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(`<div${_scopeId}>`);\n            if (_unref(currentObject).get_objects.participants?.length > 0) {\n              _push2(`<!--[-->`);\n              _ssrRenderList(_unref(currentObject).get_objects.participants, (user) => {\n                _push2(_ssrRenderComponent(ObjectParticipants, { user }, null, _parent2, _scopeId));\n              });\n              _push2(`<!--]-->`);\n            } else {\n              _push2(`<div${_scopeId}><p${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Участники отсутствуют\"))}</p></div>`);\n            }\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Участники\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(\"div\", null, [\n                _unref(currentObject).get_objects.participants?.length > 0 ? (_openBlock(true), _createBlock(_Fragment, { key: 0 }, _renderList(_unref(currentObject).get_objects.participants, (user) => {\n                  return _openBlock(), _createBlock(ObjectParticipants, { user }, null, 8, [\"user\"]);\n                }), 256)) : (_openBlock(), _createBlock(\"div\", { key: 1 }, [\n                  _createVNode(\"p\", null, _toDisplayString(_ctx.$t(\"Участники отсутствуют\")), 1)\n                ]))\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n      _push(_ssrRenderComponent(TheContentBlock, { class: \"my-10\" }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n              default: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Изображения объекта\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Изображения объекта\")), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(_ssrRenderComponent(ObjectSwiper, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TheTextContent, { \"text-type\": \"pageTitle\" }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Изображения объекта\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(ObjectSwiper)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896542839,
-      "end": 1706896542846,
+      "start": 1707126067929,
+      "end": 1707126067939,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -283,21 +283,21 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896542846,
-      "end": 1706896542846,
+      "start": 1707126067939,
+      "end": 1707126067939,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896542846,
-      "end": 1706896542846,
+      "start": 1707126067939,
+      "end": 1707126067939,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1706896542846,
-      "end": 1706896542849,
+      "start": 1707126067940,
+      "end": 1707126067941,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -311,8 +311,8 @@
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1706896542846,
-      "end": 1706896542849,
+      "start": 1707126067940,
+      "end": 1707126067941,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -325,32 +325,32 @@
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896542849,
-      "end": 1706896542849,
+      "start": 1707126067941,
+      "end": 1707126067941,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896542849,
-      "end": 1706896542849,
+      "start": 1707126067941,
+      "end": 1707126067941,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896542849,
-      "end": 1706896542849,
+      "start": 1707126067941,
+      "end": 1707126067941,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896542849,
-      "end": 1706896542849,
+      "start": 1707126067941,
+      "end": 1707126067941,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896542849,
-      "end": 1706896542849,
+      "start": 1707126067941,
+      "end": 1707126067941,
       "order": "normal"
     }
   ]

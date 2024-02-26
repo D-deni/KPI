@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "var isFunction = require('./isFunction'),\n    isMasked = require('./_isMasked'),\n    isObject = require('./isObject'),\n    toSource = require('./_toSource');\n\n/**\n * Used to match `RegExp`\n * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).\n */\nvar reRegExpChar = /[\\\\^$.*+?()[\\]{}|]/g;\n\n/** Used to detect host constructors (Safari). */\nvar reIsHostCtor = /^\\[object .+?Constructor\\]$/;\n\n/** Used for built-in method references. */\nvar funcProto = Function.prototype,\n    objectProto = Object.prototype;\n\n/** Used to resolve the decompiled source of functions. */\nvar funcToString = funcProto.toString;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/** Used to detect if a method is native. */\nvar reIsNative = RegExp('^' +\n  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\\\$&')\n  .replace(/hasOwnProperty|(function).*?(?=\\\\\\()| for .+?(?=\\\\\\])/g, '$1.*?') + '$'\n);\n\n/**\n * The base implementation of `_.isNative` without bad shim checks.\n *\n * @private\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a native function,\n *  else `false`.\n */\nfunction baseIsNative(value) {\n  if (!isObject(value) || isMasked(value)) {\n    return false;\n  }\n  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;\n  return pattern.test(toSource(value));\n}\n\nmodule.exports = baseIsNative;\n",
-      "start": 1706896525657,
-      "end": 1706896525673,
+      "start": 1707126050047,
+      "end": 1707126050059,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050059,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050059,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525673,
-      "end": 1706896525673,
+      "start": 1707126050060,
+      "end": 1707126050060,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/isFunction.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_isMasked.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/isObject.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_toSource.js?commonjs-proxy\";\n\nvar isFunction = require$$0,\n    isMasked = require$$1,\n    isObject = require$$2,\n    toSource = require$$3;\n\n/**\n * Used to match `RegExp`\n * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).\n */\nvar reRegExpChar = /[\\\\^$.*+?()[\\]{}|]/g;\n\n/** Used to detect host constructors (Safari). */\nvar reIsHostCtor = /^\\[object .+?Constructor\\]$/;\n\n/** Used for built-in method references. */\nvar funcProto = Function.prototype,\n    objectProto = Object.prototype;\n\n/** Used to resolve the decompiled source of functions. */\nvar funcToString = funcProto.toString;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/** Used to detect if a method is native. */\nvar reIsNative = RegExp('^' +\n  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\\\$&')\n  .replace(/hasOwnProperty|(function).*?(?=\\\\\\()| for .+?(?=\\\\\\])/g, '$1.*?') + '$'\n);\n\n/**\n * The base implementation of `_.isNative` without bad shim checks.\n *\n * @private\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a native function,\n *  else `false`.\n */\nfunction baseIsNative(value) {\n  if (!isObject(value) || isMasked(value)) {\n    return false;\n  }\n  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;\n  return pattern.test(toSource(value));\n}\n\nvar _baseIsNative = baseIsNative;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_baseIsNative);\nexport { _baseIsNative as __moduleExports };",
-      "start": 1706896525673,
-      "end": 1706896525721,
+      "start": 1707126050060,
+      "end": 1707126050098,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525722,
-      "end": 1706896525722,
+      "start": 1707126050098,
+      "end": 1707126050098,
       "order": "normal"
     }
   ]

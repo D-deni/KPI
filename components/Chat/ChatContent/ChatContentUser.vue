@@ -271,8 +271,8 @@ function StartRecording(){
               <span>{{' ' + item.text.split(' ').slice(0, 2)[1] + ' '}}</span>
               <button class="hover:underline hover:text-blueDarkSemiLight cursor-pointer">{{item.text.split(' ').slice(2, 3)[0]}}</button>
             </span>
-            <span v-else>
-              {{item.text }}
+            <span v-else class="whitespace-pre-line">
+              {{item.text}}
             </span>
           </template>
           <template v-slot:userDate>{{ new Date(item.updated_at).toLocaleTimeString().slice(0, 5) }}</template>
@@ -280,22 +280,22 @@ function StartRecording(){
       </div>
     </div>
     <TheChatContentEmpty/>
-    <div>
+    <Transition name="fade">
       <TheModal :type="'resize'" v-if="showDeleteWarn" @showModal="showDeleteWarn = false; messageObject = {}">
         <div>
           <p class="text-lg tracking-wider">{{ $t('Удалить выбранное сообщение?') }}</p>
         </div>
         <div class="flex mt-4 gap-x-4 justify-center">
-          <TheButton class="py-2 px-4 rounded-lg" type="change" @click="showDeleteWarn = false">
+          <TheButton class="py-2 px-4 rounded-lg" type="chat" @click="showDeleteWarn = false">
             {{ $t('Отмена') }}
           </TheButton>
-          <TheButton class="py-2 px-4 rounded-lg" type="change"
+          <TheButton class="py-2 px-4 rounded-lg" type="chat"
                      @click="chat.deleteMessage({id: messageObject?.id}); isOpen = false; showDeleteWarn = false">
             {{ $t('Удалить') }}
           </TheButton>
         </div>
       </TheModal>
-      <TheModal :type="'resizeSendWindow'" class="overflow-hidden " v-if="chat.showSendWindow"
+      <TheModal :type="'resizeSendWindow'" class="overflow-hidden " v-else-if="chat.showSendWindow"
                 @showModal="chat.showSendWindow = false; messageObject = {}">
         <TheTextContent class="mt-2">{{ $t('Переслать') }}</TheTextContent>
         <div class="w-full relative flex items-center">
@@ -326,7 +326,7 @@ function StartRecording(){
           </TheButton>
         </div>
       </TheModal>
-      <TheModal :type="'resize'" v-if="showPinnedWarn" @showModal="showPinnedWarn = false; messageObject = {}">
+      <TheModal :type="'resize'" v-else-if="showPinnedWarn" @showModal="showPinnedWarn = false; messageObject = {}">
         <div>
           <p class="text-lg tracking-wider">{{ $t('Закрепить это сообщение?') }}</p>
         </div>
@@ -343,7 +343,7 @@ function StartRecording(){
           </TheButton>
         </div>
       </TheModal>
-      <TheModal :type="'resize'" v-if="showUnPinWarn" @showModal="showUnPinWarn = false; messageObject = {}">
+      <TheModal :type="'resize'" v-else-if="showUnPinWarn" @showModal="showUnPinWarn = false; messageObject = {}">
         <div>
           <p class="text-lg tracking-wider">{{ $t('Открепить это сообщение?') }}</p>
         </div>
@@ -359,9 +359,9 @@ function StartRecording(){
           </TheButton>
         </div>
       </TheModal>
-      <TheModal :type="'resize'" v-if="showDateModal" @showModal="showDateModal = false">
+      <TheModal :type="'resize'" v-else-if="showDateModal" @showModal="showDateModal = false">
       </TheModal>
-    </div>
+    </Transition>
   </div>
 </template>
 

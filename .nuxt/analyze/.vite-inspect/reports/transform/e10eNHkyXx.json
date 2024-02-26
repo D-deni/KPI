@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/*---------------------------------------------------------------------------------------------\n *  Copyright (c) Microsoft Corporation. All rights reserved.\n *  Licensed under the MIT License. See License.txt in the project root for license information.\n *--------------------------------------------------------------------------------------------*/\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.LRUCache = exports.LinkedMap = exports.Touch = void 0;\nvar Touch;\n(function (Touch) {\n    Touch.None = 0;\n    Touch.First = 1;\n    Touch.AsOld = Touch.First;\n    Touch.Last = 2;\n    Touch.AsNew = Touch.Last;\n})(Touch = exports.Touch || (exports.Touch = {}));\nclass LinkedMap {\n    constructor() {\n        this[Symbol.toStringTag] = 'LinkedMap';\n        this._map = new Map();\n        this._head = undefined;\n        this._tail = undefined;\n        this._size = 0;\n        this._state = 0;\n    }\n    clear() {\n        this._map.clear();\n        this._head = undefined;\n        this._tail = undefined;\n        this._size = 0;\n        this._state++;\n    }\n    isEmpty() {\n        return !this._head && !this._tail;\n    }\n    get size() {\n        return this._size;\n    }\n    get first() {\n        var _a;\n        return (_a = this._head) === null || _a === void 0 ? void 0 : _a.value;\n    }\n    get last() {\n        var _a;\n        return (_a = this._tail) === null || _a === void 0 ? void 0 : _a.value;\n    }\n    has(key) {\n        return this._map.has(key);\n    }\n    get(key, touch = Touch.None) {\n        const item = this._map.get(key);\n        if (!item) {\n            return undefined;\n        }\n        if (touch !== Touch.None) {\n            this.touch(item, touch);\n        }\n        return item.value;\n    }\n    set(key, value, touch = Touch.None) {\n        let item = this._map.get(key);\n        if (item) {\n            item.value = value;\n            if (touch !== Touch.None) {\n                this.touch(item, touch);\n            }\n        }\n        else {\n            item = { key, value, next: undefined, previous: undefined };\n            switch (touch) {\n                case Touch.None:\n                    this.addItemLast(item);\n                    break;\n                case Touch.First:\n                    this.addItemFirst(item);\n                    break;\n                case Touch.Last:\n                    this.addItemLast(item);\n                    break;\n                default:\n                    this.addItemLast(item);\n                    break;\n            }\n            this._map.set(key, item);\n            this._size++;\n        }\n        return this;\n    }\n    delete(key) {\n        return !!this.remove(key);\n    }\n    remove(key) {\n        const item = this._map.get(key);\n        if (!item) {\n            return undefined;\n        }\n        this._map.delete(key);\n        this.removeItem(item);\n        this._size--;\n        return item.value;\n    }\n    shift() {\n        if (!this._head && !this._tail) {\n            return undefined;\n        }\n        if (!this._head || !this._tail) {\n            throw new Error('Invalid list');\n        }\n        const item = this._head;\n        this._map.delete(item.key);\n        this.removeItem(item);\n        this._size--;\n        return item.value;\n    }\n    forEach(callbackfn, thisArg) {\n        const state = this._state;\n        let current = this._head;\n        while (current) {\n            if (thisArg) {\n                callbackfn.bind(thisArg)(current.value, current.key, this);\n            }\n            else {\n                callbackfn(current.value, current.key, this);\n            }\n            if (this._state !== state) {\n                throw new Error(`LinkedMap got modified during iteration.`);\n            }\n            current = current.next;\n        }\n    }\n    keys() {\n        const map = this;\n        const state = this._state;\n        let current = this._head;\n        const iterator = {\n            [Symbol.iterator]() {\n                return iterator;\n            },\n            next() {\n                if (map._state !== state) {\n                    throw new Error(`LinkedMap got modified during iteration.`);\n                }\n                if (current) {\n                    const result = { value: current.key, done: false };\n                    current = current.next;\n                    return result;\n                }\n                else {\n                    return { value: undefined, done: true };\n                }\n            }\n        };\n        return iterator;\n    }\n    values() {\n        const map = this;\n        const state = this._state;\n        let current = this._head;\n        const iterator = {\n            [Symbol.iterator]() {\n                return iterator;\n            },\n            next() {\n                if (map._state !== state) {\n                    throw new Error(`LinkedMap got modified during iteration.`);\n                }\n                if (current) {\n                    const result = { value: current.value, done: false };\n                    current = current.next;\n                    return result;\n                }\n                else {\n                    return { value: undefined, done: true };\n                }\n            }\n        };\n        return iterator;\n    }\n    entries() {\n        const map = this;\n        const state = this._state;\n        let current = this._head;\n        const iterator = {\n            [Symbol.iterator]() {\n                return iterator;\n            },\n            next() {\n                if (map._state !== state) {\n                    throw new Error(`LinkedMap got modified during iteration.`);\n                }\n                if (current) {\n                    const result = { value: [current.key, current.value], done: false };\n                    current = current.next;\n                    return result;\n                }\n                else {\n                    return { value: undefined, done: true };\n                }\n            }\n        };\n        return iterator;\n    }\n    [Symbol.iterator]() {\n        return this.entries();\n    }\n    trimOld(newSize) {\n        if (newSize >= this.size) {\n            return;\n        }\n        if (newSize === 0) {\n            this.clear();\n            return;\n        }\n        let current = this._head;\n        let currentSize = this.size;\n        while (current && currentSize > newSize) {\n            this._map.delete(current.key);\n            current = current.next;\n            currentSize--;\n        }\n        this._head = current;\n        this._size = currentSize;\n        if (current) {\n            current.previous = undefined;\n        }\n        this._state++;\n    }\n    addItemFirst(item) {\n        // First time Insert\n        if (!this._head && !this._tail) {\n            this._tail = item;\n        }\n        else if (!this._head) {\n            throw new Error('Invalid list');\n        }\n        else {\n            item.next = this._head;\n            this._head.previous = item;\n        }\n        this._head = item;\n        this._state++;\n    }\n    addItemLast(item) {\n        // First time Insert\n        if (!this._head && !this._tail) {\n            this._head = item;\n        }\n        else if (!this._tail) {\n            throw new Error('Invalid list');\n        }\n        else {\n            item.previous = this._tail;\n            this._tail.next = item;\n        }\n        this._tail = item;\n        this._state++;\n    }\n    removeItem(item) {\n        if (item === this._head && item === this._tail) {\n            this._head = undefined;\n            this._tail = undefined;\n        }\n        else if (item === this._head) {\n            // This can only happend if size === 1 which is handle\n            // by the case above.\n            if (!item.next) {\n                throw new Error('Invalid list');\n            }\n            item.next.previous = undefined;\n            this._head = item.next;\n        }\n        else if (item === this._tail) {\n            // This can only happend if size === 1 which is handle\n            // by the case above.\n            if (!item.previous) {\n                throw new Error('Invalid list');\n            }\n            item.previous.next = undefined;\n            this._tail = item.previous;\n        }\n        else {\n            const next = item.next;\n            const previous = item.previous;\n            if (!next || !previous) {\n                throw new Error('Invalid list');\n            }\n            next.previous = previous;\n            previous.next = next;\n        }\n        item.next = undefined;\n        item.previous = undefined;\n        this._state++;\n    }\n    touch(item, touch) {\n        if (!this._head || !this._tail) {\n            throw new Error('Invalid list');\n        }\n        if ((touch !== Touch.First && touch !== Touch.Last)) {\n            return;\n        }\n        if (touch === Touch.First) {\n            if (item === this._head) {\n                return;\n            }\n            const next = item.next;\n            const previous = item.previous;\n            // Unlink the item\n            if (item === this._tail) {\n                // previous must be defined since item was not head but is tail\n                // So there are more than on item in the map\n                previous.next = undefined;\n                this._tail = previous;\n            }\n            else {\n                // Both next and previous are not undefined since item was neither head nor tail.\n                next.previous = previous;\n                previous.next = next;\n            }\n            // Insert the node at head\n            item.previous = undefined;\n            item.next = this._head;\n            this._head.previous = item;\n            this._head = item;\n            this._state++;\n        }\n        else if (touch === Touch.Last) {\n            if (item === this._tail) {\n                return;\n            }\n            const next = item.next;\n            const previous = item.previous;\n            // Unlink the item.\n            if (item === this._head) {\n                // next must be defined since item was not tail but is head\n                // So there are more than on item in the map\n                next.previous = undefined;\n                this._head = next;\n            }\n            else {\n                // Both next and previous are not undefined since item was neither head nor tail.\n                next.previous = previous;\n                previous.next = next;\n            }\n            item.next = undefined;\n            item.previous = this._tail;\n            this._tail.next = item;\n            this._tail = item;\n            this._state++;\n        }\n    }\n    toJSON() {\n        const data = [];\n        this.forEach((value, key) => {\n            data.push([key, value]);\n        });\n        return data;\n    }\n    fromJSON(data) {\n        this.clear();\n        for (const [key, value] of data) {\n            this.set(key, value);\n        }\n    }\n}\nexports.LinkedMap = LinkedMap;\nclass LRUCache extends LinkedMap {\n    constructor(limit, ratio = 1) {\n        super();\n        this._limit = limit;\n        this._ratio = Math.min(Math.max(0, ratio), 1);\n    }\n    get limit() {\n        return this._limit;\n    }\n    set limit(limit) {\n        this._limit = limit;\n        this.checkTrim();\n    }\n    get ratio() {\n        return this._ratio;\n    }\n    set ratio(ratio) {\n        this._ratio = Math.min(Math.max(0, ratio), 1);\n        this.checkTrim();\n    }\n    get(key, touch = Touch.AsNew) {\n        return super.get(key, touch);\n    }\n    peek(key) {\n        return super.get(key, Touch.None);\n    }\n    set(key, value) {\n        super.set(key, value, Touch.Last);\n        this.checkTrim();\n        return this;\n    }\n    checkTrim() {\n        if (this.size > this._limit) {\n            this.trimOld(Math.round(this._limit * this._ratio));\n        }\n    }\n}\nexports.LRUCache = LRUCache;\n//# sourceMappingURL=linkedMap.js.map",
-      "start": 1706896525452,
-      "end": 1706896525476,
+      "start": 1707126049561,
+      "end": 1707126049648,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as linkedMap } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/linkedMap.js?commonjs-exports\";\n\nvar hasRequiredLinkedMap;\n\nfunction requireLinkedMap () {\n\tif (hasRequiredLinkedMap) return linkedMap;\n\thasRequiredLinkedMap = 1;\n\t(function (exports) {\n\t\t\"use strict\";\n\t\t/*---------------------------------------------------------------------------------------------\n\t\t *  Copyright (c) Microsoft Corporation. All rights reserved.\n\t\t *  Licensed under the MIT License. See License.txt in the project root for license information.\n\t\t *--------------------------------------------------------------------------------------------*/\n\t\tObject.defineProperty(exports, \"__esModule\", { value: true });\n\t\texports.LRUCache = exports.LinkedMap = exports.Touch = void 0;\n\t\tvar Touch;\n\t\t(function (Touch) {\n\t\t    Touch.None = 0;\n\t\t    Touch.First = 1;\n\t\t    Touch.AsOld = Touch.First;\n\t\t    Touch.Last = 2;\n\t\t    Touch.AsNew = Touch.Last;\n\t\t})(Touch = exports.Touch || (exports.Touch = {}));\n\t\tclass LinkedMap {\n\t\t    constructor() {\n\t\t        this[Symbol.toStringTag] = 'LinkedMap';\n\t\t        this._map = new Map();\n\t\t        this._head = undefined;\n\t\t        this._tail = undefined;\n\t\t        this._size = 0;\n\t\t        this._state = 0;\n\t\t    }\n\t\t    clear() {\n\t\t        this._map.clear();\n\t\t        this._head = undefined;\n\t\t        this._tail = undefined;\n\t\t        this._size = 0;\n\t\t        this._state++;\n\t\t    }\n\t\t    isEmpty() {\n\t\t        return !this._head && !this._tail;\n\t\t    }\n\t\t    get size() {\n\t\t        return this._size;\n\t\t    }\n\t\t    get first() {\n\t\t        var _a;\n\t\t        return (_a = this._head) === null || _a === void 0 ? void 0 : _a.value;\n\t\t    }\n\t\t    get last() {\n\t\t        var _a;\n\t\t        return (_a = this._tail) === null || _a === void 0 ? void 0 : _a.value;\n\t\t    }\n\t\t    has(key) {\n\t\t        return this._map.has(key);\n\t\t    }\n\t\t    get(key, touch = Touch.None) {\n\t\t        const item = this._map.get(key);\n\t\t        if (!item) {\n\t\t            return undefined;\n\t\t        }\n\t\t        if (touch !== Touch.None) {\n\t\t            this.touch(item, touch);\n\t\t        }\n\t\t        return item.value;\n\t\t    }\n\t\t    set(key, value, touch = Touch.None) {\n\t\t        let item = this._map.get(key);\n\t\t        if (item) {\n\t\t            item.value = value;\n\t\t            if (touch !== Touch.None) {\n\t\t                this.touch(item, touch);\n\t\t            }\n\t\t        }\n\t\t        else {\n\t\t            item = { key, value, next: undefined, previous: undefined };\n\t\t            switch (touch) {\n\t\t                case Touch.None:\n\t\t                    this.addItemLast(item);\n\t\t                    break;\n\t\t                case Touch.First:\n\t\t                    this.addItemFirst(item);\n\t\t                    break;\n\t\t                case Touch.Last:\n\t\t                    this.addItemLast(item);\n\t\t                    break;\n\t\t                default:\n\t\t                    this.addItemLast(item);\n\t\t                    break;\n\t\t            }\n\t\t            this._map.set(key, item);\n\t\t            this._size++;\n\t\t        }\n\t\t        return this;\n\t\t    }\n\t\t    delete(key) {\n\t\t        return !!this.remove(key);\n\t\t    }\n\t\t    remove(key) {\n\t\t        const item = this._map.get(key);\n\t\t        if (!item) {\n\t\t            return undefined;\n\t\t        }\n\t\t        this._map.delete(key);\n\t\t        this.removeItem(item);\n\t\t        this._size--;\n\t\t        return item.value;\n\t\t    }\n\t\t    shift() {\n\t\t        if (!this._head && !this._tail) {\n\t\t            return undefined;\n\t\t        }\n\t\t        if (!this._head || !this._tail) {\n\t\t            throw new Error('Invalid list');\n\t\t        }\n\t\t        const item = this._head;\n\t\t        this._map.delete(item.key);\n\t\t        this.removeItem(item);\n\t\t        this._size--;\n\t\t        return item.value;\n\t\t    }\n\t\t    forEach(callbackfn, thisArg) {\n\t\t        const state = this._state;\n\t\t        let current = this._head;\n\t\t        while (current) {\n\t\t            if (thisArg) {\n\t\t                callbackfn.bind(thisArg)(current.value, current.key, this);\n\t\t            }\n\t\t            else {\n\t\t                callbackfn(current.value, current.key, this);\n\t\t            }\n\t\t            if (this._state !== state) {\n\t\t                throw new Error(`LinkedMap got modified during iteration.`);\n\t\t            }\n\t\t            current = current.next;\n\t\t        }\n\t\t    }\n\t\t    keys() {\n\t\t        const map = this;\n\t\t        const state = this._state;\n\t\t        let current = this._head;\n\t\t        const iterator = {\n\t\t            [Symbol.iterator]() {\n\t\t                return iterator;\n\t\t            },\n\t\t            next() {\n\t\t                if (map._state !== state) {\n\t\t                    throw new Error(`LinkedMap got modified during iteration.`);\n\t\t                }\n\t\t                if (current) {\n\t\t                    const result = { value: current.key, done: false };\n\t\t                    current = current.next;\n\t\t                    return result;\n\t\t                }\n\t\t                else {\n\t\t                    return { value: undefined, done: true };\n\t\t                }\n\t\t            }\n\t\t        };\n\t\t        return iterator;\n\t\t    }\n\t\t    values() {\n\t\t        const map = this;\n\t\t        const state = this._state;\n\t\t        let current = this._head;\n\t\t        const iterator = {\n\t\t            [Symbol.iterator]() {\n\t\t                return iterator;\n\t\t            },\n\t\t            next() {\n\t\t                if (map._state !== state) {\n\t\t                    throw new Error(`LinkedMap got modified during iteration.`);\n\t\t                }\n\t\t                if (current) {\n\t\t                    const result = { value: current.value, done: false };\n\t\t                    current = current.next;\n\t\t                    return result;\n\t\t                }\n\t\t                else {\n\t\t                    return { value: undefined, done: true };\n\t\t                }\n\t\t            }\n\t\t        };\n\t\t        return iterator;\n\t\t    }\n\t\t    entries() {\n\t\t        const map = this;\n\t\t        const state = this._state;\n\t\t        let current = this._head;\n\t\t        const iterator = {\n\t\t            [Symbol.iterator]() {\n\t\t                return iterator;\n\t\t            },\n\t\t            next() {\n\t\t                if (map._state !== state) {\n\t\t                    throw new Error(`LinkedMap got modified during iteration.`);\n\t\t                }\n\t\t                if (current) {\n\t\t                    const result = { value: [current.key, current.value], done: false };\n\t\t                    current = current.next;\n\t\t                    return result;\n\t\t                }\n\t\t                else {\n\t\t                    return { value: undefined, done: true };\n\t\t                }\n\t\t            }\n\t\t        };\n\t\t        return iterator;\n\t\t    }\n\t\t    [Symbol.iterator]() {\n\t\t        return this.entries();\n\t\t    }\n\t\t    trimOld(newSize) {\n\t\t        if (newSize >= this.size) {\n\t\t            return;\n\t\t        }\n\t\t        if (newSize === 0) {\n\t\t            this.clear();\n\t\t            return;\n\t\t        }\n\t\t        let current = this._head;\n\t\t        let currentSize = this.size;\n\t\t        while (current && currentSize > newSize) {\n\t\t            this._map.delete(current.key);\n\t\t            current = current.next;\n\t\t            currentSize--;\n\t\t        }\n\t\t        this._head = current;\n\t\t        this._size = currentSize;\n\t\t        if (current) {\n\t\t            current.previous = undefined;\n\t\t        }\n\t\t        this._state++;\n\t\t    }\n\t\t    addItemFirst(item) {\n\t\t        // First time Insert\n\t\t        if (!this._head && !this._tail) {\n\t\t            this._tail = item;\n\t\t        }\n\t\t        else if (!this._head) {\n\t\t            throw new Error('Invalid list');\n\t\t        }\n\t\t        else {\n\t\t            item.next = this._head;\n\t\t            this._head.previous = item;\n\t\t        }\n\t\t        this._head = item;\n\t\t        this._state++;\n\t\t    }\n\t\t    addItemLast(item) {\n\t\t        // First time Insert\n\t\t        if (!this._head && !this._tail) {\n\t\t            this._head = item;\n\t\t        }\n\t\t        else if (!this._tail) {\n\t\t            throw new Error('Invalid list');\n\t\t        }\n\t\t        else {\n\t\t            item.previous = this._tail;\n\t\t            this._tail.next = item;\n\t\t        }\n\t\t        this._tail = item;\n\t\t        this._state++;\n\t\t    }\n\t\t    removeItem(item) {\n\t\t        if (item === this._head && item === this._tail) {\n\t\t            this._head = undefined;\n\t\t            this._tail = undefined;\n\t\t        }\n\t\t        else if (item === this._head) {\n\t\t            // This can only happend if size === 1 which is handle\n\t\t            // by the case above.\n\t\t            if (!item.next) {\n\t\t                throw new Error('Invalid list');\n\t\t            }\n\t\t            item.next.previous = undefined;\n\t\t            this._head = item.next;\n\t\t        }\n\t\t        else if (item === this._tail) {\n\t\t            // This can only happend if size === 1 which is handle\n\t\t            // by the case above.\n\t\t            if (!item.previous) {\n\t\t                throw new Error('Invalid list');\n\t\t            }\n\t\t            item.previous.next = undefined;\n\t\t            this._tail = item.previous;\n\t\t        }\n\t\t        else {\n\t\t            const next = item.next;\n\t\t            const previous = item.previous;\n\t\t            if (!next || !previous) {\n\t\t                throw new Error('Invalid list');\n\t\t            }\n\t\t            next.previous = previous;\n\t\t            previous.next = next;\n\t\t        }\n\t\t        item.next = undefined;\n\t\t        item.previous = undefined;\n\t\t        this._state++;\n\t\t    }\n\t\t    touch(item, touch) {\n\t\t        if (!this._head || !this._tail) {\n\t\t            throw new Error('Invalid list');\n\t\t        }\n\t\t        if ((touch !== Touch.First && touch !== Touch.Last)) {\n\t\t            return;\n\t\t        }\n\t\t        if (touch === Touch.First) {\n\t\t            if (item === this._head) {\n\t\t                return;\n\t\t            }\n\t\t            const next = item.next;\n\t\t            const previous = item.previous;\n\t\t            // Unlink the item\n\t\t            if (item === this._tail) {\n\t\t                // previous must be defined since item was not head but is tail\n\t\t                // So there are more than on item in the map\n\t\t                previous.next = undefined;\n\t\t                this._tail = previous;\n\t\t            }\n\t\t            else {\n\t\t                // Both next and previous are not undefined since item was neither head nor tail.\n\t\t                next.previous = previous;\n\t\t                previous.next = next;\n\t\t            }\n\t\t            // Insert the node at head\n\t\t            item.previous = undefined;\n\t\t            item.next = this._head;\n\t\t            this._head.previous = item;\n\t\t            this._head = item;\n\t\t            this._state++;\n\t\t        }\n\t\t        else if (touch === Touch.Last) {\n\t\t            if (item === this._tail) {\n\t\t                return;\n\t\t            }\n\t\t            const next = item.next;\n\t\t            const previous = item.previous;\n\t\t            // Unlink the item.\n\t\t            if (item === this._head) {\n\t\t                // next must be defined since item was not tail but is head\n\t\t                // So there are more than on item in the map\n\t\t                next.previous = undefined;\n\t\t                this._head = next;\n\t\t            }\n\t\t            else {\n\t\t                // Both next and previous are not undefined since item was neither head nor tail.\n\t\t                next.previous = previous;\n\t\t                previous.next = next;\n\t\t            }\n\t\t            item.next = undefined;\n\t\t            item.previous = this._tail;\n\t\t            this._tail.next = item;\n\t\t            this._tail = item;\n\t\t            this._state++;\n\t\t        }\n\t\t    }\n\t\t    toJSON() {\n\t\t        const data = [];\n\t\t        this.forEach((value, key) => {\n\t\t            data.push([key, value]);\n\t\t        });\n\t\t        return data;\n\t\t    }\n\t\t    fromJSON(data) {\n\t\t        this.clear();\n\t\t        for (const [key, value] of data) {\n\t\t            this.set(key, value);\n\t\t        }\n\t\t    }\n\t\t}\n\t\texports.LinkedMap = LinkedMap;\n\t\tclass LRUCache extends LinkedMap {\n\t\t    constructor(limit, ratio = 1) {\n\t\t        super();\n\t\t        this._limit = limit;\n\t\t        this._ratio = Math.min(Math.max(0, ratio), 1);\n\t\t    }\n\t\t    get limit() {\n\t\t        return this._limit;\n\t\t    }\n\t\t    set limit(limit) {\n\t\t        this._limit = limit;\n\t\t        this.checkTrim();\n\t\t    }\n\t\t    get ratio() {\n\t\t        return this._ratio;\n\t\t    }\n\t\t    set ratio(ratio) {\n\t\t        this._ratio = Math.min(Math.max(0, ratio), 1);\n\t\t        this.checkTrim();\n\t\t    }\n\t\t    get(key, touch = Touch.AsNew) {\n\t\t        return super.get(key, touch);\n\t\t    }\n\t\t    peek(key) {\n\t\t        return super.get(key, Touch.None);\n\t\t    }\n\t\t    set(key, value) {\n\t\t        super.set(key, value, Touch.Last);\n\t\t        this.checkTrim();\n\t\t        return this;\n\t\t    }\n\t\t    checkTrim() {\n\t\t        if (this.size > this._limit) {\n\t\t            this.trimOld(Math.round(this._limit * this._ratio));\n\t\t        }\n\t\t    }\n\t\t}\n\t\texports.LRUCache = LRUCache;\n\t\t//# sourceMappingURL=linkedMap.js.map \n\t} (linkedMap));\n\treturn linkedMap;\n}\n\nexport { requireLinkedMap as __require };",
-      "start": 1706896525476,
-      "end": 1706896525479,
+      "start": 1707126049648,
+      "end": 1707126049651,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525479,
-      "end": 1706896525479,
+      "start": 1707126049651,
+      "end": 1707126049651,
       "order": "normal"
     }
   ]

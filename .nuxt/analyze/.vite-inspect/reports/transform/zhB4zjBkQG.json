@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"h-screen\" }\n\nimport CloudContent from \"~/components/Cloud/CloudContent.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\r\nuseSeoMeta({\r\n  title: 'Файл менеджер',\r\n  description: 'Файловый менеджер для хранения или взаимодействия с файлами'\r\n})\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(CloudContent)\n  ]))\n}\n}\n\n})",
-      "start": 1706896517102,
-      "end": 1706896517102
+      "start": 1707126036258,
+      "end": 1707126036258
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896517102,
-      "end": 1706896517102,
+      "start": 1707126036258,
+      "end": 1707126036258,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896517102,
-      "end": 1706896517102,
+      "start": 1707126036258,
+      "end": 1707126036258,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896517102,
-      "end": 1706896517102,
+      "start": 1707126036258,
+      "end": 1707126036258,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896517102,
-      "end": 1706896517102,
+      "start": 1707126036258,
+      "end": 1707126036258,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896517102,
-      "end": 1706896517102,
+      "start": 1707126036258,
+      "end": 1707126036258,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"h-screen\" };\nimport CloudContent from \"~/components/Cloud/CloudContent.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    useSeoMeta({\n      title: \"Файл менеджер\",\n      description: \"Файловый менеджер для хранения или взаимодействия с файлами\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(CloudContent)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896517102,
-      "end": 1706896519160,
+      "start": 1707126036258,
+      "end": 1707126036344,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896519160,
-      "end": 1706896519160,
+      "start": 1707126036344,
+      "end": 1707126036344,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896519160,
-      "end": 1706896519160,
+      "start": 1707126036344,
+      "end": 1707126036344,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896519160,
-      "end": 1706896519160,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896519160,
-      "end": 1706896519160,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519160,
-      "end": 1706896519161,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036345,
+      "end": 1707126036345,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896519161,
-      "end": 1706896519161,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896519162,
-      "end": 1706896519162,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896519162,
-      "end": 1706896519162,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896519162,
-      "end": 1706896519162,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896519162,
-      "end": 1706896519162,
+      "start": 1707126036346,
+      "end": 1707126036346,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896519162,
-      "end": 1706896519162,
+      "start": 1707126036346,
+      "end": 1707126036347,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896519162,
-      "end": 1706896519162,
+      "start": 1707126036347,
+      "end": 1707126036347,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896519162,
-      "end": 1706896519162,
+      "start": 1707126036347,
+      "end": 1707126036347,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useSeoMeta } from '@unhead/vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"h-screen\" };\nimport CloudContent from \"~/components/Cloud/CloudContent.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    useSeoMeta({\n      title: \"Файл менеджер\",\n      description: \"Файловый менеджер для хранения или взаимодействия с файлами\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(CloudContent)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896519163,
-      "end": 1706896519169,
+      "start": 1707126036347,
+      "end": 1707126036355,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,15 +204,15 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896519170,
-      "end": 1706896519170,
+      "start": 1707126036357,
+      "end": 1707126036357,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1706896519170,
-      "end": 1706896519171,
+      "start": 1707126036357,
+      "end": 1707126036357,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -225,38 +225,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896519175,
-      "end": 1706896519176,
+      "start": 1707126036358,
+      "end": 1707126036358,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896519176,
-      "end": 1706896519176,
+      "start": 1707126036358,
+      "end": 1707126036358,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896519176,
-      "end": 1706896519176,
+      "start": 1707126036358,
+      "end": 1707126036358,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896519176,
-      "end": 1706896519176,
+      "start": 1707126036359,
+      "end": 1707126036359,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896519176,
-      "end": 1706896519176,
+      "start": 1707126036359,
+      "end": 1707126036359,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896519176,
-      "end": 1706896519176,
+      "start": 1707126036359,
+      "end": 1707126036359,
       "order": "normal"
     }
   ]

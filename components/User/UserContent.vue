@@ -11,7 +11,7 @@ const userList = useUserStore()
 const phone = ref('')
 const params = {
   page: 1,
-  limit: 5,
+  limit: 15,
   query: '',
   user_type: 'user-list'
 }
@@ -72,8 +72,8 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div>
-    <div :class="{'flex flex-wrap items-center justify-between' : loadCurrentUser.user.role_en === 'company_admin'}">
+  <div class="">
+    <div :class="{'flex flex-wrap items-center justify-between' :['company_admin', 'director', 'vice_director'].includes( loadCurrentUser.user.role_en )}">
       <div class="mb-10 mt-12 text-lg flex gap-x-10">
         <p class="dark:text-white tracking-widest" v-if="loadCurrentUser.user.role_en === 'admin'">
           {{ $t('Список всех пользователей') }}</p>
@@ -96,25 +96,23 @@ watchEffect(() => {
         <UserCreate></UserCreate>
       </div>
     </div>
-    <div class="">
-      <div class="w-full">
-        <div class="flex gap-x-10 max-lg:flex-wrap max-md:justify-center">
-          <div class="flex w-9/12 justify-between max-lg:justify-center gap-x-10 items-center max-md:flex-wrap max-md:mt-10 max-md:justify-center">
-            <TheSearch class="w-full" v-model:model-value="params.query" @search="userList.loadUserList(params)"/>
-            <TheFilter></TheFilter>
-          </div>
+    <div class="w-full ">
+      <div class="flex gap-x-10 max-lg:flex-wrap max-md:justify-center">
+        <div class="flex w-9/12 justify-between max-lg:justify-center gap-x-10 items-center max-md:flex-wrap max-md:mt-10 max-md:justify-center">
+          <TheSearch class="w-full" v-model:model-value="params.query" @search="userList.loadUserList(params)"/>
+          <TheFilter></TheFilter>
         </div>
-        <div class="flex max-lg:flex-wrap justify-center">
-          <div class="w-full">
-            <UserContentList v-if="userList?.get_user_list.count > 0" v-for="userItem in userList?.get_user_list.results" :user-item="userItem" class="max-lg:w-full"></UserContentList>
-          </div>
-          <div class="w-3/12 max-lg:w-full">
-            <TheUserStats class=""></TheUserStats>
-          </div>
+      </div>
+      <div class="flex max-md:flex-wrap justify-center max-md:mt-10">
+        <div class="flex flex-wrap gap-x-6 max-md:order-2 max-lg:justify-center">
+          <UserContentList v-if="userList?.get_user_list.count > 0" v-for="userItem in userList?.get_user_list.results" :user-item="userItem" class="max-md:w-full"></UserContentList>
+        </div>
+        <div class="w-3/12 max-lg:w-full max-md:mb-4 ">
+          <TheUserStats class=""></TheUserStats>
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap justify-center gap-x-4">
+    <div class="flex flex-wrap justify-center gap-x-4 mt-10">
       <div v-if="userList.get_user_list.count > 5" v-for="(page, id) in userList?.get_user_list?.links" :key="id"
            class="px-4 py-2 rounded-full cursor-pointer"
            :class="{'bg-blue-400 text-white' : page.active, 'bg-gray-200 text-black' : !page.active}"

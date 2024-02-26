@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent } from \"vue\"\nimport _imports_0 from '/img/2.png'\nimport _imports_1 from '/img/3.webp'\n\n\nconst _hoisted_1 = { class: \"flex flex-col gap-y-10 w-full\" }\nconst _hoisted_2 = { class: \"w-full flex max-sm:flex-col max-sm:gap-y-4 gap-x-10 justify-center\" }\nconst _hoisted_3 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" }\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"justify-center flex\" }, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    class: \"rounded-lg\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1)\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"my-2\" }, [\n  /*#__PURE__*/_createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1)\nconst _hoisted_6 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" }\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"justify-center h-full flex\" }, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    class: \"rounded-lg h-full\",\n    src: _imports_1,\n    alt: \"\"\n  })\n], -1)\nconst _hoisted_8 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"my-2\" }, [\n  /*#__PURE__*/_createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1)\nconst _hoisted_9 = { key: 0 }\nconst _hoisted_10 = { class: \"text-center\" }\nconst _hoisted_11 = { key: 0 }\nconst _hoisted_12 = { key: 1 }\nconst _hoisted_13 = { key: 2 }\nconst _hoisted_14 = { class: \"w-5/12 max-md:w-full\" }\nconst _hoisted_15 = { class: \"w-[250px] max-md:w-9/12 max-sm:w-full mx-auto\" }\nconst _hoisted_16 = {\n  key: 0,\n  class: \"w-full h-full\",\n  src: _imports_0,\n  alt: \"\"\n}\nconst _hoisted_17 = {\n  key: 1,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n}\nconst _hoisted_18 = {\n  key: 2,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n}\nconst _hoisted_19 = { class: \"flex max-lg:flex-col items-center justify-around max-md:justify-center w-8/12 max-md:w-full gap-x-10 max-md:gap-y-4\" }\nconst _hoisted_20 = { class: \"w-7/12 max-md:w-full\" }\nconst _hoisted_21 = { class: \"text-gray-400 max-sm:text-sm tracking-widest\" }\nconst _hoisted_22 = { class: \"text-2xl max-sm:text-lg break-words\" }\n\nimport {useTestList} from \"~/stores/test\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TestContent',\n  setup(__props) {\n\r\nconst loadCurrentUser = useAuthStore()\r\nconst testList = useTestList()\r\ntestList.loadExam()\r\nconst testType = ref({\r\n  type: '',\r\n})\r\nconst params = {\r\n  page: 1,\r\n  limit: 5\r\n}\r\nonUpdated(() => {\r\n  if(loadCurrentUser.user.exam_active === true) {\r\n    testList.loadCurrentTest()\r\n  }\r\n})\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createVNode(TheContentBlock, null, {\n          default: _withCtx(() => [\n            _createVNode(TheTextContent, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('По специальности')), 1)\n              ]),\n              _: 1\n            }),\n            _hoisted_4,\n            _hoisted_5,\n            _createElementVNode(\"div\", {\n              class: \"mt-4 flex justify-center\",\n              onClick: _cache[1] || (_cache[1] = ($event: any) => {_unref(testType).type = 'testSpecial'; _unref(nuxtStorage).localStorage.setData('testType', _unref(testType).type)})\n            }, [\n              (!_unref(loadCurrentUser).user.exam_active)\n                ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[0] || (_cache[0] = ($event: any) => (_unref(testList).testStart({usual: 0}, _ctx.$router)))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Начать')), 1)\n                    ]),\n                    _: 1\n                  }))\n                : _createCommentVNode(\"\", true)\n            ])\n          ]),\n          _: 1\n        })\n      ]),\n      _createElementVNode(\"div\", _hoisted_6, [\n        _createVNode(TheContentBlock, null, {\n          default: _withCtx(() => [\n            _createVNode(TheTextContent, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('На интеллект')), 1)\n              ]),\n              _: 1\n            }),\n            _hoisted_7,\n            _hoisted_8,\n            _createElementVNode(\"div\", {\n              class: \"mt-4 flex justify-center\",\n              onClick: _cache[3] || (_cache[3] = ($event: any) => {_unref(testType).type = 'testIq'; _unref(nuxtStorage).localStorage.setData('testType', _unref(testType).type)})\n            }, [\n              (!_unref(loadCurrentUser).user.exam_active)\n                ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[2] || (_cache[2] = ($event: any) => (_unref(testList).testStart({usual: 1}, _ctx.$router)))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Начать')), 1)\n                    ]),\n                    _: 1\n                  }))\n                : _createCommentVNode(\"\", true)\n            ])\n          ]),\n          _: 1\n        })\n      ])\n    ]),\n    (_unref(loadCurrentUser).user.exam_active)\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_9, [\n          _createVNode(TheContentBlock, { class: \"w-10/12 mx-auto\" }, {\n            default: _withCtx(() => [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Текущий тест')), 1)\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"p\", _hoisted_10, [\n                (_unref(nuxtStorage).localStorage.getData('testType'))\n                  ? (_openBlock(), _createElementBlock(\"span\", _hoisted_11, _toDisplayString(_ctx.$t('по') + ' '), 1))\n                  : _createCommentVNode(\"\", true),\n                (_unref(nuxtStorage).localStorage.getData('testType') === 'testIq')\n                  ? (_openBlock(), _createElementBlock(\"span\", _hoisted_12, _toDisplayString('IQ')))\n                  : (_unref(nuxtStorage).localStorage.getData('testType') === 'testSpecial')\n                    ? (_openBlock(), _createElementBlock(\"span\", _hoisted_13, _toDisplayString(_ctx.$t('специальности')), 1))\n                    : _createCommentVNode(\"\", true)\n              ]),\n              _createElementVNode(\"div\", {\n                class: \"p-4 w-full h-full flex max-md:flex-wrap border-t gap-x-4 dark:border-gray-500 mt-2\",\n                onClick: _cache[4] || (_cache[4] = ($event: any) => (console.log(_unref(nuxtStorage).localStorage.getData('testType'))))\n              }, [\n                _createElementVNode(\"div\", _hoisted_14, [\n                  _createElementVNode(\"div\", _hoisted_15, [\n                    (_unref(nuxtStorage).localStorage.getData('testType') === 'testSpecial')\n                      ? (_openBlock(), _createElementBlock(\"img\", _hoisted_16))\n                      : (_unref(nuxtStorage).localStorage.getData('testType') === 'testIq')\n                        ? (_openBlock(), _createElementBlock(\"img\", _hoisted_17))\n                        : (_openBlock(), _createElementBlock(\"img\", _hoisted_18))\n                  ])\n                ]),\n                _createElementVNode(\"div\", _hoisted_19, [\n                  _createElementVNode(\"div\", _hoisted_20, [\n                    _createElementVNode(\"p\", _hoisted_21, _toDisplayString(_ctx.$t('Вопрос:')), 1),\n                    _createElementVNode(\"p\", _hoisted_22, _toDisplayString(_unref(testList).get_current_test.test?.question.length > 80 ? _unref(testList).get_current_test.test?.question.slice(0, 80) + '...' : _unref(testList).get_current_test.test?.question), 1)\n                  ]),\n                  _createVNode(_component_NuxtLink, {\n                    to: \"/base/tests/exam\",\n                    class: \"text-2xl text-white max-sm:text-lg py-2 bg-blueDarkSemiLight rounded-full text-center w-4/12 max-lg:w-7/12 max-md:w-full\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Продолжить')), 1)\n                    ]),\n                    _: 1\n                  })\n                ])\n              ])\n            ]),\n            _: 1\n          })\n        ]))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})",
-      "start": 1706896521560,
-      "end": 1706896521560
+      "start": 1707126040642,
+      "end": 1707126040642
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896521561,
-      "end": 1706896521561,
+      "start": 1707126040642,
+      "end": 1707126040642,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896521562,
-      "end": 1706896521562,
+      "start": 1707126040642,
+      "end": 1707126040642,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896521562,
-      "end": 1706896521562,
+      "start": 1707126040642,
+      "end": 1707126040642,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896521562,
-      "end": 1706896521562,
+      "start": 1707126040642,
+      "end": 1707126040642,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896521562,
-      "end": 1706896521562,
+      "start": 1707126040642,
+      "end": 1707126040642,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent } from \"vue\";\nimport _imports_0 from \"/img/2.png\";\nimport _imports_1 from \"/img/3.webp\";\nconst _hoisted_1 = { class: \"flex flex-col gap-y-10 w-full\" };\nconst _hoisted_2 = { class: \"w-full flex max-sm:flex-col max-sm:gap-y-4 gap-x-10 justify-center\" };\nconst _hoisted_3 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" };\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"justify-center flex\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"rounded-lg\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_5 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"my-2\" }, [\n  /* @__PURE__ */ _createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1);\nconst _hoisted_6 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" };\nconst _hoisted_7 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"justify-center h-full flex\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"rounded-lg h-full\",\n    src: _imports_1,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_8 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"my-2\" }, [\n  /* @__PURE__ */ _createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1);\nconst _hoisted_9 = { key: 0 };\nconst _hoisted_10 = { class: \"text-center\" };\nconst _hoisted_11 = { key: 0 };\nconst _hoisted_12 = { key: 1 };\nconst _hoisted_13 = { key: 2 };\nconst _hoisted_14 = { class: \"w-5/12 max-md:w-full\" };\nconst _hoisted_15 = { class: \"w-[250px] max-md:w-9/12 max-sm:w-full mx-auto\" };\nconst _hoisted_16 = {\n  key: 0,\n  class: \"w-full h-full\",\n  src: _imports_0,\n  alt: \"\"\n};\nconst _hoisted_17 = {\n  key: 1,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n};\nconst _hoisted_18 = {\n  key: 2,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n};\nconst _hoisted_19 = { class: \"flex max-lg:flex-col items-center justify-around max-md:justify-center w-8/12 max-md:w-full gap-x-10 max-md:gap-y-4\" };\nconst _hoisted_20 = { class: \"w-7/12 max-md:w-full\" };\nconst _hoisted_21 = { class: \"text-gray-400 max-sm:text-sm tracking-widest\" };\nconst _hoisted_22 = { class: \"text-2xl max-sm:text-lg break-words\" };\nimport { useTestList } from \"~/stores/test\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TestContent\",\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    const testList = useTestList();\n    testList.loadExam();\n    const testType = ref({\n      type: \"\"\n    });\n    const params = {\n      page: 1,\n      limit: 5\n    };\n    onUpdated(() => {\n      if (loadCurrentUser.user.exam_active === true) {\n        testList.loadCurrentTest();\n      }\n    });\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(TheContentBlock, null, {\n              default: _withCtx(() => [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"По специальности\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _hoisted_4,\n                _hoisted_5,\n                _createElementVNode(\"div\", {\n                  class: \"mt-4 flex justify-center\",\n                  onClick: _cache[1] || (_cache[1] = ($event) => {\n                    _unref(testType).type = \"testSpecial\";\n                    _unref(nuxtStorage).localStorage.setData(\"testType\", _unref(testType).type);\n                  })\n                }, [\n                  !_unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[0] || (_cache[0] = ($event) => _unref(testList).testStart({ usual: 0 }, _ctx.$router))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Начать\")), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ])\n              ]),\n              _: 1\n            })\n          ]),\n          _createElementVNode(\"div\", _hoisted_6, [\n            _createVNode(TheContentBlock, null, {\n              default: _withCtx(() => [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"На интеллект\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _hoisted_7,\n                _hoisted_8,\n                _createElementVNode(\"div\", {\n                  class: \"mt-4 flex justify-center\",\n                  onClick: _cache[3] || (_cache[3] = ($event) => {\n                    _unref(testType).type = \"testIq\";\n                    _unref(nuxtStorage).localStorage.setData(\"testType\", _unref(testType).type);\n                  })\n                }, [\n                  !_unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[2] || (_cache[2] = ($event) => _unref(testList).testStart({ usual: 1 }, _ctx.$router))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Начать\")), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ])\n              ]),\n              _: 1\n            })\n          ])\n        ]),\n        _unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createElementBlock(\"div\", _hoisted_9, [\n          _createVNode(TheContentBlock, { class: \"w-10/12 mx-auto\" }, {\n            default: _withCtx(() => [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Текущий тест\")), 1)\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"p\", _hoisted_10, [\n                _unref(nuxtStorage).localStorage.getData(\"testType\") ? (_openBlock(), _createElementBlock(\"span\", _hoisted_11, _toDisplayString(_ctx.$t(\"по\") + \" \"), 1)) : _createCommentVNode(\"\", true),\n                _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testIq\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_12, _toDisplayString(\"IQ\"))) : _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testSpecial\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_13, _toDisplayString(_ctx.$t(\"специальности\")), 1)) : _createCommentVNode(\"\", true)\n              ]),\n              _createElementVNode(\"div\", {\n                class: \"p-4 w-full h-full flex max-md:flex-wrap border-t gap-x-4 dark:border-gray-500 mt-2\",\n                onClick: _cache[4] || (_cache[4] = ($event) => console.log(_unref(nuxtStorage).localStorage.getData(\"testType\")))\n              }, [\n                _createElementVNode(\"div\", _hoisted_14, [\n                  _createElementVNode(\"div\", _hoisted_15, [\n                    _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testSpecial\" ? (_openBlock(), _createElementBlock(\"img\", _hoisted_16)) : _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testIq\" ? (_openBlock(), _createElementBlock(\"img\", _hoisted_17)) : (_openBlock(), _createElementBlock(\"img\", _hoisted_18))\n                  ])\n                ]),\n                _createElementVNode(\"div\", _hoisted_19, [\n                  _createElementVNode(\"div\", _hoisted_20, [\n                    _createElementVNode(\"p\", _hoisted_21, _toDisplayString(_ctx.$t(\"Вопрос:\")), 1),\n                    _createElementVNode(\"p\", _hoisted_22, _toDisplayString(_unref(testList).get_current_test.test?.question.length > 80 ? _unref(testList).get_current_test.test?.question.slice(0, 80) + \"...\" : _unref(testList).get_current_test.test?.question), 1)\n                  ]),\n                  _createVNode(_component_NuxtLink, {\n                    to: \"/base/tests/exam\",\n                    class: \"text-2xl text-white max-sm:text-lg py-2 bg-blueDarkSemiLight rounded-full text-center w-4/12 max-lg:w-7/12 max-md:w-full\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Продолжить\")), 1)\n                    ]),\n                    _: 1\n                  })\n                ])\n              ])\n            ]),\n            _: 1\n          })\n        ])) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896521562,
-      "end": 1706896521755,
+      "start": 1707126040642,
+      "end": 1707126041061,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896521756,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896521757,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896521757,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896521757,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896521758,
-      "end": 1706896521758,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896521758,
-      "end": 1706896521758,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref, onUpdated } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent } from \"vue\";\nimport _imports_0 from \"/img/2.png\";\nimport _imports_1 from \"/img/3.webp\";\nconst _hoisted_1 = { class: \"flex flex-col gap-y-10 w-full\" };\nconst _hoisted_2 = { class: \"w-full flex max-sm:flex-col max-sm:gap-y-4 gap-x-10 justify-center\" };\nconst _hoisted_3 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" };\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"justify-center flex\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"rounded-lg\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_5 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"my-2\" }, [\n  /* @__PURE__ */ _createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1);\nconst _hoisted_6 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" };\nconst _hoisted_7 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"justify-center h-full flex\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"rounded-lg h-full\",\n    src: _imports_1,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_8 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"my-2\" }, [\n  /* @__PURE__ */ _createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1);\nconst _hoisted_9 = { key: 0 };\nconst _hoisted_10 = { class: \"text-center\" };\nconst _hoisted_11 = { key: 0 };\nconst _hoisted_12 = { key: 1 };\nconst _hoisted_13 = { key: 2 };\nconst _hoisted_14 = { class: \"w-5/12 max-md:w-full\" };\nconst _hoisted_15 = { class: \"w-[250px] max-md:w-9/12 max-sm:w-full mx-auto\" };\nconst _hoisted_16 = {\n  key: 0,\n  class: \"w-full h-full\",\n  src: _imports_0,\n  alt: \"\"\n};\nconst _hoisted_17 = {\n  key: 1,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n};\nconst _hoisted_18 = {\n  key: 2,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n};\nconst _hoisted_19 = { class: \"flex max-lg:flex-col items-center justify-around max-md:justify-center w-8/12 max-md:w-full gap-x-10 max-md:gap-y-4\" };\nconst _hoisted_20 = { class: \"w-7/12 max-md:w-full\" };\nconst _hoisted_21 = { class: \"text-gray-400 max-sm:text-sm tracking-widest\" };\nconst _hoisted_22 = { class: \"text-2xl max-sm:text-lg break-words\" };\nimport { useTestList } from \"~/stores/test\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TestContent\",\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    const testList = useTestList();\n    testList.loadExam();\n    const testType = ref({\n      type: \"\"\n    });\n    const params = {\n      page: 1,\n      limit: 5\n    };\n    onUpdated(() => {\n      if (loadCurrentUser.user.exam_active === true) {\n        testList.loadCurrentTest();\n      }\n    });\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(TheContentBlock, null, {\n              default: _withCtx(() => [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"По специальности\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _hoisted_4,\n                _hoisted_5,\n                _createElementVNode(\"div\", {\n                  class: \"mt-4 flex justify-center\",\n                  onClick: _cache[1] || (_cache[1] = ($event) => {\n                    _unref(testType).type = \"testSpecial\";\n                    _unref(nuxtStorage).localStorage.setData(\"testType\", _unref(testType).type);\n                  })\n                }, [\n                  !_unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[0] || (_cache[0] = ($event) => _unref(testList).testStart({ usual: 0 }, _ctx.$router))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Начать\")), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ])\n              ]),\n              _: 1\n            })\n          ]),\n          _createElementVNode(\"div\", _hoisted_6, [\n            _createVNode(TheContentBlock, null, {\n              default: _withCtx(() => [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"На интеллект\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _hoisted_7,\n                _hoisted_8,\n                _createElementVNode(\"div\", {\n                  class: \"mt-4 flex justify-center\",\n                  onClick: _cache[3] || (_cache[3] = ($event) => {\n                    _unref(testType).type = \"testIq\";\n                    _unref(nuxtStorage).localStorage.setData(\"testType\", _unref(testType).type);\n                  })\n                }, [\n                  !_unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[2] || (_cache[2] = ($event) => _unref(testList).testStart({ usual: 1 }, _ctx.$router))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Начать\")), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ])\n              ]),\n              _: 1\n            })\n          ])\n        ]),\n        _unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createElementBlock(\"div\", _hoisted_9, [\n          _createVNode(TheContentBlock, { class: \"w-10/12 mx-auto\" }, {\n            default: _withCtx(() => [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Текущий тест\")), 1)\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"p\", _hoisted_10, [\n                _unref(nuxtStorage).localStorage.getData(\"testType\") ? (_openBlock(), _createElementBlock(\"span\", _hoisted_11, _toDisplayString(_ctx.$t(\"по\") + \" \"), 1)) : _createCommentVNode(\"\", true),\n                _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testIq\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_12, _toDisplayString(\"IQ\"))) : _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testSpecial\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_13, _toDisplayString(_ctx.$t(\"специальности\")), 1)) : _createCommentVNode(\"\", true)\n              ]),\n              _createElementVNode(\"div\", {\n                class: \"p-4 w-full h-full flex max-md:flex-wrap border-t gap-x-4 dark:border-gray-500 mt-2\",\n                onClick: _cache[4] || (_cache[4] = ($event) => console.log(_unref(nuxtStorage).localStorage.getData(\"testType\")))\n              }, [\n                _createElementVNode(\"div\", _hoisted_14, [\n                  _createElementVNode(\"div\", _hoisted_15, [\n                    _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testSpecial\" ? (_openBlock(), _createElementBlock(\"img\", _hoisted_16)) : _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testIq\" ? (_openBlock(), _createElementBlock(\"img\", _hoisted_17)) : (_openBlock(), _createElementBlock(\"img\", _hoisted_18))\n                  ])\n                ]),\n                _createElementVNode(\"div\", _hoisted_19, [\n                  _createElementVNode(\"div\", _hoisted_20, [\n                    _createElementVNode(\"p\", _hoisted_21, _toDisplayString(_ctx.$t(\"Вопрос:\")), 1),\n                    _createElementVNode(\"p\", _hoisted_22, _toDisplayString(_unref(testList).get_current_test.test?.question.length > 80 ? _unref(testList).get_current_test.test?.question.slice(0, 80) + \"...\" : _unref(testList).get_current_test.test?.question), 1)\n                  ]),\n                  _createVNode(_component_NuxtLink, {\n                    to: \"/base/tests/exam\",\n                    class: \"text-2xl text-white max-sm:text-lg py-2 bg-blueDarkSemiLight rounded-full text-center w-4/12 max-lg:w-7/12 max-md:w-full\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Продолжить\")), 1)\n                    ]),\n                    _: 1\n                  })\n                ])\n              ])\n            ]),\n            _: 1\n          })\n        ])) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896521758,
-      "end": 1706896521767,
+      "start": 1707126041064,
+      "end": 1707126041071,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,51 +204,51 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041071,
+      "end": 1707126041071,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041071,
+      "end": 1707126041072,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041072,
+      "end": 1707126041074,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041074,
+      "end": 1707126041074,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { ref, onUpdated } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, createElementVNode as _createElementVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent } from \"vue\";\nimport _imports_0 from \"/img/2.png\";\nimport _imports_1 from \"/img/3.webp\";\nconst _hoisted_1 = { class: \"flex flex-col gap-y-10 w-full\" };\nconst _hoisted_2 = { class: \"w-full flex max-sm:flex-col max-sm:gap-y-4 gap-x-10 justify-center\" };\nconst _hoisted_3 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" };\nconst _hoisted_4 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"justify-center flex\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"rounded-lg\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_5 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"my-2\" }, [\n  /* @__PURE__ */ _createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1);\nconst _hoisted_6 = { class: \"w-5/12 max-sm:w-11/12 mx-auto\" };\nconst _hoisted_7 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"justify-center h-full flex\" }, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    class: \"rounded-lg h-full\",\n    src: _imports_1,\n    alt: \"\"\n  })\n], -1);\nconst _hoisted_8 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"my-2\" }, [\n  /* @__PURE__ */ _createElementVNode(\"p\", { class: \"text-sm tracking-wider\" }, \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid atque commodi consectetur cupiditate distinctio dolores earum eius esse eum ipsam iste minus molestiae, natus necessitatibus neque nulla optio pariatur placeat porro quasi quia quibusdam, ratione reiciendis rem rerum sunt suscipit tempore unde velit! Accusantium amet asperiores assumenda atque dolorem dolores enim explicabo impedit iste magnam modi necessitatibus omnis placeat quae quidem quo repellendus reprehenderit, saepe soluta voluptates. Deleniti dolores eligendi, error laboriosam minima quasi quod repellendus temporibus unde. Debitis earum incidunt maiores vitae. Accusantium alias deleniti doloremque illo illum, itaque, nemo pariatur quidem ratione sapiente sunt tempora veritatis voluptate.\")\n], -1);\nconst _hoisted_9 = { key: 0 };\nconst _hoisted_10 = { class: \"text-center\" };\nconst _hoisted_11 = { key: 0 };\nconst _hoisted_12 = { key: 1 };\nconst _hoisted_13 = { key: 2 };\nconst _hoisted_14 = { class: \"w-5/12 max-md:w-full\" };\nconst _hoisted_15 = { class: \"w-[250px] max-md:w-9/12 max-sm:w-full mx-auto\" };\nconst _hoisted_16 = {\n  key: 0,\n  class: \"w-full h-full\",\n  src: _imports_0,\n  alt: \"\"\n};\nconst _hoisted_17 = {\n  key: 1,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n};\nconst _hoisted_18 = {\n  key: 2,\n  class: \"w-full h-full\",\n  src: _imports_1,\n  alt: \"\"\n};\nconst _hoisted_19 = { class: \"flex max-lg:flex-col items-center justify-around max-md:justify-center w-8/12 max-md:w-full gap-x-10 max-md:gap-y-4\" };\nconst _hoisted_20 = { class: \"w-7/12 max-md:w-full\" };\nconst _hoisted_21 = { class: \"text-gray-400 max-sm:text-sm tracking-widest\" };\nconst _hoisted_22 = { class: \"text-2xl max-sm:text-lg break-words\" };\nimport { useTestList } from \"~/stores/test\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport TheContentBlock from \"~/components/UI/TheContentBlock.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport nuxtStorage from \"nuxt-storage/nuxt-storage\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TestContent\",\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    const testList = useTestList();\n    testList.loadExam();\n    const testType = ref({\n      type: \"\"\n    });\n    const params = {\n      page: 1,\n      limit: 5\n    };\n    onUpdated(() => {\n      if (loadCurrentUser.user.exam_active === true) {\n        testList.loadCurrentTest();\n      }\n    });\n    return (_ctx, _cache) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(TheContentBlock, null, {\n              default: _withCtx(() => [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"По специальности\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _hoisted_4,\n                _hoisted_5,\n                _createElementVNode(\"div\", {\n                  class: \"mt-4 flex justify-center\",\n                  onClick: _cache[1] || (_cache[1] = ($event) => {\n                    _unref(testType).type = \"testSpecial\";\n                    _unref(nuxtStorage).localStorage.setData(\"testType\", _unref(testType).type);\n                  })\n                }, [\n                  !_unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[0] || (_cache[0] = ($event) => _unref(testList).testStart({ usual: 0 }, _ctx.$router))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Начать\")), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ])\n              ]),\n              _: 1\n            })\n          ]),\n          _createElementVNode(\"div\", _hoisted_6, [\n            _createVNode(TheContentBlock, null, {\n              default: _withCtx(() => [\n                _createVNode(TheTextContent, null, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"На интеллект\")), 1)\n                  ]),\n                  _: 1\n                }),\n                _hoisted_7,\n                _hoisted_8,\n                _createElementVNode(\"div\", {\n                  class: \"mt-4 flex justify-center\",\n                  onClick: _cache[3] || (_cache[3] = ($event) => {\n                    _unref(testType).type = \"testIq\";\n                    _unref(nuxtStorage).localStorage.setData(\"testType\", _unref(testType).type);\n                  })\n                }, [\n                  !_unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createBlock(TheButton, {\n                    key: 0,\n                    type: \"success\",\n                    class: \"px-10 py-2 rounded-lg\",\n                    onClick: _cache[2] || (_cache[2] = ($event) => _unref(testList).testStart({ usual: 1 }, _ctx.$router))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Начать\")), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ])\n              ]),\n              _: 1\n            })\n          ])\n        ]),\n        _unref(loadCurrentUser).user.exam_active ? (_openBlock(), _createElementBlock(\"div\", _hoisted_9, [\n          _createVNode(TheContentBlock, { class: \"w-10/12 mx-auto\" }, {\n            default: _withCtx(() => [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Текущий тест\")), 1)\n                ]),\n                _: 1\n              }),\n              _createElementVNode(\"p\", _hoisted_10, [\n                _unref(nuxtStorage).localStorage.getData(\"testType\") ? (_openBlock(), _createElementBlock(\"span\", _hoisted_11, _toDisplayString(_ctx.$t(\"по\") + \" \"), 1)) : _createCommentVNode(\"\", true),\n                _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testIq\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_12, _toDisplayString(\"IQ\"))) : _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testSpecial\" ? (_openBlock(), _createElementBlock(\"span\", _hoisted_13, _toDisplayString(_ctx.$t(\"специальности\")), 1)) : _createCommentVNode(\"\", true)\n              ]),\n              _createElementVNode(\"div\", {\n                class: \"p-4 w-full h-full flex max-md:flex-wrap border-t gap-x-4 dark:border-gray-500 mt-2\",\n                onClick: _cache[4] || (_cache[4] = ($event) => console.log(_unref(nuxtStorage).localStorage.getData(\"testType\")))\n              }, [\n                _createElementVNode(\"div\", _hoisted_14, [\n                  _createElementVNode(\"div\", _hoisted_15, [\n                    _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testSpecial\" ? (_openBlock(), _createElementBlock(\"img\", _hoisted_16)) : _unref(nuxtStorage).localStorage.getData(\"testType\") === \"testIq\" ? (_openBlock(), _createElementBlock(\"img\", _hoisted_17)) : (_openBlock(), _createElementBlock(\"img\", _hoisted_18))\n                  ])\n                ]),\n                _createElementVNode(\"div\", _hoisted_19, [\n                  _createElementVNode(\"div\", _hoisted_20, [\n                    _createElementVNode(\"p\", _hoisted_21, _toDisplayString(_ctx.$t(\"Вопрос:\")), 1),\n                    _createElementVNode(\"p\", _hoisted_22, _toDisplayString(_unref(testList).get_current_test.test?.question.length > 80 ? _unref(testList).get_current_test.test?.question.slice(0, 80) + \"...\" : _unref(testList).get_current_test.test?.question), 1)\n                  ]),\n                  _createVNode(_component_NuxtLink, {\n                    to: \"/base/tests/exam\",\n                    class: \"text-2xl text-white max-sm:text-lg py-2 bg-blueDarkSemiLight rounded-full text-center w-4/12 max-lg:w-7/12 max-md:w-full\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Продолжить\")), 1)\n                    ]),\n                    _: 1\n                  })\n                ])\n              ])\n            ]),\n            _: 1\n          })\n        ])) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896521768,
-      "end": 1706896521768,
+      "start": 1707126041074,
+      "end": 1707126041074,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896521768,
-      "end": 1706896521768,
+      "start": 1707126041074,
+      "end": 1707126041075,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896521768,
-      "end": 1706896521769,
+      "start": 1707126041075,
+      "end": 1707126041075,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896521769,
-      "end": 1706896521769,
+      "start": 1707126041075,
+      "end": 1707126041075,
       "order": "normal"
     }
   ]

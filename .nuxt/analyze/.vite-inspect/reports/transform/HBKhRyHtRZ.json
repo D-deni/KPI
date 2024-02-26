@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, unref as _unref, createElementVNode as _createElementVNode, withModifiers as _withModifiers, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"w-6/12\" }\nconst _hoisted_2 = { class: \"w-6/12\" }\nconst _hoisted_3 = { class: \"w-6/12\" }\nconst _hoisted_4 = { class: \"w-6/12\" }\nconst _hoisted_5 = { class: \"w-full\" }\n\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheInput from \"~/components/UI/TheInput.vue\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\"\r\nimport {useCompanies} from \"~/stores/companies\";\r\nimport CompanyContentCreateElems from \"~/components/Company/admin/adminUI/CompanyContentCreateElems.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CompanyCreate',\n  props: {\r\n  showCreateCompany: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst createCompany = useCompanies()\r\n\r\nconst createForm = ref({\r\n  name: '',\r\n  address: '',\r\n  description: '',\r\n  email: '',\r\n  logo_file: ''\r\n})\r\n\r\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(TheButton, {\n      class: \"w-full h-full\",\n      type: \"signIn\",\n      onClick: _cache[0] || (_cache[0] = ($event: any) => (__props.showCreateCompany = true))\n    }, {\n      default: _withCtx(() => [\n        _createTextVNode(_toDisplayString(_ctx.$t('Создать компанию')), 1)\n      ]),\n      _: 1\n    }),\n    (__props.showCreateCompany)\n      ? (_openBlock(), _createBlock(TheModal, {\n          key: 0,\n          onShowModal: _cache[8] || (_cache[8] = ($event: any) => {__props.showCreateCompany = !__props.showCreateCompany; !__props.showCreateCompany ? createForm.value = {} : createForm.value = {}})\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"form\", {\n              onSubmit: _cache[7] || (_cache[7] = _withModifiers(($event: any) => (_unref(createCompany).createCompany(_unref(createForm))), [\"prevent\"]))\n            }, [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Создание компании')), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_1, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t('Наименование'),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": _cache[1] || (_cache[1] = ($event: any) => ((_unref(createForm).name) = $event))\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_2, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t('Адрес'),\n                      modelValue: _unref(createForm).address,\n                      \"onUpdate:modelValue\": _cache[2] || (_cache[2] = ($event: any) => ((_unref(createForm).address) = $event))\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_3, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t('Email'),\n                      modelValue: _unref(createForm).email,\n                      \"onUpdate:modelValue\": _cache[3] || (_cache[3] = ($event: any) => ((_unref(createForm).email) = $event))\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_4, [\n                    _createVNode(TheInput, {\n                      type: \"file\",\n                      label: _ctx.$t('Прикрепите логотип для компании'),\n                      onInput: _cache[4] || (_cache[4] = ($event: any) => (_unref(createForm).logo_file = $event.target.files[0]))\n                    }, null, 8, [\"label\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_5, [\n                    _createVNode(TheInput, {\n                      type: \"textarea\",\n                      label: _ctx.$t('Описание'),\n                      modelValue: _unref(createForm).description,\n                      \"onUpdate:modelValue\": _cache[5] || (_cache[5] = ($event: any) => ((_unref(createForm).description) = $event))\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createVNode(TheButton, {\n                    class: \"py-2 px-6 rounded-full\",\n                    t: \"button\",\n                    type: \"danger\",\n                    onClick: _cache[6] || (_cache[6] = ($event: any) => (__props.showCreateCompany = false))\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Отменить')), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TheButton, {\n                    class: \"py-2 px-6 rounded-full\",\n                    t: \"submit\",\n                    type: \"success\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Создать')), 1)\n                    ]),\n                    _: 1\n                  })\n                ]),\n                _: 1\n              })\n            ], 32)\n          ]),\n          _: 1\n        }))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})",
-      "start": 1706896520890,
-      "end": 1706896520890
+      "start": 1707126040043,
+      "end": 1707126040043
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896520890,
-      "end": 1706896520890,
+      "start": 1707126040043,
+      "end": 1707126040043,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896520890,
-      "end": 1706896520890,
+      "start": 1707126040043,
+      "end": 1707126040043,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896520890,
-      "end": 1706896520890,
+      "start": 1707126040043,
+      "end": 1707126040043,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896520890,
-      "end": 1706896520890,
+      "start": 1707126040043,
+      "end": 1707126040043,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896520890,
-      "end": 1706896520890,
+      "start": 1707126040043,
+      "end": 1707126040043,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, unref as _unref, createElementVNode as _createElementVNode, withModifiers as _withModifiers, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"w-6/12\" };\nconst _hoisted_2 = { class: \"w-6/12\" };\nconst _hoisted_3 = { class: \"w-6/12\" };\nconst _hoisted_4 = { class: \"w-6/12\" };\nconst _hoisted_5 = { class: \"w-full\" };\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheInput from \"~/components/UI/TheInput.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport CompanyContentCreateElems from \"~/components/Company/admin/adminUI/CompanyContentCreateElems.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CompanyCreate\",\n  props: {\n    showCreateCompany: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const createCompany = useCompanies();\n    const createForm = ref({\n      name: \"\",\n      address: \"\",\n      description: \"\",\n      email: \"\",\n      logo_file: \"\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheButton, {\n          class: \"w-full h-full\",\n          type: \"signIn\",\n          onClick: _cache[0] || (_cache[0] = ($event) => __props.showCreateCompany = true)\n        }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Создать компанию\")), 1)\n          ]),\n          _: 1\n        }),\n        __props.showCreateCompany ? (_openBlock(), _createBlock(TheModal, {\n          key: 0,\n          onShowModal: _cache[8] || (_cache[8] = ($event) => {\n            __props.showCreateCompany = !__props.showCreateCompany;\n            !__props.showCreateCompany ? createForm.value = {} : createForm.value = {};\n          })\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"form\", {\n              onSubmit: _cache[7] || (_cache[7] = _withModifiers(($event) => _unref(createCompany).createCompany(_unref(createForm)), [\"prevent\"]))\n            }, [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Создание компании\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_1, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Наименование\"),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": _cache[1] || (_cache[1] = ($event) => _unref(createForm).name = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_2, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Адрес\"),\n                      modelValue: _unref(createForm).address,\n                      \"onUpdate:modelValue\": _cache[2] || (_cache[2] = ($event) => _unref(createForm).address = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_3, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Email\"),\n                      modelValue: _unref(createForm).email,\n                      \"onUpdate:modelValue\": _cache[3] || (_cache[3] = ($event) => _unref(createForm).email = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_4, [\n                    _createVNode(TheInput, {\n                      type: \"file\",\n                      label: _ctx.$t(\"Прикрепите логотип для компании\"),\n                      onInput: _cache[4] || (_cache[4] = ($event) => _unref(createForm).logo_file = $event.target.files[0])\n                    }, null, 8, [\"label\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_5, [\n                    _createVNode(TheInput, {\n                      type: \"textarea\",\n                      label: _ctx.$t(\"Описание\"),\n                      modelValue: _unref(createForm).description,\n                      \"onUpdate:modelValue\": _cache[5] || (_cache[5] = ($event) => _unref(createForm).description = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createVNode(TheButton, {\n                    class: \"py-2 px-6 rounded-full\",\n                    t: \"button\",\n                    type: \"danger\",\n                    onClick: _cache[6] || (_cache[6] = ($event) => __props.showCreateCompany = false)\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Отменить\")), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TheButton, {\n                    class: \"py-2 px-6 rounded-full\",\n                    t: \"submit\",\n                    type: \"success\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                    ]),\n                    _: 1\n                  })\n                ]),\n                _: 1\n              })\n            ], 32)\n          ]),\n          _: 1\n        })) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896520890,
-      "end": 1706896521233,
+      "start": 1707126040043,
+      "end": 1707126040467,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896521233,
-      "end": 1706896521233,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521233,
-      "end": 1706896521234,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040468,
+      "end": 1707126040468,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896521234,
-      "end": 1706896521234,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040469,
+      "end": 1707126040469,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040470,
+      "end": 1707126040470,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040470,
+      "end": 1707126040470,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896521235,
-      "end": 1706896521235,
+      "start": 1707126040470,
+      "end": 1707126040470,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, unref as _unref, createElementVNode as _createElementVNode, withModifiers as _withModifiers, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"w-6/12\" };\nconst _hoisted_2 = { class: \"w-6/12\" };\nconst _hoisted_3 = { class: \"w-6/12\" };\nconst _hoisted_4 = { class: \"w-6/12\" };\nconst _hoisted_5 = { class: \"w-full\" };\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheInput from \"~/components/UI/TheInput.vue\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport { useCompanies } from \"~/stores/companies\";\nimport CompanyContentCreateElems from \"~/components/Company/admin/adminUI/CompanyContentCreateElems.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CompanyCreate\",\n  props: {\n    showCreateCompany: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const createCompany = useCompanies();\n    const createForm = ref({\n      name: \"\",\n      address: \"\",\n      description: \"\",\n      email: \"\",\n      logo_file: \"\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(TheButton, {\n          class: \"w-full h-full\",\n          type: \"signIn\",\n          onClick: _cache[0] || (_cache[0] = ($event) => __props.showCreateCompany = true)\n        }, {\n          default: _withCtx(() => [\n            _createTextVNode(_toDisplayString(_ctx.$t(\"Создать компанию\")), 1)\n          ]),\n          _: 1\n        }),\n        __props.showCreateCompany ? (_openBlock(), _createBlock(TheModal, {\n          key: 0,\n          onShowModal: _cache[8] || (_cache[8] = ($event) => {\n            __props.showCreateCompany = !__props.showCreateCompany;\n            !__props.showCreateCompany ? createForm.value = {} : createForm.value = {};\n          })\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"form\", {\n              onSubmit: _cache[7] || (_cache[7] = _withModifiers(($event) => _unref(createCompany).createCompany(_unref(createForm)), [\"prevent\"]))\n            }, [\n              _createVNode(TheTextContent, null, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Создание компании\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_1, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Наименование\"),\n                      modelValue: _unref(createForm).name,\n                      \"onUpdate:modelValue\": _cache[1] || (_cache[1] = ($event) => _unref(createForm).name = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_2, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Адрес\"),\n                      modelValue: _unref(createForm).address,\n                      \"onUpdate:modelValue\": _cache[2] || (_cache[2] = ($event) => _unref(createForm).address = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_3, [\n                    _createVNode(TheInput, {\n                      type: \"text\",\n                      label: _ctx.$t(\"Email\"),\n                      modelValue: _unref(createForm).email,\n                      \"onUpdate:modelValue\": _cache[3] || (_cache[3] = ($event) => _unref(createForm).email = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ]),\n                  _createElementVNode(\"div\", _hoisted_4, [\n                    _createVNode(TheInput, {\n                      type: \"file\",\n                      label: _ctx.$t(\"Прикрепите логотип для компании\"),\n                      onInput: _cache[4] || (_cache[4] = ($event) => _unref(createForm).logo_file = $event.target.files[0])\n                    }, null, 8, [\"label\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createElementVNode(\"div\", _hoisted_5, [\n                    _createVNode(TheInput, {\n                      type: \"textarea\",\n                      label: _ctx.$t(\"Описание\"),\n                      modelValue: _unref(createForm).description,\n                      \"onUpdate:modelValue\": _cache[5] || (_cache[5] = ($event) => _unref(createForm).description = $event)\n                    }, null, 8, [\"label\", \"modelValue\"])\n                  ])\n                ]),\n                _: 1\n              }),\n              _createVNode(CompanyContentCreateElems, null, {\n                default: _withCtx(() => [\n                  _createVNode(TheButton, {\n                    class: \"py-2 px-6 rounded-full\",\n                    t: \"button\",\n                    type: \"danger\",\n                    onClick: _cache[6] || (_cache[6] = ($event) => __props.showCreateCompany = false)\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Отменить\")), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TheButton, {\n                    class: \"py-2 px-6 rounded-full\",\n                    t: \"submit\",\n                    type: \"success\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Создать\")), 1)\n                    ]),\n                    _: 1\n                  })\n                ]),\n                _: 1\n              })\n            ], 32)\n          ]),\n          _: 1\n        })) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896521236,
-      "end": 1706896521242,
+      "start": 1707126040470,
+      "end": 1707126040481,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,50 +204,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040482,
+      "end": 1707126040482,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040482,
+      "end": 1707126040482,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040482,
+      "end": 1707126040482,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896521242,
-      "end": 1706896521242,
+      "start": 1707126040482,
+      "end": 1707126040482,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896521243,
-      "end": 1706896521243,
+      "start": 1707126040483,
+      "end": 1707126040483,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896521243,
-      "end": 1706896521243,
+      "start": 1707126040483,
+      "end": 1707126040483,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896521243,
-      "end": 1706896521243,
+      "start": 1707126040483,
+      "end": 1707126040484,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896521244,
-      "end": 1706896521244,
+      "start": 1707126040484,
+      "end": 1707126040484,
       "order": "normal"
     }
   ]

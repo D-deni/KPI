@@ -1,9 +1,10 @@
 import isEqual from 'lodash/isEqual'
-import {node} from "unenv";
-import {nodeVersion} from "std-env";
 import {toast} from "vue3-toastify";
 
 class Node {
+    self: any
+    parent: unknown
+    previous: any
     constructor(self: any, parent = null, previous = null) {
         this.self = self
         this.parent = parent
@@ -12,6 +13,8 @@ class Node {
 }
 
 export class LinkedList {
+    head: any
+    tail: any
     constructor() {
         this.head = null
         this.tail = null
@@ -25,22 +28,7 @@ export class LinkedList {
         if (!this.head) {
             this.head = node
         }
-
         this.tail = node
-    }
-    getPrevious(node){
-        let current = this.head
-        while(current && current.parent !== node){
-            current = current.parent
-        }
-        return current
-    }
-    prepend(self: any): void {
-        const node = new Node(self, this.parent)
-        this.head = node
-        // if(!this.tail){
-        //     this.tail = node
-        // }
     }
 
     delete(value: any) {
@@ -73,7 +61,7 @@ export class LinkedList {
         let current = this.head
         while (current) {
             if (isEqual(current.self, targetValue) && Array.isArray(current.self)) {
-                const indexToRemove = current.self.findIndex(obj => isEqual(obj, removeObject))
+                const indexToRemove = current.self.findIndex((obj: object) => isEqual(obj, removeObject))
                 if (indexToRemove !== -1) {
                     current.self.splice(indexToRemove, 1)
                     return

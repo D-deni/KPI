@@ -10,7 +10,7 @@ import CurrentCompanyInfo from "~/components/Company/User/CurrentCompanyInfo.vue
 import CompanyList from "~/components/Company/admin/CompanyList.vue";
 import CompanyStats from "~/components/Company/CompanyUI/CompanyStats.vue";
 import TheContentBlock from "~/components/UI/TheContentBlock.vue";
-import {definePageMeta} from "#imports";
+import CurrentCompanyChangeInfo from "~/components/Company/User/CurrentCompanyChangeInfo.vue";
 
 const currentUser = useAuthStore()
 const companies = useCompanies()
@@ -43,9 +43,9 @@ function loadPage(page) {
   }
 }
 watchEffect(() => {
-  if (currentUser.user.role_en === 'employee' || currentUser.user.role_en === 'company_admin') {
+  if (currentUser.user.role_en !== 'admin') {
     companies.loadCurrentCompany()
-  } else if (currentUser.user.role_en === 'admin') {
+  } else {
     companies.loadCompanyList({page: params.page, limit: params.limit, query: params.query})
   }
 })
@@ -57,10 +57,13 @@ useSeoMeta({
 
 <template>
   <div>
-    <div  v-if="currentUser.user.role_en !== 'admin'">
-      <div class="text-center flex items-center tracking-widest gap-x-2 justify-center max-sm:flex-col mb-10">
-        <p class="text-lg">{{ $t('Страница информации о ') }}</p>
-        <p class="font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full">{{ companies.company.name}}</p>
+    <div v-if="currentUser.user.role_en !== 'admin'">
+      <div class="">
+        <div class="flex items-center tracking-widest  gap-x-2 justify-center max-sm:flex-col mb-10">
+          <p class="text-lg">{{ $t('Страница информации о ') }}</p>
+          <p class="font-bold text-white bg-blueSemiLight p-2 px-4 rounded-full">{{ companies.company.name}}</p>
+        </div>
+        <CurrentCompanyChangeInfo v-if="['company_admin', 'director', 'vice_director'].includes(currentUser.user.role_en)"/>
       </div>
       <div class="">
         <CurrentCompanyInfo/>
@@ -91,7 +94,6 @@ useSeoMeta({
             </template>
           </CompanyStats>
         </TheContentBlock>
-
       </div>
       <div class="flex justify-center gap-x-4 mt-10">
         <div v-if="companies?.get_all_company.count > 5" v-for="(page, id) in companies?.get_all_company.links" :key="id"

@@ -4,81 +4,81 @@
     {
       "name": "vite:load-fallback",
       "result": "<script setup lang=\"ts\">\nimport {useAuthStore} from \"~/stores/auth\";\nimport {LinkedList} from \"~/hooks/Node\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport {useCompanies} from \"~/stores/companies\";\nimport isEqual from \"lodash/isEqual\";\nimport {toast} from \"vue3-toastify\";\n\nconst props = defineProps({\n  item: {\n    type: Object,\n    default: () => {\n    }\n  },\n  currentUser: {\n    type: Object,\n    default: () => {\n    }\n  },\n})\n\n\nconst company = useCompanies()\nconst authStore = useAuthStore()\n\nconst draggedNode = ref(false)\nconst list = ref(new LinkedList())\nconst documentStore = useDocumentStore()\nconst appendData = (data: any) => {\n  list.value.append(data)\n}\nconst deleteData = (data: any) => {\n  list.value.delete(data)\n}\n\nconst deleteNodeValue = (targetValue: any, removeObject: any) => {\n  list.value.deleteNodeValue(targetValue, removeObject)\n}\n\nconst addContentNode = (targetValue: any, content: any) => {\n  list.value.addContentToNode(targetValue, content)\n  console.log(documentStore.userList)\n}\n\nconst swipeData = () => {\n  list.value.swipeIfCondition()\n}\n\nfunction dragEnterNode(event: any) {\n  draggedNode.value = true\n  event.target.classList.add('draggedToNode')\n  event.preventDefault()\n}\n\nfunction dragLeaveNode(event: any) {\n  draggedNode.value = false\n  event.target.classList.remove('draggedToNode')\n  event.preventDefault()\n}\n\nfunction dragEnterNodeValue(event: any) {\n  event.target.classList.add('draggedUser')\n  event.preventDefault()\n}\n\nfunction dragLeaveNodeValue(event: any) {\n  event.target.classList.remove('draggedUser')\n  event.preventDefault()\n}\n\nonMounted(() => {\n  appendData([{\n    first_name: authStore.user?.first_name,\n    last_name: authStore.user?.last_name,\n    photo_url: authStore.user?.photo_url,\n    id: authStore.user?.id\n  }])\n  appendData([])\n  watchSyncEffect(() => {\n    // console.log(documentStore.documentItem.chain)\n    documentStore.userList = list.value.toArray().map(node => node.self)\n  })\n})\n\n\nonUnmounted(() => {\n  documentStore.showUsersNode = []\n  documentStore.showDepartment = []\n})\n</script>\n\n<template>\n  <TransitionGroup name=\"list\" tag=\"div\" class=\"flex items-center \">\n    <div v-for=\"(userGroup, groupIndex) in documentStore.userList\" :key=\"groupIndex\"\n         class=\"px-2 h-full  z-20 relative flex items-center transition-all\">\n      <div class=\" transition-all\" @drop.prevent=\"console.log(123)\"\n           @dragenter.stop=\"groupIndex === 0 || userGroup.length == 0? '' :  dragEnterNode($event)\"\n           @dragleave.stop=\"dragLeaveNode\" ></div>\n      <div @dragleave.stop @dragenter.stop @drop.prevent=\"console.log(123)\" class=\"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\"\n           :class=\"{'border border-dashed border-blueSemiLight h-20 rounded-lg' : userGroup.length === 0 || userGroup === null}\">\n        <p @click=\"console.log(userGroup)\" v-if=\"userGroup.length === 0\"\n           class=\"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\"\n           @dragenter.prevent=\"dragEnterNodeValue\" @dragleave.prevent=\"dragLeaveNodeValue\" >\n          {{ $t('Область для добавления') }}</p>\n        <div class=\"absolute top-0\" v-if=\"groupIndex !== 0\">\n          <button @click.stop=\"documentStore.showContext = groupIndex\"\n                  class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\">\n            +\n          </button>\n          <button @click.stop=\"deleteData(userGroup); documentStore.showContext = null; documentStore.showUsersNode = documentStore.showUsersNode.filter(user=> !userGroup.some(groupUser => groupUser.id === user.id))\"\n                  class=\"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\">\n            X\n          </button>\n        </div>\n        <Transition name=\"slide-down\" class=\"\" @click.stop>\n          <div v-if=\"documentStore.showContext === groupIndex\"\n               class=\"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2 \">\n            <input @click.stop type=\"text\" class=\"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\"\n                   :placeholder=\"$t('Поиск...')\">\n            <div class=\"overflow-auto max-h-[150px]\">\n              <div v-for=\"department in company.get_all_department.results\">\n                <button class=\"flex items-center justify-between gap-x-2 w-full break-words break-all\"\n                        @click=\"documentStore.showContextDepartment === department.id ? documentStore.showContextDepartment = null : documentStore.showContextDepartment = department.id\">\n                    <span>\n                      {{ department.name }}\n                    </span>\n                  <div :class=\"{'rotate-180' : documentStore.showContextDepartment === department.id}\">\n                    <svg class=\"dark:fill-white fill-black\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\"\n                         fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\"\n                            d=\"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\"></path>\n                    </svg>\n                  </div>\n                </button>\n                <Transition name=\"slide-down\">\n                  <div v-if=\"documentStore.showContextDepartment === department.id\">\n                    <div v-for=\"user in department.participants\">\n                      <button\n                        v-if=\"department.participants && documentStore.showUsersNode.every(e=>e.id !== user.id) && user.id !== authStore.user.id && userGroup.every(e=>e.priority === user.priority) \"\n                        class=\"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\"\n                        @click=\"addContentNode(userGroup, {...user}); documentStore.showUsersNode.push({id: user.id}); swipeData();documentStore.showContextDepartment = null; documentStore.showContext = null; console.log(userGroup.map(e=>e.priority))\"\n                      >\n                        <span class=\"\">{{ user.first_name + ' ' + user.last_name }}</span>\n                      </button>\n                    </div>\n                  </div>\n                </Transition>\n              </div>\n            </div>\n          </div>\n        </Transition>\n        <TransitionGroup name=\"list\" tag=\"list\" class=\"flex flex-col gap-y-6 transition-all\">\n          <div @click=\"console.log(documentStore.showUsersNode.filter(el=>el.id !== userGroup.filter(e=>e.id)))\"\n               class=\"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative \"\n               v-for=\"(user, userIndex) in userGroup\" :key=\"userIndex\">\n            <div class=\"flex items-center gap-x-2\">\n              <div v-if=\"user.photo_url\" class=\"max-w-[50px]\">\n                <img class=\"w-full rounded-full\" :src=\"authStore.get_server_domain + user.photo_url\" alt=\"\">\n              </div>\n              <div class=\"break-words\">\n                <p class=\"text-sm w-full\">\n                 {{user.first_name + ' ' + user.last_name}}\n<!--                  12312 312 3213123 123123 1232 1312 3123 123 123123 123213123123123 123-->\n                </p>\n              </div>\n            </div>\n            <button\n              class=\"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\"\n              v-if=\"user.id !== authStore.user.id && groupIndex !== 0\"\n              @click=\"deleteNodeValue(userGroup, {...user}); documentStore.showUsersNode.splice(documentStore.showUsersNode.findIndex(e=>e.id === user?.id), 1)\">\n              X\n            </button>\n          </div>\n        </TransitionGroup>\n      </div>\n    </div>\n    <button\n      class=\" text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\"\n      @click=\"appendData([])\">\n      +\n    </button>\n  </TransitionGroup>\n</template>\n\n<style scoped lang=\"postcss\">\n.draggedUser {\n  background: rgba(14, 165, 233, 0.3);\n  @apply dark:text-white\n}\n\n.draggedToNode {\n  background: rgba(14, 165, 233, 0.1);\n}\n\n.list-enter-active,\n.list-leave-active {\n  transition: all 0.5s ease;\n}\n\n.list-enter-from,\n.list-leave-to {\n  opacity: 0;\n  transform: translateX(30px);\n}\n</style>",
-      "start": 1706896550078,
-      "end": 1706896550198,
+      "start": 1707126072614,
+      "end": 1707126072631,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896550198,
-      "end": 1706896550198,
+      "start": 1707126072631,
+      "end": 1707126072631,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=style&index=0&scoped=f2659d0b&lang.postcss\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-f2659d0b\"]]);\n",
-      "start": 1706896550198,
-      "end": 1706896550210,
+      "start": 1707126072631,
+      "end": 1707126072659,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -86,214 +86,214 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896550211,
-      "end": 1706896550211,
+      "start": 1707126072659,
+      "end": 1707126072659,
       "order": "normal"
     },
     {
       "name": "vite:define",
       "result": "import _sfc_main from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=style&index=0&scoped=f2659d0b&lang.postcss\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-f2659d0b\"]]);\n",
-      "start": 1706896550211,
-      "end": 1706896550218,
+      "start": 1707126072659,
+      "end": 1707126072661,
       "order": "normal",
       "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"D:/Programming/templates/KPIcopy/components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue?vue&type=style&index=0&scoped=f2659d0b&lang.postcss\\\";\\nimport { useSSRContext as __vite_useSSRContext } from \\\"vue\\\";\\nconst _sfc_setup = _sfc_main.setup;\\n_sfc_main.setup = (props, ctx) => {\\n  const ssrContext = __vite_useSSRContext();\\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\\\"components/documents/DocumentItemInfo/DocumentIemInfoChain/DocumentItemInfoChainScheduleItem.vue\\\");\\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\\n};\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-f2659d0b\\\"]]);\\n\"],\n  \"mappings\": \"AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,SAAS,iBAAiB,4BAA4B;AACtD,MAAM,aAAa,UAAU;AAC7B,UAAU,QAAQ,CAAC,OAAO,QAAQ;AAChC,QAAM,aAAa,qBAAqB;AACxC,GAAC,WAAW,YAAY,WAAW,UAA0B,oBAAI,IAAI,IAAI,IAAI,kGAAkG;AAC/K,SAAO,aAAa,WAAW,OAAO,GAAG,IAAI;AAC/C;AACA,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,CAAC,CAAC;\",\n  \"names\": []\n}\n"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896550218,
-      "end": 1706896550218,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896550218,
-      "end": 1706896550218,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896550218,
-      "end": 1706896550218,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896550218,
-      "end": 1706896550218,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896550218,
-      "end": 1706896550218,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896550218,
-      "end": 1706896550218,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896550218,
-      "end": 1706896550218,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896550219,
-      "end": 1706896550219,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896550219,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896550219,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896550221,
-      "end": 1706896550221,
+      "start": 1707126072661,
+      "end": 1707126072661,
       "order": "normal"
     }
   ]

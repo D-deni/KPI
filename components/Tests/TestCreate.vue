@@ -68,7 +68,7 @@ const createForm = ref({
             <button type="button" class="border px-6 py-4 rounded-lg transition-all"
                     :class="{'bg-gray-700 text-white': selectedTestType === 'testIQ', 'bg-red-400 text-white' : selectedTestType === 'error'}"
                     @click="selectedTestType = 'testIQ'; createForm.department_id = null">
-              {{ $t('По IQ') }}
+              {{ $t('На IQ') }}
             </button>
             <button type="button" class="border px-6 py-4 rounded-lg transition-all"
                     :class="{'bg-gray-700 text-white': selectedTestType === 'testSpecial', 'bg-red-400 text-white' : selectedTestType === 'error'}"

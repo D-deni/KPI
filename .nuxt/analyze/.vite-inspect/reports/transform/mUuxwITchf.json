@@ -4,232 +4,232 @@
     {
       "name": "vite:load-fallback",
       "result": "/**\n * virtual-core\n *\n * Copyright (c) TanStack\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.md file in the root directory of this source tree.\n *\n * @license MIT\n */\nimport { extends as _extends } from './_virtual/_rollupPluginBabelHelpers.mjs';\nimport { memo, notUndefined, approxEqual } from './utils.mjs';\nexport { approxEqual, memo, notUndefined } from './utils.mjs';\n\n//\n\n//\n\nvar defaultKeyExtractor = function defaultKeyExtractor(index) {\n  return index;\n};\nvar defaultRangeExtractor = function defaultRangeExtractor(range) {\n  var start = Math.max(range.startIndex - range.overscan, 0);\n  var end = Math.min(range.endIndex + range.overscan, range.count - 1);\n  var arr = [];\n  for (var _i = start; _i <= end; _i++) {\n    arr.push(_i);\n  }\n  return arr;\n};\nvar observeElementRect = function observeElementRect(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler(rect) {\n    var width = rect.width,\n      height = rect.height;\n    cb({\n      width: Math.round(width),\n      height: Math.round(height)\n    });\n  };\n  handler(element.getBoundingClientRect());\n  var observer = new ResizeObserver(function (entries) {\n    var entry = entries[0];\n    if (entry != null && entry.borderBoxSize) {\n      var box = entry.borderBoxSize[0];\n      if (box) {\n        handler({\n          width: box.inlineSize,\n          height: box.blockSize\n        });\n        return;\n      }\n    }\n    handler(element.getBoundingClientRect());\n  });\n  observer.observe(element, {\n    box: 'border-box'\n  });\n  return function () {\n    observer.unobserve(element);\n  };\n};\nvar observeWindowRect = function observeWindowRect(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler() {\n    cb({\n      width: element.innerWidth,\n      height: element.innerHeight\n    });\n  };\n  handler();\n  element.addEventListener('resize', handler, {\n    passive: true\n  });\n  return function () {\n    element.removeEventListener('resize', handler);\n  };\n};\nvar observeElementOffset = function observeElementOffset(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler() {\n    cb(element[instance.options.horizontal ? 'scrollLeft' : 'scrollTop']);\n  };\n  handler();\n  element.addEventListener('scroll', handler, {\n    passive: true\n  });\n  return function () {\n    element.removeEventListener('scroll', handler);\n  };\n};\nvar observeWindowOffset = function observeWindowOffset(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler() {\n    cb(element[instance.options.horizontal ? 'scrollX' : 'scrollY']);\n  };\n  handler();\n  element.addEventListener('scroll', handler, {\n    passive: true\n  });\n  return function () {\n    element.removeEventListener('scroll', handler);\n  };\n};\nvar measureElement = function measureElement(element, entry, instance) {\n  if (entry != null && entry.borderBoxSize) {\n    var box = entry.borderBoxSize[0];\n    if (box) {\n      var size = Math.round(box[instance.options.horizontal ? 'inlineSize' : 'blockSize']);\n      return size;\n    }\n  }\n  return Math.round(element.getBoundingClientRect()[instance.options.horizontal ? 'width' : 'height']);\n};\nvar windowScroll = function windowScroll(offset, _ref, instance) {\n  var _instance$scrollEleme, _instance$scrollEleme2;\n  var _ref$adjustments = _ref.adjustments,\n    adjustments = _ref$adjustments === void 0 ? 0 : _ref$adjustments,\n    behavior = _ref.behavior;\n  var toOffset = offset + adjustments;\n  (_instance$scrollEleme = instance.scrollElement) == null || _instance$scrollEleme.scrollTo == null || _instance$scrollEleme.scrollTo((_instance$scrollEleme2 = {}, _instance$scrollEleme2[instance.options.horizontal ? 'left' : 'top'] = toOffset, _instance$scrollEleme2.behavior = behavior, _instance$scrollEleme2));\n};\nvar elementScroll = function elementScroll(offset, _ref2, instance) {\n  var _instance$scrollEleme3, _instance$scrollEleme4;\n  var _ref2$adjustments = _ref2.adjustments,\n    adjustments = _ref2$adjustments === void 0 ? 0 : _ref2$adjustments,\n    behavior = _ref2.behavior;\n  var toOffset = offset + adjustments;\n  (_instance$scrollEleme3 = instance.scrollElement) == null || _instance$scrollEleme3.scrollTo == null || _instance$scrollEleme3.scrollTo((_instance$scrollEleme4 = {}, _instance$scrollEleme4[instance.options.horizontal ? 'left' : 'top'] = toOffset, _instance$scrollEleme4.behavior = behavior, _instance$scrollEleme4));\n};\nvar Virtualizer = function Virtualizer(_opts) {\n  var _this = this;\n  this.unsubs = [];\n  this.scrollElement = null;\n  this.isScrolling = false;\n  this.isScrollingTimeoutId = null;\n  this.scrollToIndexTimeoutId = null;\n  this.measurementsCache = [];\n  this.itemSizeCache = new Map();\n  this.pendingMeasuredCacheIndexes = [];\n  this.scrollDirection = null;\n  this.scrollAdjustments = 0;\n  this.measureElementCache = new Map();\n  this.observer = function () {\n    var _ro = null;\n    var get = function get() {\n      if (_ro) {\n        return _ro;\n      } else if (typeof ResizeObserver !== 'undefined') {\n        return _ro = new ResizeObserver(function (entries) {\n          entries.forEach(function (entry) {\n            _this._measureElement(entry.target, entry);\n          });\n        });\n      } else {\n        return null;\n      }\n    };\n    return {\n      disconnect: function disconnect() {\n        var _get;\n        return (_get = get()) == null ? void 0 : _get.disconnect();\n      },\n      observe: function observe(target) {\n        var _get2;\n        return (_get2 = get()) == null ? void 0 : _get2.observe(target, {\n          box: 'border-box'\n        });\n      },\n      unobserve: function unobserve(target) {\n        var _get3;\n        return (_get3 = get()) == null ? void 0 : _get3.unobserve(target);\n      }\n    };\n  }();\n  this.range = null;\n  this.setOptions = function (opts) {\n    Object.entries(opts).forEach(function (_ref3) {\n      var key = _ref3[0],\n        value = _ref3[1];\n      if (typeof value === 'undefined') delete opts[key];\n    });\n    _this.options = _extends({\n      debug: false,\n      initialOffset: 0,\n      overscan: 1,\n      paddingStart: 0,\n      paddingEnd: 0,\n      scrollPaddingStart: 0,\n      scrollPaddingEnd: 0,\n      horizontal: false,\n      getItemKey: defaultKeyExtractor,\n      rangeExtractor: defaultRangeExtractor,\n      onChange: function onChange() {},\n      measureElement: measureElement,\n      initialRect: {\n        width: 0,\n        height: 0\n      },\n      scrollMargin: 0,\n      scrollingDelay: 150,\n      indexAttribute: 'data-index',\n      initialMeasurementsCache: [],\n      lanes: 1\n    }, opts);\n  };\n  this.notify = function (sync) {\n    _this.options.onChange == null || _this.options.onChange(_this, sync);\n  };\n  this.maybeNotify = memo(function () {\n    _this.calculateRange();\n    return [_this.isScrolling, _this.range ? _this.range.startIndex : null, _this.range ? _this.range.endIndex : null];\n  }, function (isScrolling) {\n    _this.notify(isScrolling);\n  }, {\n    key: process.env.NODE_ENV !== 'production' && 'maybeNotify',\n    debug: function debug() {\n      return _this.options.debug;\n    },\n    initialDeps: [this.isScrolling, this.range ? this.range.startIndex : null, this.range ? this.range.endIndex : null]\n  });\n  this.cleanup = function () {\n    _this.unsubs.filter(Boolean).forEach(function (d) {\n      return d();\n    });\n    _this.unsubs = [];\n    _this.scrollElement = null;\n  };\n  this._didMount = function () {\n    _this.measureElementCache.forEach(_this.observer.observe);\n    return function () {\n      _this.observer.disconnect();\n      _this.cleanup();\n    };\n  };\n  this._willUpdate = function () {\n    var scrollElement = _this.options.getScrollElement();\n    if (_this.scrollElement !== scrollElement) {\n      _this.cleanup();\n      _this.scrollElement = scrollElement;\n      _this._scrollToOffset(_this.scrollOffset, {\n        adjustments: undefined,\n        behavior: undefined\n      });\n      _this.unsubs.push(_this.options.observeElementRect(_this, function (rect) {\n        _this.scrollRect = rect;\n        _this.maybeNotify();\n      }));\n      _this.unsubs.push(_this.options.observeElementOffset(_this, function (offset) {\n        _this.scrollAdjustments = 0;\n        if (_this.scrollOffset === offset) {\n          return;\n        }\n        if (_this.isScrollingTimeoutId !== null) {\n          clearTimeout(_this.isScrollingTimeoutId);\n          _this.isScrollingTimeoutId = null;\n        }\n        _this.isScrolling = true;\n        _this.scrollDirection = _this.scrollOffset < offset ? 'forward' : 'backward';\n        _this.scrollOffset = offset;\n        _this.maybeNotify();\n        _this.isScrollingTimeoutId = setTimeout(function () {\n          _this.isScrollingTimeoutId = null;\n          _this.isScrolling = false;\n          _this.scrollDirection = null;\n          _this.maybeNotify();\n        }, _this.options.scrollingDelay);\n      }));\n    }\n  };\n  this.getSize = function () {\n    return _this.scrollRect[_this.options.horizontal ? 'width' : 'height'];\n  };\n  this.memoOptions = memo(function () {\n    return [_this.options.count, _this.options.paddingStart, _this.options.scrollMargin, _this.options.getItemKey];\n  }, function (count, paddingStart, scrollMargin, getItemKey) {\n    _this.pendingMeasuredCacheIndexes = [];\n    return {\n      count: count,\n      paddingStart: paddingStart,\n      scrollMargin: scrollMargin,\n      getItemKey: getItemKey\n    };\n  }, {\n    key: false\n  });\n  this.getFurthestMeasurement = function (measurements, index) {\n    var furthestMeasurementsFound = new Map();\n    var furthestMeasurements = new Map();\n    for (var m = index - 1; m >= 0; m--) {\n      var measurement = measurements[m];\n      if (furthestMeasurementsFound.has(measurement.lane)) {\n        continue;\n      }\n      var previousFurthestMeasurement = furthestMeasurements.get(measurement.lane);\n      if (previousFurthestMeasurement == null || measurement.end > previousFurthestMeasurement.end) {\n        furthestMeasurements.set(measurement.lane, measurement);\n      } else if (measurement.end < previousFurthestMeasurement.end) {\n        furthestMeasurementsFound.set(measurement.lane, true);\n      }\n      if (furthestMeasurementsFound.size === _this.options.lanes) {\n        break;\n      }\n    }\n    return furthestMeasurements.size === _this.options.lanes ? Array.from(furthestMeasurements.values()).sort(function (a, b) {\n      return a.end - b.end;\n    })[0] : undefined;\n  };\n  this.getMeasurements = memo(function () {\n    return [_this.memoOptions(), _this.itemSizeCache];\n  }, function (_ref4, itemSizeCache) {\n    var count = _ref4.count,\n      paddingStart = _ref4.paddingStart,\n      scrollMargin = _ref4.scrollMargin,\n      getItemKey = _ref4.getItemKey;\n    var min = _this.pendingMeasuredCacheIndexes.length > 0 ? Math.min.apply(Math, _this.pendingMeasuredCacheIndexes) : 0;\n    _this.pendingMeasuredCacheIndexes = [];\n    var measurements = _this.measurementsCache.slice(0, min);\n    for (var _i2 = min; _i2 < count; _i2++) {\n      var key = getItemKey(_i2);\n      var furthestMeasurement = _this.options.lanes === 1 ? measurements[_i2 - 1] : _this.getFurthestMeasurement(measurements, _i2);\n      var start = furthestMeasurement ? furthestMeasurement.end : paddingStart + scrollMargin;\n      var measuredSize = itemSizeCache.get(key);\n      var size = typeof measuredSize === 'number' ? measuredSize : _this.options.estimateSize(_i2);\n      var end = start + size;\n      var lane = furthestMeasurement ? furthestMeasurement.lane : _i2 % _this.options.lanes;\n      measurements[_i2] = {\n        index: _i2,\n        start: start,\n        size: size,\n        end: end,\n        key: key,\n        lane: lane\n      };\n    }\n    _this.measurementsCache = measurements;\n    return measurements;\n  }, {\n    key: process.env.NODE_ENV !== 'production' && 'getMeasurements',\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.calculateRange = memo(function () {\n    return [_this.getMeasurements(), _this.getSize(), _this.scrollOffset];\n  }, function (measurements, outerSize, scrollOffset) {\n    return _this.range = measurements.length > 0 && outerSize > 0 ? calculateRange({\n      measurements: measurements,\n      outerSize: outerSize,\n      scrollOffset: scrollOffset\n    }) : null;\n  }, {\n    key: process.env.NODE_ENV !== 'production' && 'calculateRange',\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.getIndexes = memo(function () {\n    return [_this.options.rangeExtractor, _this.calculateRange(), _this.options.overscan, _this.options.count];\n  }, function (rangeExtractor, range, overscan, count) {\n    return range === null ? [] : rangeExtractor(_extends({}, range, {\n      overscan: overscan,\n      count: count\n    }));\n  }, {\n    key: process.env.NODE_ENV !== 'production' && 'getIndexes',\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.indexFromElement = function (node) {\n    var attributeName = _this.options.indexAttribute;\n    var indexStr = node.getAttribute(attributeName);\n    if (!indexStr) {\n      console.warn(\"Missing attribute name '\" + attributeName + \"={index}' on measured element.\");\n      return -1;\n    }\n    return parseInt(indexStr, 10);\n  };\n  this._measureElement = function (node, entry) {\n    var item = _this.measurementsCache[_this.indexFromElement(node)];\n    if (!item || !node.isConnected) {\n      _this.measureElementCache.forEach(function (cached, key) {\n        if (cached === node) {\n          _this.observer.unobserve(node);\n          _this.measureElementCache[\"delete\"](key);\n        }\n      });\n      return;\n    }\n    var prevNode = _this.measureElementCache.get(item.key);\n    if (prevNode !== node) {\n      if (prevNode) {\n        _this.observer.unobserve(prevNode);\n      }\n      _this.observer.observe(node);\n      _this.measureElementCache.set(item.key, node);\n    }\n    var measuredItemSize = _this.options.measureElement(node, entry, _this);\n    _this.resizeItem(item, measuredItemSize);\n  };\n  this.resizeItem = function (item, size) {\n    var _this$itemSizeCache$g;\n    var itemSize = (_this$itemSizeCache$g = _this.itemSizeCache.get(item.key)) != null ? _this$itemSizeCache$g : item.size;\n    var delta = size - itemSize;\n    if (delta !== 0) {\n      if (item.start < _this.scrollOffset) {\n        if (process.env.NODE_ENV !== 'production' && _this.options.debug) {\n          console.info('correction', delta);\n        }\n        _this._scrollToOffset(_this.scrollOffset, {\n          adjustments: _this.scrollAdjustments += delta,\n          behavior: undefined\n        });\n      }\n      _this.pendingMeasuredCacheIndexes.push(item.index);\n      _this.itemSizeCache = new Map(_this.itemSizeCache.set(item.key, size));\n      _this.notify(false);\n    }\n  };\n  this.measureElement = function (node) {\n    if (!node) {\n      return;\n    }\n    _this._measureElement(node, undefined);\n  };\n  this.getVirtualItems = memo(function () {\n    return [_this.getIndexes(), _this.getMeasurements()];\n  }, function (indexes, measurements) {\n    var virtualItems = [];\n    for (var k = 0, len = indexes.length; k < len; k++) {\n      var _i3 = indexes[k];\n      var measurement = measurements[_i3];\n      virtualItems.push(measurement);\n    }\n    return virtualItems;\n  }, {\n    key: process.env.NODE_ENV !== 'production' && 'getIndexes',\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.getVirtualItemForOffset = function (offset) {\n    var measurements = _this.getMeasurements();\n    return notUndefined(measurements[findNearestBinarySearch(0, measurements.length - 1, function (index) {\n      return notUndefined(measurements[index]).start;\n    }, offset)]);\n  };\n  this.getOffsetForAlignment = function (toOffset, align) {\n    var size = _this.getSize();\n    if (align === 'auto') {\n      if (toOffset <= _this.scrollOffset) {\n        align = 'start';\n      } else if (toOffset >= _this.scrollOffset + size) {\n        align = 'end';\n      } else {\n        align = 'start';\n      }\n    }\n    if (align === 'start') {\n      toOffset = toOffset;\n    } else if (align === 'end') {\n      toOffset = toOffset - size;\n    } else if (align === 'center') {\n      toOffset = toOffset - size / 2;\n    }\n    var scrollSizeProp = _this.options.horizontal ? 'scrollWidth' : 'scrollHeight';\n    var scrollSize = _this.scrollElement ? 'document' in _this.scrollElement ? _this.scrollElement.document.documentElement[scrollSizeProp] : _this.scrollElement[scrollSizeProp] : 0;\n    var maxOffset = scrollSize - _this.getSize();\n    return Math.max(Math.min(maxOffset, toOffset), 0);\n  };\n  this.getOffsetForIndex = function (index, align) {\n    if (align === void 0) {\n      align = 'auto';\n    }\n    index = Math.max(0, Math.min(index, _this.options.count - 1));\n    var measurement = notUndefined(_this.getMeasurements()[index]);\n    if (align === 'auto') {\n      if (measurement.end >= _this.scrollOffset + _this.getSize() - _this.options.scrollPaddingEnd) {\n        align = 'end';\n      } else if (measurement.start <= _this.scrollOffset + _this.options.scrollPaddingStart) {\n        align = 'start';\n      } else {\n        return [_this.scrollOffset, align];\n      }\n    }\n    var toOffset = align === 'end' ? measurement.end + _this.options.scrollPaddingEnd : measurement.start - _this.options.scrollPaddingStart;\n    return [_this.getOffsetForAlignment(toOffset, align), align];\n  };\n  this.isDynamicMode = function () {\n    return _this.measureElementCache.size > 0;\n  };\n  this.cancelScrollToIndex = function () {\n    if (_this.scrollToIndexTimeoutId !== null) {\n      clearTimeout(_this.scrollToIndexTimeoutId);\n      _this.scrollToIndexTimeoutId = null;\n    }\n  };\n  this.scrollToOffset = function (toOffset, _temp) {\n    var _ref5 = _temp === void 0 ? {} : _temp,\n      _ref5$align = _ref5.align,\n      align = _ref5$align === void 0 ? 'start' : _ref5$align,\n      behavior = _ref5.behavior;\n    _this.cancelScrollToIndex();\n    if (behavior === 'smooth' && _this.isDynamicMode()) {\n      console.warn('The `smooth` scroll behavior is not fully supported with dynamic size.');\n    }\n    _this._scrollToOffset(_this.getOffsetForAlignment(toOffset, align), {\n      adjustments: undefined,\n      behavior: behavior\n    });\n  };\n  this.scrollToIndex = function (index, _temp2) {\n    var _ref6 = _temp2 === void 0 ? {} : _temp2,\n      _ref6$align = _ref6.align,\n      initialAlign = _ref6$align === void 0 ? 'auto' : _ref6$align,\n      behavior = _ref6.behavior;\n    index = Math.max(0, Math.min(index, _this.options.count - 1));\n    _this.cancelScrollToIndex();\n    if (behavior === 'smooth' && _this.isDynamicMode()) {\n      console.warn('The `smooth` scroll behavior is not fully supported with dynamic size.');\n    }\n    var _this$getOffsetForInd = _this.getOffsetForIndex(index, initialAlign),\n      toOffset = _this$getOffsetForInd[0],\n      align = _this$getOffsetForInd[1];\n    _this._scrollToOffset(toOffset, {\n      adjustments: undefined,\n      behavior: behavior\n    });\n    if (behavior !== 'smooth' && _this.isDynamicMode()) {\n      _this.scrollToIndexTimeoutId = setTimeout(function () {\n        _this.scrollToIndexTimeoutId = null;\n        var elementInDOM = _this.measureElementCache.has(_this.options.getItemKey(index));\n        if (elementInDOM) {\n          var _this$getOffsetForInd2 = _this.getOffsetForIndex(index, align),\n            _toOffset = _this$getOffsetForInd2[0];\n          if (!approxEqual(_toOffset, _this.scrollOffset)) {\n            _this.scrollToIndex(index, {\n              align: align,\n              behavior: behavior\n            });\n          }\n        } else {\n          _this.scrollToIndex(index, {\n            align: align,\n            behavior: behavior\n          });\n        }\n      });\n    }\n  };\n  this.scrollBy = function (delta, _temp3) {\n    var _ref7 = _temp3 === void 0 ? {} : _temp3,\n      behavior = _ref7.behavior;\n    _this.cancelScrollToIndex();\n    if (behavior === 'smooth' && _this.isDynamicMode()) {\n      console.warn('The `smooth` scroll behavior is not fully supported with dynamic size.');\n    }\n    _this._scrollToOffset(_this.scrollOffset + delta, {\n      adjustments: undefined,\n      behavior: behavior\n    });\n  };\n  this.getTotalSize = function () {\n    var _this$getMeasurements;\n    return (((_this$getMeasurements = _this.getMeasurements()[_this.options.count - 1]) == null ? void 0 : _this$getMeasurements.end) || _this.options.paddingStart) - _this.options.scrollMargin + _this.options.paddingEnd;\n  };\n  this._scrollToOffset = function (offset, _ref8) {\n    var adjustments = _ref8.adjustments,\n      behavior = _ref8.behavior;\n    _this.options.scrollToFn(offset, {\n      behavior: behavior,\n      adjustments: adjustments\n    }, _this);\n  };\n  this.measure = function () {\n    _this.itemSizeCache = new Map();\n    _this.notify(false);\n  };\n  this.setOptions(_opts);\n  this.scrollRect = this.options.initialRect;\n  this.scrollOffset = this.options.initialOffset;\n  this.measurementsCache = this.options.initialMeasurementsCache;\n  this.measurementsCache.forEach(function (item) {\n    _this.itemSizeCache.set(item.key, item.size);\n  });\n  this.maybeNotify();\n};\nvar findNearestBinarySearch = function findNearestBinarySearch(low, high, getCurrentValue, value) {\n  while (low <= high) {\n    var middle = (low + high) / 2 | 0;\n    var currentValue = getCurrentValue(middle);\n    if (currentValue < value) {\n      low = middle + 1;\n    } else if (currentValue > value) {\n      high = middle - 1;\n    } else {\n      return middle;\n    }\n  }\n  if (low > 0) {\n    return low - 1;\n  } else {\n    return 0;\n  }\n};\nfunction calculateRange(_ref9) {\n  var measurements = _ref9.measurements,\n    outerSize = _ref9.outerSize,\n    scrollOffset = _ref9.scrollOffset;\n  var count = measurements.length - 1;\n  var getOffset = function getOffset(index) {\n    return measurements[index].start;\n  };\n  var startIndex = findNearestBinarySearch(0, count, getOffset, scrollOffset);\n  var endIndex = startIndex;\n  while (endIndex < count && measurements[endIndex].end < scrollOffset + outerSize) {\n    endIndex++;\n  }\n  return {\n    startIndex: startIndex,\n    endIndex: endIndex\n  };\n}\n\nexport { Virtualizer, defaultKeyExtractor, defaultRangeExtractor, elementScroll, measureElement, observeElementOffset, observeElementRect, observeWindowOffset, observeWindowRect, windowScroll };\n//# sourceMappingURL=index.mjs.map\n",
-      "start": 1706896525417,
-      "end": 1706896525467,
+      "start": 1707126049464,
+      "end": 1707126049645,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525467,
-      "end": 1706896525467,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525467,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525468,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525468,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525468,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525468,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525468,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525468,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525468,
-      "end": 1706896525468,
+      "start": 1707126049645,
+      "end": 1707126049645,
       "order": "normal"
     },
     {
       "name": "vite:define",
       "result": "/**\n * virtual-core\n *\n * Copyright (c) TanStack\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.md file in the root directory of this source tree.\n *\n * @license MIT\n */\nimport { extends as _extends } from \"./_virtual/_rollupPluginBabelHelpers.mjs\";\nimport { memo, notUndefined, approxEqual } from \"./utils.mjs\";\nexport { approxEqual, memo, notUndefined } from \"./utils.mjs\";\nvar defaultKeyExtractor = function defaultKeyExtractor2(index) {\n  return index;\n};\nvar defaultRangeExtractor = function defaultRangeExtractor2(range) {\n  var start = Math.max(range.startIndex - range.overscan, 0);\n  var end = Math.min(range.endIndex + range.overscan, range.count - 1);\n  var arr = [];\n  for (var _i = start; _i <= end; _i++) {\n    arr.push(_i);\n  }\n  return arr;\n};\nvar observeElementRect = function observeElementRect2(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler2(rect) {\n    var width = rect.width, height = rect.height;\n    cb({\n      width: Math.round(width),\n      height: Math.round(height)\n    });\n  };\n  handler(element.getBoundingClientRect());\n  var observer = new ResizeObserver(function(entries) {\n    var entry = entries[0];\n    if (entry != null && entry.borderBoxSize) {\n      var box = entry.borderBoxSize[0];\n      if (box) {\n        handler({\n          width: box.inlineSize,\n          height: box.blockSize\n        });\n        return;\n      }\n    }\n    handler(element.getBoundingClientRect());\n  });\n  observer.observe(element, {\n    box: \"border-box\"\n  });\n  return function() {\n    observer.unobserve(element);\n  };\n};\nvar observeWindowRect = function observeWindowRect2(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler2() {\n    cb({\n      width: element.innerWidth,\n      height: element.innerHeight\n    });\n  };\n  handler();\n  element.addEventListener(\"resize\", handler, {\n    passive: true\n  });\n  return function() {\n    element.removeEventListener(\"resize\", handler);\n  };\n};\nvar observeElementOffset = function observeElementOffset2(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler2() {\n    cb(element[instance.options.horizontal ? \"scrollLeft\" : \"scrollTop\"]);\n  };\n  handler();\n  element.addEventListener(\"scroll\", handler, {\n    passive: true\n  });\n  return function() {\n    element.removeEventListener(\"scroll\", handler);\n  };\n};\nvar observeWindowOffset = function observeWindowOffset2(instance, cb) {\n  var element = instance.scrollElement;\n  if (!element) {\n    return;\n  }\n  var handler = function handler2() {\n    cb(element[instance.options.horizontal ? \"scrollX\" : \"scrollY\"]);\n  };\n  handler();\n  element.addEventListener(\"scroll\", handler, {\n    passive: true\n  });\n  return function() {\n    element.removeEventListener(\"scroll\", handler);\n  };\n};\nvar measureElement = function measureElement2(element, entry, instance) {\n  if (entry != null && entry.borderBoxSize) {\n    var box = entry.borderBoxSize[0];\n    if (box) {\n      var size = Math.round(box[instance.options.horizontal ? \"inlineSize\" : \"blockSize\"]);\n      return size;\n    }\n  }\n  return Math.round(element.getBoundingClientRect()[instance.options.horizontal ? \"width\" : \"height\"]);\n};\nvar windowScroll = function windowScroll2(offset, _ref, instance) {\n  var _instance$scrollEleme, _instance$scrollEleme2;\n  var _ref$adjustments = _ref.adjustments, adjustments = _ref$adjustments === void 0 ? 0 : _ref$adjustments, behavior = _ref.behavior;\n  var toOffset = offset + adjustments;\n  (_instance$scrollEleme = instance.scrollElement) == null || _instance$scrollEleme.scrollTo == null || _instance$scrollEleme.scrollTo((_instance$scrollEleme2 = {}, _instance$scrollEleme2[instance.options.horizontal ? \"left\" : \"top\"] = toOffset, _instance$scrollEleme2.behavior = behavior, _instance$scrollEleme2));\n};\nvar elementScroll = function elementScroll2(offset, _ref2, instance) {\n  var _instance$scrollEleme3, _instance$scrollEleme4;\n  var _ref2$adjustments = _ref2.adjustments, adjustments = _ref2$adjustments === void 0 ? 0 : _ref2$adjustments, behavior = _ref2.behavior;\n  var toOffset = offset + adjustments;\n  (_instance$scrollEleme3 = instance.scrollElement) == null || _instance$scrollEleme3.scrollTo == null || _instance$scrollEleme3.scrollTo((_instance$scrollEleme4 = {}, _instance$scrollEleme4[instance.options.horizontal ? \"left\" : \"top\"] = toOffset, _instance$scrollEleme4.behavior = behavior, _instance$scrollEleme4));\n};\nvar Virtualizer = function Virtualizer2(_opts) {\n  var _this = this;\n  this.unsubs = [];\n  this.scrollElement = null;\n  this.isScrolling = false;\n  this.isScrollingTimeoutId = null;\n  this.scrollToIndexTimeoutId = null;\n  this.measurementsCache = [];\n  this.itemSizeCache = /* @__PURE__ */ new Map();\n  this.pendingMeasuredCacheIndexes = [];\n  this.scrollDirection = null;\n  this.scrollAdjustments = 0;\n  this.measureElementCache = /* @__PURE__ */ new Map();\n  this.observer = /* @__PURE__ */ function() {\n    var _ro = null;\n    var get = function get2() {\n      if (_ro) {\n        return _ro;\n      } else if (typeof ResizeObserver !== \"undefined\") {\n        return _ro = new ResizeObserver(function(entries) {\n          entries.forEach(function(entry) {\n            _this._measureElement(entry.target, entry);\n          });\n        });\n      } else {\n        return null;\n      }\n    };\n    return {\n      disconnect: function disconnect() {\n        var _get;\n        return (_get = get()) == null ? void 0 : _get.disconnect();\n      },\n      observe: function observe(target) {\n        var _get2;\n        return (_get2 = get()) == null ? void 0 : _get2.observe(target, {\n          box: \"border-box\"\n        });\n      },\n      unobserve: function unobserve(target) {\n        var _get3;\n        return (_get3 = get()) == null ? void 0 : _get3.unobserve(target);\n      }\n    };\n  }();\n  this.range = null;\n  this.setOptions = function(opts) {\n    Object.entries(opts).forEach(function(_ref3) {\n      var key = _ref3[0], value = _ref3[1];\n      if (typeof value === \"undefined\")\n        delete opts[key];\n    });\n    _this.options = _extends({\n      debug: false,\n      initialOffset: 0,\n      overscan: 1,\n      paddingStart: 0,\n      paddingEnd: 0,\n      scrollPaddingStart: 0,\n      scrollPaddingEnd: 0,\n      horizontal: false,\n      getItemKey: defaultKeyExtractor,\n      rangeExtractor: defaultRangeExtractor,\n      onChange: function onChange() {\n      },\n      measureElement,\n      initialRect: {\n        width: 0,\n        height: 0\n      },\n      scrollMargin: 0,\n      scrollingDelay: 150,\n      indexAttribute: \"data-index\",\n      initialMeasurementsCache: [],\n      lanes: 1\n    }, opts);\n  };\n  this.notify = function(sync) {\n    _this.options.onChange == null || _this.options.onChange(_this, sync);\n  };\n  this.maybeNotify = memo(function() {\n    _this.calculateRange();\n    return [_this.isScrolling, _this.range ? _this.range.startIndex : null, _this.range ? _this.range.endIndex : null];\n  }, function(isScrolling) {\n    _this.notify(isScrolling);\n  }, {\n    key: false,\n    debug: function debug() {\n      return _this.options.debug;\n    },\n    initialDeps: [this.isScrolling, this.range ? this.range.startIndex : null, this.range ? this.range.endIndex : null]\n  });\n  this.cleanup = function() {\n    _this.unsubs.filter(Boolean).forEach(function(d) {\n      return d();\n    });\n    _this.unsubs = [];\n    _this.scrollElement = null;\n  };\n  this._didMount = function() {\n    _this.measureElementCache.forEach(_this.observer.observe);\n    return function() {\n      _this.observer.disconnect();\n      _this.cleanup();\n    };\n  };\n  this._willUpdate = function() {\n    var scrollElement = _this.options.getScrollElement();\n    if (_this.scrollElement !== scrollElement) {\n      _this.cleanup();\n      _this.scrollElement = scrollElement;\n      _this._scrollToOffset(_this.scrollOffset, {\n        adjustments: void 0,\n        behavior: void 0\n      });\n      _this.unsubs.push(_this.options.observeElementRect(_this, function(rect) {\n        _this.scrollRect = rect;\n        _this.maybeNotify();\n      }));\n      _this.unsubs.push(_this.options.observeElementOffset(_this, function(offset) {\n        _this.scrollAdjustments = 0;\n        if (_this.scrollOffset === offset) {\n          return;\n        }\n        if (_this.isScrollingTimeoutId !== null) {\n          clearTimeout(_this.isScrollingTimeoutId);\n          _this.isScrollingTimeoutId = null;\n        }\n        _this.isScrolling = true;\n        _this.scrollDirection = _this.scrollOffset < offset ? \"forward\" : \"backward\";\n        _this.scrollOffset = offset;\n        _this.maybeNotify();\n        _this.isScrollingTimeoutId = setTimeout(function() {\n          _this.isScrollingTimeoutId = null;\n          _this.isScrolling = false;\n          _this.scrollDirection = null;\n          _this.maybeNotify();\n        }, _this.options.scrollingDelay);\n      }));\n    }\n  };\n  this.getSize = function() {\n    return _this.scrollRect[_this.options.horizontal ? \"width\" : \"height\"];\n  };\n  this.memoOptions = memo(function() {\n    return [_this.options.count, _this.options.paddingStart, _this.options.scrollMargin, _this.options.getItemKey];\n  }, function(count, paddingStart, scrollMargin, getItemKey) {\n    _this.pendingMeasuredCacheIndexes = [];\n    return {\n      count,\n      paddingStart,\n      scrollMargin,\n      getItemKey\n    };\n  }, {\n    key: false\n  });\n  this.getFurthestMeasurement = function(measurements, index) {\n    var furthestMeasurementsFound = /* @__PURE__ */ new Map();\n    var furthestMeasurements = /* @__PURE__ */ new Map();\n    for (var m = index - 1; m >= 0; m--) {\n      var measurement = measurements[m];\n      if (furthestMeasurementsFound.has(measurement.lane)) {\n        continue;\n      }\n      var previousFurthestMeasurement = furthestMeasurements.get(measurement.lane);\n      if (previousFurthestMeasurement == null || measurement.end > previousFurthestMeasurement.end) {\n        furthestMeasurements.set(measurement.lane, measurement);\n      } else if (measurement.end < previousFurthestMeasurement.end) {\n        furthestMeasurementsFound.set(measurement.lane, true);\n      }\n      if (furthestMeasurementsFound.size === _this.options.lanes) {\n        break;\n      }\n    }\n    return furthestMeasurements.size === _this.options.lanes ? Array.from(furthestMeasurements.values()).sort(function(a, b) {\n      return a.end - b.end;\n    })[0] : void 0;\n  };\n  this.getMeasurements = memo(function() {\n    return [_this.memoOptions(), _this.itemSizeCache];\n  }, function(_ref4, itemSizeCache) {\n    var count = _ref4.count, paddingStart = _ref4.paddingStart, scrollMargin = _ref4.scrollMargin, getItemKey = _ref4.getItemKey;\n    var min = _this.pendingMeasuredCacheIndexes.length > 0 ? Math.min.apply(Math, _this.pendingMeasuredCacheIndexes) : 0;\n    _this.pendingMeasuredCacheIndexes = [];\n    var measurements = _this.measurementsCache.slice(0, min);\n    for (var _i2 = min; _i2 < count; _i2++) {\n      var key = getItemKey(_i2);\n      var furthestMeasurement = _this.options.lanes === 1 ? measurements[_i2 - 1] : _this.getFurthestMeasurement(measurements, _i2);\n      var start = furthestMeasurement ? furthestMeasurement.end : paddingStart + scrollMargin;\n      var measuredSize = itemSizeCache.get(key);\n      var size = typeof measuredSize === \"number\" ? measuredSize : _this.options.estimateSize(_i2);\n      var end = start + size;\n      var lane = furthestMeasurement ? furthestMeasurement.lane : _i2 % _this.options.lanes;\n      measurements[_i2] = {\n        index: _i2,\n        start,\n        size,\n        end,\n        key,\n        lane\n      };\n    }\n    _this.measurementsCache = measurements;\n    return measurements;\n  }, {\n    key: false,\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.calculateRange = memo(function() {\n    return [_this.getMeasurements(), _this.getSize(), _this.scrollOffset];\n  }, function(measurements, outerSize, scrollOffset) {\n    return _this.range = measurements.length > 0 && outerSize > 0 ? calculateRange({\n      measurements,\n      outerSize,\n      scrollOffset\n    }) : null;\n  }, {\n    key: false,\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.getIndexes = memo(function() {\n    return [_this.options.rangeExtractor, _this.calculateRange(), _this.options.overscan, _this.options.count];\n  }, function(rangeExtractor, range, overscan, count) {\n    return range === null ? [] : rangeExtractor(_extends({}, range, {\n      overscan,\n      count\n    }));\n  }, {\n    key: false,\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.indexFromElement = function(node) {\n    var attributeName = _this.options.indexAttribute;\n    var indexStr = node.getAttribute(attributeName);\n    if (!indexStr) {\n      console.warn(\"Missing attribute name '\" + attributeName + \"={index}' on measured element.\");\n      return -1;\n    }\n    return parseInt(indexStr, 10);\n  };\n  this._measureElement = function(node, entry) {\n    var item = _this.measurementsCache[_this.indexFromElement(node)];\n    if (!item || !node.isConnected) {\n      _this.measureElementCache.forEach(function(cached, key) {\n        if (cached === node) {\n          _this.observer.unobserve(node);\n          _this.measureElementCache[\"delete\"](key);\n        }\n      });\n      return;\n    }\n    var prevNode = _this.measureElementCache.get(item.key);\n    if (prevNode !== node) {\n      if (prevNode) {\n        _this.observer.unobserve(prevNode);\n      }\n      _this.observer.observe(node);\n      _this.measureElementCache.set(item.key, node);\n    }\n    var measuredItemSize = _this.options.measureElement(node, entry, _this);\n    _this.resizeItem(item, measuredItemSize);\n  };\n  this.resizeItem = function(item, size) {\n    var _this$itemSizeCache$g;\n    var itemSize = (_this$itemSizeCache$g = _this.itemSizeCache.get(item.key)) != null ? _this$itemSizeCache$g : item.size;\n    var delta = size - itemSize;\n    if (delta !== 0) {\n      if (item.start < _this.scrollOffset) {\n        if (false) {\n          console.info(\"correction\", delta);\n        }\n        _this._scrollToOffset(_this.scrollOffset, {\n          adjustments: _this.scrollAdjustments += delta,\n          behavior: void 0\n        });\n      }\n      _this.pendingMeasuredCacheIndexes.push(item.index);\n      _this.itemSizeCache = new Map(_this.itemSizeCache.set(item.key, size));\n      _this.notify(false);\n    }\n  };\n  this.measureElement = function(node) {\n    if (!node) {\n      return;\n    }\n    _this._measureElement(node, void 0);\n  };\n  this.getVirtualItems = memo(function() {\n    return [_this.getIndexes(), _this.getMeasurements()];\n  }, function(indexes, measurements) {\n    var virtualItems = [];\n    for (var k = 0, len = indexes.length; k < len; k++) {\n      var _i3 = indexes[k];\n      var measurement = measurements[_i3];\n      virtualItems.push(measurement);\n    }\n    return virtualItems;\n  }, {\n    key: false,\n    debug: function debug() {\n      return _this.options.debug;\n    }\n  });\n  this.getVirtualItemForOffset = function(offset) {\n    var measurements = _this.getMeasurements();\n    return notUndefined(measurements[findNearestBinarySearch(0, measurements.length - 1, function(index) {\n      return notUndefined(measurements[index]).start;\n    }, offset)]);\n  };\n  this.getOffsetForAlignment = function(toOffset, align) {\n    var size = _this.getSize();\n    if (align === \"auto\") {\n      if (toOffset <= _this.scrollOffset) {\n        align = \"start\";\n      } else if (toOffset >= _this.scrollOffset + size) {\n        align = \"end\";\n      } else {\n        align = \"start\";\n      }\n    }\n    if (align === \"start\") {\n      toOffset = toOffset;\n    } else if (align === \"end\") {\n      toOffset = toOffset - size;\n    } else if (align === \"center\") {\n      toOffset = toOffset - size / 2;\n    }\n    var scrollSizeProp = _this.options.horizontal ? \"scrollWidth\" : \"scrollHeight\";\n    var scrollSize = _this.scrollElement ? \"document\" in _this.scrollElement ? _this.scrollElement.document.documentElement[scrollSizeProp] : _this.scrollElement[scrollSizeProp] : 0;\n    var maxOffset = scrollSize - _this.getSize();\n    return Math.max(Math.min(maxOffset, toOffset), 0);\n  };\n  this.getOffsetForIndex = function(index, align) {\n    if (align === void 0) {\n      align = \"auto\";\n    }\n    index = Math.max(0, Math.min(index, _this.options.count - 1));\n    var measurement = notUndefined(_this.getMeasurements()[index]);\n    if (align === \"auto\") {\n      if (measurement.end >= _this.scrollOffset + _this.getSize() - _this.options.scrollPaddingEnd) {\n        align = \"end\";\n      } else if (measurement.start <= _this.scrollOffset + _this.options.scrollPaddingStart) {\n        align = \"start\";\n      } else {\n        return [_this.scrollOffset, align];\n      }\n    }\n    var toOffset = align === \"end\" ? measurement.end + _this.options.scrollPaddingEnd : measurement.start - _this.options.scrollPaddingStart;\n    return [_this.getOffsetForAlignment(toOffset, align), align];\n  };\n  this.isDynamicMode = function() {\n    return _this.measureElementCache.size > 0;\n  };\n  this.cancelScrollToIndex = function() {\n    if (_this.scrollToIndexTimeoutId !== null) {\n      clearTimeout(_this.scrollToIndexTimeoutId);\n      _this.scrollToIndexTimeoutId = null;\n    }\n  };\n  this.scrollToOffset = function(toOffset, _temp) {\n    var _ref5 = _temp === void 0 ? {} : _temp, _ref5$align = _ref5.align, align = _ref5$align === void 0 ? \"start\" : _ref5$align, behavior = _ref5.behavior;\n    _this.cancelScrollToIndex();\n    if (behavior === \"smooth\" && _this.isDynamicMode()) {\n      console.warn(\"The `smooth` scroll behavior is not fully supported with dynamic size.\");\n    }\n    _this._scrollToOffset(_this.getOffsetForAlignment(toOffset, align), {\n      adjustments: void 0,\n      behavior\n    });\n  };\n  this.scrollToIndex = function(index, _temp2) {\n    var _ref6 = _temp2 === void 0 ? {} : _temp2, _ref6$align = _ref6.align, initialAlign = _ref6$align === void 0 ? \"auto\" : _ref6$align, behavior = _ref6.behavior;\n    index = Math.max(0, Math.min(index, _this.options.count - 1));\n    _this.cancelScrollToIndex();\n    if (behavior === \"smooth\" && _this.isDynamicMode()) {\n      console.warn(\"The `smooth` scroll behavior is not fully supported with dynamic size.\");\n    }\n    var _this$getOffsetForInd = _this.getOffsetForIndex(index, initialAlign), toOffset = _this$getOffsetForInd[0], align = _this$getOffsetForInd[1];\n    _this._scrollToOffset(toOffset, {\n      adjustments: void 0,\n      behavior\n    });\n    if (behavior !== \"smooth\" && _this.isDynamicMode()) {\n      _this.scrollToIndexTimeoutId = setTimeout(function() {\n        _this.scrollToIndexTimeoutId = null;\n        var elementInDOM = _this.measureElementCache.has(_this.options.getItemKey(index));\n        if (elementInDOM) {\n          var _this$getOffsetForInd2 = _this.getOffsetForIndex(index, align), _toOffset = _this$getOffsetForInd2[0];\n          if (!approxEqual(_toOffset, _this.scrollOffset)) {\n            _this.scrollToIndex(index, {\n              align,\n              behavior\n            });\n          }\n        } else {\n          _this.scrollToIndex(index, {\n            align,\n            behavior\n          });\n        }\n      });\n    }\n  };\n  this.scrollBy = function(delta, _temp3) {\n    var _ref7 = _temp3 === void 0 ? {} : _temp3, behavior = _ref7.behavior;\n    _this.cancelScrollToIndex();\n    if (behavior === \"smooth\" && _this.isDynamicMode()) {\n      console.warn(\"The `smooth` scroll behavior is not fully supported with dynamic size.\");\n    }\n    _this._scrollToOffset(_this.scrollOffset + delta, {\n      adjustments: void 0,\n      behavior\n    });\n  };\n  this.getTotalSize = function() {\n    var _this$getMeasurements;\n    return (((_this$getMeasurements = _this.getMeasurements()[_this.options.count - 1]) == null ? void 0 : _this$getMeasurements.end) || _this.options.paddingStart) - _this.options.scrollMargin + _this.options.paddingEnd;\n  };\n  this._scrollToOffset = function(offset, _ref8) {\n    var adjustments = _ref8.adjustments, behavior = _ref8.behavior;\n    _this.options.scrollToFn(offset, {\n      behavior,\n      adjustments\n    }, _this);\n  };\n  this.measure = function() {\n    _this.itemSizeCache = /* @__PURE__ */ new Map();\n    _this.notify(false);\n  };\n  this.setOptions(_opts);\n  this.scrollRect = this.options.initialRect;\n  this.scrollOffset = this.options.initialOffset;\n  this.measurementsCache = this.options.initialMeasurementsCache;\n  this.measurementsCache.forEach(function(item) {\n    _this.itemSizeCache.set(item.key, item.size);\n  });\n  this.maybeNotify();\n};\nvar findNearestBinarySearch = function findNearestBinarySearch2(low, high, getCurrentValue, value) {\n  while (low <= high) {\n    var middle = (low + high) / 2 | 0;\n    var currentValue = getCurrentValue(middle);\n    if (currentValue < value) {\n      low = middle + 1;\n    } else if (currentValue > value) {\n      high = middle - 1;\n    } else {\n      return middle;\n    }\n  }\n  if (low > 0) {\n    return low - 1;\n  } else {\n    return 0;\n  }\n};\nfunction calculateRange(_ref9) {\n  var measurements = _ref9.measurements, outerSize = _ref9.outerSize, scrollOffset = _ref9.scrollOffset;\n  var count = measurements.length - 1;\n  var getOffset = function getOffset2(index) {\n    return measurements[index].start;\n  };\n  var startIndex = findNearestBinarySearch(0, count, getOffset, scrollOffset);\n  var endIndex = startIndex;\n  while (endIndex < count && measurements[endIndex].end < scrollOffset + outerSize) {\n    endIndex++;\n  }\n  return {\n    startIndex,\n    endIndex\n  };\n}\nexport { Virtualizer, defaultKeyExtractor, defaultRangeExtractor, elementScroll, measureElement, observeElementOffset, observeElementRect, observeWindowOffset, observeWindowRect, windowScroll };\n",
-      "start": 1706896525468,
-      "end": 1706896525475,
+      "start": 1707126049645,
+      "end": 1707126049662,
       "order": "normal",
       "sourcemaps": null
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525475,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525476,
-      "end": 1706896525476,
+      "start": 1707126049662,
+      "end": 1707126049662,
       "order": "normal"
     }
   ]

@@ -11,27 +11,39 @@ const route = useRoute()
 const chatStore = useChat()
 const userStore = useUserStore()
 
-chatStore.loadChatList({page:1, limit: 100})
+chatStore.loadChatList({page: 1, limit: 100})
 userStore.loadUserList({query: '', user_type: 'user-list/my-company', page: 1, limit: 10000})
-onMounted(()=>{
+onMounted(() => {
   windowWidth.value = window.innerWidth
-  if(route.path === '/base/chat') {
+  if (route.path === '/base/chat') {
     activeNav.value = true
-  } else if(route.path === `/base/chat/${chatStore.userChat?.id}`){
+  } else if (route.path === `/base/chat/${chatStore.userChat?.id}`) {
     activeNav.value = false
   }
 })
+onUnmounted(() => {
+  chatStore.showGroupCreateChoice = false;
+  chatStore.showGroupCreate = false;
+  chatStore.file = '';
+  chatStore.src = '';
+  chatStore.fileUpload = null;
+  chatStore.results = {coordinates: null, image: null}
+})
+
 useSeoMeta({
   title: 'Чат',
   description: 'Интерактивный чат для пользователей'
 })
 </script>
 
+
 <template>
-  <div class="!mx-0 !py-0 ">
+  <div class="!mx-0 !py-0">
     <div
       class="dark:border-t-gray-500 dark:shadow-gray-500 dark:bg-gray-800 bg-gray-300 flex w-full border-t border-t-gray-100 dark:text-white rounded-lg shadow-md">
-      <div class="max-md:absolute h-screen overflow-hidden relative z-[12] rounded-l-lg dark:bg-gray-700 bg-gray-200 transition-all duration-300 w-[320px]" :class="{'max-md:w-0' : !chatStore.activeChatNav || route.path === `/base/chat/${route.params.id}`, 'max-md:w-full ' : route.path === `/base/chat`, 'w-[320px]' : !userStore.get_user_list.results || !chatStore.activeChatNav}">
+      <div
+        class="max-md:absolute h-screen overflow-hidden relative z-[12] rounded-l-lg dark:bg-gray-700 bg-gray-200 transition-all duration-300 w-[320px]"
+        :class="{'max-md:w-0' : !chatStore.activeChatNav || route.path === `/base/chat/${route.params.id}`, 'max-md:w-full ' : route.path === `/base/chat`, 'w-[320px]' : !userStore.get_user_list.results || !chatStore.activeChatNav}">
         <ChatNav class=""/>
       </div>
       <div class="w-11/12 relative overflow-hidden max-lg:w-9/12 max-md:w-full h-screen">

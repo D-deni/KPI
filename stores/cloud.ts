@@ -3,8 +3,7 @@ import {defineStore} from "pinia";
 import {toast} from "vue3-toastify";
 import {FileOperationPatternKind} from "vscode-languageserver-protocol";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
-
-export const useCloudStore = defineStore('folder', {
+export const useCloudStore = defineStore('cloud', {
   state: () => ({
     bin: {
       folders: [],
@@ -29,6 +28,12 @@ export const useCloudStore = defineStore('folder', {
     showObjectElem: false,
     showAccessSetting: false,
     hasFileInBin: false,
+    file: '',
+    src: '',
+    fileSizeInfo: false,
+    fileReadInfo: false,
+    fileChecked: false,
+    fileUpload: null,
   }),
   getters: {
     get_hasFileInBin: (state) => state.hasFileInBin,
@@ -55,7 +60,7 @@ export const useCloudStore = defineStore('folder', {
         this.folder = response.data
       })
     },
-    async loadFolder(params: { id: number }) {
+    async loadFolder(params: { id: number }): Promise<void> {
       await axios.get(`api/v1/folder/${params.id}`, {
         headers: {
           Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
@@ -89,7 +94,7 @@ export const useCloudStore = defineStore('folder', {
       })
     },
 
-    async loadBin(params: { bin: any }) {
+    async loadBin(params: { bin?: any }) {
       await axios.get(`api/v1/bin`, {
         headers: {
           Authorization: `Bearer ${nuxtStorage.localStorage.getData('token')}`
@@ -137,7 +142,7 @@ export const useCloudStore = defineStore('folder', {
       }).then(res => {
         toast.success('Успешно удалён', {theme: "auto", autoClose: 1500})
         this.folder = res.data
-        this.loadBin();
+        this.loadBin({bin: this.bin});
       })
     },
     async delete(params: { id: number }) {
@@ -148,7 +153,7 @@ export const useCloudStore = defineStore('folder', {
       }).then(res => {
         toast.success('Успешно удалён', {theme: "auto", autoClose: 1500})
         this.folder = res.data
-        this.loadBin();
+        this.loadBin({bin: this.bin});
       })
     },
     async create_folder(params: { name: string, parent_id: number }) {

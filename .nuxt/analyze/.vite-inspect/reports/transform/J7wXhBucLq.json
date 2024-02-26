@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "\"use strict\";\n/* --------------------------------------------------------------------------------------------\n * Copyright (c) Microsoft Corporation. All rights reserved.\n * Licensed under the MIT License. See License.txt in the project root for license information.\n * ------------------------------------------------------------------------------------------ */\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Semaphore = void 0;\nconst ral_1 = require(\"./ral\");\nclass Semaphore {\n    constructor(capacity = 1) {\n        if (capacity <= 0) {\n            throw new Error('Capacity must be greater than 0');\n        }\n        this._capacity = capacity;\n        this._active = 0;\n        this._waiting = [];\n    }\n    lock(thunk) {\n        return new Promise((resolve, reject) => {\n            this._waiting.push({ thunk, resolve, reject });\n            this.runNext();\n        });\n    }\n    get active() {\n        return this._active;\n    }\n    runNext() {\n        if (this._waiting.length === 0 || this._active === this._capacity) {\n            return;\n        }\n        ral_1.default().timer.setImmediate(() => this.doRunNext());\n    }\n    doRunNext() {\n        if (this._waiting.length === 0 || this._active === this._capacity) {\n            return;\n        }\n        const next = this._waiting.shift();\n        this._active++;\n        if (this._active > this._capacity) {\n            throw new Error(`To many thunks active`);\n        }\n        try {\n            const result = next.thunk();\n            if (result instanceof Promise) {\n                result.then((value) => {\n                    this._active--;\n                    next.resolve(value);\n                    this.runNext();\n                }, (err) => {\n                    this._active--;\n                    next.reject(err);\n                    this.runNext();\n                });\n            }\n            else {\n                this._active--;\n                next.resolve(result);\n                this.runNext();\n            }\n        }\n        catch (err) {\n            this._active--;\n            next.reject(err);\n            this.runNext();\n        }\n    }\n}\nexports.Semaphore = Semaphore;\n//# sourceMappingURL=semaphore.js.map",
-      "start": 1706896525439,
-      "end": 1706896525473,
+      "start": 1707126049488,
+      "end": 1707126049646,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525473,
-      "end": 1706896525473,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525473,
-      "end": 1706896525473,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525473,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525474,
-      "end": 1706896525474,
+      "start": 1707126049646,
+      "end": 1707126049646,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as semaphore } from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/semaphore.js?commonjs-exports\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/vscode-jsonrpc/lib/common/ral.js?commonjs-proxy\";\n\nvar hasRequiredSemaphore;\n\nfunction requireSemaphore () {\n\tif (hasRequiredSemaphore) return semaphore;\n\thasRequiredSemaphore = 1;\n\t\"use strict\";\n\t/* --------------------------------------------------------------------------------------------\n\t * Copyright (c) Microsoft Corporation. All rights reserved.\n\t * Licensed under the MIT License. See License.txt in the project root for license information.\n\t * ------------------------------------------------------------------------------------------ */\n\tObject.defineProperty(semaphore, \"__esModule\", { value: true });\n\tsemaphore.Semaphore = void 0;\n\tconst ral_1 = require$$0;\n\tclass Semaphore {\n\t    constructor(capacity = 1) {\n\t        if (capacity <= 0) {\n\t            throw new Error('Capacity must be greater than 0');\n\t        }\n\t        this._capacity = capacity;\n\t        this._active = 0;\n\t        this._waiting = [];\n\t    }\n\t    lock(thunk) {\n\t        return new Promise((resolve, reject) => {\n\t            this._waiting.push({ thunk, resolve, reject });\n\t            this.runNext();\n\t        });\n\t    }\n\t    get active() {\n\t        return this._active;\n\t    }\n\t    runNext() {\n\t        if (this._waiting.length === 0 || this._active === this._capacity) {\n\t            return;\n\t        }\n\t        ral_1.default().timer.setImmediate(() => this.doRunNext());\n\t    }\n\t    doRunNext() {\n\t        if (this._waiting.length === 0 || this._active === this._capacity) {\n\t            return;\n\t        }\n\t        const next = this._waiting.shift();\n\t        this._active++;\n\t        if (this._active > this._capacity) {\n\t            throw new Error(`To many thunks active`);\n\t        }\n\t        try {\n\t            const result = next.thunk();\n\t            if (result instanceof Promise) {\n\t                result.then((value) => {\n\t                    this._active--;\n\t                    next.resolve(value);\n\t                    this.runNext();\n\t                }, (err) => {\n\t                    this._active--;\n\t                    next.reject(err);\n\t                    this.runNext();\n\t                });\n\t            }\n\t            else {\n\t                this._active--;\n\t                next.resolve(result);\n\t                this.runNext();\n\t            }\n\t        }\n\t        catch (err) {\n\t            this._active--;\n\t            next.reject(err);\n\t            this.runNext();\n\t        }\n\t    }\n\t}\n\tsemaphore.Semaphore = Semaphore;\n\t//# sourceMappingURL=semaphore.js.map\n\treturn semaphore;\n}\n\nexport { requireSemaphore as __require };",
-      "start": 1706896525474,
-      "end": 1706896525475,
+      "start": 1707126049646,
+      "end": 1707126049647,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049647,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049647,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049647,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049647,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049647,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049647,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049647,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049647,
+      "end": 1707126049648,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525475,
-      "end": 1706896525475,
+      "start": 1707126049648,
+      "end": 1707126049648,
       "order": "normal"
     }
   ]

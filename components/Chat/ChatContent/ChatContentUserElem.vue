@@ -69,9 +69,9 @@ let req = new XMLHttpRequest();
               <img class="w-full" :src="currentUser.get_server_domain + item.file" alt="">
             </div>
           </div>
-          <div class="text-sm  break-all"
+          <div class="text-sm break-all"
                :class="{'flex flex-col items-center justify-center' : item.message_type === 'change' && item.file}">
-            <span v-if="item.text"
+            <span class="" v-if="item.text"
               :class="{'dark:!bg-black dark:!bg-opacity-30 py-1 px-4 rounded-full bg-gray-200' : item.message_type === 'change' && item.file}">
               <slot name="userMessage"/>
             </span>

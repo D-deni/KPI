@@ -3,6 +3,7 @@ import TheCloudUIFolders from "~/components/Cloud/CloudUI/TheCloudUIFolders.vue"
 import TheCloudUiStructure from "~/components/Cloud/CloudUI/CloudUIStructure/TheCloudUiStructure.vue";
 import TheTextContent from "~/components/UI/TheTextContent.vue";
 import {useCloudStore} from "~/stores/cloud";
+import TheContentBlock from "~/components/UI/TheContentBlock.vue";
 
 defineProps({
   activeStructure: {
@@ -32,14 +33,12 @@ defineProps({
         </div>
       </div>
     </div>
-    <div
-      class="w-full  overflow-x-hidden relative border dark:border-gray-500 dark:shadow-lg dark:shadow-gray-500 p-10 max-[500px]:p-2 rounded-lg  z-20"
-    >
+    <TheContentBlock class="w-full overflow-x-hidden relative p-10 max-[500px]:p-2 rounded-lg  z-20" >
       <TheTextContent>
         {{ $t('Структура файлов') }}
       </TheTextContent>
       <TheCloudUIFolders class="z-10"/>
-    </div>
+    </TheContentBlock>
     <UContextMenu >
       <div class="">
         <div class="dark:hover:bg-gray-500 hover:bg-gray-200 p-2 cursor-pointer flex items-center gap-x-10">

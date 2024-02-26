@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createCommentVNode as _createCommentVNode, normalizeClass as _normalizeClass, Transition as _Transition, withCtx as _withCtx, createVNode as _createVNode, TransitionGroup as _TransitionGroup, createBlock as _createBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-f2659d0b\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = [\"onDragenter\"]\nconst _hoisted_2 = [\"onClick\"]\nconst _hoisted_3 = {\n  key: 1,\n  class: \"absolute top-0\"\n}\nconst _hoisted_4 = [\"onClick\"]\nconst _hoisted_5 = [\"onClick\"]\nconst _hoisted_6 = {\n  key: 0,\n  class: \"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\"\n}\nconst _hoisted_7 = [\"placeholder\"]\nconst _hoisted_8 = { class: \"overflow-auto max-h-[150px]\" }\nconst _hoisted_9 = [\"onClick\"]\nconst _hoisted_10 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"svg\", {\n  class: \"dark:fill-white fill-black\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"path\", {\n    \"fill-rule\": \"evenodd\",\n    \"clip-rule\": \"evenodd\",\n    d: \"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\"\n  })\n], -1))\nconst _hoisted_11 = [\n  _hoisted_10\n]\nconst _hoisted_12 = { key: 0 }\nconst _hoisted_13 = [\"onClick\"]\nconst _hoisted_14 = { class: \"\" }\nconst _hoisted_15 = [\"onClick\"]\nconst _hoisted_16 = { class: \"flex items-center gap-x-2\" }\nconst _hoisted_17 = {\n  key: 0,\n  class: \"max-w-[50px]\"\n}\nconst _hoisted_18 = [\"src\"]\nconst _hoisted_19 = { class: \"break-words\" }\nconst _hoisted_20 = { class: \"text-sm w-full\" }\nconst _hoisted_21 = [\"onClick\"]\n\nimport {useAuthStore} from \"~/stores/auth\";\nimport {LinkedList} from \"~/hooks/Node\";\nimport {useDocumentStore} from \"~/stores/documents\";\nimport {useCompanies} from \"~/stores/companies\";\nimport isEqual from \"lodash/isEqual\";\nimport {toast} from \"vue3-toastify\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DocumentItemInfoChainScheduleItem',\n  props: {\n  item: {\n    type: Object,\n    default: () => {\n    }\n  },\n  currentUser: {\n    type: Object,\n    default: () => {\n    }\n  },\n},\n  setup(__props) {\n\nconst props = __props\n\n\nconst company = useCompanies()\nconst authStore = useAuthStore()\n\nconst draggedNode = ref(false)\nconst list = ref(new LinkedList())\nconst documentStore = useDocumentStore()\nconst appendData = (data: any) => {\n  list.value.append(data)\n}\nconst deleteData = (data: any) => {\n  list.value.delete(data)\n}\n\nconst deleteNodeValue = (targetValue: any, removeObject: any) => {\n  list.value.deleteNodeValue(targetValue, removeObject)\n}\n\nconst addContentNode = (targetValue: any, content: any) => {\n  list.value.addContentToNode(targetValue, content)\n  console.log(documentStore.userList)\n}\n\nconst swipeData = () => {\n  list.value.swipeIfCondition()\n}\n\nfunction dragEnterNode(event: any) {\n  draggedNode.value = true\n  event.target.classList.add('draggedToNode')\n  event.preventDefault()\n}\n\nfunction dragLeaveNode(event: any) {\n  draggedNode.value = false\n  event.target.classList.remove('draggedToNode')\n  event.preventDefault()\n}\n\nfunction dragEnterNodeValue(event: any) {\n  event.target.classList.add('draggedUser')\n  event.preventDefault()\n}\n\nfunction dragLeaveNodeValue(event: any) {\n  event.target.classList.remove('draggedUser')\n  event.preventDefault()\n}\n\nonMounted(() => {\n  appendData([{\n    first_name: authStore.user?.first_name,\n    last_name: authStore.user?.last_name,\n    photo_url: authStore.user?.photo_url,\n    id: authStore.user?.id\n  }])\n  appendData([])\n  watchSyncEffect(() => {\n    // console.log(documentStore.documentItem.chain)\n    documentStore.userList = list.value.toArray().map(node => node.self)\n  })\n})\n\n\nonUnmounted(() => {\n  documentStore.showUsersNode = []\n  documentStore.showDepartment = []\n})\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createBlock(_TransitionGroup, {\n    name: \"list\",\n    tag: \"div\",\n    class: \"flex items-center\"\n  }, {\n    default: _withCtx(() => [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n        return (_openBlock(), _createElementBlock(\"div\", {\n          key: groupIndex,\n          class: \"px-2 h-full z-20 relative flex items-center transition-all\"\n        }, [\n          _createElementVNode(\"div\", {\n            class: \"transition-all\",\n            onDrop: _cache[0] || (_cache[0] = _withModifiers(($event: any) => (console.log(123)), [\"prevent\"])),\n            onDragenter: _withModifiers(($event: any) => (groupIndex === 0 || userGroup.length == 0? '' :  dragEnterNode($event)), [\"stop\"]),\n            onDragleave: _withModifiers(dragLeaveNode, [\"stop\"])\n          }, null, 40, _hoisted_1),\n          _createElementVNode(\"div\", {\n            onDragleave: _cache[3] || (_cache[3] = _withModifiers(() => {}, [\"stop\"])),\n            onDragenter: _cache[4] || (_cache[4] = _withModifiers(() => {}, [\"stop\"])),\n            onDrop: _cache[5] || (_cache[5] = _withModifiers(($event: any) => (console.log(123)), [\"prevent\"])),\n            class: _normalizeClass([\"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\", {'border border-dashed border-blueSemiLight h-20 rounded-lg' : userGroup.length === 0 || userGroup === null}])\n          }, [\n            (userGroup.length === 0)\n              ? (_openBlock(), _createElementBlock(\"p\", {\n                  key: 0,\n                  onClick: ($event: any) => (console.log(userGroup)),\n                  class: \"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\",\n                  onDragenter: _withModifiers(dragEnterNodeValue, [\"prevent\"]),\n                  onDragleave: _withModifiers(dragLeaveNodeValue, [\"prevent\"])\n                }, _toDisplayString(_ctx.$t('Область для добавления')), 41, _hoisted_2))\n              : _createCommentVNode(\"\", true),\n            (groupIndex !== 0)\n              ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n                  _createElementVNode(\"button\", {\n                    onClick: _withModifiers(($event: any) => (_unref(documentStore).showContext = groupIndex), [\"stop\"]),\n                    class: \"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\"\n                  }, \" + \", 8, _hoisted_4),\n                  _createElementVNode(\"button\", {\n                    onClick: _withModifiers(($event: any) => {deleteData(userGroup); _unref(documentStore).showContext = null; _unref(documentStore).showUsersNode = _unref(documentStore).showUsersNode.filter(user=> !userGroup.some(groupUser => groupUser.id === user.id))}, [\"stop\"]),\n                    class: \"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\"\n                  }, \" X \", 8, _hoisted_5)\n                ]))\n              : _createCommentVNode(\"\", true),\n            _createVNode(_Transition, {\n              name: \"slide-down\",\n              class: \"\",\n              onClick: _cache[2] || (_cache[2] = _withModifiers(() => {}, [\"stop\"]))\n            }, {\n              default: _withCtx(() => [\n                (_unref(documentStore).showContext === groupIndex)\n                  ? (_openBlock(), _createElementBlock(\"div\", _hoisted_6, [\n                      _createElementVNode(\"input\", {\n                        onClick: _cache[1] || (_cache[1] = _withModifiers(() => {}, [\"stop\"])),\n                        type: \"text\",\n                        class: \"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\",\n                        placeholder: _ctx.$t('Поиск...')\n                      }, null, 8, _hoisted_7),\n                      _createElementVNode(\"div\", _hoisted_8, [\n                        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(company).get_all_department.results, (department) => {\n                          return (_openBlock(), _createElementBlock(\"div\", null, [\n                            _createElementVNode(\"button\", {\n                              class: \"flex items-center justify-between gap-x-2 w-full break-words break-all\",\n                              onClick: ($event: any) => (_unref(documentStore).showContextDepartment === department.id ? _unref(documentStore).showContextDepartment = null : _unref(documentStore).showContextDepartment = department.id)\n                            }, [\n                              _createElementVNode(\"span\", null, _toDisplayString(department.name), 1),\n                              _createElementVNode(\"div\", {\n                                class: _normalizeClass({'rotate-180' : _unref(documentStore).showContextDepartment === department.id})\n                              }, _hoisted_11, 2)\n                            ], 8, _hoisted_9),\n                            _createVNode(_Transition, { name: \"slide-down\" }, {\n                              default: _withCtx(() => [\n                                (_unref(documentStore).showContextDepartment === department.id)\n                                  ? (_openBlock(), _createElementBlock(\"div\", _hoisted_12, [\n                                      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(department.participants, (user) => {\n                                        return (_openBlock(), _createElementBlock(\"div\", null, [\n                                          (department.participants && _unref(documentStore).showUsersNode.every(e=>e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every(e=>e.priority === user.priority) )\n                                            ? (_openBlock(), _createElementBlock(\"button\", {\n                                                key: 0,\n                                                class: \"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\",\n                                                onClick: ($event: any) => {addContentNode(userGroup, {...user}); _unref(documentStore).showUsersNode.push({id: user.id}); swipeData();_unref(documentStore).showContextDepartment = null; _unref(documentStore).showContext = null; console.log(userGroup.map(e=>e.priority))}\n                                              }, [\n                                                _createElementVNode(\"span\", _hoisted_14, _toDisplayString(user.first_name + ' ' + user.last_name), 1)\n                                              ], 8, _hoisted_13))\n                                            : _createCommentVNode(\"\", true)\n                                        ]))\n                                      }), 256))\n                                    ]))\n                                  : _createCommentVNode(\"\", true)\n                              ]),\n                              _: 2\n                            }, 1024)\n                          ]))\n                        }), 256))\n                      ])\n                    ]))\n                  : _createCommentVNode(\"\", true)\n              ]),\n              _: 2\n            }, 1024),\n            _createVNode(_TransitionGroup, {\n              name: \"list\",\n              tag: \"list\",\n              class: \"flex flex-col gap-y-6 transition-all\"\n            }, {\n              default: _withCtx(() => [\n                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(userGroup, (user, userIndex) => {\n                  return (_openBlock(), _createElementBlock(\"div\", {\n                    onClick: ($event: any) => (console.log(_unref(documentStore).showUsersNode.filter(el=>el.id !== userGroup.filter(e=>e.id)))),\n                    class: \"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\",\n                    key: userIndex\n                  }, [\n                    _createElementVNode(\"div\", _hoisted_16, [\n                      (user.photo_url)\n                        ? (_openBlock(), _createElementBlock(\"div\", _hoisted_17, [\n                            _createElementVNode(\"img\", {\n                              class: \"w-full rounded-full\",\n                              src: _unref(authStore).get_server_domain + user.photo_url,\n                              alt: \"\"\n                            }, null, 8, _hoisted_18)\n                          ]))\n                        : _createCommentVNode(\"\", true),\n                      _createElementVNode(\"div\", _hoisted_19, [\n                        _createElementVNode(\"p\", _hoisted_20, _toDisplayString(user.first_name + ' ' + user.last_name), 1)\n                      ])\n                    ]),\n                    (user.id !== _unref(authStore).user.id && groupIndex !== 0)\n                      ? (_openBlock(), _createElementBlock(\"button\", {\n                          key: 0,\n                          class: \"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\",\n                          onClick: ($event: any) => {deleteNodeValue(userGroup, {...user}); _unref(documentStore).showUsersNode.splice(_unref(documentStore).showUsersNode.findIndex(e=>e.id === user?.id), 1)}\n                        }, \" X \", 8, _hoisted_21))\n                      : _createCommentVNode(\"\", true)\n                  ], 8, _hoisted_15))\n                }), 128))\n              ]),\n              _: 2\n            }, 1024)\n          ], 34)\n        ]))\n      }), 128)),\n      _createElementVNode(\"button\", {\n        class: \"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\",\n        onClick: _cache[6] || (_cache[6] = ($event: any) => (appendData([])))\n      }, \" + \")\n    ]),\n    _: 1\n  }))\n}\n}\n\n})",
-      "start": 1706896525253,
-      "end": 1706896525253
+      "start": 1707126048764,
+      "end": 1707126048764
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525253,
-      "end": 1706896525253,
+      "start": 1707126048764,
+      "end": 1707126048764,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525253,
-      "end": 1706896525253,
+      "start": 1707126048764,
+      "end": 1707126048764,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525253,
-      "end": 1706896525253,
+      "start": 1707126048764,
+      "end": 1707126048764,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525253,
-      "end": 1706896525253,
+      "start": 1707126048764,
+      "end": 1707126048765,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525253,
-      "end": 1706896525253,
+      "start": 1707126048765,
+      "end": 1707126048765,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createCommentVNode as _createCommentVNode, normalizeClass as _normalizeClass, Transition as _Transition, withCtx as _withCtx, createVNode as _createVNode, TransitionGroup as _TransitionGroup, createBlock as _createBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-f2659d0b\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = [\"onDragenter\"];\nconst _hoisted_2 = [\"onClick\"];\nconst _hoisted_3 = {\n  key: 1,\n  class: \"absolute top-0\"\n};\nconst _hoisted_4 = [\"onClick\"];\nconst _hoisted_5 = [\"onClick\"];\nconst _hoisted_6 = {\n  key: 0,\n  class: \"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\"\n};\nconst _hoisted_7 = [\"placeholder\"];\nconst _hoisted_8 = { class: \"overflow-auto max-h-[150px]\" };\nconst _hoisted_9 = [\"onClick\"];\nconst _hoisted_10 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"dark:fill-white fill-black\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    \"fill-rule\": \"evenodd\",\n    \"clip-rule\": \"evenodd\",\n    d: \"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\"\n  })\n], -1));\nconst _hoisted_11 = [\n  _hoisted_10\n];\nconst _hoisted_12 = { key: 0 };\nconst _hoisted_13 = [\"onClick\"];\nconst _hoisted_14 = { class: \"\" };\nconst _hoisted_15 = [\"onClick\"];\nconst _hoisted_16 = { class: \"flex items-center gap-x-2\" };\nconst _hoisted_17 = {\n  key: 0,\n  class: \"max-w-[50px]\"\n};\nconst _hoisted_18 = [\"src\"];\nconst _hoisted_19 = { class: \"break-words\" };\nconst _hoisted_20 = { class: \"text-sm w-full\" };\nconst _hoisted_21 = [\"onClick\"];\nimport { useAuthStore } from \"~/stores/auth\";\nimport { LinkedList } from \"~/hooks/Node\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainScheduleItem\",\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    currentUser: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const company = useCompanies();\n    const authStore = useAuthStore();\n    const draggedNode = ref(false);\n    const list = ref(new LinkedList());\n    const documentStore = useDocumentStore();\n    const appendData = (data) => {\n      list.value.append(data);\n    };\n    const deleteData = (data) => {\n      list.value.delete(data);\n    };\n    const deleteNodeValue = (targetValue, removeObject) => {\n      list.value.deleteNodeValue(targetValue, removeObject);\n    };\n    const addContentNode = (targetValue, content) => {\n      list.value.addContentToNode(targetValue, content);\n      console.log(documentStore.userList);\n    };\n    const swipeData = () => {\n      list.value.swipeIfCondition();\n    };\n    function dragEnterNode(event) {\n      draggedNode.value = true;\n      event.target.classList.add(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragLeaveNode(event) {\n      draggedNode.value = false;\n      event.target.classList.remove(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragEnterNodeValue(event) {\n      event.target.classList.add(\"draggedUser\");\n      event.preventDefault();\n    }\n    function dragLeaveNodeValue(event) {\n      event.target.classList.remove(\"draggedUser\");\n      event.preventDefault();\n    }\n    onMounted(() => {\n      appendData([{\n        first_name: authStore.user?.first_name,\n        last_name: authStore.user?.last_name,\n        photo_url: authStore.user?.photo_url,\n        id: authStore.user?.id\n      }]);\n      appendData([]);\n      watchSyncEffect(() => {\n        documentStore.userList = list.value.toArray().map((node) => node.self);\n      });\n    });\n    onUnmounted(() => {\n      documentStore.showUsersNode = [];\n      documentStore.showDepartment = [];\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createBlock(_TransitionGroup, {\n        name: \"list\",\n        tag: \"div\",\n        class: \"flex items-center\"\n      }, {\n        default: _withCtx(() => [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n            return _openBlock(), _createElementBlock(\"div\", {\n              key: groupIndex,\n              class: \"px-2 h-full z-20 relative flex items-center transition-all\"\n            }, [\n              _createElementVNode(\"div\", {\n                class: \"transition-all\",\n                onDrop: _cache[0] || (_cache[0] = _withModifiers(($event) => console.log(123), [\"prevent\"])),\n                onDragenter: _withModifiers(($event) => groupIndex === 0 || userGroup.length == 0 ? \"\" : dragEnterNode($event), [\"stop\"]),\n                onDragleave: _withModifiers(dragLeaveNode, [\"stop\"])\n              }, null, 40, _hoisted_1),\n              _createElementVNode(\"div\", {\n                onDragleave: _cache[3] || (_cache[3] = _withModifiers(() => {\n                }, [\"stop\"])),\n                onDragenter: _cache[4] || (_cache[4] = _withModifiers(() => {\n                }, [\"stop\"])),\n                onDrop: _cache[5] || (_cache[5] = _withModifiers(($event) => console.log(123), [\"prevent\"])),\n                class: _normalizeClass([\"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\", { \"border border-dashed border-blueSemiLight h-20 rounded-lg\": userGroup.length === 0 || userGroup === null }])\n              }, [\n                userGroup.length === 0 ? (_openBlock(), _createElementBlock(\"p\", {\n                  key: 0,\n                  onClick: ($event) => console.log(userGroup),\n                  class: \"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\",\n                  onDragenter: _withModifiers(dragEnterNodeValue, [\"prevent\"]),\n                  onDragleave: _withModifiers(dragLeaveNodeValue, [\"prevent\"])\n                }, _toDisplayString(_ctx.$t(\"Область для добавления\")), 41, _hoisted_2)) : _createCommentVNode(\"\", true),\n                groupIndex !== 0 ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n                  _createElementVNode(\"button\", {\n                    onClick: _withModifiers(($event) => _unref(documentStore).showContext = groupIndex, [\"stop\"]),\n                    class: \"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\"\n                  }, \" + \", 8, _hoisted_4),\n                  _createElementVNode(\"button\", {\n                    onClick: _withModifiers(($event) => {\n                      deleteData(userGroup);\n                      _unref(documentStore).showContext = null;\n                      _unref(documentStore).showUsersNode = _unref(documentStore).showUsersNode.filter((user) => !userGroup.some((groupUser) => groupUser.id === user.id));\n                    }, [\"stop\"]),\n                    class: \"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\"\n                  }, \" X \", 8, _hoisted_5)\n                ])) : _createCommentVNode(\"\", true),\n                _createVNode(_Transition, {\n                  name: \"slide-down\",\n                  class: \"\",\n                  onClick: _cache[2] || (_cache[2] = _withModifiers(() => {\n                  }, [\"stop\"]))\n                }, {\n                  default: _withCtx(() => [\n                    _unref(documentStore).showContext === groupIndex ? (_openBlock(), _createElementBlock(\"div\", _hoisted_6, [\n                      _createElementVNode(\"input\", {\n                        onClick: _cache[1] || (_cache[1] = _withModifiers(() => {\n                        }, [\"stop\"])),\n                        type: \"text\",\n                        class: \"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\",\n                        placeholder: _ctx.$t(\"Поиск...\")\n                      }, null, 8, _hoisted_7),\n                      _createElementVNode(\"div\", _hoisted_8, [\n                        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(company).get_all_department.results, (department) => {\n                          return _openBlock(), _createElementBlock(\"div\", null, [\n                            _createElementVNode(\"button\", {\n                              class: \"flex items-center justify-between gap-x-2 w-full break-words break-all\",\n                              onClick: ($event) => _unref(documentStore).showContextDepartment === department.id ? _unref(documentStore).showContextDepartment = null : _unref(documentStore).showContextDepartment = department.id\n                            }, [\n                              _createElementVNode(\"span\", null, _toDisplayString(department.name), 1),\n                              _createElementVNode(\"div\", {\n                                class: _normalizeClass({ \"rotate-180\": _unref(documentStore).showContextDepartment === department.id })\n                              }, _hoisted_11, 2)\n                            ], 8, _hoisted_9),\n                            _createVNode(_Transition, { name: \"slide-down\" }, {\n                              default: _withCtx(() => [\n                                _unref(documentStore).showContextDepartment === department.id ? (_openBlock(), _createElementBlock(\"div\", _hoisted_12, [\n                                  (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(department.participants, (user) => {\n                                    return _openBlock(), _createElementBlock(\"div\", null, [\n                                      department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority) ? (_openBlock(), _createElementBlock(\"button\", {\n                                        key: 0,\n                                        class: \"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\",\n                                        onClick: ($event) => {\n                                          addContentNode(userGroup, { ...user });\n                                          _unref(documentStore).showUsersNode.push({ id: user.id });\n                                          swipeData();\n                                          _unref(documentStore).showContextDepartment = null;\n                                          _unref(documentStore).showContext = null;\n                                          console.log(userGroup.map((e) => e.priority));\n                                        }\n                                      }, [\n                                        _createElementVNode(\"span\", _hoisted_14, _toDisplayString(user.first_name + \" \" + user.last_name), 1)\n                                      ], 8, _hoisted_13)) : _createCommentVNode(\"\", true)\n                                    ]);\n                                  }), 256))\n                                ])) : _createCommentVNode(\"\", true)\n                              ]),\n                              _: 2\n                            }, 1024)\n                          ]);\n                        }), 256))\n                      ])\n                    ])) : _createCommentVNode(\"\", true)\n                  ]),\n                  _: 2\n                }, 1024),\n                _createVNode(_TransitionGroup, {\n                  name: \"list\",\n                  tag: \"list\",\n                  class: \"flex flex-col gap-y-6 transition-all\"\n                }, {\n                  default: _withCtx(() => [\n                    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(userGroup, (user, userIndex) => {\n                      return _openBlock(), _createElementBlock(\"div\", {\n                        onClick: ($event) => console.log(_unref(documentStore).showUsersNode.filter((el) => el.id !== userGroup.filter((e) => e.id))),\n                        class: \"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\",\n                        key: userIndex\n                      }, [\n                        _createElementVNode(\"div\", _hoisted_16, [\n                          user.photo_url ? (_openBlock(), _createElementBlock(\"div\", _hoisted_17, [\n                            _createElementVNode(\"img\", {\n                              class: \"w-full rounded-full\",\n                              src: _unref(authStore).get_server_domain + user.photo_url,\n                              alt: \"\"\n                            }, null, 8, _hoisted_18)\n                          ])) : _createCommentVNode(\"\", true),\n                          _createElementVNode(\"div\", _hoisted_19, [\n                            _createElementVNode(\"p\", _hoisted_20, _toDisplayString(user.first_name + \" \" + user.last_name), 1)\n                          ])\n                        ]),\n                        user.id !== _unref(authStore).user.id && groupIndex !== 0 ? (_openBlock(), _createElementBlock(\"button\", {\n                          key: 0,\n                          class: \"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\",\n                          onClick: ($event) => {\n                            deleteNodeValue(userGroup, { ...user });\n                            _unref(documentStore).showUsersNode.splice(_unref(documentStore).showUsersNode.findIndex((e) => e.id === user?.id), 1);\n                          }\n                        }, \" X \", 8, _hoisted_21)) : _createCommentVNode(\"\", true)\n                      ], 8, _hoisted_15);\n                    }), 128))\n                  ]),\n                  _: 2\n                }, 1024)\n              ], 34)\n            ]);\n          }), 128)),\n          _createElementVNode(\"button\", {\n            class: \"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\",\n            onClick: _cache[6] || (_cache[6] = ($event) => appendData([]))\n          }, \" + \")\n        ]),\n        _: 1\n      });\n    };\n  }\n});\n",
-      "start": 1706896525253,
-      "end": 1706896525336,
+      "start": 1707126048765,
+      "end": 1707126048853,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,141 +57,141 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048853,
+      "end": 1707126048853,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048853,
+      "end": 1707126048853,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048853,
+      "end": 1707126048853,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048853,
+      "end": 1707126048853,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048853,
+      "end": 1707126048853,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525336,
-      "end": 1706896525336,
+      "start": 1707126048854,
+      "end": 1707126048854,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref, onMounted, watchSyncEffect, onUnmounted } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, withModifiers as _withModifiers, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createCommentVNode as _createCommentVNode, normalizeClass as _normalizeClass, Transition as _Transition, withCtx as _withCtx, createVNode as _createVNode, TransitionGroup as _TransitionGroup, createBlock as _createBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-f2659d0b\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = [\"onDragenter\"];\nconst _hoisted_2 = [\"onClick\"];\nconst _hoisted_3 = {\n  key: 1,\n  class: \"absolute top-0\"\n};\nconst _hoisted_4 = [\"onClick\"];\nconst _hoisted_5 = [\"onClick\"];\nconst _hoisted_6 = {\n  key: 0,\n  class: \"absolute rounded-lg dark:bg-gray-700 bg-gray-200 w-[220px] top-10 z-[5] p-2\"\n};\nconst _hoisted_7 = [\"placeholder\"];\nconst _hoisted_8 = { class: \"overflow-auto max-h-[150px]\" };\nconst _hoisted_9 = [\"onClick\"];\nconst _hoisted_10 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ _createElementVNode(\"svg\", {\n  class: \"dark:fill-white fill-black\",\n  width: \"20px\",\n  height: \"20px\",\n  viewBox: \"0 0 24 24\",\n  fill: \"none\",\n  xmlns: \"http://www.w3.org/2000/svg\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"path\", {\n    \"fill-rule\": \"evenodd\",\n    \"clip-rule\": \"evenodd\",\n    d: \"M6.46967 8.96967C6.76256 8.67678 7.23744 8.67678 7.53033 8.96967L12 13.4393L16.4697 8.96967C16.7626 8.67678 17.2374 8.67678 17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303L12.5303 15.0303C12.3897 15.171 12.1989 15.25 12 15.25C11.8011 15.25 11.6103 15.171 11.4697 15.0303L6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967Z\"\n  })\n], -1));\nconst _hoisted_11 = [\n  _hoisted_10\n];\nconst _hoisted_12 = { key: 0 };\nconst _hoisted_13 = [\"onClick\"];\nconst _hoisted_14 = { class: \"\" };\nconst _hoisted_15 = [\"onClick\"];\nconst _hoisted_16 = { class: \"flex items-center gap-x-2\" };\nconst _hoisted_17 = {\n  key: 0,\n  class: \"max-w-[50px]\"\n};\nconst _hoisted_18 = [\"src\"];\nconst _hoisted_19 = { class: \"break-words\" };\nconst _hoisted_20 = { class: \"text-sm w-full\" };\nconst _hoisted_21 = [\"onClick\"];\nimport { useAuthStore } from \"~/stores/auth\";\nimport { LinkedList } from \"~/hooks/Node\";\nimport { useDocumentStore } from \"~/stores/documents\";\nimport { useCompanies } from \"~/stores/companies\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DocumentItemInfoChainScheduleItem\",\n  props: {\n    item: {\n      type: Object,\n      default: () => {\n      }\n    },\n    currentUser: {\n      type: Object,\n      default: () => {\n      }\n    }\n  },\n  setup(__props) {\n    const props = __props;\n    const company = useCompanies();\n    const authStore = useAuthStore();\n    const draggedNode = ref(false);\n    const list = ref(new LinkedList());\n    const documentStore = useDocumentStore();\n    const appendData = (data) => {\n      list.value.append(data);\n    };\n    const deleteData = (data) => {\n      list.value.delete(data);\n    };\n    const deleteNodeValue = (targetValue, removeObject) => {\n      list.value.deleteNodeValue(targetValue, removeObject);\n    };\n    const addContentNode = (targetValue, content) => {\n      list.value.addContentToNode(targetValue, content);\n      console.log(documentStore.userList);\n    };\n    const swipeData = () => {\n      list.value.swipeIfCondition();\n    };\n    function dragEnterNode(event) {\n      draggedNode.value = true;\n      event.target.classList.add(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragLeaveNode(event) {\n      draggedNode.value = false;\n      event.target.classList.remove(\"draggedToNode\");\n      event.preventDefault();\n    }\n    function dragEnterNodeValue(event) {\n      event.target.classList.add(\"draggedUser\");\n      event.preventDefault();\n    }\n    function dragLeaveNodeValue(event) {\n      event.target.classList.remove(\"draggedUser\");\n      event.preventDefault();\n    }\n    onMounted(() => {\n      appendData([{\n        first_name: authStore.user?.first_name,\n        last_name: authStore.user?.last_name,\n        photo_url: authStore.user?.photo_url,\n        id: authStore.user?.id\n      }]);\n      appendData([]);\n      watchSyncEffect(() => {\n        documentStore.userList = list.value.toArray().map((node) => node.self);\n      });\n    });\n    onUnmounted(() => {\n      documentStore.showUsersNode = [];\n      documentStore.showDepartment = [];\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createBlock(_TransitionGroup, {\n        name: \"list\",\n        tag: \"div\",\n        class: \"flex items-center\"\n      }, {\n        default: _withCtx(() => [\n          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(documentStore).userList, (userGroup, groupIndex) => {\n            return _openBlock(), _createElementBlock(\"div\", {\n              key: groupIndex,\n              class: \"px-2 h-full z-20 relative flex items-center transition-all\"\n            }, [\n              _createElementVNode(\"div\", {\n                class: \"transition-all\",\n                onDrop: _cache[0] || (_cache[0] = _withModifiers(($event) => console.log(123), [\"prevent\"])),\n                onDragenter: _withModifiers(($event) => groupIndex === 0 || userGroup.length == 0 ? \"\" : dragEnterNode($event), [\"stop\"]),\n                onDragleave: _withModifiers(dragLeaveNode, [\"stop\"])\n              }, null, 40, _hoisted_1),\n              _createElementVNode(\"div\", {\n                onDragleave: _cache[3] || (_cache[3] = _withModifiers(() => {\n                }, [\"stop\"])),\n                onDragenter: _cache[4] || (_cache[4] = _withModifiers(() => {\n                }, [\"stop\"])),\n                onDrop: _cache[5] || (_cache[5] = _withModifiers(($event) => console.log(123), [\"prevent\"])),\n                class: _normalizeClass([\"w-[220px] gap-y-6 flex items-center flex-col justify-center relative\", { \"border border-dashed border-blueSemiLight h-20 rounded-lg\": userGroup.length === 0 || userGroup === null }])\n              }, [\n                userGroup.length === 0 ? (_openBlock(), _createElementBlock(\"p\", {\n                  key: 0,\n                  onClick: ($event) => console.log(userGroup),\n                  class: \"absolute text-blueSemiLight tracking-widest text-sm w-full h-full flex items-center justify-center rounded-lg transition-all duration-200\",\n                  onDragenter: _withModifiers(dragEnterNodeValue, [\"prevent\"]),\n                  onDragleave: _withModifiers(dragLeaveNodeValue, [\"prevent\"])\n                }, _toDisplayString(_ctx.$t(\"Область для добавления\")), 41, _hoisted_2)) : _createCommentVNode(\"\", true),\n                groupIndex !== 0 ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n                  _createElementVNode(\"button\", {\n                    onClick: _withModifiers(($event) => _unref(documentStore).showContext = groupIndex, [\"stop\"]),\n                    class: \"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 right-10 text-green-400 font-bold\"\n                  }, \" + \", 8, _hoisted_4),\n                  _createElementVNode(\"button\", {\n                    onClick: _withModifiers(($event) => {\n                      deleteData(userGroup);\n                      _unref(documentStore).showContext = null;\n                      _unref(documentStore).showUsersNode = _unref(documentStore).showUsersNode.filter((user) => !userGroup.some((groupUser) => groupUser.id === user.id));\n                    }, [\"stop\"]),\n                    class: \"rounded-lg border border-gray-500 dark:border-white absolute px-2.5 pt-1 -top-10 left-10 text-red-400 font-bold\"\n                  }, \" X \", 8, _hoisted_5)\n                ])) : _createCommentVNode(\"\", true),\n                _createVNode(_Transition, {\n                  name: \"slide-down\",\n                  class: \"\",\n                  onClick: _cache[2] || (_cache[2] = _withModifiers(() => {\n                  }, [\"stop\"]))\n                }, {\n                  default: _withCtx(() => [\n                    _unref(documentStore).showContext === groupIndex ? (_openBlock(), _createElementBlock(\"div\", _hoisted_6, [\n                      _createElementVNode(\"input\", {\n                        onClick: _cache[1] || (_cache[1] = _withModifiers(() => {\n                        }, [\"stop\"])),\n                        type: \"text\",\n                        class: \"pl-2 dark:bg-gray-600 rounded-lg outline-none w-full mb-4\",\n                        placeholder: _ctx.$t(\"Поиск...\")\n                      }, null, 8, _hoisted_7),\n                      _createElementVNode(\"div\", _hoisted_8, [\n                        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(company).get_all_department.results, (department) => {\n                          return _openBlock(), _createElementBlock(\"div\", null, [\n                            _createElementVNode(\"button\", {\n                              class: \"flex items-center justify-between gap-x-2 w-full break-words break-all\",\n                              onClick: ($event) => _unref(documentStore).showContextDepartment === department.id ? _unref(documentStore).showContextDepartment = null : _unref(documentStore).showContextDepartment = department.id\n                            }, [\n                              _createElementVNode(\"span\", null, _toDisplayString(department.name), 1),\n                              _createElementVNode(\"div\", {\n                                class: _normalizeClass({ \"rotate-180\": _unref(documentStore).showContextDepartment === department.id })\n                              }, _hoisted_11, 2)\n                            ], 8, _hoisted_9),\n                            _createVNode(_Transition, { name: \"slide-down\" }, {\n                              default: _withCtx(() => [\n                                _unref(documentStore).showContextDepartment === department.id ? (_openBlock(), _createElementBlock(\"div\", _hoisted_12, [\n                                  (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(department.participants, (user) => {\n                                    return _openBlock(), _createElementBlock(\"div\", null, [\n                                      department.participants && _unref(documentStore).showUsersNode.every((e) => e.id !== user.id) && user.id !== _unref(authStore).user.id && userGroup.every((e) => e.priority === user.priority) ? (_openBlock(), _createElementBlock(\"button\", {\n                                        key: 0,\n                                        class: \"px-2 py-1 w-full flex items-center text-start hover:bg-semiCyan rounded-lg transition-all\",\n                                        onClick: ($event) => {\n                                          addContentNode(userGroup, { ...user });\n                                          _unref(documentStore).showUsersNode.push({ id: user.id });\n                                          swipeData();\n                                          _unref(documentStore).showContextDepartment = null;\n                                          _unref(documentStore).showContext = null;\n                                          console.log(userGroup.map((e) => e.priority));\n                                        }\n                                      }, [\n                                        _createElementVNode(\"span\", _hoisted_14, _toDisplayString(user.first_name + \" \" + user.last_name), 1)\n                                      ], 8, _hoisted_13)) : _createCommentVNode(\"\", true)\n                                    ]);\n                                  }), 256))\n                                ])) : _createCommentVNode(\"\", true)\n                              ]),\n                              _: 2\n                            }, 1024)\n                          ]);\n                        }), 256))\n                      ])\n                    ])) : _createCommentVNode(\"\", true)\n                  ]),\n                  _: 2\n                }, 1024),\n                _createVNode(_TransitionGroup, {\n                  name: \"list\",\n                  tag: \"list\",\n                  class: \"flex flex-col gap-y-6 transition-all\"\n                }, {\n                  default: _withCtx(() => [\n                    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(userGroup, (user, userIndex) => {\n                      return _openBlock(), _createElementBlock(\"div\", {\n                        onClick: ($event) => console.log(_unref(documentStore).showUsersNode.filter((el) => el.id !== userGroup.filter((e) => e.id))),\n                        class: \"h-24 w-[220px] border border-gray-500 dark:border-white px-2 rounded-lg text-center flex items-center justify-center mx-auto relative\",\n                        key: userIndex\n                      }, [\n                        _createElementVNode(\"div\", _hoisted_16, [\n                          user.photo_url ? (_openBlock(), _createElementBlock(\"div\", _hoisted_17, [\n                            _createElementVNode(\"img\", {\n                              class: \"w-full rounded-full\",\n                              src: _unref(authStore).get_server_domain + user.photo_url,\n                              alt: \"\"\n                            }, null, 8, _hoisted_18)\n                          ])) : _createCommentVNode(\"\", true),\n                          _createElementVNode(\"div\", _hoisted_19, [\n                            _createElementVNode(\"p\", _hoisted_20, _toDisplayString(user.first_name + \" \" + user.last_name), 1)\n                          ])\n                        ]),\n                        user.id !== _unref(authStore).user.id && groupIndex !== 0 ? (_openBlock(), _createElementBlock(\"button\", {\n                          key: 0,\n                          class: \"absolute px-2.5 pt-1 top-0 right-0 border-l border-b border-gray-500 dark:border-white rounded rounded-tl-none rounded-br-none text-red-400 font-bold\",\n                          onClick: ($event) => {\n                            deleteNodeValue(userGroup, { ...user });\n                            _unref(documentStore).showUsersNode.splice(_unref(documentStore).showUsersNode.findIndex((e) => e.id === user?.id), 1);\n                          }\n                        }, \" X \", 8, _hoisted_21)) : _createCommentVNode(\"\", true)\n                      ], 8, _hoisted_15);\n                    }), 128))\n                  ]),\n                  _: 2\n                }, 1024)\n              ], 34)\n            ]);\n          }), 128)),\n          _createElementVNode(\"button\", {\n            class: \"text-2xl px-4 py-2 ml-4 rounded-lg border border-blueSemiLight text-blueDarkSemiLight cursor-pointer hover:scale-95 transition-all\",\n            onClick: _cache[6] || (_cache[6] = ($event) => appendData([]))\n          }, \" + \")\n        ]),\n        _: 1\n      });\n    };\n  }\n});\n",
-      "start": 1706896525336,
-      "end": 1706896525340,
+      "start": 1707126048855,
+      "end": 1707126048862,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -204,50 +204,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048862,
+      "end": 1707126048862,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048862,
+      "end": 1707126048862,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048863,
+      "end": 1707126048863,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048863,
+      "end": 1707126048863,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048863,
+      "end": 1707126048863,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048863,
+      "end": 1707126048863,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048863,
+      "end": 1707126048863,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525340,
-      "end": 1706896525340,
+      "start": 1707126048863,
+      "end": 1707126048863,
       "order": "normal"
     }
   ]

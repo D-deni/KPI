@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useCompanies} from \"~/stores/companies\";\r\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\r\n\r\nimport FullCalendar from '@fullcalendar/vue3'\r\nimport dayGridPlugin from \"@fullcalendar/daygrid\";\r\nimport interactionPlugin from \"@fullcalendar/interaction\";\r\nimport CurrentCompanyNews from \"~/components/Company/User/CurrentCompanyNews.vue\";\r\nimport CurrentCompanyFiles from \"~/components/Company/User/CurrentCompanyFiles.vue\";\r\nimport CurrentCompanyDepartment from \"~/components/Company/User/CurrentCompanyDepartment.vue\";\r\nimport CurrentCompanyChart from \"~/components/Company/User/CurrentCompanyChart.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CurrentCompanyInfo',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nconst currentCompany = useCompanies()\r\nconst calendarOptions = {\r\n  plugins: [dayGridPlugin, interactionPlugin],\r\n  theme: 'darkly',\r\n  events: [\r\n    {title: \"event 1\", date: \"2022-12-26\"},\r\n    {title: \"event 2\", date: \"2022-12-27\"},\r\n  ],\r\n}\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex flex-col overflow-hidden gap-y-10\" }, _attrs))}><div class=\"flex w-11/12 max-[1400px]:flex-wrap gap-x-6 max-[1400px]:gap-y-10 mx-auto\">`)\n  _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-4/12 ml-auto max-[1400px]:mx-auto max-[1400px]:w-6/12 max-md:w-full max-[1400px]:order-3\" }, {\n    blockTitle: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('График'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('График')), 1)\n        ]\n      }\n    }),\n    blockContent: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div${_scopeId}>`)\n        _push(_ssrRenderComponent(CurrentCompanyChart, null, null, _parent, _scopeId))\n        _push(`</div>`)\n      } else {\n        return [\n          _createVNode(\"div\", null, [\n            _createVNode(CurrentCompanyChart)\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-full mx-auto max-[1400px]:mx-auto max-[1400px]:w-full\" }, {\n    blockTitle: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('О компании'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('О компании')), 1)\n        ]\n      }\n    }),\n    blockContent: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div${\n          _scopeId\n        }>${\n          _ssrInterpolate(_unref(currentCompany).company.description)\n        }</div>`)\n      } else {\n        return [\n          _createVNode(\"div\", null, _toDisplayString(_unref(currentCompany).company.description), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-5/12 mr-auto max-[1400px]:mx-auto max-[1400px]:w-5/12 max-md:w-full\" }, {\n    blockTitle: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Статистика компании'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Статистика компании')), 1)\n        ]\n      }\n    }),\n    blockContent: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div class=\"flex items-center my-4 gap-x-5 justify-center\"${\n          _scopeId\n        }><div class=\"flex items-center gap-x-2 w-8/12 max-md:w-9/12\"${\n          _scopeId\n        }><div${\n          _scopeId\n        }><svg width=\"35px\" height=\"35px\" class=\"stroke-black dark:stroke-white\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n          _scopeId\n        }><path d=\"M20.3873 7.1575L11.9999 12L3.60913 7.14978\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${\n          _scopeId\n        }></path><path d=\"M12 12V21\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${\n          _scopeId\n        }></path><path d=\"M11 2.57735C11.6188 2.22008 12.3812 2.22008 13 2.57735L19.6603 6.42265C20.2791 6.77992 20.6603 7.44017 20.6603 8.1547V15.8453C20.6603 16.5598 20.2791 17.2201 19.6603 17.5774L13 21.4226C12.3812 21.7799 11.6188 21.7799 11 21.4226L4.33975 17.5774C3.72094 17.2201 3.33975 16.5598 3.33975 15.8453V8.1547C3.33975 7.44017 3.72094 6.77992 4.33975 6.42265L11 2.57735Z\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${\n          _scopeId\n        }></path></svg></div><p class=\"tracking-widest\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_ctx.$t('Объекты'))\n        }: ${\n          _ssrInterpolate()\n        }</p></div><div${\n          _scopeId\n        }><p class=\"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_unref(currentCompany).company.objects_count)\n        }</p></div></div><div class=\"flex items-center my-4 gap-x-5 justify-center\"${\n          _scopeId\n        }><div class=\"flex items-center gap-x-2 w-8/12 max-md:w-9/12\"${\n          _scopeId\n        }><div${\n          _scopeId\n        }><svg width=\"35px\" height=\"35px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${\n          _scopeId\n        }><g id=\"User / Users_Group\"${\n          _scopeId\n        }><path id=\"Vector\" class=\"dark:stroke-white stroke-black\" d=\"M17 20C17 18.3431 14.7614 17 12 17C9.23858 17 7 18.3431 7 20M21 17.0004C21 15.7702 19.7659 14.7129 18 14.25M3 17.0004C3 15.7702 4.2341 14.7129 6 14.25M18 10.2361C18.6137 9.68679 19 8.8885 19 8C19 6.34315 17.6569 5 16 5C15.2316 5 14.5308 5.28885 14 5.76389M6 10.2361C5.38625 9.68679 5 8.8885 5 8C5 6.34315 6.34315 5 8 5C8.76835 5 9.46924 5.28885 10 5.76389M12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14Z\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${\n          _scopeId\n        }></path></g></svg></div><p class=\"tracking-widest\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_ctx.$t('Сотрудники'))\n        }:</p></div><div${\n          _scopeId\n        }><p class=\"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_unref(currentCompany).company.users_count)\n        }</p></div></div><div class=\"flex items-center my-4 gap-x-5 justify-center\"${\n          _scopeId\n        }><div class=\"flex items-center gap-x-2 w-8/12 max-md:w-9/12\"${\n          _scopeId\n        }><div${\n          _scopeId\n        }><svg class=\"dark:stroke-white stroke-black\" fill=\"none\" width=\"35px\" height=\"35px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"${\n          _scopeId\n        }><path d=\"M5.04146 3C5.22009 2.6906 5.55022 2.5 5.90748 2.5L9.75278 2.5C10.11 2.5 10.4402 2.6906 10.6188 3L12.5415 6.33013C12.7201 6.63953 12.7201 7.02073 12.5415 7.33013L10.6188 10.6603C10.4402 10.9697 10.11 11.1603 9.75278 11.1603H5.90748C5.55022 11.1603 5.22009 10.9697 5.04146 10.6603L3.11881 7.33013C2.94017 7.02073 2.94017 6.63953 3.11881 6.33013L5.04146 3Z\"${\n          _scopeId\n        }></path><path d=\"M5.1216 13.2272C5.30023 12.9178 5.63036 12.7272 5.98762 12.7272H9.83292C10.1902 12.7272 10.5203 12.9178 10.6989 13.2272L12.6216 16.5574C12.8002 16.8668 12.8002 17.248 12.6216 17.5574L10.6989 20.8875C10.5203 21.1969 10.1902 21.3875 9.83292 21.3875H5.98762C5.63036 21.3875 5.30023 21.1969 5.1216 20.8875L3.19895 17.5574C3.02031 17.248 3.02031 16.8668 3.19895 16.5574L5.1216 13.2272Z\"${\n          _scopeId\n        }></path><path d=\"M14.1216 8.22723C14.3002 7.91783 14.6304 7.72723 14.9876 7.72723L18.8329 7.72723C19.1902 7.72723 19.5203 7.91783 19.6989 8.22723L21.6216 11.5574C21.8002 11.8668 21.8002 12.248 21.6216 12.5574L19.6989 15.8875C19.5203 16.1969 19.1902 16.3875 18.8329 16.3875H14.9876C14.6304 16.3875 14.3002 16.1969 14.1216 15.8875L12.1989 12.5574C12.0203 12.248 12.0203 11.8668 12.1989 11.5574L14.1216 8.22723Z\"${\n          _scopeId\n        }></path></svg></div><p class=\"tracking-widest\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_ctx.$t('Департаменты'))\n        }: ${\n          _ssrInterpolate()\n        }</p></div><div${\n          _scopeId\n        }><p class=\"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(_unref(currentCompany).company.departments_count)\n        }</p></div></div>`)\n      } else {\n        return [\n          _createVNode(\"div\", { class: \"flex items-center my-4 gap-x-5 justify-center\" }, [\n            _createVNode(\"div\", { class: \"flex items-center gap-x-2 w-8/12 max-md:w-9/12\" }, [\n              _createVNode(\"div\", null, [\n                (_openBlock(), _createBlock(\"svg\", {\n                  width: \"35px\",\n                  height: \"35px\",\n                  class: \"stroke-black dark:stroke-white\",\n                  viewBox: \"0 0 24 24\",\n                  fill: \"none\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, [\n                  _createVNode(\"path\", {\n                    d: \"M20.3873 7.1575L11.9999 12L3.60913 7.14978\",\n                    \"stroke-width\": \"1\",\n                    \"stroke-linecap\": \"round\",\n                    \"stroke-linejoin\": \"round\"\n                  }),\n                  _createVNode(\"path\", {\n                    d: \"M12 12V21\",\n                    \"stroke-width\": \"1\",\n                    \"stroke-linecap\": \"round\",\n                    \"stroke-linejoin\": \"round\"\n                  }),\n                  _createVNode(\"path\", {\n                    d: \"M11 2.57735C11.6188 2.22008 12.3812 2.22008 13 2.57735L19.6603 6.42265C20.2791 6.77992 20.6603 7.44017 20.6603 8.1547V15.8453C20.6603 16.5598 20.2791 17.2201 19.6603 17.5774L13 21.4226C12.3812 21.7799 11.6188 21.7799 11 21.4226L4.33975 17.5774C3.72094 17.2201 3.33975 16.5598 3.33975 15.8453V8.1547C3.33975 7.44017 3.72094 6.77992 4.33975 6.42265L11 2.57735Z\",\n                    \"stroke-width\": \"1\",\n                    \"stroke-linecap\": \"round\",\n                    \"stroke-linejoin\": \"round\"\n                  })\n                ]))\n              ]),\n              _createVNode(\"p\", { class: \"tracking-widest\" }, _toDisplayString(_ctx.$t('Объекты')) + \": \" + _toDisplayString(), 1)\n            ]),\n            _createVNode(\"div\", null, [\n              _createVNode(\"p\", { class: \"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\" }, _toDisplayString(_unref(currentCompany).company.objects_count), 1)\n            ])\n          ]),\n          _createVNode(\"div\", { class: \"flex items-center my-4 gap-x-5 justify-center\" }, [\n            _createVNode(\"div\", { class: \"flex items-center gap-x-2 w-8/12 max-md:w-9/12\" }, [\n              _createVNode(\"div\", null, [\n                (_openBlock(), _createBlock(\"svg\", {\n                  width: \"35px\",\n                  height: \"35px\",\n                  viewBox: \"0 0 24 24\",\n                  fill: \"none\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, [\n                  _createVNode(\"g\", { id: \"User / Users_Group\" }, [\n                    _createVNode(\"path\", {\n                      id: \"Vector\",\n                      class: \"dark:stroke-white stroke-black\",\n                      d: \"M17 20C17 18.3431 14.7614 17 12 17C9.23858 17 7 18.3431 7 20M21 17.0004C21 15.7702 19.7659 14.7129 18 14.25M3 17.0004C3 15.7702 4.2341 14.7129 6 14.25M18 10.2361C18.6137 9.68679 19 8.8885 19 8C19 6.34315 17.6569 5 16 5C15.2316 5 14.5308 5.28885 14 5.76389M6 10.2361C5.38625 9.68679 5 8.8885 5 8C5 6.34315 6.34315 5 8 5C8.76835 5 9.46924 5.28885 10 5.76389M12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14Z\",\n                      \"stroke-width\": \"1\",\n                      \"stroke-linecap\": \"round\",\n                      \"stroke-linejoin\": \"round\"\n                    })\n                  ])\n                ]))\n              ]),\n              _createVNode(\"p\", { class: \"tracking-widest\" }, _toDisplayString(_ctx.$t('Сотрудники')) + \":\", 1)\n            ]),\n            _createVNode(\"div\", null, [\n              _createVNode(\"p\", { class: \"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\" }, _toDisplayString(_unref(currentCompany).company.users_count), 1)\n            ])\n          ]),\n          _createVNode(\"div\", { class: \"flex items-center my-4 gap-x-5 justify-center\" }, [\n            _createVNode(\"div\", { class: \"flex items-center gap-x-2 w-8/12 max-md:w-9/12\" }, [\n              _createVNode(\"div\", null, [\n                (_openBlock(), _createBlock(\"svg\", {\n                  class: \"dark:stroke-white stroke-black\",\n                  fill: \"none\",\n                  width: \"35px\",\n                  height: \"35px\",\n                  viewBox: \"0 0 24 24\",\n                  xmlns: \"http://www.w3.org/2000/svg\"\n                }, [\n                  _createVNode(\"path\", { d: \"M5.04146 3C5.22009 2.6906 5.55022 2.5 5.90748 2.5L9.75278 2.5C10.11 2.5 10.4402 2.6906 10.6188 3L12.5415 6.33013C12.7201 6.63953 12.7201 7.02073 12.5415 7.33013L10.6188 10.6603C10.4402 10.9697 10.11 11.1603 9.75278 11.1603H5.90748C5.55022 11.1603 5.22009 10.9697 5.04146 10.6603L3.11881 7.33013C2.94017 7.02073 2.94017 6.63953 3.11881 6.33013L5.04146 3Z\" }),\n                  _createVNode(\"path\", { d: \"M5.1216 13.2272C5.30023 12.9178 5.63036 12.7272 5.98762 12.7272H9.83292C10.1902 12.7272 10.5203 12.9178 10.6989 13.2272L12.6216 16.5574C12.8002 16.8668 12.8002 17.248 12.6216 17.5574L10.6989 20.8875C10.5203 21.1969 10.1902 21.3875 9.83292 21.3875H5.98762C5.63036 21.3875 5.30023 21.1969 5.1216 20.8875L3.19895 17.5574C3.02031 17.248 3.02031 16.8668 3.19895 16.5574L5.1216 13.2272Z\" }),\n                  _createVNode(\"path\", { d: \"M14.1216 8.22723C14.3002 7.91783 14.6304 7.72723 14.9876 7.72723L18.8329 7.72723C19.1902 7.72723 19.5203 7.91783 19.6989 8.22723L21.6216 11.5574C21.8002 11.8668 21.8002 12.248 21.6216 12.5574L19.6989 15.8875C19.5203 16.1969 19.1902 16.3875 18.8329 16.3875H14.9876C14.6304 16.3875 14.3002 16.1969 14.1216 15.8875L12.1989 12.5574C12.0203 12.248 12.0203 11.8668 12.1989 11.5574L14.1216 8.22723Z\" })\n                ]))\n              ]),\n              _createVNode(\"p\", { class: \"tracking-widest\" }, _toDisplayString(_ctx.$t('Департаменты')) + \": \" + _toDisplayString(), 1)\n            ]),\n            _createVNode(\"div\", null, [\n              _createVNode(\"p\", { class: \"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\" }, _toDisplayString(_unref(currentCompany).company.departments_count), 1)\n            ])\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div><div class=\"w-11/12 mx-auto\">`)\n  _push(_ssrRenderComponent(CurrentCompanyFiles, null, null, _parent))\n  _push(`</div><div class=\"w-11/12 mx-auto\">`)\n  _push(_ssrRenderComponent(CurrentCompanyDepartment, null, null, _parent))\n  _push(`</div><div>`)\n  _push(_ssrRenderComponent(CurrentCompanyNews, null, null, _parent))\n  _push(`</div><div class=\"w-11/12 mx-auto\">`)\n  _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-10/12 mx-auto\" }, {\n    blockTitle: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`${_ssrInterpolate(_ctx.$t('Календарь событий'))}`)\n      } else {\n        return [\n          _createTextVNode(_toDisplayString(_ctx.$t('Календарь событий')), 1)\n        ]\n      }\n    }),\n    blockContent: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div${_scopeId}>`)\n        _push(_ssrRenderComponent(_unref(FullCalendar), { options: calendarOptions }, null, _parent, _scopeId))\n        _push(`</div>`)\n      } else {\n        return [\n          _createVNode(\"div\", null, [\n            _createVNode(_unref(FullCalendar), { options: calendarOptions })\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div></div>`)\n}\n}\n\n})",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070379,
+      "end": 1707126070379,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896546544,
-      "end": 1706896546544,
+      "start": 1707126070380,
+      "end": 1707126070380,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, createVNode as _createVNode, unref as _unref, openBlock as _openBlock, createBlock as _createBlock, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport { useCompanies } from \"~/stores/companies\";\nimport CurrentCompanyElems from \"~/components/Company/CompanyUI/CurrentCompanyElems.vue\";\nimport FullCalendar from \"@fullcalendar/vue3\";\nimport dayGridPlugin from \"@fullcalendar/daygrid\";\nimport interactionPlugin from \"@fullcalendar/interaction\";\nimport CurrentCompanyNews from \"~/components/Company/User/CurrentCompanyNews.vue\";\nimport CurrentCompanyFiles from \"~/components/Company/User/CurrentCompanyFiles.vue\";\nimport CurrentCompanyDepartment from \"~/components/Company/User/CurrentCompanyDepartment.vue\";\nimport CurrentCompanyChart from \"~/components/Company/User/CurrentCompanyChart.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CurrentCompanyInfo\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    const currentCompany = useCompanies();\n    const calendarOptions = {\n      plugins: [dayGridPlugin, interactionPlugin],\n      theme: \"darkly\",\n      events: [\n        { title: \"event 1\", date: \"2022-12-26\" },\n        { title: \"event 2\", date: \"2022-12-27\" }\n      ]\n    };\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"flex flex-col overflow-hidden gap-y-10\" }, _attrs))}><div class=\"flex w-11/12 max-[1400px]:flex-wrap gap-x-6 max-[1400px]:gap-y-10 mx-auto\">`);\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-4/12 ml-auto max-[1400px]:mx-auto max-[1400px]:w-6/12 max-md:w-full max-[1400px]:order-3\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"График\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"График\")), 1)\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div${_scopeId}>`);\n            _push2(_ssrRenderComponent(CurrentCompanyChart, null, null, _parent2, _scopeId));\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(\"div\", null, [\n                _createVNode(CurrentCompanyChart)\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-full mx-auto max-[1400px]:mx-auto max-[1400px]:w-full\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"О компании\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"О компании\")), 1)\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div${_scopeId}>${_ssrInterpolate(_unref(currentCompany).company.description)}</div>`);\n          } else {\n            return [\n              _createVNode(\"div\", null, _toDisplayString(_unref(currentCompany).company.description), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-5/12 mr-auto max-[1400px]:mx-auto max-[1400px]:w-5/12 max-md:w-full\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Статистика компании\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Статистика компании\")), 1)\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex items-center my-4 gap-x-5 justify-center\"${_scopeId}><div class=\"flex items-center gap-x-2 w-8/12 max-md:w-9/12\"${_scopeId}><div${_scopeId}><svg width=\"35px\" height=\"35px\" class=\"stroke-black dark:stroke-white\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><path d=\"M20.3873 7.1575L11.9999 12L3.60913 7.14978\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${_scopeId}></path><path d=\"M12 12V21\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${_scopeId}></path><path d=\"M11 2.57735C11.6188 2.22008 12.3812 2.22008 13 2.57735L19.6603 6.42265C20.2791 6.77992 20.6603 7.44017 20.6603 8.1547V15.8453C20.6603 16.5598 20.2791 17.2201 19.6603 17.5774L13 21.4226C12.3812 21.7799 11.6188 21.7799 11 21.4226L4.33975 17.5774C3.72094 17.2201 3.33975 16.5598 3.33975 15.8453V8.1547C3.33975 7.44017 3.72094 6.77992 4.33975 6.42265L11 2.57735Z\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${_scopeId}></path></svg></div><p class=\"tracking-widest\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Объекты\"))}: ${_ssrInterpolate()}</p></div><div${_scopeId}><p class=\"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\"${_scopeId}>${_ssrInterpolate(_unref(currentCompany).company.objects_count)}</p></div></div><div class=\"flex items-center my-4 gap-x-5 justify-center\"${_scopeId}><div class=\"flex items-center gap-x-2 w-8/12 max-md:w-9/12\"${_scopeId}><div${_scopeId}><svg width=\"35px\" height=\"35px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><g id=\"User / Users_Group\"${_scopeId}><path id=\"Vector\" class=\"dark:stroke-white stroke-black\" d=\"M17 20C17 18.3431 14.7614 17 12 17C9.23858 17 7 18.3431 7 20M21 17.0004C21 15.7702 19.7659 14.7129 18 14.25M3 17.0004C3 15.7702 4.2341 14.7129 6 14.25M18 10.2361C18.6137 9.68679 19 8.8885 19 8C19 6.34315 17.6569 5 16 5C15.2316 5 14.5308 5.28885 14 5.76389M6 10.2361C5.38625 9.68679 5 8.8885 5 8C5 6.34315 6.34315 5 8 5C8.76835 5 9.46924 5.28885 10 5.76389M12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14Z\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"${_scopeId}></path></g></svg></div><p class=\"tracking-widest\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Сотрудники\"))}:</p></div><div${_scopeId}><p class=\"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\"${_scopeId}>${_ssrInterpolate(_unref(currentCompany).company.users_count)}</p></div></div><div class=\"flex items-center my-4 gap-x-5 justify-center\"${_scopeId}><div class=\"flex items-center gap-x-2 w-8/12 max-md:w-9/12\"${_scopeId}><div${_scopeId}><svg class=\"dark:stroke-white stroke-black\" fill=\"none\" width=\"35px\" height=\"35px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"${_scopeId}><path d=\"M5.04146 3C5.22009 2.6906 5.55022 2.5 5.90748 2.5L9.75278 2.5C10.11 2.5 10.4402 2.6906 10.6188 3L12.5415 6.33013C12.7201 6.63953 12.7201 7.02073 12.5415 7.33013L10.6188 10.6603C10.4402 10.9697 10.11 11.1603 9.75278 11.1603H5.90748C5.55022 11.1603 5.22009 10.9697 5.04146 10.6603L3.11881 7.33013C2.94017 7.02073 2.94017 6.63953 3.11881 6.33013L5.04146 3Z\"${_scopeId}></path><path d=\"M5.1216 13.2272C5.30023 12.9178 5.63036 12.7272 5.98762 12.7272H9.83292C10.1902 12.7272 10.5203 12.9178 10.6989 13.2272L12.6216 16.5574C12.8002 16.8668 12.8002 17.248 12.6216 17.5574L10.6989 20.8875C10.5203 21.1969 10.1902 21.3875 9.83292 21.3875H5.98762C5.63036 21.3875 5.30023 21.1969 5.1216 20.8875L3.19895 17.5574C3.02031 17.248 3.02031 16.8668 3.19895 16.5574L5.1216 13.2272Z\"${_scopeId}></path><path d=\"M14.1216 8.22723C14.3002 7.91783 14.6304 7.72723 14.9876 7.72723L18.8329 7.72723C19.1902 7.72723 19.5203 7.91783 19.6989 8.22723L21.6216 11.5574C21.8002 11.8668 21.8002 12.248 21.6216 12.5574L19.6989 15.8875C19.5203 16.1969 19.1902 16.3875 18.8329 16.3875H14.9876C14.6304 16.3875 14.3002 16.1969 14.1216 15.8875L12.1989 12.5574C12.0203 12.248 12.0203 11.8668 12.1989 11.5574L14.1216 8.22723Z\"${_scopeId}></path></svg></div><p class=\"tracking-widest\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Департаменты\"))}: ${_ssrInterpolate()}</p></div><div${_scopeId}><p class=\"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\"${_scopeId}>${_ssrInterpolate(_unref(currentCompany).company.departments_count)}</p></div></div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex items-center my-4 gap-x-5 justify-center\" }, [\n                _createVNode(\"div\", { class: \"flex items-center gap-x-2 w-8/12 max-md:w-9/12\" }, [\n                  _createVNode(\"div\", null, [\n                    (_openBlock(), _createBlock(\"svg\", {\n                      width: \"35px\",\n                      height: \"35px\",\n                      class: \"stroke-black dark:stroke-white\",\n                      viewBox: \"0 0 24 24\",\n                      fill: \"none\",\n                      xmlns: \"http://www.w3.org/2000/svg\"\n                    }, [\n                      _createVNode(\"path\", {\n                        d: \"M20.3873 7.1575L11.9999 12L3.60913 7.14978\",\n                        \"stroke-width\": \"1\",\n                        \"stroke-linecap\": \"round\",\n                        \"stroke-linejoin\": \"round\"\n                      }),\n                      _createVNode(\"path\", {\n                        d: \"M12 12V21\",\n                        \"stroke-width\": \"1\",\n                        \"stroke-linecap\": \"round\",\n                        \"stroke-linejoin\": \"round\"\n                      }),\n                      _createVNode(\"path\", {\n                        d: \"M11 2.57735C11.6188 2.22008 12.3812 2.22008 13 2.57735L19.6603 6.42265C20.2791 6.77992 20.6603 7.44017 20.6603 8.1547V15.8453C20.6603 16.5598 20.2791 17.2201 19.6603 17.5774L13 21.4226C12.3812 21.7799 11.6188 21.7799 11 21.4226L4.33975 17.5774C3.72094 17.2201 3.33975 16.5598 3.33975 15.8453V8.1547C3.33975 7.44017 3.72094 6.77992 4.33975 6.42265L11 2.57735Z\",\n                        \"stroke-width\": \"1\",\n                        \"stroke-linecap\": \"round\",\n                        \"stroke-linejoin\": \"round\"\n                      })\n                    ]))\n                  ]),\n                  _createVNode(\"p\", { class: \"tracking-widest\" }, _toDisplayString(_ctx.$t(\"Объекты\")) + \": \" + _toDisplayString(), 1)\n                ]),\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", { class: \"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\" }, _toDisplayString(_unref(currentCompany).company.objects_count), 1)\n                ])\n              ]),\n              _createVNode(\"div\", { class: \"flex items-center my-4 gap-x-5 justify-center\" }, [\n                _createVNode(\"div\", { class: \"flex items-center gap-x-2 w-8/12 max-md:w-9/12\" }, [\n                  _createVNode(\"div\", null, [\n                    (_openBlock(), _createBlock(\"svg\", {\n                      width: \"35px\",\n                      height: \"35px\",\n                      viewBox: \"0 0 24 24\",\n                      fill: \"none\",\n                      xmlns: \"http://www.w3.org/2000/svg\"\n                    }, [\n                      _createVNode(\"g\", { id: \"User / Users_Group\" }, [\n                        _createVNode(\"path\", {\n                          id: \"Vector\",\n                          class: \"dark:stroke-white stroke-black\",\n                          d: \"M17 20C17 18.3431 14.7614 17 12 17C9.23858 17 7 18.3431 7 20M21 17.0004C21 15.7702 19.7659 14.7129 18 14.25M3 17.0004C3 15.7702 4.2341 14.7129 6 14.25M18 10.2361C18.6137 9.68679 19 8.8885 19 8C19 6.34315 17.6569 5 16 5C15.2316 5 14.5308 5.28885 14 5.76389M6 10.2361C5.38625 9.68679 5 8.8885 5 8C5 6.34315 6.34315 5 8 5C8.76835 5 9.46924 5.28885 10 5.76389M12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11C15 12.6569 13.6569 14 12 14Z\",\n                          \"stroke-width\": \"1\",\n                          \"stroke-linecap\": \"round\",\n                          \"stroke-linejoin\": \"round\"\n                        })\n                      ])\n                    ]))\n                  ]),\n                  _createVNode(\"p\", { class: \"tracking-widest\" }, _toDisplayString(_ctx.$t(\"Сотрудники\")) + \":\", 1)\n                ]),\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", { class: \"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\" }, _toDisplayString(_unref(currentCompany).company.users_count), 1)\n                ])\n              ]),\n              _createVNode(\"div\", { class: \"flex items-center my-4 gap-x-5 justify-center\" }, [\n                _createVNode(\"div\", { class: \"flex items-center gap-x-2 w-8/12 max-md:w-9/12\" }, [\n                  _createVNode(\"div\", null, [\n                    (_openBlock(), _createBlock(\"svg\", {\n                      class: \"dark:stroke-white stroke-black\",\n                      fill: \"none\",\n                      width: \"35px\",\n                      height: \"35px\",\n                      viewBox: \"0 0 24 24\",\n                      xmlns: \"http://www.w3.org/2000/svg\"\n                    }, [\n                      _createVNode(\"path\", { d: \"M5.04146 3C5.22009 2.6906 5.55022 2.5 5.90748 2.5L9.75278 2.5C10.11 2.5 10.4402 2.6906 10.6188 3L12.5415 6.33013C12.7201 6.63953 12.7201 7.02073 12.5415 7.33013L10.6188 10.6603C10.4402 10.9697 10.11 11.1603 9.75278 11.1603H5.90748C5.55022 11.1603 5.22009 10.9697 5.04146 10.6603L3.11881 7.33013C2.94017 7.02073 2.94017 6.63953 3.11881 6.33013L5.04146 3Z\" }),\n                      _createVNode(\"path\", { d: \"M5.1216 13.2272C5.30023 12.9178 5.63036 12.7272 5.98762 12.7272H9.83292C10.1902 12.7272 10.5203 12.9178 10.6989 13.2272L12.6216 16.5574C12.8002 16.8668 12.8002 17.248 12.6216 17.5574L10.6989 20.8875C10.5203 21.1969 10.1902 21.3875 9.83292 21.3875H5.98762C5.63036 21.3875 5.30023 21.1969 5.1216 20.8875L3.19895 17.5574C3.02031 17.248 3.02031 16.8668 3.19895 16.5574L5.1216 13.2272Z\" }),\n                      _createVNode(\"path\", { d: \"M14.1216 8.22723C14.3002 7.91783 14.6304 7.72723 14.9876 7.72723L18.8329 7.72723C19.1902 7.72723 19.5203 7.91783 19.6989 8.22723L21.6216 11.5574C21.8002 11.8668 21.8002 12.248 21.6216 12.5574L19.6989 15.8875C19.5203 16.1969 19.1902 16.3875 18.8329 16.3875H14.9876C14.6304 16.3875 14.3002 16.1969 14.1216 15.8875L12.1989 12.5574C12.0203 12.248 12.0203 11.8668 12.1989 11.5574L14.1216 8.22723Z\" })\n                    ]))\n                  ]),\n                  _createVNode(\"p\", { class: \"tracking-widest\" }, _toDisplayString(_ctx.$t(\"Департаменты\")) + \": \" + _toDisplayString(), 1)\n                ]),\n                _createVNode(\"div\", null, [\n                  _createVNode(\"p\", { class: \"rounded-full border border-gray-400 dark:border-white w-10 h-10 flex items-center justify-center dark:text-white\" }, _toDisplayString(_unref(currentCompany).company.departments_count), 1)\n                ])\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div><div class=\"w-11/12 mx-auto\">`);\n      _push(_ssrRenderComponent(CurrentCompanyFiles, null, null, _parent));\n      _push(`</div><div class=\"w-11/12 mx-auto\">`);\n      _push(_ssrRenderComponent(CurrentCompanyDepartment, null, null, _parent));\n      _push(`</div><div>`);\n      _push(_ssrRenderComponent(CurrentCompanyNews, null, null, _parent));\n      _push(`</div><div class=\"w-11/12 mx-auto\">`);\n      _push(_ssrRenderComponent(CurrentCompanyElems, { class: \"w-10/12 mx-auto\" }, {\n        blockTitle: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`${_ssrInterpolate(_ctx.$t(\"Календарь событий\"))}`);\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Календарь событий\")), 1)\n            ];\n          }\n        }),\n        blockContent: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div${_scopeId}>`);\n            _push2(_ssrRenderComponent(_unref(FullCalendar), { options: calendarOptions }, null, _parent2, _scopeId));\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(\"div\", null, [\n                _createVNode(_unref(FullCalendar), { options: calendarOptions })\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div></div>`);\n    };\n  }\n});\n",
-      "start": 1706896546544,
-      "end": 1706896547706,
+      "start": 1707126070380,
+      "end": 1707126070634,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -89,230 +89,230 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070634,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896547706,
-      "end": 1706896547706,
+      "start": 1707126070634,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896547706,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896547706,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070635,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070635,
+      "end": 1707126070636,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070636,
+      "end": 1707126070636,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896547707,
-      "end": 1706896547707,
+      "start": 1707126070636,
+      "end": 1707126070636,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896547707,
-      "end": 1706896547708,
+      "start": 1707126070637,
+      "end": 1707126070637,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070637,
+      "end": 1707126070637,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070638,
+      "end": 1707126070638,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070639,
+      "end": 1707126070639,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896547708,
-      "end": 1706896547708,
+      "start": 1707126070639,
+      "end": 1707126070639,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896547708,
-      "end": 1706896547709,
+      "start": 1707126070640,
+      "end": 1707126070640,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896547709,
-      "end": 1706896547709,
+      "start": 1707126070640,
+      "end": 1707126070640,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896547709,
-      "end": 1706896547709,
+      "start": 1707126070640,
+      "end": 1707126070640,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896547709,
-      "end": 1706896547714,
+      "start": 1707126070640,
+      "end": 1707126070641,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896547714,
-      "end": 1706896547714,
+      "start": 1707126070641,
+      "end": 1707126070641,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896547714,
-      "end": 1706896547714,
+      "start": 1707126070641,
+      "end": 1707126070641,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896547716,
-      "end": 1706896547716,
+      "start": 1707126070643,
+      "end": 1707126070643,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896547716,
-      "end": 1706896547716,
+      "start": 1707126070643,
+      "end": 1707126070643,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896547716,
-      "end": 1706896547716,
+      "start": 1707126070643,
+      "end": 1707126070643,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896547716,
-      "end": 1706896547716,
+      "start": 1707126070643,
+      "end": 1707126070643,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896547717,
-      "end": 1706896547724,
+      "start": 1707126070644,
+      "end": 1707126070652,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896547717,
-      "end": 1706896547724,
+      "start": 1707126070644,
+      "end": 1707126070652,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896547724,
-      "end": 1706896547724,
+      "start": 1707126070653,
+      "end": 1707126070653,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896547724,
-      "end": 1706896547724,
+      "start": 1707126070653,
+      "end": 1707126070653,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896547724,
-      "end": 1706896547724,
+      "start": 1707126070653,
+      "end": 1707126070653,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896547724,
-      "end": 1706896547724,
+      "start": 1707126070653,
+      "end": 1707126070653,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896547725,
-      "end": 1706896547725,
+      "start": 1707126070653,
+      "end": 1707126070653,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896547725,
-      "end": 1706896547725,
+      "start": 1707126070654,
+      "end": 1707126070654,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896547726,
-      "end": 1706896547726,
+      "start": 1707126070654,
+      "end": 1707126070654,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896547726,
-      "end": 1706896547726,
+      "start": 1707126070654,
+      "end": 1707126070655,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896547726,
-      "end": 1706896547726,
+      "start": 1707126070655,
+      "end": 1707126070655,
       "order": "normal"
     }
   ]

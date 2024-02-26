@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center max-md:justify-center gap-x-8" @click.stop>
+  <div class="flex items-center max-[800px]:justify-center gap-x-8" @click.stop>
     <div class="cursor-pointer transition-all duration-300" @click="()=> {
           if(colorMode.preference && colorMode.value === 'light') {
             colorMode.value = 'dark'
@@ -163,25 +163,24 @@
             </g>
           </g>
           </svg>
-          <div v-if="readCount !== 0" class="text-center text-[10px] rounded-full  absolute -top-[2px] -right-[2px]">
+          <div  class="text-center text-[10px] rounded-full  absolute -top-[2px] -right-[2px]">
             <div
               class="animate-ping absolute inline-flex w-full h-full min-w-[14px] min-h-[14px] max-w-full max-h-full rounded-full bg-sky-400 opacity-75"/>
             <div
               class="relative inline-flex justify-center rounded-full min-w-[14px] min-h-[14px] max-w-full max-h-full w-full h-full bg-sky-500 text-white">
-              {{readCount}}
+              {{Array.isArray(loadNotification.notification) ? loadNotification.notification.filter(item=> !item.read).length : 0}}
             </div>
           </div>
         </div>
       </div>
       <Transition
         name="slide-fade"
-        class="absolute w-[500px] max-md:fixed max-md:left-0 right-0 p-4 z-[100] top-12 max-[800px]:top-0 max-[800px]:h-screen max-[800px]:w-screen max-[800px]:-right-10 dark:shadow-white dark:shadow-md transition-all duration-200 rounded-md shadow-lg bg-gray-100 dark:bg-gray-600"
+        class="absolute w-[500px] right-0 max-[800px]:fixed p-4 z-[100] top-12 max-[800px]:top-0 max-[800px]:h-screen max-[800px]:w-screen max-[900px]:-right-44 max-[800px]:left-0 dark:shadow-white dark:shadow-md transition-all duration-200 rounded-md shadow-lg bg-gray-100 dark:bg-gray-600"
         :class="{'min-h-full' : loadCurrentUser.openNotification === true, 'min-h-0 opacity-0' : loadCurrentUser.openNotification === false}">
         <HeaderContentNotification class="select-none " v-if="loadCurrentUser.openNotification" :key="readCount"
                                    @openNotification="loadCurrentUser.openNotification = false"/>
       </Transition>
     </div>
-
     <div
       class="flex max-[800px]:hidden select-none text-gray-600 items-center transition-all duration-200 gap-x-2 cursor-pointer hover:transform hover:-translate-y-2"
       @click="()=>{
@@ -201,8 +200,7 @@
         {{ loadCurrentUser.user.last_name }}</h3>
 
     </div>
-
-    <div class="relative max-md:hidden">
+    <div class="relative max-[800px]:hidden">
       <div @click.stop="()=>{
         if(windowWidth >= 800) {
           loadCurrentUser.openSettings = !loadCurrentUser.openSettings; loadCurrentUser.openNotification = false
@@ -329,19 +327,11 @@ const router = useRouter()
 const loadNotification = useNotification()
 const loadCurrentUser = useAuthStore()
 const colorMode = useColorMode()
-let readCount = 0
-
 onMounted(()=>[
   windowWidth.value = window.innerWidth
 ])
 
-watchSyncEffect(()=>{
-  for (let i = 0; i < loadNotification.get_notification?.length; i++){
-    if(loadNotification.get_notification[i]?.read === false){
-      readCount += 1
-    }
-  }
-})
+
 onMounted(()=> {
   loadNotification.loadNotification()
 })

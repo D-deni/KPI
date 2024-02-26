@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, createBlock as _createBlock, createCommentVNode as _createCommentVNode, unref as _unref } from \"vue\"\n\nconst _hoisted_1 = { class: \"p-2 border flex items-center justify-between cursor-pointer rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"cursor-pointer bg-red-400 p-2 rounded-lg\" }, [\n  /*#__PURE__*/_createElementVNode(\"svg\", {\n    class: \"fill-white\",\n    width: \"20px\",\n    height: \"20px\",\n    viewBox: \"-3.5 0 19 19\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"path\", { d: \"M11.383 13.644A1.03 1.03 0 0 1 9.928 15.1L6 11.172 2.072 15.1a1.03 1.03 0 1 1-1.455-1.456l3.928-3.928L.617 5.79a1.03 1.03 0 1 1 1.455-1.456L6 8.261l3.928-3.928a1.03 1.03 0 0 1 1.455 1.456L7.455 9.716z\" })\n  ])\n], -1)\nconst _hoisted_3 = [\n  _hoisted_2\n]\nconst _hoisted_4 = { class: \"my-2\" }\nconst _hoisted_5 = { class: \"flex gap-x-2 w-full justify-center max-lg:flex-wrap gap-y-2\" }\nconst _hoisted_6 = { class: \"max-lg:w-full w-6/12\" }\nconst _hoisted_7 = { class: \"border p-2 rounded-lg break-words\" }\nconst _hoisted_8 = { class: \"text-center text-xl tracking-widest\" }\nconst _hoisted_9 = { class: \"font-bold underline\" }\nconst _hoisted_10 = { class: \"flex justify-center gap-x-10 mt-10\" }\n\nimport {useTestList} from \"~/stores/test\";\r\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\r\nimport TheModal from \"~/components/UI/TheModal.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TestLists',\n  props: {\r\n  test: {\r\n    type: Object,\r\n    default: () => {\r\n    }\r\n  },\r\n  openTest: {\r\n    type: Boolean,\r\n    default: false\r\n  },\r\n  showTestError: {\r\n    type: Boolean,\r\n    default: false\r\n  }\r\n},\n  setup(__props) {\n\r\nconst testList = useTestList()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createElementVNode(\"div\", {\n        class: \"w-full\",\n        onClick: _cache[0] || (_cache[0] = ($event: any) => (__props.openTest = true))\n      }, [\n        _createElementVNode(\"p\", null, _toDisplayString(__props.test?.question.length > 20 ? __props.test.question?.slice(0, 20) + '...' : __props.test?.question), 1)\n      ]),\n      _createElementVNode(\"div\", {\n        onClick: _cache[1] || (_cache[1] = ($event: any) => (__props.showTestError = true))\n      }, _hoisted_3)\n    ]),\n    (__props.openTest)\n      ? (_openBlock(), _createBlock(TheModal, {\n          key: 0,\n          onShowModal: _cache[2] || (_cache[2] = ($event: any) => (__props.openTest = !__props.openTest))\n        }, {\n          default: _withCtx(() => [\n            _createVNode(TheTextContent, { class: \"break-words\" }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Тест:') + ' ' + __props.test.question), 1)\n              ]),\n              _: 1\n            }),\n            _createElementVNode(\"p\", _hoisted_4, _toDisplayString(_ctx.$t('Варианты ответа:')), 1),\n            _createElementVNode(\"div\", _hoisted_5, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.test.options, (item) => {\n                return (_openBlock(), _createElementBlock(\"div\", _hoisted_6, [\n                  _createElementVNode(\"p\", _hoisted_7, _toDisplayString(item.text), 1)\n                ]))\n              }), 256))\n            ])\n          ]),\n          _: 1\n        }))\n      : _createCommentVNode(\"\", true),\n    (__props.showTestError)\n      ? (_openBlock(), _createBlock(TheModal, {\n          key: 1,\n          onShowModal: _cache[5] || (_cache[5] = ($event: any) => (__props.showTestError = !__props.showTestError))\n        }, {\n          default: _withCtx(() => [\n            _createVNode(TheTextContent, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Вы уверены что хотите удалить тест?')), 1)\n              ]),\n              _: 1\n            }),\n            _createElementVNode(\"p\", _hoisted_8, [\n              _createTextVNode(_toDisplayString(_ctx.$t('Удалённые тесты возврату') + ' '), 1),\n              _createElementVNode(\"span\", _hoisted_9, _toDisplayString(_ctx.$t('не подлежат')), 1)\n            ]),\n            _createElementVNode(\"div\", _hoisted_10, [\n              _createVNode(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"danger\",\n                onClick: _cache[3] || (_cache[3] = ($event: any) => (__props.showTestError = false))\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"success\",\n                onClick: _cache[4] || (_cache[4] = ($event: any) => (_unref(testList).deleteTest({test_id: __props.test?.id})))\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Удалить')), 1)\n                ]),\n                _: 1\n              })\n            ])\n          ]),\n          _: 1\n        }))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n})",
-      "start": 1706896521565,
-      "end": 1706896521565
+      "start": 1707126040639,
+      "end": 1707126040639
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896521565,
-      "end": 1706896521565,
+      "start": 1707126040639,
+      "end": 1707126040639,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896521565,
-      "end": 1706896521565,
+      "start": 1707126040639,
+      "end": 1707126040639,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896521565,
-      "end": 1706896521565,
+      "start": 1707126040639,
+      "end": 1707126040639,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896521565,
-      "end": 1706896521565,
+      "start": 1707126040639,
+      "end": 1707126040639,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896521565,
-      "end": 1706896521565,
+      "start": 1707126040639,
+      "end": 1707126040639,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, createBlock as _createBlock, createCommentVNode as _createCommentVNode, unref as _unref } from \"vue\";\nconst _hoisted_1 = { class: \"p-2 border flex items-center justify-between cursor-pointer rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"cursor-pointer bg-red-400 p-2 rounded-lg\" }, [\n  /* @__PURE__ */ _createElementVNode(\"svg\", {\n    class: \"fill-white\",\n    width: \"20px\",\n    height: \"20px\",\n    viewBox: \"-3.5 0 19 19\",\n    xmlns: \"http://www.w3.org/2000/svg\"\n  }, [\n    /* @__PURE__ */ _createElementVNode(\"path\", { d: \"M11.383 13.644A1.03 1.03 0 0 1 9.928 15.1L6 11.172 2.072 15.1a1.03 1.03 0 1 1-1.455-1.456l3.928-3.928L.617 5.79a1.03 1.03 0 1 1 1.455-1.456L6 8.261l3.928-3.928a1.03 1.03 0 0 1 1.455 1.456L7.455 9.716z\" })\n  ])\n], -1);\nconst _hoisted_3 = [\n  _hoisted_2\n];\nconst _hoisted_4 = { class: \"my-2\" };\nconst _hoisted_5 = { class: \"flex gap-x-2 w-full justify-center max-lg:flex-wrap gap-y-2\" };\nconst _hoisted_6 = { class: \"max-lg:w-full w-6/12\" };\nconst _hoisted_7 = { class: \"border p-2 rounded-lg break-words\" };\nconst _hoisted_8 = { class: \"text-center text-xl tracking-widest\" };\nconst _hoisted_9 = { class: \"font-bold underline\" };\nconst _hoisted_10 = { class: \"flex justify-center gap-x-10 mt-10\" };\nimport { useTestList } from \"~/stores/test\";\nimport TheTextContent from \"~/components/UI/TheTextContent.vue\";\nimport TheModal from \"~/components/UI/TheModal.vue\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TestLists\",\n  props: {\n    test: {\n      type: Object,\n      default: () => {\n      }\n    },\n    openTest: {\n      type: Boolean,\n      default: false\n    },\n    showTestError: {\n      type: Boolean,\n      default: false\n    }\n  },\n  setup(__props) {\n    const testList = useTestList();\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createElementVNode(\"div\", {\n            class: \"w-full\",\n            onClick: _cache[0] || (_cache[0] = ($event) => __props.openTest = true)\n          }, [\n            _createElementVNode(\"p\", null, _toDisplayString(__props.test?.question.length > 20 ? __props.test.question?.slice(0, 20) + \"...\" : __props.test?.question), 1)\n          ]),\n          _createElementVNode(\"div\", {\n            onClick: _cache[1] || (_cache[1] = ($event) => __props.showTestError = true)\n          }, _hoisted_3)\n        ]),\n        __props.openTest ? (_openBlock(), _createBlock(TheModal, {\n          key: 0,\n          onShowModal: _cache[2] || (_cache[2] = ($event) => __props.openTest = !__props.openTest)\n        }, {\n          default: _withCtx(() => [\n            _createVNode(TheTextContent, { class: \"break-words\" }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Тест:\") + \" \" + __props.test.question), 1)\n              ]),\n              _: 1\n            }),\n            _createElementVNode(\"p\", _hoisted_4, _toDisplayString(_ctx.$t(\"Варианты ответа:\")), 1),\n            _createElementVNode(\"div\", _hoisted_5, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.test.options, (item) => {\n                return _openBlock(), _createElementBlock(\"div\", _hoisted_6, [\n                  _createElementVNode(\"p\", _hoisted_7, _toDisplayString(item.text), 1)\n                ]);\n              }), 256))\n            ])\n          ]),\n          _: 1\n        })) : _createCommentVNode(\"\", true),\n        __props.showTestError ? (_openBlock(), _createBlock(TheModal, {\n          key: 1,\n          onShowModal: _cache[5] || (_cache[5] = ($event) => __props.showTestError = !__props.showTestError)\n        }, {\n          default: _withCtx(() => [\n            _createVNode(TheTextContent, null, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Вы уверены что хотите удалить тест?\")), 1)\n              ]),\n              _: 1\n            }),\n            _createElementVNode(\"p\", _hoisted_8, [\n              _createTextVNode(_toDisplayString(_ctx.$t(\"Удалённые тесты возврату\") + \" \"), 1),\n              _createElementVNode(\"span\", _hoisted_9, _toDisplayString(_ctx.$t(\"не подлежат\")), 1)\n            ]),\n            _createElementVNode(\"div\", _hoisted_10, [\n              _createVNode(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"danger\",\n                onClick: _cache[3] || (_cache[3] = ($event) => __props.showTestError = false)\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Отмена\")), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TheButton, {\n                class: \"px-10 py-2 rounded-full\",\n                type: \"success\",\n                onClick: _cache[4] || (_cache[4] = ($event) => _unref(testList).deleteTest({ test_id: __props.test?.id }))\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t(\"Удалить\")), 1)\n                ]),\n                _: 1\n              })\n            ])\n          ]),\n          _: 1\n        })) : _createCommentVNode(\"\", true)\n      ]);\n    };\n  }\n});\n",
-      "start": 1706896521565,
-      "end": 1706896521755,
+      "start": 1707126040639,
+      "end": 1707126041061,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,188 +57,188 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041061,
+      "end": 1707126041061,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896521755,
-      "end": 1706896521755,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041062,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041062,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896521756,
-      "end": 1706896521756,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896521756,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896521757,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896521757,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896521757,
-      "end": 1706896521757,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896521757,
-      "end": 1706896521758,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896521758,
-      "end": 1706896521758,
+      "start": 1707126041063,
+      "end": 1707126041063,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896521758,
-      "end": 1706896521765,
+      "start": 1707126041063,
+      "end": 1707126041070,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041071,
+      "end": 1707126041071,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041071,
+      "end": 1707126041071,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041072,
+      "end": 1707126041072,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896521767,
-      "end": 1706896521767,
+      "start": 1707126041074,
+      "end": 1707126041074,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896521768,
-      "end": 1706896521768,
+      "start": 1707126041074,
+      "end": 1707126041074,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896521768,
-      "end": 1706896521768,
+      "start": 1707126041074,
+      "end": 1707126041074,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896521768,
-      "end": 1706896521768,
+      "start": 1707126041075,
+      "end": 1707126041075,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896521769,
-      "end": 1706896521769,
+      "start": 1707126041075,
+      "end": 1707126041075,
       "order": "normal"
     }
   ]

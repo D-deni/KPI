@@ -4,183 +4,183 @@
     {
       "name": "vite:load-fallback",
       "result": "import { ref } from \"vue\";\nimport { getAllCookieIdsString, getCookieId } from \"./methods.mjs\";\nimport { defineNuxtPlugin, useCookie } from \"#imports\";\nimport moduleOptions from \"#build/cookie-control-options\";\nconst plugin = defineNuxtPlugin((_nuxtApp) => {\n  const cookieIsConsentGiven = useCookie(\n    moduleOptions.cookieNameIsConsentGiven,\n    moduleOptions.cookieOptions\n  );\n  const cookieCookiesEnabledIds = useCookie(\n    moduleOptions.cookieNameCookiesEnabledIds,\n    moduleOptions.cookieOptions\n  ).value?.split(\"|\");\n  const isConsentGiven = ref(\n    cookieIsConsentGiven === void 0 ? void 0 : cookieIsConsentGiven.value === getAllCookieIdsString(moduleOptions)\n  );\n  const cookiesEnabled = ref(\n    cookieCookiesEnabledIds === void 0 ? void 0 : [\n      ...moduleOptions.cookies.necessary.filter(\n        (cookieNecessary) => cookieCookiesEnabledIds.includes(getCookieId(cookieNecessary))\n      ),\n      ...moduleOptions.cookies.optional.filter(\n        (cookieOptional) => cookieCookiesEnabledIds.includes(getCookieId(cookieOptional))\n      )\n    ]\n  );\n  const cookiesEnabledIds = ref(cookieCookiesEnabledIds);\n  const isModalActive = ref();\n  const locale = ref();\n  const state = {\n    cookiesEnabled,\n    cookiesEnabledIds,\n    isConsentGiven,\n    isModalActive,\n    locale,\n    moduleOptions\n  };\n  return {\n    provide: {\n      cookies: state\n    }\n  };\n});\nexport default plugin;\n",
-      "start": 1706896510749,
-      "end": 1706896510845,
+      "start": 1707126029077,
+      "end": 1707126029161,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029161,
+      "end": 1707126029161,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896510845,
-      "end": 1706896510845,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896510846,
-      "end": 1706896510846,
+      "start": 1707126029162,
+      "end": 1707126029162,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { defineNuxtPlugin } from '#app/nuxt';\nimport { useCookie } from '#app/composables/cookie';\nimport { ref } from \"vue\";\nimport { getAllCookieIdsString, getCookieId } from \"./methods.mjs\";\nimport moduleOptions from \"#build/cookie-control-options\";\nconst plugin = defineNuxtPlugin((_nuxtApp) => {\n  const cookieIsConsentGiven = useCookie(\n    moduleOptions.cookieNameIsConsentGiven,\n    moduleOptions.cookieOptions\n  );\n  const cookieCookiesEnabledIds = useCookie(\n    moduleOptions.cookieNameCookiesEnabledIds,\n    moduleOptions.cookieOptions\n  ).value?.split(\"|\");\n  const isConsentGiven = ref(\n    cookieIsConsentGiven === void 0 ? void 0 : cookieIsConsentGiven.value === getAllCookieIdsString(moduleOptions)\n  );\n  const cookiesEnabled = ref(\n    cookieCookiesEnabledIds === void 0 ? void 0 : [\n      ...moduleOptions.cookies.necessary.filter(\n        (cookieNecessary) => cookieCookiesEnabledIds.includes(getCookieId(cookieNecessary))\n      ),\n      ...moduleOptions.cookies.optional.filter(\n        (cookieOptional) => cookieCookiesEnabledIds.includes(getCookieId(cookieOptional))\n      )\n    ]\n  );\n  const cookiesEnabledIds = ref(cookieCookiesEnabledIds);\n  const isModalActive = ref();\n  const locale = ref();\n  const state = {\n    cookiesEnabled,\n    cookiesEnabledIds,\n    isConsentGiven,\n    isModalActive,\n    locale,\n    moduleOptions\n  };\n  return {\n    provide: {\n      cookies: state\n    }\n  };\n});\nexport default plugin;\n",
-      "start": 1706896510846,
-      "end": 1706896510847,
+      "start": 1707126029162,
+      "end": 1707126029163,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -193,50 +193,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029163,
+      "end": 1707126029164,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029164,
+      "end": 1707126029164,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029164,
+      "end": 1707126029164,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029164,
+      "end": 1707126029164,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029164,
+      "end": 1707126029164,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029164,
+      "end": 1707126029164,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029164,
+      "end": 1707126029164,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896510847,
-      "end": 1706896510847,
+      "start": 1707126029164,
+      "end": 1707126029164,
       "order": "normal"
     }
   ]

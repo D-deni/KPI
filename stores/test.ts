@@ -2,7 +2,7 @@ import {defineStore} from "pinia";
 import {useAuthStore} from "~/stores/auth";
 import {toast} from "vue3-toastify";
 import axios from "~/composables/axios";
-import {Router} from "vue-router";
+import type {Router} from "vue-router";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
 export const useTestList = defineStore('test-list', {
   state: () => ({

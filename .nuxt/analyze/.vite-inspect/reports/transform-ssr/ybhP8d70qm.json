@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, unref as _unref, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport {useAuthStore} from \"~/stores/auth\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'DepartmentUserList',\n  __ssrInlineRender: true,\n  props: {\r\n  userItem: {\r\n    type: Object,\r\n    required: true,\r\n  },\r\n},\n  setup(__props) {\n\r\nconst loadCurrentUser = useAuthStore()\r\n\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"my-6\" }, _attrs))}>`)\n  _push(_ssrRenderComponent(_component_NuxtLink, {\n    to: `/base/users/${__props.userItem.id}`,\n    class: \"transition-all shadow-md hover:shadow-lg border dark:border-none dark:shadow-none dark:bg-gray-400 dark:hover:bg-gray-300 p-4 rounded-lg flex max-[1241px]:flex-col max-[1241px]:gap-y-4 justify-between items-center cursor-pointer\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div class=\"flex items-center gap-x-4 w-3/12 max-lg:w-full max-lg:x-mx-auto\"${\n          _scopeId\n        }><img class=\"w-14 h-14 rounded-full\"${\n          _ssrRenderAttr(\"src\", _unref(loadCurrentUser).get_server_domain + __props.userItem.photo_url)\n        } alt=\"\"${\n          _scopeId\n        }><h2 class=\"tracking-widest font-bold max-xl:text-center\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(__props.userItem.first_name + ' ' + __props.userItem.last_name)\n        }</h2></div><div class=\"flex flex-col items-center justify-center w-5/12 max-lg:w-full mx-auto\"${\n          _scopeId\n        }>`)\n        if (_unref(loadCurrentUser).user.role === 'Администратор сайта') {\n          _push(`<p class=\"text-lg font-bold tracking-widest mb-2\"${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('Роль | Должность'))\n          }</p>`)\n        } else {\n          _push(`<p class=\"text-lg font-bold tracking-widest mb-2\"${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('Должность'))\n          }</p>`)\n        }\n        _push(`<div class=\"text-center flex flex-col gap-y-2\"${_scopeId}>`)\n        if (_unref(loadCurrentUser).user.role === 'Администратор сайта') {\n          _push(`<h2 class=\"tracking-widest text-sm text-gray-600\"${\n            _scopeId\n          }>(${\n            _ssrInterpolate(__props.userItem.role)\n          })</h2>`)\n        } else {\n          _push(`<!---->`)\n        }\n        _push(`<h2 class=\"tracking-widest text-md\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(__props.userItem.position)\n        }</h2></div></div><div class=\"w-2/12 max-[1241px]:w-full max-lg:x-mx-auto text-center\"${\n          _scopeId\n        }>`)\n        if (_unref(loadCurrentUser).user.role === 'Администратор сайта' || _unref(loadCurrentUser).user.role === 'Администратор компании') {\n          _push(`<h2 class=\"tracking-widest font-bold\"${\n            _scopeId\n          }>${\n            _ssrInterpolate(_ctx.$t('Дата регистрации'))\n          }</h2>`)\n        } else {\n          _push(`<!---->`)\n        }\n        _push(`</div>`)\n      } else {\n        return [\n          _createVNode(\"div\", { class: \"flex items-center gap-x-4 w-3/12 max-lg:w-full max-lg:x-mx-auto\" }, [\n            _createVNode(\"img\", {\n              class: \"w-14 h-14 rounded-full\",\n              src: _unref(loadCurrentUser).get_server_domain + __props.userItem.photo_url,\n              alt: \"\"\n            }, null, 8, [\"src\"]),\n            _createVNode(\"h2\", { class: \"tracking-widest font-bold max-xl:text-center\" }, _toDisplayString(__props.userItem.first_name + ' ' + __props.userItem.last_name), 1)\n          ]),\n          _createVNode(\"div\", { class: \"flex flex-col items-center justify-center w-5/12 max-lg:w-full mx-auto\" }, [\n            (_unref(loadCurrentUser).user.role === 'Администратор сайта')\n              ? (_openBlock(), _createBlock(\"p\", {\n                  key: 0,\n                  class: \"text-lg font-bold tracking-widest mb-2\"\n                }, _toDisplayString(_ctx.$t('Роль | Должность')), 1))\n              : (_openBlock(), _createBlock(\"p\", {\n                  key: 1,\n                  class: \"text-lg font-bold tracking-widest mb-2\"\n                }, _toDisplayString(_ctx.$t('Должность')), 1)),\n            _createVNode(\"div\", { class: \"text-center flex flex-col gap-y-2\" }, [\n              (_unref(loadCurrentUser).user.role === 'Администратор сайта')\n                ? (_openBlock(), _createBlock(\"h2\", {\n                    key: 0,\n                    class: \"tracking-widest text-sm text-gray-600\"\n                  }, \"(\" + _toDisplayString(__props.userItem.role) + \")\", 1))\n                : _createCommentVNode(\"\", true),\n              _createVNode(\"h2\", { class: \"tracking-widest text-md\" }, _toDisplayString(__props.userItem.position), 1)\n            ])\n          ]),\n          _createVNode(\"div\", { class: \"w-2/12 max-[1241px]:w-full max-lg:x-mx-auto text-center\" }, [\n            (_unref(loadCurrentUser).user.role === 'Администратор сайта' || _unref(loadCurrentUser).user.role === 'Администратор компании')\n              ? (_openBlock(), _createBlock(\"h2\", {\n                  key: 0,\n                  class: \"tracking-widest font-bold\"\n                }, _toDisplayString(_ctx.$t('Дата регистрации')), 1))\n              : _createCommentVNode(\"\", true)\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896545151,
-      "end": 1706896545151,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545151,
-      "end": 1706896545151,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896545151,
-      "end": 1706896545151,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545151,
-      "end": 1706896545152,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896545151,
-      "end": 1706896545152,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545152,
-      "end": 1706896545152,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896545152,
-      "end": 1706896545152,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896545152,
-      "end": 1706896545152,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896545152,
-      "end": 1706896545152,
+      "start": 1707126069210,
+      "end": 1707126069210,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, unref as _unref, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DepartmentUserList\",\n  __ssrInlineRender: true,\n  props: {\n    userItem: {\n      type: Object,\n      required: true\n    }\n  },\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"my-6\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(_component_NuxtLink, {\n        to: `/base/users/${__props.userItem.id}`,\n        class: \"transition-all shadow-md hover:shadow-lg border dark:border-none dark:shadow-none dark:bg-gray-400 dark:hover:bg-gray-300 p-4 rounded-lg flex max-[1241px]:flex-col max-[1241px]:gap-y-4 justify-between items-center cursor-pointer\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex items-center gap-x-4 w-3/12 max-lg:w-full max-lg:x-mx-auto\"${_scopeId}><img class=\"w-14 h-14 rounded-full\"${_ssrRenderAttr(\"src\", _unref(loadCurrentUser).get_server_domain + __props.userItem.photo_url)} alt=\"\"${_scopeId}><h2 class=\"tracking-widest font-bold max-xl:text-center\"${_scopeId}>${_ssrInterpolate(__props.userItem.first_name + \" \" + __props.userItem.last_name)}</h2></div><div class=\"flex flex-col items-center justify-center w-5/12 max-lg:w-full mx-auto\"${_scopeId}>`);\n            if (_unref(loadCurrentUser).user.role === \"Администратор сайта\") {\n              _push2(`<p class=\"text-lg font-bold tracking-widest mb-2\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Роль | Должность\"))}</p>`);\n            } else {\n              _push2(`<p class=\"text-lg font-bold tracking-widest mb-2\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Должность\"))}</p>`);\n            }\n            _push2(`<div class=\"text-center flex flex-col gap-y-2\"${_scopeId}>`);\n            if (_unref(loadCurrentUser).user.role === \"Администратор сайта\") {\n              _push2(`<h2 class=\"tracking-widest text-sm text-gray-600\"${_scopeId}>(${_ssrInterpolate(__props.userItem.role)})</h2>`);\n            } else {\n              _push2(`<!---->`);\n            }\n            _push2(`<h2 class=\"tracking-widest text-md\"${_scopeId}>${_ssrInterpolate(__props.userItem.position)}</h2></div></div><div class=\"w-2/12 max-[1241px]:w-full max-lg:x-mx-auto text-center\"${_scopeId}>`);\n            if (_unref(loadCurrentUser).user.role === \"Администратор сайта\" || _unref(loadCurrentUser).user.role === \"Администратор компании\") {\n              _push2(`<h2 class=\"tracking-widest font-bold\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Дата регистрации\"))}</h2>`);\n            } else {\n              _push2(`<!---->`);\n            }\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex items-center gap-x-4 w-3/12 max-lg:w-full max-lg:x-mx-auto\" }, [\n                _createVNode(\"img\", {\n                  class: \"w-14 h-14 rounded-full\",\n                  src: _unref(loadCurrentUser).get_server_domain + __props.userItem.photo_url,\n                  alt: \"\"\n                }, null, 8, [\"src\"]),\n                _createVNode(\"h2\", { class: \"tracking-widest font-bold max-xl:text-center\" }, _toDisplayString(__props.userItem.first_name + \" \" + __props.userItem.last_name), 1)\n              ]),\n              _createVNode(\"div\", { class: \"flex flex-col items-center justify-center w-5/12 max-lg:w-full mx-auto\" }, [\n                _unref(loadCurrentUser).user.role === \"Администратор сайта\" ? (_openBlock(), _createBlock(\"p\", {\n                  key: 0,\n                  class: \"text-lg font-bold tracking-widest mb-2\"\n                }, _toDisplayString(_ctx.$t(\"Роль | Должность\")), 1)) : (_openBlock(), _createBlock(\"p\", {\n                  key: 1,\n                  class: \"text-lg font-bold tracking-widest mb-2\"\n                }, _toDisplayString(_ctx.$t(\"Должность\")), 1)),\n                _createVNode(\"div\", { class: \"text-center flex flex-col gap-y-2\" }, [\n                  _unref(loadCurrentUser).user.role === \"Администратор сайта\" ? (_openBlock(), _createBlock(\"h2\", {\n                    key: 0,\n                    class: \"tracking-widest text-sm text-gray-600\"\n                  }, \"(\" + _toDisplayString(__props.userItem.role) + \")\", 1)) : _createCommentVNode(\"\", true),\n                  _createVNode(\"h2\", { class: \"tracking-widest text-md\" }, _toDisplayString(__props.userItem.position), 1)\n                ])\n              ]),\n              _createVNode(\"div\", { class: \"w-2/12 max-[1241px]:w-full max-lg:x-mx-auto text-center\" }, [\n                _unref(loadCurrentUser).user.role === \"Администратор сайта\" || _unref(loadCurrentUser).user.role === \"Администратор компании\" ? (_openBlock(), _createBlock(\"h2\", {\n                  key: 0,\n                  class: \"tracking-widest font-bold\"\n                }, _toDisplayString(_ctx.$t(\"Дата регистрации\")), 1)) : _createCommentVNode(\"\", true)\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896545152,
-      "end": 1706896545998,
+      "start": 1707126069210,
+      "end": 1707126069632,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -89,213 +89,213 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896545998,
-      "end": 1706896545998,
+      "start": 1707126069632,
+      "end": 1707126069632,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896545998,
-      "end": 1706896545998,
+      "start": 1707126069632,
+      "end": 1707126069632,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069632,
+      "end": 1707126069633,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069633,
+      "end": 1707126069633,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069633,
+      "end": 1707126069633,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069633,
+      "end": 1707126069633,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069633,
+      "end": 1707126069633,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069633,
+      "end": 1707126069633,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896545999,
-      "end": 1706896545999,
+      "start": 1707126069633,
+      "end": 1707126069633,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069633,
+      "end": 1707126069634,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069634,
+      "end": 1707126069634,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069634,
+      "end": 1707126069634,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069634,
+      "end": 1707126069634,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069634,
+      "end": 1707126069634,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896546000,
-      "end": 1706896546000,
+      "start": 1707126069636,
+      "end": 1707126069636,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069636,
+      "end": 1707126069636,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069636,
+      "end": 1707126069636,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069636,
+      "end": 1707126069636,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069636,
+      "end": 1707126069636,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069636,
+      "end": 1707126069637,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896546001,
-      "end": 1706896546001,
+      "start": 1707126069636,
+      "end": 1707126069637,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069637,
+      "end": 1707126069637,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069637,
+      "end": 1707126069637,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069637,
+      "end": 1707126069638,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896546002,
-      "end": 1706896546002,
+      "start": 1707126069637,
+      "end": 1707126069638,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546003,
-      "end": 1706896546003,
+      "start": 1707126069638,
+      "end": 1707126069638,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896546003,
-      "end": 1706896546003,
+      "start": 1707126069638,
+      "end": 1707126069638,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896546003,
-      "end": 1706896546011,
+      "start": 1707126069638,
+      "end": 1707126069643,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896546003,
-      "end": 1706896546018,
+      "start": 1707126069638,
+      "end": 1707126069643,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069643,
+      "end": 1707126069643,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069643,
+      "end": 1707126069643,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069643,
+      "end": 1707126069643,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069643,
+      "end": 1707126069643,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896546019,
-      "end": 1706896546019,
+      "start": 1707126069643,
+      "end": 1707126069643,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, unref as _unref, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderAttr as _ssrRenderAttr, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"DepartmentUserList\",\n  __ssrInlineRender: true,\n  props: {\n    userItem: {\n      type: Object,\n      required: true\n    }\n  },\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"my-6\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(_component_NuxtLink, {\n        to: `/base/users/${__props.userItem.id}`,\n        class: \"transition-all shadow-md hover:shadow-lg border dark:border-none dark:shadow-none dark:bg-gray-400 dark:hover:bg-gray-300 p-4 rounded-lg flex max-[1241px]:flex-col max-[1241px]:gap-y-4 justify-between items-center cursor-pointer\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex items-center gap-x-4 w-3/12 max-lg:w-full max-lg:x-mx-auto\"${_scopeId}><img class=\"w-14 h-14 rounded-full\"${_ssrRenderAttr(\"src\", _unref(loadCurrentUser).get_server_domain + __props.userItem.photo_url)} alt=\"\"${_scopeId}><h2 class=\"tracking-widest font-bold max-xl:text-center\"${_scopeId}>${_ssrInterpolate(__props.userItem.first_name + \" \" + __props.userItem.last_name)}</h2></div><div class=\"flex flex-col items-center justify-center w-5/12 max-lg:w-full mx-auto\"${_scopeId}>`);\n            if (_unref(loadCurrentUser).user.role === \"Администратор сайта\") {\n              _push2(`<p class=\"text-lg font-bold tracking-widest mb-2\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Роль | Должность\"))}</p>`);\n            } else {\n              _push2(`<p class=\"text-lg font-bold tracking-widest mb-2\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Должность\"))}</p>`);\n            }\n            _push2(`<div class=\"text-center flex flex-col gap-y-2\"${_scopeId}>`);\n            if (_unref(loadCurrentUser).user.role === \"Администратор сайта\") {\n              _push2(`<h2 class=\"tracking-widest text-sm text-gray-600\"${_scopeId}>(${_ssrInterpolate(__props.userItem.role)})</h2>`);\n            } else {\n              _push2(`<!---->`);\n            }\n            _push2(`<h2 class=\"tracking-widest text-md\"${_scopeId}>${_ssrInterpolate(__props.userItem.position)}</h2></div></div><div class=\"w-2/12 max-[1241px]:w-full max-lg:x-mx-auto text-center\"${_scopeId}>`);\n            if (_unref(loadCurrentUser).user.role === \"Администратор сайта\" || _unref(loadCurrentUser).user.role === \"Администратор компании\") {\n              _push2(`<h2 class=\"tracking-widest font-bold\"${_scopeId}>${_ssrInterpolate(_ctx.$t(\"Дата регистрации\"))}</h2>`);\n            } else {\n              _push2(`<!---->`);\n            }\n            _push2(`</div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex items-center gap-x-4 w-3/12 max-lg:w-full max-lg:x-mx-auto\" }, [\n                _createVNode(\"img\", {\n                  class: \"w-14 h-14 rounded-full\",\n                  src: _unref(loadCurrentUser).get_server_domain + __props.userItem.photo_url,\n                  alt: \"\"\n                }, null, 8, [\"src\"]),\n                _createVNode(\"h2\", { class: \"tracking-widest font-bold max-xl:text-center\" }, _toDisplayString(__props.userItem.first_name + \" \" + __props.userItem.last_name), 1)\n              ]),\n              _createVNode(\"div\", { class: \"flex flex-col items-center justify-center w-5/12 max-lg:w-full mx-auto\" }, [\n                _unref(loadCurrentUser).user.role === \"Администратор сайта\" ? (_openBlock(), _createBlock(\"p\", {\n                  key: 0,\n                  class: \"text-lg font-bold tracking-widest mb-2\"\n                }, _toDisplayString(_ctx.$t(\"Роль | Должность\")), 1)) : (_openBlock(), _createBlock(\"p\", {\n                  key: 1,\n                  class: \"text-lg font-bold tracking-widest mb-2\"\n                }, _toDisplayString(_ctx.$t(\"Должность\")), 1)),\n                _createVNode(\"div\", { class: \"text-center flex flex-col gap-y-2\" }, [\n                  _unref(loadCurrentUser).user.role === \"Администратор сайта\" ? (_openBlock(), _createBlock(\"h2\", {\n                    key: 0,\n                    class: \"tracking-widest text-sm text-gray-600\"\n                  }, \"(\" + _toDisplayString(__props.userItem.role) + \")\", 1)) : _createCommentVNode(\"\", true),\n                  _createVNode(\"h2\", { class: \"tracking-widest text-md\" }, _toDisplayString(__props.userItem.position), 1)\n                ])\n              ]),\n              _createVNode(\"div\", { class: \"w-2/12 max-[1241px]:w-full max-lg:x-mx-auto text-center\" }, [\n                _unref(loadCurrentUser).user.role === \"Администратор сайта\" || _unref(loadCurrentUser).user.role === \"Администратор компании\" ? (_openBlock(), _createBlock(\"h2\", {\n                  key: 0,\n                  class: \"tracking-widest font-bold\"\n                }, _toDisplayString(_ctx.$t(\"Дата регистрации\")), 1)) : _createCommentVNode(\"\", true)\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896546020,
-      "end": 1706896546020,
+      "start": 1707126069643,
+      "end": 1707126069644,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -308,20 +308,20 @@
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896546021,
-      "end": 1706896546021,
+      "start": 1707126069644,
+      "end": 1707126069644,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896546021,
-      "end": 1706896546022,
+      "start": 1707126069644,
+      "end": 1707126069644,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896546022,
-      "end": 1706896546022,
+      "start": 1707126069645,
+      "end": 1707126069645,
       "order": "normal"
     }
   ]

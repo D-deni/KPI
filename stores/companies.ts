@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import axios from "~/composables/axios";
 import {toast} from "vue3-toastify";
-import {Router} from "vue-router";
+import type {Router} from "vue-router";
 import nuxtStorage from "nuxt-storage/nuxt-storage";
 
 export const useCompanies = defineStore('current-company', {

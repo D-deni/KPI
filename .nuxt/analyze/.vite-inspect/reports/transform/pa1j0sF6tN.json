@@ -4,141 +4,141 @@
     {
       "name": "vite:load-fallback",
       "result": "var baseGetTag = require('./_baseGetTag'),\n    isLength = require('./isLength'),\n    isObjectLike = require('./isObjectLike');\n\n/** `Object#toString` result references. */\nvar argsTag = '[object Arguments]',\n    arrayTag = '[object Array]',\n    boolTag = '[object Boolean]',\n    dateTag = '[object Date]',\n    errorTag = '[object Error]',\n    funcTag = '[object Function]',\n    mapTag = '[object Map]',\n    numberTag = '[object Number]',\n    objectTag = '[object Object]',\n    regexpTag = '[object RegExp]',\n    setTag = '[object Set]',\n    stringTag = '[object String]',\n    weakMapTag = '[object WeakMap]';\n\nvar arrayBufferTag = '[object ArrayBuffer]',\n    dataViewTag = '[object DataView]',\n    float32Tag = '[object Float32Array]',\n    float64Tag = '[object Float64Array]',\n    int8Tag = '[object Int8Array]',\n    int16Tag = '[object Int16Array]',\n    int32Tag = '[object Int32Array]',\n    uint8Tag = '[object Uint8Array]',\n    uint8ClampedTag = '[object Uint8ClampedArray]',\n    uint16Tag = '[object Uint16Array]',\n    uint32Tag = '[object Uint32Array]';\n\n/** Used to identify `toStringTag` values of typed arrays. */\nvar typedArrayTags = {};\ntypedArrayTags[float32Tag] = typedArrayTags[float64Tag] =\ntypedArrayTags[int8Tag] = typedArrayTags[int16Tag] =\ntypedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =\ntypedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =\ntypedArrayTags[uint32Tag] = true;\ntypedArrayTags[argsTag] = typedArrayTags[arrayTag] =\ntypedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =\ntypedArrayTags[dataViewTag] = typedArrayTags[dateTag] =\ntypedArrayTags[errorTag] = typedArrayTags[funcTag] =\ntypedArrayTags[mapTag] = typedArrayTags[numberTag] =\ntypedArrayTags[objectTag] = typedArrayTags[regexpTag] =\ntypedArrayTags[setTag] = typedArrayTags[stringTag] =\ntypedArrayTags[weakMapTag] = false;\n\n/**\n * The base implementation of `_.isTypedArray` without Node.js optimizations.\n *\n * @private\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.\n */\nfunction baseIsTypedArray(value) {\n  return isObjectLike(value) &&\n    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];\n}\n\nmodule.exports = baseIsTypedArray;\n",
-      "start": 1706896525579,
-      "end": 1706896525641,
+      "start": 1707126049934,
+      "end": 1707126050006,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050006,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050006,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896525641,
-      "end": 1706896525641,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896525642,
-      "end": 1706896525642,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896525642,
-      "end": 1706896525642,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896525642,
-      "end": 1706896525642,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896525642,
-      "end": 1706896525642,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896525642,
-      "end": 1706896525642,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896525642,
-      "end": 1706896525642,
+      "start": 1707126050007,
+      "end": 1707126050007,
       "order": "normal"
     },
     {
       "name": "commonjs",
       "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/_baseGetTag.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/isLength.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000D:/Programming/templates/KPIcopy/node_modules/lodash/isObjectLike.js?commonjs-proxy\";\n\nvar baseGetTag = require$$0,\n    isLength = require$$1,\n    isObjectLike = require$$2;\n\n/** `Object#toString` result references. */\nvar argsTag = '[object Arguments]',\n    arrayTag = '[object Array]',\n    boolTag = '[object Boolean]',\n    dateTag = '[object Date]',\n    errorTag = '[object Error]',\n    funcTag = '[object Function]',\n    mapTag = '[object Map]',\n    numberTag = '[object Number]',\n    objectTag = '[object Object]',\n    regexpTag = '[object RegExp]',\n    setTag = '[object Set]',\n    stringTag = '[object String]',\n    weakMapTag = '[object WeakMap]';\n\nvar arrayBufferTag = '[object ArrayBuffer]',\n    dataViewTag = '[object DataView]',\n    float32Tag = '[object Float32Array]',\n    float64Tag = '[object Float64Array]',\n    int8Tag = '[object Int8Array]',\n    int16Tag = '[object Int16Array]',\n    int32Tag = '[object Int32Array]',\n    uint8Tag = '[object Uint8Array]',\n    uint8ClampedTag = '[object Uint8ClampedArray]',\n    uint16Tag = '[object Uint16Array]',\n    uint32Tag = '[object Uint32Array]';\n\n/** Used to identify `toStringTag` values of typed arrays. */\nvar typedArrayTags = {};\ntypedArrayTags[float32Tag] = typedArrayTags[float64Tag] =\ntypedArrayTags[int8Tag] = typedArrayTags[int16Tag] =\ntypedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =\ntypedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =\ntypedArrayTags[uint32Tag] = true;\ntypedArrayTags[argsTag] = typedArrayTags[arrayTag] =\ntypedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =\ntypedArrayTags[dataViewTag] = typedArrayTags[dateTag] =\ntypedArrayTags[errorTag] = typedArrayTags[funcTag] =\ntypedArrayTags[mapTag] = typedArrayTags[numberTag] =\ntypedArrayTags[objectTag] = typedArrayTags[regexpTag] =\ntypedArrayTags[setTag] = typedArrayTags[stringTag] =\ntypedArrayTags[weakMapTag] = false;\n\n/**\n * The base implementation of `_.isTypedArray` without Node.js optimizations.\n *\n * @private\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.\n */\nfunction baseIsTypedArray(value) {\n  return isObjectLike(value) &&\n    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];\n}\n\nvar _baseIsTypedArray = baseIsTypedArray;\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_baseIsTypedArray);\nexport { _baseIsTypedArray as __moduleExports };",
-      "start": 1706896525642,
-      "end": 1706896525703,
+      "start": 1707126050007,
+      "end": 1707126050053,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -151,92 +151,92 @@
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896525703,
-      "end": 1706896525703,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896525704,
-      "end": 1706896525704,
+      "start": 1707126050053,
+      "end": 1707126050053,
       "order": "normal"
     }
   ]

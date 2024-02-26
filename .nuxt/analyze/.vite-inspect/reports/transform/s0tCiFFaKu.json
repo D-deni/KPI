@@ -4,44 +4,44 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createVNode as _createVNode, Transition as _Transition, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, renderList as _renderList, Fragment as _Fragment, createTextVNode as _createTextVNode } from \"vue\"\n\nconst _hoisted_1 = { key: 0 }\nconst _hoisted_2 = { class: \"absolute dark:bg-gray-700 bg-gray-200 rounded-lg bottom-0 top-0 h-max left-0 right-0 w-10/12 mx-auto my-auto\" }\nconst _hoisted_3 = { class: \"p-4\" }\nconst _hoisted_4 = { class: \"pb-2\" }\nconst _hoisted_5 = { class: \"text-lg\" }\nconst _hoisted_6 = { class: \"flex items-center gap-x-6 select-none\" }\nconst _hoisted_7 = {\n  key: 0,\n  class: \"w-[80px] h-[80px] max-sm:w-[70px] max-sm:h-[70px]\"\n}\nconst _hoisted_8 = [\"src\"]\nconst _hoisted_9 = { key: 1 }\nconst _hoisted_10 = { class: \"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight\" }\nconst _hoisted_11 = [\"onClick\"]\nconst _hoisted_12 = { key: 1 }\nconst _hoisted_13 = { key: 2 }\nconst _hoisted_14 = [\"src\"]\nconst _hoisted_15 = { class: \"text-sm tracking-wider text-semiCyan\" }\nconst _hoisted_16 = /*#__PURE__*/_createElementVNode(\"div\", null, null, -1)\nconst _hoisted_17 = { class: \"flex justify-end gap-x-2 p-4 !text-sm\" }\n\nimport {useChat} from \"~/stores/chat\";\r\nimport {useAuthStore} from \"~/stores/auth\";\r\nimport {uploadImage} from \"~/hooks/ElemUI\";\r\nimport {useRoute} from \"vue-router\";\r\nimport {Preview} from \"vue-advanced-cropper\";\r\nimport ChatCropper from \"~/components/Chat/UI/ChatCropper.vue\";\r\nimport TheButton from \"~/components/UI/TheButton.vue\";\r\nimport TheInput from \"~/components/UI/TheInput.vue\";\r\nimport ChatCropperFileInput from \"~/components/Chat/UI/ChatCropperFileInput.vue\";\r\nimport {toast} from \"vue3-toastify\";\r\nimport ChatFileError from \"~/components/Chat/UI/ChatFileError.vue\";\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'ChatWindowSettingContentHeaderChange',\n  setup(__props) {\n\r\nconst chat = useChat()\r\nconst route = useRoute()\r\nconst loadAuthStore = useAuthStore()\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_unref(chat).showChatChangeInfo)\n    ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          class: \"fixed w-screen h-screen top-0 left-0\",\n          onClick: _cache[0] || (_cache[0] = ($event: any) => {_unref(chat).showChatChangeInfo = false; _unref(chat).file = ''; _unref(chat).src = ''; _unref(chat).fileUpload = null; _unref(chat).results = {image: null, coordinates: null}})\n        }),\n        _createElementVNode(\"div\", {\n          class: \"bg-black w-full h-full absolute left-0 top-0 opacity-50\",\n          onClick: _cache[1] || (_cache[1] = ($event: any) => {_unref(chat).showChatChangeInfo = false; _unref(chat).file = ''; _unref(chat).src = ''; _unref(chat).fileUpload = null; _unref(chat).results = {image: null, coordinates: null}})\n        }),\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"p\", _hoisted_5, _toDisplayString(_ctx.$t('Настройки группы')), 1)\n            ]),\n            _createElementVNode(\"div\", _hoisted_6, [\n              _createElementVNode(\"div\", {\n                class: \"relative\",\n                onMouseenter: _cache[2] || (_cache[2] = ($event: any) => (_unref(chat).showImageChange = true)),\n                onMouseleave: _cache[3] || (_cache[3] = ($event: any) => (_unref(chat).showImageChange = false))\n              }, [\n                _createVNode(_Transition, { name: \"fade\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(ChatCropperFileInput)\n                  ]),\n                  _: 1\n                }),\n                (!_unref(chat).src && !_unref(chat).results.image)\n                  ? (_openBlock(), _createElementBlock(\"div\", _hoisted_7, [\n                      (_unref(chat).get_user_chat.user?.id || _unref(chat).get_user_chat.photo_url)\n                        ? (_openBlock(), _createElementBlock(\"img\", {\n                            key: 0,\n                            class: \"w-full rounded-full\",\n                            src: !_unref(chat).get_user_chat.is_group\r\n              ? _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat.user?.photo\r\n              : _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat?.photo_url,\n                            alt: \"\"\n                          }, null, 8, _hoisted_8))\n                        : (_openBlock(), _createElementBlock(\"div\", _hoisted_9, [\n                            _createElementVNode(\"div\", _hoisted_10, [\n                              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(chat).get_user_chat.name.split(' ').slice(0,2), (chatName) => {\n                                return (_openBlock(), _createElementBlock(\"p\", {\n                                  class: \"uppercase\",\n                                  onClick: ($event: any) => (console.log(chatName[0]))\n                                }, _toDisplayString(chatName[0]), 9, _hoisted_11))\n                              }), 256))\n                            ])\n                          ]))\n                    ]))\n                  : (_unref(chat).results.image)\n                    ? (_openBlock(), _createElementBlock(\"div\", _hoisted_12, [\n                        _createVNode(_unref(Preview), {\n                          class: \"w-[80px] h-[80px] rounded-full\",\n                          image: _unref(chat).results.image,\n                          coordinates: _unref(chat).results.coordinates\n                        }, null, 8, [\"image\", \"coordinates\"])\n                      ]))\n                    : (_unref(chat).src && !_unref(chat).results.image)\n                      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_13, [\n                          _createElementVNode(\"img\", {\n                            class: \"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full\",\n                            src: _unref(chat).src\n                          }, null, 8, _hoisted_14)\n                        ]))\n                      : _createCommentVNode(\"\", true)\n              ], 32),\n              _createElementVNode(\"div\", null, [\n                _createElementVNode(\"div\", null, [\n                  _createElementVNode(\"p\", _hoisted_15, _toDisplayString(_ctx.$t('Название группы')), 1),\n                  _createVNode(TheInput, {\n                    type: 'default',\n                    modelValue: _unref(chat).updateChatName,\n                    \"onUpdate:modelValue\": _cache[4] || (_cache[4] = ($event: any) => ((_unref(chat).updateChatName) = $event)),\n                    class: \"bg-transparent bg-opacity-0 border-b-2 border-b-semiCyan outline-none\"\n                  }, null, 8, [\"modelValue\"])\n                ])\n              ])\n            ]),\n            _hoisted_16\n          ]),\n          _createElementVNode(\"div\", _hoisted_17, [\n            _createVNode(TheButton, {\n              type: 'chat',\n              onClick: _cache[5] || (_cache[5] = ($event: any) => {_unref(chat).showChatChangeInfo = false; _unref(chat).file = ''; _unref(chat).src = ''; _unref(chat).fileUpload = null;_unref(chat).results = {image: null, coordinates: null}; _unref(chat).updateChatName = _unref(chat).userChat.name})\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Отмена')), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(TheButton, {\n              type: 'chat',\n              onClick: _cache[6] || (_cache[6] = ($event: any) => {_unref(chat).updateChatName !== _unref(chat).userChat.name || _unref(chat).updateDescription !== _unref(chat).userChat.description || _unref(chat).fileUpload ? _unref(chat).chatUpdate({id: _unref(route).params.id, update: {name: _unref(chat).updateChatName , description: '', photo: _unref(chat).fileUpload}}).then(res=>{_unref(chat).showChatChangeInfo = false; _unref(chat).fileUpload = null; _unref(chat).userChat.name = _unref(chat).updateChatName; _unref(chat).updateChatName = ''}) : _unref(toast).info(_ctx.$t('Измените содержимое для сохранения'), {autoClose: 1500, theme: 'auto'})})\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t('Сохранить')), 1)\n              ]),\n              _: 1\n            })\n          ]),\n          _createVNode(ChatFileError)\n        ])\n      ]))\n    : _createCommentVNode(\"\", true)\n}\n}\n\n})",
-      "start": 1706896523809,
-      "end": 1706896523809
+      "start": 1707126043827,
+      "end": 1707126043827
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896523809,
-      "end": 1706896523809,
+      "start": 1707126043827,
+      "end": 1707126043827,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896523809,
-      "end": 1706896523809,
+      "start": 1707126043827,
+      "end": 1707126043827,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896523809,
-      "end": 1706896523809,
+      "start": 1707126043827,
+      "end": 1707126043827,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896523809,
-      "end": 1706896523809,
+      "start": 1707126043827,
+      "end": 1707126043827,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896523809,
-      "end": 1706896523809,
+      "start": 1707126043827,
+      "end": 1707126043827,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createVNode as _createVNode, Transition as _Transition, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, renderList as _renderList, Fragment as _Fragment, createTextVNode as _createTextVNode } from \"vue\";\nconst _hoisted_1 = { key: 0 };\nconst _hoisted_2 = { class: \"absolute dark:bg-gray-700 bg-gray-200 rounded-lg bottom-0 top-0 h-max left-0 right-0 w-10/12 mx-auto my-auto\" };\nconst _hoisted_3 = { class: \"p-4\" };\nconst _hoisted_4 = { class: \"pb-2\" };\nconst _hoisted_5 = { class: \"text-lg\" };\nconst _hoisted_6 = { class: \"flex items-center gap-x-6 select-none\" };\nconst _hoisted_7 = {\n  key: 0,\n  class: \"w-[80px] h-[80px] max-sm:w-[70px] max-sm:h-[70px]\"\n};\nconst _hoisted_8 = [\"src\"];\nconst _hoisted_9 = { key: 1 };\nconst _hoisted_10 = { class: \"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full bg-blueSemiLight\" };\nconst _hoisted_11 = [\"onClick\"];\nconst _hoisted_12 = { key: 1 };\nconst _hoisted_13 = { key: 2 };\nconst _hoisted_14 = [\"src\"];\nconst _hoisted_15 = { class: \"text-sm tracking-wider text-semiCyan\" };\nconst _hoisted_16 = /* @__PURE__ */ _createElementVNode(\"div\", null, null, -1);\nconst _hoisted_17 = { class: \"flex justify-end gap-x-2 p-4 !text-sm\" };\nimport { useChat } from \"~/stores/chat\";\nimport { useAuthStore } from \"~/stores/auth\";\nimport { useRoute } from \"vue-router\";\nimport { Preview } from \"vue-advanced-cropper\";\nimport TheButton from \"~/components/UI/TheButton.vue\";\nimport TheInput from \"~/components/UI/TheInput.vue\";\nimport ChatCropperFileInput from \"~/components/Chat/UI/ChatCropperFileInput.vue\";\nimport { toast } from \"vue3-toastify\";\nimport ChatFileError from \"~/components/Chat/UI/ChatFileError.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"ChatWindowSettingContentHeaderChange\",\n  setup(__props) {\n    const chat = useChat();\n    const route = useRoute();\n    const loadAuthStore = useAuthStore();\n    return (_ctx, _cache) => {\n      return _unref(chat).showChatChangeInfo ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          class: \"fixed w-screen h-screen top-0 left-0\",\n          onClick: _cache[0] || (_cache[0] = ($event) => {\n            _unref(chat).showChatChangeInfo = false;\n            _unref(chat).file = \"\";\n            _unref(chat).src = \"\";\n            _unref(chat).fileUpload = null;\n            _unref(chat).results = { image: null, coordinates: null };\n          })\n        }),\n        _createElementVNode(\"div\", {\n          class: \"bg-black w-full h-full absolute left-0 top-0 opacity-50\",\n          onClick: _cache[1] || (_cache[1] = ($event) => {\n            _unref(chat).showChatChangeInfo = false;\n            _unref(chat).file = \"\";\n            _unref(chat).src = \"\";\n            _unref(chat).fileUpload = null;\n            _unref(chat).results = { image: null, coordinates: null };\n          })\n        }),\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"p\", _hoisted_5, _toDisplayString(_ctx.$t(\"Настройки группы\")), 1)\n            ]),\n            _createElementVNode(\"div\", _hoisted_6, [\n              _createElementVNode(\"div\", {\n                class: \"relative\",\n                onMouseenter: _cache[2] || (_cache[2] = ($event) => _unref(chat).showImageChange = true),\n                onMouseleave: _cache[3] || (_cache[3] = ($event) => _unref(chat).showImageChange = false)\n              }, [\n                _createVNode(_Transition, { name: \"fade\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(ChatCropperFileInput)\n                  ]),\n                  _: 1\n                }),\n                !_unref(chat).src && !_unref(chat).results.image ? (_openBlock(), _createElementBlock(\"div\", _hoisted_7, [\n                  _unref(chat).get_user_chat.user?.id || _unref(chat).get_user_chat.photo_url ? (_openBlock(), _createElementBlock(\"img\", {\n                    key: 0,\n                    class: \"w-full rounded-full\",\n                    src: !_unref(chat).get_user_chat.is_group ? _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat.user?.photo : _unref(loadAuthStore).get_server_domain + _unref(chat).get_user_chat?.photo_url,\n                    alt: \"\"\n                  }, null, 8, _hoisted_8)) : (_openBlock(), _createElementBlock(\"div\", _hoisted_9, [\n                    _createElementVNode(\"div\", _hoisted_10, [\n                      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_unref(chat).get_user_chat.name.split(\" \").slice(0, 2), (chatName) => {\n                        return _openBlock(), _createElementBlock(\"p\", {\n                          class: \"uppercase\",\n                          onClick: ($event) => console.log(chatName[0])\n                        }, _toDisplayString(chatName[0]), 9, _hoisted_11);\n                      }), 256))\n                    ])\n                  ]))\n                ])) : _unref(chat).results.image ? (_openBlock(), _createElementBlock(\"div\", _hoisted_12, [\n                  _createVNode(_unref(Preview), {\n                    class: \"w-[80px] h-[80px] rounded-full\",\n                    image: _unref(chat).results.image,\n                    coordinates: _unref(chat).results.coordinates\n                  }, null, 8, [\"image\", \"coordinates\"])\n                ])) : _unref(chat).src && !_unref(chat).results.image ? (_openBlock(), _createElementBlock(\"div\", _hoisted_13, [\n                  _createElementVNode(\"img\", {\n                    class: \"w-[80px] flex justify-center items-center text-xl h-[80px] rounded-full\",\n                    src: _unref(chat).src\n                  }, null, 8, _hoisted_14)\n                ])) : _createCommentVNode(\"\", true)\n              ], 32),\n              _createElementVNode(\"div\", null, [\n                _createElementVNode(\"div\", null, [\n                  _createElementVNode(\"p\", _hoisted_15, _toDisplayString(_ctx.$t(\"Название группы\")), 1),\n                  _createVNode(TheInput, {\n                    type: \"default\",\n                    modelValue: _unref(chat).updateChatName,\n                    \"onUpdate:modelValue\": _cache[4] || (_cache[4] = ($event) => _unref(chat).updateChatName = $event),\n                    class: \"bg-transparent bg-opacity-0 border-b-2 border-b-semiCyan outline-none\"\n                  }, null, 8, [\"modelValue\"])\n                ])\n              ])\n            ]),\n            _hoisted_16\n          ]),\n          _createElementVNode(\"div\", _hoisted_17, [\n            _createVNode(TheButton, {\n              type: \"chat\",\n              onClick: _cache[5] || (_cache[5] = ($event) => {\n                _unref(chat).showChatChangeInfo = false;\n                _unref(chat).file = \"\";\n                _unref(chat).src = \"\";\n                _unref(chat).fileUpload = null;\n                _unref(chat).results = { image: null, coordinates: null };\n                _unref(chat).updateChatName = _unref(chat).userChat.name;\n              })\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Отмена\")), 1)\n              ]),\n              _: 1\n            }),\n            _createVNode(TheButton, {\n              type: \"chat\",\n              onClick: _cache[6] || (_cache[6] = ($event) => {\n                _unref(chat).updateChatName !== _unref(chat).userChat.name || _unref(chat).updateDescription !== _unref(chat).userChat.description || _unref(chat).fileUpload ? _unref(chat).chatUpdate({ id: _unref(route).params.id, update: { name: _unref(chat).updateChatName, description: \"\", photo: _unref(chat).fileUpload } }).then((res) => {\n                  _unref(chat).showChatChangeInfo = false;\n                  _unref(chat).fileUpload = null;\n                  _unref(chat).userChat.name = _unref(chat).updateChatName;\n                  _unref(chat).updateChatName = \"\";\n                }) : _unref(toast).info(_ctx.$t(\"Измените содержимое для сохранения\"), { autoClose: 1500, theme: \"auto\" });\n              })\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(_toDisplayString(_ctx.$t(\"Сохранить\")), 1)\n              ]),\n              _: 1\n            })\n          ]),\n          _createVNode(ChatFileError)\n        ])\n      ])) : _createCommentVNode(\"\", true);\n    };\n  }\n});\n",
-      "start": 1706896523809,
-      "end": 1706896524735,
+      "start": 1707126043827,
+      "end": 1707126046805,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -57,188 +57,188 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896524735,
-      "end": 1706896524735,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896524735,
-      "end": 1706896524735,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896524735,
-      "end": 1706896524735,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896524735,
-      "end": 1706896524735,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896524736,
-      "end": 1706896524736,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896524737,
-      "end": 1706896524737,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896524737,
-      "end": 1706896524737,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896524737,
-      "end": 1706896524737,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896524737,
-      "end": 1706896524737,
+      "start": 1707126046806,
+      "end": 1707126046806,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896524737,
-      "end": 1706896524746,
+      "start": 1707126046806,
+      "end": 1707126046808,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896524747,
-      "end": 1706896524747,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896524748,
-      "end": 1706896524748,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1706896524748,
-      "end": 1706896524748,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1706896524748,
-      "end": 1706896524748,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1706896524748,
-      "end": 1706896524748,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896524748,
-      "end": 1706896524748,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896524749,
-      "end": 1706896524749,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896524749,
-      "end": 1706896524749,
+      "start": 1707126046808,
+      "end": 1707126046808,
       "order": "normal"
     }
   ]

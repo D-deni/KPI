@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nimport TaskTable from '/components/Tasks/TaskUI/TasksTable.vue'\r\nimport {useAuthStore} from \"~/stores/auth\";\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TasksContentBlock',\n  __ssrInlineRender: true,\n  props: {\r\n  task: {\r\n    type: Object,\r\n    required: true,\r\n  }\r\n},\n  setup(__props) {\n\r\nconst loadCurrentUser = useAuthStore()\r\nconst props = __props\r\n\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")!\n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"mt-6\" }, _attrs))}>`)\n  _push(_ssrRenderComponent(_component_NuxtLink, {\n    to: `/base/tasks/${__props.task.id}`,\n    class: \"shadow-xl dark:bg-gray-400 hover:bg-gray-100 dark:hover:bg-gray-300 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<div class=\"flex relative justify-between max-[425px]:gap-y-6\"${\n          _scopeId\n        }><div class=\"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\"${\n          _scopeId\n        }>`)\n        _push(_ssrRenderComponent(TaskTable, null, {\n          tableHead: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Наименование'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Наименование')), 1)\n              ]\n            }\n          }),\n          tableBody: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(__props.task.title)}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(__props.task.title), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n        _push(_ssrRenderComponent(TaskTable, null, {\n          tableHead: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Дата'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Дата')), 1)\n              ]\n            }\n          }),\n          tableBody: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(new Date(__props.task.created_at).toLocaleDateString())}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n        _push(_ssrRenderComponent(TaskTable, { class: \"text-center\" }, {\n          tableHead: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(_ctx.$t('Срок выполнения'))}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(_ctx.$t('Срок выполнения')), 1)\n              ]\n            }\n          }),\n          tableBody: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(`${_ssrInterpolate(new Date(__props.task.deadline).toLocaleDateString())}`)\n            } else {\n              return [\n                _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n        if (_unref(loadCurrentUser).user.role_en === 'company_admin') {\n          _push(_ssrRenderComponent(TaskTable, { class: \"text-center\" }, {\n            tableHead: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(_ctx.$t('Ответственный'))}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Ответственный')), 1)\n                ]\n              }\n            }),\n            tableBody: _withCtx((_, _push, _parent, _scopeId) => {\n              if (_push) {\n                _push(`${_ssrInterpolate(__props.task.main_performer.first_name + ' ' + __props.task.main_performer.last_name)}`)\n              } else {\n                return [\n                  _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + ' ' + __props.task.main_performer.last_name), 1)\n                ]\n              }\n            }),\n            _: 1\n          }, _parent, _scopeId))\n        } else {\n          _push(`<!---->`)\n        }\n        _push(`</div><div class=\"${\n          _ssrRenderClass([{'bg-orange-500' : __props.task.status === 'performing', 'bg-red-500' : __props.task.status === 'rejected', 'bg-green-500' : __props.task.status === 'completed', 'bg-blue-500' : __props.task.status === 'watching'}, \"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\"])\n        }\"${\n          _scopeId\n        }></div></div><div class=\"my-10 font-bold tracking-widest\"${\n          _scopeId\n        }><p${\n          _scopeId\n        }>${\n          _ssrInterpolate(__props.task.description)\n        }</p></div>`)\n      } else {\n        return [\n          _createVNode(\"div\", { class: \"flex relative justify-between max-[425px]:gap-y-6\" }, [\n            _createVNode(\"div\", { class: \"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\" }, [\n              _createVNode(TaskTable, null, {\n                tableHead: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Наименование')), 1)\n                ]),\n                tableBody: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(__props.task.title), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TaskTable, null, {\n                tableHead: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Дата')), 1)\n                ]),\n                tableBody: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n                ]),\n                _: 1\n              }),\n              _createVNode(TaskTable, { class: \"text-center\" }, {\n                tableHead: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(_ctx.$t('Срок выполнения')), 1)\n                ]),\n                tableBody: _withCtx(() => [\n                  _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n                ]),\n                _: 1\n              }),\n              (_unref(loadCurrentUser).user.role_en === 'company_admin')\n                ? (_openBlock(), _createBlock(TaskTable, {\n                    key: 0,\n                    class: \"text-center\"\n                  }, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t('Ответственный')), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + ' ' + __props.task.main_performer.last_name), 1)\n                    ]),\n                    _: 1\n                  }))\n                : _createCommentVNode(\"\", true)\n            ]),\n            _createVNode(\"div\", {\n              class: [\"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\", {'bg-orange-500' : __props.task.status === 'performing', 'bg-red-500' : __props.task.status === 'rejected', 'bg-green-500' : __props.task.status === 'completed', 'bg-blue-500' : __props.task.status === 'watching'}]\n            }, null, 2)\n          ]),\n          _createVNode(\"div\", { class: \"my-10 font-bold tracking-widest\" }, [\n            _createVNode(\"p\", null, _toDisplayString(__props.task.description), 1)\n          ])\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div>`)\n}\n}\n\n})",
-      "start": 1706896548538,
-      "end": 1706896548538,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,57 +20,57 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548538,
-      "end": 1706896548538,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1706896548538,
-      "end": 1706896548541,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548541,
-      "end": 1706896548541,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1706896548541,
-      "end": 1706896548541,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548541,
-      "end": 1706896548541,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "unplugin-vue-i18n",
-      "start": 1706896548541,
-      "end": 1706896548541,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1706896548541,
-      "end": 1706896548541,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1706896548541,
-      "end": 1706896548541,
+      "start": 1707126071371,
+      "end": 1707126071371,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TaskTable from \"/components/Tasks/TaskUI/TasksTable.vue\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TasksContentBlock\",\n  __ssrInlineRender: true,\n  props: {\n    task: {\n      type: Object,\n      required: true\n    }\n  },\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    const props = __props;\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = _resolveComponent(\"NuxtLink\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"mt-6\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(_component_NuxtLink, {\n        to: `/base/tasks/${__props.task.id}`,\n        class: \"shadow-xl dark:bg-gray-400 hover:bg-gray-100 dark:hover:bg-gray-300 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex relative justify-between max-[425px]:gap-y-6\"${_scopeId}><div class=\"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\"${_scopeId}>`);\n            _push2(_ssrRenderComponent(TaskTable, null, {\n              tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Наименование\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Наименование\")), 1)\n                  ];\n                }\n              }),\n              tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(__props.task.title)}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(__props.task.title), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(_ssrRenderComponent(TaskTable, null, {\n              tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Дата\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Дата\")), 1)\n                  ];\n                }\n              }),\n              tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(new Date(__props.task.created_at).toLocaleDateString())}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(_ssrRenderComponent(TaskTable, { class: \"text-center\" }, {\n              tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Срок выполнения\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Срок выполнения\")), 1)\n                  ];\n                }\n              }),\n              tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(new Date(__props.task.deadline).toLocaleDateString())}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            if (_unref(loadCurrentUser).user.role_en === \"company_admin\") {\n              _push2(_ssrRenderComponent(TaskTable, { class: \"text-center\" }, {\n                tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Ответственный\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Ответственный\")), 1)\n                    ];\n                  }\n                }),\n                tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name)}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n            } else {\n              _push2(`<!---->`);\n            }\n            _push2(`</div><div class=\"${_ssrRenderClass([{ \"bg-orange-500\": __props.task.status === \"performing\", \"bg-red-500\": __props.task.status === \"rejected\", \"bg-green-500\": __props.task.status === \"completed\", \"bg-blue-500\": __props.task.status === \"watching\" }, \"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\"])}\"${_scopeId}></div></div><div class=\"my-10 font-bold tracking-widest\"${_scopeId}><p${_scopeId}>${_ssrInterpolate(__props.task.description)}</p></div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex relative justify-between max-[425px]:gap-y-6\" }, [\n                _createVNode(\"div\", { class: \"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\" }, [\n                  _createVNode(TaskTable, null, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Наименование\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(__props.task.title), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TaskTable, null, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Дата\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TaskTable, { class: \"text-center\" }, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Срок выполнения\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _unref(loadCurrentUser).user.role_en === \"company_admin\" ? (_openBlock(), _createBlock(TaskTable, {\n                    key: 0,\n                    class: \"text-center\"\n                  }, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Ответственный\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ]),\n                _createVNode(\"div\", {\n                  class: [\"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\", { \"bg-orange-500\": __props.task.status === \"performing\", \"bg-red-500\": __props.task.status === \"rejected\", \"bg-green-500\": __props.task.status === \"completed\", \"bg-blue-500\": __props.task.status === \"watching\" }]\n                }, null, 2)\n              ]),\n              _createVNode(\"div\", { class: \"my-10 font-bold tracking-widest\" }, [\n                _createVNode(\"p\", null, _toDisplayString(__props.task.description), 1)\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548542,
-      "end": 1706896548957,
+      "start": 1707126071371,
+      "end": 1707126071762,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -91,213 +91,213 @@
     },
     {
       "name": "vite:json",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071762,
+      "end": 1707126071762,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071762,
+      "end": 1707126071762,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1706896548957,
-      "end": 1706896548957,
+      "start": 1707126071762,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1706896548957,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071763,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1706896548958,
-      "end": 1706896548958,
+      "start": 1707126071763,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071764,
+      "end": 1707126071764,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1706896548959,
-      "end": 1706896548959,
+      "start": 1707126071765,
+      "end": 1707126071765,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-macros-transform",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-resource",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071766,
+      "end": 1707126071766,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071767,
+      "end": 1707126071767,
       "order": "post"
     },
     {
       "name": "nuxtjs:i18n-meta-deprecation",
-      "start": 1706896548960,
-      "end": 1706896548960,
+      "start": 1707126071767,
+      "end": 1707126071767,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896548960,
-      "end": 1706896548972,
+      "start": 1707126071767,
+      "end": 1707126071772,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1706896548960,
-      "end": 1706896548972,
+      "start": 1707126071767,
+      "end": 1707126071772,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071772,
+      "end": 1707126071772,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1706896548972,
-      "end": 1706896548972,
+      "start": 1707126071772,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548972,
-      "end": 1706896548973,
+      "start": 1707126071773,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1706896548972,
-      "end": 1706896548973,
+      "start": 1707126071773,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1706896548973,
-      "end": 1706896548973,
+      "start": 1707126071773,
+      "end": 1707126071773,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"D:/Programming/templates/KPIcopy/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nimport TaskTable from \"/components/Tasks/TaskUI/TasksTable.vue\";\nimport { useAuthStore } from \"~/stores/auth\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TasksContentBlock\",\n  __ssrInlineRender: true,\n  props: {\n    task: {\n      type: Object,\n      required: true\n    }\n  },\n  setup(__props) {\n    const loadCurrentUser = useAuthStore();\n    const props = __props;\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_NuxtLink = __nuxt_component_0;\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"mt-6\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(_component_NuxtLink, {\n        to: `/base/tasks/${__props.task.id}`,\n        class: \"shadow-xl dark:bg-gray-400 hover:bg-gray-100 dark:hover:bg-gray-300 dark:shadow-none dark:border-none cursor-pointer hover:translate-x-4 transition-all px-6 py-2 rounded-lg w-11/12 max-lg:w-full max-[425px]:flex-wrap flex flex-col justify-between\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<div class=\"flex relative justify-between max-[425px]:gap-y-6\"${_scopeId}><div class=\"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\"${_scopeId}>`);\n            _push2(_ssrRenderComponent(TaskTable, null, {\n              tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Наименование\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Наименование\")), 1)\n                  ];\n                }\n              }),\n              tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(__props.task.title)}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(__props.task.title), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(_ssrRenderComponent(TaskTable, null, {\n              tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Дата\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Дата\")), 1)\n                  ];\n                }\n              }),\n              tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(new Date(__props.task.created_at).toLocaleDateString())}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            _push2(_ssrRenderComponent(TaskTable, { class: \"text-center\" }, {\n              tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(_ctx.$t(\"Срок выполнения\"))}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(_ctx.$t(\"Срок выполнения\")), 1)\n                  ];\n                }\n              }),\n              tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                if (_push3) {\n                  _push3(`${_ssrInterpolate(new Date(__props.task.deadline).toLocaleDateString())}`);\n                } else {\n                  return [\n                    _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n                  ];\n                }\n              }),\n              _: 1\n            }, _parent2, _scopeId));\n            if (_unref(loadCurrentUser).user.role_en === \"company_admin\") {\n              _push2(_ssrRenderComponent(TaskTable, { class: \"text-center\" }, {\n                tableHead: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(_ctx.$t(\"Ответственный\"))}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Ответственный\")), 1)\n                    ];\n                  }\n                }),\n                tableBody: _withCtx((_2, _push3, _parent3, _scopeId2) => {\n                  if (_push3) {\n                    _push3(`${_ssrInterpolate(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name)}`);\n                  } else {\n                    return [\n                      _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name), 1)\n                    ];\n                  }\n                }),\n                _: 1\n              }, _parent2, _scopeId));\n            } else {\n              _push2(`<!---->`);\n            }\n            _push2(`</div><div class=\"${_ssrRenderClass([{ \"bg-orange-500\": __props.task.status === \"performing\", \"bg-red-500\": __props.task.status === \"rejected\", \"bg-green-500\": __props.task.status === \"completed\", \"bg-blue-500\": __props.task.status === \"watching\" }, \"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\"])}\"${_scopeId}></div></div><div class=\"my-10 font-bold tracking-widest\"${_scopeId}><p${_scopeId}>${_ssrInterpolate(__props.task.description)}</p></div>`);\n          } else {\n            return [\n              _createVNode(\"div\", { class: \"flex relative justify-between max-[425px]:gap-y-6\" }, [\n                _createVNode(\"div\", { class: \"flex w-full max-sm:flex-col max-sm:gap-y-6 max-sm:items-center max-sm:text-center justify-around\" }, [\n                  _createVNode(TaskTable, null, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Наименование\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(__props.task.title), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TaskTable, null, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Дата\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(new Date(__props.task.created_at).toLocaleDateString()), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _createVNode(TaskTable, { class: \"text-center\" }, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Срок выполнения\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(new Date(__props.task.deadline).toLocaleDateString()), 1)\n                    ]),\n                    _: 1\n                  }),\n                  _unref(loadCurrentUser).user.role_en === \"company_admin\" ? (_openBlock(), _createBlock(TaskTable, {\n                    key: 0,\n                    class: \"text-center\"\n                  }, {\n                    tableHead: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(_ctx.$t(\"Ответственный\")), 1)\n                    ]),\n                    tableBody: _withCtx(() => [\n                      _createTextVNode(_toDisplayString(__props.task.main_performer.first_name + \" \" + __props.task.main_performer.last_name), 1)\n                    ]),\n                    _: 1\n                  })) : _createCommentVNode(\"\", true)\n                ]),\n                _createVNode(\"div\", {\n                  class: [\"absolute z-0 -right-6 -top-2 w-[30px] h-[30px] opacity-80 rounded-bl-2xl rounded-tr-lg\", { \"bg-orange-500\": __props.task.status === \"performing\", \"bg-red-500\": __props.task.status === \"rejected\", \"bg-green-500\": __props.task.status === \"completed\", \"bg-blue-500\": __props.task.status === \"watching\" }]\n                }, null, 2)\n              ]),\n              _createVNode(\"div\", { class: \"my-10 font-bold tracking-widest\" }, [\n                _createVNode(\"p\", null, _toDisplayString(__props.task.description), 1)\n              ])\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n});\n",
-      "start": 1706896548974,
-      "end": 1706896548974,
+      "start": 1707126071773,
+      "end": 1707126071774,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -310,20 +310,20 @@
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071775,
+      "end": 1707126071775,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071775,
+      "end": 1707126071775,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1706896548975,
-      "end": 1706896548975,
+      "start": 1707126071775,
+      "end": 1707126071775,
       "order": "normal"
     }
   ]

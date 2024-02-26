@@ -5,6 +5,7 @@ import {useChat} from "~/stores/chat";
 import {useAuthStore} from "~/stores/auth";
 import {useRoute} from "vue-router";
 import ChatNavContentUser from "~/components/Chat/ChatNav/ChatNavContentUser.vue";
+import {setFocus} from "~/hooks/ElemUI";
 
 const userStore = useUserStore()
 const chatStore = useChat()
@@ -32,13 +33,12 @@ const route = useRoute()
       </div>
     </div>
     <div v-if="chatStore.searchElem !== ''" class="">
-      <NuxtLink v-for="userSearchList in userStore.get_user_search.results"
+      <NuxtLink :to="`/base/chat/${chatStore.get_user_chat?.id}`" v-for="userSearchList in userStore.get_user_search.results"
                 @click="userSearchList.id !== chatStore.get_user_chat.user?.id ? chatStore.createChatUser({user_id: userSearchList.id}) : ()=>{
                   chatStore.flag = false;
                   nextTick(()=>{
                     chatStore.flag = true
                   })
-                  router.push(`/base/chat/${chatStore.get_user_chat?.id}`);
                 }; chatStore.showPinnedWindow = false; chatStore.searchElem = '' ; chatStore.activeChatNav = false"
                 class="flex items-center px-4 gap-x-2 dark:hover:bg-gray-500 hover:bg-gray-300 cursor-pointer transition-all duration-200 p-1"
                 :class="{'dark:hover:!bg-semiCyan' : route.path === `/base/chat/${userSearchList.id}`, 'hover:!bg-cyan' : route.path === `/base/chat/${userSearchList.id}`}">
