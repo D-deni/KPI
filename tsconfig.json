@@ -1,0 +1,13 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "resolveJsonModule": true,
+    "types": [
+      "@nuxt/types",
+      "@nuxt/i18n",
+    ],
+    "typeRoots": ["/types", "./node_modules/@types"],
+    "jsx": "preserve"
+  }
+}
